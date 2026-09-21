@@ -103,6 +103,17 @@ claim("0.632" in paper, "paper quotes the 0.632 swept figure")
 claim(scored["oracle"].false_green_rate == 0.0 and scored["oracle"].violation_recall == 1.0,
       "oracle is perfect on anchor")
 
+print("\nharness claims")
+claim("PROMPT_VERSION" in paper or "PROMPT_VERSION 1.0.0" in paper.replace("`",""),
+      "paper names the frozen prompt version")
+claim("1,446" in paper, "paper quotes the measured 1,446 calls per model per variant")
+claim("2.55M" in paper and "1.73M" in paper, "paper quotes measured token volumes")
+claim("abstain_offered" in paper and "abstain_withheld" in paper,
+      "paper names both ablation conditions")
+claim("off-schema" in paper.lower(), "paper defines the off-schema counter")
+claim("never coerced" in paper, "paper states the parsing policy explicitly")
+claim("unparseable rate" in paper, "paper commits to reporting the unparseable rate")
+
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
 claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")

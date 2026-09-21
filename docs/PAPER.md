@@ -304,19 +304,46 @@ unsafe. `always_abstain` answers `needs_evidence` everywhere: safe but useless.
 evidence is present; it is not a competitive system but an upper bound establishing that
 the task is solvable.
 
-**Language-model baselines `[TO RUN]`.** The specification, fixed in advance:
+**Language-model baselines `[TO RUN]`.** These experiments **have not yet been run**. The
+harness is implemented, tested against mock models with known failure signatures, and
+dry-run end to end; only the API calls remain. The protocol is frozen in code (`baselines/prompts.py`, `PROMPT_VERSION` 1.0.0)
+so that the reported result cannot be a post-hoc selection of prompt:
 
-- *Access modes.* (a) Rulebook and records in context, verdict requested per pair. (b)
-  Retrieval over the rulebook, records in context. (c) Tool-using agent with query access
-  to the exports.
-- *Output schema ablation.* Each mode run twice: once with `needs_evidence` offered as an
-  explicit option, once with only `pass` and `fail`. The difference isolates how much of
-  the false-green rate is the absence of an affordance to abstain rather than a failure to
-  recognise absent evidence. This is the experiment we consider most likely to be
-  informative and it has not been run.
-- *Models.* Eight to twelve current instruction-tuned models spanning providers and sizes.
-- *Aggregation.* Scored per firm, then averaged across firms, with standard deviation
-  reported. Pairs within a firm share source records and are not independent.
+- *Prompt.* Per firm, the source exports verbatim as CSV, the obligations needed by the
+  batch with their citations and required-evidence lists, and the pairs to decide.
+  Verdicts are returned one per line as `pair_id`, verdict, evidence field. The
+  evaluation date is pinned in the prompt with an explicit instruction not to use the
+  real current date, since every deadline rule depends on it.
+- *Output schema ablation.* Each model is run twice. In `abstain_offered` the schema
+  includes `needs_evidence` and states the `pass`-versus-`needs_evidence` distinction
+  explicitly. In `abstain_withheld` only `pass` and `fail` are permitted. The second
+  condition is not a strawman: it is what a system built to fill a dashboard looks like,
+  where every cell must resolve and there is no representation for "we could not tell".
+  The difference isolates how much of the false-green rate is an interface artifact
+  rather than a reasoning failure. We separately count **off-schema** replies, where a
+  model abstains despite the schema forbidding it, which we read as a finding rather
+  than an error.
+- *Models.* Eight to twelve current instruction-tuned models across providers and sizes.
+- *Aggregation.* Scored per firm, then averaged across firms with standard deviation.
+  Pairs within a firm share source records and are not independent.
+
+**Parsing policy, which is a scoring decision.** A reply line naming a pair but no
+permitted verdict yields **no prediction**, and the metric module counts the pair as an
+error. It is never coerced. Coercing to `needs_evidence` would convert a model's
+formatting failures into abstentions and flatter its false-green rate; coercing to `pass`
+would do the reverse. Either would make the headline number a function of our parser. We
+report the unparseable rate separately so a reader can see how much of a score is
+formatting. The test suite asserts that a model emitting no valid verdicts earns zero on
+both the false-green rate and violation recall, so a formatting failure can never be
+mistaken for safety.
+
+**Measured cost.** The full sweep is 1,446 API calls per model per variant, about 2.55M
+input and 1.73M output tokens over 31 firms at batch size 40. At list prices that is
+roughly \$9 to \$170 per model per variant depending on tier, and \$180 to \$3,400 for
+ten models across both variants. Prompt caching on the sources-and-rulebook prefix should
+reduce input cost materially, since every batch within a firm re-sends the same prefix.
+The anchor firm alone costs under \$1.50 on the most expensive tier, which is the
+recommended first run.
 
 **A baseline we deliberately exclude.** The anchor firm's expectation set originated as
 the acceptance gate for a commercial compliance engine. That engine would score near

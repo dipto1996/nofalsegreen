@@ -11,11 +11,50 @@ present. This benchmark measures that error directly.
 python3 -m nofalsegreen.cli describe
 python3 -m nofalsegreen.cli score --firm northwind --baseline always_pass
 python3 -m nofalsegreen.cli generate --seed 7 --out data/firms/synthetic-000007
-python3 tests/test_benchmark.py
-python3 scripts/sweep.py --firms 30
+python3 tests/test_benchmark.py          # 36 assertions
+python3 tests/test_llm_harness.py        # 39 assertions
+python3 scripts/sweep.py --firms 30      # trivial baselines
+python3 scripts/cost_probe.py --firms 30 # token cost, no API calls
 ```
 
-No dependencies beyond the Python 3.10+ standard library.
+No dependencies beyond the Python 3.10+ standard library. Provider SDKs are imported
+only when a real model is actually called.
+
+## Evaluating a language model
+
+```bash
+# dry run: exercises the whole path offline, no keys needed
+python3 scripts/run_llm.py --model mock-guesser --firms 2 --variant both
+
+# real run: anchor firm first (under $1.50 on the priciest tier)
+export ANTHROPIC_API_KEY=...
+python3 scripts/run_llm.py --provider anthropic --model <model-id> --firms 0
+
+# full sweep, both ablation conditions, resumable
+python3 scripts/run_llm.py --provider anthropic --model <model-id> \
+    --firms 30 --variant both --out docs/llm_results.json
+```
+
+Results are keyed by `(model, variant)` and appended, so the sweep can be run
+incrementally. `--keep-raw` writes every model response to `docs/raw/` so any reported
+number traces back to output.
+
+**The ablation.** Each model runs twice. `abstain_offered` includes `needs_evidence` in
+the schema; `abstain_withheld` permits only `pass` and `fail`. The second is what a
+system built to fill a dashboard looks like, where every cell must resolve. The
+difference isolates how much of the false-green rate is an interface artifact rather than
+a reasoning failure.
+
+**Parsing policy.** A reply naming a pair but no permitted verdict yields *no
+prediction*, and the metrics count it as an error. It is never coerced to a verdict,
+because coercing to `needs_evidence` would turn formatting failures into abstentions and
+flatter the false-green rate. The unparseable rate is reported separately. The tests
+assert that a model emitting no valid verdicts scores zero on both the false-green rate
+and recall, so bad formatting can never look like safety.
+
+**Measured cost.** 1,446 calls per model per variant, about 2.55M input and 1.73M output
+tokens over 31 firms. Roughly $9 to $170 per model per variant at list prices depending
+on tier. Run `scripts/cost_probe.py` for current arithmetic.
 
 ## The task
 
