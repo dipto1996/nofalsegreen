@@ -213,6 +213,7 @@ def run_firm(
     batch_size: int = 40,
     max_tokens: int = 8000,
     keep_raw: bool = False,
+    scope_sources: bool = False,
 ) -> RunResult:
     """Run one firm through a provider, batching pairs.
 
@@ -230,7 +231,7 @@ def run_firm(
 
     for i in range(0, len(pair_ids), batch_size):
         batch = pair_ids[i : i + batch_size]
-        user = user_prompt(firm, obligations, batch)
+        user = user_prompt(firm, obligations, batch, scope_sources=scope_sources)
         text, u = provider.complete(system, user, max_tokens)
         usage.add(u)
         if keep_raw:
@@ -256,14 +257,22 @@ def run_firm(
     )
 
 
-def estimate_cost(firm: Firm, obligations: list[Obligation], *, batch_size: int = 40) -> dict:
+def estimate_cost(
+    firm: Firm, obligations: list[Obligation], *, batch_size: int = 40,
+    scope_sources: bool = False,
+) -> dict:
     """Token-cost probe. Builds every prompt without calling any API."""
     system = system_prompt(firm, ABSTAIN_OFFERED)
     pair_ids = [p.pair_id for p in firm.pairs]
     in_chars = 0
+    largest_call_chars = 0
     for i in range(0, len(pair_ids), batch_size):
         batch = pair_ids[i : i + batch_size]
-        in_chars += len(system) + len(user_prompt(firm, obligations, batch))
+        call_chars = len(system) + len(
+            user_prompt(firm, obligations, batch, scope_sources=scope_sources)
+        )
+        in_chars += call_chars
+        largest_call_chars = max(largest_call_chars, call_chars)
     n_batches = (len(pair_ids) + batch_size - 1) // batch_size
     # ~4 chars/token is the standard rough conversion; ~30 output tokens per pair line.
     return {
@@ -274,6 +283,10 @@ def estimate_cost(firm: Firm, obligations: list[Obligation], *, batch_size: int 
         "est_input_tokens": in_chars // 4,
         "est_output_tokens": len(pair_ids) * 30,
         "prompt_version": PROMPT_VERSION,
+        "scope_sources": scope_sources,
+        # The per-minute token quota is checked against the LARGEST single call,
+        # not the average, so this is the figure that decides feasibility.
+        "max_call_tokens": largest_call_chars // 4 + batch_size * 30,
     }
 
 

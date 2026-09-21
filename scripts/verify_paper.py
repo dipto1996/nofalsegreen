@@ -114,6 +114,26 @@ claim("off-schema" in paper.lower(), "paper defines the off-schema counter")
 claim("never coerced" in paper, "paper states the parsing policy explicitly")
 claim("unparseable rate" in paper, "paper commits to reporting the unparseable rate")
 
+print("\nfree-tier protocol claims")
+claim("free tier" in paper.lower(), "paper states results come from free tiers")
+from baselines.llm import estimate_cost as _ec
+_sc = _ec(firm, rb.obligations, batch_size=20, scope_sources=True)
+_un = _ec(firm, rb.obligations, batch_size=20, scope_sources=False)
+_un40 = _ec(firm, rb.obligations, batch_size=40, scope_sources=False)
+claim(_sc["max_call_tokens"] == 9750, f"scoped max call is 9,750 (got {_sc['max_call_tokens']:,})")
+claim(_un["max_call_tokens"] == 11306, f"unscoped max call is 11,306 (got {_un['max_call_tokens']:,})")
+claim(_un40["max_call_tokens"] == 15067, f"unscoped batch-40 max call is 15,067 (got {_un40['max_call_tokens']:,})")
+claim("9,750" in paper and "11,306" in paper and "15,067" in paper,
+      "paper quotes all three measured per-call token figures")
+claim("do not infer" in paper or "not to infer" in paper,
+      "paper documents the anti-inference safeguard on scoped prompts")
+claim("falls back to all sources" in paper or "fall back to all sources" in paper
+      or "falls back to all sources" in paper.replace("\n"," "),
+      "paper documents the unclassified-regime fallback")
+claim("Model coverage is limited to free API tiers" in paper,
+      "limitations name the model-coverage weakness")
+claim("24 calls" in paper, "paper quotes the measured anchor-firm call count for both variants")
+
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
 claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")

@@ -345,6 +345,47 @@ reduce input cost materially, since every batch within a firm re-sends the same 
 The anchor firm alone costs under \$1.50 on the most expensive tier, which is the
 recommended first run.
 
+### 6.1 Running on free API tiers
+
+We report results obtained entirely on providers' free tiers, which constrains the
+experiment in two ways that must be stated because both affect the measurement.
+
+**Source scoping.** Free tiers cap tokens per minute, and the cap is checked against the
+largest single call, not the average. Sending all eleven exports on every call puts the
+anchor firm's largest call at 11,306 tokens at batch size 20, and 15,067 at batch size 40,
+which exceeds several free per-minute quotas outright. We therefore send only the exports
+whose regime an obligation can be evaluated against, with the HR roster always included
+because every other source joins to it. This reduces the largest call to 9,750 tokens at
+batch size 20. Note that shrinking the batch does not help: the obligation text is
+re-sent with every call, so a smaller batch raises the per-call floor rather than
+lowering it.
+
+Scoping is a change to the prompt, so we treat it as part of the protocol rather than an
+implementation detail. Two safeguards keep it from manufacturing abstentions. First, the
+prompt names the exports that were withheld and instructs the model not to infer that an
+absent field exists in an export it cannot see; a model that abstained merely because it
+suspected hidden data would otherwise inflate the apparent abstention rate. Second, an
+obligation whose regime is unclassified falls back to all sources, so the mapping can only
+narrow prompts for regimes it knows about and can never hide data from an obligation it
+has not classified. The test suite asserts that a correct model scores identically with
+scoping on and off, and that the pass-guessing baseline is still caught at a false-green
+rate of 1.000 under scoping.
+
+**Model coverage, and the limitation it creates.** Free tiers offer a narrower and
+generally smaller set of models than the specification in Section 6 assumes. Any result we
+obtain this way therefore speaks to the models we could reach, not to the frontier. We
+state the models and their published quotas alongside every number and do not generalise
+beyond them. This is a genuine weakness of the study rather than a presentational choice,
+and it is repeated in Section 9.
+
+**Throughput.** At a representative free quota of 10 requests per minute and 250 per day,
+the anchor firm across both ablation conditions is 24 calls, or about a tenth of one day.
+Adding five generated firms is roughly four days of quota. The runner paces itself under
+the per-minute limit, backs off on a transient rate-limit response, stops cleanly when the
+daily ceiling is reached, and resumes from a checkpoint, so a multi-day run is a matter of
+re-issuing the same command. Every model response is retained so that any reported number
+can be traced back to output.
+
 **A baseline we deliberately exclude.** The anchor firm's expectation set originated as
 the acceptance gate for a commercial compliance engine. That engine would score near
 ceiling on this firm for a reason that has nothing to do with capability: the expectations
@@ -442,6 +483,18 @@ isolates the verdict layer, which is a deliberate scope choice and also a gap.
 substantive defects and admits cure periods. Four states do not capture that.
 
 **The rulebook count is unreconciled.** 190 extracted against a claimed 196.
+
+**Model coverage is limited to free API tiers.** The study was run without a compute
+budget, so the models evaluated are those reachable on providers' free tiers rather than a
+representative sample of the frontier. Results characterise the models we could reach.
+Whether the largest current models exhibit the same false-green behaviour is untested, and
+it is the single most valuable extension.
+
+**Prompts send only regime-relevant exports.** Required by free per-minute token quotas
+(Section 6.1). Safeguarded by disclosing withheld exports in the prompt, forbidding
+inference about unseen data, falling back to all sources for unclassified regimes, and
+asserting in tests that a correct model scores identically either way. It remains a
+deviation from sending a firm's complete record.
 
 **No human baseline.** We do not know what false-green rate a competent paralegal or
 attorney would attain on this task, which would be the most informative reference point of

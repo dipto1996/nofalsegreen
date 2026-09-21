@@ -56,6 +56,39 @@ and recall, so bad formatting can never look like safety.
 tokens over 31 firms. Roughly $9 to $170 per model per variant at list prices depending
 on tier. Run `scripts/cost_probe.py` for current arithmetic.
 
+## Running on a free tier (no spend)
+
+```bash
+export GEMINI_API_KEY=...        # or GROQ_API_KEY
+python3 scripts/run_free.py --provider gemini --model gemini-2.5-flash \
+    --firms 0 --variant both     # anchor firm, both conditions: 24 calls
+
+python3 scripts/run_free.py --provider gemini --model gemini-2.5-flash \
+    --firms 5 --variant both     # ~4 days of free quota; re-run daily
+```
+
+The runner paces itself under the per-minute limit, backs off on a transient 429, stops
+cleanly when the daily ceiling is reached, and resumes from a checkpoint. Re-issue the
+same command each day to continue. It exits 0 on quota exhaustion, so it can be driven
+from cron. Standard library only, no provider SDK.
+
+**Source scoping.** Free tiers cap tokens per minute against the *largest single call*.
+Sending all eleven exports every call puts the anchor firm at 11,306 tokens per call at
+batch 20, over several free quotas. Scoping sends only the exports an obligation's regime
+can be evaluated against, plus the roster, which brings the largest call to 9,750.
+
+Three safeguards stop this from manufacturing abstentions:
+
+1. the prompt names the withheld exports and forbids inferring that an absent field lives
+   in one the model cannot see;
+2. an unclassified regime falls back to *all* sources, so the mapping can only narrow
+   prompts for regimes it knows;
+3. tests assert a correct model scores identically with scoping on and off, and that the
+   pass-guessing baseline is still caught at false-green 1.000.
+
+Shrinking the batch does not help. The obligation text is re-sent every call, so a
+smaller batch *raises* the per-call floor.
+
 ## The task
 
 Given a firm's source exports and a rulebook of cited obligations, return one verdict
