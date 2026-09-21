@@ -1,0 +1,2823 @@
+{
+ "version": "2026-06-29",
+ "source": "RULE_MANIFEST.md",
+ "n": 190,
+ "obligations": [
+  {
+   "rule_id": "i9.section1.timeliness",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "Regulatory hook **8 CFR 274a.2(b)(1)(i)(A)** (\"Completes section 1 \u2026 at the time of hire and signs the attestation\") + **8 CFR 274a.1** (definition of \"hire\" = \"the actual commencement of employment \u2026 for wages or other remuneration\"). The \"first day of employment / after offer / not before offer\" gloss is **USCIS M-274 \u00a73.0 / Form I-9 Instructions**, not the CFR. Penalty **8 CFR 274a.10(b)(2)** /",
+   "summary": "Section 1 completed and signed by the employee on/before the first day of employment for pay.",
+   "evidence_required": [
+    "employeeId",
+    "hireDatefirstdayofemploymentforpay",
+    "section1CompletedDate",
+    "section1SignedFlag",
+    "section1SignDate",
+    "offerAcceptedDate"
+   ]
+  },
+  {
+   "rule_id": "i9.section1.statusbox",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "The four-box \"check exactly one\" rule lives on the **Form I-9 (ed. 01/20/25)** + **USCIS Form I-9 Instructions (01/20/25)** + **M-274 \u00a73.0** \u2014 NOT in the reg. Regulatory duty to complete Section 1 + sign: **8 CFR 274a.2(b)(1)(i)(A)**. Substantive/non-curable classification: **ICE Form I-9 Inspection fact sheet updated 2026-03-16**. Penalty **8 CFR 274a.10(b)(2)**. *(Original implied (b)(1)(i)(A) e",
+   "summary": "Employee checked exactly one of the four citizenship/immigration-status attestation boxes in Section 1.",
+   "evidence_required": [
+    "section1StatusAttestedenumcitizennationallpralien_authorizednone",
+    "boxesCheckedCount",
+    "forLPRaNumber",
+    "foralien_authorizedworkAuthExpiryoneofaNumberi94foreignPassport"
+   ]
+  },
+  {
+   "rule_id": "i9.section1.signature",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "**8 CFR 274a.2(b)(1)(i)(A)** (completes Section 1 \"at the time of hire\" and signs the attestation; preparer/translator assistance clause is in this same subparagraph) + **8 CFR 274a.2(a)(3)** (attestation \"under penalty of perjury\"). Deadline = \"at the time of hire\" per **8 CFR 274a.1(g)**, operationally end of first day per M-274. The DATE-field requirement derives from the **Form I-9 instruction",
+   "summary": "Section 1 attestation signed AND dated by the employee.",
+   "evidence_required": [
+    "section1SignaturePresentbool",
+    "section1SignDate"
+   ]
+  },
+  {
+   "rule_id": "i9.form.current_version",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "ICE Form I-9 Inspection fact sheet updated 2026-03-16 (technical failures list); current form/edition source = USCIS Form I-9 page + M-274; cure period = 8 USC 1324a(b)(6).",
+   "summary": "Employer used a Form I-9 edition that was current/accepted when any part of the form was initially completed.",
+   "evidence_required": [
+    "formEditionDate",
+    "initialCompletionDate",
+    "acceptedI9EditionTablewitheffectiveexpirationdates",
+    "correctionDateiflatercured"
+   ]
+  },
+  {
+   "rule_id": "i9.section2.timeliness",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 CFR 274a.2(b)(1)(ii); short-engagement exception 8 CFR 274a.2(b)(1)(iii); penalty 8 CFR 274a.10(b)(2). *(All three verified verbatim \u2014 confirmed; \"hire\" defined at 274a.1(c) = first day for pay.)*",
+   "summary": "Section 2 completed within 3 business days of the first day of employment.",
+   "evidence_required": [
+    "hirestartdate",
+    "section2CompletionDateemployersigndate",
+    "businessDayCalendarfederalholidays",
+    "employmentDurationDays"
+   ]
+  },
+  {
+   "rule_id": "i9.section2.physical_exam",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 CFR 274a.2(b)(1)(ii)(A); 8 CFR 274a.2(b)(1)(v); remote alt 88 FR 47990 (publ. **July 25, 2023**; eff. Aug 1, 2023) / M-274 \u00a74.5. Optional precision: cite **274a.2(b)(1)(ix)** (remote-alternative authority) and **274a.2(a)(2) / INA 274B (8 USC 1324b)** (employee-choice / anti-over-documentation). *(Confirmed \u2014 (b)(1)(v) carries the List A XOR List B+C structure verbatim.)*",
+   "summary": "Employer physically (or via authorized remote alternative) examined original documents that reasonably appear genuine and relate to the person.",
+   "evidence_required": [
+    "listAdocsORlistBlistC",
+    "perdoctitle",
+    "issuingauthority",
+    "number",
+    "expiration",
+    "remoteAlternativeUsedbool",
+    "copiesRetainedbool",
+    "requiredifremote"
+   ]
+  },
+  {
+   "rule_id": "i9.section2.recording",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "**8 CFR 274a.2(b)(1)(ii)** (within 3 business days; physically examine; complete Section 2 + sign) AND **8 CFR 274a.2(b)(1)(v)** (\"The identification number and expiration date \u2026 of all documents must be noted \u2026 on the Form I-9\"). **Document title and issuing authority fields derive from the Form I-9 itself / M-274**, not the CFR text. Penalty **8 CFR 274a.10(b)(2)**.",
+   "summary": "Section 2 records document title, issuing authority, document number, expiration date per document, plus the employee's first day of employment.",
+   "evidence_required": [
+    "perdoctitle",
+    "issuingAuthority",
+    "number",
+    "expirationnullablefornonexpiringdocs",
+    "section2EmployerSignaturedate",
+    "businessName",
+    "businessAddress",
+    "firstDayOfEmployment"
+   ]
+  },
+  {
+   "rule_id": "i9.section2.employer_signature",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 CFR 274a.2(b)(1)(ii); ICE Form I-9 Inspection fact sheet updated 2026-03-16; penalty 8 CFR 274a.10(b)(2). *(Prior Virtue/Interim-Guideline treatment of missing dates as technical is stale.)*",
+   "summary": "Employer signed and dated the Section 2 attestation.",
+   "evidence_required": [
+    "section2EmployerSignaturePresentbool",
+    "section2EmployerSignDate"
+   ]
+  },
+  {
+   "rule_id": "i9.reverification.timing",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "**8 CFR 274a.2(b)(1)(vii)**; paperwork penalty **8 CFR 274a.10(b)(2)**; knowing-continued-employment penalty **8 CFR 274a.10(b)(1)** (use **(b)(1)(i)** for first-offense tier \u2014 (b)(1)(ii) is the *second*-offense tier, $5,724\u2013$14,308).",
+   "summary": "Reverification (Supplement B) completed on/before the date the employee's temporary work authorization expires.",
+   "evidence_required": [
+    "workAuthExpiry",
+    "reverificationDateSupplementB",
+    "reverifiedDocType",
+    "currentemploymentstatus"
+   ]
+  },
+  {
+   "rule_id": "i9.reverification.noreverify",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 CFR 274a.2(b)(1)(vii); M-274 \u00a76.0 (Supplement B) & \u00a77.1 (LPRs); 8 USC 1324b(a)(6); 28 CFR 44.200. *(All five confirmed; the no-reverify LIST is M-274 policy, correctly attributed; reg cite supplies only the reverification trigger.)*",
+   "summary": "Employer did NOT improperly reverify documents/persons on the no-reverify list.",
+   "evidence_required": [
+    "recordedSection2doctype",
+    "Section1statusattested",
+    "reverificationeventsthedoctypethattriggeredthem"
+   ]
+  },
+  {
+   "rule_id": "i9.documents.acceptable_list",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 CFR 274a.2(b)(1)(v); INA 274A(b)(1)(B)-(D) (8 USC 1324a(b)); M-274 \u00a713.0\u201313.3. *(Confirmed verbatim; current web edition is \u00a713.0\u201313.3 \u2014 older PDF edition numbers this 12.0\u201312.3.)*",
+   "summary": "Only currently-acceptable List A/B/C documents accepted in the correct combination.",
+   "evidence_required": [
+    "canonicalDOC_CATALOGtaggedListABCwithhasExpiryacceptabilitywindow",
+    "performrecordeddoctypesnumbersexpiries",
+    "reverificationdocsListAorConly"
+   ]
+  },
+  {
+   "rule_id": "i9.receipts.rule",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "**8 CFR 274a.2(b)(1)(vi)(A)** (lost/stolen/damaged receipt + 90-day replacement); short-term <3-day exception **8 CFR 274a.2(b)(1)(iii)** (also restated in (b)(1)(vi)); **distinct arrival-document and refugee receipts at 8 CFR 274a.2(b)(1)(vi)(B) and (b)(1)(vi)(C)** \u2014 NOT (b)(1)(iii); **M-274 \u00a74.4**. *(Original sourced the arrival/refugee receipts implicitly to (b)(1)(iii); those live in (vi)(B)/(",
+   "summary": "Receipt for a lost/stolen/damaged document handled within the receipt rule and replaced within 90 days.",
+   "evidence_required": [
+    "receiptUsedbool",
+    "receiptType",
+    "hireDateorreverificationdate",
+    "replacementDocPresentedDate",
+    "employmentDurationDays"
+   ]
+  },
+  {
+   "rule_id": "i9.retention.period",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 CFR 274a.2(b)(2)(i)(A); 8 USC 1324a(b)(3); penalty 8 CFR 274a.10(b)(2). *(Confirmed verbatim \u2014 (A) is the employer max() rule; (B) is the recruiter/referrer case.)*",
+   "summary": "Form I-9 retained for the later of 3 years from hire OR 1 year from termination.",
+   "evidence_required": [
+    "hireDate",
+    "terminationDatenullable",
+    "i9OnFilebool",
+    "destructionDateifpurged"
+   ]
+  },
+  {
+   "rule_id": "i9.retention.storage_and_production",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "**8 CFR 274a.2(b)(2)(i)-(ii)** (retention period + 3-business-days inspection notice / production-at-location) \u2014 *not* (b)(3), which is \"Copying of documentation\"; **8 CFR 274a.2(e)-(g)** (electronic retention standards: (e) controls/indexing, (f) documentation/audit trails, (g) security incl. (g)(1)(iv) secure-permanent-record-on-create/complete/update/modify/alter/correct); **M-274 \u00a710.0\u201310.1** ",
+   "summary": "I-9s stored in a compliant medium and producible within 3 business days of an inspection request.",
+   "evidence_required": [
+    "storageMediumpapermicrofilmelectronic",
+    "forelectronicaccessControls",
+    "backup",
+    "auditTrail",
+    "tamperEvidentbools",
+    "inspectionProducibilitytimetoproduce"
+   ]
+  },
+  {
+   "rule_id": "i9.correction.no_backdate_no_whiteout",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "**M-274 \u00a79.0 (Correcting Errors or Missing Information on Form I-9)** \u2014 the governing source; optionally **Form I-9 Instructions**. **DROP \"8 CFR 274a.2(b)(2) (integrity of the record)\"** \u2014 (b)(2) is the retention rule; no paragraph of 274a.2 prescribes manual line-through/initial/date corrections (that procedure exists only in M-274 \u00a79.0). *(One overstatement softened: the written explanation nee",
+   "summary": "Corrections by line-through + initial + date; no white-out, no backdating; written explanation; correct party corrects each section.",
+   "evidence_required": [
+    "correctionEventsfieldchanged",
+    "whocorrected",
+    "correctionDatevsoriginalDate",
+    "methodlinethroughwhiteoutoverwrite",
+    "explanationAttachedbool"
+   ]
+  },
+  {
+   "rule_id": "i9.remote.alternative_procedure",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "**DHS final rule \"Optional Alternatives to the Physical Document Examination,\" 88 FR 47990 (publ. July 25, 2023; eff. Aug 1, 2023)** \u2014 added **8 CFR 274a.2(b)(1)(ix)**; companion authorization notice **\"Optional Alternative 1,\" 88 FR 47749 (July 25, 2023)** (sets out the five operative conditions); **M-274 \u00a74.5**; 3-day clock **8 CFR 274a.2(b)(1)(ii)**. *(Original mis-pinned the FR cite to the Aug",
+   "summary": "Remote (alternative-procedure) exam used only by qualified E-Verify employers, with the box checked and copies retained.",
+   "evidence_required": [
+    "remoteAlternativeUsedbool",
+    "employerEnrolledInEVerifygoodStanding",
+    "eVerifyCaseCreatedexceptreverification",
+    "altProcedureBoxChecked",
+    "copiesRetainedFrontBack",
+    "liveVideoConductedattested"
+   ]
+  },
+  {
+   "rule_id": "i9.antidiscrimination.overdocumentation",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 USC 1324b(a)(1) & (a)(6); 28 CFR 44.200(a)(3); penalty 8 USC 1324b(g)(2)(B)(iv)(IV) as adjusted in 28 CFR 85.5. *(Confirmed verbatim; 28 CFR 85.5 Table 1 maps (iv)(IV) to unfair documentary practices, distinct from (iv)(I)-(III).)*",
+   "summary": "Employer did not request more/different documents than required, or specify which documents the employee must present.",
+   "evidence_required": [
+    "performdocumentsperlistcountovercollectionListABCbothpresent",
+    "doctypevsnationalorigincitizenshipstatusrisksignalonly",
+    "rejectionevents"
+   ]
+  },
+  {
+   "rule_id": "i9.antidiscrimination.citizenship_national_origin",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 USC 1324b(a)(1),(a)(2),(a)(3); 28 CFR 44.200; penalties 8 USC 1324b(g)(2)(B)(iv)(I)-(III) as adjusted in 28 CFR 85.5. Sharpen: 180-day deadline = **1324b(d)(3)**; the \"4\u201314\" band is a synthesis of **(a)(2)(A)** (floor: excludes \"three or fewer,\" so 4+) and **(a)(2)(B)** (ceiling: national-origin deferred to Title VII, so 15+) \u2014 not verbatim statutory text. *(Confirmed.)*",
+   "summary": "No citizenship-status or national-origin discrimination in hiring, firing, or recruitment/referral for a fee.",
+   "evidence_required": [
+    "employeecountforthe414nationaloriginline",
+    "jobpostingcitizenshiprequirements",
+    "legalcontractualbasisforanycitizenshiprequirement",
+    "adverseactionrecordsbyprotectedstatus"
+   ]
+  },
+  {
+   "rule_id": "i9.antidiscrimination.charge_window",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 USC 1324b(d)(3); 28 CFR 44.300(b). *(Confirmed verbatim; the USC/CFR text says \"Special Counsel\" \u2014 renamed IER in 2016 without amending the text, so \"DOJ-IER\" reflects current practice.)*",
+   "summary": "Awareness that 1324b charges must be filed with DOJ-IER within 180 days of the act.",
+   "evidence_required": [
+    "dateofallegedact",
+    "datechargefiledifknown"
+   ]
+  },
+  {
+   "rule_id": "everify.case_creation.deadline",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "E-Verify User Manual \u00a72.2 \"Create a Case\"; prohibited-practices/pre-screening list + Glossary \"Prescreening\"; **FAR 52.222-54 (48 CFR 52.222-54), prescribed at FAR 22.1803** for federal contractors; E-Verify MOU Art. II.A (secondary). **REMOVE \"6 CFR Part 5\"** (that is DHS FOIA/Privacy Act disclosure, unrelated). *(For contractors, FAR phrases timing as \"within 3 business days after date of hire,\"",
+   "summary": "E-Verify case created by the third business day after the employee starts work for pay.",
+   "evidence_required": [
+    "firstdayofworkforpay",
+    "eVerifyCaseCreationDate",
+    "i9CompletionDate",
+    "businessDayCalendar",
+    "delayReasoniflate",
+    "federalContractorFlag"
+   ]
+  },
+  {
+   "rule_id": "everify.tnc.employer_action_window",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "E-Verify MOU Art. II \u00a7A; E-Verify User Manual \u00a73.3 (incl. 3.3.1 Notify / 3.3.2 Confirm Decision / 3.3.3 Refer); USCIS guidance \"REMINDER: Employer Action Required on Tentative Nonconfirmations (Mismatches) within 10 Federal Government Working Days.\" *(Confirmed.)*",
+   "summary": "On a TNC (mismatch), employer notified the employee promptly and completed required referral steps within 10 federal government working days.",
+   "evidence_required": [
+    "tncIssueDate",
+    "employeeNotifiedDate",
+    "fanGivenDate",
+    "employeeDecisionDate",
+    "referralDate",
+    "federalWorkingDayCalendar"
+   ]
+  },
+  {
+   "rule_id": "everify.tnc.employee_referral_window",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "**E-Verify User Manual \u00a73.3.3 \"Refer Employee To DHS or SSA\"** (with \u00a73.3.2 \"Confirm Employee Decision\" as cross-ref); E-Verify MOU Art. II. **The supplied \u00a73.3.2 URL/slug is stale/dead** (manual renamed \"tnc\" \u2192 \"mismatch\").",
+   "summary": "Referred employee given the 8-federal-working-day window to contact SSA/DHS, reflected in the Referral Date Confirmation.",
+   "evidence_required": [
+    "referralDate",
+    "referralDateConfirmationProvidedbool",
+    "federalWorkingDayCalendar"
+   ]
+  },
+  {
+   "rule_id": "everify.no_adverse_action_while_contesting",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "E-Verify MOU Art. II \u00a7A (paras 12-13, no-adverse-action / close-without-liability); E-Verify User Manual \u00a73.3; 8 USC 1324b (anti-discrimination overlay: (a)(1) citizenship/national-origin + (a)(5) anti-retaliation). *(Confirmed near-verbatim.)*",
+   "summary": "Employer took NO adverse action against an employee contesting a TNC (case pending / referred / in continuance).",
+   "evidence_required": [
+    "caseStatustimelineTNCreferredcontinuanceFNCclosed",
+    "adverseactioneventsterminationsuspensionhourreductionpaychangewithdates",
+    "reasoncodes"
+   ]
+  },
+  {
+   "rule_id": "everify.photo_matching",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "E-Verify User Manual \u00a72.2.2 (E-Verify Photo Matching) and \u00a73.3 (TNC handling); E-Verify MOU Art. II. *(Confirmed; the four photo-matching documents and document-submission-on-mismatch verified verbatim.)*",
+   "summary": "Photo-matching step performed and, on a photo-mismatch contest, a copy of the employee's document submitted to DHS.",
+   "evidence_required": [
+    "section2DocType",
+    "photoMatchResultmatchnomatchrecorded",
+    "onphotoTNCcontestdocumentCopySubmittedToDHSbool",
+    "copyRetainedbool"
+   ]
+  },
+  {
+   "rule_id": "i9.violation.classification",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "Cure provision = **INA 274A(b)(6) = 8 USC 1324a(b)(6)** (\"not less than 10 business days\") \u2014 **NOT 8 CFR 274a.2(b)(3)** (the cure period is statutory and does not appear in 274a.2). Penalty **8 CFR 274a.10(b)(2)** (correct). **The 1997 Virtue Memorandum no longer controls the classification** \u2014 superseded by the **ICE Form I-9 Inspection fact sheet updated 2026-03-16**. Current substantive example",
+   "summary": "Classify each defect as substantive vs technical/procedural and apply the \u226510-business-day cure period correctly.",
+   "evidence_required": [
+    "perdefectdefecttype",
+    "section",
+    "preparedpresentedflags",
+    "timelinessfacts",
+    "curestatuscuredatevsICEnoticedate",
+    "retainedcopyevidencemaybecapturedforrecordcompletenessbutmustnotlowerseverity"
+   ]
+  },
+  {
+   "rule_id": "i9.penalty.calculation_factors",
+   "regime": "i9-everify",
+   "regime_name": "I-9 / E-Verify",
+   "citation": "8 CFR 274a.10(b)(2) (paperwork + five factors) and (b)(1)(ii)(A)-(C) (knowing-hire tiers); inflation-adjusted amounts 28 CFR 85.5; 8 USC 1324a(e)(5),(e)(4). *(Confirmed \u2014 five factors verbatim and in order; dollar figures match current 28 CFR 85.5, effective July 3, 2025 per 90 FR 29447. Note the CFR body text in 274a.10 still shows stale base ranges; the 28 CFR 85.5 amounts control.)*",
+   "summary": "Paperwork penalty derived from the five statutory factors and the correct per-form base range.",
+   "evidence_required": [
+    "employersize",
+    "goodfaithindicators",
+    "perviolationseriousnesstag",
+    "unauthorizedalienstatus",
+    "priorviolationhistory",
+    "violationDateassessmentDate"
+   ]
+  },
+  {
+   "rule_id": "lca.wage.required_wage_greater_of",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.731(a); 655.731(a)(1) (actual); 655.731(a)(2) (prevailing); 655.731(c)(1) (cash in hand / free and clear). *(Confirmed verbatim; payment-frequency basis is (c)(7); range rule (a)(2)(ii); 2,080-hr conversion (c)(2)(ii).)*",
+   "summary": "Actual wage paid \u2265 greater of (actual wage for similarly-employed workers) and (prevailing wage on the LCA).",
+   "evidence_required": [
+    "PerworkerLCAprevailing_wageamountunitlevel",
+    "employeractual_wagefortherole",
+    "grosswagespaidperperiod",
+    "payfrequency",
+    "FTPT",
+    "hours",
+    "cohortwagerates"
+   ]
+  },
+  {
+   "rule_id": "lca.wage.prevailing_wage_source_level_validity",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.731(a)(2)** (PW determined \"as of the time of filing\"; greater-of); **655.731(a)(2)(i)** (CBA); **655.731(a)(2)(ii) / (a)(2)(ii)(A)** (OFLC NPC/OES, arithmetic mean of BLS OES); **655.731(a)(2)(ii)(A)** (validity \"not less than 90 days or more than 1 year\") and **(a)(2)(ii)(A)(1)** (file LCA within the PWD validity period); **655.731(a)(2)(ii)(B)/(C)** (independent authoritative / oth",
+   "summary": "Prevailing wage from an acceptable source, correct skill level, within its validity window at filing.",
+   "evidence_required": [
+    "PWsourcetype",
+    "PWDtrackingnumberissueexpirationifOFLC",
+    "OESareaSOClevel",
+    "surveypublicationdatedatacollectionwindow",
+    "CBAcitation",
+    "employerentitytypeflagacademicresearch"
+   ]
+  },
+  {
+   "rule_id": "lca.wage.benching_nonproductive_time",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.731(c)(7)(i) (pay required); 655.731(c)(7)(ii) (exception). *(Confirmed verbatim; only the compressed threshold wording was wrong.)*",
+   "summary": "Worker in employer-caused non-productive status still paid the full required wage; non-payment only where the (c)(7)(ii) exception applies.",
+   "evidence_required": [
+    "Perworkerperiodproductivenonproductiveflag",
+    "reasoncodeemployercausedvsworkervoluntarynonemployment",
+    "FTPTfulltimehoursdefinition",
+    "wagepaid",
+    "approvedleaveFMLAADAflag",
+    "benefitplanPTOusage"
+   ]
+  },
+  {
+   "rule_id": "lca.wage.start_clock",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.731(c)(6)(i)-(ii)** (paragraph (c)(6) has only (i) and (ii) \u2014 **drop the \"(iii)\"**), with the nonproductive-status cross-reference at **655.731(c)(7)**.",
+   "summary": "Required-wage liability begins no later than 30 days after admission, or 60 days after becoming eligible to work (if already present).",
+   "evidence_required": [
+    "PerworkerconsularadmissiondateI94ORincountryeligibilitydate",
+    "entrypathway",
+    "firstavailableforworkdate",
+    "firstpaydate"
+   ]
+  },
+  {
+   "rule_id": "lca.wage.benefits_parity",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.731(c)(3)(i)-(iii)** (requirement + threshold) and **documentation at 655.731(c)(3)** (and cross-referenced (b)(3) recordkeeping). **DROP the (b)(1) documentation pin** \u2014 (b)(1) is general payroll/wage-statement documentation, not the benefits-documentation duty. *(Confirmed substance; 90-consecutive-calendar-day cut-off verbatim in both (c)(3)(iii)(B) short-term and (C) extended.)*",
+   "summary": "H-1B workers offered the same benefits package on the same criteria as similarly-employed U.S. workers; benefits actually received.",
+   "evidence_required": [
+    "Benefitplaneligibilityrules",
+    "enrollmentrecordsH1BvsUSworkercohortsameoccupation",
+    "waitingperiodvesting",
+    "formultinationalsassignmentlengthhomecountryenrollmentreciprocaltreatmentevidence"
+   ]
+  },
+  {
+   "rule_id": "lca.wage.authorized_deductions",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.731(c)(9)(i)-(iii)** (three authorized categories; business-expense bar at (c)(9)(iii)(C)); **655.731(c)(10)(i)** (early-cessation PENALTY prohibition; penalty-vs-liquidated-damages under State law); **655.731(c)(10)(ii)** (worker may not pay any part of the $500/$1,000 additional filing fee). **NOT (c)(11)** \u2014 (c)(11) is the separate \"unauthorized deduction = non-payment of wages\" ru",
+   "summary": "No deduction reduces the wage below the required wage unless in one of three authorized categories; employer business expenses (incl. ACWIA fee) never passed to the worker.",
+   "evidence_required": [
+    "Perworkerperioditemizeddeductionswithcategorycode",
+    "writtenauthorizationonfileYN",
+    "whethertheitemisanemployerbusinessexpense",
+    "FMVbasis",
+    "anytrainingfeevisacostattorneyfeebreachpenaltychargedtotheworker",
+    "netwagevsrequiredwage"
+   ]
+  },
+  {
+   "rule_id": "lca.workingconditions.no_adverse_effect",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.732(a) (attestation/scope); 655.732(b) (documentation). *(Confirmed verbatim \u2014 \u00a7655.732 is the second LCA requirement; statutory hook INA 212(n)(1)(A)(ii).)*",
+   "summary": "H-1B workers afforded working conditions (hours, shifts, vacation, seniority-based preferences) on the same basis as similarly-employed U.S. workers.",
+   "evidence_required": [
+    "Schedulingshiftvacationpolicy",
+    "senioritytrainingprogramaccessrules",
+    "H1BvsUSworkercomparisonsameoccupation",
+    "complaintsallegingadverseeffect"
+   ]
+  },
+  {
+   "rule_id": "lca.strike_lockout.attestation_and_notice",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.733(a); 655.733(a)(1) (3-day ETA notice); 655.733(a)(2) (ETA certification to DHS, 8 CFR 214.2(h)(17)). *(Confirmed verbatim, incl. the mail/fax/private-carrier channels and the \"place, assign, lease, or otherwise contract out\" verbs. One scope-sharpen: the as-of-filing attestation is keyed to \"area of intended employment,\" not \"place of employment.\")*",
+   "summary": "No strike/lockout in the occupation at the place of employment as of filing; if one arises post-certification, notify ETA within 3 days and stop placing H-1B workers there.",
+   "evidence_required": [
+    "Perworksiteoccupationactivelabordisputestrikelockoutflagstartdate",
+    "ETAnoticesentdate",
+    "H1Bplacementsattheaffectedworksite",
+    "occupationalclassification"
+   ]
+  },
+  {
+   "rule_id": "lca.notice.posting_or_bargaining_rep",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.734(a)(1)(i)** (bargaining-rep notice + content + WHD statement, 30-days-before); **655.734(a)(1)(ii)** chapeau (no-rep notice content + \"available for public inspection\" + WHD statement); **655.734(a)(1)(ii)(A)** and **(a)(1)(ii)(A)(3)** (\u22652 conspicuous locations, posted on/within 30 days before, 10 days); **655.734(a)(1)(ii)(B)** (electronic notice, 10 days, single direct e-mail suf",
+   "summary": "Notice to the bargaining rep, OR posted in 2 conspicuous locations for 10 days / delivered electronically, on or within 30 days before filing, with required content and dated proof.",
+   "evidence_required": [
+    "PerLCAbargainingrepexistsnoticedate",
+    "ORpostinglocationscountaddressesstartdatetakedowndate10days",
+    "ORelectronicnoticemethodwindow",
+    "contentfieldspresent",
+    "filingdate"
+   ]
+  },
+  {
+   "rule_id": "lca.notice.deliver_lca_to_worker",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.734(a)(3). *(Confirmed verbatim; \"(a)(3)\" is exactly the worker-copy requirement.)*",
+   "summary": "Each H-1B worker received a copy of the ETA-certified LCA no later than their first day of work.",
+   "evidence_required": [
+    "PerworkercertifiedLCAdelivereddate",
+    "workerfirstreporttoworkdate",
+    "acknowledgmentofreceiptifcaptured"
+   ]
+  },
+  {
+   "rule_id": "lca.validity.period_max_3yr",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.750(a) (validity, 3-yr max); 20 CFR 655.730(b) (no earlier than 6 months before start). *(Both confirmed verbatim. CORRECTION: the \"H-1B1 initial \u22642 yrs\" sub-claim is WRONG \u2014 655.750(a) groups initial H-1B1 WITH H-1B at 3 years; only the H-1B1 EXTENSION is capped at 2.)*",
+   "summary": "LCA used only within its certified validity period; H-1B petition not relying on an expired/withdrawn LCA.",
+   "evidence_required": [
+    "PerLCAcertifiedstart",
+    "certifiedend",
+    "filingdate",
+    "intendedstart",
+    "mappedH1Bpetitionvaliditydates"
+   ]
+  },
+  {
+   "rule_id": "lca.worksite.area_of_intended_employment",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.715 (definitions); 655.731(a)(2) (PW tied to area of intended employment). *(Confirmed verbatim.)*",
+   "summary": "Every worksite where the worker performs work is within the area of intended employment on a certified LCA (or covered by short-term-placement / Simeio amendment).",
+   "evidence_required": [
+    "PerworkercurrentworksiteaddressesMSA",
+    "LCAworksiteaddressesMSA",
+    "commutingMSAmapping",
+    "consecutiveworkdaycountsatoffLCAlocations"
+   ]
+  },
+  {
+   "rule_id": "lca.worksite.short_term_placement",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.735(b)(3)(i)-(iii)** (wage + lodging + travel \u2014 refine from bare (b)); **655.735(c) / (c)(1)-(3)** (30/60 workday caps + 60-day conditions); **655.735(d)** (workday definition); **655.735(f)** (action at the cap). *(Wage/lodging/travel duties are at (b)(3)(i)-(iii), not bare (b).)*",
+   "summary": "Off-LCA placements stay within the 30-workday (or qualifying 60-workday) safe harbor; wage + lodging + travel conditions met.",
+   "evidence_required": [
+    "Perworkershorttermareaworkdaycountintherolling1yearwindow",
+    "flagsforthethree60dayconditions",
+    "perdaylodgingpaid",
+    "perdaytravelmealsincidentals",
+    "requiredwagepaid",
+    "strikelockoutflagatnewsite"
+   ]
+  },
+  {
+   "rule_id": "lca.worksite.amended_petition_material_change_simeio",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "Matter of Simeio Solutions, LLC, 26 I&N Dec. 542 (AAO 2015); 8 CFR 214.2(h)(2)(i)(E); 20 CFR 655.734 (new-site posting still required). *(Confirmed \u2014 citation, volume, page, tribunal, year all correct; the worksite-specific \"material change\" holding is the AAO's interpretation, not bare reg text.)*",
+   "summary": "An amended/new H-1B petition (with corresponding certified LCA) filed BEFORE the worker starts work at a new worksite requiring a new LCA.",
+   "evidence_required": [
+    "PerworkerapprovedpetitionLCAworksiteMSA",
+    "newworksiteMSA",
+    "newLCAfilingcertificationdate",
+    "amendedI129filingdate",
+    "workerstartdateatnewsite",
+    "sameMSAdetermination"
+   ]
+  },
+  {
+   "rule_id": "lca.withdrawal.obligations_continue_until_withdrawn",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.750(b). Sharpen sub-cites: wage/working-condition continuation = **655.750(b)(3)**; strike-lockout/notice survival = **655.750(b)(4)**. *(Confirmed except the fabricated effective-date detail.)*",
+   "summary": "An LCA is withdrawn only when no H-1B worker is employed under it and no investigation is pending; wage/working-condition obligations continue until a superseding LCA or bona fide termination.",
+   "evidence_required": [
+    "PerLCAwithdrawalrequestdateETAreceiptdate",
+    "whetheranycoveredworkerstillemployed",
+    "openinvestigationflag",
+    "supersedingLCAexists",
+    "bonafideterminationstatusperworker"
+   ]
+  },
+  {
+   "rule_id": "lca.termination.bona_fide_termination",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "Core test **20 CFR 655.731(c)(7)(ii) AS CONSTRUED BY DOL ARB in Amtel Group of Fla., Inc. v. Yongmahapakorn, ARB No. 04-087 (Sept. 29, 2006)**; supporting **8 CFR 214.2(h)(4)(iii)(E)** (return transportation; not on voluntary resignation) and **8 CFR 214.2(h)(11)** (notify USCIS / revocation). **REMOVE the USCIS \"Options for Nonimmigrant Workers Following Termination\" archive page** as authority f",
+   "summary": "To cut off wage/benching liability: (1) expressly terminated the worker, (2) notified USCIS to revoke the petition, and (3) paid the reasonable cost of return transportation to the worker's last foreign residence.",
+   "evidence_required": [
+    "Perterminatedworkerexpressterminationdateevidence",
+    "USCISwithdrawalrevocationrequestdateconfirmation",
+    "returntransportationpaidprovideddateamountinvoluntary",
+    "voluntaryinvoluntaryflag",
+    "lastdayworkedlastpaiddate",
+    "authorizedstayenddate"
+   ]
+  },
+  {
+   "rule_id": "lca.dependency.h1b_dependent_determination",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.736(a)(1)(i)-(iii)** (three-part test); **655.736(c)(2)** (snap-shot); **655.736(g)** (consequences/attestations, cross-ref 655.738/.739); **655.736(a)(2)(iii)(A)** (FTE / full-time = 40 hrs, floor 35); **655.736(f)** (willful-violator, 5-yr look-back). **The definitions of \"H-1B-dependent employer,\" \"willful violator,\" and \"full-time employee\" are in 655.736, NOT 655.715**; \"exempt H",
+   "summary": "Employer correctly determines H-1B-dependency (7/12/15% tests), which switches on the extra non-displacement + recruitment attestations.",
+   "evidence_required": [
+    "FTEUSemployeecountwithhours",
+    "floor35",
+    "H1BworkercountFTPT",
+    "priorwillfulviolationfindingwithin5yrsYN",
+    "exemptonlyLCAflag"
+   ]
+  },
+  {
+   "rule_id": "lca.dependency.exempt_worker_carveout",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.737(b) (definition: $60,000 / master's, at (b)(1)/(b)(2)); 655.737(c) (measurement rules: benefits excluded, assured-bonus only, cash free and clear, full $60k received, no PT proration). *(Confirmed verbatim; DOL Fact Sheet #62Q corroborates.)*",
+   "summary": "If a dependent/willful-violator employer relies on the exempt carve-out, every worker on the LCA is genuinely exempt ($60,000+ or master's-or-higher in a related specialty).",
+   "evidence_required": [
+    "PerworkerontheLCAannualcashwageexclbenefitsactualreceipt",
+    "assuredbonuscomponents",
+    "degreelevelfieldrelatedness",
+    "FTPT"
+   ]
+  },
+  {
+   "rule_id": "lca.dependency.nondisplacement_us_workers",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.738(c) (direct, 90/90); 655.738(d) (secondary, inquiry + 90/90); 655.738(b) (definitions: lay off; essentially equivalent job; same-area/MSA test); 655.738(e) (documentation). *(Confirmed verbatim, incl. all four lay-off exclusions and the commuting-distance/MSA test.)*",
+   "summary": "(Dependent/willful-violator, non-exempt LCA) No U.S. worker in an essentially-equivalent job displaced within 90 days before to 90 days after petition filing \u2014 including a secondary-employer inquiry.",
+   "evidence_required": [
+    "Dependencywillfulviolatorexemptonlyflags",
+    "petitionfilingdate",
+    "USworkerseparationssameoccupationareawithin90daysreasoncodes",
+    "secondaryplacementflagdatedocumentedinquiry",
+    "essentiallyequivalentjobmapping"
+   ]
+  },
+  {
+   "rule_id": "lca.dependency.recruitment_us_workers",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.739(e) (industry-wide standards: (e)(1) internal+external, (e)(2) some active); 655.739(f)-(g) (legitimate, non-skewing criteria); 655.739(i)(4) (PAF summary); 655.739(j) (must offer to qualified U.S. applicant, 8 USC 1182(n)(1)(G)(i)(II), DOJ-enforced). *(All paragraph cites confirmed verbatim.)*",
+   "summary": "(Dependent/willful-violator, non-exempt LCA) Good-faith industry-standard recruitment of U.S. workers at \u2265 required wage; job offered to any equally/better-qualified U.S. applicant; documented in the PAF.",
+   "evidence_required": [
+    "Dependencyexemptflags",
+    "recruitmentmethodlistwithdatesplaces",
+    "compensationofferedvsrequiredwage",
+    "applicantlogdisposition",
+    "recordofanyequallybetterqualifiedUSapplicantandwhetheroffered",
+    "PAFrecruitmentsummarypresent"
+   ]
+  },
+  {
+   "rule_id": "lca.recordkeeping.public_access_file",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.760(a)** \u2014 the introductory text of (a) (1-working-day + location) and items **(a)(1)-(a)(6)** for the six core documents, plus **(a)(9)** (exempt-worker list) and **(a)(10)** (recruitment summary) for dependent/willful-violator employers (and (a)(7) corporate-restructuring, (a)(8) single-employer list). **NOT \"(a)(1)-(7)\"** \u2014 paragraph (a) runs through (a)(10); (a)(7) is the corporat",
+   "summary": "A complete PAF assembled within 1 working day of filing, kept at the principal place of business or place of employment.",
+   "evidence_required": [
+    "PerLCApresencedateofeachPAFcomponent",
+    "PAFassemblydatevsfilingdate",
+    "PAFstoragelocation",
+    "H1Bdependentwillfulflagdrivesa9a10",
+    "corporatechangesingleemployerflag"
+   ]
+  },
+  {
+   "rule_id": "lca.recordkeeping.retention_periods",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "20 CFR 655.760(c); cross-ref 655.731(b). *(Confirmed verbatim \u2014 both thresholds and the enforcement-extension; note the extension textually attaches to payroll records.)*",
+   "summary": "PAF documents retained 1 year past the period of employment (or LCA expiry/withdrawal); payroll records retained 3 years from creation.",
+   "evidence_required": [
+    "PerLCAlastdateaworkerwasemployedexpiryorwithdrawaldate",
+    "perpayrollrecordcreationdate",
+    "openenforcementflag"
+   ]
+  },
+  {
+   "rule_id": "lca.enforcement.penalties_backwages_debarment",
+   "regime": "lca-dol",
+   "regime_name": "LCA (DOL Labor Condition Application)",
+   "citation": "**20 CFR 655.810(a)** (back wages); **655.810(b)(1)/(b)(2)/(b)(3)** (CMP tiers); **655.810(d)(1)-(3)** (debarment); INA 212(n)(2) / 8 USC 1182(n)(2) (base $1,000/$5,000/$35,000); complaint limitations **655.806(a)(5)** (12 months). **\u00a7655.810 is in SUBPART I, not Subpart H** \u2014 use `.../subpart-I/section-655.810`. Current figures are the amounts codified in current **20 CFR 655.810** and confirmed ",
+   "summary": "Map any violation to back wages + the correct CMP tier ($2,364 / $9,624 / $67,367, 2025) + debarment (1/2/3 yrs).",
+   "evidence_required": [
+    "Perviolationtype",
+    "willfulflag",
+    "displacementwithin9090flag",
+    "workersaffected",
+    "underpaymentamountperiod",
+    "goodfaithhistoryfactors"
+   ]
+  },
+  {
+   "rule_id": "paf.item1.certified_lca",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(1); penalty 20 CFR 655.810(b)(1)(vi); INA 212(n)(2) / 8 USC 1182(n)(2). *(Confirmed verbatim word-for-word.)*",
+   "summary": "PAF contains a copy of the certified LCA (ETA-9035E/9035) + cover pages (ETA-9035CP); if e-filed, a printout signed by the employer.",
+   "evidence_required": [
+    "lcaIdcaseNumber",
+    "certifiedLcaDocumentPresentbool",
+    "lcaSignedPrintoutPresentbool",
+    "ifefiled",
+    "filingMethodpaperelectronic",
+    "eta9035cpCoverPagesPresentbool",
+    "lcaCertificationDate",
+    "employerSignaturePresentbool"
+   ]
+  },
+  {
+   "rule_id": "paf.item2.wage_rate",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(2); related 20 CFR 655.731(a); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim. Deadline-attribution fix: the 1-working-day timing is in 655.760(a), not (c) \u2014 cite (c) only for retention.)*",
+   "summary": "PAF contains documentation stating the wage rate to be paid.",
+   "evidence_required": [
+    "wageRateDocPresentbool",
+    "offeredWageAmount",
+    "wageUnityearhourmonth",
+    "positionTitle",
+    "workerNameidCrossruleactualWage",
+    "prevailingWage"
+   ]
+  },
+  {
+   "rule_id": "paf.item3.actual_wage_system",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(3); actual-wage system 20 CFR 655.731(a)(1) & 655.731(c)(2); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim incl. example + parenthetical.)*",
+   "summary": "PAF contains a full, clear explanation of the system used to set the \"actual wage\" (incl. periodic increases).",
+   "evidence_required": [
+    "actualWageMemoPresentbool",
+    "actualWageMemoDate",
+    "lcaFilingDate",
+    "describesPeriodicIncreasesbool",
+    "occupationSOC"
+   ]
+  },
+  {
+   "rule_id": "paf.item4.prevailing_wage",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(4); PW 20 CFR 655.731(a)(2) & 655.731(b); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim incl. parenthetical.)*",
+   "summary": "PAF contains documentation used to establish the prevailing wage (general source + methodology is what must be public; underlying individual data is NOT public but goes to DOL on enforcement).",
+   "evidence_required": [
+    "prevailingWageDocPresentbool",
+    "pwSourceOESNPWCPWDindependentSurveyCBAother",
+    "pwLevelIIV",
+    "ifOES",
+    "pwSOC",
+    "pwAmount",
+    "pwValidityDates",
+    "methodologyDescriptionPresentbool"
+   ]
+  },
+  {
+   "rule_id": "paf.item5.union_employee_notice",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(5); notice requirement 20 CFR 655.734; penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim incl. \"of this part.\" Note: the legacy \"notice_to_employees\" key is NOT a separate (a)(5) item \u2014 collapse them.)*",
+   "summary": "PAF contains the document(s) satisfying the union/employee notification of 655.734.",
+   "evidence_required": [
+    "noticeDocPresentbool",
+    "noticeTypeunionNoticephysicalPostingelectronic",
+    "postingStartDate",
+    "postingEndDate",
+    "postingLocationsCountint",
+    "lcaFilingDate",
+    "hasBargainingRepresentativebool",
+    "worksiteAddress"
+   ]
+  },
+  {
+   "rule_id": "paf.item6.benefits_summary",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(6); benefits-parity 20 CFR 655.731(c)(3); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim incl. the \"(see \u00a7 655.731(c)(3))\" parenthetical.)*",
+   "summary": "PAF contains a summary of benefits offered to U.S. workers in the same occupational classifications, with a differentiation statement and a home-country-benefits statement where applicable.",
+   "evidence_required": [
+    "benefitsSummaryPresentbool",
+    "differentiationStatementPresentbool",
+    "onlyifbenefitsdiffer",
+    "homeCountryBenefitsStatementPresentbool",
+    "ifapplicable",
+    "occupationSOC",
+    "benefitsDifferAcrossEmployeesbool"
+   ]
+  },
+  {
+   "rule_id": "paf.item7.successor_sworn_statement",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(7); successor-in-interest mechanics 20 CFR 655.730(e)(1); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim incl. the parenthetical cross-reference.)*",
+   "summary": "On a change in corporate structure, PAF contains a sworn statement by a responsible official of the new entity accepting all predecessor-LCA obligations, plus a list of each affected LCA + certification date, and the new entity's actual-wage system + FEIN.",
+   "evidence_required": [
+    "corporateStructureChangeOccurredbool",
+    "successorSwornStatementPresentbool",
+    "statementSignedByResponsibleOfficialbool",
+    "affectedLcaListarrayoflcaId",
+    "certificationDate",
+    "newEntityActualWageSystemDescribedbool",
+    "newEntityFEIN",
+    "changeEffectiveDate"
+   ]
+  },
+  {
+   "rule_id": "paf.item8.single_employer_entity_list",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(8); single-employer/dependency 20 CFR 655.736(d)(7) & 655.736(a)(1)(i)-(iii); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim; note the reg text contains an in-source scrivener typo \"\u00a7 766.760\" meaning 655.760 \u2014 not a defect in this rule. Dependency-threshold pinpoint sharpened to (a)(1)(i)-(iii).)*",
+   "summary": "If the employer used the IRC \"single employer\" definition to determine H-1B-dependency, PAF contains a list of all entities included in that determination.",
+   "evidence_required": [
+    "usedIrcSingleEmployerDefinitionbool",
+    "singleEmployerEntityListPresentbool",
+    "entitiesInSingleEmployerarray",
+    "employerFteCount",
+    "h1bWorkerCount",
+    "dependencyStatus"
+   ]
+  },
+  {
+   "rule_id": "paf.item9.exempt_worker_list",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(9); exempt-worker list/definition 20 CFR 655.737(e)(1) & 655.737(b)-(c); INA 212(n)(3); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim; $60,000 confirmed statutory/fixed \u2014 changing it would require new legislation.)*",
+   "summary": "If H-1B-dependent and/or a willful violator AND the LCA(s) indicate only \"exempt\" workers, PAF contains a list of those exempt workers.",
+   "evidence_required": [
+    "h1bDependentOrWillfulViolatorbool",
+    "lcaIndicatesExemptOnlybool",
+    "exemptWorkerListPresentbool",
+    "exemptWorkersarrayofworkerId",
+    "basis",
+    "wageAmount",
+    "degreeLevel",
+    "degreeField"
+   ]
+  },
+  {
+   "rule_id": "paf.item10.dependent_recruitment_summary",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a)(10); recruitment attestation 20 CFR 655.739(i)(4) & 655.739; non-displacement 20 CFR 655.738; INA 212(n)(1)(G); penalty 20 CFR 655.810(b)(1)(vi),(b)(2),(b)(3). *(Confirmed verbatim \u2014 the unbalanced trailing parenthesis after \"(4)\" is in the actual regulation.)*",
+   "summary": "If H-1B-dependent or willful violator (and NOT relying solely on exempt workers for the LCA), PAF contains a summary of recruitment methods + time frames of U.S.-worker recruitment.",
+   "evidence_required": [
+    "h1bDependentOrWillfulViolatorbool",
+    "employsNonExemptH1bbool",
+    "recruitmentSummaryPresentbool",
+    "recruitmentMethodsarray",
+    "recruitmentTimeFramesdateranges",
+    "lcaId",
+    "recruitmentDocsPresentbool"
+   ]
+  },
+  {
+   "rule_id": "paf.assembly.one_working_day",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a); penalty 20 CFR 655.810(b)(1)(vi); DOL WHD Fact Sheet #62F. *(Confirmed.)*",
+   "summary": "The PAF (LCA + supporting docs) assembled and available for public examination no later than 1 working day after the LCA is filed.",
+   "evidence_required": [
+    "lcaFilingDate",
+    "pafAssembledDateorpafFirstAvailableDate",
+    "businessCalendarworkingdays",
+    "excludingfederalholidaysweekends"
+   ]
+  },
+  {
+   "rule_id": "paf.retention.one_year",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(c); penalty 20 CFR 655.810(b)(1)(vi); DOL WHD Fact Sheet #62F. *(Confirmed verbatim.)*",
+   "summary": "PAF records retained 1 year beyond the last date any H-1B worker is employed under the LCA \u2014 or, if none employed, 1 year from LCA expiration/withdrawal.",
+   "evidence_required": [
+    "lcaId",
+    "lastH1bEmploymentDateUnderLcanullable",
+    "lcaExpiryDate",
+    "lcaWithdrawalDatenullable",
+    "anyH1bEmployedUnderLcabool",
+    "pafRecordsRetainedThroughDate",
+    "pafStorageLocation"
+   ]
+  },
+  {
+   "rule_id": "paf.retention.payroll_three_year",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(c); content of payroll records 20 CFR 655.731(b)(1); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed verbatim.)*",
+   "summary": "Payroll records for H-1B employees AND comparator employees in the same occupational classification retained 3 years from creation (indefinitely if enforcement commenced).",
+   "evidence_required": [
+    "payrollRecordCreationDatesperrecord",
+    "payrollRecordsRetainedThroughDate",
+    "occupationalClassification",
+    "comparatorEmployeesCoveredbool",
+    "enforcementActionCommencedbool",
+    "enforcementActionCloseDatenullable"
+   ]
+  },
+  {
+   "rule_id": "paf.location.public_examination",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760(a) (location); DOL WHD Fact Sheet #62F (access method); penalty 20 CFR 655.810(b)(1)(vi). *(Confirmed.)*",
+   "summary": "The PAF is located at the principal place of business in the U.S. OR at the place of employment, and a member of the public may examine it (transcription/scanning/photograph; copies need not be provided).",
+   "evidence_required": [
+    "pafStorageLocationTypeprincipalPlaceOfBusinessplaceOfEmploymentother",
+    "pafAddress",
+    "publicExaminationProcessDocumentedbool",
+    "allowsTranscriptionScanPhotobool",
+    "worksiteAddressesformultisite"
+   ]
+  },
+  {
+   "rule_id": "paf.applicability.h1b1_e3",
+   "regime": "paf",
+   "regime_name": "PAF (Public Access File)",
+   "citation": "20 CFR 655.760 (opening applicability note); INA 212(t) / 8 USC 1182(t). *(Confirmed verbatim.)*",
+   "summary": "For H-1B1 (Chile/Singapore) and E-3 (Australia) workers, the PAF applies but only items (a)(1)-(a)(6) + paragraphs (b) and (c) \u2014 the dependent/willful items (a)(7)-(a)(10) do NOT apply.",
+   "evidence_required": [
+    "visaCategoryH1BH1B1E3",
+    "workerId",
+    "lcaId"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.required.greater-of",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a); penalty 655.810(a)-(b); INA 212(n)(1)(A).",
+   "summary": "Paid wage \u2265 greater of (actual wage, prevailing wage) for the entire period of authorized employment.",
+   "evidence_required": [
+    "Perworkeractualgrosswagepaid",
+    "payfrequency",
+    "actual_wagebenchmark",
+    "prevailing_wage",
+    "LCAvaliditystartend",
+    "FTPT",
+    "hours"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.actual.system",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a)(1); documentation 20 CFR 655.731(b).",
+   "summary": "Documented, consistently-applied actual-wage system; H-1B paid \u2265 similarly-employed in-house workers (after legitimate factors).",
+   "evidence_required": [
+    "Rosterofallemployeesinthesametitleclassificationwithwage",
+    "experienceyears",
+    "education",
+    "documenteddifferentialfactors",
+    "theH1Bworkersexperienceeducation",
+    "writtenactualwagemethodology"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.actual.memo",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(b); retention 20 CFR 655.760(c). *(Re-verify the exact (b)(1)/(b)(2) sub-letter against current eCFR when wiring the citation string.)*",
+   "summary": "Retains a memo/documentation describing the actual-wage system and how the H-1B wage relates to others.",
+   "evidence_required": [
+    "Booleanactualwagememopresent",
+    "date",
+    "whetheritidentifiesthewagesettingfactorsandtiestopayroll"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.prevailing.source",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a)(2); 655.731(a)(2)(ii)(A)-(B).",
+   "summary": "The prevailing wage was obtained from one of the four permitted sources.",
+   "evidence_required": [
+    "PWsourcetypeenumNPWC_PWDCBAindependent_surveyDBASCA",
+    "sourcedocumentID",
+    "PWvalue",
+    "SOCarea"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.prevailing.safe-harbor",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a)(2)(ii)(A); 20 CFR 655.731(d) (PWD reliance).",
+   "summary": "On a wage challenge, confirm whether the employer obtained and properly applied an NPWC PWD (safe harbor).",
+   "evidence_required": [
+    "PWDpresent",
+    "PWDSOC",
+    "area",
+    "levelvstheactualjobsSOCarealevel",
+    "wagepaidvsPWDwage"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.prevailing.survey-criteria",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a)(2)(ii)(B); 20 CFR 655.731(b)(3)(iii)(B).",
+   "summary": "Any employer-provided/independent survey for the PW meets all regulatory validity criteria.",
+   "evidence_required": [
+    "Surveypublicationdate",
+    "datacollectiondate",
+    "statistictypemeanmedianweightedavg",
+    "occupationgeographicindustryscope",
+    "LCAfilingdate"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.prevailing.level-determination",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a)(2)(ii)(A); DOL OFLC Prevailing Wage Determination Policy Guidance (rev. Nov 2009).",
+   "summary": "The wage level (I-IV) on the PWD matches the position's MINIMUM requirements per the OFLC 5-factor worksheet.",
+   "evidence_required": [
+    "PositionSOCONETJobZoneSVP",
+    "minimumrequiredexperienceyears",
+    "minimumeducation",
+    "requiredspecialskillslicenses",
+    "supervises",
+    "PWDsstatedlevelpercentile",
+    "OESwageperlevelforthatSOCarea"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.prevailing.level-vs-complexity",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a)(2); DOL OFLC PW Determination Policy Guidance (rev. Nov 2009) (level definitions).",
+   "summary": "AUDIT RED FLAG \u2014 a low wage level (esp. Level I) attested for a senior/complex/supervisory title or one whose stated requirements imply seniority.",
+   "evidence_required": [
+    "WagelevelonLCA",
+    "jobtitletext",
+    "senioritykeywords",
+    "minexperienceyears",
+    "supervisoryflag",
+    "requireddegreelevel",
+    "theSOCstypicalleveldistribution"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.prevailing.pwd-validity",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a)(2)(ii)(A); DOL OFLC NPWC guidance (validity period).",
+   "summary": "The LCA was filed while its supporting NPWC PWD was within the PWD validity window.",
+   "evidence_required": [
+    "PWDdeterminationissuedate",
+    "PWDexpirationdate",
+    "LCAfilingdate"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.oes.annual-refresh",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(a)(2)(ii) (OES survey); OFLC OEWS wage-year update (effective July 1).",
+   "summary": "On the July-1 OES refresh, do not require a new PWD for an already-filed LCA, but recheck new filings against updated data.",
+   "evidence_required": [
+    "LCAfilingdatevstheactivewageyearboundaryJuly1",
+    "citedwagedatavintage",
+    "PWDvaliditydates"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.benefits.parity",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(c)(3); remedy 20 CFR 655.810(a).",
+   "summary": "H-1B workers offered benefits + eligibility on the same basis/criteria as U.S. workers.",
+   "evidence_required": [
+    "BenefitplaneligibilityrulesUSworkersvstheH1Bworkerwaitingperiods",
+    "plantiers",
+    "bonuseligibility",
+    "equity",
+    "PTOaccrual",
+    "401kmatch",
+    "actualenrollmentoffer"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.payment.free-and-clear",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(c)(7); cash-wage documentation 20 CFR 655.731(c)(8)/(c)(12). *(Re-verify (c)(7)/(c)(8) sub-letters against current eCFR; WHD Fact Sheet 62G corroborates.)*",
+   "summary": "Required wage paid \"cash in hand, free and clear, when due\" \u2014 net of only authorized deductions.",
+   "evidence_required": [
+    "Perperiodgrosspay",
+    "eachdeductionlinereasoncode",
+    "netcashpaid",
+    "paydatevsperiodend",
+    "payfrequency",
+    "IRSFICAwithholdingevidence"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.payment.start-clock",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(c)(6); DOL WHD Fact Sheet #62G. *(Re-verify (c)(6) sub-letter against current eCFR; Fact Sheet 62G confirms the 30/60-day rule substantively.)*",
+   "summary": "Wage obligation begins no later than 30 days after admission (or 60 days after becoming eligible if already in the U.S.).",
+   "evidence_required": [
+    "USadmissiondateI94",
+    "workeligibilitydateCOS",
+    "firstenteredemploymentdate",
+    "firstpaycheckdate"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.nonproductive.benching",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(c)(7)(i)-(ii); DOL WHD Fact Sheet #62I.",
+   "summary": "Full required wage paid during employment-related nonproductive time (no \"benching\").",
+   "evidence_required": [
+    "Perperiodhourswagepaid",
+    "employmentstatusactivevsbonafideterminatedwithUSCISnotificationreturntransportation",
+    "nonproductivityreasonemploymentrelatedvsvoluntary",
+    "LCAFTPThoursrange"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.parttime.proration",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(c)(7)(ii); 20 CFR 655.731(a) (required hourly wage). *(Re-verify the PT sub-letter against current eCFR.)*",
+   "summary": "PT H-1B workers paid the required wage for hours worked, and \u2265 the LCA-stated minimum hours.",
+   "evidence_required": [
+    "LCAFTPTflag",
+    "LCAstatedhoursminmaxorspecific",
+    "hourspaidperperiod",
+    "hourlyrequiredwagePWactualconvertedtohourly"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.deductions.authorized",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(c)(9)(i)-(iii).",
+   "summary": "Every deduction reducing an H-1B worker below the required wage falls within an authorized category.",
+   "evidence_required": [
+    "Perdeductionlinereasoncodedescription",
+    "amount",
+    "writtenauthorizationbool",
+    "whetheritrecoupsanemployerbenefitingcost",
+    "FMVactualcostreference",
+    "netwagevsrequiredwage"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.deductions.prohibited.business-expense",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(c)(9)(ii)-(iii) & (c)(10)-(c)(11); INA 214(c)(9) (ACWIA fee); penalty 20 CFR 655.810(b)(1). *(Re-verify (c)(10)/(c)(11) sub-letters against current eCFR; Fact Sheet 62H corroborates. ACWIA tiers $1,500/$750 are statutory \u2014 confirm current figures.)*",
+   "summary": "Employer H-1B business expenses (LCA/petition attorney fees, the ACWIA fee) NOT deducted from or shifted to the worker below the required wage.",
+   "evidence_required": [
+    "AnyworkerchargedeductionforLCAprep",
+    "petitionprep",
+    "attorneyfees",
+    "ACWIAtrainingfee",
+    "500fraudfee",
+    "employerFTEcountsets1",
+    "500vs750",
+    "resultingnetwage"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.deductions.prohibited.early-cessation-penalty",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.731(c)(10)(i) (penalty vs liquidated damages); penalty 20 CFR 655.810(b)(1). *(Re-verify (c)(10) sub-letter against current eCFR.)*",
+   "summary": "No penalty imposed on the worker for ceasing employment before an agreed date (distinguish bona fide liquidated damages).",
+   "evidence_required": [
+    "Existencetermsofanyearlydeparturerepaymentclause",
+    "amount",
+    "whetherareasonablepreestimateofloss",
+    "governingState",
+    "whetherACWIAfeeisembedded",
+    "whethertheworkeractuallypaid"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.remedy.back-wages",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.810(a).",
+   "summary": "On any wage/benefit shortfall, back wages (and fringe) = difference between required and paid for the full violation period.",
+   "evidence_required": [
+    "Perworkerperperiodrequiredwage",
+    "actualpaid",
+    "hours",
+    "deductionamounts",
+    "benefitvalues",
+    "violationstartend"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.remedy.cmp-tiers",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.810(b)(1)-(3); inflation adjustment 20 CFR Part 356 / DOL CMP Adjustment final rule.",
+   "summary": "Map a found violation to the correct CMP tier + per-violation cap.",
+   "evidence_required": [
+    "Violationtype",
+    "willfulnessdetermination",
+    "whetheraUSworkerwasdisplaced",
+    "petitionfilingdate90daywindows",
+    "affectedworkercount"
+   ]
+  },
+  {
+   "rule_id": "h1b.wage.remedy.debarment",
+   "regime": "wage-prevailing",
+   "regime_name": "Wage / Prevailing-Wage",
+   "citation": "20 CFR 655.810(d)(1)-(3).",
+   "summary": "Map a found violation to the minimum debarment (program-disqualification) period.",
+   "evidence_required": [
+    "Violationtierfromcmptiersrule",
+    "willfulness",
+    "displacementfinding"
+   ]
+  },
+  {
+   "rule_id": "h1b.petition.validity.approval_period",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(9)(iii)(A)(1); validity tied to LCA per 20 CFR 655.730.",
+   "summary": "H-1B petition (I-797) initial validity \u22643 years and \u2264 the LCA validity period.",
+   "evidence_required": [
+    "petitionreceiptNumber",
+    "validityStart",
+    "validityEnd",
+    "classificationspecialtyDODfashion",
+    "lcavalidityStart",
+    "lcavalidityEnd"
+   ]
+  },
+  {
+   "rule_id": "h1b.i94.admit_until.gap",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(13)(i)(A) (validity + 10-day pre/post); 8 CFR 214.1(l)(1) (10-day grace); admit-until controlling per 8 CFR 214.1(a)(3); unlawful-presence bars INA 212(a)(9)(B) / 8 USC 1182(a)(9)(B).",
+   "summary": "I-94 admit-until date governs authorized stay; flag the gap where I-94 expires before/after petition validity, and the 10-day pre/post admission grace.",
+   "evidence_required": [
+    "i94admitUntilDate",
+    "i94mostRecentEntryDate",
+    "petitionvalidityStartEnd",
+    "visaStampexpiryinformational",
+    "anypendingextensionreceiptfilingdate"
+   ]
+  },
+  {
+   "rule_id": "h1b.extension.filing_window",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(14); 8 CFR 214.2(h)(15)(i); 8 CFR 214.1(c)(4); 6-month advance-filing limit 8 CFR 214.2(h)(13)(iii)(D)(5)/(E)(5).",
+   "summary": "Extension/amendment of stay (I-129) filed up to 6 months before the start/current expiry, and MUST be filed before the current authorized stay expires to preserve status.",
+   "evidence_required": [
+    "petitionvalidityEnd",
+    "i94admitUntilDate",
+    "extensionrequestedStartDate",
+    "extensionfiledDate",
+    "beneficiarypresentInUSbool",
+    "employmentcontinuingbool"
+   ]
+  },
+  {
+   "rule_id": "h1b.extension.240_day_work_authorization",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 274a.12(b)(20); employer I-9 mechanics USCIS M-274 \u00a77.5.",
+   "summary": "On a TIMELY-filed extension with the SAME employer, the beneficiary may keep working up to 240 days past I-94 expiry while pending \u2014 and MUST stop at 240 days or on denial.",
+   "evidence_required": [
+    "extensionfiledDate",
+    "i94admitUntilDate",
+    "extensionsameEmployerbool",
+    "extensionsameClassificationbool",
+    "extensionstatuspendingapproveddenied",
+    "extensiondecisionDate"
+   ]
+  },
+  {
+   "rule_id": "h1b.grace_period.60_day_cessation",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.1(l)(2).",
+   "summary": "After cessation of H-1B employment, the beneficiary has up to 60 consecutive days (or until I-94 expiry, whichever shorter) of authorized stay \u2014 once per validity period.",
+   "evidence_required": [
+    "employmentterminatedDate",
+    "i94admitUntilDate",
+    "priorCessationThisValidityPeriodbool",
+    "newPetitionfiledDateorcosfiledDate",
+    "validityPeriodId"
+   ]
+  },
+  {
+   "rule_id": "h1b.portability.ac21_105",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(2)(i)(H); INA \u00a7214(n) / 8 USC 1184(n); AC21 \u00a7105. *(Note: 8 CFR 274a.12(b)(21) governs H-2, NOT H-1B \u2014 H-1B work auth flows from \u00a7214(n)+(h)(2)(i)(H).)*",
+   "summary": "An eligible H-1B beneficiary may begin new/concurrent employment upon the FILING of a nonfrivolous H-1B petition by the new employer \u2014 before approval \u2014 under AC21 \u00a7105 / INA \u00a7214(n).",
+   "evidence_required": [
+    "newPetitionfiledDate",
+    "requestedStartDate",
+    "nonfrivolousboolattested",
+    "beneficiarycurrentStatus",
+    "i94admitUntilDate",
+    "beneficiaryunauthorizedEmploymentSinceAdmissionbool",
+    "priorPortabilityChain"
+   ]
+  },
+  {
+   "rule_id": "h1b.max_stay.six_year_limit",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(13)(iii)(A); INA \u00a7214(g)(4) / 8 USC 1184(g)(4).",
+   "summary": "Total H-1B (+L) time \u22646 years; beyond 6 requires either a 1-year-abroad reset or an AC21 7th-year exemption.",
+   "evidence_required": [
+    "allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel",
+    "daysPhysicallyOutsideUSpervalidity",
+    "anyContinuousYearAbroaddates",
+    "proposedExtensionendDate"
+   ]
+  },
+  {
+   "rule_id": "h1b.max_stay.recapture",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(13)(iii)(C)(1)-(2).",
+   "summary": "Days spent physically outside the U.S. (>24h) during H-1B validity can be recaptured and added back to the 6-year max \u2014 petitioner must request and document them.",
+   "evidence_required": [
+    "I94arrivaldeparturetravelhistoryeveryentryexit",
+    "pertripduration",
+    "petitionvaliditywindows",
+    "evidenceinventoryflagspassportstampstickets"
+   ]
+  },
+  {
+   "rule_id": "h1b.ac21.106_lengthy_adjudication_7th_year",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(13)(iii)(D)(1)-(10); AC21 \u00a7106(a)/(b). *(This is the correct \u00a7106 home \u2014 the existing catalog references \u00a7106 under key `ac21_portability` incorrectly; that key is \u00a7204(j).)*",
+   "summary": "Beyond the 6-year cap, 1-year H-1B extensions available if a PERM labor cert OR I-140 was filed \u2265365 days ago (AC21 \u00a7106).",
+   "evidence_required": [
+    "permfiledDateandori140filedDate",
+    "permstatus",
+    "i140statusinclappeal",
+    "priorH1bMaxedOutbool",
+    "proposedExtensionstartDate",
+    "visaAvailableDate",
+    "aosOrIVApplicationfiledDate"
+   ]
+  },
+  {
+   "rule_id": "h1b.ac21.104c_per_country_7th_year",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(13)(iii)(E)(1)-(6); AC21 \u00a7104(c).",
+   "summary": "Beyond the 6-year cap, 3-year H-1B extensions available to a beneficiary with an APPROVED I-140 who cannot get the green card only due to per-country backlog (AC21 \u00a7104(c)).",
+   "evidence_required": [
+    "i140statusmustbeapproved",
+    "i140preferenceCategoryEB123",
+    "beneficiarycountryOfChargeability",
+    "priorityDate",
+    "currentVisaBulletinFinalActionDate",
+    "proposedExtensionstartDate"
+   ]
+  },
+  {
+   "rule_id": "h1b.amendment.material_change",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(2)(i)(E) (amended/new petition + new LCA); 8 CFR 214.2(h)(11)(i)(A) (immediate notification).",
+   "summary": "A material change in employment terms (or eligibility) requires an AMENDED or new I-129 (with a new LCA) before the change takes effect.",
+   "evidence_required": [
+    "currentjobSOC",
+    "title",
+    "duties",
+    "worksites",
+    "wage",
+    "hours",
+    "employerentity",
+    "approvedPetitionbaselineofthesame"
+   ]
+  },
+  {
+   "rule_id": "h1b.amendment.worksite_simeio",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "Matter of Simeio Solutions, LLC, 26 I&N Dec. 542 (AAO 2015); 8 CFR 214.2(h)(2)(i)(E); 8 CFR 214.2(h)(11)(i)(A); LCA worksite/posting 20 CFR 655.734; short-term placement 20 CFR 655.735.",
+   "summary": "Moving the worker to a worksite outside the existing MSA/area of intended employment (requiring a new LCA) is a MATERIAL CHANGE requiring an amended petition (Matter of Simeio Solutions).",
+   "evidence_required": [
+    "approvedPetitionworksiteswithMSA",
+    "newWorksiteaddressderivedMSA",
+    "newLCAcertifiedboolcertifiedDate",
+    "moveEffectiveDate",
+    "amendedPetitionfiledDate",
+    "shortTermPlacementbool",
+    "days"
+   ]
+  },
+  {
+   "rule_id": "h1b.termination.bona_fide_three_prong",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "20 CFR 655.731(a),(c); 8 CFR 214.2(h)(11)(i)(A) & (h)(11)(ii); 8 CFR 214.2(h)(4)(iii)(E) + INA \u00a7214(c)(5); enforcement 20 CFR 655 Subpart I.",
+   "summary": "To end H-1B wage liability and effect a \"bona fide termination\": (1) notify the beneficiary, (2) notify USCIS to withdraw the petition, and (3) offer return-transportation costs for an involuntary termination.",
+   "evidence_required": [
+    "employmentterminatedDate",
+    "terminationtypevoluntaryinvoluntary",
+    "employeeNoticegivenbooldate",
+    "uscisWithdrawalsentDate",
+    "returnTransportofferedbooldateinvoluntary",
+    "lcarequiredWage",
+    "wagesPaidThrough",
+    "beneficiarylastForeignResidence"
+   ]
+  },
+  {
+   "rule_id": "h1b.termination.withdraw_petition_lca",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(h)(11)(ii); 8 CFR 214.2(h)(11)(i)(A); LCA withdrawal 20 CFR 655.750(b).",
+   "summary": "On termination, withdraw the I-129 with USCIS and withdraw/cancel the LCA with DOL to stop ongoing obligations.",
+   "evidence_required": [
+    "petitionreceiptNumber",
+    "approvingServiceCenter",
+    "uscisWithdrawalsentDate",
+    "lcacaseNumber",
+    "lcaWithdrawalsentDate",
+    "employmentterminatedDate"
+   ]
+  },
+  {
+   "rule_id": "h1b.maintenance_of_status",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.1(a)(3); 8 CFR 214.1(c)(4); 8 CFR 214.2(h)(13)(i)(A).",
+   "summary": "Continuous maintenance of status: work only within the authorized petition window, keep a valid unexpired I-94, no unauthorized employment; an extension cannot be approved if status lapsed.",
+   "evidence_required": [
+    "timelineofpetitionvaliditywindows",
+    "I94admituntil",
+    "allemploymentstartstopemployerworksite",
+    "extensionportfilingdatesdecisions",
+    "graceperiodinvocationstheunionofinputsfromtheotherh1brules"
+   ]
+  },
+  {
+   "rule_id": "h1b.capgap.f1_to_h1b",
+   "regime": "h1b-status",
+   "regime_name": "H-1B Status",
+   "citation": "8 CFR 214.2(f)(5)(vi); H-1B Modernization final rule, 89 FR 103054 (Dec 18, 2024) (cap-gap end \u2192 April 1).",
+   "summary": "An F-1 student who is the beneficiary of a timely-filed, cap-subject H-1B change-of-status petition gets automatic extension of F-1 D/S and OPT work authorization until April 1 of the relevant fiscal year (or H-1B start, whichever earlier).",
+   "evidence_required": [
+    "f1OptauthorizationEndDate",
+    "h1bPetitioncapSubjectbool",
+    "requestsCOSbool",
+    "filedDate",
+    "statuspendingapproveddeniedwithdrawn",
+    "validityStart",
+    "capSelectionYear"
+   ]
+  },
+  {
+   "rule_id": "i129.hsupp.edition.mandatory_2026",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "USCIS Form I-129 edition 02/27/26; form-edition acceptance policy on the I-129 forms page; PRA docket USCIS-2025-0040.",
+   "summary": "H-1B petition filed on/after 2026-04-01 uses Form I-129 edition 02/27/26 (not 01/17/25).",
+   "evidence_required": [
+    "petitionformEditionDate",
+    "petitionfilingDateorintendedpostmark",
+    "petitionclassificationH1BH1B1"
+   ]
+  },
+  {
+   "rule_id": "i129.hsupp.q7_11.completeness",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "Form I-129 (02/27/26), H-1B and H-1B1 Data Collection and Filing Fee Exemption Supplement, Questions 7\u201311 (form page 21); Instructions for Form I-129, H Classification / Data Collection Supplement section.",
+   "summary": "All five new position-requirement fields (Q7\u2013Q11) on the H-1B Data Collection / H Classification Supplement are completed (non-blank).",
+   "evidence_required": [
+    "hSuppq7_educationLevelRequired",
+    "q8_fieldsOfStudy",
+    "q9_yearsExperienceRequired",
+    "q10_specialSkills",
+    "q11_numberSupervisedsupervisedTitles"
+   ]
+  },
+  {
+   "rule_id": "lca.wagelevel.consistency.education",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "DOL ETA Prevailing Wage Determination Policy Guidance (Nov-2009), Appendix A Step 3 (Education); 20 CFR 655.731; cross-ref 8 CFR 214.2(h)(4)(iii)(A).",
+   "summary": "Stated minimum education (I-129 Q7) consistent with the LCA prevailing-wage LEVEL and the SOC/OEWS occupation.",
+   "evidence_required": [
+    "hSuppq7_educationLevelRequired",
+    "lcawageLevelIIV",
+    "lcasocCode",
+    "socusualEducationCategory",
+    "lcaprevailingWageSource"
+   ]
+  },
+  {
+   "rule_id": "lca.wagelevel.consistency.experience",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "DOL ETA PW Guidance (Nov-2009), Appendix A Step 2 (Experience); 20 CFR 655.731.",
+   "summary": "Stated minimum experience (I-129 Q9) consistent with the LCA wage level.",
+   "evidence_required": [
+    "hSuppq9_yearsExperienceRequired",
+    "lcawageLevel",
+    "lcasocCode",
+    "socsvpRange"
+   ]
+  },
+  {
+   "rule_id": "lca.wagelevel.consistency.specialskills",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "DOL ETA PW Guidance (Nov-2009), Appendix A Step 4 (Special Skills, Knowledge, Licensure); 20 CFR 655.731.",
+   "summary": "Stated special skills (I-129 Q10) consistent with the LCA wage level.",
+   "evidence_required": [
+    "hSuppq10_specialSkills",
+    "lcawageLevel",
+    "lcasocCode",
+    "socentryLevelSkillBaseline"
+   ]
+  },
+  {
+   "rule_id": "lca.wagelevel.consistency.supervisory",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "DOL ETA PW Guidance (Nov-2009), Appendix A Step 5 (Supervisory Duties); 20 CFR 655.731.",
+   "summary": "Supervisory duties (I-129 Q11 > 0) reconciled with the LCA wage level WITHOUT auto-inflating to Level IV.",
+   "evidence_required": [
+    "hSuppq11_numberSupervised",
+    "q11_supervisedTitles",
+    "lcawageLevel",
+    "lcasocCode",
+    "socisSupervisoryOccupationflag"
+   ]
+  },
+  {
+   "rule_id": "i129.hsupp.q8.field_directly_related",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "8 CFR 214.2(h)(4)(ii); INA 214(i)(1) (8 USC 1184(i)(1)); \"Modernizing H-1B Requirements\" final rule, 89 FR 103054 (Dec 18, 2024), RIN 1615-AC70, eff. 01/17/2025.",
+   "summary": "Field(s) of study required (I-129 Q8) directly related to the duties and to a specific specialty (not a general degree).",
+   "evidence_required": [
+    "hSuppq8_fieldsOfStudy",
+    "positiondutiesText",
+    "positionsocCode",
+    "petitiondegreeRequirement"
+   ]
+  },
+  {
+   "rule_id": "specialty.beneficiary.qualifications.match",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "8 CFR 214.2(h)(4)(iii)(C)(1)-(4) and (D) (equivalency, incl. the 3:1 ratio); INA 214(i)(2).",
+   "summary": "The beneficiary actually holds the qualification the position requires (degree/field/license/equivalency), matching Q7/Q8.",
+   "evidence_required": [
+    "beneficiarydegreeLevel",
+    "degreeField",
+    "institutionAccreditedbool",
+    "licenses",
+    "yearsRelevantExperience",
+    "hSuppq7_educationLevelRequired",
+    "q8_fieldsOfStudy",
+    "evidencecredentialEvaluation"
+   ]
+  },
+  {
+   "rule_id": "specialty.bona_fide_position.start_date",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "8 CFR 214.2(h)(4)(iii)(F); \"Modernizing H-1B Requirements\" final rule, 89 FR 103054 (Dec 18, 2024), eff. 01/17/2025.",
+   "summary": "The petitioner has a bona fide specialty-occupation position available for the beneficiary as of the requested start date.",
+   "evidence_required": [
+    "petitionrequestedStartDate",
+    "evidenceworkAvailabilitySOWworkorderitineraryproject",
+    "placementisThirdPartybool",
+    "lcaworksites"
+   ]
+  },
+  {
+   "rule_id": "xdoc.consistency.registration_lca_i129.soc_wagelevel",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "20 CFR 655.731 (required wage = greater of actual or prevailing); 8 CFR 214.2(h)(4)(iii)(A)/(E); DOL ETA PW Guidance (Nov-2009) level methodology.",
+   "summary": "SOC code and wage level consistent across the H-1B registration, the certified LCA, and the I-129 (incl. Q7\u2013Q11) \u2014 no level-shopping or post-hoc downgrade.",
+   "evidence_required": [
+    "registrationsocCode",
+    "registrationwageLevelProxyifcaptured",
+    "lcasocCode",
+    "lcawageLevel",
+    "lcaprevailingWage",
+    "lcaactualWage",
+    "hSuppq7q11",
+    "i129socCode"
+   ]
+  },
+  {
+   "rule_id": "lca.required_wage.greater_of",
+   "regime": "i129-supplement",
+   "regime_name": "I-129 H-Supplement (02/27/26 edition + specialty occupation)",
+   "citation": "20 CFR 655.731(a) (first LCA requirement \u2014 required wage rate); INA 212(n)(1) (8 USC 1182(n)(1)).",
+   "summary": "Wage offered/paid is at least the greater of the prevailing wage (at the certified level) and the actual wage.",
+   "evidence_required": [
+    "offerwage",
+    "lcaprevailingWage",
+    "lcawageLevel",
+    "lcaactualWageemployerpaydataforsimilarworkers",
+    "lcaareaOfEmployment",
+    "lcasocCode"
+   ]
+  },
+  {
+   "rule_id": "l1.qualifying.relationship.exists",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(1)(ii)(G) (qualifying organization); (I) Parent; (J) Branch; (K) Subsidiary; (L) Affiliate; INA 101(a)(15)(L) (8 USC 1101(a)(15)(L)).",
+   "summary": "A qualifying corporate relationship (parent/branch/subsidiary/affiliate) exists between the U.S. petitioner and the foreign entity.",
+   "evidence_required": [
+    "petitioner_entity_id",
+    "foreign_entity_id",
+    "relationship_type",
+    "ownership_percent",
+    "control_evidence_flagstockledgeroperatingagreementboardminutesauditedfinancialstaxreturns",
+    "joint_venture_flag",
+    "veto_power_flag",
+    "common_parent_or_individual_owner_id"
+   ]
+  },
+  {
+   "rule_id": "l1.qualifying.relationship.maintained",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(1)(ii)(G)(2) (doing business in 2 countries for duration); (l)(1)(ii)(H) (doing business definition); (l)(9)(iii)(A)(1) (revocation); DOS 9 FAM 402.12.",
+   "summary": "The qualifying relationship is MAINTAINED, and the petitioner continues doing business in the U.S. AND at least one other country, throughout the entire L stay.",
+   "evidence_required": [
+    "us_doing_business_flag",
+    "foreign_doing_business_flag",
+    "foreign_entity_active_status",
+    "relationship_still_valid_flag",
+    "last_verified_date",
+    "corporate_change_eventsmergeracquisitiondissolutionsalewithdates",
+    "revenue_or_activity_evidence_per_entity"
+   ]
+  },
+  {
+   "rule_id": "l1.oneyear.foreign.employment",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(1)(ii)(A) (intracompany transferee / continuous year / tolling); (l)(3)(iii); (l)(3)(iv); USCIS PM Vol 2 Part L Ch 2.",
+   "summary": "Beneficiary has \u22651 continuous year of full-time employment abroad with a qualifying organization within the 3 years immediately preceding the petition (or admission).",
+   "evidence_required": [
+    "foreign_employment_start_date",
+    "end_date",
+    "employment_full_time_flag",
+    "petition_filing_date",
+    "beneficiary_us_presence_periodssameemployer",
+    "us_business_pleasure_trip_days",
+    "foreign_role_capacitymanagerialexecutivespecialized_knowledge"
+   ]
+  },
+  {
+   "rule_id": "l1a.managerial.capacity",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(1)(ii)(B); INA 101(a)(44)(A) (8 USC 1101(a)(44)(A)); USCIS PM Vol 2 Part L Ch 3.",
+   "summary": "(L-1A) The U.S. position is in a bona fide MANAGERIAL capacity per all four elements.",
+   "evidence_required": [
+    "requested_classificationL1A",
+    "job_title",
+    "job_duties_text",
+    "org_chart",
+    "direct_reports_count",
+    "direct_reports_are_professional_flag",
+    "hire_fire_authority_flag",
+    "essential_function_managed"
+   ]
+  },
+  {
+   "rule_id": "l1a.executive.capacity",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(1)(ii)(C); INA 101(a)(44)(B) (8 USC 1101(a)(44)(B)); USCIS PM Vol 2 Part L Ch 3.",
+   "summary": "(L-1A) The U.S. position is in a bona fide EXECUTIVE capacity per all four elements.",
+   "evidence_required": [
+    "requested_classificationL1A",
+    "job_title",
+    "job_duties_text",
+    "org_chart",
+    "reports_toboardstockholdershigher_exec",
+    "major_component_or_function_directed",
+    "policy_setting_authority_flag",
+    "discretionary_authority_scope"
+   ]
+  },
+  {
+   "rule_id": "l1b.specialized.knowledge",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(1)(ii)(D); (l)(1)(ii)(E); INA 214(c)(2)(B) (8 USC 1184(c)(2)(B)); USCIS PM Vol 2 Part L Ch 4.",
+   "summary": "(L-1B) The beneficiary possesses, and the role requires, specialized knowledge per regulation and statute.",
+   "evidence_required": [
+    "requested_classificationL1B",
+    "knowledge_typespecial_product_knowledgeadvanced_process_knowledge",
+    "description_of_knowledge",
+    "how_acquired",
+    "time_to_train_replacement",
+    "uniqueness_within_company",
+    "is_professional_flag",
+    "international_market_application_flag"
+   ]
+  },
+  {
+   "rule_id": "l1b.thirdparty.worksite.bar",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "INA 214(c)(2)(F)(i)-(ii) (8 USC 1184(c)(2)(F)); USCIS PM Vol 2 Part L Ch 4 (off-site placement); DOS 9 FAM 402.12.",
+   "summary": "(L-1B only) If the beneficiary will be stationed PRIMARILY at an unaffiliated employer's worksite, the statutory third-party-placement ineligibility bar does NOT apply.",
+   "evidence_required": [
+    "primary_worksite_is_third_party_flag",
+    "unaffiliated_client_entity",
+    "who_controls_supervisespetitionerclientboth",
+    "product_or_service_provided",
+    "specialized_knowledge_specific_to_petitioner_flag",
+    "labor_for_hire_indicator",
+    "itinerary_of_worksites"
+   ]
+  },
+  {
+   "rule_id": "l1.newoffice.initial",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(1)(ii)(F); (l)(3)(v); (l)(3)(vi); (l)(7)(i)(A)(3); USCIS PM Vol 2 Part L Ch 2.",
+   "summary": "New-office L-1 petitions (U.S. entity doing business <1 year) meet the heightened evidentiary requirements and are approved for \u22641 year.",
+   "evidence_required": [
+    "new_office_flag",
+    "us_entity_doing_business_start_date",
+    "physical_premises_secured_flaglease_evidence",
+    "business_plan_flagscopeorgfinancial_goals",
+    "us_investment_amount",
+    "foreign_entity_financial_ability_evidence",
+    "requested_validity_period",
+    "beneficiary_capacity"
+   ]
+  },
+  {
+   "rule_id": "l1.newoffice.extension",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(14)(ii)(A)-(E); (l)(7)(i)(A)(3); (l)(1)(ii)(H).",
+   "summary": "An L-1 new-office extension is supported by evidence the office is actually doing business and (L-1A) now supports a managerial/executive position.",
+   "evidence_required": [
+    "original_new_office_flag",
+    "current_doing_business_evidence12months",
+    "employee_count",
+    "positions_held",
+    "payroll_evidence",
+    "financial_statements",
+    "prior_year_duties",
+    "extended_duties"
+   ]
+  },
+  {
+   "rule_id": "l1a.max.stay.seven.years",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "INA 214(c)(2)(D)(i) (8 USC 1184(c)(2)(D)); 8 CFR 214.2(l)(12)(i); (l)(15)(ii); USCIS PM Vol 2 Part L Ch 9 / Part M Ch 9.",
+   "summary": "(L-1A) Total stay in managerial/executive capacity \u22647 years.",
+   "evidence_required": [
+    "classificationL1A",
+    "cumulative_us_l_days_or_years",
+    "admission_history",
+    "periods_physically_outside_us",
+    "days_in_other_status_H_or_L",
+    "current_validity_end",
+    "requested_extension_period",
+    "recapture_claim_days"
+   ]
+  },
+  {
+   "rule_id": "l1b.max.stay.five.years",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "INA 214(c)(2)(D)(ii) (8 USC 1184(c)(2)(D)); 8 CFR 214.2(l)(12)(i); (l)(15)(ii); USCIS PM Vol 2 Part L Ch 9.",
+   "summary": "(L-1B) Total stay in specialized-knowledge capacity \u22645 years.",
+   "evidence_required": [
+    "classificationL1B",
+    "cumulative_us_l_days_or_years",
+    "admission_history",
+    "periods_physically_outside_us",
+    "days_in_other_status_H_or_L",
+    "current_validity_end",
+    "requested_extension_period",
+    "recapture_claim_days"
+   ]
+  },
+  {
+   "rule_id": "l1.max.stay.exceptions",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(12)(ii).",
+   "summary": "Recapture / commuter / intermittent exceptions to the 5- and 7-year caps are correctly applied.",
+   "evidence_required": [
+    "exception_claimed_flag",
+    "us_employment_patternseasonalintermittentaggregate_days_per_yearcommuter",
+    "us_residence_continual_flag",
+    "days_in_us_per_year",
+    "tax_returns",
+    "arrival_departure_records",
+    "foreign_residence_evidence"
+   ]
+  },
+  {
+   "rule_id": "l1.individual.validity.threeyears",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(7)(i)(A)(2); (l)(7)(i)(A)(3); (l)(15)(ii).",
+   "summary": "Individual (non-new-office) L-1 petition validity \u22643 years and matches the period of established need.",
+   "evidence_required": [
+    "petition_typeindividualblanket",
+    "new_office_flag",
+    "established_need_period",
+    "approved_validity_start",
+    "approved_validity_end",
+    "extension_increment"
+   ]
+  },
+  {
+   "rule_id": "l1.blanket.eligibility",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(4)(i)(A)-(D); (l)(4)(ii); (l)(7)(i)(B)(2); INA 214(c)(2)(A) (8 USC 1184(c)(2)(A)).",
+   "summary": "A blanket L petition meets all four blanket-eligibility thresholds.",
+   "evidence_required": [
+    "blanket_flag",
+    "commercial_trade_or_services_flag_all_entities",
+    "us_office_doing_business_years",
+    "count_branches_subs_affiliates",
+    "count_L_approvals_prior_12mo",
+    "combined_us_annual_sales",
+    "us_employee_count"
+   ]
+  },
+  {
+   "rule_id": "l1.blanket.i129s",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(5)(ii)(A)-(G); (l)(1)(ii)(E); (l)(11) (admission); INA 101(a)(32).",
+   "summary": "Each beneficiary entering under an approved blanket uses a properly completed Form I-129S and the consular/admission documents are valid and within time limits.",
+   "evidence_required": [
+    "blanket_flag",
+    "i129s_present_flag",
+    "i129s_date",
+    "visa_application_date",
+    "i797_blanket_copy_flag",
+    "beneficiary_capacitymgrexecSK_professional",
+    "is_professional_flagdegreeperINA101a32",
+    "admission_validity_end"
+   ]
+  },
+  {
+   "rule_id": "l1.admission.i94.validity",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(11); 8 CFR 214.1(l)(1)-(2) (period of stay / 10-day brackets / 60-day grace on cessation); (l)(7)(i)(A)(2).",
+   "summary": "The beneficiary's admission / I-94 period does not exceed the petition (or blanket) validity, and status is maintained within it.",
+   "evidence_required": [
+    "i94_admit_until_date",
+    "petition_validity_end",
+    "blanket_flag",
+    "current_date",
+    "work_start_date",
+    "work_end_date",
+    "grace_period_flag",
+    "cessation_of_employment_date"
+   ]
+  },
+  {
+   "rule_id": "l1.amendment.material.change",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(7)(i)(C); (l)(9)(iii)(A) (revocation grounds); USCIS PM Vol 2 Part L.",
+   "summary": "An amended L-1 petition is filed on a material change in the approved relationship, employment capacity, or other eligibility fact.",
+   "evidence_required": [
+    "change_event_typerelationshipblanket_entitycapacityworksitedutiessalaryother",
+    "change_date",
+    "amended_petition_filed_flag",
+    "amended_petition_filed_date",
+    "new_capacity",
+    "new_worksite",
+    "duties_changed_flag"
+   ]
+  },
+  {
+   "rule_id": "l1.revocation.grounds",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(9)(i)-(iii); INA 101(a)(15)(L).",
+   "summary": "No automatic- or notice-revocation ground under 8 CFR 214.2(l)(9) is present; petitioner met its notify-of-changes duty.",
+   "evidence_required": [
+    "entity_still_qualifying_flag",
+    "beneficiary_still_eligible_flag",
+    "petition_facts_true_flag",
+    "petition_withdrawn_flag",
+    "blanket_indefinite_validity_requested_flag",
+    "blanket_years_since_last_use",
+    "employment_terms_change_flag",
+    "change_notified_flag"
+   ]
+  },
+  {
+   "rule_id": "l1.extension.timeliness",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(15)(i)-(ii); (l)(14)(i).",
+   "summary": "Extension of stay (and concurrent petition extension) filed before the current authorized stay expires, increments within caps.",
+   "evidence_required": [
+    "original_petition_validity_end",
+    "extension_filing_date",
+    "beneficiary_physically_present_us_flag",
+    "requested_increment",
+    "cumulative_l_time",
+    "classificationL1AL1B"
+   ]
+  },
+  {
+   "rule_id": "l1.dual.intent.dependents",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "8 CFR 214.2(l)(16) (dual intent); (l)(7)(ii) (spouse/dependents); INA 214(c)(2)(E) (8 USC 1184(c)(2)(E)) (L-2 spouse employment); 8 CFR 274a.12(a) (L-2 spouse employment incident to status).",
+   "summary": "L-1 dual intent is respected (pending PERM/I-140/I-485 is not a denial basis); L-2 dependents properly classified and (spouse) work-authorized.",
+   "evidence_required": [
+    "pending_perm_or_i140_or_i485_flag",
+    "dependent_recordsrelationshipspousechild",
+    "dependent_statusL2",
+    "l2_spouse_employment_flag",
+    "child_age",
+    "child_marital_status",
+    "dependent_admit_until_date"
+   ]
+  },
+  {
+   "rule_id": "l1.fraud.misrepresentation",
+   "regime": "l1-visa",
+   "regime_name": "L-1 Intracompany Transferee",
+   "citation": "INA 212(a)(6)(C)(i) (8 USC 1182(a)(6)(C)(i)); 8 CFR 214.2(l)(9)(iii)(A)(4); 18 USC 1001; 18 USC 1546; USCIS PM Vol 8 Part J.",
+   "summary": "No fraud or willful material misrepresentation in the L petition / supporting evidence (statement of facts true and correct).",
+   "evidence_required": [
+    "petition_facts_verified_flag",
+    "supporting_doc_authenticity_flags",
+    "discrepancy_logclaimedvsactualdates",
+    "duties",
+    "orgstructure",
+    "premises",
+    "payroll",
+    "site_visit_findings"
+   ]
+  },
+  {
+   "rule_id": "opt.ead.required",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(11)(i)(D); 8 CFR 274a.12(c)(3)(i)(A)-(C).",
+   "summary": "F-1 student performs OPT/STEM-OPT work only within the validity dates of an approved EAD (Form I-766) of the correct class.",
+   "evidence_required": [
+    "EADclassc3Ac3Bc3C",
+    "EADvalidfrom",
+    "validto",
+    "actualemploymentstart",
+    "programenddate",
+    "employmentperiodswithdates"
+   ]
+  },
+  {
+   "rule_id": "opt.employment.related_to_field",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10) (intro, \"directly related to their major area of study\"); 8 CFR 214.2(f)(10)(ii)(C)(4) (STEM \"directly related to the degree\").",
+   "summary": "All OPT employment is directly related to the student's major area of study (post-completion) / qualifying STEM degree (STEM extension).",
+   "evidence_required": [
+    "StudentmajorCIP",
+    "qualifyingdegreeSTEM",
+    "jobtitle",
+    "dutiesdescription",
+    "employerSOCindustryForSTEMtheI983Section5howtrainingrelatestotheSTEMdegreenarrative"
+   ]
+  },
+  {
+   "rule_id": "opt.unemployment.90day",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(E).",
+   "summary": "Student on post-completion OPT (without STEM extension) has not accrued >90 days of unemployment.",
+   "evidence_required": [
+    "OPTEADstart",
+    "end",
+    "employmentstartenddateshoursweekperemployer",
+    "qualifyingunpaidvolunteerperiods",
+    "approvedtravel"
+   ]
+  },
+  {
+   "rule_id": "stemopt.eligibility.degree_and_list",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(1) (accreditation), (C)(2) (DHS-approved degree / list / 24-month / 2-lifetime), (C)(3) (previously obtained STEM degree, 10-year).",
+   "summary": "STEM extension based on a qualifying STEM-designated degree (bachelor's/master's/doctoral) from an accredited SEVP-certified U.S. institution, in a category on the current STEM Designated Degree Program List.",
+   "evidence_required": [
+    "Degreelevel",
+    "CIP",
+    "conferraldate",
+    "institutionSEVPcertificationaccreditation",
+    "currentSTEMDesignatedDegreeProgramListversioned",
+    "countofpriorSTEMextensions",
+    "basiscurrentorpreviouslyobtained"
+   ]
+  },
+  {
+   "rule_id": "stemopt.employer.everify_enrolled",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(5).",
+   "summary": "The STEM OPT employer is enrolled in and in good standing with E-Verify, with a valid E-Verify company ID (or client company ID via designated agent) and an EIN.",
+   "evidence_required": [
+    "EmployerEVerifyCompanyIDorclientcompanyID",
+    "enrollmentstatusgoodstandingflag",
+    "EIN",
+    "designatedagentuse",
+    "STEMOPTemploymentstartend"
+   ]
+  },
+  {
+   "rule_id": "stemopt.i983.required_and_complete",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(7)(i)-(iii).",
+   "summary": "An individualized, fully completed and signed Form I-983 is on file before the DSO recommends the extension, customized to the student.",
+   "evidence_required": [
+    "I983onfileflag",
+    "studentsignaturedate",
+    "employerOfficialwithSignatoryAuthoritysignaturedate",
+    "Sections16completeness",
+    "nonemptytrainingplanfields",
+    "employerEINEVerifyIDontheform"
+   ]
+  },
+  {
+   "rule_id": "stemopt.compensation.commensurate",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(8).",
+   "summary": "STEM OPT duties, hours, and compensation commensurate with similarly situated U.S. workers; \u226520 hours/week.",
+   "evidence_required": [
+    "Hoursweek",
+    "compensationamountstructure",
+    "employerscomparableUSworkerwagedataorattestation",
+    "areawagebenchmark",
+    "countofsimilarlysituatedUSworkers",
+    "compensationreductionsovertime"
+   ]
+  },
+  {
+   "rule_id": "stemopt.employer.attestations",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(10)(i)-(iii).",
+   "summary": "The employer's I-983 attestations are present and truthful: sufficient resources/personnel to train; will not replace a U.S. worker; the opportunity assists training goals.",
+   "evidence_required": [
+    "I983attestationcheckboxessignature",
+    "employerheadcounttrainingpersonnelattheworksite",
+    "recentlayoffRIFfurloughrecords",
+    "trainingresourcesdescription",
+    "worksitelocations"
+   ]
+  },
+  {
+   "rule_id": "stemopt.bona_fide_employer",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(7) (I-983 signer must be the employer providing training) with USCIS Policy Manual Vol. 2 Pt. F Ch. 5 (bona fide employer-employee relationship).",
+   "summary": "Bona fide employer-employee relationship: the I-983 signer is the same entity that employs the student and provides the training; no prohibited third-party/staffing placement where the signer is not the trainer.",
+   "evidence_required": [
+    "I983employernameEINvsemployerofrecordnameEIN",
+    "worksiteaddressvsemployeraddress",
+    "staffingtempagencyinvolved",
+    "trainingsupervisionpersonnelattheworksite",
+    "selfemploymentflag",
+    "clientsitearrangementflag"
+   ]
+  },
+  {
+   "rule_id": "stemopt.selfeval.12month_and_final",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(9)(i).",
+   "summary": "Student submits the 12-month self-evaluation and the concluding (final) evaluation, each signed by student and employer, to the DSO on time.",
+   "evidence_required": [
+    "STEMEADstart",
+    "opportunityend",
+    "12monthevalsubmissiondate",
+    "finalevalsubmissiondate",
+    "studentemployersignaturesoneach",
+    "DSOreceivedtimestamps"
+   ]
+  },
+  {
+   "rule_id": "stemopt.material_change.report_10day",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(7)(iv) (new employer, 10 days) and (f)(10)(ii)(C)(9)(ii) (material change / modified I-983).",
+   "summary": "Material changes to the I-983 / training plan reported to the DSO via an amended I-983 at the earliest available opportunity; new employer triggers a new I-983 within 10 days.",
+   "evidence_required": [
+    "Changeeventswithdatestypesemployerchange",
+    "EINchange",
+    "compchangewhethertiedtohours",
+    "hourschangemagnitude",
+    "learningobjectiveoversightchange",
+    "newopportunitystartdate",
+    "amendedI983submissiondate",
+    "DSOreceiveddate"
+   ]
+  },
+  {
+   "rule_id": "student.report.10day_name_addr_employer",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(12)(ii)(A) (STEM 10-day); 8 CFR 214.2(f)(17) (general name/address, 10 days student / 21 days DSO).",
+   "summary": "Student reports to the DSO any change of legal name, residential/mailing address, employer name/address, and/or loss of employment within 10 days (STEM OPT); general F-1 name/address within 10 days.",
+   "evidence_required": [
+    "Changeeventtypenameaddressemployernameemployeraddresslossofemployment",
+    "changedate",
+    "studentreporttoDSOdate",
+    "DSOSEVISupdatedate"
+   ]
+  },
+  {
+   "rule_id": "student.report.6month_validation",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(12)(ii)(B).",
+   "summary": "Student on STEM OPT completes the recurring validation report every 6 months, confirming the (f)(12)(ii)(A) information has not changed, within 10 business days of each reporting date.",
+   "evidence_required": [
+    "STEMOPTstart",
+    "end",
+    "F1statusexpiration",
+    "validationreportsubmissiondates",
+    "businessdaycalendar"
+   ]
+  },
+  {
+   "rule_id": "stemopt.employer.report_termination_5day",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(6).",
+   "summary": "The employer reports the student's termination/departure to the DSO within 5 business days when it occurs before the end of the authorized OPT period.",
+   "evidence_required": [
+    "Terminationresignationdeparturedate",
+    "lastdayworkedlastattendancedate",
+    "employerknowledgedate",
+    "consecutiveunexcusedabsencebusinessdays",
+    "employerreporttoDSOdate",
+    "businessdaycalendar",
+    "authorizedOPTenddate"
+   ]
+  },
+  {
+   "rule_id": "stemopt.dhs.site_visit_authority",
+   "regime": "f1-opt-stem",
+   "regime_name": "F-1 OPT / STEM OPT",
+   "citation": "8 CFR 214.2(f)(10)(ii)(C)(11).",
+   "summary": "Employer on notice of and prepared for DHS site-visit authority (ability/resources to provide structured training consistent with the I-983), with awareness that visits get 48 hours' notice except when complaint-triggered.",
+   "evidence_required": [
+    "Employerparticipationflag",
+    "currentI983onfile",
+    "evidenceoftrainingresourcespersonnelatworksite",
+    "worksiteaddresses",
+    "sitevisithistoryoutcomes"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.worksite_matches_lca",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(4)(i)(B)(1); USCIS ASVVP program description; LCA worksite basis 20 CFR 655.715 / 655.730(c)(5).",
+   "summary": "Beneficiary's ACTUAL physical work location matches the worksite on the certified LCA and the approved petition.",
+   "evidence_required": [
+    "Perbeneficiaryactualcurrentworksiteremoteworkflaghomeaddress",
+    "certifiedLCAworksitesMSA",
+    "approvedpetitionworksite",
+    "LCAvaliditydates",
+    "petitionreceiptapproval",
+    "effectivedateofanyworksitechange"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.actual_wage_ge_petition_wage",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "20 CFR 655.731(a)(1)-(2); 8 CFR 214.2(h)(4)(i)(B)(1); penalties 20 CFR 655.810.",
+   "summary": "Beneficiary's ACTUAL paid wage \u2265 the wage on the petition/LCA (which must itself be the greater of actual or prevailing wage).",
+   "evidence_required": [
+    "PerbeneficiaryactualpayratebasisFTPT",
+    "LCAattestedwagebasis",
+    "prevailingwagedeterminationvaluesourcelevel",
+    "actualwagesystemrate",
+    "payrollevidence",
+    "benchingnonproductiveperiods"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.title_duties_soc_match",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(4)(i)(B)(1); specialty-occupation/SOC basis 8 CFR 214.2(h)(4)(ii) and LCA SOC 20 CFR 655.730(c)(4); material-change amended-petition 8 CFR 214.2(h)(2)(i)(E).",
+   "summary": "Beneficiary's ACTUAL job title, duties, and SOC match the petition and LCA SOC.",
+   "evidence_required": [
+    "PerbeneficiaryactualtitlecurrentSOC",
+    "actualdutiesmanagerHR",
+    "petitiontitle",
+    "SOC",
+    "duties",
+    "LCASOC",
+    "datenatureofanyrolechange"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.hours_match_petition",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(4)(i)(B)(1); LCA hours basis 20 CFR 655.730(c)(5); benching/required-wage 20 CFR 655.731(c)(7).",
+   "summary": "Beneficiary's ACTUAL hours / FT-vs-PT status match the petition and LCA.",
+   "evidence_required": [
+    "PerbeneficiaryactualFTPTweeklyhours",
+    "petitionFTPT",
+    "LCAFTPTifPThoursrange",
+    "benchingnonproductivetimeflagdates"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.employer_employee_right_to_control",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(4)(ii) (United States employer); 8 CFR 214.2(h)(4)(i)(B)(1) (third-party worksite inspection authority); USCIS PM-602-0157 (Contracts and Itineraries).",
+   "summary": "A bona fide employer-employee relationship with right-to-control exists between petitioner and beneficiary (critical for third-party/client-site placements).",
+   "evidence_required": [
+    "Perbeneficiaryplacementplacementtypedirectvsthirdparty",
+    "endclientworksite",
+    "contractSOWchainpetitionervendorsclientvaliditydates",
+    "whosupervisesassigns",
+    "petitionerslegalpresenceproof",
+    "serviceofprocessagent",
+    "IRStaxID",
+    "itineraryofservices"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.entity_physical_existence",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(4)(i)(B)(1); USCIS ASVVP program description; VIBE program (validation of business existence).",
+   "summary": "The petitioning entity physically/operationally exists at the address USCIS has on file.",
+   "evidence_required": [
+    "Petitionerofrecordaddresses",
+    "occupancyevidenceleaseutilitybusinesslicense",
+    "independentbusinessexistenceverificationVIBEDBstateregistry",
+    "employeecountatsite",
+    "flagifaregisteredagentvirtualoffice"
+   ]
+  },
+  {
+   "rule_id": "fdns.readiness.petition_copy_onhand",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(4)(i)(B)(1); USCIS ASVVP program description.",
+   "summary": "A complete copy of the approved/filed petition (I-129 + H or L supplement + supporting evidence + I-797) is retrievable on demand at the worksite/HQ.",
+   "evidence_required": [
+    "PerbeneficiarystoreddocumentsetstatusfiledI129",
+    "HLsupplement",
+    "supportingevidencebundle",
+    "certifiedLCA",
+    "I797",
+    "documentlocationowner",
+    "lastverifiedpresentdate"
+   ]
+  },
+  {
+   "rule_id": "fdns.readiness.public_access_file_onhand",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "20 CFR 655.760(a) (contents + 1-working-day) and 655.760(c) (retention); DOL WHD Fact Sheet 62F; required-wage docs 20 CFR 655.731(b).",
+   "summary": "The DOL H-1B Public Access File is complete and available within one working day at the principal place of business or place of employment (H-1B only).",
+   "evidence_required": [
+    "PerLCAfilingdate",
+    "PAFitemspresentchecklistcertifiedLCA9035CP",
+    "wageratedoc",
+    "actualwagesystemexplanation",
+    "prevailingwagedocsource",
+    "postingnoticeproofdates",
+    "benefitssummary",
+    "H1Bdependentwillfulflagdrivesitems79"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.worksite_change_amended_petition",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(2)(i)(E)(2); USCIS PM-602-0120 (Matter of Simeio Solutions); short-term placement 20 CFR 655.735.",
+   "summary": "When an H-1B worker's worksite changed to a location outside the LCA's MSA, an amended/new H-1B petition was timely filed (Matter of Simeio).",
+   "evidence_required": [
+    "Perbeneficiaryworksitechangeeventsdates",
+    "newworksiteMSA",
+    "existingLCAsareaofintendedemploymentMSA",
+    "whetheranamendednewpetitionnewcertifiedLCAwerefiledthefilingdate",
+    "shorttermplacementdaycountsperworksiteyear"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.itinerary_when_multiple_sites",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(2)(i)(B); USCIS PM-602-0157 (Contracts and Itineraries Requirements for H-1B Petitions).",
+   "summary": "For H-1B services in multiple/changing locations, an itinerary of services with dates and locations was filed and matches where the beneficiary actually works.",
+   "evidence_required": [
+    "Perbeneficiarymultisitethirdpartyonlyfileditinerarylocationsdates",
+    "actualworksitehistorylocationsdates",
+    "mappingofeachlocationtoacertifiedLCA",
+    "placementcontractvaliditydates"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.l1_doing_business",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(l)(1)(ii)(H) (doing business); 8 CFR 214.2(l)(1)(ii)(G) (qualifying organization); USCIS ASVVP-for-L1 expansion announcement.",
+   "summary": "(L-1) Both the U.S. entity and the qualifying foreign entity are actually \"doing business\" for the duration of the beneficiary's stay.",
+   "evidence_required": [
+    "PerL1beneficiaryUSentityoperationsevidencepayroll",
+    "revenue",
+    "premises",
+    "staff",
+    "foreignentitycontinuedoperationsevidence",
+    "qualifyingrelationshipdocs",
+    "newofficeflagfirstyearoperationalmilestoneevidence",
+    "L1AvsL1BandthemanagerialSKbasis"
+   ]
+  },
+  {
+   "rule_id": "fdns.asvvp.cooperation_and_counsel_protocol",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "8 CFR 214.2(h)(4)(i)(B)(2) (consequence of failure/refusal); USCIS ASVVP program description + FDNS brochure.",
+   "summary": "A site-visit response protocol exists so the employer can verify the officer, permit/decline cooperation knowingly, reach counsel, and avoid an \"unable-to-verify\" outcome.",
+   "evidence_required": [
+    "Perworksiteinclthirdpartynamedrespondercontact",
+    "officerverificationlogprocedureflag",
+    "counselcontact",
+    "whetherstaffarebriefed",
+    "recordofpriorvisitsoutcomes"
+   ]
+  },
+  {
+   "rule_id": "fdns.postvisit.response_to_rfe_noir_noid",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "USCIS ASVVP/FDNS brochure; RFE/NOID procedure 8 CFR 103.2(b)(8); H-1B revocation/NOIR 8 CFR 214.2(h)(11)(iii).",
+   "summary": "Any post-visit adverse action (RFE / NOIR / NOID) arising from an FDNS report is tracked and answered within its statutory response window.",
+   "evidence_required": [
+    "PernoticetypeRFENOIRNOID",
+    "receiptdate",
+    "printedresponseduedate",
+    "linkedpetitionbeneficiary",
+    "whethertiedtoanFDNSvisit",
+    "responsefileddatestatus"
+   ]
+  },
+  {
+   "rule_id": "regime.boundary.fdns_vs_i9_vs_whd",
+   "regime": "fdns-sitevisit",
+   "regime_name": "FDNS Site Visits (ASVVP / TSVVP)",
+   "citation": "FDNS: 8 CFR 214.2(h)(4)(i)(B); ICE I-9: 8 CFR 274a.2(b)(2)(ii) + INA 274A(b)(6)(B); DOL WHD H-1B: 20 CFR 655.805 / 655.810.",
+   "summary": "The system correctly attributes each inbound government action to the right regime (FDNS/USCIS petition-truth vs ICE I-9 employment-eligibility vs DOL WHD wage/LCA) and applies that regime's distinct rules and clocks.",
+   "evidence_required": [
+    "PerinboundeventissuingagencyUSCISFDNSvsICEHSIvsDOLWHD",
+    "documenttypeFDNSvisitvsNOIvsWHDcomplaintsubpoena",
+    "serveddate",
+    "anyprintedproductioncorrectiondeadline",
+    "linkedpetitionsemployees"
+   ]
+  },
+  {
+   "rule_id": "i9.reverification.timeliness",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 274a.2(b)(1)(vii); continuing-to-employ penalty 8 CFR 274a.10(b)(1)(ii); statutory base 8 USC 1324a(e)(4).",
+   "summary": "Reverification (Supplement B) completed on/before the date the employee's temporary employment authorization (or work-authorizing document) expires.",
+   "evidence_required": [
+    "employeeId",
+    "workAuthExpirationDate",
+    "documentCategoryListABC",
+    "LPRvsEADvsother",
+    "reverificationCompletedDate",
+    "newDocumentTitleNumberExpiration",
+    "autoExtensionApplicable"
+   ]
+  },
+  {
+   "rule_id": "i9.retention.window",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 274a.2(b)(2)(i)(A); statute 8 USC 1324a(b)(3); penalty 8 CFR 274a.10(b)(2).",
+   "summary": "Form I-9 retained for the longer of 3 years from hire or 1 year from termination; not destroyed before that date.",
+   "evidence_required": [
+    "employeeId",
+    "hireDate",
+    "terminationDatenullable",
+    "i9OnFileFlag",
+    "i9StorageLocationformat",
+    "destructionDateifpurged"
+   ]
+  },
+  {
+   "rule_id": "i9.technical.cure-window",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "Cure provision = **8 USC 1324a(b)(6)** (INA 274A(b)(6); \"not less than 10 business days\"); classification table = **ICE I-9 Inspection fact sheet updated 2026-03-16**. *(Original sourced the cure period implicitly to the CFR; it is statutory.)*",
+   "summary": "Technical/procedural I-9 failures corrected within the ICE-granted period of at least 10 business days after written notice.",
+   "evidence_required": [
+    "employerId",
+    "noticeOfTechnicalDeficiencyDate",
+    "listOfFlaggedItemsperI9defects",
+    "correctionCompletedDateperitem",
+    "patternOrPracticeFlag",
+    "goodFaithIndicators"
+   ]
+  },
+  {
+   "rule_id": "i9.noi.production-window",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 274a.2(b)(2)(ii) (production on request); ICE I-9 Inspection fact sheet.",
+   "summary": "I-9s produced to ICE within 3 business days of service of a Notice of Inspection (NOI).",
+   "evidence_required": [
+    "employerId",
+    "noiServiceDate",
+    "productionCompletedDate",
+    "i9CountProducedvsactiveRosterCount"
+   ]
+  },
+  {
+   "rule_id": "i9.penalty.substantive-range",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 274a.10(b)(2); DHS 2025 inflation adjustment (FR doc 2024-31204, eff. Jan 2, 2025); statutory base 8 USC 1324a(e)(5).",
+   "summary": "Reference rule \u2014 current civil-penalty RANGE for I-9 substantive/uncorrected paperwork violations.",
+   "evidence_required": [
+    "violationCount",
+    "perViolationBaseAmount",
+    "fiveFactorInputsheadcount",
+    "goodFaithEvidence",
+    "seriousnessRating",
+    "unauthorizedAlienInvolvedFlag",
+    "priorViolationHistory"
+   ]
+  },
+  {
+   "rule_id": "i9.penalty.unauthorized-employment-range",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 274a.10(b)(1)(ii); DHS 2025 inflation adjustment (FR doc 2024-31204); statutory base 8 USC 1324a(e)(4).",
+   "summary": "Reference rule \u2014 current CMP RANGES for knowingly hiring / continuing to employ unauthorized aliens (per individual, by offense tier).",
+   "evidence_required": [
+    "unauthorizedIndividualCount",
+    "employerPriorOffenseTier012priorfinalorders",
+    "fiveFactorInputs",
+    "knowinglyStandardEvidence"
+   ]
+  },
+  {
+   "rule_id": "i9.everify.create-case",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "E-Verify MOU (Article II); E-Verify User Manual (M-775) \u00a71.4 / \"Create a Case\"; statutory basis IIRIRA \u00a7403 (Pub. L. 104-208).",
+   "summary": "E-Verify case created no later than the 3rd business day after the employee's first day of employment for pay.",
+   "evidence_required": [
+    "employeeId",
+    "firstDayOfWork",
+    "everifyCaseCreatedDate",
+    "everifyEnrolledFlag",
+    "businessDayCalendar",
+    "federalContractorFlag",
+    "delayReasonCode"
+   ]
+  },
+  {
+   "rule_id": "i9.everify.tnc-referral",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "E-Verify MOU (Article II); E-Verify User Manual (M-775) \u00a73.3 (TNC), \u00a73.3.3 (Refer to DHS/SSA).",
+   "summary": "Employer refers a TNC (mismatch) and notifies the employee within 10 federal-government working days of the mismatch result.",
+   "evidence_required": [
+    "everifyCaseId",
+    "mismatchResultDate",
+    "employeeNotifiedDate",
+    "furtherActionNoticeAcknowledgedDate",
+    "employeeContestDecision",
+    "referralDate",
+    "adverseActionTakenFlagDate",
+    "federalGovWorkingDayCalendar"
+   ]
+  },
+  {
+   "rule_id": "i9.everify.tnc-employee-contact",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "E-Verify MOU (Article II); E-Verify User Manual (M-775) \u00a73.3.3 (Referral Date Confirmation).",
+   "summary": "Employee contacts DHS or visits SSA within 8 federal-government working days of referral (employer-side tracking of the resolution clock).",
+   "evidence_required": [
+    "everifyCaseId",
+    "referralDate",
+    "referralDateConfirmationProvidedFlag",
+    "employeeContactByDate",
+    "caseFinalResultDateResult",
+    "adverseActionTakenFlag"
+   ]
+  },
+  {
+   "rule_id": "lca.posting.notice",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "20 CFR 655.734(a)(1)(ii); penalty 20 CFR 655.810(b)(1)/(2).",
+   "summary": "LCA notice posted at each place of employment (or provided to the bargaining rep) and kept up 10 days, within the window on/before filing.",
+   "evidence_required": [
+    "lcaId",
+    "lcaFilingDate",
+    "worksiteList",
+    "noticeMethodbargainingrepvspostingvselectronic",
+    "postingStartDate",
+    "postingEndDate",
+    "postingLocationsCount",
+    "postingProofRetainedFlag"
+   ]
+  },
+  {
+   "rule_id": "lca.public-access-file.deadline",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "20 CFR 655.760(a) (one working day; contents; location); retention 20 CFR 655.760(c); penalty 20 CFR 655.810(b).",
+   "summary": "Public Access File assembled and available within 1 working day after the LCA is filed.",
+   "evidence_required": [
+    "lcaId",
+    "lcaFilingDate",
+    "pafCreatedDate",
+    "pafContentsChecklistcertifiedLCA",
+    "wagerate",
+    "actualwagesystem",
+    "prevailingwagesource",
+    "noticedocs"
+   ]
+  },
+  {
+   "rule_id": "lca.filing.window-before-petition",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "20 CFR 655.730(b) (no earlier than 6 months); 20 CFR 655.730(c)(3) (certified LCA submitted to USCIS with I-129).",
+   "summary": "Certified LCA accompanies the H-1B petition and was filed no earlier than 6 months before the employment start date.",
+   "evidence_required": [
+    "petitionId",
+    "lcaId",
+    "lcaFilingDate",
+    "lcaCertifiedDate",
+    "lcaCertificationStatus",
+    "employmentStartDate",
+    "i129FilingDate"
+   ]
+  },
+  {
+   "rule_id": "lca.required-wage",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "20 CFR 655.731(a) (greater-of required wage); back wages 20 CFR 655.810(a); penalties 20 CFR 655.810(b); statute 8 USC 1182(n)(1).",
+   "summary": "H-1B worker paid the greater of the actual wage or the prevailing wage (no underpayment below the required wage).",
+   "evidence_required": [
+    "employeeId",
+    "lcaRequiredWage",
+    "lcaWageLevel",
+    "prevailingWageDetermination",
+    "actualWageMemoRate",
+    "actualGrossPayPerPeriod",
+    "hoursPaid",
+    "payFrequency"
+   ]
+  },
+  {
+   "rule_id": "lca.wage.start-and-benching",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "20 CFR 655.731(c)(6)(i)-(ii) (30/60-day start); 20 CFR 655.731(c)(7) (non-productive status/benching); statute 8 USC 1182(n)(2)(C)(vii).",
+   "summary": "Required-wage obligation begins on time (no late start / illegal benching) \u2014 within 30 days of admission or 60 days of work-eligibility, and non-productive time is paid.",
+   "evidence_required": [
+    "employeeId",
+    "admissionDate",
+    "workEligibilityDate",
+    "firstPaidDate",
+    "payStatusByPeriodproductivenonproductive",
+    "nonProductiveReasonemployerdecisionvsemployeerequest",
+    "requiredWage"
+   ]
+  },
+  {
+   "rule_id": "lca.amended-petition.material-change",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "Matter of Simeio Solutions, 26 I&N Dec. 542 (AAO 2015); 20 CFR 655.734 / 655.730 (worksite within area of intended employment); USCIS Policy Manual Vol. 2 Pt. H.",
+   "summary": "New LCA + amended H-1B petition filed BEFORE an H-1B worker moves to a worksite outside the area(s) of intended employment on the current LCA (material change).",
+   "evidence_required": [
+    "petitionId",
+    "currentLcaWorksiteMSAs",
+    "currentWorksiteLocation",
+    "worksiteChangeDate",
+    "newWorksiteMSA",
+    "amendedPetitionFiledDate",
+    "newLcaId",
+    "shortTermPlacementFlagdays"
+   ]
+  },
+  {
+   "rule_id": "lca.penalty.h1b-tiers",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "20 CFR 655.810(b)(1)-(3) (CMP tiers), (a) (back wages), (d) (debarment); statute 8 USC 1182(n)(2)(C). *(\u00a7655.810 is in Subpart I \u2014 see the corrected URL.)*",
+   "summary": "Reference rule \u2014 current H-1B/LCA CMP tiers + back wages + debarment.",
+   "evidence_required": [
+    "violationTier",
+    "violationCount",
+    "perViolationAmount",
+    "backWageDelta",
+    "willfulnessFinding",
+    "displacementFinding",
+    "debarmentPeriod"
+   ]
+  },
+  {
+   "rule_id": "uscis.rfe.response-deadline",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 103.2(b)(8)(iv) (12-week max); 8 CFR 103.2(b)(13)(i) (consequences); 8 CFR 103.8(b) (3-day mail rule).",
+   "summary": "Response to a USCIS RFE filed by the deadline on the notice (max 12 weeks / 84 days), +3 days if served by mail.",
+   "evidence_required": [
+    "caseId",
+    "rfeIssuanceDate",
+    "rfeResponseDueDateasprinted",
+    "serviceMethodmailelectronic",
+    "responseFiledDate",
+    "responseReceivedConfirmation"
+   ]
+  },
+  {
+   "rule_id": "uscis.noid.response-deadline",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 103.2(b)(8)(iv) (30-day max for NOID); 8 CFR 103.8(b) (3-day mail rule).",
+   "summary": "Response to a USCIS NOID filed within 30 days (the regulatory max), +3 days if served by mail.",
+   "evidence_required": [
+    "caseId",
+    "noidIssuanceDate",
+    "noidResponseDueDateasprinted",
+    "serviceMethod",
+    "responseFiledDate"
+   ]
+  },
+  {
+   "rule_id": "uscis.motion.reopen-reconsider-deadline",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 103.5(a)(1)(i) (30-day deadline + reasonable-delay excuse); 8 CFR 103.8(b) (3-day mail rule).",
+   "summary": "Motion to Reopen or Reconsider (Form I-290B) filed within 30 days of the decision, +3 days if mailed.",
+   "evidence_required": [
+    "caseId",
+    "adverseDecisionDate",
+    "serviceMethod",
+    "motionFiledDate",
+    "motionTypereopenreconsider",
+    "delayJustificationiflate"
+   ]
+  },
+  {
+   "rule_id": "uscis.appeal.aao-deadline",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 103.3(a)(2)(i) (30-day appeal); 8 CFR 205.2(d) (15-day revocation-appeal period, where applicable); 8 CFR 103.8(b) (3-day mail rule).",
+   "summary": "Appeal to the AAO (Form I-290B) filed within 30 days of service (+3 if mailed); 15 days for certain revocation appeals.",
+   "evidence_required": [
+    "caseId",
+    "decisionTypedenialvsrevocation",
+    "serviceDate",
+    "serviceMethod",
+    "appealFiledDate"
+   ]
+  },
+  {
+   "rule_id": "uscis.premium-processing.clock",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 106.4(e) (timeframes), 106.4(e)(22) (business-day definition), 106.4(f)(2)(i) (commencement), 106.4(f)(4) (refund if missed); statute 8 USC 1356(u).",
+   "summary": "Premium-processing timeframe met by USCIS (and fee-refund trigger tracked) \u2014 generally 15 business days for I-129/I-140 classifications, from receipt of a complete request.",
+   "evidence_required": [
+    "i907RequestId",
+    "benefitClassificationdrives153045",
+    "i907ReceiptDate",
+    "uscisActionDate",
+    "actionTypeapprovaldenialRFENOIDinvestigation",
+    "federalBusinessDayCalendar",
+    "refundIssuedFlag"
+   ]
+  },
+  {
+   "rule_id": "status.240day.extension-work-authorization",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 274a.12(b)(20) (240-day continued employment); filing basis 8 CFR 214.2 / 214.6.",
+   "summary": "Continued employment past I-94 expiry is covered by the 240-day rule only if a timely extension was filed with the same employer (else unauthorized employment).",
+   "evidence_required": [
+    "employeeId",
+    "classification",
+    "i94ExpiryDate",
+    "extensionPetitionFiledDate",
+    "extensionSameEmployerFlag",
+    "extensionEligibleCategoryFlag",
+    "extensionDecisionDateResult",
+    "employmentContinuedFlag"
+   ]
+  },
+  {
+   "rule_id": "status.ead-auto-extension.window",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 274a.13(d)(1) (up-to-540-day auto-extension for renewals filed before 2025-10-30 and meeting conditions); 8 CFR 274a.13(e) (renewals filed on/after 2025-10-30 generally not automatically extended); STEM OPT 8 CFR 274a.12(b)(6)(iv).",
+   "summary": "A timely-filed same-category EAD renewal auto-extends the EAD only when the filing date and category satisfy the current 8 CFR 274a.13 gate; do not treat the worker as unauthorized during a valid auto-extension window.",
+   "evidence_required": [
+    "employeeId",
+    "eadCategoryCode",
+    "priorEadExpiry",
+    "renewalFiledDate",
+    "renewalReceiptDate",
+    "renewalCategoryMatchesFlag",
+    "renewalDecisionDateResult",
+    "autoExtensionAuthorityCode274a13d_540stemopt_180tps_fr_noticenone"
+   ]
+  },
+  {
+   "rule_id": "status.60day.grace-period",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 214.1(l)(2) (60-day grace); 8 CFR 214.1(l)(1) (up to 10 days before/after petition validity).",
+   "summary": "60-day grace period after cessation of qualifying employment for E/H-1B/H-1B1/L-1/O-1/TN \u2014 track when status/lawful presence ends (no work authorization during grace unless separately authorized).",
+   "evidence_required": [
+    "employeeId",
+    "classification",
+    "employmentEndDate",
+    "i94ExpiryDate",
+    "graceUsedThisValidityPeriodFlag",
+    "newPetitionFiledDate",
+    "portabilityEligibleFlag"
+   ]
+  },
+  {
+   "rule_id": "status.expiry.tracking",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 274a.2(b)(1)(vii) (reverify by expiry); 8 CFR 214.1(c) (extension of stay); 8 CFR 214.2 (per-classification validity); admission via I-94 (8 CFR 1.4 / CBP I-94 record).",
+   "summary": "Track and alert on expiry of each work-authorizing artifact: I-94 (date-certain vs D/S), petition/approval (I-797), EAD, visa stamp, passport, STEM EAD.",
+   "evidence_required": [
+    "employeeId",
+    "classification",
+    "i94Number",
+    "i94ExpiryDateordsFlag",
+    "sevisProgramEndDateFJ",
+    "i797ValidFromTo",
+    "eadNumbercategoryexpiry",
+    "eadAutoExtensionStatus"
+   ]
+  },
+  {
+   "rule_id": "f1.opt.application-window",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 214.2(f)(11)(i)(A)-(B) (filing within 30 days of recommendation; 90-before/60-after window).",
+   "summary": "F-1 standard post-completion OPT requested within the allowed window: I-765 filed within 30 days of the DSO's SEVIS OPT recommendation, and within 90 days before through 60 days after the program end date.",
+   "evidence_required": [
+    "studentId",
+    "programEndDate",
+    "dsoOptRecommendationDate",
+    "i765FiledDate",
+    "i765ReceiptDate",
+    "optTypeprepostcompletion"
+   ]
+  },
+  {
+   "rule_id": "f1.opt.unemployment-limit",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 214.2(f)(10)(ii)(E) (90-day standard; +60 for STEM = 150 aggregate); STEM extension 8 CFR 214.2(f)(10)(ii)(C).",
+   "summary": "F-1 OPT/STEM OPT aggregate unemployment \u226490 days (standard 12-month OPT) or \u2264150 days total (with 24-month STEM extension).",
+   "evidence_required": [
+    "studentId",
+    "optStartDate",
+    "optType12monthvs24monthSTEM",
+    "employmentPeriodsstartendperjob",
+    "cumulativeUnemploymentDays",
+    "everifyEmployerFlagSTEM",
+    "weeklyHours20forSTEM"
+   ]
+  },
+  {
+   "rule_id": "stem.opt.reporting-cadence",
+   "regime": "deadlines-penalties",
+   "regime_name": "Deadlines & Penalties (cross-cut clocks + CMP schedules)",
+   "citation": "8 CFR 214.2(f)(12)(i)-(ii) (student 10-day and 6-month/12-month/24-month reporting); employer 5-business-day material-change reporting per the 2016 STEM OPT rule / Form I-983 employer attestations (8 CFR 214.2(f)(11)(i)(C)).",
+   "summary": "STEM OPT reporting met: changes reported within 10 days; 6-month validation; 12-month and final I-983 self-evaluations within 10 days of period end; material I-983 changes reported; employer 5-business-day termination report.",
+   "evidence_required": [
+    "studentId",
+    "stemOptStartDate",
+    "lastValidationReportDate",
+    "changeEventstype",
+    "eventDate",
+    "reportedDate",
+    "evaluation12moDueDateSubmittedDate",
+    "evaluationFinalDueDateSubmittedDate"
+   ]
+  }
+ ]
+}

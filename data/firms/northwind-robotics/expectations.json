@@ -1,0 +1,2020 @@
+{
+  "asOf": "2026-06-29",
+  "employer": "Northwind Robotics, Inc.",
+  "tenant": "Aperture Legal Partners LLP",
+  "total": 221,
+  "byOutcome": {
+    "fail": 20,
+    "needs_evidence": 201
+  },
+  "bySurface": {
+    "i9": 47,
+    "lca": 55,
+    "wage": 42,
+    "material": 2,
+    "visa": 34,
+    "audit": 13,
+    "paf": 28
+  },
+  "bySeverity": {
+    "high": 25,
+    "urgent": 12,
+    "medium": 184
+  },
+  "byMatchOn": {
+    "owner": 82,
+    "entity": 139
+  },
+  "distinctRules": 112,
+  "items": [
+    {
+      "ruleId": "i9.section2.timeliness",
+      "outcome": "fail",
+      "surface": "i9",
+      "match": "Ravi Anand",
+      "matchOn": "owner",
+      "severity": "high",
+      "label": "Ravi Anand — I-9 Section 2 completed 8 business days after start (>3)"
+    },
+    {
+      "ruleId": "i9.reverification.deadline",
+      "outcome": "fail",
+      "surface": "i9",
+      "match": "Lucia Ferreira",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Lucia Ferreira — EAD (List A) expired 2026-06-15, reverification overdue"
+    },
+    {
+      "ruleId": "everify.tnc.overdue",
+      "outcome": "fail",
+      "surface": "i9",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Daniel Cho — SSA TNC, FAN delivered 2026-05-01, no decision (overdue)"
+    },
+    {
+      "ruleId": "lca.expiration",
+      "outcome": "fail",
+      "surface": "lca",
+      "match": "I-200-22010-100004",
+      "matchOn": "entity",
+      "severity": "urgent",
+      "label": "LCA I-200-22010-100004 (Mei Tanaka) — certified-to 2026-07-03, expiring (urgent)"
+    },
+    {
+      "ruleId": "wage.prevailing_floor",
+      "outcome": "fail",
+      "surface": "wage",
+      "match": "wage:17-2199",
+      "matchOn": "entity",
+      "severity": "urgent",
+      "label": "Cohort SOC 17-2199 / Level III / Austin (Mei Tanaka) — actual $96,000 below prevailing $145,000"
+    },
+    {
+      "ruleId": "h1b.material_change.soc",
+      "outcome": "fail",
+      "surface": "material",
+      "match": "Omar Farouk",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Omar Farouk — LCA SOC 15-1252 (IC) but current title 'Engineering Manager'"
+    },
+    {
+      "ruleId": "h1b.material_change.worksite",
+      "outcome": "fail",
+      "surface": "material",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Sofia Reyes — LCA worksite Austin, current roster worksite Boston"
+    },
+    {
+      "ruleId": "h1b.petition.expiry",
+      "outcome": "fail",
+      "surface": "visa",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Hiroshi Yamamoto — I-797 valid-to 2026-07-20, petition expiring (urgent)"
+    },
+    {
+      "ruleId": "extension.filing",
+      "outcome": "fail",
+      "surface": "audit",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Hiroshi Yamamoto — extension filing window open (I-797 2026-07-20, no extension case)"
+    },
+    {
+      "ruleId": "everify.tnc.employer_action_window",
+      "outcome": "fail",
+      "surface": "i9",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Daniel Cho — E-Verify TNC employer-action window lapsed (>10 federal working days)"
+    },
+    {
+      "ruleId": "h1b.wage.actual.memo",
+      "outcome": "fail",
+      "surface": "wage",
+      "match": "17-2199:L3:Austin, TX:memo",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort SOC 17-2199 / Level III / Austin — actual-wage memo missing (recordkeeping)"
+    },
+    {
+      "ruleId": "h1b.rfe.response",
+      "outcome": "fail",
+      "surface": "visa",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Daniel Cho — open RFE response due 2026-07-08 (9 days; ≤14-day critical tier)"
+    },
+    {
+      "ruleId": "h1b.noid.response",
+      "outcome": "fail",
+      "surface": "visa",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "urgent",
+      "label": "Sofia Reyes — open NOID response due 2026-07-10 (11 days; ≤14-day critical tier)"
+    },
+    {
+      "ruleId": "i9.reverification.noreverify",
+      "outcome": "fail",
+      "surface": "i9",
+      "match": "Helena Voss",
+      "matchOn": "owner",
+      "severity": "high",
+      "label": "Helena Voss — reverification scheduled against a U.S. Passport (never-reverify document)"
+    },
+    {
+      "ruleId": "lca.worksite.area_of_intended_employment",
+      "outcome": "fail",
+      "surface": "lca",
+      "match": "lca:I-200-22010-100006:area",
+      "matchOn": "entity",
+      "severity": "urgent",
+      "label": "Sofia Reyes — worksite outside LCA I-200-22010-100006 area of intended employment (Austin → Boston)"
+    },
+    {
+      "ruleId": "lca.wage.required_wage_greater_of",
+      "outcome": "fail",
+      "surface": "lca",
+      "match": "Mei Tanaka",
+      "matchOn": "owner",
+      "severity": "high",
+      "label": "Mei Tanaka — paid below the §655.731(a) required wage on the payroll-register basis ($96k rate vs $145k PW)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Ravi Anand",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Ravi Anand — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Ravi Anand",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Ravi Anand — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Lucia Ferreira",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Lucia Ferreira — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Lucia Ferreira",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Lucia Ferreira — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Daniel Cho — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Daniel Cho — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Mei Tanaka",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Mei Tanaka — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Mei Tanaka",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Mei Tanaka — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Omar Farouk",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Omar Farouk — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Omar Farouk",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Omar Farouk — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Sofia Reyes — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Sofia Reyes — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Hiroshi Yamamoto — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Hiroshi Yamamoto — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Yuki Sato",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Yuki Sato — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Yuki Sato",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Yuki Sato — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.start_clock",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Anita Desai",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Anita Desai — 30/60-day wage start clock needs the I-94 entry date (first pay date is on file)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.start-clock",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Anita Desai",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Anita Desai — 30/60-day wage start clock needs the I-94 entry date (wage-regime twin)"
+    },
+    {
+      "ruleId": "lca.wage.prevailing_wage_source_level_validity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-pwd:I-200-25010-100001",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "I-200-25010-100001 — PWD determination/expiration dates + source type needed for the §655.731(a)(2) validity-at-filing test"
+    },
+    {
+      "ruleId": "lca.wage.prevailing_wage_source_level_validity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-pwd:I-200-23010-100002",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "I-200-23010-100002 — PWD determination/expiration dates + source type needed for the §655.731(a)(2) validity-at-filing test"
+    },
+    {
+      "ruleId": "lca.wage.prevailing_wage_source_level_validity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-pwd:I-200-25010-100003",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "I-200-25010-100003 — PWD determination/expiration dates + source type needed for the §655.731(a)(2) validity-at-filing test"
+    },
+    {
+      "ruleId": "lca.wage.prevailing_wage_source_level_validity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-pwd:I-200-22010-100004",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "I-200-22010-100004 — PWD determination/expiration dates + source type needed for the §655.731(a)(2) validity-at-filing test"
+    },
+    {
+      "ruleId": "lca.wage.prevailing_wage_source_level_validity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-pwd:I-200-21010-100005",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "I-200-21010-100005 — PWD determination/expiration dates + source type needed for the §655.731(a)(2) validity-at-filing test"
+    },
+    {
+      "ruleId": "lca.wage.prevailing_wage_source_level_validity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-pwd:I-200-22010-100006",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "I-200-22010-100006 — PWD determination/expiration dates + source type needed for the §655.731(a)(2) validity-at-filing test"
+    },
+    {
+      "ruleId": "lca.wage.prevailing_wage_source_level_validity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-pwd:I-200-22010-100007",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "I-200-22010-100007 — PWD determination/expiration dates + source type needed for the §655.731(a)(2) validity-at-filing test"
+    },
+    {
+      "ruleId": "lca.wage.prevailing_wage_source_level_validity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-pwd:I-200-23010-100009",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "I-200-23010-100009 — PWD determination/expiration dates + source type needed for the §655.731(a)(2) validity-at-filing test"
+    },
+    {
+      "ruleId": "h1b.petition.expiry",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Yuki Sato",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Yuki Sato — H-1B but no CMS case → I-797 validity not on file (cannot monitor)"
+    },
+    {
+      "ruleId": "paf.public_access_ready",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf:I-200-25010-100001",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "PAF not provided for LCA I-200-25010-100001 (LCA-only import → no exhibit evidence)"
+    },
+    {
+      "ruleId": "paf.public_access_ready",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf:I-200-23010-100002",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "PAF not provided for LCA I-200-23010-100002 (LCA-only import → no exhibit evidence)"
+    },
+    {
+      "ruleId": "paf.public_access_ready",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf:I-200-25010-100003",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "PAF not provided for LCA I-200-25010-100003 (LCA-only import → no exhibit evidence)"
+    },
+    {
+      "ruleId": "paf.public_access_ready",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf:I-200-22010-100004",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "PAF not provided for LCA I-200-22010-100004 (LCA-only import → no exhibit evidence)"
+    },
+    {
+      "ruleId": "paf.public_access_ready",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf:I-200-21010-100005",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "PAF not provided for LCA I-200-21010-100005 (LCA-only import → no exhibit evidence)"
+    },
+    {
+      "ruleId": "paf.public_access_ready",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf:I-200-22010-100006",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "PAF not provided for LCA I-200-22010-100006 (LCA-only import → no exhibit evidence)"
+    },
+    {
+      "ruleId": "paf.public_access_ready",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf:I-200-22010-100007",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "PAF not provided for LCA I-200-22010-100007 (LCA-only import → no exhibit evidence)"
+    },
+    {
+      "ruleId": "paf.public_access_ready",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf:I-200-23010-100009",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "PAF not provided for LCA I-200-23010-100009 (LCA-only import → no exhibit evidence)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Ravi Anand",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Ravi Anand — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Lucia Ferreira",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Lucia Ferreira — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Daniel Cho — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Mei Tanaka",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Mei Tanaka — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Omar Farouk",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Omar Farouk — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Sofia Reyes — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Hiroshi Yamamoto — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Yuki Sato",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Yuki Sato — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.i94.expiration",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Anita Desai",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Anita Desai — I-94 admit-until not on file (petition visa; cannot monitor)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Ravi Anand",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Ravi Anand — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Lucia Ferreira",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Lucia Ferreira — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Daniel Cho — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Mei Tanaka",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Mei Tanaka — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Omar Farouk",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Omar Farouk — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Sofia Reyes — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Hiroshi Yamamoto — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Yuki Sato",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Yuki Sato — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "h1b.max_stay.six_year_limit",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "Anita Desai",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Anita Desai — maximum-stay date not on file (H-1B cap cannot be monitored)"
+    },
+    {
+      "ruleId": "lca.on_file",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "Yuki Sato",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Yuki Sato — active H-1B with no LCA on file (mandatory for the class)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Ravi Anand",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Ravi Anand — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Lucia Ferreira",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Lucia Ferreira — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Daniel Cho — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Mei Tanaka",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Mei Tanaka — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Omar Farouk",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Omar Farouk — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Sofia Reyes — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Hiroshi Yamamoto — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Yuki Sato",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Yuki Sato — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Anita Desai",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Anita Desai — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "James Park",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "James Park — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Grace Lindqvist",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Grace Lindqvist — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.photo_matching",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Helena Voss",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Helena Voss — E-Verify photo matching cannot be verified (not captured in v2)"
+    },
+    {
+      "ruleId": "everify.no_adverse_action_while_contesting",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Daniel Cho — E-Verify TNC status cannot be verified for adverse-action review"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.pwd-validity",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "pw:17-2199:L3",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "Cohort 17-2199:L3 — prevailing-wage validity period not on file"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.pwd-validity",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "pw:15-1252:L4",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "Cohort 15-1252:L4 — prevailing-wage validity period not on file"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.pwd-validity",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "pw:17-2141:L3",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "Cohort 17-2141:L3 — prevailing-wage validity period not on file"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.pwd-validity",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "pw:17-2061:L3",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "Cohort 17-2061:L3 — prevailing-wage validity period not on file"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.pwd-validity",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "pw:15-1252:L2",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "Cohort 15-1252:L2 — prevailing-wage validity period not on file"
+    },
+    {
+      "ruleId": "paf.assembly.one_working_day",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-ready:I-200-25010-100001",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-25010-100001 — PAF readiness evidence not on file (deadline computed, completeness unknown)"
+    },
+    {
+      "ruleId": "paf.assembly.one_working_day",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-ready:I-200-23010-100002",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-23010-100002 — PAF readiness evidence not on file (deadline computed, completeness unknown)"
+    },
+    {
+      "ruleId": "paf.assembly.one_working_day",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-ready:I-200-25010-100003",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-25010-100003 — PAF readiness evidence not on file (deadline computed, completeness unknown)"
+    },
+    {
+      "ruleId": "paf.assembly.one_working_day",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-ready:I-200-22010-100004",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-22010-100004 — PAF readiness evidence not on file (deadline computed, completeness unknown)"
+    },
+    {
+      "ruleId": "paf.assembly.one_working_day",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-ready:I-200-21010-100005",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-21010-100005 — PAF readiness evidence not on file (deadline computed, completeness unknown)"
+    },
+    {
+      "ruleId": "paf.assembly.one_working_day",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-ready:I-200-22010-100006",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-22010-100006 — PAF readiness evidence not on file (deadline computed, completeness unknown)"
+    },
+    {
+      "ruleId": "paf.assembly.one_working_day",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-ready:I-200-22010-100007",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-22010-100007 — PAF readiness evidence not on file (deadline computed, completeness unknown)"
+    },
+    {
+      "ruleId": "paf.assembly.one_working_day",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-ready:I-200-23010-100009",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-23010-100009 — PAF readiness evidence not on file (deadline computed, completeness unknown)"
+    },
+    {
+      "ruleId": "lca.notice.posting_or_bargaining_rep",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-25010-100001:posting",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "LCA I-200-25010-100001 — notice-timing window cannot be verified (posting dates not on file)"
+    },
+    {
+      "ruleId": "lca.notice.posting_or_bargaining_rep",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-23010-100002:posting",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "LCA I-200-23010-100002 — notice-timing window cannot be verified (posting dates not on file)"
+    },
+    {
+      "ruleId": "lca.notice.posting_or_bargaining_rep",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-25010-100003:posting",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "LCA I-200-25010-100003 — notice-timing window cannot be verified (posting dates not on file)"
+    },
+    {
+      "ruleId": "lca.notice.posting_or_bargaining_rep",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-22010-100004:posting",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "LCA I-200-22010-100004 — notice-timing window cannot be verified (posting dates not on file)"
+    },
+    {
+      "ruleId": "lca.notice.posting_or_bargaining_rep",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-21010-100005:posting",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "LCA I-200-21010-100005 — notice-timing window cannot be verified (posting dates not on file)"
+    },
+    {
+      "ruleId": "lca.notice.posting_or_bargaining_rep",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-22010-100006:posting",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "LCA I-200-22010-100006 — notice-timing window cannot be verified (posting dates not on file)"
+    },
+    {
+      "ruleId": "lca.notice.posting_or_bargaining_rep",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-22010-100007:posting",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "LCA I-200-22010-100007 — notice-timing window cannot be verified (posting dates not on file)"
+    },
+    {
+      "ruleId": "lca.notice.posting_or_bargaining_rep",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-23010-100009:posting",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "LCA I-200-23010-100009 — notice-timing window cannot be verified (posting dates not on file)"
+    },
+    {
+      "ruleId": "lca.retention",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "retention:I-200-25010-100001",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-25010-100001 — retention schedule incomplete (destruction-eligibility cannot be cleared)"
+    },
+    {
+      "ruleId": "lca.retention",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "retention:I-200-23010-100002",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-23010-100002 — retention schedule incomplete (destruction-eligibility cannot be cleared)"
+    },
+    {
+      "ruleId": "lca.retention",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "retention:I-200-25010-100003",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-25010-100003 — retention schedule incomplete (destruction-eligibility cannot be cleared)"
+    },
+    {
+      "ruleId": "lca.retention",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "retention:I-200-22010-100004",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-22010-100004 — retention schedule incomplete (destruction-eligibility cannot be cleared)"
+    },
+    {
+      "ruleId": "lca.retention",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "retention:I-200-21010-100005",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-21010-100005 — retention schedule incomplete (destruction-eligibility cannot be cleared)"
+    },
+    {
+      "ruleId": "lca.retention",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "retention:I-200-22010-100006",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-22010-100006 — retention schedule incomplete (destruction-eligibility cannot be cleared)"
+    },
+    {
+      "ruleId": "lca.retention",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "retention:I-200-22010-100007",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-22010-100007 — retention schedule incomplete (destruction-eligibility cannot be cleared)"
+    },
+    {
+      "ruleId": "lca.retention",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "retention:I-200-23010-100009",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "LCA I-200-23010-100009 — retention schedule incomplete (destruction-eligibility cannot be cleared)"
+    },
+    {
+      "ruleId": "lca.worksite.amended_petition_material_change_simeio",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-22010-100006:amendment",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "Sofia Reyes — amended-petition filing evidence needed for cross-MSA move (LCA I-200-22010-100006)"
+    },
+    {
+      "ruleId": "lca.worksite.short_term_placement",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca:I-200-22010-100006:stp",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "Sofia Reyes — short-term-placement 30/60-workday count needed for cross-MSA placement (LCA I-200-22010-100006)"
+    },
+    {
+      "ruleId": "lca.wage.benefits_parity",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.wage.benefits_parity",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.wage.benefits_parity — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.wage.authorized_deductions",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.wage.authorized_deductions",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "lca.wage.authorized_deductions — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.workingconditions.no_adverse_effect",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.workingconditions.no_adverse_effect",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.workingconditions.no_adverse_effect — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.strike_lockout.attestation_and_notice",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.strike_lockout.attestation_and_notice",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.strike_lockout.attestation_and_notice — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.notice.deliver_lca_to_worker",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.notice.deliver_lca_to_worker",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.notice.deliver_lca_to_worker — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.dependency.exempt_worker_carveout",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.dependency.exempt_worker_carveout",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.dependency.exempt_worker_carveout — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.dependency.nondisplacement_us_workers",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.dependency.nondisplacement_us_workers",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "lca.dependency.nondisplacement_us_workers — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.dependency.recruitment_us_workers",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.dependency.recruitment_us_workers",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.dependency.recruitment_us_workers — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.recordkeeping.public_access_file",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.recordkeeping.public_access_file",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.recordkeeping.public_access_file — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.recordkeeping.retention_periods",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.recordkeeping.retention_periods",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.recordkeeping.retention_periods — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "lca.enforcement.penalties_backwages_debarment",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "lca-gap:lca.enforcement.penalties_backwages_debarment",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.enforcement.penalties_backwages_debarment — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.actual.system",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.actual.system",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "h1b.wage.actual.system — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.level-determination",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.prevailing.level-determination",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "h1b.wage.prevailing.level-determination — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.payment.free-and-clear",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.payment.free-and-clear",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "h1b.wage.payment.free-and-clear — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.parttime.proration",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.parttime.proration",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "h1b.wage.parttime.proration — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.deductions.authorized",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.deductions.authorized",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "h1b.wage.deductions.authorized — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.deductions.prohibited.business-expense",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.deductions.prohibited.business-expense",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "h1b.wage.deductions.prohibited.business-expense — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.deductions.prohibited.early-cessation-penalty",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "h1b.wage.deductions.prohibited.early-cessation-penalty — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.remedy.cmp-tiers",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.remedy.cmp-tiers",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "h1b.wage.remedy.cmp-tiers — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.wage.remedy.debarment",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage-gap:h1b.wage.remedy.debarment",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "h1b.wage.remedy.debarment — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "paf.item7.successor_sworn_statement",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-gap:paf.item7.successor_sworn_statement",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item7.successor_sworn_statement — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "paf.item8.single_employer_entity_list",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-gap:paf.item8.single_employer_entity_list",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item8.single_employer_entity_list — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "paf.item9.exempt_worker_list",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-gap:paf.item9.exempt_worker_list",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item9.exempt_worker_list — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "paf.retention.payroll_three_year",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-gap:paf.retention.payroll_three_year",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.retention.payroll_three_year — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "paf.location.public_examination",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-gap:paf.location.public_examination",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.location.public_examination — structurally-uncaptured evidence class (employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.asvvp.actual_wage_ge_petition_wage",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "fdns.asvvp.actual_wage_ge_petition_wage — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.asvvp.cooperation_and_counsel_protocol",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.asvvp.cooperation_and_counsel_protocol",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.asvvp.cooperation_and_counsel_protocol — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.asvvp.employer_employee_right_to_control",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.asvvp.employer_employee_right_to_control",
+      "matchOn": "entity",
+      "severity": "high",
+      "label": "fdns.asvvp.employer_employee_right_to_control — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.asvvp.entity_physical_existence",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.asvvp.entity_physical_existence",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.asvvp.entity_physical_existence — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.asvvp.hours_match_petition",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.asvvp.hours_match_petition",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.asvvp.hours_match_petition — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.asvvp.itinerary_when_multiple_sites",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.asvvp.itinerary_when_multiple_sites",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.asvvp.itinerary_when_multiple_sites — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.asvvp.title_duties_soc_match",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.asvvp.title_duties_soc_match",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.asvvp.title_duties_soc_match — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.asvvp.worksite_matches_lca",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.asvvp.worksite_matches_lca",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.asvvp.worksite_matches_lca — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.postvisit.response_to_rfe_noir_noid",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.postvisit.response_to_rfe_noir_noid",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.postvisit.response_to_rfe_noir_noid — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.readiness.petition_copy_onhand",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.readiness.petition_copy_onhand",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.readiness.petition_copy_onhand — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "fdns.readiness.public_access_file_onhand",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:fdns.readiness.public_access_file_onhand",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "fdns.readiness.public_access_file_onhand — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "h1b.maintenance_of_status",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "h1b-gap:h1b.maintenance_of_status",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "h1b.maintenance_of_status — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i129.hsupp.edition.mandatory_2026",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "i129-gap:i129.hsupp.edition.mandatory_2026",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i129.hsupp.edition.mandatory_2026 — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i129.hsupp.q7_11.completeness",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "i129-gap:i129.hsupp.q7_11.completeness",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i129.hsupp.q7_11.completeness — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i129.hsupp.q8.field_directly_related",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "i129-gap:i129.hsupp.q8.field_directly_related",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i129.hsupp.q8.field_directly_related — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i9.antidiscrimination.charge_window",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-prohibited:i9.antidiscrimination.charge_window",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.antidiscrimination.charge_window — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i9.noi.production-window",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "deadline-gap:i9.noi.production-window",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.noi.production-window — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i9.receipts.rule",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.receipts.rule",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.receipts.rule — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i9.section2.employer_signature",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.section2.employer_signature",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.section2.employer_signature — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i9.section2.physical_exam",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.section2.physical_exam",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.section2.physical_exam — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "i9.technical.cure-window",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "deadline-gap:i9.technical.cure-window",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.technical.cure-window — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "lca.filing.window-before-petition",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "deadline-gap:lca.filing.window-before-petition",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.filing.window-before-petition — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "lca.wagelevel.consistency.education",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "i129-gap:lca.wagelevel.consistency.education",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.wagelevel.consistency.education — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "lca.wagelevel.consistency.experience",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "i129-gap:lca.wagelevel.consistency.experience",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.wagelevel.consistency.experience — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "lca.wagelevel.consistency.specialskills",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "i129-gap:lca.wagelevel.consistency.specialskills",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.wagelevel.consistency.specialskills — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "lca.wagelevel.consistency.supervisory",
+      "outcome": "needs_evidence",
+      "surface": "lca",
+      "match": "i129-gap:lca.wagelevel.consistency.supervisory",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "lca.wagelevel.consistency.supervisory — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "regime.boundary.fdns_vs_i9_vs_whd",
+      "outcome": "needs_evidence",
+      "surface": "audit",
+      "match": "fdns-gap:regime.boundary.fdns_vs_i9_vs_whd",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "regime.boundary.fdns_vs_i9_vs_whd — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "specialty.beneficiary.qualifications.match",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "i129-gap:specialty.beneficiary.qualifications.match",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "specialty.beneficiary.qualifications.match — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "specialty.bona_fide_position.start_date",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "i129-gap:specialty.bona_fide_position.start_date",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "specialty.bona_fide_position.start_date — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "specialty.occupation.A1_vs_q7.degree_min_coherence",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "specialty.occupation.A1_vs_q7.degree_min_coherence — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "specialty.occupation.criteria.A1_A4",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "i129-gap:specialty.occupation.criteria.A1_A4",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "specialty.occupation.criteria.A1_A4 — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "uscis.appeal.aao-deadline",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "deadline-gap:uscis.appeal.aao-deadline",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "uscis.appeal.aao-deadline — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "uscis.motion.reopen-reconsider-deadline",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "deadline-gap:uscis.motion.reopen-reconsider-deadline",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "uscis.motion.reopen-reconsider-deadline — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "uscis.premium-processing.clock",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "deadline-gap:uscis.premium-processing.clock",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "uscis.premium-processing.clock — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "xdoc.consistency.registration_lca_i129.soc_wagelevel",
+      "outcome": "needs_evidence",
+      "surface": "visa",
+      "match": "i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "xdoc.consistency.registration_lca_i129.soc_wagelevel — evidence class not captured (Wave-B employer-scope request)"
+    },
+    {
+      "ruleId": "paf.item1.certified_lca",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-agg:paf.item1.certified_lca",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item1.certified_lca — exhibit evidence not on file for the 8 LCAs (§655.760(a))"
+    },
+    {
+      "ruleId": "paf.item2.wage_rate",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-agg:paf.item2.wage_rate",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item2.wage_rate — exhibit evidence not on file for the 8 LCAs (§655.760(a))"
+    },
+    {
+      "ruleId": "paf.item3.actual_wage_system",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-agg:paf.item3.actual_wage_system",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item3.actual_wage_system — exhibit evidence not on file for the 8 LCAs (§655.760(a))"
+    },
+    {
+      "ruleId": "paf.item4.prevailing_wage",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-agg:paf.item4.prevailing_wage",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item4.prevailing_wage — exhibit evidence not on file for the 8 LCAs (§655.760(a))"
+    },
+    {
+      "ruleId": "paf.item5.union_employee_notice",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-agg:paf.item5.union_employee_notice",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item5.union_employee_notice — exhibit evidence not on file for the 8 LCAs (§655.760(a))"
+    },
+    {
+      "ruleId": "paf.item6.benefits_summary",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-agg:paf.item6.benefits_summary",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item6.benefits_summary — exhibit evidence not on file for the 8 LCAs (§655.760(a))"
+    },
+    {
+      "ruleId": "paf.item10.dependent_recruitment_summary",
+      "outcome": "needs_evidence",
+      "surface": "paf",
+      "match": "paf-agg:paf.item10.dependent_recruitment_summary",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "paf.item10.dependent_recruitment_summary — exhibit evidence not on file for the 8 LCAs (§655.760(a))"
+    },
+    {
+      "ruleId": "i9.section1.signature",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.section1.signature",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.section1.signature — field-level I-9 data not captured (employer-scope request)"
+    },
+    {
+      "ruleId": "i9.section1.statusbox",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.section1.statusbox",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.section1.statusbox — field-level I-9 data not captured (employer-scope request)"
+    },
+    {
+      "ruleId": "i9.section2.recording",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.section2.recording",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.section2.recording — field-level I-9 data not captured (employer-scope request)"
+    },
+    {
+      "ruleId": "i9.form.current_version",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.form.current_version",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.form.current_version — field-level I-9 data not captured (employer-scope request)"
+    },
+    {
+      "ruleId": "i9.documents.acceptable_list",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.documents.acceptable_list",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.documents.acceptable_list — field-level I-9 data not captured (employer-scope request)"
+    },
+    {
+      "ruleId": "i9.supplementA.preparer",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.supplementA.preparer",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.supplementA.preparer — field-level I-9 data not captured (employer-scope request)"
+    },
+    {
+      "ruleId": "i9.remote.alternative_procedure",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.remote.alternative_procedure",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.remote.alternative_procedure — field-level I-9 data not captured (employer-scope request)"
+    },
+    {
+      "ruleId": "i9.correction.no_backdate_no_whiteout",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-fieldgap:i9.correction.no_backdate_no_whiteout",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.correction.no_backdate_no_whiteout — field-level I-9 data not captured (employer-scope request)"
+    },
+    {
+      "ruleId": "i9.prohibited.document_abuse",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-prohibited:i9.prohibited.document_abuse",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.prohibited.document_abuse — misuse lane; cannot be assessed from standard data"
+    },
+    {
+      "ruleId": "i9.prohibited.citizenship_status_discrimination",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-prohibited:i9.prohibited.citizenship_status_discrimination",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.prohibited.citizenship_status_discrimination — misuse lane; cannot be assessed from standard data"
+    },
+    {
+      "ruleId": "i9.reverification.unfair",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "i9-prohibited:i9.reverification.unfair",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "i9.reverification.unfair — misuse lane; cannot be assessed from standard data"
+    },
+    {
+      "ruleId": "h1b.wage.actual.memo",
+      "outcome": "fail",
+      "surface": "wage",
+      "match": "wage:15-1252:L4:Austin, TX:memo",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 15-1252:L4 / Austin — actual-wage memo missing (no longer fabricated as on-file)"
+    },
+    {
+      "ruleId": "h1b.wage.actual.memo",
+      "outcome": "fail",
+      "surface": "wage",
+      "match": "wage:17-2141:L3:Austin, TX:memo",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 17-2141:L3 / Austin — actual-wage memo missing (no longer fabricated as on-file)"
+    },
+    {
+      "ruleId": "h1b.wage.actual.memo",
+      "outcome": "fail",
+      "surface": "wage",
+      "match": "wage:17-2061:L3:Austin, TX:memo",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 17-2061:L3 / Austin — actual-wage memo missing (no longer fabricated as on-file)"
+    },
+    {
+      "ruleId": "h1b.wage.actual.memo",
+      "outcome": "fail",
+      "surface": "wage",
+      "match": "wage:15-1252:L2:Austin, TX:memo",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 15-1252:L2 / Austin — actual-wage memo missing (no longer fabricated as on-file)"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.source",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage:17-2199:L3:Austin, TX:pwsource",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 17-2199:L3 / Austin — PW source documentation unknown (no longer fabricated as OES)"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.source",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage:15-1252:L4:Austin, TX:pwsource",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 15-1252:L4 / Austin — PW source documentation unknown (no longer fabricated as OES)"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.source",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage:17-2141:L3:Austin, TX:pwsource",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 17-2141:L3 / Austin — PW source documentation unknown (no longer fabricated as OES)"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.source",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage:17-2061:L3:Austin, TX:pwsource",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 17-2061:L3 / Austin — PW source documentation unknown (no longer fabricated as OES)"
+    },
+    {
+      "ruleId": "h1b.wage.prevailing.source",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage:15-1252:L2:Austin, TX:pwsource",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 15-1252:L2 / Austin — PW source documentation unknown (no longer fabricated as OES)"
+    },
+    {
+      "ruleId": "h1b.wage.oes.annual-refresh",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "wage:15-1252:L4:Austin, TX:oes",
+      "matchOn": "entity",
+      "severity": "medium",
+      "label": "Cohort 15-1252:L4 / Austin — PW documentation predates the July-1 OES refresh (gapReason rotation)"
+    },
+    {
+      "ruleId": "lca.wage.required_wage_greater_of",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Anita Desai",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Anita Desai — floor met on payroll; §655.731(a)(1) comparator not captured (greater-of unverifiable)"
+    },
+    {
+      "ruleId": "lca.wage.required_wage_greater_of",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Ravi Anand",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Ravi Anand — floor met on payroll; §655.731(a)(1) comparator not captured (greater-of unverifiable)"
+    },
+    {
+      "ruleId": "lca.wage.required_wage_greater_of",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Lucia Ferreira",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Lucia Ferreira — floor met on payroll; §655.731(a)(1) comparator not captured (greater-of unverifiable)"
+    },
+    {
+      "ruleId": "lca.wage.required_wage_greater_of",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Hiroshi Yamamoto — floor met on payroll; §655.731(a)(1) comparator not captured (greater-of unverifiable)"
+    },
+    {
+      "ruleId": "lca.wage.required_wage_greater_of",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Sofia Reyes — floor met on payroll; §655.731(a)(1) comparator not captured (greater-of unverifiable)"
+    },
+    {
+      "ruleId": "lca.wage.required_wage_greater_of",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Omar Farouk",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Omar Farouk — floor met on payroll; §655.731(a)(1) comparator not captured (greater-of unverifiable)"
+    },
+    {
+      "ruleId": "lca.wage.required_wage_greater_of",
+      "outcome": "needs_evidence",
+      "surface": "wage",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Daniel Cho — floor met on payroll; §655.731(a)(1) comparator not captured (greater-of unverifiable)"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Sofia Reyes",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Sofia Reyes — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Mei Tanaka",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Mei Tanaka — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Lucia Ferreira",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Lucia Ferreira — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Anita Desai",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Anita Desai — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Ravi Anand",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Ravi Anand — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Hiroshi Yamamoto",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Hiroshi Yamamoto — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Omar Farouk",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Omar Farouk — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Daniel Cho",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Daniel Cho — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Grace Lindqvist",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Grace Lindqvist — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Helena Voss",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Helena Voss — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "Yuki Sato",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "Yuki Sato — I-9 within retention window; producible artifact unconfirmed"
+    },
+    {
+      "ruleId": "i9.retention.storage_and_production",
+      "outcome": "needs_evidence",
+      "surface": "i9",
+      "match": "James Park",
+      "matchOn": "owner",
+      "severity": "medium",
+      "label": "James Park — I-9 within retention window; producible artifact unconfirmed"
+    }
+  ]
+}

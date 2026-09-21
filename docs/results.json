@@ -1,0 +1,139 @@
+{
+  "n_firms": 31,
+  "n_pairs": 57701,
+  "n_withheld": 26115,
+  "n_planted_violations": 6890,
+  "rulebook_version": "2026-06-29",
+  "rulebook_obligations": 190,
+  "systems": {
+    "always_pass": {
+      "false_green_rate": {
+        "mean": 1.0,
+        "stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "violation_recall": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "violation_precision": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_alarm_rate": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "abstention_f1": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "always_abstain": {
+      "false_green_rate": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "violation_recall": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "violation_precision": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_alarm_rate": {
+        "mean": 0.9677,
+        "stdev": 0.1796,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "abstention_f1": {
+        "mean": 0.6321,
+        "stdev": 0.0604,
+        "min": 0.6045,
+        "max": 0.9526
+      }
+    },
+    "always_fail": {
+      "false_green_rate": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "violation_recall": {
+        "mean": 1.0,
+        "stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "violation_precision": {
+        "mean": 0.1186,
+        "stdev": 0.0093,
+        "min": 0.0905,
+        "max": 0.131
+      },
+      "false_alarm_rate": {
+        "mean": 0.9677,
+        "stdev": 0.1796,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "abstention_f1": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "oracle": {
+      "false_green_rate": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "violation_recall": {
+        "mean": 1.0,
+        "stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "violation_precision": {
+        "mean": 1.0,
+        "stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "false_alarm_rate": {
+        "mean": 0.0,
+        "stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "abstention_f1": {
+        "mean": 1.0,
+        "stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      }
+    }
+  },
+  "note": "Trivial baselines only. No language-model results are reported here; those experiments have not been run."
+}
