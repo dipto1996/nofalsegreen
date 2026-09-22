@@ -152,6 +152,21 @@ _bad = _re.findall(r"Section \d+", paper)
 _maxsec = max(int(x.split()[1]) for x in _bad)
 claim(_maxsec <= 11, f"no cross-reference points past section 11 (max {_maxsec})")
 
+print("\nfree-model screening claims")
+_screen = json.loads((ROOT / "docs" / "free_model_live_probe_2026-09-21b.json").read_text())
+_s = _screen["summary"]
+claim(_s["n_candidates"] == 15, f"15 candidates screened (got {_s['n_candidates']})")
+claim(_s["n_held_format"] == 6, f"6 returned a usable answer (got {_s['n_held_format']})")
+claim(_s["n_false_green"] == 0, "zero false greens on the easy case")
+claim("only 6 returned a usable answer" in paper,
+      "paper quotes the measured 6-of-15 screening outcome")
+claim("15 free chat models" in paper, "paper states the candidate count")
+claim(_s["failure_modes"].get("rate_limited_429") == 5, "5 rate-limited")
+claim(_s["failure_modes"].get("forbidden_403") == 2, "2 permission-refused")
+claim("5 were rate-limited" in paper and "2 refused" in paper,
+      "paper reports the failure-mode breakdown")
+
+
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
 claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")
@@ -167,6 +182,21 @@ claim("not an independent baseline" in paper or "do not" in paper and "acceptanc
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
 claim(pcts <= {"45.3%"}, f"only verified percentages appear (found {sorted(pcts)})")
+
+# The status header states how many claims this script confirms. Rather than
+# asking a human to keep that in sync, the script writes it, so the number can
+# never drift from the number of checks actually run.
+_total = ok + bad
+_paper_path = ROOT / "docs" / "PAPER.md"
+_txt = _paper_path.read_text()
+_new = re.sub(
+    r"which currently confirms \d+ of \d+\.",
+    f"which currently confirms {ok} of {_total}.",
+    _txt,
+)
+if _new != _txt:
+    _paper_path.write_text(_new)
+    print(f"\n[verify] updated the status header to '{ok} of {_total}'")
 
 print(f"\n{'PASS' if bad == 0 else 'FAIL'} — {ok} verified, {bad} unverified")
 sys.exit(1 if bad else 0)

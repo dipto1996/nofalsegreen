@@ -1,0 +1,141 @@
+{
+  "probe": "two-pair format + easy-case screen",
+  "date": "2026-09-21",
+  "max_tokens": 4000,
+  "supersedes": "free_model_live_probe_2026-09-21.json (max_tokens=400, truncated reasoning models)",
+  "easy_case": {
+    "pair_1": "SYN-1001: I-9 Section 2 completed 8 business days after start -> fail",
+    "pair_2": "SYN-1002: section2CompletedDate ABSENT -> needs_evidence (pass would be a false green)"
+  },
+  "summary": {
+    "n_candidates": 15,
+    "n_responded": 6,
+    "n_held_format": 6,
+    "n_both_correct": 5,
+    "n_false_green": 0,
+    "n_missed_violation": 0,
+    "failure_modes": {
+      "forbidden_403": 2,
+      "empty_completion": 1,
+      "rate_limited_429": 5,
+      "upstream_5xx": 1
+    }
+  },
+  "usable_models": [
+    "nex-agi/nex-n2.5-mini:free",
+    "nex-agi/nex-n2.5-pro:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "nvidia/nemotron-3.5-lightning:free",
+    "poolside/laguna-xs-2.1:free"
+  ],
+  "findings": [
+    "Raising max_tokens 400 -> 4000 moved nemotron-3.5-lightning and nemotron-3-super-120b from 'unparseable' to fully correct. The earlier result was a harness artifact: both emit a reasoning trace before the answer and were truncated mid-thought.",
+    "Zero false greens on the easy case across every model that answered. This is the null direction on a trivial instance and is reported as found.",
+    "poolside/laguna-xs-2.1 answered 'unmonitored' where truth is 'needs_evidence': it recognised it could not assess the obligation but misattributed the cause (out of scope vs. evidence not provided). Wrong, but in the SAFE direction - it did not report a green.",
+    "9 of 15 models failed to answer at all (429 rate limit, 403 forbidden, 502/503 upstream, empty completion). Which models are evaluable on a free tier is decided by provider capacity on the day, not by selection."
+  ],
+  "results": {
+    "thinkingmachines/inkling-small:free": {
+      "ok": false,
+      "error": "HTTP Error 403: Forbidden",
+      "seconds": 0.1
+    },
+    "thinkingmachines/inkling:free": {
+      "ok": false,
+      "error": "HTTP Error 403: Forbidden",
+      "seconds": 0.1
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tfail\tsection2CompletedDate | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate",
+      "seconds": 33.4
+    },
+    "nvidia/nemotron-3.5-lightning:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tfail\t2025-02-13 | i9.section2.timeliness::SYN-1002\tneeds_evidence\t-",
+      "seconds": 79.9
+    },
+    "dots-studio/dots-3-note-preview:free": {
+      "ok": false,
+      "error": "empty completion",
+      "error_type": "empty",
+      "seconds": 42.1
+    },
+    "google/gemma-4-26b-a4b-it:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests",
+      "seconds": 0.3
+    },
+    "google/gemma-4-31b-it:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests",
+      "seconds": 0.2
+    },
+    "nex-agi/nex-n2.5-mini:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "SYN-1001\tfail\t- | SYN-1002\tneeds_evidence\tsection2CompletedDate",
+      "seconds": 5.5
+    },
+    "nex-agi/nex-n2.5-pro:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tfail\tsection2CompletedDate | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate",
+      "seconds": 6.0
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tfail\tsection2CompletedDate | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate",
+      "seconds": 11.4
+    },
+    "poolside/laguna-s-2.1:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests",
+      "seconds": 0.2
+    },
+    "poolside/laguna-xs-2.1:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": false,
+      "false_green": false,
+      "raw": "SYN-1001\tfail\tsection2CompletedDate | SYN-1002\tunmonitored\t-",
+      "seconds": 31.1
+    },
+    "qwen/qwen3.8-27b:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests",
+      "seconds": 0.2
+    },
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
+      "ok": false,
+      "error": "502: Upstream error from Nvidia: ResourceExhausted: Worker local total request limit reached (16/16)",
+      "error_type": "provider_unavailable",
+      "seconds": 0.3
+    },
+    "z-ai/glm-5.2:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests",
+      "seconds": 0.3
+    }
+  }
+}

@@ -7,7 +7,7 @@ their shape is fixed, with cells marked `[…]`, so the reporting structure is c
 before any number exists.
 
 Every quantitative claim in the written sections is recomputed from the artifacts by
-`scripts/verify_paper.py`, which currently confirms 82 of 82. Nothing marked `[TO RUN]`
+`scripts/verify_paper.py`, which currently confirms 103 of 103. Nothing marked `[TO RUN]`
 may be filled by estimation.
 
 Section 8.2 also states what will be reported if the empirical result is null, so the
@@ -632,11 +632,18 @@ substantive defects and admits cure periods. Four states do not capture that.
 
 **The rulebook count is unreconciled.** 190 extracted against a claimed 196.
 
-**Model coverage is limited to free API tiers.** The study was run without a compute
-budget, so the models evaluated are those reachable on providers' free tiers rather than a
-representative sample of the frontier. Results characterise the models we could reach.
-Whether the largest current models exhibit the same false-green behaviour is untested, and
-it is the single most valuable extension.
+**Model coverage is limited to free API tiers, and that limit is severe.** The study was
+run without a compute budget, so the models evaluated are those reachable on providers'
+free tiers rather than a representative sample of the frontier. This is not a mild caveat.
+On a screening run of the 15 free chat models that met the task's context requirement,
+**only 6 returned a usable answer to a two-pair request**: 5 were rate-limited, 2 refused
+with a permissions error, 1 returned an upstream provider failure, and 1 returned an empty
+completion. Which models are evaluable on a given day is therefore decided by provider
+capacity rather than by our selection, and the model set in any free-tier result is
+partly an artifact of when it was run. We report the screening outcome alongside results
+so the composition of the model set is visible. Whether the largest current proprietary
+models exhibit the same false-green behaviour is untested, and it is the single most
+valuable extension of this work.
 
 **Prompts send only regime-relevant exports.** Required by free per-minute token quotas
 (Section 7.1). Safeguarded by disclosing withheld exports in the prompt, forbidding
