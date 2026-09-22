@@ -240,6 +240,7 @@ def run_firm(
     preds: list[Prediction] = []
     usage = Usage()
     unparseable = missing = off_schema = truncated = failed_batches = 0
+    consecutive_failures = 0
     raw: list[str] = []
 
     # Batch-level cache. A firm of 221 pairs at batch 8 is 28 calls, which
@@ -285,6 +286,16 @@ def run_firm(
             if type(exc).__name__ == "DailyQuotaExhausted":
                 raise
             failed_batches += 1
+            # Consecutive failures mean the provider is down or the quota is
+            # spent in a form we did not recognise. Continuing would burn the
+            # rest of the day's allowance on calls that cannot succeed, so stop
+            # and let the cache carry what completed.
+            consecutive_failures += 1
+            if consecutive_failures >= 3:
+                if progress:
+                    print(f"      stopping: {consecutive_failures} consecutive "
+                          f"batch failures", flush=True)
+                break
             if keep_raw:
                 raw.append(f"[BATCH FAILED] {type(exc).__name__}: {str(exc)[:200]}")
             continue
@@ -294,6 +305,7 @@ def run_firm(
             truncated += 1
         if keep_raw:
             raw.append(text)
+        consecutive_failures = 0
         if cache_path is not None:
             cache[ck] = text
             cache_path.parent.mkdir(parents=True, exist_ok=True)

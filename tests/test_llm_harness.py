@@ -9,6 +9,7 @@ Run: python3 tests/test_llm_harness.py
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -150,6 +151,54 @@ check(est["n_pairs"] == 221, "probe counts 221 pairs")
 check(est["n_batches"] == 6, "probe counts 6 batches")
 check(est["est_input_tokens"] > 0, "probe estimates input tokens without any API call")
 check(est["prompt_version"] == "1.0.0", "probe records the prompt version")
+
+
+# ── quota resume: the multi-day path ───────────────────────────────────────
+print("\nquota resume + circuit breaker")
+import json as _json, tempfile  # noqa: E402
+from nofalsegreen.subset import subset_firm  # noqa: E402
+from baselines.llm import Usage as _U  # noqa: E402
+
+_sub = subset_firm(firm, rb.rule_regimes())
+_truth = _sub.label_index()
+
+
+class _DiesAfter:
+    """Answers correctly for n calls then raises, like a quota stop."""
+
+    name = "dying-mock"
+
+    def __init__(self, n: int):
+        self.n, self.calls = n, 0
+
+    def complete(self, system, user, max_tokens):
+        self.calls += 1
+        if self.calls > self.n:
+            raise RuntimeError("simulated provider failure")
+        ids = re.findall(r"^([A-Za-z0-9_.\-]+::[^\t\n]+)\t", user, re.M)
+        return "\n".join(f"{i}\t{_truth[i].verdict.value}\t-" for i in ids), _U(100, 50, 1, 0.0)
+
+
+with tempfile.TemporaryDirectory() as _td:
+    _cache = Path(_td) / "c.json"
+    _n_batches = -(-len(_sub.pairs) // 12)
+
+    _d1 = _DiesAfter(4)
+    _r1 = run_firm(_d1, _sub, obs, variant=ABSTAIN_OFFERED, batch_size=12, cache_path=_cache)
+    check(len(_json.loads(_cache.read_text())) == 4,
+          "day 1 caches exactly its successful batches")
+    check(_d1.calls == 7,
+          f"circuit breaker stops after 3 consecutive failures (got {_d1.calls} calls)")
+    check(_r1.n_failed_batches == 3, "failed batches are counted, not hidden")
+
+    _d2 = _DiesAfter(999)
+    _r2 = run_firm(_d2, _sub, obs, variant=ABSTAIN_OFFERED, batch_size=12, cache_path=_cache)
+    check(_d2.calls == _n_batches - 4,
+          f"day 2 re-requests only the missing batches ({_d2.calls} of {_n_batches})")
+    check(_r2.n_parsed == len(_sub.pairs), "day 2 completes the firm")
+    _s2 = score(_sub.labels, _r2.predictions)
+    check(_s2.violation_recall == 1.0, "a resumed run scores the same as an unbroken one")
+    check(_s2.false_green_rate == 0.0, "resumed run has zero false green")
 
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)
