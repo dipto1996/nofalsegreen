@@ -1,0 +1,334 @@
+{
+  "required_context_tokens": 10350,
+  "n_free": 24,
+  "n_candidates": 15,
+  "candidates": [
+    "thinkingmachines/inkling-small:free",
+    "thinkingmachines/inkling:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "nvidia/nemotron-3.5-lightning:free",
+    "dots-studio/dots-3-note-preview:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "google/gemma-4-31b-it:free",
+    "nex-agi/nex-n2.5-mini:free",
+    "nex-agi/nex-n2.5-pro:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "poolside/laguna-s-2.1:free",
+    "poolside/laguna-xs-2.1:free",
+    "qwen/qwen3.8-27b:free",
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "z-ai/glm-5.2:free"
+  ],
+  "models": [
+    {
+      "id": "google/lyria-3-clip-preview",
+      "name": "Google: Lyria 3 Clip Preview",
+      "context": 1048576,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "tools": false,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": "music generation, not a chat model"
+    },
+    {
+      "id": "google/lyria-3-pro-preview",
+      "name": "Google: Lyria 3 Pro Preview",
+      "context": 1048576,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "tools": false,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": "music generation, not a chat model"
+    },
+    {
+      "id": "thinkingmachines/inkling-small:free",
+      "name": "Thinking Machines: Inkling Small (free)",
+      "context": 1048576,
+      "modality": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "thinkingmachines/inkling:free",
+      "name": "Thinking Machines: Inkling (free)",
+      "context": 1048576,
+      "modality": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "name": "NVIDIA: Nemotron 3 Ultra (free)",
+      "context": 1000000,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "nvidia/nemotron-3.5-lightning:free",
+      "name": "NVIDIA: Nemotron 3.5 Lightning (free)",
+      "context": 1000000,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "dots-studio/dots-3-note-preview:free",
+      "name": "Dots Studio: Dots3-Note Preview (free)",
+      "context": 512000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "google/gemma-4-26b-a4b-it:free",
+      "name": "Google: Gemma 4 26B A4B  (free)",
+      "context": 262144,
+      "modality": [
+        "image",
+        "text",
+        "video"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "google/gemma-4-31b-it:free",
+      "name": "Google: Gemma 4 31B (free)",
+      "context": 262144,
+      "modality": [
+        "image",
+        "text",
+        "video"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "inclusionai/ling-3.0-flash-fin:free",
+      "name": "inclusionAI: Ling 3.0 Flash Fin (free)",
+      "context": 262144,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": "finance-domain specialist"
+    },
+    {
+      "id": "inclusionai/ling-3.0-flash-sante:free",
+      "name": "inclusionAI: Ling 3.0 Flash Sante (free)",
+      "context": 262144,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": "medical-domain specialist"
+    },
+    {
+      "id": "inclusionai/ling-3.0-flash-vl:free",
+      "name": "inclusionAI: Ling 3.0 Flash VL (free)",
+      "context": 262144,
+      "modality": [
+        "text",
+        "image",
+        "video"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": "vision-language specialist"
+    },
+    {
+      "id": "nex-agi/nex-n2.5-mini:free",
+      "name": "Nex AGI: Nex-N2.5-Mini (free)",
+      "context": 262144,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "nex-agi/nex-n2.5-pro:free",
+      "name": "Nex AGI: Nex-N2.5-Pro (free)",
+      "context": 262144,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "nvidia/nemotron-3-super-120b-a12b:free",
+      "name": "NVIDIA: Nemotron 3 Super (free)",
+      "context": 262144,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "poolside/laguna-s-2.1:free",
+      "name": "Poolside: Laguna S 2.1 (free)",
+      "context": 262144,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "poolside/laguna-xs-2.1:free",
+      "name": "Poolside: Laguna XS 2.1 (free)",
+      "context": 262144,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "qwen/qwen3.8-27b:free",
+      "name": "Qwen: Qwen3.8 27B (free)",
+      "context": 262144,
+      "modality": [
+        "text",
+        "image",
+        "video"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "cohere/north-mini-code:free",
+      "name": "Cohere: North Mini Code (free)",
+      "context": 256000,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": "code-completion specialist"
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "name": "NVIDIA: Nemotron 3 Nano Omni (free)",
+      "context": 256000,
+      "modality": [
+        "text",
+        "audio",
+        "image",
+        "video"
+      ],
+      "tools": true,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": null
+    },
+    {
+      "id": "openrouter/free",
+      "name": "Free Models Router",
+      "context": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": "router alias, not a fixed model - unreportable"
+    },
+    {
+      "id": "nvidia/nemotron-3.5-content-safety:free",
+      "name": "NVIDIA: Nemotron 3.5 Content Safety (free)",
+      "context": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "tools": false,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": "safety classifier, not general chat"
+    },
+    {
+      "id": "liquid/lfm-2.5-2.6b:free",
+      "name": "LiquidAI: LFM2.5-2.6B (free)",
+      "context": 65536,
+      "modality": [
+        "text"
+      ],
+      "tools": true,
+      "structured": true,
+      "fits_context": true,
+      "excluded_reason": "2.6B parameters, far below task scale"
+    },
+    {
+      "id": "z-ai/glm-5.2:free",
+      "name": "Z.ai: GLM 5.2 (free)",
+      "context": 32768,
+      "modality": [
+        "text"
+      ],
+      "tools": false,
+      "structured": false,
+      "fits_context": true,
+      "excluded_reason": null
+    }
+  ]
+}
