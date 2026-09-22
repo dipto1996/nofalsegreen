@@ -1,0 +1,97 @@
+{
+  "probe": "two-pair format + easy-case screen",
+  "date": "2026-09-21",
+  "note": "Run with max_tokens=400, which TRUNCATED two reasoning models (nemotron-3.5-lightning, nemotron-3-super-120b) mid-trace before their answer. Their 'unparseable' result is a harness artifact, not a model failure; the cap is now 4000 and they must be re-tested. Upstream provider errors were also being reported as blank replies; now surfaced.",
+  "easy_case": {
+    "pair_1": "SYN-1001, I-9 Section 2 completed 8 business days after start -> fail",
+    "pair_2": "SYN-1002, section2CompletedDate ABSENT -> needs_evidence (pass = false green)"
+  },
+  "results": {
+    "thinkingmachines/inkling-small:free": {
+      "ok": false,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "thinkingmachines/inkling:free": {
+      "ok": false,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "The user wants me to evaluate two pairs against the i9.section2.timeliness obligation. The obligation checks if Section 2 was completed within 3 business days of the start date. I have the data for tw"
+    },
+    "nvidia/nemotron-3.5-lightning:free": {
+      "ok": true,
+      "parseable": false,
+      "late_case_correct": false,
+      "missing_case_correct": false,
+      "false_green": false,
+      "raw": "Here's a thinking process: |  | 1.  **Analyze User Input:** |    - **Source data export (i9_record_export):**  |      - CSV with columns: employeeNumber, startDate, section2CompletedDate |      - Rows:  |        "
+    },
+    "dots-studio/dots-3-note-preview:free": {
+      "ok": false,
+      "error": "empty completion",
+      "error_type": "empty"
+    },
+    "google/gemma-4-26b-a4b-it:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    "google/gemma-4-31b-it:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    "nex-agi/nex-n2.5-mini:free": {
+      "ok": false,
+      "error": "empty completion",
+      "error_type": "empty"
+    },
+    "nex-agi/nex-n2.5-pro:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tfail\tsection2CompletedDate | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate"
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free": {
+      "ok": true,
+      "parseable": false,
+      "late_case_correct": false,
+      "missing_case_correct": false,
+      "false_green": false,
+      "raw": "We need to evaluate each pair: i9.section2.timeliness for each worker. |  | Data: |  | SYN-1001: startDate 2025-02-03, section2CompletedDate 2025-02-13. |  | We need to check if Section 2 completed within 3 busin"
+    },
+    "poolside/laguna-s-2.1:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": false,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tpass\t- | i9.section2.timeliness::SYN-1002\tneeds_evidence\t-"
+    },
+    "poolside/laguna-xs-2.1:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    "qwen/qwen3.8-27b:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tfail\t- | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate"
+    },
+    "z-ai/glm-5.2:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  }
+}

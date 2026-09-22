@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 .test-tmp/
 .sweep-tmp/
+
+# never commit credentials
+*.key
+.env
+.env.*

@@ -115,7 +115,10 @@ def live_test(model_id: str, key: str) -> dict:
     body = json.dumps({
         "model": model_id,
         "temperature": 0,
-        "max_tokens": 400,
+        # Several free models emit a reasoning trace before the answer. A tight
+        # cap truncates them mid-thought and would score a capable model as
+        # unparseable, so give enough room for the trace plus the reply.
+        "max_tokens": 4000,
         "messages": [
             {"role": "system", "content": LIVE_SYSTEM},
             {"role": "user", "content": LIVE_USER},
@@ -126,7 +129,20 @@ def live_test(model_id: str, key: str) -> dict:
     except Exception as e:  # noqa: BLE001 - report, never crash the sweep
         return {"ok": False, "error": str(e)[:160]}
 
+    # OpenRouter returns upstream failures as HTTP 200 with an `error` object.
+    # Reporting these as an empty reply would misattribute a provider outage to
+    # the model, so surface them explicitly.
+    if isinstance(r.get("error"), dict):
+        err = r["error"]
+        return {
+            "ok": False,
+            "error": f"{err.get('code')}: {str(err.get('message'))[:120]}",
+            "error_type": (err.get("metadata") or {}).get("error_type"),
+        }
+
     txt = ((r.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+    if not txt.strip():
+        return {"ok": False, "error": "empty completion", "error_type": "empty"}
     low = txt.lower()
 
     def verdict_for(emp: str) -> str | None:
@@ -185,11 +201,12 @@ def main() -> int:
     }
 
     if args.live:
-        import os
-        key = os.environ.get("OPENROUTER_API_KEY")
+        from nofalsegreen.credentials import load_checked_key, redact
+        key = load_checked_key("openrouter", required=False)
         if not key:
-            print("\n[live] set OPENROUTER_API_KEY to run live tests")
+            print("\n[live] no openrouter key found; see nofalsegreen/credentials.py")
         else:
+            print(f"\nkey: {redact(key)}")
             print("\nlive format + easy-case test (2 pairs each):")
             print(f"{'model id':<46}{'resp':>6}{'parse':>7}{'late':>6}{'missing':>9}{'FG':>4}")
             print("-" * 78)
