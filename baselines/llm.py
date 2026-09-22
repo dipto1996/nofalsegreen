@@ -62,6 +62,8 @@ class RunResult:
     n_unparseable: int
     n_missing_lines: int
     n_off_schema: int
+    n_truncated_calls: int = 0
+    n_failed_batches: int = 0
     raw: list[str] = field(default_factory=list)
 
     @property
@@ -211,9 +213,11 @@ def run_firm(
     *,
     variant: str = ABSTAIN_OFFERED,
     batch_size: int = 40,
-    max_tokens: int = 8000,
+    max_tokens: int | None = None,
     keep_raw: bool = False,
     scope_sources: bool = False,
+    progress: bool = False,
+    cache_path: Path | None = None,
 ) -> RunResult:
     """Run one firm through a provider, batching pairs.
 
@@ -224,18 +228,77 @@ def run_firm(
     system = system_prompt(firm, variant)
     pair_ids = [p.pair_id for p in firm.pairs]
 
+    # Output budget. Reasoning models spend most of their completion on a trace
+    # before emitting verdict lines: a 20-pair call measured ~4,400 output
+    # tokens against ~600 tokens of actual answer. A flat cap truncates them
+    # mid-trace, so they emit NO verdicts and score as unparseable -- a harness
+    # artifact indistinguishable from model failure. Budget generously and
+    # scale with batch size.
+    if max_tokens is None:
+        max_tokens = max(4000, batch_size * 700)
+
     preds: list[Prediction] = []
     usage = Usage()
-    unparseable = missing = off_schema = 0
+    unparseable = missing = off_schema = truncated = failed_batches = 0
     raw: list[str] = []
 
+    # Batch-level cache. A firm of 221 pairs at batch 8 is 28 calls, which
+    # exceeds a 50-per-day quota once both ablation conditions are counted, so
+    # completed batches MUST survive a mid-firm stop or the firm never finishes.
+    cache: dict[str, str] = {}
+    if cache_path and cache_path.exists():
+        try:
+            cache = json.loads(cache_path.read_text())
+        except json.JSONDecodeError:
+            cache = {}
+
+    def cache_key(ids: list[str]) -> str:
+        return f"{provider.name}|{variant}|{firm.firm_id}|{ids[0]}|{len(ids)}"
+
+    n_batches = (len(pair_ids) + batch_size - 1) // batch_size
     for i in range(0, len(pair_ids), batch_size):
         batch = pair_ids[i : i + batch_size]
+        if progress:
+            # A 28-call run is ~25 minutes; without this it is indistinguishable
+            # from a hang.
+            print(f"      batch {i // batch_size + 1}/{n_batches} "
+                  f"({len(preds)} parsed so far)", flush=True)
         user = user_prompt(firm, obligations, batch, scope_sources=scope_sources)
-        text, u = provider.complete(system, user, max_tokens)
+        ck = cache_key(batch)
+        cached = cache.get(ck)
+        if cached is not None:
+            p, unp, miss, offs = parse_response(cached, batch, variant)
+            preds.extend(p)
+            unparseable += unp
+            missing += miss
+            off_schema += offs
+            if keep_raw:
+                raw.append(cached)
+            continue
+
+        try:
+            text, u = provider.complete(system, user, max_tokens)
+        except Exception as exc:  # noqa: BLE001
+            # One dead batch must not discard the other 20 calls of a firm. The
+            # pairs in it get no prediction, which metrics score as errors, and
+            # the failure is counted so it cannot be mistaken for model output.
+            if type(exc).__name__ == "DailyQuotaExhausted":
+                raise
+            failed_batches += 1
+            if keep_raw:
+                raw.append(f"[BATCH FAILED] {type(exc).__name__}: {str(exc)[:200]}")
+            continue
         usage.add(u)
+        # A completion that exactly hits the cap was almost certainly cut off.
+        if u.output_tokens and u.output_tokens >= max_tokens:
+            truncated += 1
         if keep_raw:
             raw.append(text)
+        if cache_path is not None:
+            cache[ck] = text
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text(json.dumps(cache, indent=1))
+
         p, unp, miss, offs = parse_response(text, batch, variant)
         preds.extend(p)
         unparseable += unp
@@ -253,6 +316,8 @@ def run_firm(
         n_unparseable=unparseable,
         n_missing_lines=missing,
         n_off_schema=off_schema,
+        n_truncated_calls=truncated,
+        n_failed_batches=failed_batches,
         raw=raw,
     )
 

@@ -48,7 +48,9 @@ def main() -> int:
     ap.add_argument("--firms", type=int, default=0, help="generated firms (0 = anchor only)")
     ap.add_argument("--variant", default="both",
                     choices=[ABSTAIN_OFFERED, ABSTAIN_WITHHELD, "both"])
-    ap.add_argument("--batch", type=int, default=20)
+    ap.add_argument("--batch", type=int, default=8,
+                    help="pairs per call; reasoning models need a small batch "
+                         "so their trace plus verdicts fit the output budget")
     ap.add_argument("--workers", type=int, default=12)
     ap.add_argument("--no-scope-sources", action="store_true",
                     help="send all exports every call (needs a large tpm quota)")
@@ -104,7 +106,9 @@ def main() -> int:
             t0 = time.time()
             try:
                 r = run_firm(provider, firm, rb.obligations, variant=variant,
-                             batch_size=args.batch, scope_sources=scope, keep_raw=True)
+                             batch_size=args.batch, scope_sources=scope, keep_raw=True,
+                             progress=True,
+                             cache_path=ROOT / "docs" / ".batch_cache.json")
             except DailyQuotaExhausted as e:
                 print(f"\n  daily quota exhausted: {str(e)[:160]}")
                 print("  progress saved; re-run the same command tomorrow to continue.")
@@ -116,6 +120,7 @@ def main() -> int:
                 "firm_id": firm.firm_id,
                 "n_pairs": r.n_pairs, "n_parsed": r.n_parsed,
                 "n_unparseable": r.n_unparseable, "n_off_schema": r.n_off_schema,
+                "n_truncated_calls": r.n_truncated_calls,
                 "false_green_rate": s.false_green_rate,
                 "n_false_green": s.n_false_green, "n_withheld": s.n_withheld,
                 "violation_recall": s.violation_recall,
@@ -139,9 +144,10 @@ def main() -> int:
             ckpt.mark(args.model, variant, firm.firm_id, r.usage)
             out_path.parent.mkdir(parents=True, exist_ok=True)
             out_path.write_text(json.dumps(doc, indent=2))
+            trunc = f"  TRUNCATED {r.n_truncated_calls}" if r.n_truncated_calls else ""
             print(f"  {firm.firm_id:<22} FGR {s.false_green_rate:.3f}  "
                   f"recall {s.violation_recall:.3f}  absF1 {s.abstention_f1:.3f}  "
-                  f"unparsed {r.n_unparseable}  ({r.usage.calls} calls)")
+                  f"unparsed {r.n_unparseable}  ({r.usage.calls} calls){trunc}")
 
         if run["per_firm"]:
             def agg(k: str) -> dict:
@@ -158,6 +164,7 @@ def main() -> int:
             run["n_pairs"] = sum(f["n_pairs"] for f in run["per_firm"])
             run["n_unparseable"] = sum(f["n_unparseable"] for f in run["per_firm"])
             run["n_off_schema"] = sum(f["n_off_schema"] for f in run["per_firm"])
+            run["n_truncated_calls"] = sum(f.get("n_truncated_calls", 0) for f in run["per_firm"])
             a = run["aggregate"]
             print(f"\n  {key}: FGR {a['false_green_rate']['mean']:.3f} "
                   f"(sd {a['false_green_rate']['stdev']:.3f})  "

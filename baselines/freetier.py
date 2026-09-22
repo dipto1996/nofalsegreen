@@ -223,6 +223,110 @@ class GroqFreeProvider:
         )
 
 
+class OpenRouterFreeProvider:
+    """OpenRouter free-tier models via its OpenAI-compatible endpoint.
+
+    One key reaches many models, which is what makes a multi-model ablation
+    feasible with no budget. Standard library only.
+
+    Free-tier reality, measured 2026-09-21: of 15 free chat models meeting the
+    context requirement, 6 returned a usable answer. The rest rate-limited,
+    refused, or returned empty. `complete` therefore distinguishes a transient
+    per-minute 429 (retry) from a daily ceiling (stop and resume tomorrow), and
+    treats an upstream provider failure as a provider fault rather than a model
+    answer.
+    """
+
+    ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
+
+    def __init__(self, model: str, quota: Quota, *, max_retries: int = 4):
+        from nofalsegreen.credentials import load_checked_key
+
+        self.name = model
+        self._key = load_checked_key("openrouter")
+        self.limiter = RateLimiter(quota)
+        self.max_retries = max_retries
+
+    def complete(self, system: str, user: str, max_tokens: int) -> tuple[str, Usage]:
+        body = json.dumps({
+            "model": self.name,
+            "temperature": 0,
+            "max_tokens": max_tokens,
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+        }).encode()
+
+        delay = 8.0
+        last_err: Exception | None = None
+        for _ in range(self.max_retries):
+            self.limiter.acquire()
+            t0 = time.time()
+            req = urllib.request.Request(
+                self.ENDPOINT,
+                data=body,
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {self._key}",
+                    "X-Title": "No False Green benchmark",
+                },
+            )
+            try:
+                with urllib.request.urlopen(req, timeout=300) as resp:
+                    payload = json.loads(resp.read())
+            except urllib.error.HTTPError as e:
+                detail = e.read().decode("utf-8", "replace")[:400]
+                last_err = RuntimeError(f"HTTP {e.code}: {detail}")
+                if e.code == 429:
+                    if "per day" in detail.lower() or "daily" in detail.lower():
+                        raise DailyQuotaExhausted(detail) from e
+                    time.sleep(delay)
+                    delay = min(delay * 2, 120.0)
+                    continue
+                if e.code == 404 or 500 <= e.code < 600:
+                    time.sleep(delay)
+                    delay = min(delay * 2, 120.0)
+                    continue
+                raise last_err from e
+            except (urllib.error.URLError, TimeoutError) as e:
+                last_err = e
+                time.sleep(delay)
+                delay = min(delay * 2, 120.0)
+                continue
+
+            # OpenRouter reports upstream failures as HTTP 200 + an error body.
+            # Treating that as an empty model reply would blame the model for a
+            # provider outage.
+            if isinstance(payload.get("error"), dict):
+                err = payload["error"]
+                code = err.get("code")
+                msg = str(err.get("message"))[:200]
+                if code == 429:
+                    raise DailyQuotaExhausted(msg)
+                last_err = RuntimeError(f"upstream {code}: {msg}")
+                # 404 here is the upstream shedding load, not a missing model:
+                # observed on an id that answered minutes before and after.
+                # Treat it as transient, like a 5xx.
+                if code in (404, 500, 502, 503, 504):
+                    time.sleep(delay)
+                    delay = min(delay * 2, 120.0)
+                    continue
+                raise last_err
+
+            ch = (payload.get("choices") or [{}])[0]
+            text = (ch.get("message") or {}).get("content") or ""
+            u = payload.get("usage", {}) or {}
+            return text, Usage(
+                input_tokens=u.get("prompt_tokens", 0),
+                output_tokens=u.get("completion_tokens", 0),
+                calls=1,
+                seconds=time.time() - t0,
+            )
+
+        raise RuntimeError(f"{self.name}: gave up after {self.max_retries} attempts: {last_err}")
+
+
 # Quotas as published in vendor docs, September 2026. Verify before a run; the
 # value actually used is recorded in the results file.
 FREE_QUOTAS = {
@@ -232,7 +336,15 @@ FREE_QUOTAS = {
     "openai/gpt-oss-120b": Quota(rpm=30, rpd=1_000, tpm=8_000, label="groq gpt-oss-120b free"),
 }
 
-FREE_PROVIDERS = {"gemini": GeminiFreeProvider, "groq": GroqFreeProvider}
+# OpenRouter free tier: 20 requests/minute; 50/day under $10 lifetime credit,
+# 1000/day at or above it. Verified against the /api/v1/key endpoint.
+OPENROUTER_QUOTA = Quota(rpm=20, rpd=50, tpm=None, label="openrouter free (<$10 credit)")
+
+FREE_PROVIDERS = {
+    "gemini": GeminiFreeProvider,
+    "groq": GroqFreeProvider,
+    "openrouter": OpenRouterFreeProvider,
+}
 
 
 @dataclass

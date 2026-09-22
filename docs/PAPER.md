@@ -518,13 +518,13 @@ after seeing the numbers.
 **Table 2 — main result, `abstain_offered`.** One row per model. Every cell is a mean
 across firms with standard deviation; the unparseable column guards the rest.
 
+<!-- BEGIN GENERATED: table2-main -->
 | Model | False green | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. |
 |---|---|---|---|---|---|---|---|---|
-| `[model 1]` | `[FGR ± sd]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |
-| `[model 2]` | … | | | | | | | |
-| `[model n]` | … | | | | | | | |
-| `always_pass` (ref) | 1.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
-| `oracle` (ref) | 0.000 | 1.000 | 1.000 | 0.000 | 1.000 | 1.000 | 1.000 | 0.000 |
+| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |
+| `always_pass` (ref) | 1.000 | 0.000 | 0.000 | 0.000 | 0.000 | — | 0.000 | 0.000 |
+| `oracle` (ref) | 0.000 | 1.000 | 1.000 | 0.000 | 0.000 | — | 1.000 | 0.000 |
+<!-- END GENERATED: table2-main -->
 
 The trivial baselines are repeated in-table as reference rows, so a reader sees
 immediately where each model sits between the unsafe floor and the attainable ceiling.
@@ -532,17 +532,25 @@ immediately where each model sits between the unsafe floor and the attainable ce
 **Table 3 — the schema ablation.** The paper's most informative experiment. Same models,
 both conditions, difference reported per model.
 
-| Model | FGR `abstain_offered` | FGR `abstain_withheld` | Δ | Off-schema abstentions |
+<!-- BEGIN GENERATED: table3-ablation -->
+| Model | FGR, abstention offered | FGR, abstention withheld | Δ | Off-schema abstentions |
 |---|---|---|---|---|
-| `[model 1]` | `[…]` | `[…]` | `[…]` | `[n of N]` |
+| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[n of N]` |
+<!-- END GENERATED: table3-ablation -->
 
 The off-schema column counts pairs where a model returned `needs_evidence` although the
 schema permitted only `pass` and `fail`. A model doing this frequently is refusing a
 schema that cannot express what it observed, which we would report as a finding about the
 interface rather than an instruction-following failure.
 
-**Table 4 — false-green rate by regime.** Ten rows, one per regulatory regime, columns
-per model. This is where the document-versus-field asymmetry in Section 9 is tested.
+**Table 4 — false-green rate by regime.** One row per regulatory regime, one column per
+model. This is where the document-versus-field asymmetry in Section 9 is tested.
+
+<!-- BEGIN GENERATED: table4-regime -->
+| Regime | `[TO RUN]` |
+|---|---|
+| *ten rows, one per regime, one column per model* | `[…]` |
+<!-- END GENERATED: table4-regime -->
 
 **Table 5 — near-miss controls.** For conforming cases placed exactly on the legal
 boundary, the rate at which each model raises an alarm, against its rate on

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" font-family="Helvetica, Arial, sans-serif">
+<rect width="640" height="480" fill="#ffffff"/>
+<rect x="291.0" y="44" width="217.0" height="187.0" fill="#fdeaea"/>
+<text x="495.0" y="60" font-size="9.5" fill="#a33" text-anchor="end">looks accurate, unsafe</text>
+<text x="495.0" y="406.8" font-size="9.5" fill="#2c6e49" text-anchor="end">accurate and safe</text>
+<line x1="74.0" y1="44" x2="74.0" y2="418" stroke="#e8e8e8" stroke-width="1"/>
+<line x1="74" y1="418.0" x2="508" y2="418.0" stroke="#e8e8e8" stroke-width="1"/>
+<text x="74.0" y="434" font-size="9.5" fill="#555" text-anchor="middle">0.0</text>
+<text x="65" y="421.5" font-size="9.5" fill="#555" text-anchor="end">0.0</text>
+<line x1="160.8" y1="44" x2="160.8" y2="418" stroke="#e8e8e8" stroke-width="1"/>
+<line x1="74" y1="343.2" x2="508" y2="343.2" stroke="#e8e8e8" stroke-width="1"/>
+<text x="160.8" y="434" font-size="9.5" fill="#555" text-anchor="middle">0.2</text>
+<text x="65" y="346.7" font-size="9.5" fill="#555" text-anchor="end">0.2</text>
+<line x1="247.6" y1="44" x2="247.6" y2="418" stroke="#e8e8e8" stroke-width="1"/>
+<line x1="74" y1="268.4" x2="508" y2="268.4" stroke="#e8e8e8" stroke-width="1"/>
+<text x="247.6" y="434" font-size="9.5" fill="#555" text-anchor="middle">0.4</text>
+<text x="65" y="271.9" font-size="9.5" fill="#555" text-anchor="end">0.4</text>
+<line x1="334.4" y1="44" x2="334.4" y2="418" stroke="#e8e8e8" stroke-width="1"/>
+<line x1="74" y1="193.6" x2="508" y2="193.6" stroke="#e8e8e8" stroke-width="1"/>
+<text x="334.4" y="434" font-size="9.5" fill="#555" text-anchor="middle">0.6</text>
+<text x="65" y="197.1" font-size="9.5" fill="#555" text-anchor="end">0.6</text>
+<line x1="421.2" y1="44" x2="421.2" y2="418" stroke="#e8e8e8" stroke-width="1"/>
+<line x1="74" y1="118.8" x2="508" y2="118.8" stroke="#e8e8e8" stroke-width="1"/>
+<text x="421.2" y="434" font-size="9.5" fill="#555" text-anchor="middle">0.8</text>
+<text x="65" y="122.3" font-size="9.5" fill="#555" text-anchor="end">0.8</text>
+<line x1="508.0" y1="44" x2="508.0" y2="418" stroke="#e8e8e8" stroke-width="1"/>
+<line x1="74" y1="44.0" x2="508" y2="44.0" stroke="#e8e8e8" stroke-width="1"/>
+<text x="508.0" y="434" font-size="9.5" fill="#555" text-anchor="middle">1.0</text>
+<text x="65" y="47.5" font-size="9.5" fill="#555" text-anchor="end">1.0</text>
+<rect x="74" y="44" width="434" height="374" fill="none" stroke="#9aa5b1" stroke-width="1.2"/>
+<text x="291.0" y="460" font-size="11.5" fill="#222" text-anchor="middle">violation recall  (higher is better)</text>
+<text x="18" y="231.0" font-size="11.5" fill="#222" text-anchor="middle" transform="rotate(-90 18 231.0)">false-green rate  (lower is better)</text>
+<text x="74" y="26" font-size="12.5" font-weight="bold" fill="#111">Figure 1: recall does not imply safety</text>
+<rect x="69.0" y="39.0" width="10" height="10" fill="#8a8a8a" stroke="#fff" stroke-width="1.2"/>
+<rect x="69.0" y="413.0" width="10" height="10" fill="#8a8a8a" stroke="#fff" stroke-width="1.2"/>
+<rect x="503.0" y="413.0" width="10" height="10" fill="#8a8a8a" stroke="#fff" stroke-width="1.2"/>
+<rect x="503.0" y="413.0" width="10" height="10" fill="#8a8a8a" stroke="#fff" stroke-width="1.2"/>
+<text x="522" y="50" font-size="10" font-weight="bold" fill="#111">systems</text>
+<rect x="524" y="61" width="8" height="8" fill="#8a8a8a"/>
+<text x="537" y="68.5" font-size="8.6" fill="#333">always_abstain</text>
+<rect x="524" y="75" width="8" height="8" fill="#8a8a8a"/>
+<text x="537" y="82.5" font-size="8.6" fill="#333">always_fail</text>
+<rect x="524" y="89" width="8" height="8" fill="#8a8a8a"/>
+<text x="537" y="96.5" font-size="8.6" fill="#333">always_pass</text>
+<rect x="524" y="103" width="8" height="8" fill="#8a8a8a"/>
+<text x="537" y="110.5" font-size="8.6" fill="#333">oracle</text>
+<text x="291.0" y="231.0" font-size="11" fill="#a06000" text-anchor="middle">language-model points pending (run scripts/run_free.py)</text>
+</svg>
