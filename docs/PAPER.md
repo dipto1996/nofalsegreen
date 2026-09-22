@@ -1,10 +1,17 @@
 # No False Green: A Benchmark for Evidence-Aware Compliance Verdicts over Structured Employer Records
 
-**Status of this draft.** Sections 1 through 6 and 8 through 10 are complete. Section 7
-(Results) reports the trivial baselines that have been run and marks the
-language-model experiments as not yet conducted. Every number below traces to
-`docs/results.json` or to the test suite. Placeholders are marked `[TO RUN]` and must
-not be filled by estimation.
+**Status of this draft: structural review.** Sections 1 through 7 and 10 through 11 are
+written. Section 8.1 reports trivial-baseline results that have been run and verified.
+Sections 8.2 and 9 are specified but empty: the tables, figure, and analyses are named and
+their shape is fixed, with cells marked `[…]`, so the reporting structure is committed
+before any number exists.
+
+Every quantitative claim in the written sections is recomputed from the artifacts by
+`scripts/verify_paper.py`, which currently confirms 82 of 82. Nothing marked `[TO RUN]`
+may be filled by estimation.
+
+Section 8.2 also states what will be reported if the empirical result is null, so the
+paper's structure does not depend on the outcome being interesting.
 
 ---
 
@@ -39,7 +46,7 @@ rate and is indistinguishable from a safe system under accuracy-style scoring, w
 scoring 1.000 on the false-green rate; conversely a system abstaining everywhere attains
 0.632 abstention F1 while detecting no violations. An evidence-aware oracle attains 1.000
 on every axis, establishing that the task is solvable and that low scores reflect the
-system under test. Language-model baselines are specified in Section 6 and **have not yet
+system under test. Language-model baselines are specified in Section 7 and **have not yet
 been run**. Because every instance is synthetic, the benchmark is released without the
 confidentiality constraints that keep comparable compliance data unpublishable.
 
@@ -73,7 +80,7 @@ warning, so a false green converts a curable gap into an uncurable finding.
 **It is invisible to accuracy.** Violations are a minority class in real compliance data.
 A system that answers `pass` on every pair whose evidence is absent therefore scores well
 on any metric that averages over pairs, and scores *perfectly* on the compliant cases
-that dominate the distribution. Section 7 shows this concretely: our `always_pass`
+that dominate the distribution. Section 8 shows this concretely: our `always_pass`
 baseline attains a false-alarm rate of 0.000 across 31 firms.
 
 **It is not measured.** Benchmarks in legal NLP evaluate reasoning and classification over
@@ -86,12 +93,12 @@ We make three contributions.
 
 1. **A task.** Verdicts over (obligation, entity) pairs with four states, where
    `needs_evidence` is a first-class output with its own correctness condition rather than
-   a refusal to participate (Section 3).
+   a refusal to participate (Section 4).
 2. **A benchmark.** A hand-authored anchor firm with 221 pinned expectations, a seeded
    generator producing unbounded additional firms with ground truth by construction, and a
-   rulebook of 190 obligations each carrying its regulatory citation (Sections 4-5).
+   rulebook of 190 obligations each carrying its regulatory citation (Section 5).
 3. **A metric suite** centred on the false-green rate, with baselines demonstrating that
-   no single metric in the suite is sufficient alone (Sections 5, 7).
+   no single metric in the suite is sufficient alone (Sections 6 and 8).
 
 The benchmark is fully synthetic, which is the reason it can exist. Compliance data
 describing real employers is subject to attorney-client privilege and employee privacy
@@ -100,7 +107,81 @@ has remained open.
 
 ---
 
-## 2. Background: the four states
+## 2. Related work
+
+Four literatures touch this problem. None occupies the position this benchmark takes, and
+the reason in each case is a difference in what the system is given and what it must
+return.
+
+**Legal and regulatory NLP benchmarks.** Work in this area evaluates reasoning and
+classification over *regulatory text*: statutes, case law, policy manuals. A system is
+given a legal question or a document and asked to answer, classify, or retrieve. Our
+input is an organisation's structured operational records, and our output is a verdict
+per obligation about that organisation. A model that scores well on legal reasoning has
+demonstrated nothing about whether it will report an unassessable duty as satisfied,
+because the task never asks it to decide whether its evidence base is sufficient.
+
+**Immigration-specific datasets.** Recent work covers question answering over
+immigration policy sources, and reasoning over administrative appellate decisions
+including adjudicator error. Both are beneficiary-side and text-side: the questions
+concern what the law says or how a decision was reasoned. Employer-side obligations,
+which is where the per-worker civil penalties and the audit exposure actually sit, are
+absent. We are not aware of a public dataset of employer immigration-compliance records
+with labelled obligation outcomes, and the reason is straightforward: real ones cannot
+be published.
+
+**Compliance benchmarks for AI systems.** A growing body of work assesses whether an AI
+system complies with rules governing AI, including regulation-conformance assessment and
+runtime governance-evidence sufficiency for agent audit trails. The direction of
+assessment is inverted relative to ours. There, the system under test is the regulated
+subject. Here, the system under test is the *assessor*, and the regulated subject is a
+third party whose records it reads. The nearest neighbour in spirit is work asking
+whether an evidence bundle suffices to reconstruct a decision; the difference is that we
+ask whether a system correctly declines to issue a regulatory verdict about someone else.
+
+**Abstention and selective prediction.** This is the closest literature and deserves the
+most precision, because a reviewer will reasonably ask what is new.
+
+Selective prediction gives a model the option to abstain and evaluates it on a
+risk-coverage curve: coverage is a good to be maximised subject to a risk budget, and
+abstention is a *cost* incurred to avoid error. Recent abstention benchmarks evaluate
+whether models recognise unanswerable or underspecified questions, typically in free
+text, where insufficiency is a property of the query and ground truth is established by
+annotation.
+
+Three things differ here.
+
+First, abstention is not a cost. For 45.3% of pairs in our released set it is the
+*correct output*, and it is actionable: `needs_evidence` names a document the firm must
+produce. A system that trades abstention for coverage is not moving along a tradeoff
+curve, it is producing wrong answers that happen to look like answers.
+
+Second, insufficiency is a property of the evidence base rather than the query, so it is
+determinable **by construction**. The generator withholds a required field and the label
+follows mechanically. Free-text abstention benchmarks must annotate insufficiency, and
+annotation of legal sufficiency is exactly the judgement call that makes such datasets
+small and contestable.
+
+Third, the error is directional in a way the risk-coverage framing does not capture.
+Answering `fail` on an undecidable pair is wrong but triggers review. Answering `pass` is
+wrong and *suppresses* review. Aggregating both into a single risk term hides the only
+distinction that matters operationally, which is why we report the false-green rate as a
+separate quantity rather than as one minus abstention recall.
+
+**Aggregate consistency.** We are not aware of prior work measuring whether a system's
+reported headline counts agree with its own per-item outputs. We include it as a metric
+because we have observed the failure in deployed compliance dashboards, where a card and
+its drilldown disagree; we flag it as the least-established axis in the suite.
+
+**Positioning, stated plainly.** The contribution is not a new abstention algorithm and
+not a theoretical result. It is a task formulation in which correct abstention is the
+majority class and is fixed by construction, an instrument for measuring the directional
+error that matters in deployment, and a releasable artifact in a domain where
+releasability is the binding constraint. Section 10 states what this does not establish.
+
+---
+
+## 3. Background: the four states
 
 The four-state vocabulary is not a design choice we made for the benchmark. It is forced
 by the professional-responsibility constraints on any system that reports on legal
@@ -132,7 +213,7 @@ real gaps.
 
 ---
 
-## 3. The task
+## 4. The task
 
 An instance is a firm $F = (S, E, R, a)$ where $S$ is a set of source exports, $E$ a set
 of entities, $R$ a rulebook, and $a$ a pinned evaluation date.
@@ -163,9 +244,9 @@ enforced in the harness and tested.
 
 ---
 
-## 4. Benchmark construction
+## 5. Benchmark construction
 
-### 4.1 The rulebook
+### 5.1 The rulebook
 
 The rulebook contains 190 obligations across ten regimes: I-9 and E-Verify (26), Labor
 Condition Application (23), Public Access File (15), wage and prevailing wage (21), H-1B
@@ -182,7 +263,7 @@ One honest discrepancy: the source manifest's header states 196 rules, while 190
 complete rule blocks carrying both a citation and a required-evidence list. We use 190
 throughout and do not reconcile the difference.
 
-### 4.2 The anchor firm
+### 5.2 The anchor firm
 
 The anchor firm is a synthetic employer of twelve workers, nine on H-1B status and three
 United States citizens, operating from two worksites, with eleven source exports totalling
@@ -216,7 +297,7 @@ roster does not evidence which document a worker presented. The honest output fo
 pair is an evidence request, and the fact that these outnumber confirmed violations
 tenfold is the empirical claim underlying the benchmark's design.
 
-### 4.3 The generator
+### 5.3 The generator
 
 The anchor firm is too small to support a confidence interval on any system's error rate.
 The generator addresses this.
@@ -242,7 +323,7 @@ of planted violations relative to the hand-authored firm.
 Generation is deterministic in the seed. Two runs of the same seed produce byte-identical
 label sets and firm metadata, which the test suite asserts.
 
-### 4.4 Released scale
+### 5.4 Released scale
 
 | | Value |
 |---|---|
@@ -256,7 +337,7 @@ Additional firms are available at any seed.
 
 ---
 
-## 5. Metrics
+## 6. Metrics
 
 Let $T$ be ground truth and $P$ predictions over pairs.
 
@@ -292,11 +373,11 @@ number is correct. This axis exists because we have observed the failure in depl
 dashboards and are not aware of it being measured elsewhere.
 
 **Reporting requirement.** The false-green rate must be reported alongside violation
-recall. Neither is meaningful alone, and Section 7 shows why.
+recall. Neither is meaningful alone, and Section 8 shows why.
 
 ---
 
-## 6. Baselines
+## 7. Baselines
 
 **Trivial baselines (run).** `always_pass` answers `pass` everywhere and is maximally
 unsafe. `always_abstain` answers `needs_evidence` everywhere: safe but useless.
@@ -345,7 +426,7 @@ reduce input cost materially, since every batch within a firm re-sends the same 
 The anchor firm alone costs under \$1.50 on the most expensive tier, which is the
 recommended first run.
 
-### 6.1 Running on free API tiers
+### 7.1 Running on free API tiers
 
 We report results obtained entirely on providers' free tiers, which constrains the
 experiment in two ways that must be stated because both affect the measurement.
@@ -372,11 +453,11 @@ scoping on and off, and that the pass-guessing baseline is still caught at a fal
 rate of 1.000 under scoping.
 
 **Model coverage, and the limitation it creates.** Free tiers offer a narrower and
-generally smaller set of models than the specification in Section 6 assumes. Any result we
+generally smaller set of models than the specification in Section 7 assumes. Any result we
 obtain this way therefore speaks to the models we could reach, not to the frontier. We
 state the models and their published quotas alongside every number and do not generalise
 beyond them. This is a genuine weakness of the study rather than a presentational choice,
-and it is repeated in Section 9.
+and it is repeated in Section 10.
 
 **Throughput.** At a representative free quota of 10 requests per minute and 250 per day,
 the anchor firm across both ablation conditions is 24 calls, or about a tenth of one day.
@@ -394,11 +475,12 @@ misleading, and we do not.
 
 ---
 
-## 7. Results
+## 8. Results
 
-### 7.1 Trivial baselines
+### 8.1 Trivial baselines
 
-Across 31 firms and 57,701 pairs, aggregated per firm then averaged:
+**Table 1 — trivial baselines.** Across 31 firms and 57,701 pairs, aggregated per firm
+then averaged. Reproduced by `python3 scripts/sweep.py --firms 30`.
 
 | System | False green | Violation recall | Precision | False alarm | Abstention F1 |
 |---|---|---|---|---|---|
@@ -426,38 +508,104 @@ must be reported jointly.
 **The task is solvable.** The oracle reaches 1.000 on every axis. A system scoring poorly
 is exhibiting a property of itself, not of an ill-posed benchmark.
 
-### 7.2 Language-model results
+### 8.2 Language-model results
 
-`[TO RUN]` — no language-model experiments have been conducted. Section 6 fixes the
-protocol in advance so that the reported result is not a post-hoc selection.
+`[TO RUN]` — no language-model experiments have been conducted. Section 7 fixes the
+protocol in advance so that the reported result is not a post-hoc selection. The tables
+below are the ones that will be filled, specified now so the structure cannot be chosen
+after seeing the numbers.
+
+**Table 2 — main result, `abstain_offered`.** One row per model. Every cell is a mean
+across firms with standard deviation; the unparseable column guards the rest.
+
+| Model | False green | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. |
+|---|---|---|---|---|---|---|---|---|
+| `[model 1]` | `[FGR ± sd]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |
+| `[model 2]` | … | | | | | | | |
+| `[model n]` | … | | | | | | | |
+| `always_pass` (ref) | 1.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| `oracle` (ref) | 0.000 | 1.000 | 1.000 | 0.000 | 1.000 | 1.000 | 1.000 | 0.000 |
+
+The trivial baselines are repeated in-table as reference rows, so a reader sees
+immediately where each model sits between the unsafe floor and the attainable ceiling.
+
+**Table 3 — the schema ablation.** The paper's most informative experiment. Same models,
+both conditions, difference reported per model.
+
+| Model | FGR `abstain_offered` | FGR `abstain_withheld` | Δ | Off-schema abstentions |
+|---|---|---|---|---|
+| `[model 1]` | `[…]` | `[…]` | `[…]` | `[n of N]` |
+
+The off-schema column counts pairs where a model returned `needs_evidence` although the
+schema permitted only `pass` and `fail`. A model doing this frequently is refusing a
+schema that cannot express what it observed, which we would report as a finding about the
+interface rather than an instruction-following failure.
+
+**Table 4 — false-green rate by regime.** Ten rows, one per regulatory regime, columns
+per model. This is where the document-versus-field asymmetry in Section 9 is tested.
+
+**Table 5 — near-miss controls.** For conforming cases placed exactly on the legal
+boundary, the rate at which each model raises an alarm, against its rate on
+comfortably-conforming controls. A gap indicates proximity heuristics rather than rule
+application.
+
+**Figure 1 — the separation plot.** Violation recall on one axis, false-green rate on the
+other, one point per model, with the four trivial baselines marking the corners. The
+argument of the paper is that real systems cluster where recall looks acceptable and the
+false-green rate does not, and this figure either shows that or refutes it.
+
+**What we will report if the result is null.** If the models tested abstain correctly and
+the false-green rate is uniformly low, we will say so and the paper's claim narrows to the
+task, the construction method, and the instrument, with the empirical section reporting a
+negative result. The benchmark is publishable either way, and committing to this in
+advance is what makes the eventual number credible.
 
 ---
 
-## 8. Analysis
+## 9. Analysis
 
-`[TO RUN — depends on 7.2]` The analysis this section will perform, specified now:
+`[TO RUN — depends on 8.2]` The analyses this section will perform, specified now. Each
+names the artifact that answers it, so none can be quietly dropped if inconvenient.
 
-**Which failure dominates.** Per-system decomposition of error into missed violations,
-false greens, and false alarms.
+**Which failure dominates, per model.** Error decomposed into missed violations, false
+greens, false alarms, and unparseable output, as a stacked proportion. A model whose error
+is mostly unparseable output is making a formatting claim, not a reasoning one, and must
+be discussed separately.
 
-**Where abstention is hardest.** The harness reports the false-green rate per regime.
-Obligations whose required evidence is a *document* (a posting notice, a public access
-file) are expected to differ from those whose required evidence is a *field* (an I-94
-expiry, a first-pay date), because absence of a field is visible as an empty column
-whereas absence of a document is visible only as the lack of a record that was never
-expected to exist. If that asymmetry holds it is the paper's most useful finding for
-system builders.
+**Where abstention is hardest.** From Table 4. The hypothesis, stated before the run:
+obligations whose required evidence is a *field* (an I-94 expiry, a first-pay date) will
+show a lower false-green rate than those whose required evidence is a *document* (a
+posting notice, a public access file). Absence of a field is visible as an empty column;
+absence of a document is visible only as the absence of a record that was never expected
+to exist, which is a harder inference. If the asymmetry holds it is the most actionable
+finding for system builders, because it says where to put human review. If it does not
+hold, we report that the failure is uniform across evidence classes, which is also useful
+and which we will not suppress.
 
-**Near-miss controls.** Whether systems flag conforming cases placed on the legal
-boundary, which distinguishes rule application from proximity heuristics.
+**Near-miss controls.** From Table 5. Distinguishes rule application from proximity
+heuristics.
 
-**The schema ablation.** Whether offering an explicit abstention option reduces the
-false-green rate, and by how much. A large reduction would locate the problem in interface
-design; a small one would locate it in the models.
+**The schema ablation.** From Table 3. A large reduction in false greens when abstention
+is offered locates the problem in interface design, which is an actionable finding for
+anyone shipping a compliance dashboard. A small reduction locates it in the models, which
+is a harder problem and a more important result. We commit to reporting whichever occurs.
+
+**Evidence-pointer quality.** Among pairs answered correctly, how often the cited evidence
+field is one ground truth records as relevant. A correct verdict reached by pointing at the
+wrong record is not a reliable verdict, and at scale it is indistinguishable from a guess.
+
+**Consistency drift.** Reported if a system under test exposes headline counts. Flagged in
+Section 6 as the least-established axis in the suite, and it will be reported as
+exploratory rather than as a headline.
+
+**Qualitative failure cases.** Three to five verbatim excerpts from retained raw output
+showing a model asserting a verdict the records cannot support. These are the most
+persuasive evidence in the paper for a reader who does not care about aggregate rates, and
+they are available because every response is retained.
 
 ---
 
-## 9. Limitations
+## 10. Limitations
 
 **One jurisdiction, one domain.** United States employment-based immigration. We claim the
 false-green failure generalises to other regulated domains and claim nothing about whether
@@ -491,7 +639,7 @@ Whether the largest current models exhibit the same false-green behaviour is unt
 it is the single most valuable extension.
 
 **Prompts send only regime-relevant exports.** Required by free per-minute token quotas
-(Section 6.1). Safeguarded by disclosing withheld exports in the prompt, forbidding
+(Section 7.1). Safeguarded by disclosing withheld exports in the prompt, forbidding
 inference about unseen data, falling back to all sources for unclassified regimes, and
 asserting in tests that a correct model scores identically either way. It remains a
 deviation from sending a firm's complete record.
@@ -502,7 +650,7 @@ all.
 
 ---
 
-## 10. Ethics and release
+## 11. Ethics and release
 
 **No real personal data.** Every record is synthetic. Names are combinatorial draws from
 generic pools chosen to make joins legible, not to depict anyone.
@@ -531,34 +679,21 @@ The harness requires only the Python standard library and runs offline.
 python3 -m nofalsegreen.cli describe                                  # rulebook + anchor stats
 python3 -m nofalsegreen.cli score --firm northwind --baseline always_pass
 python3 -m nofalsegreen.cli generate --seed 7 --out data/firms/synthetic-000007
-python3 scripts/sweep.py --firms 30                                   # reproduces Table 7.1
+python3 scripts/sweep.py --firms 30                                   # reproduces Table 1
 python3 tests/test_benchmark.py                                       # 36 assertions
 ```
 
-## Appendix B: Related work to engage
+## Appendix B: Prompt and protocol
 
-To be written against the current literature. The positioning claims to defend:
+The prompts are frozen in `baselines/prompts.py` at `PROMPT_VERSION` 1.0.0 and reproduced
+verbatim below in both ablation conditions, since a benchmark whose prompt is not
+published is not reproducible.
 
-- **Legal NLP benchmarks** evaluate reasoning and classification over regulatory text,
-  statutes, and case law. Our input is an organisation's structured records and our output
-  is a verdict per obligation, so the task is disjoint.
-- **Immigration-specific datasets** cover question answering over policy sources and
-  reasoning over appellate decisions. Neither covers employer-side obligations nor emits
-  verdicts over records.
-- **Compliance benchmarks for AI regulation** assess whether an AI system complies with
-  rules governing AI. The direction is inverted: we assess whether a system correctly
-  judges a third party's compliance.
-- **Abstention and selective prediction.** Closest in spirit. The distinction to defend is
-  that selective prediction optimises a risk-coverage tradeoff in which non-coverage is a
-  cost, whereas here abstention is an *output with its own correctness condition*: the
-  right answer for 45.3% of pairs, and wrong when given on a decidable one. Existing
-  abstention benchmarks operate on free-text queries where insufficiency is a property of
-  the question; ours operates on structured records where it is a property of the evidence
-  base, and is therefore determinable by construction rather than by annotation.
-- **Evidence-sufficiency and governance-evidence benchmarks** measure whether records
-  suffice to reconstruct a decision, typically for AI-agent audit trails. Ours measures
-  whether a system correctly refuses to issue a regulatory verdict.
+`[INSERT: system prompt, abstain_offered]`
 
-The gap to substantiate: no public benchmark makes correct abstention the majority class
-over an organisation's structured records, with ground truth fixed by construction, scored
-by the rate at which undecidable obligations are reported as satisfied.
+`[INSERT: system prompt, abstain_withheld]`
+
+`[INSERT: one complete user prompt for a single batch, elided in the middle]`
+
+Changing any of these text blocks changes the benchmark. Any edit bumps
+`PROMPT_VERSION`, and results carry the version they were produced under.

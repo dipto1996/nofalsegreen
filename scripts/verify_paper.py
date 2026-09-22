@@ -134,6 +134,24 @@ claim("Model coverage is limited to free API tiers" in paper,
       "limitations name the model-coverage weakness")
 claim("24 calls" in paper, "paper quotes the measured anchor-firm call count for both variants")
 
+print("\nstructural-skeleton claims")
+import re as _re
+_heads = [l for l in paper.splitlines() if l.startswith(("## ", "### "))]
+_nums = [h for h in _heads if _re.match(r"^## \d+\.", h)]
+claim(len(_nums) == 11, f"11 numbered sections, contiguous (got {len(_nums)})")
+claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(1, 12)),
+      "section numbers run 1..11 with no gaps or repeats")
+claim("## 2. Related work" in paper, "Related work is a real section, not an appendix stub")
+claim("Appendix B: Related work to engage" not in paper, "the old related-work stub is gone")
+for t in ("Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Figure 1"):
+    claim(t in paper, f"{t} is named in the paper")
+claim("if the result is null" in paper,
+      "paper commits in advance to reporting a null result")
+claim("[\u2026]" in paper or "[…]" in paper, "empty result cells are marked as placeholders")
+_bad = _re.findall(r"Section \d+", paper)
+_maxsec = max(int(x.split()[1]) for x in _bad)
+claim(_maxsec <= 11, f"no cross-reference points past section 11 (max {_maxsec})")
+
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
 claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")
