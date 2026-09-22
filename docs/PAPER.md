@@ -7,7 +7,7 @@ their shape is fixed, with cells marked `[…]`, so the reporting structure is c
 before any number exists.
 
 Every quantitative claim in the written sections is recomputed from the artifacts by
-`scripts/verify_paper.py`, which currently confirms 103 of 103. Nothing marked `[TO RUN]`
+`scripts/verify_paper.py`, which currently confirms 110 of 110. Nothing marked `[TO RUN]`
 may be filled by estimation.
 
 Section 8.2 also states what will be reported if the empirical result is null, so the
@@ -459,6 +459,32 @@ state the models and their published quotas alongside every number and do not ge
 beyond them. This is a genuine weakness of the study rather than a presentational choice,
 and it is repeated in Section 10.
 
+**The declared evaluation subset.** Evaluating all 221 anchor pairs costs 28 calls per
+model per condition. At a free ceiling of 50 calls per day, one model consumes more than
+half a day and a six-model, two-condition study takes a week. We therefore evaluate a
+**declared stratified subset** of 140 pairs, fixed by a seed recorded in the code
+(`nofalsegreen/subset.py`) before any model was scored.
+
+The subset is constructed to preserve the properties the benchmark's claims rest on, and
+the test suite asserts each one:
+
+- **every planted violation is included**, so violation recall over the subset is recall
+  over the firm's complete violation set rather than a sample of it;
+- **the class ratio is held at roughly 6:1** in favour of abstention. Spending the whole
+  budget on additional violations would have raised the subset to a 3.8:1 ratio and made
+  the task easier than the firm it represents, which would flatter any false-green rate
+  measured on it;
+- **every regulatory regime present in the firm keeps at least one pair**, so the
+  per-regime table has no silently missing rows;
+- **selection is deterministic**: the same seed yields the same 140 pairs permanently.
+
+The cost is a smaller denominator, so the confidence interval on a subset false-green
+rate is wider than a full-firm rate would give. We report the subset size beside every
+subset result and never present a subset rate as a full-firm rate. The trivial baselines
+behave identically on the subset, with `always_pass` still scoring 1.000 on the
+false-green rate and the oracle still scoring 1.000 recall, so the subset does not make
+the task easier in the direction that matters.
+
 **Throughput.** At a representative free quota of 10 requests per minute and 250 per day,
 the anchor firm across both ablation conditions is 24 calls, or about a tenth of one day.
 Adding five generated firms is roughly four days of quota. The runner paces itself under
@@ -639,6 +665,12 @@ isolates the verdict layer, which is a deliberate scope choice and also a gap.
 substantive defects and admits cure periods. Four states do not capture that.
 
 **The rulebook count is unreconciled.** 190 extracted against a claimed 196.
+
+**Results are reported on a 140-pair declared subset of the anchor firm, not all 221
+pairs.** Required by the free-tier call ceiling (Section 7.1). The subset keeps every
+planted violation, holds the abstention-to-violation ratio at roughly 6:1 against the
+firm's 10:1, and covers every regime, but its smaller denominator widens the interval on
+every rate we report.
 
 **Model coverage is limited to free API tiers, and that limit is severe.** The study was
 run without a compute budget, so the models evaluated are those reachable on providers'

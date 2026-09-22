@@ -167,6 +167,21 @@ claim("5 were rate-limited" in paper and "2 refused" in paper,
       "paper reports the failure-mode breakdown")
 
 
+print("\ndeclared-subset claims")
+from nofalsegreen.subset import DEFAULT_SIZE as _SZ, SUBSET_SEED as _SEED, subset_firm as _sf
+_sub = _sf(firm, regimes)
+_sc = collections.Counter(l.verdict.value for l in _sub.labels)
+_fc = collections.Counter(l.verdict.value for l in firm.labels)
+claim(_sc["fail"] == _fc["fail"], "subset keeps every planted violation")
+claim(len(_sub.pairs) == 140, f"subset is 140 pairs (got {len(_sub.pairs)})")
+claim(abs(_sc["needs_evidence"] / _sc["fail"] - 6.0) < 0.5,
+      f"subset ratio is ~6:1 (got {_sc['needs_evidence']/_sc['fail']:.1f})")
+claim("140 pairs" in paper or "140-pair" in paper, "paper states the subset size")
+claim("declared stratified subset" in paper, "paper calls it a declared subset")
+claim("3.8:1" in paper, "paper states the ratio it rejected and why")
+claim("not all 221" in paper or "not all 221\npairs" in paper.replace("\n", " "),
+      "limitations name the subset as a limitation")
+
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
 claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")

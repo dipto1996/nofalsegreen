@@ -37,6 +37,7 @@ from nofalsegreen import northwind  # noqa: E402
 from nofalsegreen.generator import FirmGenerator, GeneratorConfig  # noqa: E402
 from nofalsegreen.metrics import score  # noqa: E402
 from nofalsegreen.rulebook import Rulebook  # noqa: E402
+from nofalsegreen.subset import DEFAULT_SIZE, subset_firm  # noqa: E402
 
 ANCHOR = ROOT / "data" / "firms" / "northwind-robotics"
 
@@ -58,6 +59,9 @@ def main() -> int:
     ap.add_argument("--rpd", type=int, default=None, help="override published rpd")
     ap.add_argument("--out", default=str(ROOT / "docs" / "llm_results.json"))
     ap.add_argument("--checkpoint", default=str(ROOT / "docs" / ".free_checkpoint.json"))
+    ap.add_argument("--subset", type=int, default=0,
+                    help=f"evaluate the declared stratified subset of N pairs "
+                         f"(0 = full firm; {DEFAULT_SIZE} is the standard subset)")
     args = ap.parse_args()
 
     quota = FREE_QUOTAS.get(args.model) or Quota(rpm=10, rpd=250, label=f"{args.model} (assumed)")
@@ -70,7 +74,13 @@ def main() -> int:
     regimes = rb.rule_regimes()
     gen = FirmGenerator(rb, GeneratorConfig(n_workers=args.workers))
 
-    firms = [northwind.load(ANCHOR, ANCHOR / "expectations.json")]
+    anchor = northwind.load(ANCHOR, ANCHOR / "expectations.json")
+    if args.subset:
+        anchor = subset_firm(anchor, regimes, size=args.subset)
+        print(f"using declared subset: {len(anchor.pairs)} of "
+              f"{anchor.provenance['parent_pairs']} pairs "
+              f"(seed {anchor.provenance['subset_seed']})")
+    firms = [anchor]
     for seed in range(1, args.firms + 1):
         firms.append(gen.generate(seed, ROOT / ".llm-tmp" / f"s{seed}"))
 

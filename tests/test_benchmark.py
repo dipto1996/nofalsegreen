@@ -141,5 +141,43 @@ check(
     f"every label carries a known basis (got {sorted(bases)})",
 )
 
+
+
+# ── declared evaluation subset ──────────────────────────────────────────────
+print("\ndeclared subset")
+from nofalsegreen.subset import DEFAULT_SIZE, SUBSET_SEED, subset_firm  # noqa: E402
+
+rr = rb.rule_regimes()
+sub = subset_firm(firm, rr)
+sub_counts = collections.Counter(l.verdict.value for l in sub.labels)
+full_counts = collections.Counter(l.verdict.value for l in firm.labels)
+
+check(sub_counts["fail"] == full_counts["fail"],
+      f"subset keeps EVERY planted violation ({sub_counts['fail']}/{full_counts['fail']})")
+check(sub_counts["needs_evidence"] > sub_counts["fail"],
+      "abstention is still the majority class in the subset")
+ratio = sub_counts["needs_evidence"] / sub_counts["fail"]
+check(ratio >= 5.0, f"class ratio stays skewed toward abstention (got {ratio:.1f}:1)")
+check(len(sub.pairs) <= DEFAULT_SIZE, f"subset respects its size budget ({len(sub.pairs)})")
+
+full_regimes = {rr.get(p.rule_id, "unknown") for p in firm.pairs}
+sub_regimes = {rr.get(p.rule_id, "unknown") for p in sub.pairs}
+check(full_regimes == sub_regimes, "every regime present in the firm survives into the subset")
+
+again = subset_firm(firm, rr)
+check([p.pair_id for p in sub.pairs] == [p.pair_id for p in again.pairs],
+      "subset selection is deterministic")
+check(sub.provenance["subset_seed"] == SUBSET_SEED, "subset records its seed")
+check(sub.provenance["subset_of"] == firm.firm_id, "subset records its parent firm")
+check(all(l.pair_id in {p.pair_id for p in sub.pairs} for l in sub.labels),
+      "subset labels match subset pairs exactly")
+
+# The subset must not make the task easier: an unsafe system still scores 1.0.
+from baselines.trivial import always_pass as _ap  # noqa: E402
+check(score(sub.labels, _ap(sub)).false_green_rate == 1.0,
+      "always_pass still scores false-green 1.000 on the subset")
+check(score(sub.labels, REGISTRY["oracle"](sub)).violation_recall == 1.0,
+      "oracle still scores full recall on the subset")
+
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)
