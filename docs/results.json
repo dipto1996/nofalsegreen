@@ -1,10 +1,10 @@
 {
   "n_firms": 31,
-  "n_pairs": 57701,
-  "n_withheld": 26115,
-  "n_planted_violations": 6890,
-  "rulebook_version": "2026-06-29",
-  "rulebook_obligations": 190,
+  "n_pairs": 58961,
+  "n_withheld": 26682,
+  "n_planted_violations": 7044,
+  "rulebook_version": "2.0.0",
+  "rulebook_obligations": 194,
   "systems": {
     "always_pass": {
       "false_green_rate": {
@@ -66,7 +66,7 @@
       "abstention_f1": {
         "mean": 0.6321,
         "stdev": 0.0604,
-        "min": 0.6045,
+        "min": 0.6024,
         "max": 0.9526
       }
     },
@@ -85,9 +85,9 @@
       },
       "violation_precision": {
         "mean": 0.1186,
-        "stdev": 0.0093,
+        "stdev": 0.0094,
         "min": 0.0905,
-        "max": 0.131
+        "max": 0.1323
       },
       "false_alarm_rate": {
         "mean": 0.9677,

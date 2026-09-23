@@ -1,0 +1,173 @@
+everify.photo_matching::Anita Desai	needs_evidence	photoMatchResultmatchnomatchrecorded
+everify.photo_matching::Hiroshi Yamamoto	needs_evidence	photoMatchResultmatchnomatchrecorded
+everify.photo_matching::James Park	needs_evidence	photoMatchResultmatchnomatchrecorded
+everify.photo_matching::Mei Tanaka	needs_evidence	photoMatchResultmatchnomatchrecorded
+everify.photo_matching::Yuki Sato	needs_evidence	photoMatchResultmatchnomatchrecorded
+everify.tnc.employer_action_window::Daniel Cho	needs_evidence	employeeNotifiedDate
+everify.tnc.overdue::Daniel Cho	needs_evidence	employeeNotifiedDate
+extension.filing::Hiroshi Yamamoto	unmonitored	-
+fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage	needs_evidence	payrollevidence
+fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control	needs_evidence	Perbeneficiaryplacementplacementtypedirectvsthirdparty
+fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence	needs_evidence	Petitionerofrecordaddresses
+fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites	needs_evidence	Perbeneficiarymultisitethirdpartyonlyfileditinerarylocationsdates
+
+---
+
+fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match	needs_evidence	PerbeneficiaryactualtitlecurrentSOC
+fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid	needs_evidence	PernoticetypeRFENOIRNOID
+fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand	needs_evidence	PerLCAfilingdate
+h1b.i94.expiration::Anita Desai	needs_evidence	I94admituntil
+h1b.i94.expiration::Daniel Cho	needs_evidence	I94admituntil
+h1b.i94.expiration::Lucia Ferreira	needs_evidence	I94admituntil
+h1b.i94.expiration::Mei Tanaka	needs_evidence	I94admituntil
+h1b.i94.expiration::Omar Farouk	needs_evidence	I94admituntil
+h1b.i94.expiration::Sofia Reyes	needs_evidence	I94admituntil
+h1b.i94.expiration::Yuki Sato	needs_evidence	I94admituntil
+h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status	needs_evidence	I94admituntil
+h1b.material_change.soc::Omar Farouk	needs_evidence	petition SOC
+
+---
+
+h1b.material_change.worksite::Sofia Reyes	unmonitored	-
+h1b.max_stay.six_year_limit::Anita Desai	needs_evidence	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.max_stay.six_year_limit::Daniel Cho	needs_evidence	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.max_stay.six_year_limit::Mei Tanaka	needs_evidence	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.max_stay.six_year_limit::Ravi Anand	needs_evidence	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.max_stay.six_year_limit::Yuki Sato	needs_evidence	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.noid.response::Sofia Reyes	unmonitored	-
+h1b.petition.expiry::Hiroshi Yamamoto	unmonitored	-
+h1b.rfe.response::Daniel Cho	unmonitored	-
+h1b.wage.actual.memo::17-2199:L3:Austin, TX:memo	needs_evidence	Booleanactualwagememopresent
+h1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo	needs_evidence	Booleanactualwagememopresent
+h1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo	needs_evidence	Booleanactualwagememopresent
+
+---
+
+h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo	needs_evidence	-
+h1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo	needs_evidence	-
+h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense	needs_evidence	-
+h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty	needs_evidence	-
+h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear	pass	net_pay
+h1b.wage.payment.start-clock::Anita Desai	needs_evidence	-
+h1b.wage.payment.start-clock::Daniel Cho	needs_evidence	-
+h1b.wage.payment.start-clock::Lucia Ferreira	needs_evidence	-
+h1b.wage.payment.start-clock::Omar Farouk	needs_evidence	-
+h1b.wage.payment.start-clock::Sofia Reyes	needs_evidence	-
+h1b.wage.payment.start-clock::Yuki Sato	needs_evidence	-
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L2	needs_evidence	-
+
+---
+
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L4	needs_evidence	PWDdeterminationissuedate
+h1b.wage.prevailing.pwd-validity::pw:17-2061:L3	needs_evidence	PWDdeterminationissuedate
+h1b.wage.prevailing.pwd-validity::pw:17-2141:L3	needs_evidence	PWDdeterminationissuedate
+h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource	needs_evidence	PWsourcetypeenumNPWC_PWDCBAindependent_surveyDBASCA
+h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource	needs_evidence	PWsourcetypeenumNPWC_PWDCBAindependent_surveyDBASCA
+h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource	needs_evidence	PWsourcetypeenumNPWC_PWDCBAindependent_surveyDBASCA
+h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource	needs_evidence	PWsourcetypeenumNPWC_PWDCBAindependent_surveyDBASCA
+h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers	unmonitored	-
+i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026	needs_evidence	petitionformEditionDate
+i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window	needs_evidence	dateofallegedact
+i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list	needs_evidence	canonicalDOC_CATALOGtaggedListABCwithhasExpiryacceptabilitywindow
+i9.noi.production-window::deadline-gap:i9.noi.production-window	needs_evidence	employerId
+
+---
+
+i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse	unmonitored	-
+i9.receipts.rule::i9-fieldgap:i9.receipts.rule	needs_evidence	-
+i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure	needs_evidence	-
+i9.retention.storage_and_production::Anita Desai	needs_evidence	-
+i9.retention.storage_and_production::Helena Voss	needs_evidence	-
+i9.retention.storage_and_production::Hiroshi Yamamoto	needs_evidence	-
+i9.retention.storage_and_production::Mei Tanaka	needs_evidence	-
+i9.retention.storage_and_production::Omar Farouk	needs_evidence	-
+i9.retention.storage_and_production::Ravi Anand	needs_evidence	-
+i9.retention.storage_and_production::Sofia Reyes	needs_evidence	-
+i9.retention.storage_and_production::Yuki Sato	needs_evidence	-
+i9.reverification.deadline::Lucia Ferreira	unmonitored	-
+
+---
+
+i9.reverification.noreverify::Helena Voss	needs_evidence	-
+i9.reverification.unfair::i9-prohibited:i9.reverification.unfair	unmonitored	-
+i9.section1.signature::i9-fieldgap:i9.section1.signature	needs_evidence	-
+i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox	needs_evidence	-
+i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature	needs_evidence	-
+i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam	needs_evidence	-
+i9.section2.timeliness::Ravi Anand	needs_evidence	-
+i9.technical.cure-window::deadline-gap:i9.technical.cure-window	needs_evidence	-
+lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers	needs_evidence	-
+lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers	needs_evidence	-
+lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment	needs_evidence	-
+lca.expiration::I-200-22010-100004	unmonitored	-
+
+---
+
+lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker	needs_evidence	PerworkercertifiedLCAdelivereddate
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting	needs_evidence	filingdate
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting	needs_evidence	filingdate
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting	needs_evidence	filingdate
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting	needs_evidence	filingdate
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting	needs_evidence	filingdate
+lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting	needs_evidence	filingdate
+lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file	needs_evidence	PerLCApresencedateofeachPAFcomponent
+lca.retention::retention:I-200-22010-100004	needs_evidence	filingdate
+lca.retention::retention:I-200-22010-100007	needs_evidence	filingdate
+lca.retention::retention:I-200-23010-100002	needs_evidence	filingdate
+lca.retention::retention:I-200-23010-100009	needs_evidence	filingdate
+
+---
+
+lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice	needs_evidence	Perworksiteoccupationactivelabordisputestrikelockoutflagstartdate
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004	needs_evidence	PWsourcetype
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006	needs_evidence	PWsourcetype
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007	needs_evidence	PWsourcetype
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001	needs_evidence	PWsourcetype
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003	needs_evidence	PWsourcetype
+lca.wage.required_wage_greater_of::Daniel Cho	needs_evidence	grosswagespaidperperiod
+lca.wage.required_wage_greater_of::Hiroshi Yamamoto	needs_evidence	grosswagespaidperperiod
+lca.wage.required_wage_greater_of::Lucia Ferreira	needs_evidence	grosswagespaidperperiod
+lca.wage.required_wage_greater_of::Mei Tanaka	needs_evidence	grosswagespaidperperiod
+lca.wage.start_clock::Anita Desai	needs_evidence	PerworkerconsularadmissiondateI94ORincountryeligibilitydate
+lca.wage.start_clock::Hiroshi Yamamoto	needs_evidence	PerworkerconsularadmissiondateI94ORincountryeligibilitydate
+
+---
+
+lca.wage.start_clock::Lucia Ferreira	needs_evidence	-
+lca.wage.start_clock::Omar Farouk	needs_evidence	-
+lca.wage.start_clock::Ravi Anand	needs_evidence	-
+lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	needs_evidence	-
+lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience	needs_evidence	-
+lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills	needs_evidence	-
+lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory	needs_evidence	-
+lca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area	needs_evidence	-
+lca.worksite.short_term_placement::lca:I-200-22010-100006:stp	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-21010-100005	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100006	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100007	needs_evidence	-
+
+---
+
+paf.assembly.one_working_day::paf-ready:I-200-23010-100009	needs_evidence	pafAssembledDateorpafFirstAvailableDate
+paf.assembly.one_working_day::paf-ready:I-200-25010-100001	needs_evidence	pafAssembledDateorpafFirstAvailableDate
+paf.assembly.one_working_day::paf-ready:I-200-25010-100003	needs_evidence	pafAssembledDateorpafFirstAvailableDate
+paf.item1.certified_lca::paf-agg:paf.item1.certified_lca	needs_evidence	certifiedLcaDocumentPresentbool
+paf.item2.wage_rate::paf-agg:paf.item2.wage_rate	needs_evidence	wageRateDocPresentbool
+paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage	needs_evidence	prevailingWageDocPresentbool
+paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary	needs_evidence	benefitsSummaryPresentbool
+paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list	unmonitored	-
+paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list	needs_evidence	lcaIndicatesExemptOnlybool
+paf.public_access_ready::paf:I-200-21010-100005	unmonitored	-
+paf.public_access_ready::paf:I-200-22010-100004	unmonitored	-
+paf.public_access_ready::paf:I-200-22010-100006	unmonitored	-
+
+---
+
+paf.public_access_ready::paf:I-200-23010-100002	unmonitored	-
+paf.public_access_ready::paf:I-200-25010-100003	unmonitored	-
+specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence	unmonitored	-
+specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4	unmonitored	-
+uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline	needs_evidence	-
+uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock	needs_evidence	-
+wage.prevailing_floor::wage:17-2199	unmonitored	-
+xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel	needs_evidence	-

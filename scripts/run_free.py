@@ -58,7 +58,10 @@ def main() -> int:
     ap.add_argument("--rpm", type=int, default=None, help="override published rpm")
     ap.add_argument("--rpd", type=int, default=None, help="override published rpd")
     ap.add_argument("--out", default=str(ROOT / "docs" / "llm_results.json"))
-    ap.add_argument("--checkpoint", default=str(ROOT / "docs" / ".free_checkpoint.json"))
+    ap.add_argument("--checkpoint",
+                    default=str(ROOT / "docs" / f".free_checkpoint_{PROMPT_VERSION}.json"),
+                    help="per prompt version, so a protocol change never inherits "
+                         "the previous version's 'done' marks")
     ap.add_argument("--subset", type=int, default=0,
                     help=f"evaluate the declared stratified subset of N pairs "
                          f"(0 = full firm; {DEFAULT_SIZE} is the standard subset)")
@@ -93,6 +96,14 @@ def main() -> int:
     doc = json.loads(out_path.read_text()) if out_path.exists() else {
         "prompt_version": PROMPT_VERSION, "runs": {}
     }
+    if doc.get("prompt_version") != PROMPT_VERSION:
+        # Never mix results from two prompt versions in one file: the paper's
+        # tables are generated from it, and a mixed file would put numbers from
+        # a superseded protocol into them.
+        raise SystemExit(
+            f"{out_path} holds prompt v{doc.get('prompt_version')} results; this "
+            f"harness is v{PROMPT_VERSION}. Archive the old file or pass --out."
+        )
 
     print(f"{args.model} via {args.provider}  quota {quota.as_dict()}")
     print(f"batch {args.batch}  scoped_sources {scope}  firms {len(firms)}  variants {variants}\n")
@@ -115,10 +126,10 @@ def main() -> int:
                 continue
             t0 = time.time()
             try:
-                r = run_firm(provider, firm, rb.obligations, variant=variant,
+                r = run_firm(provider, firm, rb.all_rules(), variant=variant,
                              batch_size=args.batch, scope_sources=scope, keep_raw=True,
                              progress=True,
-                             cache_path=ROOT / "docs" / ".batch_cache.json")
+                             cache_path=ROOT / "docs" / ".batch_cache.json")  # keys carry PROMPT_VERSION
             except DailyQuotaExhausted as e:
                 print(f"\n  daily quota exhausted: {str(e)[:160]}")
                 print("  progress saved; re-run the same command tomorrow to continue.")

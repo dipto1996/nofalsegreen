@@ -254,7 +254,10 @@ def run_firm(
             cache = {}
 
     def cache_key(ids: list[str]) -> str:
-        return f"{provider.name}|{variant}|{firm.firm_id}|{ids[0]}|{len(ids)}"
+        # PROMPT_VERSION is part of the key: a reply to one prompt version must
+        # never be reused as the reply to another. Without it, a protocol fix
+        # would silently re-score the old prompt's answers.
+        return f"{PROMPT_VERSION}|{provider.name}|{variant}|{firm.firm_id}|{ids[0]}|{len(ids)}"
 
     n_batches = (len(pair_ids) + batch_size - 1) // batch_size
     for i in range(0, len(pair_ids), batch_size):

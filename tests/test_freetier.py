@@ -111,8 +111,8 @@ check(all("hris_roster_export" in v for v in REGIME_SOURCES.values()),
 
 i9_pairs = [p.pair_id for p in firm.pairs if p.pair_id.startswith("i9.")][:5]
 if i9_pairs:
-    scoped = user_prompt(firm, rb.obligations, i9_pairs, scope_sources=True)
-    full = user_prompt(firm, rb.obligations, i9_pairs, scope_sources=False)
+    scoped = user_prompt(firm, rb.all_rules(), i9_pairs, scope_sources=True)
+    full = user_prompt(firm, rb.all_rules(), i9_pairs, scope_sources=False)
     check(len(scoped) < len(full), "scoped prompt is smaller than the full one")
     check("Not shown:" in scoped, "scoped prompt discloses which exports are withheld")
     check("do not infer that an absent field exists" in " ".join(scoped.split()),
@@ -123,8 +123,8 @@ if i9_pairs:
 # ── scoping does not change the label set or the scoring path ───────────────
 print("\nscoping does not distort measurement")
 careful = MockProvider(lambda pid: truth[pid].verdict.value, "mock-careful")
-r_scoped = run_firm(careful, firm, rb.obligations, batch_size=20, scope_sources=True)
-r_full = run_firm(careful, firm, rb.obligations, batch_size=20, scope_sources=False)
+r_scoped = run_firm(careful, firm, rb.all_rules(), batch_size=20, scope_sources=True)
+r_full = run_firm(careful, firm, rb.all_rules(), batch_size=20, scope_sources=False)
 check(r_scoped.n_parsed == r_full.n_parsed == 221,
       "both modes evaluate all 221 pairs")
 s_scoped = score(firm.labels, r_scoped.predictions)
@@ -137,21 +137,21 @@ check(s_scoped.violation_recall == s_full.violation_recall == 1.0,
 guesser = MockProvider(
     lambda pid: "fail" if truth[pid].verdict is Verdict.FAIL else "pass", "mock-guesser"
 )
-s_g = score(firm.labels, run_firm(guesser, firm, rb.obligations, batch_size=20,
+s_g = score(firm.labels, run_firm(guesser, firm, rb.all_rules(), batch_size=20,
                                   scope_sources=True).predictions)
 check(s_g.false_green_rate == 1.0,
       "the pass-guesser is still caught at FGR 1.000 with scoping on")
 
 # ── feasibility figures the plan depends on ─────────────────────────────────
 print("\nfeasibility")
-e = estimate_cost(firm, rb.obligations, batch_size=20, scope_sources=True)
+e = estimate_cost(firm, rb.all_rules(), batch_size=20, scope_sources=True)
 check(e["n_batches"] == 12, f"anchor firm is 12 calls at batch 20 (got {e['n_batches']})")
 check(e["max_call_tokens"] < 250_000,
       f"largest call fits Gemini's 250k tpm (got {e['max_call_tokens']:,})")
 check(e["scope_sources"] is True, "estimate records whether scoping was used")
 check(e["max_call_tokens"] > 0, "estimate reports the largest single call")
 
-e_un = estimate_cost(firm, rb.obligations, batch_size=20, scope_sources=False)
+e_un = estimate_cost(firm, rb.all_rules(), batch_size=20, scope_sources=False)
 check(e["max_call_tokens"] < e_un["max_call_tokens"],
       "scoping reduces the largest single call")
 

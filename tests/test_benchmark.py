@@ -38,7 +38,19 @@ def check(cond: bool, label: str) -> None:
 # ── rulebook ────────────────────────────────────────────────────────────────
 print("rulebook")
 rb = Rulebook.load(ROOT / "rulebook" / "rulebook.json")
-check(len(rb.obligations) == 190, f"190 obligations loaded (got {len(rb.obligations)})")
+check(len(rb.obligations) == 194,
+      f"194 unique manifest rule ids from 196 entries (got {len(rb.obligations)})")
+check(len(rb.by_id()) == 211, f"211 resolvable ids incl. 17 engine rules (got {len(rb.by_id())})")
+_anchor_rules = {p.rule_id for p in northwind.load(ANCHOR, ANCHOR / "expectations.json").pairs}
+check(_anchor_rules <= set(rb.by_id()),
+      f"every anchor rule id has a definition (missing: {sorted(_anchor_rules - set(rb.by_id()))[:3]})")
+check(all(o.data_needed for o in rb.all_rules()), "every rule carries verbatim 'information needed' prose")
+check(not any("Dateemployer" in o.data_needed or "CompletionDateemployer" in o.data_needed
+              for o in rb.all_rules()),
+      "no v1-style mangled evidence tokens survive")
+check(all(o.alias_of in {m.rule_id for m in rb.obligations}
+          for o in rb.engine_rules if o.alias_of),
+      "every engine alias points at a real manifest rule")
 check(all(o.citation for o in rb.obligations), "every obligation carries a citation")
 check(all(o.evidence_required for o in rb.obligations), "every obligation declares required evidence")
 check(len(rb.regimes()) == 10, f"10 regimes (got {len(rb.regimes())})")

@@ -45,7 +45,7 @@ def check(cond: bool, label: str) -> None:
 
 rb = Rulebook.load(ROOT / "rulebook" / "rulebook.json")
 firm = northwind.load(ANCHOR, ANCHOR / "expectations.json")
-obs = rb.obligations
+obs = rb.all_rules()
 truth = firm.label_index()
 
 # ── prompts ─────────────────────────────────────────────────────────────────
@@ -150,7 +150,32 @@ est = estimate_cost(firm, obs, batch_size=40)
 check(est["n_pairs"] == 221, "probe counts 221 pairs")
 check(est["n_batches"] == 6, "probe counts 6 batches")
 check(est["est_input_tokens"] > 0, "probe estimates input tokens without any API call")
-check(est["prompt_version"] == "1.0.0", "probe records the prompt version")
+check(est["prompt_version"] == "1.1.0", "probe records the prompt version")
+
+# ── prompt v1.1 guarantees (each one is a v1.0 pilot defect) ─────────────────
+print("\nprompt v1.1 guarantees")
+_all_ids = [p.pair_id for p in firm.pairs]
+_up_all = "".join(user_prompt(firm, obs, _all_ids[i:i + 12]) for i in range(0, len(_all_ids), 12))
+check(all(f"- {rid}\n" in _up_all for rid in {p.rule_id for p in firm.pairs}),
+      "every anchor rule reaches the prompt WITH a definition block")
+_raised = False
+try:
+    user_prompt(firm, rb.obligations, [p.pair_id for p in firm.pairs if p.rule_id == "lca.expiration"])
+except ValueError:
+    _raised = True
+check(_raised, "a pair whose rule has no definition is a hard error, not a silent omission")
+check("information needed:" in _up_all and "requires:" not in _up_all,
+      "obligations show verbatim 'information needed' prose, not the v1 token list")
+for _v in (ABSTAIN_OFFERED, ABSTAIN_WITHHELD):
+    _sp = " ".join(system_prompt(firm, _v).split())
+    check("Match them by meaning" in _sp and "Reference knowledge is not evidence" in _sp,
+          f"both reading rules are present in {_v} (identical across the ablation)")
+_ne = " ".join(system_prompt(firm, ABSTAIN_OFFERED).split())
+check("firm-specific information" in _ne and "is ABSENT from the exports" not in _ne,
+      "needs_evidence is defined by the firm's records, not by field names")
+_ravi = user_prompt(firm, obs, ["i9.section2.timeliness::Ravi Anand"])
+check("3 business days" in _ravi and "section2_signed_date" in _ravi,
+      "the clearest planted violation's rule text and evidence column both reach the prompt")
 
 
 # ── quota resume: the multi-day path ───────────────────────────────────────
@@ -197,6 +222,14 @@ with tempfile.TemporaryDirectory() as _td:
           f"day 2 re-requests only the missing batches ({_d2.calls} of {_n_batches})")
     check(_r2.n_parsed == len(_sub.pairs), "day 2 completes the firm")
     _s2 = score(_sub.labels, _r2.predictions)
+
+    # A cache written under a different prompt version must be ignored.
+    _stale = {k.replace("1.1.0|", "1.0.0|", 1): v for k, v in _json.loads(_cache.read_text()).items()}
+    _cache.write_text(_json.dumps(_stale))
+    _d3 = _DiesAfter(999)
+    run_firm(_d3, _sub, obs, variant=ABSTAIN_OFFERED, batch_size=12, cache_path=_cache)
+    check(_d3.calls == _n_batches,
+          f"replies cached under another prompt version are NOT reused ({_d3.calls} fresh calls)")
     check(_s2.violation_recall == 1.0, "a resumed run scores the same as an unbroken one")
     check(_s2.false_green_rate == 0.0, "resumed run has zero false green")
 

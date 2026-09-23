@@ -50,9 +50,15 @@ class Obligation:
     rule_id: str
     regime: str
     citation: str
-    summary: str
+    summary: str  # the manifest's one-line "check"
     applies_to: str  # entity_type this rule attaches to
-    evidence_required: tuple[str, ...]  # field names that must be present to decide
+    evidence_required: tuple[str, ...]  # short items, for label annotation only
+    requirement: str = ""
+    threshold: str = ""
+    data_needed: str = ""  # verbatim manifest prose; this is what the prompt shows
+    needs_counsel: bool = False
+    alias_of: str | None = None  # manifest id, when this is an engine alias
+    source: str = "manifest"  # manifest | engine_alias | engine_rollup
 
 
 @dataclass(frozen=True)

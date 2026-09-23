@@ -1,16 +1,21 @@
 """Rulebook loading.
 
-The rulebook is a set of citable obligations. Each carries the regulatory
-citation it is derived from and the list of source fields that must be present
-for the obligation to be *decidable*. That second field is what makes
-NEEDS_EVIDENCE a computable label rather than a judgement call: if a required
-field is absent from the firm's exports, the pair is not decidable, full stop.
+The rulebook is a set of citable obligations built from the source engine's
+machine-readable manifest registry (196 entries, 194 unique rule ids). Each
+carries its regulatory citation, the check it performs, its threshold, and a
+verbatim description of the information needed to decide it.
+
+`obligations` holds the 194 manifest rules and is what the firm generator draws
+from. The anchor firm's expectation set also uses 17 engine rule ids that are
+not manifest ids; those are resolvable through `by_id()` and `rule_regimes()`
+but are kept out of `obligations`, so a generated firm never counts one duty
+twice under two names.
 """
 
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from .schema import Obligation
@@ -31,36 +36,53 @@ _APPLIES_TO = {
 }
 
 
+def _obligation(o: dict) -> Obligation:
+    return Obligation(
+        rule_id=o["rule_id"],
+        regime=o["regime"],
+        citation=o["citation"],
+        summary=o.get("check") or o.get("summary", ""),
+        applies_to=_APPLIES_TO.get(o["regime"], "worker"),
+        evidence_required=tuple(o.get("evidence_required", ())),
+        requirement=o.get("requirement", ""),
+        threshold=o.get("threshold", ""),
+        data_needed=o.get("data_needed", ""),
+        needs_counsel=bool(o.get("needs_counsel", False)),
+        alias_of=o.get("alias_of"),
+        source=o.get("source", "manifest"),
+    )
+
+
 @dataclass
 class Rulebook:
     version: str
     source: str
     obligations: list[Obligation]
+    engine_rules: list[Obligation] = field(default_factory=list)
 
     def by_id(self) -> dict[str, Obligation]:
-        return {o.rule_id: o for o in self.obligations}
+        """Every resolvable rule id: manifest rules plus engine aliases/roll-ups."""
+        return {o.rule_id: o for o in [*self.obligations, *self.engine_rules]}
+
+    def all_rules(self) -> list[Obligation]:
+        return [*self.obligations, *self.engine_rules]
 
     def regimes(self) -> dict[str, int]:
+        """Manifest rule count per regime."""
         out: dict[str, int] = {}
         for o in self.obligations:
             out[o.regime] = out.get(o.regime, 0) + 1
         return dict(sorted(out.items()))
 
     def rule_regimes(self) -> dict[str, str]:
-        return {o.rule_id: o.regime for o in self.obligations}
+        return {o.rule_id: o.regime for o in self.all_rules()}
 
     @classmethod
     def load(cls, path: Path | str) -> "Rulebook":
         doc = json.loads(Path(path).read_text())
-        obs = [
-            Obligation(
-                rule_id=o["rule_id"],
-                regime=o["regime"],
-                citation=o["citation"],
-                summary=o["summary"],
-                applies_to=_APPLIES_TO.get(o["regime"], "worker"),
-                evidence_required=tuple(o.get("evidence_required", ())),
-            )
-            for o in doc["obligations"]
-        ]
-        return cls(version=doc["version"], source=doc["source"], obligations=obs)
+        manifest, engine = [], []
+        for o in doc["obligations"]:
+            ob = _obligation(o)
+            (manifest if ob.source == "manifest" else engine).append(ob)
+        return cls(version=doc["version"], source=doc["source"],
+                   obligations=manifest, engine_rules=engine)

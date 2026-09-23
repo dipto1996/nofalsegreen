@@ -92,10 +92,14 @@ def quota_reset_at() -> datetime.datetime | None:
 
 
 def completed() -> set[str]:
-    """Keys of runs that already have a scored firm."""
+    """Keys of runs that already have a scored firm under the CURRENT prompt."""
+    from baselines.prompts import PROMPT_VERSION
+
     if not RESULTS.exists():
         return set()
     doc = json.loads(RESULTS.read_text())
+    if doc.get("prompt_version") != PROMPT_VERSION:
+        return set()
     return {k for k, v in doc.get("runs", {}).items() if v.get("per_firm")}
 
 

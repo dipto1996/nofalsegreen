@@ -1,0 +1,395 @@
+everify.photo_matching::Anita Desai	fail	-
+everify.photo_matching::Hiroshi Yamamoto	fail	-
+everify.photo_matching::James Park	fail	-
+everify.photo_matching::Mei Tanaka	fail	-
+everify.photo_matching::Yuki Sato	fail	-
+everify.tnc.employer_action_window::Daniel Cho	fail	fan_delivered_date
+everify.tnc.overdue::Daniel Cho	fail	fan_delivered_date
+extension.filing::Hiroshi Yamamoto	fail	-
+fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage	fail	-
+fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control	fail	-
+fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence	fail	-
+fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites	fail	-
+
+---
+
+fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match	fail	-
+fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid	fail	-
+fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand	fail	-
+h1b.i94.expiration::Anita Desai	fail	-
+h1b.i94.expiration::Daniel Cho	fail	-
+h1b.i94.expiration::Lucia Ferreira	fail	-
+h1b.i94.expiration::Mei Tanaka	fail	-
+h1b.i94.expiration::Omar Farouk	fail	-
+h1b.i94.expiration::Sofia Reyes	fail	-
+h1b.i94.expiration::Yuki Sato	fail	-
+h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status	fail	-
+h1b.material_change.soc::Omar Farouk	fail	-
+
+---
+
+h1b.material_change.worksite::Sofia Reyes	fail	hris_roster_export.location vs lca_export.WORKSITE_CITY
+h1b.max_stay.six_year_limit::Anita Desai	fall	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.max_stay.six_year_limit::Daniel Cho	fail	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.max_stay.six_year_limit::Mei Tanaka	fail	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.max_stay.six_year_limit::Ravi Anand	fail	allpriorH1BandLpetitionvalidityperiodsentryexithistoryI94travel
+h1b.max_stay.six_year_limit::Yuki Sato	fail	cms_case_export.matter_id (missing)
+h1b.noid.response::Sofia Reyes	fail	rfe_noid_export (not provided)
+h1b.petition.expiry::Hiroshi Yamamoto	pass	cms_case_export.valid_to
+h1b.rfe.response::Daniel Cho	fail	rfe_noid_export (not provided)
+h1b.wage.actual.memo::17-2199:L3:Austin, TX:memo	fail	Booleanactualwagememopresent
+h1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo	fail	Booleanactualwagememopresent
+h1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo	fail	Booleanactualwagememopresent
+
+---
+
+h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo	fail	-
+h1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo	fail	-
+h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense	pass	payroll_register.pretax_deductions,payroll_register.federal_income_tax,payroll_register.social_security_tax,payroll_register.medicare_tax,payroll_register.state_income_tax
+h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty	pass	-
+h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear	pass	payroll_register.gross_pay,payroll_register.pretax_deductions,payroll_register.federal_income_tax,payroll_register.social_security_tax,payroll_register.medicare_tax,payroll_register.state_income_tax,payroll_register.net_pay,payroll_register.check_date,payroll_register.pay_period_end
+h1b.wage.payment.start-clock::Anita Desai	fail	-
+h1b.wage.payment.start-clock::Daniel Cho	fail	-
+h1b.wage.payment.start-clock::Lucia Ferreira	fail	-
+h1b.wage.payment.start-clock::Omar Farouk	fail	-
+h1b.wage.payment.start-clock::Sofia Reyes	fail	-
+h1b.wage.payment.start-clock::Yuki Sato	fail	-
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L2	fail	-
+
+---
+
+Let me analyze each obligation pair against the provided data exports. I need to evaluate each one and return a verdict (pass/fail) with evidence.
+
+First, let me understand the data I have:
+
+1. **cms_case_export** - H-1B petition cases with details like matter_id, client names, dates, LCA case numbers, worksite info, classification, valid_from, valid_to
+2. **everify_case_export** - E-Verify cases with case numbers, employee names, hire dates, case status, etc.
+3. **hris_roster_export** - Active employees with visa types, passport numbers, hire dates, job titles, departments, locations
+4. **i9_record_export** - I-9 records with document details (List A/B/C documents, expiry dates, etc.)
+5. **lca_export** - LCA certified data with CASE_NUMBER, SOC_CODE, SOC_TITLE, BEGIN_DATE, END_DATE, PREVAILING_WAGE, PW_UNIT_OF_PAY, PW_TRACKING_NUMBER, PW_WAGE_LEVEL, PW_OES_YEAR, worksite info, wage rates
+6. **payroll_register** - Payroll data for Q2 2025
+7. **rfe_noid_export** - RFE/NOID cases with response due dates
+
+Now let me evaluate each pair:
+
+### 1. h1b.wage.prevailing.pwd-validity::pw:15-1252:L4 [wage_cohort: pw:15-1252:L4]
+
+This checks if LCA was filed while its supporting NPWC PWD was within the PWD validity window.
+Required fields: PWDdeterminationissuedate, PWDexpirationdate, LCAfilingdate
+
+Looking at LCA export for SOC_CODE 15-1252 (Software Developers) with Level II (L4? Wait, PW_WAGE_LEVEL shows "Level II" for 15-1252 cases):
+- I-200-25010-100001: SOC_CODE 15-1252, PW_WAGE_LEVEL "Level II", PW_OES_YEAR 2024, PW_TRACKING_NUMBER P-200-24300-100001, RECEIVED_DATE 2024-12-05, DECISION_DATE 2024-12-20
+- I-200-25010-100003: SOC_CODE 15-1252, PW_WAGE_LEVEL "Level II", PW_OES_YEAR 2024, PW_TRACKING_NUMBER P-200-25300-100003, RECEIVED_DATE 2025-02-05, DECISION_DATE 2025-02-20
+- I-200-23010-100009: SOC_CODE 15-1252, PW_WAGE_LEVEL "Level II", PW_OES_YEAR 2024, PW_TRACKING_NUMBER P-200-23300-100009, RECEIVED_DATE 2023-07-05, DECISION_DATE 2023-07-20
+
+The obligation requires PWDdeterminationissuedate, PWDexpirationdate, LCAfilingdate. The LCA export has RECEIVED_DATE (which is likely the LCA filing date), PW_TRACKING_NUMBER (which references the PWD), PW_OES_YEAR. But I don't see PWDdeterminationissuedate or PWDexpirationdate in the data. The PW_TRACKING_NUMBER might reference a PWD determination, but the actual dates aren't in the export.
+
+Since the required fields (PWDdeterminationissuedate, PWDexpirationdate) are not present in the data exports, I cannot verify this obligation. But the instruction says "Evaluate each pair against the data actually present in the exports." If the data needed isn't present, I should fail it? Or is it that the employer doesn't have the records?
+
+Actually, the obligation says "requires: PWDdeterminationissuedate, PWDexpirationdate, LCAfilingdate". These fields are not in the LCA export. The LCA export has RECEIVED_DATE (LCA filing date), PW_TRACKING_NUMBER, PW_OES_YEAR, PW_WAGE_LEVEL. But not the PWD determination issue date or expiration date.
+
+Without these fields, I cannot evaluate. But the instruction says "Do not infer that an absent field exists in an export you cannot see." So if the fields aren't in the exports shown, they don't exist for this evaluation.
+
+Thus, I cannot confirm the PWD was valid when LCA was filed. This would be a fail due to missing documentation.
+
+But wait - the PW_TRACKING_NUMBER format "P-200-24300-100001" might encode dates? "24300" could be 2024-300? Not sure. But the requirement is explicit fields.
+
+I'll mark as fail due to missing required data fields.
+
+### 2. h1b.wage.prevailing.pwd-validity::pw:17-2061:L3 [wage_cohort: pw:17-2061:L3]
+
+SOC_CODE 17-2061 (Computer Hardware Engineers) with Level III:
+- I-200-22010-100007: SOC_CODE 17-2061, PW_WAGE_LEVEL "Level III", PW_OES_YEAR 2022, PW_TRACKING_NUMBER P-200-22300-100007, RECEIVED_DATE 2022-07-05, DECISION_DATE 2022-07-18
+
+Same issue - no PWDdeterminationissuedate or PWDexpirationdate in export. Fail.
+
+### 3. h1b.wage.prevailing.pwd-validity::pw:17-2141:L3 [wage_cohort: pw:17-2141:L3]
+
+SOC_CODE 17-2141 (Mechanical Engineers) with Level III:
+- I-200-22010-100006: SOC_CODE 17-2141, PW_WAGE_LEVEL "Level III", PW_OES_YEAR 2022, PW_TRACKING_NUMBER P-200-22300-100006, RECEIVED_DATE 2022-09-05, DECISION_DATE 2022-09-20
+
+Same issue. Fail.
+
+### 4. h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource [wage_cohort: wage:15-1252:L4:Austin, TX:pwsource]
+
+Check: prevailing wage obtained from one of four permitted sources (NPWC, PWDC, BAA, independent survey, DBA, SCA).
+Required: PWsourcetypeenum, sourcedocumentID, PWvalue, SOCarea
+
+LCA export for 15-1252 in Austin, TX:
+- I-200-25010-100001: PREVAILING_WAGE 138000, PW_UNIT_OF_PAY Year, PW_TRACKING_NUMBER P-200-24300-100001, PW_WAGE_LEVEL Level II, PW_OES_YEAR 2024, worksite Austin, TX
+- I-200-25010-100003: PREVAILING_WAGE 143000, PW_UNIT_OF_PAY Year, PW_TRACKING_NUMBER P-200-25300-100003, PW_WAGE_LEVEL Level II, PW_OES_YEAR 2024, worksite Austin, TX
+- I-200-23010-100009: PREVAILING_WAGE 143000, PW_UNIT_OF_PAY Year, PW_TRACKING_NUMBER P-200-23300-100009, PW_WAGE_LEVEL Level II, PW_OES_YEAR 2024, worksite Austin, TX
+
+The PW_TRACKING_NUMBER starts with "P-" which likely indicates NPWC (National Prevailing Wage Center) determination. But the required field "PWsourcetypeenum" is not explicitly in the data. The PW_TRACKING_NUMBER might imply the source, but we don't have an explicit enum field.
+
+The obligation requires: PWsourcetypeenum (NPWC_PWDCBAindependent_surveyDBASCA), sourcedocumentID, PWvalue, SOCarea.
+
+We have PWvalue (PREVAILING_WAGE), SOCarea (implied by worksite Austin, TX and SOC_CODE), sourcedocumentID (PW_TRACKING_NUMBER). But PWsourcetypeenum is not a field in the export. We can infer from "P-" prefix it's NPWC, but the field isn't explicitly there.
+
+Since the required field PWsourcetypeenum is not present in the data, I cannot verify. Fail.
+
+### 5. h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource [wage_cohort: wage:17-2061:L3:Austin, TX:pwsource]
+
+I-200-22010-100007: SOC_CODE 17-2061, PREVAILING_WAGE 144000, PW_TRACKING_NUMBER P-200-22300-100007, PW_WAGE_LEVEL Level III, PW_OES_YEAR 2022, worksite Austin, TX
+
+Same issue - no explicit PWsourcetypeenum field. Fail.
+
+### 6. h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource [wage_cohort: wage:17-2141:L3:Austin, TX:pwsource]
+
+I-200-22010-100006: SOC_CODE 17-2141, PREVAILING_WAGE 128000, PW_TRACKING_NUMBER P-200-22300-100006, PW_WAGE_LEVEL Level III, PW_OES_YEAR 2022, worksite Austin, TX
+
+Same issue. Fail.
+
+### 7. h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource [wage_cohort: wage:17-2199:L3:Austin, TX:pwsource]
+
+SOC_CODE 17-2199 (Engineers, All Other) with Level III:
+- I-200-23010-100002: SOC_CODE 17-2199, PREVAILING_WAGE 130000, PW_TRACKING_NUMBER P-200-22300-100002, PW_WAGE_LEVEL Level III, PW_OES_YEAR 2022, worksite Austin, TX
+- I-200-22010-100004: SOC_CODE 17-2199, PREVAILING_WAGE 145000, PW_TRACKING_NUMBER P-200-22300-100004, PW_WAGE_LEVEL Level III, PW_OES_YEAR 2022, worksite Austin, TX
+- I-200-21010-100005: SOC_CODE 17-2199? Wait, I-200-21010-100005 has SOC_CODE 15-1252. Let me check.
+
+Actually I-200-21010-100005: SOC_CODE 15-1252 (Robotics Software Engineer). The 17-2199 ones are:
+- I-200-23010-100002: Controls Engineer, 17-2199
+- I-200-22010-100004: Senior Robotics Engineer, 17-2199
+
+Both have PW_TRACKING_NUMBER starting with "P-". Same issue - no explicit PWsourcetypeenum. Fail.
+
+### 8. h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers [employer: wage-gap:h1b.wage.remedy.cmp-tiers]
+
+Check: Map violation to correct CMP tier + per-violation cap.
+Required: Violationtype, willfulnessdetermination, whetheraUSworkerwasdisplaced, petitionfilingdate90daywindows, affectedworkercount
+
+This seems to be about assessing penalties for wage violations. But I don't see any wage violation data in the exports. The payroll register shows pay rates, and LCA shows wage rates and prevailing wages. Let me compare:
+
+For each H-1B employee, check if actual wage >= prevailing wage.
+
+From HRIS roster and LCA:
+- Ravi Anand (NWR-1001): H-1B, Robotics Software Engineer, payRate 142000. LCA I-200-25010-100001: WAGE_RATE_OF_PAY_FROM 140000, TO 150000, PREVAILING_WAGE 138000. Actual 142000 >= 138000. OK.
+- Lucia Ferreira (NWR-1002): payRate 138000. LCA I-200-23010-100002: WAGE_RATE 132000-142000, PREVAILING_WAGE 130000. Actual 138000 >= 130000. OK.
+- Daniel Cho (NWR-1003): payRate 150000. LCA I-200-25010-100003: WAGE_RATE 145000-155000, PREVAILING_WAGE 143000. Actual 150000 >= 143000. OK.
+- Mei Tanaka (NWR-1004): payRate 96000. LCA I-200-22010-100004: WAGE_RATE 96000-110000, PREVAILING_WAGE 145000. Actual 96000 < 145000! VIOLATION.
+- Omar Farouk (NWR-1005): payRate 178000. LCA I-200-21010-100005: WAGE_RATE 175000-190000, PREVAILING_WAGE 165000. Actual 178000 >= 165000. OK.
+- Sofia Reyes (NWR-1006): payRate 134000. LCA I-200-22010-100006: WAGE_RATE 130000-140000, PREVAILING_WAGE 128000. Actual 134000 >= 128000. OK.
+- Hiroshi Yamamoto (NWR-1007): payRate 151000. LCA I-200-22010-100007: WAGE_RATE 148000-160000, PREVAILING_WAGE 144000. Actual 151000 >= 144000. OK.
+- Yuki Sato (NWR-1008): payRate 147000. But no LCA for her in the export? She's NWR-1008, passport P1000008. CMS export doesn't have NWR-2025-0108. LCA export doesn't have a case for her. She's in HRIS as H-1B but no LCA shown. Might be missing.
+- Anita Desai (NWR-1009): payRate 149000. LCA I-200-23010-100009: WAGE_RATE 147000-158000, PREVAILING_WAGE 143000. Actual 149000 >= 143000. OK.
+
+Mei Tanaka (NWR-1004) has payRate 96000 but prevailing wage 145000. That's a significant wage violation.
+
+But the obligation h1b.wage.remedy.cmp-tiers is about mapping a found violation to CMP tier. The required fields: Violationtype, willfulnessdetermination, whetheraUSworkerwasdisplaced, petitionfilingdate90daywindows, affectedworkercount.
+
+We have a violation (Mei Tanaka), but we don't have: willfulnessdetermination, whetheraUSworkerwasdisplaced, petitionfilingdate90daywindows (we have petition filing dates from CMS: for NWR-2025-0104, filing_date 2022-05-18), affectedworkercount (1).
+
+But the obligation check is "Map a found violation to the correct CMP tier + per-violation cap." This seems like it's asking us to evaluate if the employer has correctly mapped a violation to CMP tier. But there's no evidence the employer has done this mapping. The data doesn't show any CMP assessment.
+
+Since the required fields for the mapping (willfulnessdetermination, etc.) are not in the data, and there's no evidence of CMP tier mapping, this would be a fail.
+
+But wait - the pair is "h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers [employer: wage-gap:h1b.wage.remedy.cmp-tiers]". This might be asking: for the wage gap found (Mei Tanaka), has the employer correctly applied CMP tiers? Since no such mapping exists in data, fail.
+
+### 9. i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026 [employer: i129-gap:i129.hsupp.edition.mandatory_2026]
+
+Check: H-1B petition filed on/after 2026-04-01 uses Form I-129 edition 02/27/26 (not 01/17/25).
+Required: petitionformEditionDate, petitionfilingDateorintendedpostmark, petitionclassificationH1BH1B1
+
+Today is 2026-06-29. So petitions filed on/after 2026-04-01 must use edition 02/27/26.
+
+Look at CMS cases with filing_date >= 2026-04-01:
+- NWR-2025-0101: filing_date 2025-01-10 (before 2026-04-01)
+- NWR-2025-0102: filing_date 2023-02-15
+- NWR-2025-0103: filing_date 2025-02-20
+- NWR-2025-0104: filing_date 2022-05-18
+- NWR-2025-0105: filing_date 2021-08-20
+- NWR-2025-0106: filing_date 2022-09-15
+- NWR-2025-0107: filing_date 2022-07-18
+- NWR-2025-0109: filing_date 2023-07-20
+
+All filing dates are before 2026-04-01. No petitions filed on/after 2026-04-01 in the data. So the requirement doesn't apply to any current petitions. But the obligation is about petitions filed on/after 2026-04-01. Since there are none, does it pass? The check is "H-1B petition filed on/after 2026-04-01 uses Form I-129 edition 02/27/26". If no such petitions exist, then vacuously true? But the required field petitionformEditionDate is not in the data for any petition. The CMS export doesn't have a field for form edition date.
+
+Since no petitions filed on/after 2026-04-01 are in the data, and the required field petitionformEditionDate isn't present, I'd say pass (no violation found). But the obligation might require that for any future filings, but we only evaluate against data present.
+
+Actually, the pair is "i129-gap:i129.hsupp.edition.mandatory_2026" - might be checking if there's a gap in compliance. Since no petitions in the relevant period, pass.
+
+But wait - the CMS export shows matters up to NWR-2025-0109. The latest filing_date is 2025-02-20 (Daniel Cho). All before 2026-04-01. So no petitions subject to the new edition requirement. Pass.
+
+### 10. i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window [employer: i9-prohibited:i9.antidiscrimination.charge_window]
+
+Check: Awareness that 1324b charges must be filed with DOJ-IER within 180 days of the act.
+Required: dateofallegedact, datechargefiledifknown
+
+This is about anti-discrimination charge filing window. The data exports don't show any discrimination charges or alleged acts. No fields for dateofallegedact or datechargefiledifknown in any export. This seems to be a policy awareness check, but the required fields aren't in the data. Since no data exists to evaluate, and the employer hasn't recorded any such events, maybe pass? But the obligation requires those fields to evaluate. Without them, cannot verify awareness.
+
+The check is "Awareness that 1324b charges must be filed..." - this is a knowledge requirement, not a specific event. But the required fields suggest we need to check specific charges. Since no charges in data, and no fields to evaluate, I'll say pass (no violation evidenced). But the required fields are missing, so maybe fail?
+
+Actually, the obligation is to check awareness. The data doesn't have any discrimination charge records. The employer might not have any charges. But the requirement is to have awareness. Hard to evaluate from data. Since no charge data exists, and the fields aren't present, I'll mark fail due to missing required fields for evaluation.
+
+### 11. i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list [employer: i9-fieldgap:i9.documents.acceptable_list]
+
+Check: Only currently-acceptable List A/B/C documents accepted in the correct combination.
+Required: canonicalDOC_CATALOGtaggedListABCwithhasExpiryacceptabilitywindow, performrecordeddoctypesnumbersexpiries, reverificationdocsListAorConly
+
+Look at I-9 records:
+
+NWR-1001 Ravi Anand: List A - Foreign Passport with Form I-94 (H-1B), P1000001, Government of India, expiry 2028-03-31. Valid.
+NWR-1002 Lucia Ferreira: List A - Employment Authorization Document (Form I-766), EAD1000002, USCIS, expiry 2026-06-15. Valid (EAD is List A).
+NWR-1003 Daniel Cho: List A - Foreign Passport with Form I-94 (H-1B), P1000003, Korea, expiry 2028-05-31. Valid.
+NWR-1004 Mei Tanaka: List A - Foreign Passport with Form I-94 (H-1B), P1000004, Japan, expiry 2028-07-31. Valid.
+NWR-1005 Omar Farouk: List A - Foreign Passport with Form I-94 (H-1B), P1000005, Egypt, expiry 2028-08-31. Valid.
+NWR-1006 Sofia Reyes: List A - Foreign Passport with Form I-94 (H-1B), P1000006, Philippines, expiry 2028-09-30. Valid.
+NWR-1007 Hiroshi Yamamoto: List A - Foreign Passport with Form I-94 (H-1B), P1000007, Japan, expiry 2029-08-14. Valid.
+NWR-1008 Yuki Sato: List A - Foreign Passport with Form I-94 (H-1B), P1000008, Japan, expiry 2027-01-07. Valid.
+NWR-1009 Anita Desai: List A - Foreign Passport with Form I-94 (H-1B), P1000009, India, expiry 2028-10-31. Valid.
+NWR-1010 James Park: List A - U.S. Passport, USP1000010, US Dept of State, no expiry shown (blank). US Passport is List A, no expiry required? Actually US passports have expiry but field is blank. Might be OK.
+NWR-1011 Grace Lindqvist: List A - U.S. Passport, USP1000011, US Dept of State, no expiry.
+NWR-1012 Helena Voss: List A - U.S. Passport, USP1000012, US Dept of State, expiry 2026-07-15.
+
+All employees used List A documents (single document). No List B/C combinations. All appear to be acceptable List A documents. Foreign passport with I-94 for H-1B is valid. EAD is valid. US Passport is valid.
+
+The required fields: canonicalDOC_CATALOG... not in data. performrecordeddoctypesnumbersexpiries - we have doc types, numbers, expiries. reverificationdocsListAorConly - no reverification shown (supplement_b_due is blank for all).
+
+All documents appear acceptable. But the required field "canonicalDOC_CATALOGtaggedListABCwithhasExpiryacceptabilitywindow" is not in the data - that's a reference catalog, not employer data. The employer's recorded doc types, numbers, expiries are present. Reverification docs: none needed currently.
+
+I think this passes based on data. But the required fields include a canonical catalog which we don't have. However, we can evaluate from the recorded doc types. All are valid List A docs. Pass.
+
+### 12. i9.noi.production-window::deadline-gap:i9.noi.production-window [employer: deadline-gap:i9.noi.production-window]
+
+Check: I-9s produced to ICE within 3 business days of service of NOI.
+Required: employerId, noiServiceDate, productionCompletedDate, i9CountProducedvsactiveRosterCount
+
+No NOI data in any export. No noiServiceDate, no productionCompletedDate. The employer hasn't received an NOI (or it's not in the data). Since no NOI event, the requirement to produce within 3 days hasn't been triggered. But the obligation might be about readiness? The check is "I-9s produced to ICE within 3 business days of service of a Notice of Inspection (NOI)." If no NOI served, then no violation. But the required fields aren't present to evaluate.
+
+Since no NOI in data, and fields missing, I'd say pass (no violation). But the pair is "deadline-gap" suggesting a gap. Without NOI data, cannot confirm compliance. However, the obligation is only triggered upon NOI service. No NOI = no obligation to produce. Pass.
+
+Now, let me compile the verdicts:
+
+1. h1b.wage.prevailing.pwd-validity::pw:15-1252:L4 - fail (missing PWDdeterminationissuedate, PWDexpirationdate)
+2. h1b.wage.prevailing.pwd-validity::pw:17-2061:L3 - fail (same)
+3. h1b.wage.prevailing.pwd-validity::pw:17-2141:L3 - fail (same)
+4. h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource - fail (missing PWsourcetypeenum)
+5. h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource - fail (same)
+6. h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource - fail (same)
+7. h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource - fail (same)
+8. h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers - fail (violation exists for Mei Tanaka but no CMP mapping data)
+9. i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026 - pass (no petitions filed on/after 2026-04-01)
+10. i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window - fail (missing required fields, no charge data)
+11. i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list - pass (all docs appear valid)
+12. i9.noi.production-window::deadline-gap:i9.noi.production-window - pass (no NOI in data)
+
+Wait, for #8, the wage violation for Mei Tanaka: her payRate is 96000, but prevailing wage is 145000. However, the LCA for her (I-200-22010-100004) has BEGIN_DATE 2023-07-04, END_DATE 2026-07-03. The payroll data is for 2025-06. So during the LCA period, she's being paid below prevailing wage. That's a violation.
+
+But the obligation h1b.wage.remedy.cmp-tiers is about mapping a violation to CMP tier. The employer hasn't done this mapping (no data). So fail.
+
+For #10, the anti-discrimination charge window: this is a statutory requirement that charges must be filed within 180 days. The employer's "awareness" is not really auditable from data. But the required fields are dateofallegedact and datechargefiledifknown. Since none exist in data, and no charges, perhaps pass? But the obligation says "Awareness that 1324b charges must be filed..." - this is a training/policy requirement. Not directly auditable from these exports. I'll stick with fail due to missing fields.
+
+Actually, re-reading: "check: Awareness that 1324b charges must be filed with DOJ-IER within 180 days of the act." This is a knowledge check. The data doesn't show any training records. The required fields are for specific charges. Since no charges, maybe it's N/A? But the verdict must be pass or fail. I think fail because we can't verify awareness from data.
+
+Let me reconsider #9: i129.hsupp.edition.mandatory_2026. The check is for petitions filed on/after 2026-04-01. Today is 2026-06-29. Are there any petitions filed in that window? The CMS data shows filings up to 2025-02-20. But the employer might have filed new petitions not in this export? The export is "cms_h1b_cases_export.csv" - might be all cases. But the matter_ids are NWR-2025-0101 etc., suggesting 2025 cases. No 2026 filings shown. So pass.
+
+For #11, I-9 documents: all look good. But Helena Voss (NWR-1012) has US Passport expiry 2026-07-15, which is soon (16 days from 2026-06-29). But that's fine, document is still valid. No reverification needed until expiry. Pass.
+
+For #12, NOI production: no NOI, so pass.
+
+Now, evidence field: need to provide evidence_field_or_dash. For each, I should cite the relevant field or dash if none.
+
+Let me format each line:
+
+pair_id	verdict	evidence_field_or_dash
+
+1. h1b.wage.prevailing.pwd-validity::pw:15-1252:L4	fail	PWDdeterminationissuedate,PWDexpirationdate missing from lca_export
+2. h1b.wage.prevailing.pwd-validity::pw:17-2061:L3	fail	PWDdeterminationissuedate,PWDexpirationdate missing from lca_export
+3. h1b.wage.prevailing.pwd-validity::pw:17-2141:L3	fail	PWDdeterminationissuedate,PWDexpirationdate missing from lca_export
+4. h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource	fail	PWsourcetypeenum missing from lca_export
+5. h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource	fail	PWsourcetypeenum missing from lca_export
+6. h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource	fail	PWsourcetypeenum missing from lca_export
+7. h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource	fail	PWsourcetypeenum missing from lca_export
+8. h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers	fail	Violationtype,willfulnessdetermination,whetheraUSworkerwasdisplaced,petitionfilingdate90daywindows,affectedworkercount missing; wage gap exists for Mei Tanaka (NWR-1004) per payroll_register vs lca_export PREVAILING_WAGE
+9. i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026	pass	No petitionfilingDateorintendedpostmark on/after 2026-04-01 in cms_case_export
+
+
+---
+
+i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse	pass	i9_record_export.list_a_doc_title
+i9.receipts.rule::i9-fieldgap:i9.receipts.rule	pass	i9_record_export.alternative_procedure
+i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure	pass	i9_record_export.alternative_procedure
+i9.retention.storage_and_production::Anita Desai	fail	-
+i9.retention.storage_and_production::Helena Voss	fail	-
+i9.retention.storage_and_production::Hiroshi Yamamoto	fail	-
+i9.retention.storage_and_production::Mei Tanaka	fail	-
+i9.retention.storage_and_production::Omar Farouk	fail	-
+i9.retention.storage_and_production::Ravi Anand	fail	-
+i9.retention.storage_and_production::Sofia Reyes	fail	-
+i9.retention.storage_and_production::Yuki Sato	fail	-
+i9.reverification.deadline::Lucia Ferreira	fail	i9_record_export.supplement_b_due,i9_record_export.supplement_b_completed_date
+
+---
+
+
+
+---
+
+lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting	fail	-
+lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file	fail	-
+lca.retention::retention:I-200-22010-100004	fail	-
+lca.retention::retention:I-200-22010-100007	fail	-
+lca.retention::retention:I-200-23010-100002	fail	-
+lca.retention::retention:I-200-23010-100009	fail	-
+
+---
+
+lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice	fail	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004	pass	PW_TRACKING_NUMBER
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006	pass	PW_TRACKING_NUMBER
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007	pass	PW_TRACKING_NUMBER
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001	pass	PW_TRACKING_NUMBER
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003	pass	PW_TRACKING_NUMBER
+lca.wage.required_wage_greater_of::Daniel Cho	pass	payRate
+lca.wage.required_wage_greater_of::Hiroshi Yamamoto	pass	payRate
+lca.wage.required_wage_greater_of::Lucia Ferreira	pass	payRate
+lca.wage.required_wage_greater_of::Mei Tanaka	fail	payRate
+lca.wage.start_clock::Anita Desai	fail	-
+lca.wage.start_clock::Hiroshi Yamamoto	fail	-
+
+---
+
+lca.wage.start_clock::Lucia Ferreira	fail	PerworkerconsularadmissiondateI94ORincountryeligibilitydate,entrypathway,firstavailableforworkdate,firstpaydate
+lca.wage.start_clock::Omar Farouk	fail	PerworkerconsularadmissiondateI94ORincountryeligibilitydate,entrypathway,firstavailableforworkdate,firstpaydate
+lca.wage.start_clock::Ravi Anand	fail	PerworkerconsularadmissiondateI94ORincountryeligibilitydate,entrypathway,firstavailableforworkdate,firstpaydate
+lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	fail	hSuppq7_educationLevelRequired
+lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience	fail	hSuppq9_yearsExperienceRequired
+lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills	fail	hSuppq10_specialSkills
+lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory	fail	hSuppq11_numberSupervised
+lca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area	fail	PerworkercurrentworksiteaddressesMSA,LCAworksiteaddressesMSA,commutingMSAmapping,consecutiveworkdaycountsatoffLCAlocations
+lca.worksite.short_term_placement::lca:I-200-22010-100006:stp	fail	Perworkershorttermareaworkdaycountintherolling1yearwindow,flagsforthethree60dayconditions,perdaylodgingpaid,perdaytravelmealsincidentals,requiredwagepaid,strikelockoutflagatnewsite
+paf.assembly.one_working_day::paf-ready:I-200-21010-100005	fail	pafAssembledDateorpafFirstAvailableDate
+paf.assembly.one_working_day::paf-ready:I-200-22010-100006	fail	pafAssembledDateorpafFirstAvailableDate
+paf.assembly.one_working_day::paf-ready:I-200-22010-100007	fail	pafAssembledDateorpafFirstAvailableDate
+
+---
+
+paf.assembly.one_working_day::paf-ready:I-200-23010-100009	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-25010-100001	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-25010-100003	fail	-
+paf.item1.certified_lca::paf-agg:paf.item1.certified_lca	fail	-
+paf.item2.wage_rate::paf-agg:paf.item2.wage_rate	fail	-
+paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage	fail	-
+paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary	fail	-
+paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list	fail	-
+paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list	fail	-
+paf.public_access_ready::paf:I-200-21010-100005	fail	-
+paf.public_access_ready::paf:I-200-22010-100004	fail	-
+paf.public_access_ready::paf:I-200-22010-100006	fail	-
+
+---
+
+paf.public_access_ready::paf:I-200-23010-100002	fail	-
+paf.public_access_ready::paf:I-200-25010-100003	fail	-
+specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence	fail	-
+specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4	fail	-
+uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline	fail	-
+uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock	fail	-
+wage.prevailing_floor::wage:17-2199	fail	lca_export:CASE_NUMBER=I-200-22010-100004,WAGE_RATE_OF_PAY_FROM=96000,PREVAILING_WAGE=145000
+xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel	fail	-

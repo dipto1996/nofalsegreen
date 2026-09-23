@@ -117,9 +117,9 @@ claim("unparseable rate" in paper, "paper commits to reporting the unparseable r
 print("\nfree-tier protocol claims")
 claim("free tier" in paper.lower(), "paper states results come from free tiers")
 from baselines.llm import estimate_cost as _ec
-_sc = _ec(firm, rb.obligations, batch_size=20, scope_sources=True)
-_un = _ec(firm, rb.obligations, batch_size=20, scope_sources=False)
-_un40 = _ec(firm, rb.obligations, batch_size=40, scope_sources=False)
+_sc = _ec(firm, rb.all_rules(), batch_size=20, scope_sources=True)
+_un = _ec(firm, rb.all_rules(), batch_size=20, scope_sources=False)
+_un40 = _ec(firm, rb.all_rules(), batch_size=40, scope_sources=False)
 claim(_sc["max_call_tokens"] == 9750, f"scoped max call is 9,750 (got {_sc['max_call_tokens']:,})")
 claim(_un["max_call_tokens"] == 11306, f"unscoped max call is 11,306 (got {_un['max_call_tokens']:,})")
 claim(_un40["max_call_tokens"] == 15067, f"unscoped batch-40 max call is 15,067 (got {_un40['max_call_tokens']:,})")

@@ -1,0 +1,599 @@
+{
+  "prompt_version": "1.0.0",
+  "runs": {
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.0.0",
+      "batch_size": 8,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 138,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 1,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 120,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.9180327868852459,
+          "abstention_recall": 0.9333333333333333,
+          "abstention_f1": 0.9256198347107439,
+          "n_missing": 2,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 24
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 28
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 12
+            },
+            "unknown": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 30
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 23
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 133818,
+        "output_tokens": 56794,
+        "calls": 12,
+        "wall_seconds": 1167.0
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.918,
+          "stdev": 0.0,
+          "min": 0.918,
+          "max": 0.918,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.9333,
+          "stdev": 0.0,
+          "min": 0.9333,
+          "max": 0.9333,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.9256,
+          "stdev": 0.0,
+          "min": 0.9256,
+          "max": 0.9256,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 1
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "provider": "openrouter",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.0.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 115,
+          "n_unparseable": 1,
+          "n_off_schema": 0,
+          "n_truncated_calls": 1,
+          "false_green_rate": 0.11666666666666667,
+          "n_false_green": 14,
+          "n_withheld": 120,
+          "violation_recall": 0.8,
+          "violation_precision": 0.16,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 25,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "i9-everify": {
+              "violation_recall": 0.3333333333333333,
+              "false_green_rate": 0.09523809523809523,
+              "n_pairs": 24
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.3076923076923077,
+              "n_pairs": 28
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 12
+            },
+            "unknown": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.05,
+              "n_pairs": 30
+            },
+            "wage-prevailing": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.16666666666666666,
+              "n_pairs": 23
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 125991,
+        "output_tokens": 61413,
+        "calls": 12,
+        "wall_seconds": 1466.5
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.1167,
+          "stdev": 0.0,
+          "min": 0.1167,
+          "max": 0.1167,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.8,
+          "stdev": 0.0,
+          "min": 0.8,
+          "max": 0.8,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.16,
+          "stdev": 0.0,
+          "min": 0.16,
+          "max": 0.16,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 1,
+      "n_off_schema": 0,
+      "n_truncated_calls": 1
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.0.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3-super-120b-a12b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "false_green_rate": 0.008333333333333333,
+          "n_false_green": 1,
+          "n_withheld": 120,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.9,
+          "abstention_recall": 0.9,
+          "abstention_f1": 0.9,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 24
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 28
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 12
+            },
+            "unknown": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 30
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.05555555555555555,
+              "n_pairs": 23
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 133818,
+        "output_tokens": 65562,
+        "calls": 12,
+        "wall_seconds": 808.4
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0083,
+          "stdev": 0.0,
+          "min": 0.0083,
+          "max": 0.0083,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.9,
+          "stdev": 0.0,
+          "min": 0.9,
+          "max": 0.9,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.9,
+          "stdev": 0.0,
+          "min": 0.9,
+          "max": 0.9,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.9,
+          "stdev": 0.0,
+          "min": 0.9,
+          "max": 0.9,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "provider": "openrouter",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.0.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3-super-120b-a12b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 116,
+          "n_unparseable": 4,
+          "n_off_schema": 0,
+          "n_truncated_calls": 2,
+          "false_green_rate": 0.075,
+          "n_false_green": 9,
+          "n_withheld": 120,
+          "violation_recall": 0.7,
+          "violation_precision": 0.1346153846153846,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 24,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "i9-everify": {
+              "violation_recall": 0.3333333333333333,
+              "false_green_rate": 0.3333333333333333,
+              "n_pairs": 24
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 28
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 12
+            },
+            "unknown": {
+              "violation_recall": 0.6,
+              "false_green_rate": 0.05,
+              "n_pairs": 30
+            },
+            "wage-prevailing": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.05555555555555555,
+              "n_pairs": 23
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 132366,
+        "output_tokens": 65683,
+        "calls": 12,
+        "wall_seconds": 907.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.075,
+          "stdev": 0.0,
+          "min": 0.075,
+          "max": 0.075,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.7,
+          "stdev": 0.0,
+          "min": 0.7,
+          "max": 0.7,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.1346,
+          "stdev": 0.0,
+          "min": 0.1346,
+          "max": 0.1346,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 4,
+      "n_off_schema": 0,
+      "n_truncated_calls": 2
+    },
+    "nex-agi/nex-n2.5-pro:free::abstain_offered": {
+      "model": "nex-agi/nex-n2.5-pro:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.0.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nex-agi/nex-n2.5-pro:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "calls": 0,
+        "wall_seconds": 0.0
+      }
+    }
+  }
+}

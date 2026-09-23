@@ -1,0 +1,20 @@
+{
+  "completed": [
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered::northwind-robotics-subset140",
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_withheld::northwind-robotics-subset140",
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_offered::northwind-robotics-subset140",
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_withheld::northwind-robotics-subset140"
+  ],
+  "usage": {
+    "nvidia/nemotron-3-ultra-550b-a55b:free": {
+      "calls": 24,
+      "input_tokens": 259809,
+      "output_tokens": 118207
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free": {
+      "calls": 24,
+      "input_tokens": 266184,
+      "output_tokens": 131245
+    }
+  }
+}

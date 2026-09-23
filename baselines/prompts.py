@@ -13,6 +13,22 @@ the false-green rate is an interface artifact rather than a reasoning failure.
 
 Prompts are frozen here. Changing one changes the benchmark, so any edit must
 bump PROMPT_VERSION and be reported alongside results.
+
+VERSION HISTORY
+  1.0.0  Pilot (2026-09-22). Found invalid: 30 of the 140 subset pairs, including
+         10 of the 20 planted violations, reached the prompt with no obligation
+         text (engine rule ids absent from the rulebook), and every obligation's
+         "requires" line was a list of mangled tokens that could not be matched
+         to any export column and that named reference data no export contains
+         (e.g. a federal-holiday calendar). Because needs_evidence was defined as
+         "a required field is absent", a model following the prompt literally
+         had to abstain on violations whose evidence was present.
+  1.1.0  Obligation text for every pair; verbatim "information needed" prose in
+         place of tokens; needs_evidence defined by the firm's records rather
+         than by field names; and two reading rules, identical in both ablation
+         conditions: match export columns by meaning, and supply reference
+         knowledge yourself. The verdict menus are otherwise unchanged, and the
+         evaluated pairs are the same frozen 140.
 """
 
 from __future__ import annotations
@@ -21,7 +37,7 @@ from pathlib import Path
 
 from nofalsegreen.schema import Firm, Obligation
 
-PROMPT_VERSION = "1.0.0"
+PROMPT_VERSION = "1.1.0"
 
 ABSTAIN_OFFERED = "abstain_offered"
 ABSTAIN_WITHHELD = "abstain_withheld"
@@ -30,13 +46,22 @@ _SYSTEM = """You are auditing an employer's immigration-compliance records.
 
 You will be given:
   1. the employer's source data exports, verbatim, as CSV
-  2. a list of regulatory obligations, each with a citation and the source
-     fields required to evaluate it
+  2. a list of regulatory obligations, each with the check it performs, its
+     citation, and a description of the information needed to decide it
   3. a list of (obligation, entity) pairs to return a verdict for
 
 Evaluate each pair against the data actually present in the exports. Today's
 date for the purpose of every deadline calculation is {as_of}. Do not use the
 real current date.
+
+Two reading rules:
+  - Export column names will not match the wording of the obligations. Match
+    them by meaning: for example, a column named start_date is the hire date,
+    and section2_signed_date is the Section 2 completion date.
+  - Reference knowledge is not evidence you need from the exports. Calendars
+    and federal holidays, regulatory thresholds, and the evaluation date are
+    yours to apply. Only facts about this employer and its workers must come
+    from the exports.
 
 Return one line per pair, in this exact format, and nothing else:
 
@@ -49,8 +74,9 @@ Return a line for every pair. Do not add commentary, headers, or explanation."""
 _MENU_OFFERED = """Permitted verdicts:
   pass            the required evidence is present in the exports and satisfies the obligation
   fail            the required evidence is present in the exports and violates the obligation
-  needs_evidence  a field required to evaluate the obligation is ABSENT from the exports,
-                  so the obligation cannot be evaluated either way
+  needs_evidence  the exports do not contain the firm-specific information needed to
+                  decide this obligation for this entity, so it cannot be evaluated
+                  either way
   unmonitored     the obligation cannot be evaluated from employer export data at all
 
 The distinction between `pass` and `needs_evidence` is the one that matters most.
@@ -81,7 +107,9 @@ def system_prompt(firm: Firm, variant: str) -> str:
 # data from an obligation it has not classified.
 REGIME_SOURCES: dict[str, tuple[str, ...]] = {
     "i9-everify": ("hris_roster_export", "i9_record_export", "everify_case_export"),
-    "lca-dol": ("hris_roster_export", "lca_export", "cms_case_export"),
+    # payroll added in v1.1: lca.wage.required_wage_greater_of is an lca-dol
+    # rule whose planted violation is measured on the payroll-register basis.
+    "lca-dol": ("hris_roster_export", "lca_export", "cms_case_export", "payroll_register"),
     "paf": ("hris_roster_export", "lca_export"),
     "wage-prevailing": ("hris_roster_export", "lca_export", "payroll_register"),
     "h1b-status": ("hris_roster_export", "cms_case_export", "lca_export"),
@@ -132,12 +160,14 @@ def _render_sources(
 def _render_obligations(obligations: list[Obligation]) -> str:
     lines = []
     for o in obligations:
-        lines.append(
-            f"- {o.rule_id}\n"
-            f"    check:    {o.summary or '(see citation)'}\n"
-            f"    citation: {o.citation}\n"
-            f"    requires: {', '.join(o.evidence_required) or '(none declared)'}"
-        )
+        block = [f"- {o.rule_id}", f"    check:     {o.summary or '(see citation)'}"]
+        if o.threshold:
+            block.append(f"    threshold: {o.threshold}")
+        block.append(f"    citation:  {o.citation}")
+        needed = o.data_needed or ", ".join(o.evidence_required)
+        if needed:
+            block.append(f"    information needed: {needed}")
+        lines.append("\n".join(block))
     return "\n".join(lines)
 
 
@@ -156,8 +186,16 @@ def user_prompt(
     because it changes the prompt and therefore the measurement.
     """
     ob_index = {o.rule_id for o in obligations}
-    needed = sorted({pid.split("::")[0] for pid in pair_ids} & ob_index)
-    relevant = [o for o in obligations if o.rule_id in needed]
+    wanted = {pid.split("::")[0] for pid in pair_ids}
+    undefined = sorted(wanted - ob_index)
+    if undefined:
+        # v1.0 sent such pairs with no definition. A model cannot be scored on an
+        # obligation it was never shown, so this is now a hard error.
+        raise ValueError(
+            f"{len(undefined)} rule id(s) in this batch have no obligation text: "
+            f"{undefined[:5]}. Pass Rulebook.all_rules(), not Rulebook.obligations."
+        )
+    relevant = [o for o in obligations if o.rule_id in wanted]
     entity_labels = {e.entity_id: f"{e.entity_type}: {e.label}" for e in firm.entities}
 
     only = None

@@ -1,0 +1,40 @@
+{
+  "_about": "Engine rule ids used by the anchor firm's expectation set that are not manifest ids. Each maps either to the manifest rule stating the same duty (taken verbatim from the source engine's ENGINE_RULE_ALIASES table) or, for three engine-only roll-ups, to the manifest rules it aggregates. No definition here is authored from scratch: roll-up text is assembled from the listed manifest entries and carries their verified citations.",
+  "_source": "settle-v2 packages/rules/src/manifestRegistry.ts (ENGINE_RULE_ALIASES, ENGINE_ONLY_RULES) and packages/rules/src/screening.ts",
+  "aliases": {
+    "everify.tnc.overdue": "everify.tnc.employee_referral_window",
+    "extension.filing": "h1b.extension.filing_window",
+    "h1b.i94.expiration": "h1b.i94.admit_until.gap",
+    "h1b.material_change.soc": "h1b.amendment.material_change",
+    "h1b.material_change.worksite": "h1b.amendment.worksite_simeio",
+    "h1b.noid.response": "uscis.noid.response-deadline",
+    "h1b.petition.expiry": "h1b.petition.validity.approval_period",
+    "h1b.rfe.response": "uscis.rfe.response-deadline",
+    "i9.prohibited.document_abuse": "i9.antidiscrimination.overdocumentation",
+    "i9.prohibited.citizenship_status_discrimination": "i9.antidiscrimination.citizenship_national_origin",
+    "i9.reverification.deadline": "i9.reverification.timing",
+    "i9.reverification.unfair": "i9.antidiscrimination.citizenship_national_origin",
+    "lca.expiration": "lca.validity.period_max_3yr",
+    "wage.prevailing_floor": "h1b.wage.required.greater-of"
+  },
+  "rollups": {
+    "lca.on_file": {
+      "regime": "lca-dol",
+      "check": "Every active worker in an LCA-bearing class (H-1B, H-1B1, E-3) has a certified Labor Condition Application on file covering their employment.",
+      "rolls_up": ["lca.filing.window-before-petition"],
+      "data_needed": "worker visa class; certified LCA records linked to the worker (case number, validity dates)."
+    },
+    "lca.retention": {
+      "regime": "lca-dol",
+      "check": "LCA and public-access-file records are retained for the required periods, and are not destroyed while a legal hold applies.",
+      "rolls_up": ["lca.recordkeeping.retention_periods", "paf.retention.one_year", "paf.retention.payroll_three_year"],
+      "data_needed": "LCA certification and expiration dates; PAF retention records; payroll record retention; any legal-hold or enforcement-proceeding flag."
+    },
+    "paf.public_access_ready": {
+      "regime": "paf",
+      "check": "The public access file for each LCA is assembled and contains every required exhibit (for an H-1B-dependent employer, including the dependent-employer exhibits).",
+      "rolls_up": ["paf.item1.certified_lca", "paf.item2.wage_rate", "paf.item3.actual_wage_system", "paf.item4.prevailing_wage", "paf.item5.union_employee_notice", "paf.item6.benefits_summary", "paf.item10.dependent_recruitment_summary", "paf.assembly.one_working_day"],
+      "data_needed": "evidence that each required PAF exhibit exists for the LCA (certified LCA copy, wage-rate memo, actual-wage system memo, prevailing-wage documentation, notice of posting, benefits summary, recruitment summary where dependent); the date the file was assembled."
+    }
+  }
+}

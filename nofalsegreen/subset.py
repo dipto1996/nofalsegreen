@@ -29,10 +29,22 @@ separately.
 
 from __future__ import annotations
 
+import json
 import random
 from collections import defaultdict
+from pathlib import Path
 
 from .schema import Firm, Pair, Verdict
+
+# The declared subset of the anchor firm, frozen to a file. Selection depends on
+# each rule's regime, and rulebook v2 assigned real regimes to 30 pairs that v1
+# had bucketed as "unknown"; re-selecting under v2 would silently pick different
+# pairs. Freezing keeps every prompt version evaluated on the identical 140
+# pairs, so a difference between versions is attributable to the prompt alone.
+FROZEN_ANCHOR_SUBSET = (
+    Path(__file__).resolve().parent.parent
+    / "data" / "firms" / "northwind-robotics" / "subset140.json"
+)
 
 # Fixed before any model was scored. Changing it changes the benchmark.
 SUBSET_SEED = 20260921
@@ -111,7 +123,19 @@ def subset_firm(
     firm: Firm, rule_regimes: dict[str, str], *, size: int = DEFAULT_SIZE
 ) -> Firm:
     """A copy of `firm` restricted to the declared subset, labels included."""
-    pairs = stratified_subset(firm, rule_regimes, size=size)
+    frozen = None
+    if (firm.firm_id == "northwind-robotics" and size == DEFAULT_SIZE
+            and FROZEN_ANCHOR_SUBSET.exists()):
+        frozen = set(json.loads(FROZEN_ANCHOR_SUBSET.read_text())["pair_ids"])
+    if frozen is not None:
+        pairs = sorted((p for p in firm.pairs if p.pair_id in frozen), key=lambda p: p.pair_id)
+        if len(pairs) != len(frozen):
+            raise ValueError(
+                f"frozen subset names {len(frozen)} pairs but only {len(pairs)} exist in "
+                f"the firm; the expectation set has drifted from the frozen subset"
+            )
+    else:
+        pairs = stratified_subset(firm, rule_regimes, size=size)
     keep = {p.pair_id for p in pairs}
     entity_ids = {p.entity_id for p in pairs}
     return Firm(

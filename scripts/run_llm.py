@@ -90,7 +90,7 @@ def main() -> int:
         for firm in firms:
             truth = firm.label_index()
             provider = build_provider(args, lambda: truth)
-            r = run_firm(provider, firm, rb.obligations, variant=variant,
+            r = run_firm(provider, firm, rb.all_rules(), variant=variant,
                          batch_size=args.batch, keep_raw=args.keep_raw)
             usage.add(r.usage)
             unparse += r.n_unparseable

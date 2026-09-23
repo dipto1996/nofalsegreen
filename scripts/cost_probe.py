@@ -49,7 +49,7 @@ def main() -> int:
     print(f"{'firm':<22}{'pairs':>7}{'batches':>9}{'in-tok':>12}{'out-tok':>10}")
     print("-" * 60)
     for f in firms:
-        e = estimate_cost(f, rb.obligations, batch_size=args.batch)
+        e = estimate_cost(f, rb.all_rules(), batch_size=args.batch)
         tot_in += e["est_input_tokens"]
         tot_out += e["est_output_tokens"]
         tot_batches += e["n_batches"]
@@ -75,7 +75,7 @@ def main() -> int:
         c = (tot_in / 1e6 * pin + tot_out / 1e6 * pout) * args.models * variants
         print(f"    all-{tier:<12} ${c:,.2f}")
 
-    anchor = estimate_cost(firms[0], rb.obligations, batch_size=args.batch)
+    anchor = estimate_cost(firms[0], rb.all_rules(), batch_size=args.batch)
     print("\nANCHOR FIRM ONLY (recommended first run, 1 model, 1 variant):")
     print(f"  {anchor['n_batches']} calls, {anchor['est_input_tokens']:,} in / "
           f"{anchor['est_output_tokens']:,} out")
