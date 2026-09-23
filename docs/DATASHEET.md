@@ -29,9 +29,9 @@ compliance product. No external funding.
 | Anchor firm (hand-authored) | 1 firm, 221 pairs, 11 source exports, 151 entities |
 | Anchor firm planted violations | 20 |
 | Anchor firm evidence requests | 201 |
-| Generated firms (seeds 1-30, default config) | 30 firms, 57,480 pairs |
+| Generated firms (seeds 1-30, default config) | 30 firms, 58,740 pairs |
 | Generated withheld-evidence share | 45.3% |
-| Rulebook obligations | 190 across 10 regimes |
+| Rulebook obligations | 194 across 10 regimes (196 manifest entries), plus 17 engine aliases/roll-ups |
 
 Generated firm count is unbounded; any seed produces a new instance.
 
@@ -80,9 +80,12 @@ expiry windows do not rot.
 
 ## Preprocessing
 
-**Was anything cleaned or labelled?** The rulebook was extracted programmatically from
-a regulatory manifest into JSON, preserving each obligation's citation and
-required-evidence list. The source manifest had previously been through a
+**Was anything cleaned or labelled?** The rulebook is built programmatically from the
+source engine's machine-readable registry of a regulatory manifest (196 entries, 194
+rule ids), preserving each obligation's check, threshold, citation and verbatim
+description of the information needed. Seventeen engine rule ids used by the anchor
+firm are resolved through the engine's own alias table or assembled from the manifest
+rules they roll up; see `rulebook/source/engine_aliases.json`. The source manifest had previously been through a
 citation-verification pass in which incorrect citations and thresholds were corrected
 inline.
 

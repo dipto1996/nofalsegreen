@@ -11,8 +11,8 @@ present. This benchmark measures that error directly.
 python3 -m nofalsegreen.cli describe
 python3 -m nofalsegreen.cli score --firm northwind --baseline always_pass
 python3 -m nofalsegreen.cli generate --seed 7 --out data/firms/synthetic-000007
-python3 tests/test_benchmark.py          # 36 assertions
-python3 tests/test_llm_harness.py        # 39 assertions
+python3 tests/test_benchmark.py          # 52 assertions
+python3 tests/test_llm_harness.py        # 54 assertions
 python3 scripts/sweep.py --firms 30      # trivial baselines
 python3 scripts/cost_probe.py --firms 30 # token cost, no API calls
 ```
@@ -73,9 +73,9 @@ same command each day to continue. It exits 0 on quota exhaustion, so it can be 
 from cron. Standard library only, no provider SDK.
 
 **Source scoping.** Free tiers cap tokens per minute against the *largest single call*.
-Sending all eleven exports every call puts the anchor firm at 11,306 tokens per call at
+Sending all eleven exports every call puts the anchor firm at 12,185 tokens per call at
 batch 20, over several free quotas. Scoping sends only the exports an obligation's regime
-can be evaluated against, plus the roster, which brings the largest call to 9,750.
+can be evaluated against, plus the roster, which brings the largest call to 10,688.
 
 Three safeguards stop this from manufacturing abstentions:
 
@@ -122,7 +122,7 @@ The converse also holds. A system that abstains everywhere scores 0.632 abstenti
 across the generated firms while detecting zero violations, so the metrics must be read
 as a set. Neither the false-green rate nor abstention F1 is meaningful alone.
 
-## Results (trivial baselines, 31 firms, 57,701 pairs)
+## Results (trivial baselines, 31 firms, 58,961 pairs)
 
 | system | false green | recall | precision | false alarm | abstention F1 |
 |---|---|---|---|---|---|
@@ -159,10 +159,10 @@ label is auditable back to the decision that produced it.
 | `nofalsegreen/generator.py` | seeded firm generator |
 | `nofalsegreen/rulebook.py` | rulebook loader |
 | `nofalsegreen/northwind.py` | anchor-firm loader |
-| `rulebook/rulebook.json` | 190 obligations, 10 regimes, every one with a citation |
+| `rulebook/rulebook.json` | 194 manifest obligations + 17 engine aliases/roll-ups, 10 regimes, every one cited |
 | `data/firms/northwind-robotics/` | anchor firm: 11 exports, 221 pinned expectations |
 | `baselines/trivial.py` | floor and ceiling baselines |
-| `tests/test_benchmark.py` | 36 assertions |
+| `tests/test_benchmark.py` | 52 assertions |
 | `docs/DATASHEET.md` | datasheet |
 
 ## Data statement
@@ -178,10 +178,9 @@ were hand-authored against a written test plan.
 - **The anchor firm is small** (12 workers) and its expectations were authored by the
   same people who built the reference engine it was first used to test. The generated
   firms exist to address the scale problem, not the independence problem.
-- **The rulebook is 190 obligations,** extracted from a manifest whose own header
-  claims 196. The 190 are the ones that appear as complete rule blocks with a citation
-  and a required-evidence list. The discrepancy is unresolved and 190 is the figure
-  used throughout.
+- **Prompt v1.1 follows a disclosed pilot.** Prompt v1.0 was run on the same 140 pairs and
+  found to be invalid: 30 pairs reached the model with no obligation text. The pilot's
+  replies and scores are kept in `docs/pilot_v1.0/`. See paper Section 7.1.
 - **Verdict granularity is coarse.** Real adjudication distinguishes a technical from
   a substantive defect; this benchmark does not.
 

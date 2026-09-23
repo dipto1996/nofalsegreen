@@ -45,15 +45,20 @@ regimes = rb.rule_regimes()
 scored = {n: score(firm.labels, fn(firm), rule_regimes=regimes) for n, fn in REGISTRY.items()}
 
 print("rulebook claims")
-claim("190 citable obligations" in paper or "190 obligations" in paper, "paper says 190 obligations")
-claim(len(rb.obligations) == 190, "rulebook actually has 190")
-claim("196" in paper and "unreconciled" in paper.lower(), "paper discloses the 196/190 discrepancy")
+claim("194 citable" in paper and "194 obligations" in paper, "paper says 194 obligations")
+claim(len(rb.obligations) == 194, "rulebook actually has 194 manifest rules")
+claim("196" in paper and "unreconciled" not in paper.lower(),
+      "paper explains 196 entries -> 194 rules; no longer calls it unreconciled")
+claim(len(rb.engine_rules) == 17 and "17 rules" in paper,
+      "paper states the 17 engine rules and how they are defined")
 per_regime = rb.regimes()
-for regime, n in [("i9-everify", 26), ("lca-dol", 23), ("paf", 15), ("wage-prevailing", 21),
-                  ("h1b-status", 16), ("i129-supplement", 11), ("l1-visa", 21),
+for regime, n in [("i9-everify", 28), ("lca-dol", 23), ("paf", 15), ("wage-prevailing", 21),
+                  ("h1b-status", 16), ("i129-supplement", 13), ("l1-visa", 21),
                   ("f1-opt-stem", 15), ("fdns-sitevisit", 14), ("deadlines-penalties", 28)]:
     claim(per_regime.get(regime) == n, f"regime {regime} = {n}")
-claim(sum(per_regime.values()) == 190, "regime counts sum to 190")
+claim(sum(per_regime.values()) == 194, "regime counts sum to 194")
+claim("I-9 and E-Verify (28)" in paper and "I-129 supplement (13)" in paper,
+      "paper's per-regime counts match the rulebook")
 
 print("\nanchor firm claims")
 claim("221" in paper, "paper says 221 pairs")
@@ -69,13 +74,14 @@ claim(rows == 93, f"93 data rows across exports (got {rows})")
 
 print("\nsweep claims")
 claim(results["n_firms"] == 31, "31 firms")
-claim(results["n_pairs"] == 57701, f"57,701 pairs (got {results['n_pairs']})")
-claim(results["n_withheld"] == 26115, f"26,115 withheld (got {results['n_withheld']})")
-claim(results["n_planted_violations"] == 6890, f"6,890 planted violations (got {results['n_planted_violations']})")
+claim(results["n_pairs"] == 58961, f"58,961 pairs (got {results['n_pairs']})")
+claim(results["n_withheld"] == 26682, f"26,682 withheld (got {results['n_withheld']})")
+claim(results["n_planted_violations"] == 7044, f"7,044 planted violations (got {results['n_planted_violations']})")
 share = results["n_withheld"] / results["n_pairs"]
 claim(abs(share - 0.453) < 0.0005, f"withheld share 45.3% (got {share:.1%})")
-claim("57,701" in paper and "26,115" in paper and "45.3" in paper, "paper quotes these figures")
-claim("6,890" in paper, "paper quotes 6,890 planted violations")
+claim("58,961" in paper and "26,682" in paper and "45.3" in paper and "57,701" not in paper,
+      "paper quotes the regenerated figures and none of the stale ones")
+claim("7,044" in paper, "paper quotes 7,044 planted violations")
 
 print("\ntable 7.1 vs results.json")
 expect = {
@@ -120,10 +126,10 @@ from baselines.llm import estimate_cost as _ec
 _sc = _ec(firm, rb.all_rules(), batch_size=20, scope_sources=True)
 _un = _ec(firm, rb.all_rules(), batch_size=20, scope_sources=False)
 _un40 = _ec(firm, rb.all_rules(), batch_size=40, scope_sources=False)
-claim(_sc["max_call_tokens"] == 9750, f"scoped max call is 9,750 (got {_sc['max_call_tokens']:,})")
-claim(_un["max_call_tokens"] == 11306, f"unscoped max call is 11,306 (got {_un['max_call_tokens']:,})")
-claim(_un40["max_call_tokens"] == 15067, f"unscoped batch-40 max call is 15,067 (got {_un40['max_call_tokens']:,})")
-claim("9,750" in paper and "11,306" in paper and "15,067" in paper,
+claim(_sc["max_call_tokens"] == 10688, f"scoped max call is 10,688 (got {_sc['max_call_tokens']:,})")
+claim(_un["max_call_tokens"] == 12185, f"unscoped max call is 12,185 (got {_un['max_call_tokens']:,})")
+claim(_un40["max_call_tokens"] == 16832, f"unscoped batch-40 max call is 16,832 (got {_un40['max_call_tokens']:,})")
+claim("10,688" in paper and "12,185" in paper and "16,832" in paper,
       "paper quotes all three measured per-call token figures")
 claim("do not infer" in paper or "not to infer" in paper,
       "paper documents the anti-inference safeguard on scoped prompts")
@@ -181,6 +187,23 @@ claim("declared stratified subset" in paper, "paper calls it a declared subset")
 claim("3.8:1" in paper, "paper states the ratio it rejected and why")
 claim("not all 221" in paper or "not all 221\npairs" in paper.replace("\n", " "),
       "limitations name the subset as a limitation")
+
+print("\npilot disclosure matches the archived pilot")
+_pilot = json.loads((ROOT / "docs" / "pilot_v1.0" / "llm_results.json").read_text())["runs"]
+def _pfgr(m, v):
+    return round(_pilot[f"{m}::{v}"]["aggregate"]["false_green_rate"]["mean"], 3)
+_u, _su = "nvidia/nemotron-3-ultra-550b-a55b:free", "nvidia/nemotron-3-super-120b-a12b:free"
+claim(_pfgr(_u, "abstain_withheld") == 0.117 and "0.117" in paper, "pilot 550B withheld FGR 0.117 quoted correctly")
+claim(_pfgr(_su, "abstain_withheld") == 0.075 and "0.075" in paper, "pilot 120B withheld FGR 0.075 quoted correctly")
+claim(all(_pilot[f"{m}::abstain_offered"]["aggregate"]["violation_recall"]["mean"] == 0.0 for m in (_u, _su)),
+      "pilot offered-condition recall really was 0.000 for both models")
+claim("four of twelve" in paper, "paper says the pilot completed four of twelve runs")
+claim("Thirty of the\n140 pairs" in paper or "Thirty of the 140 pairs" in paper.replace("\n", " "),
+      "paper states 30 of 140 pairs lacked obligation text")
+from baselines.prompts import PROMPT_VERSION as _PV
+claim(_PV == "1.1.0" and "`PROMPT_VERSION` 1.1.0" in paper, "paper and harness agree on prompt v1.1.0")
+_frozen = json.loads((ROOT / "data" / "firms" / "northwind-robotics" / "subset140.json").read_text())
+claim(_frozen["n_pairs"] == 140 and "identical" in paper, "the frozen subset backs the 'identical pairs' claim")
 
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")

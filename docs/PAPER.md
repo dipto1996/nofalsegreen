@@ -7,7 +7,7 @@ their shape is fixed, with cells marked `[…]`, so the reporting structure is c
 before any number exists.
 
 Every quantitative claim in the written sections is recomputed from the artifacts by
-`scripts/verify_paper.py`, which currently confirms 100 of 110. Nothing marked `[TO RUN]`
+`scripts/verify_paper.py`, which currently confirms 119 of 119. Nothing marked `[TO RUN]`
 may be filled by estimation.
 
 Section 8.2 also states what will be reported if the empirical result is null, so the
@@ -28,7 +28,7 @@ that would correct it.
 
 We introduce **No False Green**, a benchmark for evidence-aware compliance verdicts over
 structured employer records in United States employment-based immigration. An instance is
-a synthetic employer: a bundle of source exports paired with a rulebook of 190 citable
+a synthetic employer: a bundle of source exports paired with a rulebook of 194 citable
 obligations across ten regulatory regimes. A system must return one of four verdicts for
 each (obligation, entity) pair: `pass`, `fail`, `needs_evidence`, or `unmonitored`.
 Ground truth is fixed by construction. A generator selects each pair's disposition first,
@@ -37,7 +37,7 @@ data but the specification the data was rendered from.
 
 The benchmark inverts the incentive structure of standard evaluation in one specific way:
 correct abstention is the **majority class**, at 201 of 221 pairs in the hand-authored
-anchor firm and 45.3% of 57,701 pairs across the released set. We report the false-green
+anchor firm and 45.3% of 58,961 pairs across the released set. We report the false-green
 rate alongside violation recall, false-alarm rate on planted controls, abstention
 precision and recall, and a consistency check between a system's headline counts and its
 own per-pair verdicts. Trivial baselines establish that these metrics are not
@@ -96,7 +96,7 @@ We make three contributions.
    a refusal to participate (Section 4).
 2. **A benchmark.** A hand-authored anchor firm with 221 pinned expectations, a seeded
    generator producing unbounded additional firms with ground truth by construction, and a
-   rulebook of 190 obligations each carrying its regulatory citation (Section 5).
+   rulebook of 194 obligations each carrying its regulatory citation (Section 5).
 3. **A metric suite** centred on the false-green rate, with baselines demonstrating that
    no single metric in the suite is sufficient alone (Sections 6 and 8).
 
@@ -248,20 +248,25 @@ enforced in the harness and tested.
 
 ### 5.1 The rulebook
 
-The rulebook contains 190 obligations across ten regimes: I-9 and E-Verify (26), Labor
+The rulebook contains 194 obligations across ten regimes: I-9 and E-Verify (28), Labor
 Condition Application (23), Public Access File (15), wage and prevailing wage (21), H-1B
-status (16), I-129 supplement (11), L-1 (21), F-1 OPT and STEM OPT (15), site-visit
-readiness (14), and cross-cutting deadlines and penalties (28).
+status (16), I-129 supplement (13), L-1 (21), F-1 OPT and STEM OPT (15), site-visit
+readiness (14), and cross-cutting deadlines and penalties (28). The source manifest lists
+196 entries; two rules appear deliberately in two regimes, once as a field check and once
+as a deadline clock, and are counted once here under I-9.
 
-Each obligation carries the check it performs, its regulatory citation, and its required
-evidence. The citations had previously been through a verification pass in which incorrect
-citations and thresholds were corrected inline against primary sources; we extracted the
-rulebook programmatically from that manifest rather than retyping it, so the benchmark's
-citations are traceable to a source document rather than to our own recollection.
+Each obligation carries the check it performs, its threshold, its regulatory citation, and
+a description of the information needed to decide it. The citations had previously been
+through a verification pass in which incorrect citations and thresholds were corrected
+inline against primary sources. The rulebook is built programmatically from the source
+engine's machine-readable registry of that manifest rather than retyped, so every citation
+is traceable to a source document rather than to our recollection.
 
-One honest discrepancy: the source manifest's header states 196 rules, while 190 appear as
-complete rule blocks carrying both a citation and a required-evidence list. We use 190
-throughout and do not reconcile the difference.
+The anchor firm's expectation set also refers to 17 rules by the engine's internal
+identifiers rather than manifest identifiers. Fourteen map to the manifest rule stating the
+same duty through the engine's own published alias table. Three are engine roll-ups whose
+definitions are assembled from the manifest rules they aggregate and carry those rules'
+citations. No obligation text in the benchmark is written from scratch.
 
 ### 5.2 The anchor firm
 
@@ -328,10 +333,10 @@ label sets and firm metadata, which the test suite asserts.
 | | Value |
 |---|---|
 | Firms | 31 (1 anchor + 30 generated at seeds 1-30) |
-| Pairs | 57,701 |
-| Withheld-evidence pairs | 26,115 (45.3%) |
-| Planted violations | 6,890 |
-| Obligations | 190 |
+| Pairs | 58,961 |
+| Withheld-evidence pairs | 26,682 (45.3%) |
+| Planted violations | 7,044 |
+| Obligations | 194 |
 
 Additional firms are available at any seed.
 
@@ -387,11 +392,15 @@ the task is solvable.
 
 **Language-model baselines `[TO RUN]`.** These experiments **have not yet been run**. The
 harness is implemented, tested against mock models with known failure signatures, and
-dry-run end to end; only the API calls remain. The protocol is frozen in code (`baselines/prompts.py`, `PROMPT_VERSION` 1.0.0)
+dry-run end to end; only the API calls remain. The protocol is frozen in code (`baselines/prompts.py`, `PROMPT_VERSION` 1.1.0)
 so that the reported result cannot be a post-hoc selection of prompt:
 
 - *Prompt.* Per firm, the source exports verbatim as CSV, the obligations needed by the
-  batch with their citations and required-evidence lists, and the pairs to decide.
+  batch with their check, threshold, citation and the information needed to decide them,
+  and the pairs to decide. Two reading rules apply identically in both conditions: export
+  columns are matched to obligations by meaning, and reference knowledge such as federal
+  holidays and regulatory thresholds is supplied by the model rather than required from
+  the exports.
   Verdicts are returned one per line as `pair_id`, verdict, evidence field. The
   evaluation date is pinned in the prompt with an explicit instruction not to use the
   real current date, since every deadline rule depends on it.
@@ -426,17 +435,48 @@ reduce input cost materially, since every batch within a firm re-sends the same 
 The anchor firm alone costs under \$1.50 on the most expensive tier, which is the
 recommended first run.
 
-### 7.1 Running on free API tiers
+### 7.1 A pilot run, and the protocol revision it forced
+
+The protocol above is version 1.1. Version 1.0 was run first, on the same 140 pairs, and
+completed four of twelve model-condition runs before we stopped it. We report what it found
+because it changed the protocol, and a reader should be able to judge whether the change
+was principled.
+
+The pilot showed violation recall of 0.000 for both models whenever the abstention option
+was offered. On inspection this was mostly the harness, for three reasons. Thirty of the
+140 pairs, including 10 of the 20 planted violations, used rule identifiers absent from the
+version 1.0 rulebook and reached the prompt with no obligation text at all. The evidence
+list shown for every obligation had been damaged by our extraction into run-together
+tokens that matched no export column, and it named reference data no export contains, such
+as a federal-holiday calendar. And version 1.0 defined `needs_evidence` as a required field
+being absent, so a model that followed the prompt literally was obliged to abstain. In the
+clearest case, a Section 2 completed eight business days late, both dates were in the I-9
+export, and the model still answered `needs_evidence`.
+
+Version 1.1 fixes these defects and changes nothing else. Every pair's rule is defined.
+The evidence description is the manifest's own prose. `needs_evidence` is defined by the
+firm's records rather than by field names. The same two reading rules are added to both
+ablation conditions. The verdict menus are otherwise unchanged. The evaluated pairs are
+identical, fixed in a file before either version ran, so any difference between the pilot
+and the main run is attributable to the prompt. The pilot's raw replies and scores are
+retained in the repository.
+
+One pilot observation did not depend on the defects. When forced to choose between `pass`
+and `fail`, both pilot models called most unassessable obligations violations rather than
+compliant, with false-green rates of 0.117 and 0.075. We report version 1.1 as the result
+and the pilot only as the account of how the protocol reached its final form.
+
+### 7.2 Running on free API tiers
 
 We report results obtained entirely on providers' free tiers, which constrains the
 experiment in two ways that must be stated because both affect the measurement.
 
 **Source scoping.** Free tiers cap tokens per minute, and the cap is checked against the
 largest single call, not the average. Sending all eleven exports on every call puts the
-anchor firm's largest call at 11,306 tokens at batch size 20, and 15,067 at batch size 40,
+anchor firm's largest call at 12,185 tokens at batch size 20, and 16,832 at batch size 40,
 which exceeds several free per-minute quotas outright. We therefore send only the exports
 whose regime an obligation can be evaluated against, with the HR roster always included
-because every other source joins to it. This reduces the largest call to 9,750 tokens at
+because every other source joins to it. This reduces the largest call to 10,688 tokens at
 batch size 20. Note that shrinking the batch does not help: the obligation text is
 re-sent with every call, so a smaller batch raises the per-call floor rather than
 lowering it.
@@ -505,7 +545,7 @@ misleading, and we do not.
 
 ### 8.1 Trivial baselines
 
-**Table 1 — trivial baselines.** Across 31 firms and 57,701 pairs, aggregated per firm
+**Table 1 — trivial baselines.** Across 31 firms and 58,961 pairs, aggregated per firm
 then averaged. Reproduced by `python3 scripts/sweep.py --firms 30`.
 
 | System | False green | Violation recall | Precision | False alarm | Abstention F1 |
@@ -520,7 +560,7 @@ Three readings.
 **The false-green rate is not redundant.** `always_pass` attains a false-alarm rate of
 0.000, the best possible score on compliant cases. Under any metric that rewards not
 crying wolf, it is indistinguishable from a careful system. It is in fact the worst
-possible system for deployment, reporting all 26,115 undecidable pairs as satisfied. Only
+possible system for deployment, reporting all 26,682 undecidable pairs as satisfied. Only
 the false-green rate separates them. On the anchor firm alone the separation is starker:
 `always_pass` reports all 201 unassessed obligations as satisfied while raising zero false
 alarms.
@@ -664,10 +704,9 @@ isolates the verdict layer, which is a deliberate scope choice and also a gap.
 **Verdict granularity is coarse.** Real adjudication distinguishes technical from
 substantive defects and admits cure periods. Four states do not capture that.
 
-**The rulebook count is unreconciled.** 190 extracted against a claimed 196.
 
 **Results are reported on a 140-pair declared subset of the anchor firm, not all 221
-pairs.** Required by the free-tier call ceiling (Section 7.1). The subset keeps every
+pairs.** Required by the free-tier call ceiling (Section 7.2). The subset keeps every
 planted violation, holds the abstention-to-violation ratio at roughly 6:1 against the
 firm's 10:1, and covers every regime, but its smaller denominator widens the interval on
 every rate we report.
@@ -686,7 +725,7 @@ models exhibit the same false-green behaviour is untested, and it is the single 
 valuable extension of this work.
 
 **Prompts send only regime-relevant exports.** Required by free per-minute token quotas
-(Section 7.1). Safeguarded by disclosing withheld exports in the prompt, forbidding
+(Section 7.2). Safeguarded by disclosing withheld exports in the prompt, forbidding
 inference about unseen data, falling back to all sources for unclassified regimes, and
 asserting in tests that a correct model scores identically either way. It remains a
 deviation from sending a firm's complete record.
@@ -732,7 +771,7 @@ python3 tests/test_benchmark.py                                       # 36 asser
 
 ## Appendix B: Prompt and protocol
 
-The prompts are frozen in `baselines/prompts.py` at `PROMPT_VERSION` 1.0.0 and reproduced
+The prompts are frozen in `baselines/prompts.py` at `PROMPT_VERSION` 1.1.0 and reproduced
 verbatim below in both ablation conditions, since a benchmark whose prompt is not
 published is not reproducible.
 
