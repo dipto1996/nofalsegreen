@@ -99,6 +99,16 @@ p, unp, miss, offs = parse_response("r.a::x\tneeds_evidence\nr.b::y\tpass\nr.c::
 check(offs == 1, "needs_evidence under abstain_withheld is counted off-schema")
 check(len(p) == 3, "and is still parsed at face value, not discarded")
 
+_trace = ("### 1. r.a::x [worker]\nthinking about r.b::y [worker] now\n"
+          "r.a::x\tfail\t-\nr.b::y\tneeds_evidence\t-\nr.c::z\tpass\t-")
+p, unp, miss, offs = parse_response(_trace, ids, ABSTAIN_OFFERED)
+check(unp == 0 and len(p) == 3,
+      "pair ids echoed in a reasoning trace are not unparseable once the pair is answered")
+p, unp, _, _ = parse_response("r.a::x\tneeds\nr.a::x [again]\nr.b::y\tpass\nr.c::z\tpass", ids, ABSTAIN_OFFERED)
+check(unp == 1, "unparseable is counted per pair, not per line (2 lines, 1 pair)")
+p, _, _, _ = parse_response("r.a::x\tpass\nr.a::x\tfail\nr.b::y\tpass\nr.c::z\tpass", ids, ABSTAIN_OFFERED)
+check(next(x for x in p if x.pair_id == "r.a::x").verdict is Verdict.FAIL,
+      "the last verdict for a pair wins (final answer follows the trace)")
 p, _, _, _ = parse_response("other.rule::q\tpass\nr.a::x\tpass\nr.b::y\tpass\nr.c::z\tpass", ids, ABSTAIN_OFFERED)
 check(len(p) == 3, "pairs outside the requested batch are ignored")
 

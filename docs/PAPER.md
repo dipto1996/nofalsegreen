@@ -7,7 +7,7 @@ their shape is fixed, with cells marked `[…]`, so the reporting structure is c
 before any number exists.
 
 Every quantitative claim in the written sections is recomputed from the artifacts by
-`scripts/verify_paper.py`, which currently confirms 124 of 124. Nothing marked `[TO RUN]`
+`scripts/verify_paper.py`, which currently confirms 129 of 129. Nothing marked `[TO RUN]`
 may be filled by estimation.
 
 Section 8.2 also states what will be reported if the empirical result is null, so the
@@ -483,6 +483,18 @@ ablation conditions. The verdict menus are otherwise unchanged. The evaluated pa
 identical, fixed in a file before either version ran, so any difference between the pilot
 and the main run is attributable to the prompt. The pilot's raw replies and scores are
 retained in the repository.
+
+The first attempt at the version 1.1 run exposed one further defect, in the harness
+rather than the prompt. We had capped each reply at 8,400 output tokens. Reasoning models
+spend most of a reply thinking before they answer, and 46 of the first 84 batch replies
+were cut off or came back empty before any verdict was written. The pairs in those
+batches would have scored as misses, depressing recall for reasons that had nothing to
+do with the models. We raised the cap to 32,000 tokens, which is below every evaluated
+model's own limit, and re-requested only the affected batches. The 38 replies that had
+finished within the lower cap were kept, because a cap that was never reached did not
+affect them. Truncated or empty replies are no longer cached, and the parser now counts
+a pair as unparseable only if it is never answered, not each time a model mentions it
+while reasoning. The affected attempt is archived intact beside the pilot.
 
 One pilot observation did not depend on the defects. When forced to choose between `pass`
 and `fail`, both pilot models called most unassessable obligations violations rather than

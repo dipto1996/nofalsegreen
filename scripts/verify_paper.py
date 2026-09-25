@@ -214,6 +214,20 @@ claim("Engine view, the headline" in paper, "engine view is named as the headlin
 claim("denominator of ten" in paper, "paper flags the strict view's small denominator")
 claim("table2b-strict" in paper, "Table 2b is generated, not hand-typed")
 
+print("\ntruncation disclosure")
+import json as _j
+_bk = _j.loads((ROOT / "docs" / "v1.1_truncated_attempt" / "batch_cache.pre_purge_backup.json").read_text())
+_v11 = [k for k in _bk if k.startswith("1.1.0|")]
+_kept = _j.loads((ROOT / "docs" / ".batch_cache.json").read_text())
+_kept11 = [k for k in _kept if k.startswith("1.1.0|") and k in _bk]
+claim(len(_v11) == 84 and "first 84 batch" in paper, "paper: 84 replies in the truncated attempt")
+claim(len(_kept11) == 38 and "The 38 replies" in paper, "paper: 38 complete replies kept")
+claim(len(_v11) - len(_kept11) == 46 and "46 of the first 84" in paper, "paper: 46 re-requested")
+claim("8,400" in paper and "32,000" in paper, "paper states the old and new output caps")
+from baselines.llm import run_firm as _rf
+import inspect as _i
+claim("32_000" in _i.getsource(_rf), "harness default output cap really is 32,000")
+
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
 claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")

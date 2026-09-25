@@ -1,0 +1,262 @@
+{
+  "prompt_version": "1.1.0",
+  "views_declared_on": "2026-09-24",
+  "firm_id": "northwind-robotics-subset140",
+  "n_pairs": 140,
+  "runs": {
+    "nex-agi/nex-n2.5-pro:free::abstain_offered": {
+      "model": "nex-agi/nex-n2.5-pro:free",
+      "variant": "abstain_offered",
+      "n_predictions": 24,
+      "complete": false,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.0,
+        "n_false_green": 0,
+        "n_withheld": 120,
+        "violation_recall": 0.0,
+        "violation_precision": 0.0,
+        "abstention_f1": 0.2937,
+        "n_missing": 116
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.0,
+        "n_false_green": 0,
+        "n_withheld": 125,
+        "violation_recall": 0.0,
+        "violation_precision": 0.0,
+        "abstention_f1": 0.3108,
+        "n_missing": 111,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "no answer": 5
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "no answer",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "no answer",
+            "extension.filing::Hiroshi Yamamoto": "no answer",
+            "h1b.rfe.response::Daniel Cho": "no answer",
+            "h1b.noid.response::Sofia Reyes": "no answer"
+          }
+        }
+      }
+    },
+    "nex-agi/nex-n2.5-pro:free::abstain_withheld": {
+      "model": "nex-agi/nex-n2.5-pro:free",
+      "variant": "abstain_withheld",
+      "n_predictions": 12,
+      "complete": false,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.0,
+        "n_false_green": 0,
+        "n_withheld": 120,
+        "violation_recall": 0.0,
+        "violation_precision": 0.0,
+        "abstention_f1": 0.0,
+        "n_missing": 128
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.0,
+        "n_false_green": 0,
+        "n_withheld": 125,
+        "violation_recall": 0.0,
+        "violation_precision": 0.0,
+        "abstention_f1": 0.0,
+        "n_missing": 123,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "no answer": 5
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "no answer",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "no answer",
+            "extension.filing::Hiroshi Yamamoto": "no answer",
+            "h1b.rfe.response::Daniel Cho": "no answer",
+            "h1b.noid.response::Sofia Reyes": "no answer"
+          }
+        }
+      }
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "variant": "abstain_offered",
+      "n_predictions": 97,
+      "complete": false,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.0167,
+        "n_false_green": 2,
+        "n_withheld": 120,
+        "violation_recall": 0.15,
+        "violation_precision": 1.0,
+        "abstention_f1": 0.6931,
+        "n_missing": 43
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.016,
+        "n_false_green": 2,
+        "n_withheld": 125,
+        "violation_recall": 0.2,
+        "violation_precision": 1.0,
+        "abstention_f1": 0.7353,
+        "n_missing": 42,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "no answer": 1,
+            "fail": 1,
+            "needs_evidence": 3
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "no answer",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "needs_evidence",
+            "h1b.rfe.response::Daniel Cho": "needs_evidence",
+            "h1b.noid.response::Sofia Reyes": "needs_evidence"
+          }
+        }
+      }
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "variant": "abstain_withheld",
+      "n_predictions": 84,
+      "complete": false,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.0667,
+        "n_false_green": 8,
+        "n_withheld": 120,
+        "violation_recall": 0.4,
+        "violation_precision": 0.1067,
+        "abstention_f1": 0.0,
+        "n_missing": 56
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.064,
+        "n_false_green": 8,
+        "n_withheld": 125,
+        "violation_recall": 0.6,
+        "violation_precision": 0.0822,
+        "abstention_f1": 0.0,
+        "n_missing": 53,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "fail": 2,
+            "no answer": 3
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "fail",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "no answer",
+            "extension.filing::Hiroshi Yamamoto": "fail",
+            "h1b.rfe.response::Daniel Cho": "no answer",
+            "h1b.noid.response::Sofia Reyes": "no answer"
+          }
+        }
+      }
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "variant": "abstain_offered",
+      "n_predictions": 118,
+      "complete": false,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.0417,
+        "n_false_green": 5,
+        "n_withheld": 120,
+        "violation_recall": 0.25,
+        "violation_precision": 1.0,
+        "abstention_f1": 0.8584,
+        "n_missing": 22
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.04,
+        "n_false_green": 5,
+        "n_withheld": 125,
+        "violation_recall": 0.4,
+        "violation_precision": 1.0,
+        "abstention_f1": 0.8908,
+        "n_missing": 21,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "pass": 1,
+            "fail": 1,
+            "no answer": 1,
+            "needs_evidence": 2
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "pass",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "no answer",
+            "h1b.rfe.response::Daniel Cho": "needs_evidence",
+            "h1b.noid.response::Sofia Reyes": "needs_evidence"
+          }
+        }
+      }
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "variant": "abstain_withheld",
+      "n_predictions": 116,
+      "complete": false,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.1333,
+        "n_false_green": 16,
+        "n_withheld": 120,
+        "violation_recall": 0.7,
+        "violation_precision": 0.1429,
+        "abstention_f1": 0.0,
+        "n_missing": 24
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.128,
+        "n_false_green": 16,
+        "n_withheld": 125,
+        "violation_recall": 0.7,
+        "violation_precision": 0.0729,
+        "abstention_f1": 0.0,
+        "n_missing": 23,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "no answer": 1,
+            "fail": 2,
+            "pass": 2
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "no answer",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "fail",
+            "h1b.rfe.response::Daniel Cho": "pass",
+            "h1b.noid.response::Sofia Reyes": "pass"
+          }
+        }
+      }
+    }
+  }
+}

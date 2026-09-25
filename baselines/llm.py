@@ -162,7 +162,7 @@ def parse_response(text: str, expected_pair_ids: list[str], variant: str):
     """
     expected = set(expected_pair_ids)
     seen: dict[str, Prediction] = {}
-    unparseable = off_schema = 0
+    mentioned_without_verdict: set[str] = set()
 
     for raw_line in text.splitlines():
         line = raw_line.strip()
@@ -185,13 +185,12 @@ def parse_response(text: str, expected_pair_ids: list[str], variant: str):
                 verdict = _VERDICTS[key]
                 break
         if verdict is None:
-            # A line naming the pair but no permitted verdict is a failure to
-            # answer, not an abstention. Leave it unpredicted.
-            unparseable += 1
+            # A line naming the pair but no permitted verdict. Reasoning models
+            # echo pair ids while thinking ("### 1. rule::entity [employer]")
+            # before answering, so this is only a failure if the pair is never
+            # answered anywhere in the reply; counted per PAIR after the loop.
+            mentioned_without_verdict.add(pair_id)
             continue
-
-        if variant == ABSTAIN_WITHHELD and verdict in (Verdict.NEEDS_EVIDENCE, Verdict.UNMONITORED):
-            off_schema += 1
 
         idx = parts.index(pair_id)
         ev = [p for p in parts[idx + 1:] if p.lower() not in _VERDICTS and p != "-"]
@@ -199,6 +198,12 @@ def parse_response(text: str, expected_pair_ids: list[str], variant: str):
             pair_id=pair_id, verdict=verdict, evidence_fields=tuple(ev[:3])
         )
 
+    # The LAST verdict line for a pair wins: the final answer follows the trace.
+    unparseable = len(mentioned_without_verdict - set(seen))
+    off_schema = 0
+    if variant == ABSTAIN_WITHHELD:
+        off_schema = sum(1 for pr in seen.values()
+                         if pr.verdict in (Verdict.NEEDS_EVIDENCE, Verdict.UNMONITORED))
     missing = len(expected) - len(seen) - unparseable
     return list(seen.values()), unparseable, max(0, missing), off_schema
 
@@ -235,7 +240,13 @@ def run_firm(
     # artifact indistinguishable from model failure. Budget generously and
     # scale with batch size.
     if max_tokens is None:
-        max_tokens = max(4000, batch_size * 700)
+        # 32,000 sits under every evaluated model's own completion ceiling (the
+        # smallest is 32,768). The earlier max(4000, 700 * batch) = 8,400 at
+        # batch 12 was measured to truncate 2-11 of 12 calls per run in the main
+        # sweep: reasoning models spent the whole budget thinking and returned
+        # EMPTY content, which scores as missed pairs -- a harness artifact
+        # indistinguishable from model failure.
+        max_tokens = 32_000
 
     preds: list[Prediction] = []
     usage = Usage()
@@ -270,6 +281,8 @@ def run_firm(
         user = user_prompt(firm, obligations, batch, scope_sources=scope_sources)
         ck = cache_key(batch)
         cached = cache.get(ck)
+        if isinstance(cached, dict):
+            cached = cached.get("text")
         if cached is not None:
             p, unp, miss, offs = parse_response(cached, batch, variant)
             preds.extend(p)
@@ -309,8 +322,12 @@ def run_firm(
         if keep_raw:
             raw.append(text)
         consecutive_failures = 0
-        if cache_path is not None:
-            cache[ck] = text
+        hit_cap = bool(u.output_tokens) and u.output_tokens >= max_tokens
+        # Never cache a reply that was cut off or empty: a cached truncation
+        # would be replayed forever instead of re-requested with more budget.
+        if cache_path is not None and text.strip() and not hit_cap:
+            cache[ck] = {"text": text, "output_tokens": u.output_tokens,
+                         "max_tokens": max_tokens}
             cache_path.parent.mkdir(parents=True, exist_ok=True)
             cache_path.write_text(json.dumps(cache, indent=1))
 

@@ -38,6 +38,8 @@ def predictions_by_run(firm, cache: dict) -> dict[tuple[str, str], list]:
         if len(parts) != 6 or parts[0] != PROMPT_VERSION or parts[3] != firm.firm_id:
             continue
         _, model, variant, _, _, _ = parts
+        if isinstance(text, dict):
+            text = text.get("text", "")
         preds, _, _, _ = parse_response(text, ids, variant)
         for pr in preds:
             grouped[(model, variant)][pr.pair_id] = pr
