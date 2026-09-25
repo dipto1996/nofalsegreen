@@ -191,5 +191,48 @@ check(score(sub.labels, _ap(sub)).false_green_rate == 1.0,
 check(score(sub.labels, REGISTRY["oracle"](sub)).violation_recall == 1.0,
       "oracle still scores full recall on the subset")
 
+
+# ── declared label views (declared before any v1.1 result was read) ─────────
+print("\nlabel views")
+from nofalsegreen.labelviews import MEMO_ABSENCE, PROSPECTIVE, alert_report, apply_view  # noqa: E402
+from nofalsegreen.schema import Prediction  # noqa: E402
+
+_fail_ids = {l.pair_id for l in firm.labels if l.verdict is Verdict.FAIL}
+check(MEMO_ABSENCE <= _fail_ids and len(MEMO_ABSENCE) == 5, "the 5 memo pairs are real planted violations")
+check(PROSPECTIVE <= _fail_ids and len(PROSPECTIVE) == 5, "the 5 prospective pairs are real planted violations")
+check(not (MEMO_ABSENCE & PROSPECTIVE), "the two groups do not overlap")
+
+_eng, _eng_alerts = apply_view(firm.labels, "engine")
+check(_eng == list(firm.labels) and _eng_alerts == [], "engine view is the labels exactly as authored")
+
+_st, _st_alerts = apply_view(firm.labels, "strict")
+_stc = collections.Counter(l.verdict.value for l in _st)
+check(len(_st) == 216 and len(_st_alerts) == 5, "strict view scores 216 pairs, sets 5 aside as alerts")
+check(_stc["fail"] == 10, f"strict view keeps the 10 already-breached violations (got {_stc['fail']})")
+check(_stc["needs_evidence"] == 206, "strict view: 201 evidence requests + 5 relabelled memos")
+check(all(l.verdict is Verdict.NEEDS_EVIDENCE for l in _st if l.pair_id in MEMO_ABSENCE),
+      "memo pairs become needs_evidence in the strict view")
+check(firm.labels[0].verdict is not None and
+      sum(1 for l in firm.labels if l.verdict is Verdict.FAIL) == 20,
+      "applying a view never mutates the original labels")
+
+_sub_st, _sub_alerts = apply_view(sub.labels, "strict")
+check(sum(1 for l in _sub_st if l.verdict is Verdict.FAIL) == 10 and len(_sub_alerts) == 5,
+      "on the 140-pair subset the strict view also keeps 10 violations and 5 alerts")
+
+_mock = [Prediction(a.pair_id, Verdict.FAIL) for a in _sub_alerts[:3]] + \
+        [Prediction(a.pair_id, Verdict.PASS) for a in _sub_alerts[3:4]]
+_ar = alert_report(_mock, _sub_alerts)
+check(_ar["verdicts"] == {"fail": 3, "pass": 1, "no answer": 1},
+      "alert report counts each verdict and an unanswered alert as 'no answer'")
+
+# A model that abstains on the memo pairs is penalised under engine, rewarded under strict.
+_abst = [Prediction(l.pair_id, Verdict.NEEDS_EVIDENCE if l.pair_id in MEMO_ABSENCE else l.verdict)
+         for l in sub.labels]
+_se = score(sub.labels, _abst)
+_ss = score(_sub_st, [x for x in _abst if x.pair_id in {l.pair_id for l in _sub_st}])
+check(_se.violation_recall == 0.75 and _ss.violation_recall == 1.0,
+      "abstaining on unevidenced memos costs recall under engine (0.75) and none under strict (1.0)")
+
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)

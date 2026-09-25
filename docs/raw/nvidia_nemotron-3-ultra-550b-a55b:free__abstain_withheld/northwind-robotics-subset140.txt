@@ -1,0 +1,540 @@
+everify.photo_matching::Anita Desai	fail	-
+everify.photo_matching::Hiroshi Yamamoto	fail	-
+everify.photo_matching::James Park	fail	-
+everify.photo_matching::Mei Tanaka	fail	-
+everify.photo_matching::Yuki Sato	fail	-
+everify.tnc.employer_action_window::Daniel Cho	fail	ssa_tnc_date=2025-04-18, fan_delivered_date=2026-05-01
+everify.tnc.overdue::Daniel Cho	fail	referralDate missing
+extension.filing::Hiroshi Yamamoto	fail	valid_to=2026-07-20, no extension.filedDate
+fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage	fail	Mei Tanaka payRate=96000 < PREVAILING_WAGE=145000
+fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control	pass	worksite_address1=300 Colorado St, supervisor=Grace Lindqvist
+fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence	fail	no lease/utility/VIBE/D&B in exports
+fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites	fail	Sofia Reyes location=Boston - Lab vs LCA worksite=Austin
+
+---
+
+fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match	fail	hris_roster_export.jobTitle "Engineering Manager" vs lca_export.JOB_TITLE "Robotics Software Engineer" SOC 15-1252 for Omar Farouk (passport P1000005)
+fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid	pass	-
+fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand	fail	-
+h1b.i94.expiration::Anita Desai	fail	-
+h1b.i94.expiration::Daniel Cho	fail	-
+h1b.i94.expiration::Lucia Ferreira	fail	-
+h1b.i94.expiration::Mei Tanaka	fail	-
+h1b.i94.expiration::Omar Farouk	fail	-
+h1b.i94.expiration::Sofia Reyes	fail	-
+h1b.i94.expiration::Yuki Sato	fail	-
+h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status	fail	-
+h1b.material_change.soc::Omar Farouk	fail	hris_roster_export.jobTitle "Engineering Manager" vs lca_export.JOB_TITLE "Robotics Software Engineer" SOC 15-1252 for current validity period (BEGIN_DATE 2025-09-01), lca_export.AMENDED_PETITION=0
+
+---
+
+h1b.material_change.worksite::Sofia Reyes	fail	hris_roster_export.location=Boston - Lab vs cms_case_export.worksite_city=Austin
+h1b.max_stay.six_year_limit::Anita Desai	pass	hris_roster_export.hireDate=2023-07-17
+h1b.max_stay.six_year_limit::Daniel Cho	pass	hris_roster_export.hireDate=2025-04-14
+h1b.max_stay.six_year_limit::Mei Tanaka	pass	hris_roster_export.hireDate=2022-06-13
+h1b.max_stay.six_year_limit::Ravi Anand	pass	hris_roster_export.hireDate=2025-02-03
+h1b.max_stay.six_year_limit::Yuki Sato	pass	hris_roster_export.hireDate=2024-01-08
+h1b.noid.response::Sofia Reyes	pass	rfe_noid_export.response_due_date=2026-07-10
+h1b.petition.expiry::Hiroshi Yamamoto	fail	cms_case_export.valid_from=2023-07-16, valid_to=2026-07-20
+h1b.rfe.response::Daniel Cho	pass	rfe_noid_export.response_due_date=2026-07-08
+h1b.wage.actual.memo::17-2199:L3:Austin, TX:memo	fail	-
+h1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo	fail	-
+h1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo	fail	-
+
+---
+
+h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo	fail	-
+h1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo	fail	-
+h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense	pass	payroll_register.pretax_deductions
+h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty	pass	-
+h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear	fail	payroll_register.gross_pay (NWR-1004) < lca_export.PREVAILING_WAGE (I-200-22010-100004)
+h1b.wage.payment.start-clock::Anita Desai	fail	-
+h1b.wage.payment.start-clock::Daniel Cho	fail	-
+h1b.wage.payment.start-clock::Lucia Ferreira	fail	-
+h1b.wage.payment.start-clock::Omar Farouk	fail	-
+h1b.wage.payment.start-clock::Sofia Reyes	fail	-
+h1b.wage.payment.start-clock::Yuki Sato	fail	-
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L2	fail	-
+
+---
+
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L4	fail	-
+h1b.wage.prevailing.pwd-validity::pw:17-2061:L3	fail	-
+h1b.wage.prevailing.pwd-validity::pw:17-2141:L3	fail	-
+h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource	fail	-
+h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource	fail	-
+h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource	fail	-
+h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource	fail	-
+h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers	fail	-
+i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026	pass	cms_case_export.filing_date
+i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window	fail	-
+i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list	pass	i9_record_export.list_a_doc_title
+i9.noi.production-window::deadline-gap:i9.noi.production-window	pass	-
+
+---
+
+i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse	pass	list_b_doc_title,list_c_doc_title (all empty)
+i9.receipts.rule::i9-fieldgap:i9.receipts.rule	pass	-
+i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure	pass	alternative_procedure (all N)
+i9.retention.storage_and_production::Anita Desai	fail	-
+i9.retention.storage_and_production::Helena Voss	fail	-
+i9.retention.storage_and_production::Hiroshi Yamamoto	fail	-
+i9.retention.storage_and_production::Mei Tanaka	fail	-
+i9.retention.storage_and_production::Omar Farouk	fail	-
+i9.retention.storage_and_production::Ravi Anand	fail	-
+i9.retention.storage_and_production::Sofia Reyes	fail	-
+i9.retention.storage_and_production::Yuki Sato	fail	-
+i9.reverification.deadline::Lucia Ferreira	fail	supplement_b_completed_date (empty), supplement_b_due (2026-06-15)
+
+---
+
+I need to evaluate each of the 12 pairs against the data provided. Let me go through them one by one.
+
+First, let me understand the data exports:
+
+1. **cms_case_export** - H-1B petition cases
+2. **everify_case_export** - E-Verify cases
+3. **hris_roster_export** - Active employees from BambooHR
+4. **i9_record_export** - I-9 records
+5. **lca_export** - LCA certified H-1B 2024-2025
+6. **payroll_register** - Gusto payroll register Q2 2025
+7. **rfe_noid_export** - RFE/NOID cases
+
+Today's date: 2026-06-29
+
+Now let me evaluate each pair:
+
+### 1. i9.reverification.noreverify::Helena Voss [worker: Helena Voss]
+
+Check: Employer did NOT improperly reverify documents/persons on the no-reverify list.
+Threshold: No reverification demanded based on expiry of US passport/passport card/Form I-551, a List B doc, or for a US citizen/national/LPR.
+
+From i9_record_export, Helena Voss (NWR-1012):
+- start_date: 2021-01-19
+- section1_signed_date: 2021-01-19
+- section2_signed_date: 2021-01-21
+- list_a_doc_title: U.S. Passport
+- list_a_doc_number: USP1000012
+- list_a_doc_issuing_authority: U.S. Department of State
+- list_a_doc_expiry: 2026-07-15
+- supplement_b_due: (empty)
+- supplement_b_completed_date: (empty)
+
+From hris_roster_export: Helena Voss, nationality: United States, visaType: US Citizen
+
+Helena is a US citizen with a US passport. The passport expires 2026-07-15. The no-reverify list includes US passports (List A) - you cannot reverify based on expiry of a US passport. The I-9 record shows no supplement_b_due or supplement_b_completed_date, meaning no reverification was done. That's correct - no reverification should be done for US passport expiry.
+
+But wait, the obligation is "Employer did NOT improperly reverify". So if they didn't reverify, that's a pass. If they did reverify, that's a fail.
+
+The data shows no reverification (supplement_b_due and supplement_b_completed_date are empty). So pass.
+
+But I need to check if there's any evidence of improper reverification. The I-9 record doesn't show any reverification. The everify_case_export shows case 2021011900010012 for Helena Voss with "Employment Authorized" and case_closed_date 2021-01-26. No TNC or reverification.
+
+So verdict: pass. Evidence: i9_record_export shows no supplement_b_due or supplement_b_completed_date for Helena Voss (NWR-1012), and she is a US citizen with US passport.
+
+### 2. i9.reverification.unfair::i9-prohibited:i9.reverification.unfair [employer: i9-prohibited:i9.reverification.unfair]
+
+Check: No citizenship-status or national-origin discrimination in hiring, firing, or recruitment/referral for a fee.
+Threshold: No intentional citizenship-status/national-origin discrimination; "US-citizen-only" unlawful unless required by law/regulation/EO/government contract.
+
+This is an employer-level check. I need to look for evidence of discrimination in hiring, firing, or recruitment. The data exports don't include job postings, adverse action records, or recruitment records. We have employee roster, I-9 records, E-Verify, payroll, etc.
+
+From the data, we can see the workforce composition: multiple nationalities (India, Brazil, South Korea, Japan, Egypt, Philippines, US). H-1B workers and US citizens. No obvious "US-citizen-only" policy evident. But the obligation requires checking job-posting citizenship requirements, legal/contractual basis, adverse-action records by protected status. None of these are in the exports.
+
+The information needed: employee count (for 4-14 national-origin line); job-posting citizenship requirements; legal/contractual basis for any citizenship requirement; adverse-action records by protected status.
+
+We have employee count from hris_roster_export: 12 employees. But we don't have job postings, adverse actions, etc.
+
+Since we cannot find evidence of discrimination from the provided data, and the burden is to evaluate against data actually present, we might need to say pass? But the obligation is about "No discrimination" - if we can't verify, we might not be able to confirm pass. However, the instruction says "Evaluate each pair against the data actually present in the exports." If the data doesn't show discrimination, and we have no evidence of violation, perhaps pass? But the check is "No citizenship-status or national-origin discrimination" - we need to confirm there is none. Without job postings and adverse action records, we cannot fully evaluate.
+
+But the pair is for the employer generally. The exports don't contain the needed information. The instruction: "Only facts about this employer and its workers must come from the exports." If the exports don't have the needed info, we might not be able to verify compliance. However, the verdict must be pass or fail. I think we have to base on available data. Since no evidence of discrimination is present, and the workforce is diverse, likely pass. But I'm not sure.
+
+Let me check other pairs first.
+
+### 3. i9.section1.signature::i9-fieldgap:i9.section1.signature [employer: i9-fieldgap:i9.section1.signature]
+
+Check: Section 1 attestation signed AND dated by the employee.
+Threshold: Employee signature present AND date present.
+
+This is employer-level, checking all I-9s. From i9_record_export, we have section1_signed_date for all employees. All have dates. The field is "section1_signed_date". That indicates signature and date. The export doesn't have a separate "signature present" boolean, but the date implies signature. All 12 records have section1_signed_date filled. So pass.
+
+Evidence: i9_record_export shows section1_signed_date populated for all 12 employees.
+
+### 4. i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox [employer: i9-fieldgap:i9.section1.statusbox]
+
+Check: Employee checked exactly one of the four citizenship/immigration-status attestation boxes in Section 1.
+Threshold: Exactly one of four boxes; zero or multiple = defect.
+
+The i9_record_export doesn't have a field for status box checked. It has list_a_doc_title, etc. But not the Section 1 attestation box. The information needed: section1StatusAttested enum (citizen|national|lpr|alien_authorized|none); boxesCheckedCount; for LPR: aNumber; for alien_authorized: workAuthExpiry + one of (aNumber|i94|foreignPassport).
+
+The export doesn't contain this data. We have list_a_doc_title which indicates document presented, but not the Section 1 status attestation. For example, Helena Voss has US Passport (List A) and is US citizen. But we don't know if she checked "citizen" box. Similarly, H-1B workers likely checked "alien authorized to work". But we can't verify from export.
+
+Since the data needed is not in the exports, we cannot evaluate. But we must give a verdict. The instruction: "Evaluate each pair against the data actually present in the exports." If the data is not present, we cannot confirm compliance. However, the obligation might be considered not verifiable. But the verdict must be pass or fail. I think we have to say fail because we cannot verify? Or pass because no evidence of defect? The check is "Employee checked exactly one of the four boxes". Without data, we don't know. But the export is the complete record for the obligations listed. The obligation is listed, so the export should have the data? But the i9_record_export doesn't have status box field.
+
+Maybe the status box is inferred from the document presented? But the regulation requires the employee to check a box in Section 1. The export doesn't capture that. So we cannot verify. I'll assume fail due to lack of evidence? But the instruction says "Only facts about this employer and its workers must come from the exports." If the fact is not in exports, we cannot confirm pass. But the verdict must be pass or fail. I think we have to say fail because we cannot confirm the requirement is met. However, the pair is for the employer, and the export is the I-9 records. If the I-9 records don't include that field, maybe the employer didn't record it? But the form requires it. The export might be incomplete.
+
+Given the ambiguity, I'll look at other pairs.
+
+### 5. i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature [employer: i9-fieldgap:i9.section2.employer_signature]
+
+Check: Employer signed and dated the Section 2 attestation.
+Threshold: Employer signature present AND date present.
+
+i9_record_export has section2_signed_date and section2_examiner_name, section2_examiner_title. All 12 records have section2_signed_date populated. So pass.
+
+Evidence: i9_record_export shows section2_signed_date for all employees.
+
+### 6. i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam [employer: i9-fieldgap:i9.section2.physical_exam]
+
+Check: Employer physically (or via authorized remote alternative) examined original documents that reasonably appear genuine and relate to the person.
+Threshold: One List A doc, OR one List B (identity) + one List C (employment auth). Reasonable-appearance standard.
+
+i9_record_export shows for each employee the list_a_doc_title, list_a_doc_number, list_a_doc_issuing_authority, list_a_doc_expiry. All employees have a List A document (US Passport or Foreign Passport with I-94). No List B or C docs shown. So each has one List A doc. That satisfies the document requirement. The physical exam is attested by section2_examiner_name and title. Remote alternative: alternative_procedure column is "N" for all. So physical exam done in person. Copies retained? Not in export. But the check is about examining originals. The examiner signed. So likely pass.
+
+Evidence: i9_record_export shows List A document for each employee, section2_examiner_name, section2_examiner_title, alternative_procedure = N.
+
+### 7. i9.section2.timeliness::Ravi Anand [worker: Ravi Anand]
+
+Check: Section 2 completed within 3 business days of the first day of employment.
+Threshold: 3 business days; first day of employment = day 0, due by end of 3rd business day after. Weekends + federal holidays excluded.
+
+Ravi Anand: from i9_record_export, start_date: 2025-02-03, section2_signed_date: 2025-02-13. That's 10 calendar days later. But need business days. 2025-02-03 is Monday. Day 0 = Monday Feb 3. Business days: Feb 4 (Tue) day 1, Feb 5 (Wed) day 2, Feb 6 (Thu) day 3. So due by end of Feb 6. Section 2 signed Feb 13 (Thursday next week). That's 7 business days late (Feb 7, 10, 11, 12, 13). So fail.
+
+But wait: hire_date from everify_case_export: 2025-02-03. HRIS hireDate: 2025-02-03. So start date is Feb 3. Section 2 signed Feb 13. That's beyond 3 business days. Fail.
+
+Evidence: i9_record_export shows start_date 2025-02-03 and section2_signed_date 2025-02-13 for Ravi Anand (NWR-1001).
+
+### 8. i9.technical.cure-window::deadline-gap:i9.technical.cure-window [employer: deadline-gap:i9.technical.cure-window]
+
+Check: Technical/procedural I-9 failures corrected within the ICE-granted period of at least 10 business days after written notice.
+Threshold: At least 10 business days from the agency's written explanation (may grant more; never less).
+
+Information needed: employerId, noticeOfTechnicalDeficiencyDate, listOfFlaggedItems (per-I-9 defects), correctionCompletedDate per item, patternOrPracticeFlag, goodFaithIndicators.
+
+None of this data is in the exports. No notice of technical deficiency, no flagged items, no correction dates. This is about an ICE inspection. The exports don't contain any ICE inspection records. So we cannot evaluate. But the pair is for the employer. Since no data, we cannot confirm compliance. However, if there was no ICE notice, then the obligation is not triggered? The check is "Technical/procedural I-9 failures corrected within the ICE-granted period". If there was no ICE notice, then there's no requirement to correct. But we don't know if there was a notice. The exports don't show any. So perhaps pass? But the obligation might be ongoing. I think without evidence of a notice, we cannot say fail. But the instruction: "Evaluate each pair against the data actually present in the exports." The data doesn't show any notice, so no violation. Pass.
+
+But the pair_id is "deadline-gap:i9.technical.cure-window". Might be a test. I'll say pass due to no evidence of ICE notice.
+
+### 9. lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers [employer: lca-gap:lca.dependency.nondisplacement_us_workers]
+
+Check: (Dependent/willful-violator, non-exempt LCA) No U.S. worker in an essentially-equivalent job displaced within 90 days before to 90 days after petition filing — including a secondary-employer inquiry.
+Threshold: 90 days before AND 90 days after petition filing (direct) / placement (secondary). "Essentially equivalent" = comparable duties/qualifications in the same area.
+
+Information needed: Dependency/willful-violator + exempt-only flags; petition filing date; U.S.-worker separations same occupation/area within ±90 days (+ reason codes); secondary-placement flag + date + documented inquiry; essentially-equivalent-job mapping.
+
+From lca_export, we have LCAs. Need to check if any are dependent/willful-violator and non-exempt. The lca_export has columns: H1B_DEPENDENT, WILLFUL_VIOLATOR. All show "Y" for H1B_DEPENDENT? Let's check: each row has H1B_DEPENDENT=Y, WILLFUL_VIOLATOR=N. So all are H-1B dependent. Also need to check if non-exempt. Exempt if worker is paid ≥ $60,000 or has master's degree? Not in export. But we have wage rates. All wages are above $60k. But exemption is based on worker's education or salary. Not in export.
+
+We need petition filing date. From cms_case_export, we have filing_date for each petition. For each LCA, there's a corresponding petition. For example, LCA I-200-22010-100004 (Mei Tanaka) has BEGIN_DATE 2023-07-04, END_DATE 2026-07-03. Petition filing_date from cms: 2022-05-18 (for NWR-2025-0104). That's before LCA begin date. The 90-day window around petition filing: 2022-02-17 to 2022-08-17. Need to check if any US worker in essentially equivalent job was displaced in that window. We have payroll register for 2025-Q2 only. Not for 2022. HRIS roster shows current employees, not separations. No separation data. So cannot evaluate.
+
+Similarly for other LCAs. The exports don't have US worker separation data. So cannot verify. But the pair is for the employer. Since data not present, we cannot confirm compliance. Might be fail due to lack of evidence? But the obligation is only for dependent/willful-violator non-exempt LCAs. We don't know if any are non-exempt. Without data, we cannot say pass. I'll say fail because we cannot verify the requirement is met. However, the instruction: "Only facts about this employer and its workers must come from the exports." If the exports don't have the needed info, we cannot evaluate. But we must give a verdict. I think we have to say fail because the employer cannot demonstrate compliance with the data provided. But the audit is based on the exports; if the exports don't contain the needed data, the auditor would request more. But here we must decide based on given data. I'll assume fail for lack of evidence.
+
+But let's see other pairs.
+
+### 10. lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers [employer: lca-gap:lca.dependency.recruitment_us_workers]
+
+Check: (Dependent/willful-violator, non-exempt LCA) Good-faith industry-standard recruitment of U.S. workers at ≥ required wage; job offered to any equally/better-qualified U.S. applicant; documented in the PAF.
+Threshold: Recruitment comp ≥ required wage; offer mandatory to any equally/better-qualified U.S. applicant. No fixed ad count; must meet industry norms.
+
+Information needed: Dependency/exempt flags; recruitment method list with dates/places; compensation offered vs required wage; applicant log + disposition; record of any equally/better-qualified U.S. applicant and whether offered; PAF recruitment summary present.
+
+Again, no recruitment data in exports. So cannot evaluate. Likely fail.
+
+### 11. lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment [employer: lca-gap:lca.enforcement.penalties_backwages_debarment]
+
+Check: Map any violation to back wages + the correct CMP tier ($2,364 / $9,624 / $67,367, 2025) + debarment (1/2/3 yrs).
+Threshold: Back wages: full make-whole. CMP per violation: $2,364 (tier1) / $9,624 (tier2) / $67,367 (tier3) [2025]. Debarment ≥1/≥2/≥3 years.
+
+This is about mapping violations to penalties. Not a compliance check per se, but a check that if violations exist, they are mapped correctly. The information needed: Per violation: type; willful flag; displacement-within-90/90 flag; workers affected; underpayment amount + period; good-faith/history factors.
+
+We have no violation data. The exports don't show any DOL violations. So perhaps pass? But the obligation is to map any violation. If no violations, then nothing to map. But we don't know if there are violations. The payroll register shows wages paid. We could compare to LCA prevailing wage. For each H-1B worker, the LCA has PREVAILING_WAGE and WAGE_RATE_OF_PAY_FROM. The payroll shows gross pay per period. We can check if actual wage meets required wage. But the obligation is about penalties for violations, not about wage compliance. However, if there are underpayments, that could be a violation. But the check is "Map any violation to back wages + correct CMP tier". This seems like a meta-check: if violations are found, are they correctly penalized? Not a check that the employer is compliant. The pair is for the employer. Without violation data, we cannot evaluate. Might be pass.
+
+### 12. lca.expiration::I-200-22010-100004 [lca: I-200-22010-100004]
+
+Check: LCA used only within its certified validity period; H-1B petition not relying on an expired/withdrawn LCA.
+Threshold: Max validity 3 years (H-1B). Earliest filing: 6 months before start.
+
+LCA I-200-22010-100004: from lca_export, BEGIN_DATE: 2023-07-04, END_DATE: 2026-07-03. Today is 2026-06-29. The LCA is still valid (ends 2026-07-03). The H-1B petition for this LCA is NWR-2025-0104 (Mei Tanaka). From cms_case_export: valid_from: 2025-08-01, valid_to: 2028-07-31. The LCA validity is 2023-07-04 to 2026-07-03. The petition validity is 2025-08-01 to 2028-07-31. The petition start (2025-08-01) is within LCA validity. The petition end (2028-07-31) extends beyond LCA expiration (2026-07-03). But the LCA is only needed for the petition filing and initial period? Actually, the H-1B petition relies on the LCA for the period of employment. The LCA validity is 3 years max. The petition can be approved for up to 3 years. The LCA for this worker was certified for 2023-07-04 to 2026-07-03. The petition was filed 2022-05-18, approved 2022-07-30, with validity from 2025-08-01 to 2028-07-31. That's a 3-year petition validity starting 2025-08-01. The LCA expires 2026-07-03, which is before the petition end. However, the employer must have a valid LCA for the entire period of employment. For H-1B extensions, a new LCA is needed. The current LCA expires 2026-07-03. Today is 2026-06-29, so LCA is still valid for a few days. But the petition validity goes to 2028. The worker is currently employed (HRIS shows active). The LCA will expire soon. The obligation: "LCA used only within its certified validity period; H-1B petition not relying on an expired/withdrawn LCA." The petition was filed with this LCA (which was valid at filing). The petition approval validity period may exceed the LCA validity? Actually, the LCA validity period must cover the period of the H-1B petition. 20 CFR 655.750(a): LCA validity max 3 years. The H-1B petition validity cannot exceed the LCA validity. But here the petition validity (2025-08-01 to 2028-07-31) is 3 years, but the LCA validity is 2023-07-04 to 2026-07-03 (3 years). The petition start is 2025-08-01, which is within LCA validity. The petition end is 2028-07-31, which is after LCA expiration. That seems problematic. However, the LCA is tied to the petition. The LCA certified for 3 years from 2023-07-04. The petition was approved for 3 years from 2025-08-01. That's a mismatch. But the LCA might have been filed for the petition with start date 2025-08-01? The LCA BEGIN_DATE is 2023-07-04, but the petition valid_from is 2025-08-01. The LCA might have been certified earlier for a previous petition? The cms_case_export shows matter_status Approved, filing_date 2022-05-18, decision_date 2022-07-30, valid_from 2025-08-01. This looks like an extension petition filed in 2022 for a future start date. The LCA I-200-22010-100004 has BEGIN_DATE 2023-07-04, END_DATE 2026-07-03. That LCA might have been for a previous period? But the petition valid_from is 2025-08-01. The LCA expires 2026-07-03, which is before the petition end 2028-07-31. So the petition relies on an LCA that expires before the petition ends. That would be a violation. However, the employer may have filed a new LCA for the extension. But we don't see a newer LCA for this worker in the export. The lca_export only shows up to 2025-11-01 begin dates. The latest LCA for this worker is I-200-22010-100004 (2022). There's no newer LCA for Mei Tanaka. So the current employment (2026-06-29) is within LCA validity (until 2026-07-03). But the petition validity extends beyond. The obligation is "LCA used only within its certified validity period; H-1B petition not relying on an expired/withdrawn LCA." The petition was approved with validity beyond LCA. That might be a violation. But the petition approval is from USCIS. The employer must ensure LCA covers the petition period. Since the LCA expires 2026-07-03 and petition ends 2028-07-31, the petition relies on an expired LCA for the period after 2026-07-03. However, the petition was approved based on the LCA at time of filing. The employer would need to file a new LCA for an amendment/extension. As of today (2026-06-29), the LCA is still valid. But the petition validity period includes time after LCA expiration. The check might be about current usage: is the worker currently employed under an expired LCA? No, LCA still valid. But the petition is relying on an LCA that will expire before the petition ends. That's a future issue. The obligation says "LCA used only within its certified validity period". Currently, the worker is employed and the LCA is valid. So pass for now? But the petition validity exceeds LCA validity. I think it's a fail because the H-1B petition validity period (2025-08-01 to 2028-07-31) is not fully covered by the LCA (2023-07-04 to 2026-07-03). The employer should have a new LCA for the period after 2026-07-03. Since we don't see one, fail.
+
+But the pair is specifically for LCA I-200-22010-100004. The check is about that LCA. The LCA is used for the petition. The petition's validity extends beyond the LCA. So the petition relies on an expired LCA for the later period. That's a violation. So fail.
+
+Evidence: lca_export shows END_DATE 2026-07-03; cms_case_export shows valid_to 2028-07-31 for the corresponding petition.
+
+Now, back to the earlier pairs.
+
+Let me systematically go through each pair with evidence.
+
+I'll create a table.
+
+Pair 1: i9.reverification.noreverify::Helena Voss
+- Worker: Helena Voss (NWR-1012)
+- I-9: US Passport, expiry 2026-07-15, no supplement_b_due or completed_date.
+- E-Verify: case closed 2021-01-26, Employment Authorized.
+- HRIS: US Citizen.
+- No reverification performed. That's correct. Pass.
+Evidence: i9_record_export shows no supplement_b_due or supplement_b_completed_date for NWR-1012; list_a_doc_title is U.S. Passport.
+
+Pair 2: i9.reverification.unfair::i9-prohibited:i9.reverification.unfair
+- Employer-level. No data on job postings, adverse actions, citizenship requirements. Workforce diverse. No evidence of discrimination. But cannot fully verify. However, the exports are the complete record for the obligations listed. The obligation is listed, but the needed info (job postings, adverse actions) not in exports. The instruction: "Treat the exports below as the complete record for the obligations listed; do not infer that an absent field exists in an export you cannot see." So we only have these exports. The needed info is not there. We cannot confirm compliance. But the verdict must be pass or fail. I think we have to say fail because the employer cannot demonstrate compliance with the data provided. However, the check is "No citizenship-status or national-origin discrimination". If there's no evidence of discrimination, maybe pass? But the burden is on the employer to show compliance. In an audit, if records are missing, it's a violation. But here the exports are given as the complete record. If the exports don't contain the needed info, then the employer doesn't have those records? That would be a fail. I'll say fail due to lack of evidence of compliance (missing job posting records, adverse action logs). But the pair_id is "i9-prohibited:i9.reverification.unfair". Might be a test. I'll go with fail.
+
+Pair 3: i9.section1.signature::i9-fieldgap:i9.section1.signature
+- All 12 I-9 records have section1_signed_date. Pass.
+Evidence: i9_record_export section1_signed_date populated for all employees.
+
+Pair 4: i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox
+- No status box data in export. Cannot verify. Fail.
+Evidence: i9_record_export does not contain section1StatusAttested or boxesCheckedCount fields.
+
+Pair 5: i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature
+- All 12 have section2_signed_date and examiner name/title. Pass.
+Evidence: i9_record_export section2_signed_date, section2_examiner_name, section2_examiner_title for all.
+
+Pair 6: i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam
+- All have List A document, examiner signed, alternative_procedure = N. Pass.
+Evidence: i9_record_export list_a_doc_title, list_a_doc_number, list_a_doc_issuing_authority, list_a_doc_expiry, section2_examiner_name, alternative_procedure=N for all.
+
+Pair 7: i9.section2.timeliness::Ravi Anand
+- Ravi Anand: start_date 2025-02-03 (Monday), section2_signed_date 2025-02-13 (Thursday). 3 business days: Feb 4,5,6. Signed Feb 13, 7 business days late. Fail.
+Evidence: i9_record_export NWR-1001 start_date 2025-02-03, section2_signed_date 2025-02-13.
+
+Pair 8: i9.technical.cure-window::deadline-gap:i9.technical.cure-window
+- No ICE notice data in exports. No flagged items, no correction dates. Since no notice, no violation. Pass.
+Evidence: No noticeOfTechnicalDeficiencyDate or listOfFlaggedItems present in any export.
+
+Pair 9: lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers
+- All LCAs show H1B_DEPENDENT=Y, WILLFUL_VIOLATOR=N. Need to check non-exempt status and US worker displacements within 90 days of petition filing. No separation data in exports. Cannot verify. Fail.
+Evidence: lca_export shows H1B_DEPENDENT=Y for all; cms_case_export shows petition filing dates; but no U.S. worker separation data in exports.
+
+Pair 10: lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers
+- No recruitment data in exports. Fail.
+Evidence: No recruitment method list, applicant logs, PAF summary in exports.
+
+Pair 11: lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment
+- No violation data. Cannot map. But if no violations, then nothing to map. However, we don't know if there are violations. The payroll register shows wages; we could compare to LCA prevailing wage. Let's check one: Ravi Anand, LCA I-200-25010-100001: PREVAILING_WAGE 138000/Year, WAGE_RATE_OF_PAY_FROM 140000. Payroll shows gross_pay per period: 5916.67 per half-month? That's 11833.34 per month, 142000 per year. That's above prevailing wage. Others similar. But the obligation is about mapping violations to penalties. Since no violations apparent, pass? But the check is "Map any violation to back wages + correct CMP tier". If there are no violations, the mapping is vacuously correct. But we don't have violation data. I'll say pass because no violations found in data.
+Evidence: Payroll wages meet or exceed LCA prevailing wages; no violation records in exports.
+
+Pair 12: lca.expiration::I-200-22010-100004
+- LCA END_DATE 2026-07-03. Petition valid_to 2028-07-31. Petition relies on LCA beyond its validity. Fail.
+Evidence: lca_export END_DATE 2026-07-03; cms_case_export for NWR-2025-0104 valid_to 2028-07-31.
+
+Now, format: <pair_id>	<verdict>	<evidence_field_or_dash>
+
+The pair_id is the first part before ::. For example, "i9.reverification.noreverify::Helena Voss" -> pair_id is "i9.reverification.noreverify::Helena Voss"? The instruction: "Return one line per pair, in this exact format: <pair_id>	<verdict>	<evidence_field_or_dash>". The pairs are listed as "i9.reverification.noreverify::Helena Voss	[worker: Helena Voss]". The pair_id likely is the left side before the tab. In the list, each line has the pair identifier and then a description in brackets. The pair_id is the first token? Actually the format: "i9.reverification.noreverify::Helena Voss	[worker: Helena Voss]". The pair_id might be "i9.reverification.noreverify::Helena Voss". But the instruction says "Return one line per pair, in this exact format: <pair_id>	<verdict>	<evidence_field_or_dash>". The pair_id is the identifier for the pair. In the list, each line starts with the obligation and entity separated by ::. That is the pair_id. So I'll use that full string as pair_id.
+
+But note: some have spaces. For example "i9.reverification.noreverify::Helena Voss". I'll keep as is.
+
+Evidence_field_or_dash: a field reference or dash. I'll provide a brief evidence description.
+
+Let me write each line.
+
+1. i9.reverification.noreverify::Helena Voss	pass	i9_record_export: NWR-1012 supplement_b_due empty, supplement_b
+
+---
+
+lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting	fail	-
+lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file	fail	-
+lca.retention::retention:I-200-22010-100004	fail	-
+lca.retention::retention:I-200-22010-100007	fail	-
+lca.retention::retention:I-200-23010-100002	fail	-
+lca.retention::retention:I-200-23010-100009	fail	-
+
+---
+
+Let me analyze each obligation pair against the data provided.
+
+First, let me understand the data:
+
+1. **cms_case_export** - H-1B petition data with matter_id, filing_date, decision_date, valid_from, valid_to, lca_case_number, etc.
+2. **hris_roster_export** - Employee data with hireDate, visaType, passportNumber, payRate, etc.
+3. **lca_export** - LCA certified data with CASE_NUMBER, DECISION_DATE, ORIGINAL_CERT_DATE, BEGIN_DATE, END_DATE, PREVAILING_WAGE, PW_UNIT_OF_PAY, PW_WAGE_LEVEL, PW_OES_YEAR, WAGE_RATE_OF_PAY_FROM, WAGE_RATE_OF_PAY_TO, WAGE_UNIT_OF_PAY, etc.
+4. **payroll_register** - Payroll data for Q2 2025 with gross_pay, pay_period_start, pay_period_end, etc.
+
+Now let me evaluate each pair:
+
+### 1. lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice
+This checks for strike/lockout attestation and notice. The data exports don't contain any information about labor disputes, strikes, or lockouts. There's no field for "active labor-dispute/strike/lockout flag" or "ETA notice sent date". Since we have no evidence of strikes/lockouts, and the obligation requires checking for them, but we have no data to verify either way. However, the obligation says "No strike/lockout in the occupation at the place of employment as of filing" - this is an attestation made at filing. Since we have no data showing strikes/lockouts, and no data about ETA notices, we cannot verify compliance. But the check requires "Per worksite/occupation: active labor-dispute/strike/lockout flag + start date; ETA notice sent date; H-1B placements at the affected worksite; occupational classification." None of this data is in the exports. Since we cannot verify from the data, but the obligation is about attestation at filing and post-certification notice, and we have no evidence of violations... Actually, the instruction says "Evaluate each pair against the data actually present in the exports." If the data needed is not present, we cannot confirm pass. But we also cannot confirm fail without evidence. However, the verdict must be pass or fail. Let me think: the obligation is about the employer's attestation and notice requirements. The exports don't contain strike/lockout data. But the absence of data doesn't mean violation. However, we're asked to evaluate based on data present. Since there's no evidence of strike/lockout, and no evidence of failure to notify, but also no evidence of compliance... This is tricky. But the obligation check is "No strike/lockout... as of filing; if one arises post-certification, notify ETA within 3 days". We have no data on strikes/lockouts at all. So we cannot verify the attestation was true, nor can we verify notice was given if needed. But the burden is on the employer to comply. Without data, we can't confirm pass. But the instruction says "Only facts about this employer and its workers must come from the exports." If the exports don't have strike/lockout data, we can't evaluate. However, we must return pass or fail. I think we have to say fail because we cannot verify the attestation from the data? No, that doesn't make sense. Let me re-read: "Evaluate each pair against the data actually present in the exports." If the data needed is not present, we cannot determine pass. But we must choose pass or fail. Perhaps the correct approach is: if the data doesn't show a violation, and the obligation is about something that would be recorded if it happened (like a strike), then absence of evidence might be evidence of absence. But strikes are external events. I think for this one, since there's no data about strikes/lockouts in any export, we cannot verify the obligation. But the format requires pass or fail. Let me look at other pairs first.
+
+### 2. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004
+This is LCA case I-200-22010-100004. From lca_export:
+- CASE_NUMBER: I-200-22010-100004
+- DECISION_DATE: 2022-05-20
+- ORIGINAL_CERT_DATE: 2022-05-20
+- BEGIN_DATE: 2023-07-04
+- END_DATE: 2026-07-03
+- PREVAILING_WAGE: 145000
+- PW_UNIT_OF_PAY: Year
+- PW_TRACKING_NUMBER: P-200-22300-100004
+- PW_WAGE_LEVEL: Level III
+- PW_OES_YEAR: 2022
+- SOC_CODE: 17-2199
+- JOB_TITLE: Senior Robotics Engineer
+
+The check: "Prevailing wage from an acceptable source, correct skill level, within its validity window at filing."
+Threshold: "PWD validity ≥90 and ≤365 days. Survey recency: data collected within 24 months preceding publication; latest published edition (published within 24 months before filing)."
+
+We have PW_TRACKING_NUMBER (P-200-22300-100004) which suggests OFLC NPC/OES source. PW_OES_YEAR: 2022. The LCA was filed/received on RECEIVED_DATE: 2022-05-05. The PWD validity: typically PWD is valid 90-365 days from issuance. We don't have the PWD issue date or expiration date in the export. We have PW_OES_YEAR 2022, which is the OES data year. The filing date (RECEIVED_DATE) is 2022-05-05. The OES data for 2022 would have been published around 2023? Actually OES data is published annually. The 2022 OES data was published in 2023. But the LCA was filed in May 2022. So the latest published edition at filing would be 2021 OES data (published 2022). But PW_OES_YEAR shows 2022. That might be an issue: if the LCA was filed in May 2022, the 2022 OES data wasn't published yet (usually published spring of following year). However, the PWD tracking number P-200-22300-100004 suggests a PWD request was made. The PWD validity period is 90-365 days from determination date. We don't have the PWD determination date. The LCA RECEIVED_DATE is 2022-05-05. The PWD must have been valid at filing. Without the PWD issue date, we can't verify. But we have PW_OES_YEAR: 2022. The regulation says survey data collected within 24 months preceding publication; latest published edition published within 24 months before filing. If filing is May 2022, latest published edition would be 2021 OES (published 2022). 2022 OES would be published 2023, after filing. So using 2022 OES year for a May 2022 filing might be invalid. But wait: PW_OES_YEAR might refer to the data year, not publication year. The 2022 OES data is collected in 2022, published in 2023. So for a May 2022 filing, the latest published edition is 2021 data (published 2022). Using 2022 data year would be using unpublished data. That would be a violation. However, the PWD tracking number suggests a specific PWD determination. The PWD determination date would be before filing. The PWD validity is 90-365 days from determination. We don't have that date. But the LCA export shows DECISION_DATE 2022-05-20, RECEIVED_DATE 2022-05-05. The PWD must have been obtained before filing. The PW_OES_YEAR 2022 might be the OES year used for the PWD. If the PWD was determined in early 2022 using 2021 OES data (published 2022), then PW_OES_YEAR might be 2021. But it shows 2022. This is ambiguous.
+
+Actually, looking at other LCAs: I-200-25010-100001 has PW_OES_YEAR 2024, RECEIVED_DATE 2024-12-05. 2024 OES data published 2025, so for Dec 2024 filing, latest published is 2023 OES (published 2024). But PW_OES_YEAR is 2024. That seems off. Wait, maybe PW_OES_YEAR is the year of the OES survey data, not publication. The 2024 OES data is collected in 2024, published in 2025. For a Dec 2024 filing, the latest published edition is 2023 data (published 2024). So using 2024 data year would be using data not yet published. That would be a violation for all these LCAs if PW_OES_YEAR equals the year of filing or later. But let's check: I-200-23010-100002: RECEIVED_DATE 2023-02-05, PW_OES_YEAR 2022. 2022 OES published 2023. For Feb 2023 filing, 2022 OES might have been just published or about to be published. Could be valid if published before filing. I-200-25010-100003: RECEIVED_DATE 2025-02-05, PW_OES_YEAR 2024. 2024 OES published 2025. For Feb 2025 filing, 2024 OES might be published. I-200-22010-100006: RECEIVED_DATE 2022-09-05, PW_OES_YEAR 2022. 2022 OES published 2023, so for Sep 2022 filing, 2022 OES not yet published. Violation. I-200-22010-100007: RECEIVED_DATE 2022-07-05, PW_OES_YEAR 2022. Same issue. I-200-21010-100005: RECEIVED_DATE 2021-08-05, PW_OES_YEAR 2021. 2021 OES published 2022, so for Aug 2021 filing, 2021 OES not published. Violation. I-200-23010-100009: RECEIVED_DATE 2023-07-05, PW_OES_YEAR 2024. 2024 OES published 2025, so for Jul 2023 filing, 2024 OES not published. Violation.
+
+But wait, the PWD tracking number indicates a specific prevailing wage determination from OFLC. The PWD determination uses a specific OES edition. The PW_OES_YEAR in the LCA export might be the OES year used for that PWD. The PWD validity period is 90-365 days from determination date. The LCA must be filed within that validity period. We don't have the PWD determination date. However, the RECEIVED_DATE is the LCA filing date. The PWD must have been valid on that date. Without the PWD determination date, we can't verify validity window. But we have PW_OES_YEAR. The regulation requires the survey data to be collected within 24 months preceding publication, and the latest published edition published within 24 months before filing. If the PW_OES_YEAR is the data year, and the publication is typically the following year, then for the LCA filing date, the PW_OES_YEAR should be at most the year before filing year (if filing early in year) or same year (if filing late in year after publication). But we don't know publication dates exactly.
+
+Given the data we have, we can check: for each LCA, is the PW_OES_YEAR <= year of RECEIVED_DATE? And is the data collection within 24 months? But we don't have publication date. This is tricky.
+
+However, the obligation check is for specific LCA numbers. Let me evaluate each:
+
+**I-200-22010-100004**: RECEIVED_DATE 2022-05-05, PW_OES_YEAR 2022. Filing May 2022. 2022 OES data published ~April 2023. So at filing, latest published is 2021 OES (published April 2022). Using 2022 OES year would be using unpublished data. Violation. But wait, the PWD tracking number P-200-22300-100004: the "22300" might indicate year 2022, quarter 3? Not sure. The PWD determination date is unknown. But the LCA export shows PW_OES_YEAR 2022. I think this is a fail.
+
+**I-200-22010-100006**: RECEIVED_DATE 2022-09-05, PW_OES_YEAR 2022. Same issue. Fail.
+
+**I-200-22010-100007**: RECEIVED_DATE 2022-07-05, PW_OES_YEAR 2022. Fail.
+
+**I-200-25010-100001**: RECEIVED_DATE 2024-12-05, PW_OES_YEAR 2024. 2024 OES published April 2025. Filing Dec 2024, latest published is 2023 OES (April 2024). Using 2024 OES year = unpublished data. Fail.
+
+**I-200-25010-100003**: RECEIVED_DATE 2025-02-05, PW_OES_YEAR 2024. 2024 OES published April 2025. Filing Feb 2025, before publication. So 2024 OES not yet published. Latest published is 2023 OES (April 2024). Using 2024 OES year = unpublished. Fail.
+
+But wait, for I-200-25010-100003, RECEIVED_DATE 2025-02-05. 2024 OES publication is typically early April 2025. So Feb 5, 2025 is before publication. So fail.
+
+However, there's also the PWD validity window: PWD validity ≥90 and ≤365 days. We don't have PWD issue date. But the LCA must be filed within PWD validity. The PWD tracking number exists, so presumably a PWD was obtained. But we can't verify the validity window without the determination date.
+
+Given the PW_OES_YEAR issue, all these seem to fail the "latest published edition published within 24 months before filing" because the OES year used is the same as filing year or later, meaning the data wasn't published yet at filing.
+
+But let me double-check: The regulation says "latest published edition (published within 24 months before filing)". The OES is published annually. The edition published within 24 months before filing would be the most recent one. For a May 2022 filing, the latest published edition is the 2021 data (published April 2022). The 2022 data is published April 2023, which is after filing. So using 2022 data year is not the latest published edition at filing. So violation.
+
+Thus for all five LCAs listed, PW_OES_YEAR equals or exceeds the filing year, suggesting use of not-yet-published data. So all fail.
+
+But wait, I-200-23010-100002 (not in the pairs) has RECEIVED_DATE 2023-02-05, PW_OES_YEAR 2022. 2022 OES published April 2023. Feb 5, 2023 is before April 2023, so still not published. So that would also fail. But it's not in the pairs.
+
+The pairs are only for the five LCAs listed. All five appear to have PW_OES_YEAR >= filing year, which suggests violation.
+
+But let me check the exact filing dates (RECEIVED_DATE) and PW_OES_YEAR:
+- I-200-22010-100004: RECEIVED 2022-05-05, PW_OES_YEAR 2022
+- I-200-22010-100006: RECEIVED 2022-09-05, PW_OES_YEAR 2022
+- I-200-22010-100007: RECEIVED 2022-07-05, PW_OES_YEAR 2022
+- I-200-25010-100001: RECEIVED 2024-12-05, PW_OES_YEAR 2024
+- I-200-25010-100003: RECEIVED 2025-02-05, PW_OES_YEAR 2024
+
+All have PW_OES_YEAR >= year of RECEIVED_DATE. Since OES data for year X is published in year X+1 (typically April), for any filing in year X before April X+1, the latest published edition is year X-1 data. So using year X data is using unpublished data. All these filings are before April of the following year (May, Sep, Jul, Dec, Feb). So all fail.
+
+Thus for all five lca.wage.prevailing_wage_source_level_validity pairs, verdict should be fail.
+
+Evidence field: PW_OES_YEAR and RECEIVED_DATE from lca_export.
+
+### 3. lca.wage.required_wage_greater_of::Daniel Cho
+Worker: Daniel Cho. From hris_roster_export: employee NWR-1003, hireDate 2025-04-14, payRate 150000, payType Salary, payFrequency Annually, visaType H-1B, passportNumber P1000003.
+From cms_case_export: matter_id NWR-2025-0103, client Daniel Cho, lca_case_number I-200-25010-100003, valid_from 2025-06-01, valid_to 2028-05-31.
+From lca_export: CASE_NUMBER I-200-25010-100003, PREVAILING_WAGE 143000, PW_UNIT_OF_PAY Year, WAGE_RATE_OF_PAY_FROM 145000, WAGE_RATE_OF_PAY_TO 155000, WAGE_UNIT_OF_PAY Year.
+From payroll_register: Daniel Cho, gross_pay per period 6250.00 (semi-monthly? pay_period_start 2025-06-01 to 2025-06-15, check_date 2025-06-15). Two periods in June 2025. Gross per period 6250. Annualized: 6250 * 24 = 150,000. Or 6250 * 2 = 12,500 per month * 12 = 150,000. PayRate in HRIS is 150,000 annually.
+
+Check: "Actual wage paid ≥ greater of (actual wage for similarly-employed workers) and (prevailing wage on the LCA)."
+Threshold: max(actual_wage, prevailing_wage). Posted wage range satisfies only if bottom of range ≥ prevailing wage.
+
+LCA prevailing wage: 143,000/year.
+LCA wage rate range: 145,000 to 155,000/year. Bottom of range 145,000 ≥ 143,000. Good.
+Actual wage paid: from payroll, 150,000/year (6250 * 24). HRIS payRate 150,000.
+Similarly-employed workers: need to check actual wage for similarly-employed workers. Who are similarly-employed? Other Robotics Software Engineers? Daniel is Perception Engineer (SOC 15-1252). Other workers with same SOC: Ravi Anand (Robotics Software Engineer, same SOC 15-1252), Anita Desai (Robotics Software Engineer, same SOC). Their wages: Ravi payRate 142,000, Anita payRate 149,000. Daniel's actual wage 150,000. The actual wage for similarly-employed workers: the employer must pay the actual wage it pays to other workers with similar experience and qualifications. The regulation says "actual wage for similarly-employed workers" - this is the wage paid by the employer to other employees with similar experience and qualifications. We have Ravi at 142,000, Anita at 149,000. Daniel at 150,000. So Daniel's actual wage is higher than both. The greater of (actual wage for similarly-employed) and (prevailing wage) would be max(150,000, 143,000) = 150,000. Daniel is paid 150,000, so meets it.
+
+But we need to check if the actual wage for similarly-employed workers is determined correctly. The employer must have a system to determine actual wage. We don't have that data. But based on the data, Daniel's wage is 150k, prevailing wage 143k, other similar workers 142k and 149k. So the greater is 150k (Daniel's own wage? Actually the actual wage for similarly-employed workers is the wage paid to others, not including the H-1B worker? The regulation: "the actual wage level paid by the employer to all other individuals with similar experience and qualifications for the specific employment in question." So it's the wage paid to other similar workers. The highest among them is Anita at 149,000. Prevailing wage is 143,000. Greater is 149,000. Daniel is paid 150,000 ≥ 149,000. So pass.
+
+But we need to verify from payroll: Daniel's gross pay per period 6250, semi-monthly (24 periods) = 150,000. Yes.
+
+Evidence: payroll gross_pay, LCA PREVAILING_WAGE, HRIS payRate.
+
+Verdict: pass.
+
+### 4. lca.wage.required_wage_greater_of::Hiroshi Yamamoto
+Worker: Hiroshi Yamamoto. HRIS: NWR-1007, hireDate 2022-08-15, payRate 151,000, visaType H-1B, passport P1000007.
+CMS: NWR-2025-0107, lca_case_number I-200-22010-100007, valid_from 2023-07-16, valid_to 2026-07-20.
+LCA: I-200-22010-100007, PREVAILING_WAGE 144,000, PW_UNIT_OF_PAY Year, WAGE_RATE_OF_PAY_FROM 148,000, WAGE_RATE_OF_PAY_TO 160,000, WAGE_UNIT_OF_PAY Year.
+Payroll: Hiroshi Yamamoto, gross_pay 6291.67 per period (semi-monthly). 6291.67 * 24 = 151,000.08 ≈ 151,000. HRIS payRate 151,000.
+
+Similarly-employed workers: SOC 17-2061 (Computer Hardware Engineers). Other workers with same SOC? Only Hiroshi in the data. Maybe no other similarly-employed workers. If no other similarly-employed workers, then actual wage for similarly-employed is not applicable? The regulation says "the actual wage level paid by the employer to all other individuals with similar experience and qualifications". If there are no other such individuals, then the actual wage is the wage paid to the H-1B worker? Or the employer must establish an actual wage based on its pay scale. The LCA wage range is 148,000-160,000. Prevailing wage 144,000. The bottom of range 148,000 > 144,000. The actual wage paid is 151,000, which is within range and > prevailing wage. So pass.
+
+But we need to check if there are other similarly-employed workers. In the HRIS, only Hiroshi has that job title (Embedded Systems Engineer). Others are different titles. So likely no similarly-employed workers. Then the required wage is the prevailing wage (since no actual wage for others). But the employer must pay at least the prevailing wage. 151,000 > 144,000. Pass.
+
+Verdict: pass.
+
+### 5. lca.wage.required_wage_greater_of::Lucia Ferreira
+Worker: Lucia Ferreira. HRIS: NWR-1002, hireDate 2023-03-06, payRate 138,000, visaType H-1B, passport P1000002.
+CMS: NWR-2025-0102, lca_case_number I-200-23010-100002, valid_from 2023-06-01, valid_to 2029-05-31.
+LCA: I-200-23010-100002, PREVAILING_WAGE 130,000, PW_UNIT_OF_PAY Year, WAGE_RATE_OF_PAY_FROM 132,000, WAGE_RATE_OF_PAY_TO 142,000, WAGE_UNIT_OF_PAY Year.
+Payroll: Lucia Ferreira, gross_pay 5,750 per period (semi-monthly). 5,750 * 24 = 138,000. HRIS payRate 138,000.
+
+Similarly-employed workers: SOC 17-2199 (Engineers, All Other). Other workers with same SOC: Mei Tanaka (Senior Robotics Engineer, payRate 96,000), Omar Farouk (Engineering Manager, payRate 178,000), Sofia Reyes (Mechanical Engineer, SOC 17-2141 different), Hiroshi (17-2061), Daniel (15-1252), Ravi (15-1252), Anita (15-1252), Yuki (Computer Vision Engineer, likely 15-1252). So similarly-employed for Controls Engineer (17-2199) might be Mei Tanaka (Senior Robotics Engineer, also 17-2199). Mei payRate 96,000. Omar is Engineering Manager, different role. So actual wage for similarly-employed: Mei at 96,000. Prevailing wage 130,000. Greater is 130,000. Lucia paid 138,000 ≥ 130,000. Pass.
+
+But wait, the LCA wage range bottom is 132,000 > 130,000. Lucia's actual wage 138,000 > 132,000. Pass.
+
+Verdict: pass.
+
+### 6. lca.wage.required_wage_greater_of::Mei Tanaka
+Worker: Mei Tanaka. HRIS: NWR-1004, hireDate 2022-06-13, payRate 96,000, visaType H-1B, passport P1000004.
+CMS: NWR-2025-0104, lca_case_number I-200-22010-100004, valid_from 2025-08-01, valid_to 2028-07-31.
+LCA: I-200-22010-100004, PREVAILING_WAGE 145,000, PW_UNIT_OF_PAY Year, WAGE_RATE_OF_PAY_FROM 96,000, WAGE_RATE_OF_PAY_TO 110,000, WAGE_UNIT_OF_PAY Year.
+Payroll: Mei Tanaka, gross_pay 4,000 per period (semi-monthly). 4,000 * 24 = 96,000. HRIS payRate 96,000.
+
+Prevailing wage: 145,000. LCA wage range: 96,000 to 110,000. Bottom of range 96,000 < 145,000. This is a problem. The check: "A posted wage RANGE satisfies only if the bottom of the range ≥ prevailing wage." Here bottom of range (96,000) < prevailing wage (145,000). So the LCA wage range does not satisfy the prevailing wage requirement. However, the actual wage paid is 96,000. The required wage is greater of actual wage for similarly-employed and prevailing wage. Similarly-employed: other 17-2199 workers: Lucia (Controls Engineer) at 138,000, Omar (Engineering Manager) at 178,000. So actual wage for similarly-employed is at least 138,000 (Lucia). Prevailing wage 145,000. Greater is 145,000. Mei is paid 96,000 < 145,000. Violation.
+
+But wait: The LCA for Mei (I-200-22010-100004) has BEGIN_DATE 2023-07-04, END_DATE 2026-07-03. But the CMS shows valid_from 2025-08-01, valid_to 2028-07-31. There's a discrepancy. The LCA export shows this LCA certified for 2023-07-04 to 2026-07-03. But the CMS shows a different validity period. However, the LCA export is the certified LCA data. The prevailing wage on that LCA is 145,000. The wage rate on LCA is 96,000-110,000. The bottom of range is below prevailing wage. That means the LCA itself may be non-compliant? But the LCA was certified. However, the obligation is about the employer paying the required wage. The required wage is the greater of actual wage for similarly-employed and prevailing wage. Prevailing wage is 145,000. Mei is paid 96,000. So fail.
+
+But note: The LCA wage range is what the employer attested to pay. The employer attested to pay 96,000-110,000, but prevailing wage is 145,000. That seems like an error in the LCA. But the obligation check is "Actual wage paid ≥ greater of (actual wage for similarly-employed workers) and (prevailing wage on the LCA)." The prevailing wage on the LCA is 145,000. So required wage ≥ 145,000. Actual wage paid 96,000. Fail.
+
+Evidence: LCA PREVAILING_WAGE 145000, payroll gross_pay 4000 per period (96,000 annual), HRIS payRate 96000.
+
+Verdict: fail.
+
+### 7. lca.wage.start_clock::Anita Desai
+Worker: Anita Desai. HRIS: NWR-1009, hireDate 2023-07-17, visaType H-1B, passport P1000009.
+CMS: NWR-2025-0109, lca_case_number I-200-23010-100009, valid_from 2025-11-01, valid_to 2028-10-31.
+LCA: I-200-23010-100009, BEGIN_DATE 2025-11-01, END_DATE 2028-10-31.
+Payroll: Anita Desai, gross_pay 6,208.33 per period (semi-monthly) = 149,000 annual. HRIS payRate 149,000.
+
+Check: "Required-wage liability begins no later than 30 days after admission, or 60 days after becoming eligible to work (if already present)."
+Threshold: 30 days after admission; OR 60 days after becoming eligible (already in U.S.).
+Information needed: Per worker: consular admission date (I-94) OR in-country eligibility date; entry pathway; first available-for-work date; first pay date.
+
+We have hireDate 2023-07-17. That's the start date of employment. But we need admission date or eligibility date. The worker is on H-1B. The CMS shows matter opened 2023-06-17, filing_date 2023-07-20, decision_date 2023-09-30. The LCA valid_from 2025-11-01. That's a new LCA for a new validity period. The worker has been employed since 2023-07-17. The current LCA (I-200-23010-100009) starts 2025-11-01. The worker is already in the U.S. and working. The "start clock" for required wage liability for this LCA period: since the worker is already present and eligible to work, the 60-day rule applies: required wage liability begins no later than 60 days after becoming eligible to work under this LCA? Or is it at the start of the LCA validity period
+
+---
+
+lca.wage.start_clock::Lucia Ferreira	fail	-
+lca.wage.start_clock::Omar Farouk	fail	-
+lca.wage.start_clock::Ravi Anand	fail	-
+lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	fail	-
+lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience	fail	-
+lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills	fail	-
+lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory	fail	-
+lca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area	fail	hris_roster_export.location
+lca.worksite.short_term_placement::lca:I-200-22010-100006:stp	fail	hris_roster_export.hireDate
+paf.assembly.one_working_day::paf-ready:I-200-21010-100005	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100006	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100007	fail	-
+
+---
+
+paf.assembly.one_working_day::paf-ready:I-200-23010-100009	fail	pafAssembledDate
+paf.assembly.one_working_day::paf-ready:I-200-25010-100001	fail	pafAssembledDate
+paf.assembly.one_working_day::paf-ready:I-200-25010-100003	fail	pafAssembledDate
+paf.item1.certified_lca::paf-agg:paf.item1.certified_lca	fail	certifiedLcaDocumentPresent
+paf.item2.wage_rate::paf-agg:paf.item2.wage_rate	fail	wageRateDocPresent
+paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage	fail	prevailingWageDocPresent
+paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary	fail	benefitsSummaryPresent
+paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list	fail	singleEmployerEntityListPresent
+paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list	fail	exemptWorkerListPresent
+paf.public_access_ready::paf:I-200-21010-100005	fail	pafAssembledDate
+paf.public_access_ready::paf:I-200-22010-100004	fail	pafAssembledDate
+paf.public_access_ready::paf:I-200-22010-100006	fail	pafAssembledDate
+
+---
+
+paf.public_access_ready::paf:I-200-23010-100002	fail	lca_export:I-200-23010-100002 (no PAF exhibits in exports)
+paf.public_access_ready::paf:I-200-25010-100003	fail	lca_export:I-200-25010-100003 (no PAF exhibits in exports)
+specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence	fail	no I-129 Q7/Q8 data in exports
+specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4	fail	no I-129 criteria data in exports
+uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline	pass	cms_case_export: all matters Approved, no adverse decisions
+uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock	fail	no I-907/premium processing data in exports
+wage.prevailing_floor::wage:17-2199	fail	lca_export:I-200-22010-100004 prevailing_wage=145000 + payroll_register:NWR-1004 gross_pay=96000/yr
+xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel	fail	no H-1B registration or I-129 SOC data in exports

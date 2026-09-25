@@ -205,6 +205,15 @@ claim(_PV == "1.1.0" and "`PROMPT_VERSION` 1.1.0" in paper, "paper and harness a
 _frozen = json.loads((ROOT / "data" / "firms" / "northwind-robotics" / "subset140.json").read_text())
 claim(_frozen["n_pairs"] == 140 and "identical" in paper, "the frozen subset backs the 'identical pairs' claim")
 
+print("\nlabel-view declaration")
+from nofalsegreen.labelviews import DECLARED_ON as _DO, MEMO_ABSENCE as _MA, PROSPECTIVE as _PR
+claim(_DO in paper and "declared before any main-run result was read" in paper,
+      "paper states the views were declared, and when")
+claim(len(_MA) == 5 and len(_PR) == 5, "5 memo + 5 prospective pairs, as the paper says")
+claim("Engine view, the headline" in paper, "engine view is named as the headline")
+claim("denominator of ten" in paper, "paper flags the strict view's small denominator")
+claim("table2b-strict" in paper, "Table 2b is generated, not hand-typed")
+
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
 claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")

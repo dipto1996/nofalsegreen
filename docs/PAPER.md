@@ -7,7 +7,7 @@ their shape is fixed, with cells marked `[…]`, so the reporting structure is c
 before any number exists.
 
 Every quantitative claim in the written sections is recomputed from the artifacts by
-`scripts/verify_paper.py`, which currently confirms 119 of 119. Nothing marked `[TO RUN]`
+`scripts/verify_paper.py`, which currently confirms 124 of 124. Nothing marked `[TO RUN]`
 may be filled by estimation.
 
 Section 8.2 also states what will be reported if the empirical result is null, so the
@@ -382,6 +382,29 @@ recall. Neither is meaningful alone, and Section 8 shows why.
 
 ---
 
+**Two label views, declared before any main-run result was read.** The anchor firm's
+labels were written as the acceptance gate for a compliance engine, where `fail` means
+"requires action". This benchmark's `fail` means "the records show a violation". Ten of
+the 20 planted violations sit between those meanings, so we score under two views, fixed
+in `nofalsegreen/labelviews.py` on 2026-09-24 with each affected pair named by identifier.
+
+- **Engine view, the headline.** The labels as authored. It is the headline because it
+  existed before this benchmark did, so nothing decided here can have tuned it.
+- **Strict view.** Five "actual-wage memo missing" violations become `needs_evidence`: no
+  export records the memo as absent, the evidence is simply not there, which is this
+  benchmark's own definition of an evidence request. Five deadlines that had not yet
+  passed on the evaluation date, an LCA and a petition near expiry, an open extension
+  window, and an RFE and a NOID not yet due, are removed from scoring and reported
+  separately as deadline alerts, listing the verdict each model gave. The remaining ten
+  violations are breaches that had already occurred.
+
+The strict view's violation recall has a denominator of ten, so a single pair moves it by
+0.1. It is always reported beside the engine view, never alone. A model that answers
+`needs_evidence` on the unevidenced memos loses recall under the engine view and none
+under the strict view; the test suite asserts exactly that, so the difference between the
+two views on those pairs is a direct measure of how often a model declined to call a
+missing document a violation.
+
 ## 7. Baselines
 
 **Trivial baselines (run).** `always_pass` answers `pass` everywhere and is maximally
@@ -594,6 +617,15 @@ across firms with standard deviation; the unparseable column guards the rest.
 
 The trivial baselines are repeated in-table as reference rows, so a reader sees
 immediately where each model sits between the unsafe floor and the attainable ceiling.
+
+**Table 2b — strict label view.** Same runs, scored under the strict view (Section 6),
+with the deadline alerts beside them. Generated from `docs/views_results.json`.
+
+<!-- BEGIN GENERATED: table2b-strict -->
+| Model | Condition | FGR, engine | FGR, strict | Recall, engine (of 20) | Recall, strict (of 10) | Alerts: fail / pass / other |
+|---|---|---|---|---|---|---|
+| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |
+<!-- END GENERATED: table2b-strict -->
 
 **Table 3 — the schema ablation.** The paper's most informative experiment. Same models,
 both conditions, difference reported per model.

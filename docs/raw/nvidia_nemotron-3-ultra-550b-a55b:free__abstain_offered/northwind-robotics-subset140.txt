@@ -1,0 +1,486 @@
+everify.photo_matching::Anita Desai	needs_evidence	-
+everify.photo_matching::Hiroshi Yamamoto	needs_evidence	-
+everify.photo_matching::James Park	needs
+
+---
+
+fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match	needs_evidence	-
+fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid	needs_evidence	-
+fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand	needs_evidence	-
+h1b.i94.expiration::Anita Desai	needs_evidence	-
+h1b.i94.expiration::Daniel Cho	needs_evidence	-
+h1b.i94.expiration::Lucia Ferreira	needs_evidence	-
+h1b.i94.expiration::Mei Tanaka	needs_evidence	-
+h1b.i94.expiration::Omar Farouk	needs_evidence	-
+h1b.i94.expiration::Sofia Reyes	needs_evidence	-
+h1b.i94.expiration::Yuki Sato	needs_evidence	-
+h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status	needs_evidence	-
+h1b.material_change.soc::Omar Farouk	needs_evidence	-
+
+---
+
+h1b.material_change.worksite::Sofia Reyes	needs_evidence	-
+h1b.max_stay.six_year_limit::Anita Desai	needs_evidence	-
+h1b.max_stay.six_year_limit::Daniel Cho	needs_evidence	-
+h1b.max_stay.six_year_limit::Mei Tanaka	needs_evidence	-
+h1b.max_stay.six_year_limit::Ravi Anand	needs_evidence	-
+h1b.max_stay.six_year_limit::Yuki Sato	needs_evidence	-
+h1b.noid.response::Sofia Reyes	needs_evidence	-
+h1b.petition.expiry::Hiroshi Yamamoto	fail	cms_case_export.valid_from=2023-07-16, valid_to=2026-07-20 (3 years 4 days > 3-year max)
+h1b.rfe.response::Daniel Cho	needs_evidence	-
+h1b.wage.actual.memo::17-2199:L3:Austin, TX:memo	needs_evidence	-
+h1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo	needs_evidence	-
+h1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo	needs_evidence	-
+
+---
+
+h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo	needs_evidence	-
+h1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo	needs_evidence	-
+h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense	needs_evidence	-
+h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty	needs_evidence	-
+h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear	needs_evidence	-
+h1b.wage.payment.start-clock::Anita Desai	needs_evidence	-
+h1b.wage.payment.start-clock::Daniel Cho	needs_evidence	-
+h1b.wage.payment.start-clock::Lucia Ferreira	needs_evidence	-
+h1b.wage.payment.start-clock::Omar Farouk	needs_evidence	-
+h1b.wage.payment.start-clock::Sofia Reyes	needs_evidence	-
+h1b.wage.payment.start-clock::Yuki Sato	needs_evidence	-
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L2	needs_evidence	-
+
+---
+
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L4	needs_evidence	-
+h1b.wage.prevailing.pwd-validity::pw:17-2061:L3	needs_evidence	-
+h1b.wage.prevailing.pwd-validity::pw:17-2141:L3	needs_evidence	-
+h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource	needs_evidence	-
+h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource	needs_evidence	-
+h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource	needs_evidence	-
+h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource	needs_evidence	-
+h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers	needs_evidence	-
+i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026	needs_evidence	-
+i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window	needs_evidence	-
+i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list	pass	i9_record_export.list_a_doc_title
+i9.noi.production-window::deadline-gap:i9.noi.production-window	needs_evidence	-
+
+---
+
+i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse	pass	i9_record_export: all 12 employees show only List A documents (no List B/C over-collection); document types match visa status (H-1B: foreign passport+I-94; EAD; US citizens: US passport); no rejection events recorded
+i9.receipts.rule::i9-fieldgap:i9.receipts.rule	needs_evidence	-
+i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure	pass	i9_record_export: alternative_procedure=N for all 12 employees (no remote alternative procedure used); everify_case_export confirms E-Verify enrollment
+i9.retention.storage_and_production::Anita Desai	needs_evidence	-
+i9.retention.storage_and_production::Helena Voss	needs_evidence	-
+i9.retention.storage_and_production::Hiroshi Yamamoto	needs_evidence	-
+i9.retention.storage_and_production::Mei Tanaka	needs_evidence	-
+i9.retention.storage_and_production::Omar Farouk	needs_evidence	-
+i9.retention.storage_and_production::Ravi Anand	needs_evidence	-
+i9.retention.storage_and_production::Sofia Reyes	needs_evidence	-
+i9.retention.storage_and_production::Yuki Sato	needs_evidence	-
+i9.reverification.deadline::Lucia Ferreira	fail	i9_record_export: list_a_doc_expiry=2026-06-15 (EAD), supplement_b_due=2026-06-15, supplement_b_completed_date=blank; hris_roster_export: status=Active; evaluation date 2026-06-29 > expiry with no reverification
+
+---
+
+i9.reverification.noreverify::Helena Voss	pass	i9_record_export.supplement_b_completed_date,hris_roster_export.visaType,i9_record_export.list_a_doc_title
+i9.reverification.unfair::i9-prohibited:i9.reverification.unfair	needs_evidence	-
+i9.section1.signature::i9-fieldgap:i9.section1.signature	pass	i9_record_export.section1_signed_date
+i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox	needs_evidence	-
+i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature	pass	i9_record_export.section2_signed_date,i9_record_export.section2_examiner_name
+i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam	needs_evidence	-
+i9.section2.timeliness::Ravi Anand	fail	i9_record_export.start_date,i9_record_export.section2_signed_date
+i9.technical.cure-window::deadline-gap:i9.technical.cure-window	needs_evidence	-
+lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers	needs_evidence	-
+lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers	needs_evidence	-
+lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment	needs_evidence	-
+lca.expiration::I-200-22010-100004	pass	lca_export.BEGIN_DATE,lca_export.END_DATE,cms_case_export.valid_from,cms_case_export.valid_to
+
+---
+
+lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting	needs_evidence	-
+lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file	needs_evidence	-
+lca.retention::retention:I-200-22010-100004	needs_evidence	-
+lca.retention::retention:I-200-22010-100007	needs_evidence	-
+lca.retention::retention:I-200-23010-100002	needs_evidence	-
+lca.retention::retention:I-200-23010-100009	needs_evidence	-
+
+---
+
+Let me analyze each pair against the data provided. I need to evaluate each obligation for the given entity.
+
+First, let me understand the data exports:
+
+1. **cms_case_export** - H-1B petition data with matter_id, client info, LCA case numbers, worksite info, validity dates
+2. **hris_roster_export** - Employee roster with hire dates, visa types, passport numbers, job titles, pay rates
+3. **lca_export** - LCA certified data with CASE_NUMBER, prevailing wage, wage rates, worksite info, PW tracking numbers
+4. **payroll_register** - Payroll data for Q2 2025 with gross pay, hours, etc.
+
+Now let me evaluate each pair:
+
+### 1. lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice [employer]
+
+This checks for strike/lockout attestation and notice. The information needed: "Per worksite/occupation: active labor-dispute/strike/lockout flag + start date; ETA notice sent date; H-1B placements at the affected worksite; occupational classification."
+
+Looking at the exports, I don't see any data about labor disputes, strikes, lockouts, or ETA notices. The exports contain LCA data, employee data, and payroll data, but no strike/lockout information. This is not something that would be in employer export data typically - it's an external event.
+
+Verdict: **unmonitored** - the obligation cannot be evaluated from employer export data at all. The exports don't contain strike/lockout flags or ETA notice dates.
+
+### 2. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004 [employer]
+
+This checks prevailing wage source, level, validity. Information needed: "PW source type; PWD tracking number + issue + expiration (if OFLC); OES area + SOC + level; survey publication date + data-collection window; CBA citation; employer entity-type flag (academic/research)."
+
+From lca_export, for CASE_NUMBER I-200-22010-100004:
+- PW_TRACKING_NUMBER: P-200-22300-100004
+- PW_WAGE_LEVEL: Level III
+- PW_OES_YEAR: 2022
+- PREVAILING_WAGE: 145000
+- PW_UNIT_OF_PAY: Year
+- SOC_CODE: 17-2199
+- SOC_TITLE: Engineers, All Other
+- DECISION_DATE: 2022-05-20
+- ORIGINAL_CERT_DATE: 2022-05-20
+
+The PWD tracking number is present. The OES year is 2022. The decision date is 2022-05-20. For PWD validity, it must be ≥90 and ≤365 days, and the LCA must be filed within the PWD validity period. The PWD tracking number suggests it's from OFLC. The OES year 2022 means the survey data is from 2022. The filing date (RECEIVED_DATE) is 2022-05-05. The PWD would have been issued before filing. The validity window is 90-365 days from issuance. We have the tracking number and OES year, but we don't have the PWD issue date or expiration date explicitly. However, the regulation says PWD validity is "not less than 90 days or more than 1 year" and the LCA must be filed within the PWD validity period. The RECEIVED_DATE is 2022-05-05 and DECISION_DATE is 2022-05-20. The PWD tracking number is present. The employer is not academic/research (it's a robotics company). The SOC code and level are present.
+
+But wait - we need to check if the PWD was valid at filing. The PWD tracking number is there, but we don't have the actual PWD issue date. The OES year is 2022, and the filing is 2022-05-05. The survey recency requirement: data collected within 24 months preceding publication; latest published edition published within 24 months before filing. OES 2022 data would be published around 2023 typically, but the filing is 2022-05-05. Actually, OES 2022 data would be published in 2023. But the PW_OES_YEAR is 2022 and filing is 2022-05-05. This might be an issue - the OES 2022 data wouldn't be published yet in May 2022. However, the PWD could be based on OES 2021 data. The PW_OES_YEAR field might indicate the OES edition used. But we don't have the survey publication date or data collection window.
+
+Actually, looking at the data more carefully: PW_OES_YEAR: 2022, RECEIVED_DATE: 2022-05-05. The OES 2022 data is typically published in April 2023. So using OES 2022 for a May 2022 filing seems impossible. But this could be a data entry issue or the PW_OES_YEAR might mean something else. However, we don't have the actual PWD issue date or the survey publication date. The information needed includes "survey publication date + data-collection window" which we don't have.
+
+But the obligation says "information needed: PW source type; PWD tracking number + issue + expiration (if OFLC); OES area + SOC + level; survey publication date + data-collection window; CBA citation; employer entity-type flag (academic/research)."
+
+We have: PW source type (implied OFLC from tracking number), PWD tracking number, SOC code, level, OES year (but not area explicitly - worksite is Austin, Travis, TX), employer entity-type (not academic/research). We don't have: PWD issue date, PWD expiration date, survey publication date, data-collection window, CBA citation (but not needed if using OFLC).
+
+The key missing piece is the PWD issue/expiration dates to verify validity window. The tracking number alone doesn't give us the dates. However, the regulation requires the LCA to be filed within the PWD validity period (90-365 days from issuance). Without the issue date, we can't verify this.
+
+But wait - the LCA was certified on 2022-05-20. The PWD must have been valid at filing (2022-05-05). The PWD tracking number exists. In practice, the PWD is obtained before filing. But we don't have the actual PWD document with dates.
+
+Given the exports, we have the tracking number but not the issue/expiration dates. The "information needed" includes "PWD tracking number + issue + expiration". We have tracking number but not issue/expiration. So we cannot fully evaluate.
+
+Verdict: **needs_evidence** - the exports do not contain the PWD issue/expiration dates or survey publication details needed to decide.
+
+### 3. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006 [employer]
+
+Similar to above. CASE_NUMBER I-200-22010-100006:
+- PW_TRACKING_NUMBER: P-200-22300-100006
+- PW_WAGE_LEVEL: Level III
+- PW_OES_YEAR: 2022
+- PREVAILING_WAGE: 128000
+- RECEIVED_DATE: 2022-09-05
+- DECISION_DATE: 2022-09-20
+
+Same issue - have tracking number but not issue/expiration dates or survey publication details.
+
+Verdict: **needs_evidence**
+
+### 4. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007 [employer]
+
+CASE_NUMBER I-200-22010-100007:
+- PW_TRACKING_NUMBER: P-200-22300-100007
+- PW_WAGE_LEVEL: Level III
+- PW_OES_YEAR: 2022
+- PREVAILING_WAGE: 144000
+- RECEIVED_DATE: 2022-07-05
+- DECISION_DATE: 2022-07-18
+
+Same issue.
+
+Verdict: **needs_evidence**
+
+### 5. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001 [employer]
+
+CASE_NUMBER I-200-25010-100001:
+- PW_TRACKING_NUMBER: P-200-24300-100001
+- PW_WAGE_LEVEL: Level II
+- PW_OES_YEAR: 2024
+- PREVAILING_WAGE: 138000
+- RECEIVED_DATE: 2024-12-05
+- DECISION_DATE: 2024-12-20
+
+PW_OES_YEAR 2024, filing 2024-12-05. OES 2024 data published around April 2025, so this would be after filing. But again, we don't have PWD issue date or survey publication date.
+
+Verdict: **needs_evidence**
+
+### 6. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003 [employer]
+
+CASE_NUMBER I-200-25010-100003:
+- PW_TRACKING_NUMBER: P-200-25300-100003
+- PW_WAGE_LEVEL: Level II
+- PW_OES_YEAR: 2024
+- PREVAILING_WAGE: 143000
+- RECEIVED_DATE: 2025-02-05
+- DECISION_DATE: 2025-02-20
+
+Same issue.
+
+Verdict: **needs_evidence**
+
+### 7. lca.wage.required_wage_greater_of::Daniel Cho [worker]
+
+Check: Actual wage paid ≥ greater of (actual wage for similarly-employed workers) and (prevailing wage on the LCA).
+
+Information needed: "Per worker: LCA prevailing_wage (amount+unit+level); employer actual_wage for the role; gross wages paid per period; pay frequency; FT/PT; hours; cohort wage rates."
+
+Daniel Cho: From hris_roster_export:
+- employeeNumber: NWR-1003
+- hireDate: 2025-04-14
+- jobTitle: Perception Engineer
+- payRate: 150000, Salary, Annually, 40 hours/week
+- visaType: H-1B
+- passportNumber: P1000003
+
+From cms_case_export: Matter NWR-2025-0103, Daniel Cho, lca_case_number: I-200-25010-100003, valid_from: 2025-06-01, valid_to: 2028-05-31
+
+From lca_export: CASE_NUMBER I-200-25010-100003:
+- PREVAILING_WAGE: 143000, Year
+- WAGE_RATE_OF_PAY_FROM: 145000, WAGE_RATE_OF_PAY_TO: 155000, Year
+- PW_WAGE_LEVEL: Level II
+- SOC_CODE: 15-1252
+
+From payroll_register: Daniel Cho, NWR-1003, pay periods in June 2025:
+- Gross pay per period: 6250.00 (semi-monthly? 24 periods/year = 150,000/year)
+- Hours regular: 86.67 per period (semi-monthly, 173.33/month, 2080/year)
+
+Annualized gross: 6250 * 24 = 150,000/year (matches payRate)
+
+LCA prevailing wage: 143,000/year
+LCA wage rate range: 145,000 - 155,000/year
+Actual wage paid: 150,000/year
+
+The check: actual wage paid ≥ greater of (actual wage for similarly-employed workers) and (prevailing wage on LCA).
+
+Prevailing wage on LCA: 143,000/year
+Actual wage paid: 150,000/year
+150,000 ≥ 143,000 ✓
+
+But also need to check against "actual wage for similarly-employed workers". Who are similarly-employed workers? Other Perception Engineers or same SOC? In the data, Daniel Cho appears to be the only Perception Engineer. Other software engineers: Ravi Anand (Robotics Software Engineer, 142,000), Anita Desai (Robotics Software Engineer, 149,000). But different job titles. The LCA wage rate range is 145,000-155,000. The actual wage 150,000 is within that range.
+
+The obligation says: "A posted wage RANGE satisfies only if the bottom of the range ≥ prevailing wage." Here the LCA wage range bottom is 145,000 ≥ prevailing wage 143,000 ✓. And actual wage 150,000 ≥ bottom of range 145,000 ✓.
+
+But we need to check if there are similarly-employed workers paid less. The cohort: other H-1B software engineers. Ravi Anand: 142,000 (but different LCA, different prevailing wage). Anita Desai: 149,000. James Park (US Citizen, VP): 225,000. Grace Lindqvist (US Citizen, Director): 205,000.
+
+For "actual wage for similarly-employed workers" - this means the wage the employer actually pays to other workers with similar experience/qualifications in the same role. Daniel is a Perception Engineer, hired 2025-04-14. The only other Perception Engineer? None listed. Robotics Software Engineers: Ravi (142k), Anita (149k). But different titles.
+
+The LCA for Daniel (I-200-25010-100003) has WAGE_RATE_OF_PAY_FROM 145,000 to 155,000. This is the "offered wage" on the LCA. The actual wage paid is 150,000. The prevailing wage is 143,000. The offered wage range bottom (145,000) > prevailing wage (143,000). Actual wage (150,000) > offered wage bottom (145,000).
+
+But the regulation requires paying the greater of actual wage (for similarly employed) and prevailing wage. The "actual wage" is what the employer pays to other similarly employed workers. If Daniel is the only one in this exact role, then his actual wage is the actual wage. But we need to see if there are others.
+
+Looking at the data, there's no other Perception Engineer. The closest are Robotics Software Engineers. But they have different LCAs with different prevailing wages.
+
+However, the payroll data shows Daniel is paid 150,000/year. The LCA prevailing wage is 143,000. The LCA offered wage range is 145,000-155,000. The actual wage meets both.
+
+But do we have evidence of "actual wage for similarly-employed workers"? The exports don't explicitly define "similarly-employed" cohort. We have payroll for all employees. We can compare. But the obligation evaluation is whether we have the evidence in the exports.
+
+We have: LCA prevailing wage (from lca_export), actual wage paid (from payroll_register and hris_roster), pay frequency, hours, FT status. We have cohort wage rates (all employees in payroll). So we have the information needed.
+
+Daniel's actual wage: 150,000/year
+Prevailing wage: 143,000/year
+Greater of: max(actual wage for similarly employed, prevailing wage). We need to determine actual wage for similarly employed. If we consider other software engineers in Engineering dept: Ravi 142k, Anita 149k, James 225k (VP), Grace 205k (Director). But different levels. Daniel is Perception Engineer, payRate 150k. The LCA offered wage is 145k-155k. The actual wage paid matches the offered wage.
+
+The regulation: "Actual wage paid ≥ greater of (actual wage for similarly-employed workers) and (prevailing wage on the LCA)." The "actual wage for similarly-employed workers" is the wage the employer pays to other workers in the same occupation with similar experience. Since Daniel is the only Perception Engineer, there are no other similarly-employed workers. In that case, the actual wage for similarly-employed workers is his own wage? Or it's not applicable? Actually, the actual wage is defined as the wage paid by the employer to other employees with similar experience and qualifications for the specific occupation. If no other employees, then the actual wage is the wage offered to the H-1B worker (which must be ≥ prevailing wage).
+
+But we have the data to make this determination. The exports contain all the needed info: LCA prevailing wage, LCA offered wage range, actual payroll, cohort data.
+
+Let me check: actual wage paid (150k) ≥ prevailing wage (143k) ✓. And the LCA offered wage range bottom (145k) ≥ prevailing wage (143k) ✓. And actual wage (150k) ≥ offered wage bottom (145k) ✓.
+
+So it appears to pass. But we need to confirm the "actual wage for similarly-employed workers" part. The employer's actual wage for the occupation. Since Daniel is the only one, and his wage is 150k, and that's ≥ prevailing wage, it passes.
+
+Verdict: **pass** - evidence present and satisfies.
+
+Wait, but the payroll data is only for Q2 2025 (June). Daniel's hire date is 2025-04-14. The LCA valid_from is 2025-06-01. So in June 2025, he's on the LCA. The payroll shows June pay periods. Gross pay 6250 per semi-monthly period = 150,000/year. This matches.
+
+But the obligation is ongoing. However, we only have Q2 2025 payroll. But for the purpose of this audit, we have current payroll data showing compliance.
+
+I think **pass** is correct.
+
+### 8. lca.wage.required_wage_greater_of::Hiroshi Yamamoto [worker]
+
+Hiroshi Yamamoto: From hris_roster_export:
+- NWR-1007
+- hireDate: 2022-08-15
+- jobTitle: Embedded Systems Engineer
+- payRate: 151000, Salary, Annually, 40
+- visaType: H-1B
+- passportNumber: P1000007
+
+From cms_case_export: NWR-2025-0107, Hiroshi Yamamoto, lca_case_number: I-200-22010-100007, valid_from: 2023-07-16, valid_to: 2026-07-20
+
+Wait, the cms_case_export shows valid_from: 2023-07-16, valid_to: 2026-07-20. But the lca_export for I-200-22010-100007 shows BEGIN_DATE: 2025-07-16, END_DATE: 2028-07-15. There's a discrepancy. The cms_case_export might be showing the current petition validity (maybe an extension), while the lca_export shows the LCA validity. The LCA is certified 2022-07-18, with BEGIN_DATE 2025-07-16. That's a future LCA for extension. The current petition (NWR-2025-0107) has valid_from 2023-07-16 to 2026-07-20. So there might be an earlier LCA for 2023-2026. But the lca_export only shows LCAs from 2024-2025? The file is "lca_certified_h1b_2024-2025.csv". So it might not have the 2023 LCA.
+
+But the pair is for Hiroshi Yamamoto, and we need to check his current wage compliance. The payroll register shows June 2025 payroll for Hiroshi: gross pay 6291.67 per semi-monthly period = 151,000/year (matches payRate 151,000).
+
+Which LCA applies? As of June 2025, his petition is valid until 2026-07-20. The LCA for that period would be the one certified in 2022 with BEGIN_DATE 2023-07-04? Wait, lca_export has I-200-22010-100004 for Mei Tanaka with BEGIN_DATE 2023-07-04, END_DATE 2026-07-03. And I-200-22010-100007 for Hiroshi with BEGIN_DATE 2025-07-16. So the 2022 LCA for Hiroshi might be a different case number not in this export.
+
+The lca_export only has 8 rows. Hiroshi's LCA in the export is I-200-22010-100007 with BEGIN_DATE 2025-07-16. But his current petition validity is 2023-07-16 to 2026-07-20. So there should be an LCA covering 2023-2026. It's not in the export. The export is "lca_certified_h1b_2024-2025.csv" - maybe only LCAs certified in 2024-2025? But I-200-22010-100007 was certified 2022-07-18 (DECISION_DATE 2022-07-18). So it's a 2022 certification but for a future period 2025-2028.
+
+Actually, looking at the lca_export: I-200-22010-100007 DECISION_DATE 2022-07-18, BEGIN_DATE 2025-07-16. This is an LCA certified in 2022 for a future period starting 2025. But Hiroshi's current petition is valid 2023-07-16 to 2026-07-20. So there must be another LCA for 2023-2026. Not in this export.
+
+For the wage check as of evaluation date 2026-06-29, but payroll is only June 2025. The obligation is about current compliance. We have payroll for June 2025. But we don't have the LCA prevailing wage for the period covering June 2025 (which would be the 2023-2026 LCA). The export doesn't contain that LCA.
+
+Thus, we cannot evaluate because we don't have the prevailing wage for the applicable LCA period.
+
+Verdict: **needs_evidence** - the applicable LCA (covering 2023-2026) is not in the export, so we don't have the prevailing wage for the current period.
+
+### 9. lca.wage.required_wage_greater_of::Lucia Ferreira [worker]
+
+Lucia Ferreira: hris_roster_export:
+- NWR-1002
+- hireDate: 2023-03-06
+- jobTitle: Controls Engineer
+- payRate: 138000, Salary, Annually, 40
+- visaType: H-1B
+- passportNumber: P1000002
+
+cms_case_export: NWR-2025-0102, Lucia Ferreira, lca_case_number: I-200-23010-100002, valid_from: 2023-06-01, valid_to: 2029-05-31
+
+lca_export: I-200-23010-100002:
+- PREVAILING_WAGE: 130000, Year
+- WAGE_RATE_OF_PAY_FROM: 132000, WAGE_RATE_OF_PAY_TO: 142000, Year
+- PW_WAGE_LEVEL: Level III
+- SOC_CODE: 17-2199
+- BEGIN_DATE: 2023-06-01, END_DATE: 2029-05-31
+
+Payroll June 2025: gross pay 5750 per semi-monthly = 138,000/year (matches payRate)
+
+Prevailing wage: 130,000
+LCA offered wage range: 132,000 - 142,000
+Actual wage: 138,000
+
+Check: actual wage (138k) ≥ prevailing wage (130k) ✓
+LCA offered wage bottom (132k) ≥ prevailing wage (130k) ✓
+Actual wage (138k) ≥ offered wage bottom (132k) ✓
+
+Similarly-employed workers: Other Controls Engineers? Only Lucia. Other Engineers: various. But she's the only Controls Engineer. Her actual wage is 138k, which is the actual wage for the role.
+
+All data present in exports. Pass.
+
+Verdict: **pass**
+
+### 10. lca.wage.required_wage_greater_of::Mei Tanaka [worker]
+
+Mei Tanaka: hris_roster_export:
+- NWR-1004
+- hireDate: 2022-06-13
+- jobTitle: Senior Robotics Engineer
+- payRate: 96000, Salary, Annually, 40
+- visaType: H-1B
+- passportNumber: P1000004
+
+cms_case_export: NWR-2025-0104, Mei Tanaka, lca_case_number: I-200-22010-100004, valid_from: 2025-08-01, valid_to: 2028-07-31
+
+Wait, cms_case_export shows valid_from 2025-08-01. But hire date is 2022-06-13. There must be an earlier petition/LCA. The lca_export has I-200-22010-100004 with BEGIN_DATE 2023-07-04, END_DATE 2026-07-03. This covers June 2025.
+
+lca_export I-200-22010-100004:
+- PREVAILING_WAGE: 145000, Year
+- WAGE_RATE_OF_PAY_FROM: 96000, WAGE_RATE_OF_PAY_TO: 110000, Year
+- PW_WAGE_LEVEL: Level III
+- SOC_CODE: 17-2199
+- BEGIN_DATE: 2023-07-04, END_DATE: 2026-07-03
+
+Payroll June 2025: gross pay 4000 per semi-monthly = 96,000/year (matches payRate)
+
+Prevailing wage: 145,000
+LCA offered wage range: 96,000 - 110,000
+Actual wage: 96,000
+
+Check: actual wage (96k) ≥ prevailing wage (145k)? NO. 96k < 145k. FAIL.
+
+But wait: the obligation says "Actual wage paid ≥ greater of (actual wage for similarly-employed workers) and (prevailing wage on the LCA)." The prevailing wage on the LCA is 145,000. The actual wage paid is 96,000. This is a violation.
+
+However, the LCA offered wage range is 96,000-110,000, which is BELOW the prevailing wage of 145,000. The regulation says "A posted wage RANGE satisfies only if the bottom of the range ≥ prevailing wage." Here bottom is 96,000 < 145,000. So the LCA itself appears non-compliant, but the obligation is about actual wage paid.
+
+The actual wage paid (96k) is less than prevailing wage (145k). This is a fail.
+
+But we need to check: is the prevailing wage on the LCA 145,000? Yes, PREVAILING_WAGE column shows 145000. The WAGE_RATE_OF_PAY_FROM is 96000. This is the offered wage. The employer must pay the greater of actual wage and prevailing wage. The prevailing wage is 145k. The actual wage paid is 96k. Fail.
+
+Verdict: **fail**
+
+### 11. lca.wage.start_clock::Anita Desai [worker]
+
+Check: Required-wage liability begins no later than 30 days after admission, or 60 days after becoming eligible to work (if already present).
+
+Information needed: "Per worker: consular admission date (I-94) OR in-country eligibility date; entry pathway; first available-for-work date; first pay date."
+
+Anita Desai: hris_roster_export:
+- NWR-1009
+- hireDate: 2023-07-17
+- visaType: H-1B
+- passportNumber: P1000009
+
+cms_case_export: NWR-2025-0109, Anita Desai, lca_case_number: I-200-23010-100009, valid_from: 2025-11-01, valid_to: 2028-10-31
+
+Wait, hireDate is 2023-07-17. But the LCA valid_from is 2025-11-01. There's a discrepancy. The cms_case_export shows matter opened 2023-06-17, filing_date 2023-07-20, decision_date 2023-09-30. The petition is approved 2023-09-30. The LCA in lca_export I-200-23010-100009 has BEGIN_DATE 2025-11-01. But the petition validity in cms is 2025-11-01 to 2028-10-31. So this is a new petition/extension starting 2025-11-01. But she was hired 2023-07-17. So she must have been on a previous H-1B (maybe cap-exempt or earlier petition).
+
+The start clock obligation applies when the H-1B worker begins employment. For Anita, her hire date is 2023-07-17. We need to know her admission date (I-94) or in-country eligibility date. The exports don't have I-94 dates, consular admission dates, or first available-for-work dates. We have hireDate (2023-07-17) and payroll data (but payroll only shows June 2025). We don't have her first pay date or admission date.
+
+The information needed includes "consular admission date (I-94) OR in-country eligibility date; entry pathway; first available-for-work date; first pay date." None of these are in the exports. The hireDate might be the first day of work, but we don't know if she was already in the US or consular processing. We don't have I-94 data.
+
+Verdict: **needs_evidence** - exports don't contain admission/eligibility dates.
+
+### 12. lca.wage.start_clock::Hiroshi Yamamoto [worker]
+
+Hiroshi Yamamoto: hireDate 2022-08-15. Similar issue - no I-94, admission date, eligibility date, first pay date in exports.
+
+Verdict: **needs_evidence**
+
+Now let me compile the results:
+
+1. lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice → unmonitored
+2. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004 → needs_evidence
+3. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006 → needs_evidence
+4. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007 → needs_evidence
+5. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001 → needs_evidence
+6. lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003 → needs_evidence
+7. lca.wage.required_wage_greater_of::Daniel Cho → pass
+8. lca.wage.required_wage_greater_of::Hiroshi Yamamoto → needs_evidence
+9. lca.wage.required_wage_greater_of::Lucia Ferreira → pass
+10. lca.wage.required_wage_greater_of::Mei Tanaka → fail
+11. lca.wage.start_clock::Anita Desai → needs_evidence
+12. lca.wage.start_clock::Hiroshi Yamamoto → needs_evidence
+
+Let me double-check Hiroshi for required_wage_greater_of. The issue is we don't have the LCA covering his current employment period (2023-2026). The export only has the LCA for 2025-2028. So we can't check the prevailing wage for the current period. Correct, needs_evidence.
+
+For Mei Tanaka: The LCA in export (I-200-22010-100004) covers 2023-07-04 to 2026-07-
+
+---
+
+lca.wage.start_clock::Lucia Ferreira	needs_evidence	admission_date_or_eligibility_date
+lca.wage.start_clock::Omar Farouk	needs_evidence	admission_date_or_eligibility_date
+lca.wage.start_clock::Ravi Anand	needs_evidence	admission_date_or_eligibility_date
+lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	needs_evidence	hSupp.q7_educationLevelRequired
+lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience	needs_evidence	hSupp.q9_yearsExperienceRequired
+lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills	needs_evidence	hSupp.q10_specialSkills
+lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory	needs_evidence	hSupp.q11_numberSupervised
+lca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area	fail	hris.location:Boston - Lab; lca.WORKSITE_CITY:Austin
+lca.worksite.short_term_placement::lca:I-200-22010-100006:stp	needs_evidence	short_term_placement_workday_counts_lodging_travel
+paf.assembly.one_working_day::paf-ready:I-200-21010-100005	needs_evidence	pafAssembledDate
+paf.assembly.one_working_day::paf-ready:I-200-22010-100006	needs_evidence	pafAssembledDate
+paf.assembly.one_working_day::paf-ready:I-200-22010-100007	needs_evidence	pafAssembledDate
+
+---
+
+paf.assembly.one_working_day::paf-ready:I-200-23010-100009	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-25010-100001	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-25010-100003	needs_evidence	-
+paf.item1.certified_lca::paf-agg:paf.item1.certified_lca	needs_evidence	-
+paf.item2.wage_rate::paf-agg:paf.item2.wage_rate	needs_evidence	-
+paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage	needs_evidence	-
+paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary	needs_evidence	-
+paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list	needs_evidence	-
+paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list	needs_evidence	-
+paf.public_access_ready::paf:I-200-21010-100005	needs_evidence	-
+paf.public_access_ready::paf:I-200-22010-100004	needs_evidence	-
+paf.public_access_ready::paf:I-200-22010-100006	needs_evidence	-
+
+---
+
+paf.public_access_ready::paf:I-200-23010-100002	needs_evidence	-
+paf.public_access_ready::paf:I-200-25010-100003	needs_evidence	-
+specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence	needs_evidence	-
+specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4	needs_evidence	-
+uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline	needs_evidence	-
+uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock	needs_evidence	-
+wage.prevailing_floor::wage:17-2199	fail	payroll_register.gross_pay (Mei Tanaka $96,000 annualized) < lca_export.PREVAILING_WAGE ($145,000 for I-200-22010-100004)
+xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel	needs_evidence	-

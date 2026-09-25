@@ -25,6 +25,7 @@ sys.path.insert(0, str(ROOT))
 PAPER = ROOT / "docs" / "PAPER.md"
 LLM = ROOT / "docs" / "llm_results.json"
 TRIV = ROOT / "docs" / "results.json"
+VIEWS = ROOT / "docs" / "views_results.json"
 
 # Markers delimit generated regions so regeneration never eats hand-written prose.
 BEGIN = "<!-- BEGIN GENERATED: {name} -->"
@@ -146,6 +147,32 @@ def table_regime(runs: dict) -> str:
     return "\n".join(rows)
 
 
+def table_views() -> str:
+    """Table 2b: engine vs strict label views, plus the deadline alerts."""
+    head = ("| Model | Condition | FGR, engine | FGR, strict | Recall, engine (of 20) "
+            "| Recall, strict (of 10) | Alerts: fail / pass / other |\n|---|---|---|---|---|---|---|")
+    if not VIEWS.exists():
+        return head + "\n| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |"
+    runs = json.loads(VIEWS.read_text()).get("runs", {})
+    rows = [head]
+    for key in sorted(runs):
+        r = runs[key]
+        if not r.get("complete"):
+            continue
+        e, st = r["engine"], r["strict"]
+        v = st.get("deadline_alerts", {}).get("verdicts", {})
+        other = sum(n for k, n in v.items() if k not in ("fail", "pass"))
+        cond = "offered" if r["variant"].endswith("offered") else "withheld"
+        rows.append(
+            f"| `{short(r['model'])}` | {cond} | {e['false_green_rate']:.3f} | {st['false_green_rate']:.3f} "
+            f"| {e['violation_recall']:.2f} | {st['violation_recall']:.2f} "
+            f"| {v.get('fail', 0)} / {v.get('pass', 0)} / {other} |"
+        )
+    if len(rows) == 1:
+        rows.append("| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -171,6 +198,7 @@ def main() -> int:
 
     tables = {
         "table2-main": table_main(runs),
+        "table2b-strict": table_views(),
         "table3-ablation": table_ablation(runs),
         "table4-regime": table_regime(runs),
     }
