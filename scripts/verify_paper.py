@@ -219,7 +219,10 @@ import json as _j
 _bk = _j.loads((ROOT / "docs" / "v1.1_truncated_attempt" / "batch_cache.pre_purge_backup.json").read_text())
 _v11 = [k for k in _bk if k.startswith("1.1.0|")]
 _kept = _j.loads((ROOT / "docs" / ".batch_cache.json").read_text())
-_kept11 = [k for k in _kept if k.startswith("1.1.0|") and k in _bk]
+_txt = lambda v: v.get("text") if isinstance(v, dict) else v  # noqa: E731
+# Kept = the same reply is still in the cache. Matching on key alone would count
+# purged batches again once the sweep re-requests them under the same key.
+_kept11 = [k for k in _v11 if k in _kept and _txt(_kept[k]) == _txt(_bk[k])]
 claim(len(_v11) == 84 and "first 84 batch" in paper, "paper: 84 replies in the truncated attempt")
 claim(len(_kept11) == 38 and "The 38 replies" in paper, "paper: 38 complete replies kept")
 claim(len(_v11) - len(_kept11) == 46 and "46 of the first 84" in paper, "paper: 46 re-requested")
