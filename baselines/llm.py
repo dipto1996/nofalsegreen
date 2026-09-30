@@ -64,6 +64,10 @@ class RunResult:
     n_off_schema: int
     n_truncated_calls: int = 0
     n_failed_batches: int = 0
+    # Replies that came back empty or at the output cap, and batches still
+    # without a complete reply after every re-request.
+    n_incomplete_calls: int = 0
+    n_unrecovered_batches: int = 0
     raw: list[str] = field(default_factory=list)
 
     @property
@@ -223,6 +227,7 @@ def run_firm(
     scope_sources: bool = False,
     progress: bool = False,
     cache_path: Path | None = None,
+    max_attempts: int = 3,
 ) -> RunResult:
     """Run one firm through a provider, batching pairs.
 
@@ -251,6 +256,7 @@ def run_firm(
     preds: list[Prediction] = []
     usage = Usage()
     unparseable = missing = off_schema = truncated = failed_batches = 0
+    incomplete = unrecovered = 0
     consecutive_failures = 0
     raw: list[str] = []
 
@@ -293,8 +299,26 @@ def run_firm(
                 raw.append(cached)
             continue
 
+        # An empty or capped reply is a delivery failure, not an answer: the
+        # same rule that re-requested the truncated replies of the first v1.1
+        # attempt. Re-request it up to max_attempts in total; if it is still
+        # incomplete, its pairs are scored as missing and the batch is counted.
         try:
-            text, u = provider.complete(system, user, max_tokens)
+            for attempt in range(1, max_attempts + 1):
+                text, u = provider.complete(system, user, max_tokens)
+                usage.add(u)
+                capped = bool(u.output_tokens) and u.output_tokens >= max_tokens
+                if progress:
+                    state = "CAP" if capped else ("EMPTY" if not text.strip() else "ok")
+                    print(f"        attempt {attempt}: {u.output_tokens} output tokens, "
+                          f"{u.seconds:.0f}s, {state}", flush=True)
+                if text.strip() and not capped:
+                    break
+                incomplete += 1
+                if capped:
+                    truncated += 1
+            else:
+                unrecovered += 1
         except Exception as exc:  # noqa: BLE001
             # One dead batch must not discard the other 20 calls of a firm. The
             # pairs in it get no prediction, which metrics score as errors, and
@@ -315,10 +339,6 @@ def run_firm(
             if keep_raw:
                 raw.append(f"[BATCH FAILED] {type(exc).__name__}: {str(exc)[:200]}")
             continue
-        usage.add(u)
-        # A completion that exactly hits the cap was almost certainly cut off.
-        if u.output_tokens and u.output_tokens >= max_tokens:
-            truncated += 1
         if keep_raw:
             raw.append(text)
         consecutive_failures = 0
@@ -350,6 +370,8 @@ def run_firm(
         n_off_schema=off_schema,
         n_truncated_calls=truncated,
         n_failed_batches=failed_batches,
+        n_incomplete_calls=incomplete,
+        n_unrecovered_batches=unrecovered,
         raw=raw,
     )
 

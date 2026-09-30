@@ -142,6 +142,8 @@ def main() -> int:
                 "n_pairs": r.n_pairs, "n_parsed": r.n_parsed,
                 "n_unparseable": r.n_unparseable, "n_off_schema": r.n_off_schema,
                 "n_truncated_calls": r.n_truncated_calls,
+                "n_incomplete_calls": r.n_incomplete_calls,
+                "n_unrecovered_batches": r.n_unrecovered_batches,
                 "false_green_rate": s.false_green_rate,
                 "n_false_green": s.n_false_green, "n_withheld": s.n_withheld,
                 "violation_recall": s.violation_recall,

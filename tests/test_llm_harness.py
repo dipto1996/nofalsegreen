@@ -243,5 +243,48 @@ with tempfile.TemporaryDirectory() as _td:
     check(_s2.violation_recall == 1.0, "a resumed run scores the same as an unbroken one")
     check(_s2.false_green_rate == 0.0, "resumed run has zero false green")
 
+
+print("\nempty and capped replies are re-requested, bounded")
+
+
+class _Flaky:
+    """Returns `bad` (empty or capped) replies on the listed call numbers."""
+
+    name = "flaky-mock"
+
+    def __init__(self, bad_calls: set[int], kind: str):
+        self.bad, self.kind, self.calls = bad_calls, kind, 0
+
+    def complete(self, system, user, max_tokens):
+        self.calls += 1
+        if self.calls in self.bad:
+            if self.kind == "empty":
+                return "", _U(100, 50, 1, 0.0)
+            return "cut off mid-trace", _U(100, max_tokens, 1, 0.0)
+        ids = re.findall(r"^([A-Za-z0-9_.\-]+::[^\t\n]+)\t", user, re.M)
+        return "\n".join(f"{i}\t{_truth[i].verdict.value}\t-" for i in ids), _U(100, 50, 1, 0.0)
+
+
+_nb = -(-len(_sub.pairs) // 12)
+with tempfile.TemporaryDirectory() as _td:
+    _f = _Flaky({1, 3}, "empty")
+    _rf = run_firm(_f, _sub, obs, variant=ABSTAIN_OFFERED, batch_size=12,
+                   cache_path=Path(_td) / "c.json")
+    check(_f.calls == _nb + 2, f"each empty reply is re-requested once ({_f.calls} calls)")
+    check(_rf.n_parsed == len(_sub.pairs), "recovered batches are fully parsed")
+    check(_rf.n_incomplete_calls == 2 and _rf.n_unrecovered_batches == 0,
+          "incomplete calls counted, none unrecovered")
+    check(len(_json.loads((Path(_td) / "c.json").read_text())) == _nb,
+          "only the complete reply is cached")
+
+with tempfile.TemporaryDirectory() as _td:
+    _f = _Flaky({1, 2, 3}, "cap")
+    _rf = run_firm(_f, _sub, obs, variant=ABSTAIN_OFFERED, batch_size=12,
+                   cache_path=Path(_td) / "c.json")
+    check(_f.calls == _nb + 2, f"a batch gets at most 3 attempts ({_f.calls} calls)")
+    check(_rf.n_unrecovered_batches == 1 and _rf.n_truncated_calls == 3,
+          "a batch capped three times is counted unrecovered, each cap counted")
+    check(_rf.n_parsed == len(_sub.pairs) - 12, "its pairs are left missing, never guessed")
+
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)
