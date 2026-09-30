@@ -534,6 +534,21 @@ state the models and their published quotas alongside every number and do not ge
 beyond them. This is a genuine weakness of the study rather than a presentational choice,
 and it is repeated in Section 10.
 
+**A mid-study substitution, declared before its results.** The study was declared with
+six free models. After four of the twelve model-condition runs had completed, OpenRouter
+withdrew the free versions of both Nex models (N2.5 Pro and N2.5 Mini); the paid versions
+remain, and paying for them is outside this study's zero-cost constraint. Three batches of
+Nex N2.5 Pro replies had been collected; they cover too few pairs to score and are
+reported as an incomplete run, not as a result. Dropping both models would have left four,
+three of them from one provider family (NVIDIA Nemotron). We therefore replaced them with
+Qwen 3.8 27B and Gemma 4 31B, chosen for provider diversity among the models still free
+whose output limit exceeds the 32,000-token cap, with Inkling named in advance as the
+substitute should either fail the same two-pair screen the original models passed. The
+replacements and the fallback rule were committed on 30 September 2026, before any reply
+from either model existed; as with the label views, the commit history is the evidence of
+that ordering. The replacements run under the identical prompt, subset, batch size, and
+output cap.
+
 **The declared evaluation subset.** Evaluating all 221 anchor pairs costs 28 calls per
 model per condition. At a free ceiling of 50 calls per day, one model consumes more than
 half a day and a six-model, two-condition study takes a week. We therefore evaluate a
@@ -764,7 +779,8 @@ with a permissions error, 1 returned an upstream provider failure, and 1 returne
 completion. Which models are evaluable on a given day is therefore decided by provider
 capacity rather than by our selection, and the model set in any free-tier result is
 partly an artifact of when it was run. We report the screening outcome alongside results
-so the composition of the model set is visible. Whether the largest current proprietary
+so the composition of the model set is visible. The same instability struck during the study itself: two of the six declared models
+were withdrawn from the free tier mid-run and replaced (Section 7.2). Whether the largest current proprietary
 models exhibit the same false-green behaviour is untested, and it is the single most
 valuable extension of this work.
 

@@ -1,8 +1,9 @@
 """Run the whole study across as many quota-days as it takes, unattended.
 
 The free tier allows 50 requests a day. The declared 140-pair subset costs 12
-calls per model per ablation condition, so four model-conditions fit in a day
-and the full six-model, two-condition study takes three days.
+calls per model per ablation condition, so four model-conditions fit in a day.
+Six models are run; two declared models were withdrawn from the free tier
+mid-study and replaced (see MODELS).
 
 This script walks the work queue in a fixed order, stops cleanly when the daily
 quota is gone, and picks up exactly where it left off next time. Run it once a
@@ -43,52 +44,63 @@ MODELS = [
     "nvidia/nemotron-3.5-lightning:free",
     "nex-agi/nex-n2.5-mini:free",
     "poolside/laguna-xs-2.1:free",
+    # Replacements, declared 2026-09-30 before any of their replies existed.
+    # OpenRouter withdrew both Nex models from the free tier mid-study; four
+    # models, three of them Nemotron, would leave one provider family speaking
+    # for the result. Chosen for provider diversity among the models still free
+    # with an output limit >= the 32,000-token cap. If either fails the same
+    # two-pair screen the originals passed, inkling takes its place.
+    "qwen/qwen3.8-27b:free",
+    "google/gemma-4-31b-it:free",
 ]
+FALLBACK = "thinkingmachines/inkling:free"
 VARIANTS = [ABSTAIN_OFFERED, ABSTAIN_WITHHELD]
 BATCH = 12
 
 
+def _openrouter_get(path: str) -> dict:
+    sys.path.insert(0, str(ROOT))
+    from nofalsegreen.credentials import load_key
+
+    req = urllib.request.Request(
+        f"https://openrouter.ai/api/v1/{path}",
+        headers={"Authorization": f"Bearer {load_key('openrouter')}"},
+    )
+    with urllib.request.urlopen(req, timeout=45) as r:
+        return json.loads(r.read())
+
+
 def quota_reset_at() -> datetime.datetime | None:
-    """When the daily free-model allowance next resets, from OpenRouter's own
-    headers. Returns None when quota is currently available.
+    """When the daily free-model allowance next resets. Returns None when quota
+    is currently available.
+
+    Reads the key's own counter (GET /key costs no request) rather than probing
+    with a chat call: a probe tied to one model misreads that model being
+    withdrawn from the free tier as "quota spent", which is how the first sweep
+    slept for two days on an unused allowance.
 
     The window is midnight UTC, not local midnight, which is why "run it
     tomorrow" is the wrong instruction: the reset can land mid-afternoon local.
     """
-    sys.path.insert(0, str(ROOT))
-    from nofalsegreen.credentials import load_key
-
-    body = json.dumps({
-        "model": "nex-agi/nex-n2.5-mini:free",
-        "max_tokens": 5,
-        "messages": [{"role": "user", "content": "OK"}],
-    }).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions",
-        data=body,
-        headers={"Content-Type": "application/json",
-                 "Authorization": f"Bearer {load_key('openrouter')}"},
-    )
     try:
-        with urllib.request.urlopen(req, timeout=45) as r:
-            payload = json.loads(r.read())
-        if isinstance(payload.get("error"), dict):
-            meta = payload["error"].get("metadata") or {}
-            ts = (meta.get("headers") or {}).get("X-RateLimit-Reset")
-            if ts:
-                return datetime.datetime.fromtimestamp(int(ts) / 1000)
-        return None
-    except urllib.error.HTTPError as e:
-        try:
-            meta = json.loads(e.read().decode()).get("error", {}).get("metadata", {}) or {}
-            ts = (meta.get("headers") or {}).get("X-RateLimit-Reset")
-            if ts:
-                return datetime.datetime.fromtimestamp(int(ts) / 1000)
-        except Exception:  # noqa: BLE001
-            pass
-        return datetime.datetime.now() + datetime.timedelta(hours=1)
+        free = _openrouter_get("key")["data"]["free_model_daily_requests"]
     except Exception:  # noqa: BLE001
         return None
+    if free.get("remaining", 0) > 0:
+        return None
+    now = datetime.datetime.now(datetime.timezone.utc)
+    midnight = (now + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+    return midnight.astimezone().replace(tzinfo=None)
+
+
+def withdrawn_models() -> set[str]:
+    """Declared models OpenRouter no longer lists. Their runs cannot be made at
+    zero cost; they are reported as withdrawn, never substituted silently."""
+    try:
+        live = {m["id"] for m in _openrouter_get("models")["data"]}
+    except Exception:  # noqa: BLE001
+        return set()
+    return {m for m in MODELS if m not in live}
 
 
 def completed() -> set[str]:
@@ -103,13 +115,13 @@ def completed() -> set[str]:
     return {k for k, v in doc.get("runs", {}).items() if v.get("per_firm")}
 
 
-def queue() -> list[tuple[str, str]]:
+def queue(skip: set[str] = frozenset()) -> list[tuple[str, str]]:
     done = completed()
     return [
         (m, v)
         for m in MODELS
         for v in VARIANTS
-        if f"{m}::{v}" not in done
+        if f"{m}::{v}" not in done and m not in skip
     ]
 
 
@@ -143,9 +155,12 @@ def main() -> int:
                          "repeating until the study is done")
     args = ap.parse_args()
 
-    q = queue()
+    gone = withdrawn_models()
+    q = queue(gone)
     done = completed()
     total = len(MODELS) * len(VARIANTS)
+    for m in sorted(gone):
+        print(f"withdrawn from the free tier, not run: {m}")
 
     print(f"study: {len(MODELS)} models x {len(VARIANTS)} conditions = {total} runs")
     print(f"subset: {args.subset} pairs -> ~{-(-args.subset // BATCH)} calls each")
@@ -158,7 +173,7 @@ def main() -> int:
         return 0
 
     while True:
-        q = queue()
+        q = queue(gone)
         if not q:
             break
 
@@ -190,7 +205,7 @@ def main() -> int:
         if not args.wait:
             break
 
-    remaining = len(queue())
+    remaining = len(queue(gone))
     print(f"\nremaining after this session: {remaining}/{total}")
     if remaining == 0:
         print("study complete. Next: scripts/fill_results.py, scripts/make_figure.py")
