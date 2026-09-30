@@ -543,7 +543,11 @@ reported as an incomplete run, not as a result. Dropping both models would have 
 three of them from one provider family (NVIDIA Nemotron). We therefore replaced them with
 Qwen 3.8 27B and Gemma 4 31B, chosen for provider diversity among the models still free
 whose output limit exceeds the 32,000-token cap, with Inkling named in advance as the
-substitute should either fail the same two-pair screen the original models passed. The
+substitute should either fail the same two-pair screen the original models passed. Inkling
+then turned out to refuse API calls outright (it is served only inside agent applications),
+so before any replacement reply existed the fallback was changed to dots.3 Note Preview,
+the one remaining free model from a provider family not already in the set. A transient
+upstream rate limit is not treated as a screen failure. The
 replacements and the fallback rule were committed on 30 September 2026, before any reply
 from either model existed; as with the label views, the commit history is the evidence of
 that ordering. The replacements run under the identical prompt, subset, batch size, and

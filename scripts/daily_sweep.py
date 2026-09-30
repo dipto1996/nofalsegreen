@@ -50,10 +50,15 @@ MODELS = [
     # for the result. Chosen for provider diversity among the models still free
     # with an output limit >= the 32,000-token cap. If either fails the same
     # two-pair screen the originals passed, inkling takes its place.
+    # Amended 2026-09-30, still before any replacement reply existed: inkling
+    # answers API calls with 403 ("only available on agentic harnesses"), so the
+    # fallback is dots-3-note-preview, the remaining free model from a provider
+    # family not already in the set. A transient upstream 429 is not a screen
+    # failure; the screen is retried until the model answers or is withdrawn.
     "qwen/qwen3.8-27b:free",
     "google/gemma-4-31b-it:free",
 ]
-FALLBACK = "thinkingmachines/inkling:free"
+FALLBACK = "dots-studio/dots-3-note-preview:free"
 VARIANTS = [ABSTAIN_OFFERED, ABSTAIN_WITHHELD]
 BATCH = 12
 
@@ -163,7 +168,7 @@ def main() -> int:
     gone = withdrawn_models()
     q = queue(gone)
     done = completed()
-    total = len(MODELS) * len(VARIANTS)
+    total = (len(MODELS) - len(gone)) * len(VARIANTS)
     for m in sorted(gone):
         print(f"withdrawn from the free tier, not run: {m}")
 
