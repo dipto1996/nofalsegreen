@@ -260,6 +260,9 @@ class _Flaky:
         if self.calls in self.bad:
             if self.kind == "empty":
                 return "", _U(100, 50, 1, 0.0)
+            if self.kind == "length":
+                # Cut off by an upstream limit well below our max_tokens.
+                return "We are given a task to evaluate", _U(100, 8559, 1, 0.0, "length")
             return "cut off mid-trace", _U(100, max_tokens, 1, 0.0)
         ids = re.findall(r"^([A-Za-z0-9_.\-]+::[^\t\n]+)\t", user, re.M)
         return "\n".join(f"{i}\t{_truth[i].verdict.value}\t-" for i in ids), _U(100, 50, 1, 0.0)
@@ -285,6 +288,16 @@ with tempfile.TemporaryDirectory() as _td:
     check(_rf.n_unrecovered_batches == 1 and _rf.n_truncated_calls == 3,
           "a batch capped three times is counted unrecovered, each cap counted")
     check(_rf.n_parsed == len(_sub.pairs) - 12, "its pairs are left missing, never guessed")
+
+with tempfile.TemporaryDirectory() as _td:
+    _f = _Flaky({2}, "length")
+    _rf = run_firm(_f, _sub, obs, variant=ABSTAIN_OFFERED, batch_size=12,
+                   cache_path=Path(_td) / "c.json")
+    check(_f.calls == _nb + 1 and _rf.n_incomplete_calls == 1,
+          "a reply the provider cut off below our cap (finish=length) is re-requested")
+    check(all(v.get("finish_reason") != "length"
+              for v in _json.loads((Path(_td) / "c.json").read_text()).values()),
+          "a cut-off reply is never cached")
 
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)

@@ -333,6 +333,7 @@ class OpenRouterFreeProvider:
                 output_tokens=u.get("completion_tokens", 0),
                 calls=1,
                 seconds=time.time() - t0,
+                finish_reason=ch.get("finish_reason") or "",
             )
 
         raise RuntimeError(f"{self.name}: gave up after {self.max_retries} attempts: {last_err}")

@@ -42,6 +42,10 @@ class Usage:
     output_tokens: int = 0
     calls: int = 0
     seconds: float = 0.0
+    # The provider's own stop reason for a single call. "length" means the reply
+    # was cut off, which can happen below our max_tokens when an upstream host
+    # enforces a smaller limit of its own.
+    finish_reason: str = ""
 
     def add(self, other: "Usage") -> None:
         self.input_tokens += other.input_tokens
@@ -307,11 +311,13 @@ def run_firm(
             for attempt in range(1, max_attempts + 1):
                 text, u = provider.complete(system, user, max_tokens)
                 usage.add(u)
-                capped = bool(u.output_tokens) and u.output_tokens >= max_tokens
+                capped = (bool(u.output_tokens) and u.output_tokens >= max_tokens) \
+                    or u.finish_reason == "length"
                 if progress:
                     state = "CAP" if capped else ("EMPTY" if not text.strip() else "ok")
                     print(f"        attempt {attempt}: {u.output_tokens} output tokens, "
-                          f"{u.seconds:.0f}s, {state}", flush=True)
+                          f"{u.seconds:.0f}s, finish={u.finish_reason or '?'}, {state}",
+                          flush=True)
                 if text.strip() and not capped:
                     break
                 incomplete += 1
@@ -342,12 +348,13 @@ def run_firm(
         if keep_raw:
             raw.append(text)
         consecutive_failures = 0
-        hit_cap = bool(u.output_tokens) and u.output_tokens >= max_tokens
+        hit_cap = (bool(u.output_tokens) and u.output_tokens >= max_tokens) \
+            or u.finish_reason == "length"
         # Never cache a reply that was cut off or empty: a cached truncation
         # would be replayed forever instead of re-requested with more budget.
         if cache_path is not None and text.strip() and not hit_cap:
             cache[ck] = {"text": text, "output_tokens": u.output_tokens,
-                         "max_tokens": max_tokens}
+                         "max_tokens": max_tokens, "finish_reason": u.finish_reason}
             cache_path.parent.mkdir(parents=True, exist_ok=True)
             cache_path.write_text(json.dumps(cache, indent=1))
 
