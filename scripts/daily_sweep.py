@@ -210,6 +210,7 @@ def main() -> int:
                 print(f"  quota spent; resets {reset:%Y-%m-%d %H:%M} local "
                       f"({wait_s / 3600:.1f}h). Sleeping.", flush=True)
                 time.sleep(wait_s)
+                deferred.clear()  # a new quota day: every deferred run gets another try
                 continue
 
         stop = False
