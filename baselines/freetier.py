@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 import time
 import urllib.error
 import urllib.request
@@ -223,6 +224,13 @@ class GroqFreeProvider:
         )
 
 
+def _log_retry(model: str, err: Exception, t0: float) -> None:
+    """Every failed attempt costs a request from the daily allowance, so each is
+    logged; a silent retry loop can spend a day's quota with nothing to show."""
+    print(f"      retry {model}: {type(err).__name__}: {str(err)[:160]} "
+          f"after {time.time() - t0:.0f}s", file=sys.stderr, flush=True)
+
+
 class OpenRouterFreeProvider:
     """OpenRouter free-tier models via its OpenAI-compatible endpoint.
 
@@ -278,6 +286,7 @@ class OpenRouterFreeProvider:
             except urllib.error.HTTPError as e:
                 detail = e.read().decode("utf-8", "replace")[:400]
                 last_err = RuntimeError(f"HTTP {e.code}: {detail}")
+                _log_retry(self.name, last_err, t0)
                 if e.code == 429:
                     if "per day" in detail.lower() or "daily" in detail.lower():
                         raise DailyQuotaExhausted(detail) from e
@@ -291,6 +300,7 @@ class OpenRouterFreeProvider:
                 raise last_err from e
             except (urllib.error.URLError, TimeoutError) as e:
                 last_err = e
+                _log_retry(self.name, e, t0)
                 time.sleep(delay)
                 delay = min(delay * 2, 120.0)
                 continue
@@ -305,6 +315,7 @@ class OpenRouterFreeProvider:
                 if code == 429:
                     raise DailyQuotaExhausted(msg)
                 last_err = RuntimeError(f"upstream {code}: {msg}")
+                _log_retry(self.name, last_err, t0)
                 # 404 here is the upstream shedding load, not a missing model:
                 # observed on an id that answered minutes before and after.
                 # Treat it as transient, like a 5xx.

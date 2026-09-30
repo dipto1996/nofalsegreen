@@ -133,11 +133,16 @@ def run_one(model: str, variant: str, subset: int) -> str:
         "--firms", "0", "--variant", variant,
         "--batch", str(BATCH), "--subset", str(subset), "--rpd", "50",
     ]
-    proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
-    out = proc.stdout + proc.stderr
-    for line in out.splitlines():
-        if line.strip().startswith(("northwind", "  northwind")):
-            print(f"    {line.strip()}")
+    # Stream the child's output as it arrives: per-batch progress and every
+    # retry must be visible while a run is in flight, not only after it ends.
+    proc = subprocess.Popen(cmd, cwd=ROOT, stdout=subprocess.PIPE,
+                            stderr=subprocess.STDOUT, text=True, bufsize=1)
+    lines = []
+    for line in proc.stdout:
+        lines.append(line)
+        print(f"    {line.rstrip()}", flush=True)
+    proc.wait()
+    out = "".join(lines)
     if "daily quota exhausted" in out:
         return "quota"
     if proc.returncode != 0:
