@@ -131,7 +131,7 @@ def queue(skip: set[str] = frozenset()) -> list[tuple[str, str]]:
 
 
 def run_one(model: str, variant: str, subset: int) -> str:
-    """Returns 'done', 'quota', or 'error'."""
+    """Returns 'done', 'quota', 'incomplete', or 'error'."""
     cmd = [
         sys.executable, "-u", str(ROOT / "scripts" / "run_free.py"),
         "--provider", "openrouter", "--model", model,
@@ -150,6 +150,8 @@ def run_one(model: str, variant: str, subset: int) -> str:
     out = "".join(lines)
     if "daily quota exhausted" in out:
         return "quota"
+    if "INCOMPLETE" in out:
+        return "incomplete"
     if proc.returncode != 0:
         print(f"    error: {out.strip().splitlines()[-1][:160] if out.strip() else 'no output'}")
         return "error"
@@ -182,10 +184,24 @@ def main() -> int:
             print(f"  pending  {m.split('/')[-1]:<34} {v}")
         return 0
 
+    # Runs whose upstream failed this quota day. They are retried after the next
+    # reset, not immediately: a failing host would otherwise take the whole
+    # day's allowance with it.
+    deferred: set[tuple[str, str]] = set()
     while True:
         q = queue(gone)
         if not q:
             break
+        if args.wait and all(r in deferred for r in q):
+            now = datetime.datetime.now(datetime.timezone.utc)
+            nxt = (now + datetime.timedelta(days=1)).replace(hour=0, minute=5, second=0, microsecond=0)
+            wait_s = (nxt - now).total_seconds()
+            print(f"  every remaining run is deferred; retrying after the reset "
+                  f"({wait_s / 3600:.1f}h). Sleeping.", flush=True)
+            time.sleep(wait_s)
+            deferred.clear()
+            continue
+        q = [r for r in q if r not in deferred]
 
         if args.wait:
             reset = quota_reset_at()
@@ -208,6 +224,9 @@ def main() -> int:
                           "after the reset to continue.")
                 stop = True
                 break
+            if outcome == "incomplete":
+                deferred.add((model, variant))
+                print("    upstream failing; deferred to after the next reset")
             if outcome == "error":
                 print("    skipping to next run")
         if stop and not args.wait:

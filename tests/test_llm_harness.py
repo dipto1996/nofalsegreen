@@ -284,10 +284,10 @@ with tempfile.TemporaryDirectory() as _td:
     _f = _Flaky({1, 2, 3}, "cap")
     _rf = run_firm(_f, _sub, obs, variant=ABSTAIN_OFFERED, batch_size=12,
                    cache_path=Path(_td) / "c.json")
-    check(_f.calls == _nb + 2, f"a batch gets at most 3 attempts ({_f.calls} calls)")
-    check(_rf.n_unrecovered_batches == 1 and _rf.n_truncated_calls == 3,
-          "a batch capped three times is counted unrecovered, each cap counted")
-    check(_rf.n_parsed == len(_sub.pairs) - 12, "its pairs are left missing, never guessed")
+    check(_f.calls == 3, f"a batch gets at most 3 attempts ({_f.calls} calls)")
+    check(_rf.stopped_early and _rf.n_truncated_calls == 3,
+          "a batch capped three times stops the run for later resume, each cap counted")
+    check(_rf.n_parsed == 0, "nothing is guessed for the pairs left unanswered")
 
 with tempfile.TemporaryDirectory() as _td:
     _f = _Flaky({2}, "length")
@@ -298,6 +298,13 @@ with tempfile.TemporaryDirectory() as _td:
     check(all(v.get("finish_reason") != "length"
               for v in _json.loads((Path(_td) / "c.json").read_text()).values()),
           "a cut-off reply is never cached")
+
+with tempfile.TemporaryDirectory() as _td:
+    _f = _Flaky(set(range(1, 100)), "empty")
+    _rf = run_firm(_f, _sub, obs, variant=ABSTAIN_OFFERED, batch_size=12,
+                   cache_path=Path(_td) / "c.json")
+    check(_f.calls == 3 and _rf.stopped_early,
+          f"a dead upstream costs 3 requests, not 3 per batch ({_f.calls} calls)")
 
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)

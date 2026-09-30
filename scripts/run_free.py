@@ -136,6 +136,17 @@ def main() -> int:
                 exhausted = True
                 break
 
+            if r.stopped_early or r.n_unrecovered_batches or r.n_failed_batches:
+                # Never record a run with holes as finished: its missing pairs
+                # would score as model errors when the cause was delivery.
+                # Complete batches are cached; the next attempt requests only
+                # the rest.
+                print(f"  {firm.firm_id:<22} INCOMPLETE: {r.n_parsed}/{r.n_pairs} pairs, "
+                      f"{r.n_unrecovered_batches} unrecovered + {r.n_failed_batches} "
+                      f"failed batches{', stopped early' if r.stopped_early else ''}; "
+                      f"resume later")
+                continue
+
             s = score(firm.labels, r.predictions, rule_regimes=regimes)
             run["per_firm"].append({
                 "firm_id": firm.firm_id,

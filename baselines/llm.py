@@ -72,6 +72,9 @@ class RunResult:
     # without a complete reply after every re-request.
     n_incomplete_calls: int = 0
     n_unrecovered_batches: int = 0
+    # True when the run stopped on consecutive failed calls: the upstream is
+    # down, and the run should resume later rather than be scored with holes.
+    stopped_early: bool = False
     raw: list[str] = field(default_factory=list)
 
     @property
@@ -261,6 +264,7 @@ def run_firm(
     usage = Usage()
     unparseable = missing = off_schema = truncated = failed_batches = 0
     incomplete = unrecovered = 0
+    bad_streak, stopped_early = 0, False
     consecutive_failures = 0
     raw: list[str] = []
 
@@ -319,12 +323,25 @@ def run_firm(
                           f"{u.seconds:.0f}s, finish={u.finish_reason or '?'}, {state}",
                           flush=True)
                 if text.strip() and not capped:
+                    bad_streak = 0
                     break
                 incomplete += 1
+                bad_streak += 1
                 if capped:
                     truncated += 1
+                # Three failed calls in a row, across batches, means the host is
+                # failing, not this batch. Each attempt costs a request from a
+                # 50-a-day allowance, so stop and resume after the reset.
+                if bad_streak >= max_attempts:
+                    stopped_early = True
+                    break
             else:
                 unrecovered += 1
+            if stopped_early:
+                if progress:
+                    print(f"      stopping: {bad_streak} consecutive incomplete "
+                          f"replies; resume later", flush=True)
+                break
         except Exception as exc:  # noqa: BLE001
             # One dead batch must not discard the other 20 calls of a firm. The
             # pairs in it get no prediction, which metrics score as errors, and
@@ -379,6 +396,7 @@ def run_firm(
         n_failed_batches=failed_batches,
         n_incomplete_calls=incomplete,
         n_unrecovered_batches=unrecovered,
+        stopped_early=stopped_early,
         raw=raw,
     )
 
