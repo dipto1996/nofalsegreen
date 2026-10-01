@@ -405,6 +405,27 @@ under the strict view; the test suite asserts exactly that, so the difference be
 two views on those pairs is a direct measure of how often a model declined to call a
 missing document a violation.
 
+**A third view, from a blind audit of the withheld labels.** While reading early results
+we found a withheld label the exports contradict. `i9.section2.employer_signature` is
+labelled `needs_evidence` because the source engine never maps the column, yet
+`section2_signed_date` and `section2_examiner_name` are populated for every employee, and
+the prompt tells models to match columns by meaning. Because this was noticed in model
+output, the correction is constrained so that it cannot be steered by that output. The
+protocol (`docs/LABEL_AUDIT_PROTOCOL.md`) was committed before the audit ran. It covers
+all 120 withheld pairs, not the ones models got wrong. The auditor is a separate agent
+given only each pair's obligation text and the exports its batch was shown, with no
+model reply, score, or engine note. A label is overturned only if every required item of
+"information needed" is present for that entity; ambiguity keeps the label.
+
+The audit overturned 2 of 120 labels, the Section 1 and Section 2 I-9 signatures, both on
+signed-date columns populated for all twelve employees. The auditor flagged the Section 1
+call as the weaker: there is no separate signature flag, and a stricter reader could hold
+that a date is not a signature. In the **audited view** those pairs are removed from
+scoring, not relabelled, since an auditor's verdict is not a label fixed by construction.
+Removing pairs can only remove false greens, so every table reporting this view states
+how many pairs it scores, and the engine view remains the headline. Every audit decision
+is published with its reasoning (`docs/label_audit.json`).
+
 ## 7. Baselines
 
 **Trivial baselines (run).** `always_pass` answers `pass` everywhere and is maximally
@@ -446,9 +467,29 @@ error. It is never coerced. Coercing to `needs_evidence` would convert a model's
 formatting failures into abstentions and flatter its false-green rate; coercing to `pass`
 would do the reverse. Either would make the headline number a function of our parser. We
 report the unparseable rate separately so a reader can see how much of a score is
-formatting. The test suite asserts that a model emitting no valid verdicts earns zero on
-both the false-green rate and violation recall, so a formatting failure can never be
-mistaken for safety.
+formatting.
+
+**Coverage, because an unanswered pair cannot be a false green.** A pair with no
+prediction scores as a miss on violation recall, which is conservative. On the
+false-green rate it is the opposite: the pair stays in the denominator and can never be
+counted as `pass`, so a model that answers less looks safer, and one that answers nothing
+scores a perfect 0.000. The headline rate keeps the declared definition, but every
+results table also reports how many pairs each model answered and the false-green rate
+among withheld pairs it actually answered. A gap between the two columns is a coverage
+effect, not safety.
+
+**Delivery failures are not answers.** Free endpoints sometimes return an empty reply,
+end a reply with an upstream error, or cut it off below our output cap. None of these is
+the model's answer, so the batch is re-requested, at most three attempts in all. Three
+such failures in a row, across batches, means the host is failing rather than the batch:
+the run stops, keeps its complete batches, and resumes after the next quota reset. A run
+is never recorded as finished while a batch is missing for this reason, because its
+missing pairs would score as model errors when the cause was delivery. Two outcomes are
+the model's own and are kept as given: a reply that ends normally but contains no usable
+verdict lines (counted as unanswered), and a reply that runs to our 32,000-token cap on
+all three attempts (the cap sits at the evaluated models' own ceiling, so the model is
+generating without end; the batch is recorded as unanswered). Every attempt, with its
+token count and the provider's stop reason, is in the sweep log.
 
 **Measured cost.** The full sweep is 1,446 API calls per model per variant, about 2.55M
 input and 1.73M output tokens over 31 firms at batch size 40. At list prices that is
@@ -690,7 +731,8 @@ model. This is where the document-versus-field asymmetry in Section 9 is tested.
 **Table 5 — near-miss controls.** For conforming cases placed exactly on the legal
 boundary, the rate at which each model raises an alarm, against its rate on
 comfortably-conforming controls. A gap indicates proximity heuristics rather than rule
-application.
+application. *Not produced in this study:* the evaluated subset has no conforming pairs
+(Section 9).
 
 **Figure 1 — the separation plot.** Violation recall on one axis, false-green rate on the
 other, one point per model, with the four trivial baselines marking the corners. The
@@ -725,8 +767,22 @@ finding for system builders, because it says where to put human review. If it do
 hold, we report that the failure is uniform across evidence classes, which is also useful
 and which we will not suppress.
 
+The classes are assigned mechanically, not by judgment, from each obligation's verbatim
+"information needed" text (`nofalsegreen/evidence_class.py`, committed before any rate was
+computed by class). An obligation is a *document* obligation if the text names a document,
+notice, posting, memo, file, list, summary, copy or clause, or a presence flag for one;
+otherwise it is a *field* obligation. The rule leans toward *document*, so an obligation
+needing both kinds of evidence counts as a document obligation. Of the 120 withheld pairs,
+49 are document pairs and 71 are field pairs; the full assignment is in
+`docs/evidence_class_assignment.txt`.
+
 **Near-miss controls.** From Table 5. Distinguishes rule application from proximity
-heuristics.
+heuristics. *Not measurable in the language-model study:* the evaluated subset contains
+only violations and withheld-evidence pairs, with no conforming pair, so there is no
+boundary case to probe. For the same reason the false-alarm rate reported for language
+models is 0.000 by construction and carries no information; tables show it as such. Both
+remain measurable on the generated firms, which carry conforming and near-miss pairs, and
+are the first analyses a funded run should add.
 
 **The schema ablation.** From Table 3. A large reduction in false greens when abstention
 is offered locates the problem in interface design, which is an actionable finding for
@@ -736,15 +792,30 @@ is a harder problem and a more important result. We commit to reporting whicheve
 **Evidence-pointer quality.** Among pairs answered correctly, how often the cited evidence
 field is one ground truth records as relevant. A correct verdict reached by pointing at the
 wrong record is not a reliable verdict, and at scale it is indistinguishable from a guess.
+*Not measurable in the language-model study:* the anchor firm's labels record no
+ground-truth evidence fields. The cited fields are retained in every reply and are used
+qualitatively below.
 
 **Consistency drift.** Reported if a system under test exposes headline counts. Flagged in
 Section 6 as the least-established axis in the suite, and it will be reported as
-exploratory rather than as a headline.
+exploratory rather than as a headline. *Not applicable here:* no model under test exposes
+headline counts.
 
 **Qualitative failure cases.** Three to five verbatim excerpts from retained raw output
 showing a model asserting a verdict the records cannot support. These are the most
 persuasive evidence in the paper for a reader who does not care about aggregate rates, and
 they are available because every response is retained.
+
+To keep these from being the most damning lines picked out of thousands, the selection
+rule was fixed in code before any excerpt was read (`scripts/analysis.py`). For each model,
+under `abstain_offered` and in the frozen subset order, the excerpt is the first `pass` on
+a withheld pair whose reply line cites an evidence field. One excerpt per model, quoted
+verbatim beside the fixed label. Applied as declared, the rule selected the same pair
+for every model: the Section 2 signature label that the audit later overturned. We report
+that outcome as it fell, since four models agreeing on a mislabelled pair is itself a
+finding about the labels. We then apply the same rule once more, skipping overturned
+pairs, and mark those excerpts as the second application. This second step was added after
+the first application's result was seen, and is labelled as such wherever it appears.
 
 ---
 
@@ -799,6 +870,14 @@ valuable extension of this work.
 inference about unseen data, falling back to all sources for unclassified regimes, and
 asserting in tests that a correct model scores identically either way. It remains a
 deviation from sending a firm's complete record.
+
+**The label audit is an AI's, and came after results.** The blind audit (Section 6) was run
+by an AI agent, not by immigration counsel, and was commissioned after early results were
+read. Blindness to model output and coverage of every withheld pair limit how far it could
+be steered, and every decision is published with its reasoning, but it is not an expert
+review. It found 2 of 120 withheld labels contradicted by the exports. That is a lower
+bound on label error of that kind, not a measurement of label quality overall: the 20
+violation labels were not audited, and a counsel-led review remains the obvious next step.
 
 **No human baseline.** We do not know what false-green rate a competent paralegal or
 attorney would attain on this task, which would be the most informative reference point of

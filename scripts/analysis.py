@@ -27,6 +27,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from baselines.prompts import PROMPT_VERSION  # noqa: E402
 from nofalsegreen import northwind  # noqa: E402
 from nofalsegreen.evidence_class import evidence_class  # noqa: E402
+from nofalsegreen.labelviews import overturned  # noqa: E402
 from nofalsegreen.rulebook import Rulebook  # noqa: E402
 from nofalsegreen.subset import subset_firm  # noqa: E402
 from score_views import ANCHOR, CACHE, predictions_by_run  # noqa: E402
@@ -83,8 +84,13 @@ def by_evidence_class(labels, preds, rb) -> dict:
     return res
 
 
-def first_cited_false_green(labels, cache: dict, model: str, variant: str, firm_id: str):
-    """Apply the declared excerpt rule to the raw replies of one run."""
+def first_cited_false_green(labels, cache: dict, model: str, variant: str, firm_id: str,
+                            skip: frozenset = frozenset()):
+    """Apply the declared excerpt rule to the raw replies of one run.
+
+    `skip` implements the SECOND application (added 2026-10-01, after the first
+    application's result was seen): the same rule, skipping pairs the blind
+    audit overturned. It is reported separately and labelled as such."""
     truth = {l.pair_id: l for l in labels}
     order = [l.pair_id for l in labels]
     lines: dict[str, str] = {}
@@ -100,7 +106,7 @@ def first_cited_false_green(labels, cache: dict, model: str, variant: str, firm_
                 lines[cols[0]] = line.strip()
     for pid in order:
         line = lines.get(pid)
-        if not line or truth[pid].verdict.value != "needs_evidence":
+        if pid in skip or not line or truth[pid].verdict.value != "needs_evidence":
             continue
         cols = [c.strip() for c in line.split("\t")]
         if cols[1].lower() == "pass" and cols[2] not in ("-", "dash", ""):
@@ -118,6 +124,7 @@ def main() -> int:
     runs = predictions_by_run(firm, cache)
 
     labels = firm.labels
+    gone = overturned() or frozenset()
     out = {
         "prompt_version": PROMPT_VERSION,
         "n_pairs": len(labels),
@@ -142,6 +149,9 @@ def main() -> int:
         }
         if variant.endswith("offered"):
             entry["excerpt"] = first_cited_false_green(labels, cache, model, variant, firm.firm_id)
+            if gone:
+                entry["excerpt_second_application"] = first_cited_false_green(
+                    labels, cache, model, variant, firm.firm_id, skip=gone)
         out["runs"][key] = entry
 
     OUT.write_text(json.dumps(out, indent=2))
