@@ -136,9 +136,11 @@ def main() -> int:
                 exhausted = True
                 break
 
-            if r.stopped_early or r.n_unrecovered_batches or r.n_failed_batches:
-                # Never record a run with holes as finished: its missing pairs
-                # would score as model errors when the cause was delivery.
+            if r.stopped_early or r.n_failed_batches:
+                # Never record a run with holes from DELIVERY as finished: its
+                # missing pairs would score as model errors when the cause was
+                # the host. (Unrecovered batches, where the model itself ran to
+                # the cap every time, are a final outcome and are recorded.)
                 # Complete batches are cached; the next attempt requests only
                 # the rest.
                 print(f"  {firm.firm_id:<22} INCOMPLETE: {r.n_parsed}/{r.n_pairs} pairs, "

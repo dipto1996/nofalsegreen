@@ -69,7 +69,8 @@ class RunResult:
     n_truncated_calls: int = 0
     n_failed_batches: int = 0
     # Replies that came back empty or at the output cap, and batches still
-    # without a complete reply after every re-request.
+    # without a complete reply after every re-request (the model ran to our cap
+    # on every attempt; a final outcome, scored as unanswered).
     n_incomplete_calls: int = 0
     n_unrecovered_batches: int = 0
     # True when the run stopped on consecutive failed calls: the upstream is
@@ -326,12 +327,20 @@ def run_firm(
                     bad_streak = 0
                     break
                 incomplete += 1
-                bad_streak += 1
                 if capped:
                     truncated += 1
-                # Three failed calls in a row, across batches, means the host is
-                # failing, not this batch. Each attempt costs a request from a
-                # 50-a-day allowance, so stop and resume after the reset.
+                # Two kinds of incomplete reply. A host fault (empty, an error
+                # finish, or cut off below our cap) says nothing about the model.
+                # A reply that runs to OUR cap is the model generating without
+                # end; 32,000 is at the model's own ceiling, so that is the
+                # model's behaviour and the batch is eventually left unanswered.
+                own_cap = bool(u.output_tokens) and u.output_tokens >= max_tokens
+                if own_cap:
+                    continue
+                # Three host faults in a row, across batches, means the host is
+                # down. Each attempt costs a request from a 50-a-day allowance,
+                # so stop and resume after the reset.
+                bad_streak += 1
                 if bad_streak >= max_attempts:
                     stopped_early = True
                     break
