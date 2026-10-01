@@ -62,7 +62,7 @@ FALLBACK = "dots-studio/dots-3-note-preview:free"
 REPLACEMENTS = ("qwen/qwen3.8-27b:free", "google/gemma-4-31b-it:free")
 SCREEN = ROOT / "docs" / "replacement_screen_2026-09-30.json"
 
-# Cut-off rule, declared 2026-09-30 18:30 local before any replacement model
+# Cut-off rule, declared 2026-09-30 (18:27 local) before any replacement model
 # had answered a benchmark batch. Both replacements returned upstream 429 on
 # every screen attempt for 80 minutes after the reset. When the sweep reaches a
 # replacement, it screens it once more; if the model has still never passed,
