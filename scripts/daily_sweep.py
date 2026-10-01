@@ -59,6 +59,69 @@ MODELS = [
     "google/gemma-4-31b-it:free",
 ]
 FALLBACK = "dots-studio/dots-3-note-preview:free"
+REPLACEMENTS = ("qwen/qwen3.8-27b:free", "google/gemma-4-31b-it:free")
+SCREEN = ROOT / "docs" / "replacement_screen_2026-09-30.json"
+
+# Cut-off rule, declared 2026-09-30 18:30 local before any replacement model
+# had answered a benchmark batch. Both replacements returned upstream 429 on
+# every screen attempt for 80 minutes after the reset. When the sweep reaches a
+# replacement, it screens it once more; if the model has still never passed,
+# the fallback takes its slot. The fallback fills at most one slot; a second
+# unscreenable replacement is dropped and the study reports five models.
+
+
+def _screen_doc() -> dict:
+    return json.loads(SCREEN.read_text()) if SCREEN.exists() else {"results": {}, "attempts": []}
+
+
+def apply_substitutions() -> None:
+    """Rewrite MODELS from the substitutions already decided (survives restarts)."""
+    subs = _screen_doc().get("substitutions", {})
+    for i, m in enumerate(MODELS):
+        if m in subs:
+            MODELS[i] = subs[m]
+    for m in _screen_doc().get("dropped", []):
+        if m in MODELS:
+            MODELS.remove(m)
+
+
+def screen_or_substitute(model: str) -> str | None:
+    """Model to run in this replacement slot, or None if the slot is dropped."""
+    doc = _screen_doc()
+    if model in doc.get("substitutions", {}):
+        return doc["substitutions"][model]
+    if model in doc.get("dropped", []):
+        return None
+    if (doc["results"].get(model) or {}).get("ok"):
+        return model
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from probe_free_models import live_test
+    from nofalsegreen.credentials import load_checked_key
+
+    r = live_test(model, load_checked_key("openrouter"))
+    doc["attempts"].append({"at": datetime.datetime.now().isoformat(timespec="seconds"),
+                            "model": model, "at_slot_start": True, **r})
+    if r.get("ok"):
+        doc["results"][model] = r
+        SCREEN.write_text(json.dumps(doc, indent=2))
+        print(f"    screen passed: {model}", flush=True)
+        return model
+    subs = doc.setdefault("substitutions", {})
+    if FALLBACK not in subs.values():
+        subs[model] = FALLBACK
+        MODELS[MODELS.index(model)] = FALLBACK
+        print(f"    {model} never passed the screen ({r.get('error')}); "
+              f"slot taken by {FALLBACK}", flush=True)
+        SCREEN.write_text(json.dumps(doc, indent=2))
+        return FALLBACK
+    doc.setdefault("dropped", []).append(model)
+    MODELS.remove(model)
+    print(f"    {model} never passed the screen and the fallback is used; slot dropped",
+          flush=True)
+    SCREEN.write_text(json.dumps(doc, indent=2))
+    return None
+
+
 VARIANTS = [ABSTAIN_OFFERED, ABSTAIN_WITHHELD]
 BATCH = 12
 
@@ -167,6 +230,7 @@ def main() -> int:
                          "repeating until the study is done")
     args = ap.parse_args()
 
+    apply_substitutions()
     gone = withdrawn_models()
     q = queue(gone)
     done = completed()
@@ -215,6 +279,10 @@ def main() -> int:
 
         stop = False
         for model, variant in q:
+            if model in REPLACEMENTS:
+                model = screen_or_substitute(model)
+                if model is None:
+                    continue
             print(f"  {model.split('/')[-1]} / {variant}", flush=True)
             outcome = run_one(model, variant, args.subset)
             if outcome == "quota":

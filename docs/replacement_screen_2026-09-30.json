@@ -1,0 +1,152 @@
+{
+  "date": "2026-09-30T01:43:53",
+  "rule": "a replacement passes if it responds and its reply is parseable (the criterion the original six passed on 2026-09-21)",
+  "results": {
+    "qwen/qwen3.8-27b:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    "google/gemma-4-31b-it:free": {
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    "thinkingmachines/inkling:free": {
+      "ok": false,
+      "error": "403: only available on agentic harnesses"
+    },
+    "dots-studio/dots-3-note-preview:free": {
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": " |  | i9.section2.timeliness::SYN-1001\tfail\t- | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate"
+    }
+  },
+  "attempts": [
+    {
+      "at": "2026-09-30T01:44:18",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T02:29:07",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T02:29:07",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:05:32",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:05:33",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:15:33",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:15:33",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:25:33",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:25:33",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:35:34",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:35:34",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:45:34",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:45:34",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:55:35",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T17:55:35",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T18:05:35",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T18:05:35",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T18:15:36",
+      "model": "qwen/qwen3.8-27b:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T18:15:36",
+      "model": "google/gemma-4-31b-it:free",
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "at": "2026-09-30T18:26:33",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": " |  | i9.section2.timeliness::SYN-1001\tfail\t- | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate"
+    }
+  ]
+}

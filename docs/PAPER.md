@@ -547,7 +547,13 @@ substitute should either fail the same two-pair screen the original models passe
 then turned out to refuse API calls outright (it is served only inside agent applications),
 so before any replacement reply existed the fallback was changed to dots.3 Note Preview,
 the one remaining free model from a provider family not already in the set. A transient
-upstream rate limit is not treated as a screen failure. The
+upstream rate limit is not treated as a screen failure. Both replacements then returned
+upstream rate limits on every screen attempt for over an hour, so a cut-off was added,
+again before any replacement had answered a benchmark batch: when the sweep reaches a
+replacement it screens it once more, and a model that has still never passed yields its
+slot to the fallback. The fallback fills at most one slot; a second unscreenable
+replacement is dropped and reported as such. Every screen attempt is logged
+(`docs/replacement_screen_2026-09-30.json`). The
 replacements and the fallback rule were committed on 30 September 2026, before any reply
 from either model existed; as with the label views, the commit history is the evidence of
 that ordering. The replacements run under the identical prompt, subset, batch size, and
