@@ -247,10 +247,12 @@ class OpenRouterFreeProvider:
 
     ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 
-    def __init__(self, model: str, quota: Quota, *, max_retries: int = 4):
+    def __init__(self, model: str, quota: Quota, *, max_retries: int = 4,
+                 upstream_wait_s: float = 1800.0):
         from nofalsegreen.credentials import load_checked_key
 
         self.name = model
+        self.upstream_wait_s = upstream_wait_s
         self._key = load_checked_key("openrouter")
         self.limiter = RateLimiter(quota)
         self.max_retries = max_retries
@@ -268,7 +270,15 @@ class OpenRouterFreeProvider:
 
         delay = 8.0
         last_err: Exception | None = None
-        for _ in range(self.max_retries):
+        # An upstream 429 ("temporarily rate-limited upstream") is the shared
+        # free pool being saturated. Measured 2026-09-30: these are not charged
+        # against the daily allowance, so they get a patient wait of their own
+        # instead of consuming one of max_retries.
+        upstream_deadline = time.time() + self.upstream_wait_s
+        upstream_delay = 30.0
+        attempts = 0
+        while attempts < self.max_retries:
+            attempts += 1
             self.limiter.acquire()
             t0 = time.time()
             req = urllib.request.Request(
@@ -288,8 +298,14 @@ class OpenRouterFreeProvider:
                 last_err = RuntimeError(f"HTTP {e.code}: {detail}")
                 _log_retry(self.name, last_err, t0)
                 if e.code == 429:
-                    if "per day" in detail.lower() or "daily" in detail.lower():
+                    if any(t in detail.lower() for t in ("per day", "per-day", "daily")):
                         raise DailyQuotaExhausted(detail) from e
+                    if "upstream" in detail.lower() and time.time() < upstream_deadline:
+                        attempts -= 1
+                        self.limiter.used_today -= 1
+                        time.sleep(upstream_delay)
+                        upstream_delay = min(upstream_delay * 2, 300.0)
+                        continue
                     time.sleep(delay)
                     delay = min(delay * 2, 120.0)
                     continue

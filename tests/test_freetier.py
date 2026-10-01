@@ -155,5 +155,72 @@ e_un = estimate_cost(firm, rb.all_rules(), batch_size=20, scope_sources=False)
 check(e["max_call_tokens"] < e_un["max_call_tokens"],
       "scoping reduces the largest single call")
 
+print("\nupstream 429s wait patiently and are not charged as attempts")
+import io as _io  # noqa: E402
+import json as _json  # noqa: E402
+import urllib.error as _ue  # noqa: E402
+import urllib.request as _ur  # noqa: E402
+
+import baselines.freetier as _ft  # noqa: E402
+
+
+def _http429(msg):
+    body = _json.dumps({"error": {"code": 429, "message": msg}}).encode()
+    return _ue.HTTPError("u", 429, "Too Many Requests", {}, _io.BytesIO(body))
+
+
+class _Resp(_io.BytesIO):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+
+_script = []
+
+
+def _fake_urlopen(req, timeout=None):
+    nxt = _script.pop(0)
+    if isinstance(nxt, Exception):
+        raise nxt
+    return _Resp(_json.dumps(nxt).encode())
+
+
+_ok = {"choices": [{"message": {"content": "a::b\tpass\t-"}, "finish_reason": "stop"}],
+       "usage": {"prompt_tokens": 10, "completion_tokens": 5}}
+_orig = (_ur.urlopen, _ft.time.sleep, _ft.load_checked_key if hasattr(_ft, "load_checked_key") else None)
+_ur.urlopen, _ft.time.sleep = _fake_urlopen, (lambda s: None)
+import nofalsegreen.credentials as _cred  # noqa: E402
+_ck = _cred.load_checked_key
+_cred.load_checked_key = lambda *a, **k: "test-key"
+try:
+    _prov = _ft.OpenRouterFreeProvider("m:free", Quota(rpm=1000, rpd=50), max_retries=2)
+    _script[:] = [_http429("m:free is temporarily rate-limited upstream") for _ in range(6)] + [_ok]
+    _txt, _u = _prov.complete("s", "u", 100)
+    check(_txt.startswith("a::b") and _prov.limiter.used_today == 1,
+          "six upstream 429s then success: one request charged, max_retries=2 not consumed")
+    check(_u.finish_reason == "stop", "finish_reason is carried through")
+
+    _prov = _ft.OpenRouterFreeProvider("m:free", Quota(rpm=1000, rpd=50), max_retries=2)
+    _script[:] = [_http429("Rate limit exceeded: free-models-per-day")]
+    try:
+        _prov.complete("s", "u", 100)
+        check(False, "daily 429 raises DailyQuotaExhausted")
+    except DailyQuotaExhausted:
+        check(True, "daily 429 still raises DailyQuotaExhausted immediately")
+
+    _prov = _ft.OpenRouterFreeProvider("m:free", Quota(rpm=1000, rpd=50), max_retries=2,
+                                       upstream_wait_s=0)
+    _script[:] = [_http429("temporarily rate-limited upstream") for _ in range(2)]
+    try:
+        _prov.complete("s", "u", 100)
+        check(False, "upstream wait is bounded")
+    except RuntimeError:
+        check(True, "once the upstream wait budget is spent, 429s count as attempts again")
+finally:
+    _ur.urlopen, _ft.time.sleep = _orig[0], _orig[1]
+    _cred.load_checked_key = _ck
+
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)
