@@ -1,0 +1,3713 @@
+{
+  "criterion": "docs/LABEL_AUDIT_PROTOCOL.md (2026-10-01)",
+  "n_pairs": 120,
+  "pairs": {
+    "everify.photo_matching::Anita Desai": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "section 2 document type",
+          "found_in": "i9_records_export.csv.list_a_doc_title",
+          "value_for_entity": "Foreign Passport with Form I-94 (H-1B)"
+        },
+        {
+          "item": "photo-match result (match/no-match/recorded)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "documentCopySubmittedToDHS / copyRetained: only on a photo-TNC contest; no photo-TNC appears for this worker in everify_cases_2025 (status Employment Authorized)"
+      ],
+      "reason": "No export records an E-Verify photo-matching step or result; the I-9 document title alone does not show the photo comparison."
+    },
+    "everify.photo_matching::Hiroshi Yamamoto": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "section 2 document type",
+          "found_in": "i9_records_export.csv.list_a_doc_title",
+          "value_for_entity": "Foreign Passport with Form I-94 (H-1B)"
+        },
+        {
+          "item": "photo-match result (match/no-match/recorded)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "documentCopySubmittedToDHS / copyRetained: only on a photo-TNC contest; no photo-TNC appears for this worker in everify_cases_2025 (status Employment Authorized)"
+      ],
+      "reason": "No export records an E-Verify photo-matching step or result; the I-9 document title alone does not show the photo comparison."
+    },
+    "everify.photo_matching::James Park": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "section 2 document type",
+          "found_in": "i9_records_export.csv.list_a_doc_title",
+          "value_for_entity": "U.S. Passport"
+        },
+        {
+          "item": "photo-match result (match/no-match/recorded)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "documentCopySubmittedToDHS / copyRetained: only on a photo-TNC contest; no photo-TNC appears for this worker in everify_cases_2025 (status Employment Authorized)"
+      ],
+      "reason": "No export records an E-Verify photo-matching step or result; the I-9 document title alone does not show the photo comparison."
+    },
+    "everify.photo_matching::Mei Tanaka": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "section 2 document type",
+          "found_in": "i9_records_export.csv.list_a_doc_title",
+          "value_for_entity": "Foreign Passport with Form I-94 (H-1B)"
+        },
+        {
+          "item": "photo-match result (match/no-match/recorded)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "documentCopySubmittedToDHS / copyRetained: only on a photo-TNC contest; no photo-TNC appears for this worker in everify_cases_2025 (status Employment Authorized)"
+      ],
+      "reason": "No export records an E-Verify photo-matching step or result; the I-9 document title alone does not show the photo comparison."
+    },
+    "everify.photo_matching::Yuki Sato": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "section 2 document type",
+          "found_in": "i9_records_export.csv.list_a_doc_title",
+          "value_for_entity": "Foreign Passport with Form I-94 (H-1B)"
+        },
+        {
+          "item": "photo-match result (match/no-match/recorded)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "documentCopySubmittedToDHS / copyRetained: only on a photo-TNC contest; no photo-TNC appears for this worker in everify_cases_2025 (status Employment Authorized)"
+      ],
+      "reason": "No export records an E-Verify photo-matching step or result; the I-9 document title alone does not show the photo comparison."
+    },
+    "fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "actual pay rate + basis + FT/PT",
+          "found_in": "bamboohr_active_employees.csv.payRate",
+          "value_for_entity": "12/12 rows non-empty (e.g. 142000)"
+        },
+        {
+          "item": "LCA-attested wage + basis",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WAGE_RATE_OF_PAY_FROM",
+          "value_for_entity": "8/8 rows non-empty (e.g. 140000)"
+        },
+        {
+          "item": "prevailing-wage determination value",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 138000)"
+        },
+        {
+          "item": "prevailing-wage source",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "prevailing-wage level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "8/8 rows non-empty (e.g. Level II)"
+        },
+        {
+          "item": "actual-wage-system rate",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "payroll evidence",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "benching / non-productive periods",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Payroll register is not among the exports shown for this pair; no actual-wage-system rate, PW source type, or benching record is present."
+    },
+    "fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "placement type (direct vs third-party)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "end-client + worksite",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "contract/SOW chain + validity dates",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "who supervises/assigns",
+          "found_in": "bamboohr_active_employees.csv.supervisor",
+          "value_for_entity": "11/12 rows non-empty (e.g. Grace Lindqvist)"
+        },
+        {
+          "item": "petitioner legal-presence proof",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "service-of-process agent",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petitioner IRS tax ID",
+          "found_in": "cms_h1b_cases_export.csv.petitioner_fein",
+          "value_for_entity": "8/8 rows non-empty (e.g. 91-3055120)"
+        },
+        {
+          "item": "itinerary of services",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Supervisor and FEIN are present, but no placement type, end-client, contract/SOW chain, legal-presence proof, service-of-process agent or itinerary appears in the exports."
+    },
+    "fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "petitioner of-record address",
+          "found_in": "lca_certified_h1b_2024-2025.csv.EMPLOYER_ADDRESS1",
+          "value_for_entity": "8/8 rows non-empty (e.g. 300 Colorado St)"
+        },
+        {
+          "item": "occupancy evidence (lease/utility/business license)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "independent existence verification (VIBE/D&B/registry)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employee count at site",
+          "found_in": "bamboohr_active_employees.csv.location",
+          "value_for_entity": "12/12 rows non-empty (e.g. Austin - HQ)"
+        },
+        {
+          "item": "registered-agent / virtual-office flag",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Address and roster locations are present, but no occupancy evidence, independent existence verification or virtual-office flag."
+    },
+    "fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "filed itinerary (locations + dates)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "actual worksite history (locations + dates)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "mapping of each location to a certified LCA",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WORKSITE_CITY",
+          "value_for_entity": "8/8 rows non-empty (e.g. Austin)"
+        },
+        {
+          "item": "placement/contract validity dates",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Condition (multi-site) applies on the face of the exports: Sofia Reyes is located at 'Boston - Lab' (bamboohr) while her LCA/CMS worksite is Austin, TX. No filed itinerary, worksite history or placement dates are exported."
+    },
+    "fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "actual title",
+          "found_in": "bamboohr_active_employees.csv.jobTitle",
+          "value_for_entity": "12/12 rows non-empty (e.g. Robotics Software Engineer)"
+        },
+        {
+          "item": "current SOC",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "actual duties (manager/HR)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition title / SOC / duties",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA SOC",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "date/nature of any role change",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Actual title and LCA SOC are present, but no current SOC, duties text, petition SOC/duties, or role-change record."
+    },
+    "fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "notice type (RFE/NOIR/NOID)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "receipt date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "printed response-due date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "linked petition/beneficiary",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "whether tied to an FDNS visit",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "response-filed date + status",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "rfe_noid_cases_export.csv is not among the exports shown for this pair; none of the shown files records RFE/NOID notices."
+    },
+    "fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 2024-12-05)"
+        },
+        {
+          "item": "PAF-items-present checklist",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "H-1B-dependent / willful flag",
+          "found_in": "lca_certified_h1b_2024-2025.csv.H1B_DEPENDENT",
+          "value_for_entity": "8/8 rows non-empty (e.g. Y)"
+        },
+        {
+          "item": "corporate-change / single-employer flag",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF location",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "retention clock",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date and dependency flag are present, but nothing records which PAF items exist, the PAF location, or corporate-change status."
+    },
+    "h1b.i94.expiration::Anita Desai": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "I-94 admit-until date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-94 most recent entry date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition validity start",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-11-01"
+        },
+        {
+          "item": "petition validity end",
+          "found_in": "cms_h1b_cases_export.csv.valid_to",
+          "value_for_entity": "2028-10-31"
+        },
+        {
+          "item": "pending extension receipt + filing date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "visaStamp.expiry: marked informational"
+      ],
+      "reason": "Petition validity is present, but no I-94 admit-until or entry date appears in the exports shown (bamboohr/cms/lca); pending-extension data is also absent."
+    },
+    "h1b.i94.expiration::Daniel Cho": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "I-94 admit-until date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-94 most recent entry date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition validity start",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-06-01"
+        },
+        {
+          "item": "petition validity end",
+          "found_in": "cms_h1b_cases_export.csv.valid_to",
+          "value_for_entity": "2028-05-31"
+        },
+        {
+          "item": "pending extension receipt + filing date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "visaStamp.expiry: marked informational"
+      ],
+      "reason": "Petition validity is present, but no I-94 admit-until or entry date appears in the exports shown (bamboohr/cms/lca); pending-extension data is also absent."
+    },
+    "h1b.i94.expiration::Lucia Ferreira": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "I-94 admit-until date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-94 most recent entry date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition validity start",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2023-06-01"
+        },
+        {
+          "item": "petition validity end",
+          "found_in": "cms_h1b_cases_export.csv.valid_to",
+          "value_for_entity": "2029-05-31"
+        },
+        {
+          "item": "pending extension receipt + filing date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "visaStamp.expiry: marked informational"
+      ],
+      "reason": "Petition validity is present, but no I-94 admit-until or entry date appears in the exports shown (bamboohr/cms/lca); pending-extension data is also absent."
+    },
+    "h1b.i94.expiration::Mei Tanaka": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "I-94 admit-until date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-94 most recent entry date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition validity start",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-08-01"
+        },
+        {
+          "item": "petition validity end",
+          "found_in": "cms_h1b_cases_export.csv.valid_to",
+          "value_for_entity": "2028-07-31"
+        },
+        {
+          "item": "pending extension receipt + filing date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "visaStamp.expiry: marked informational"
+      ],
+      "reason": "Petition validity is present, but no I-94 admit-until or entry date appears in the exports shown (bamboohr/cms/lca); pending-extension data is also absent."
+    },
+    "h1b.i94.expiration::Omar Farouk": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "I-94 admit-until date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-94 most recent entry date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition validity start",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-09-01"
+        },
+        {
+          "item": "petition validity end",
+          "found_in": "cms_h1b_cases_export.csv.valid_to",
+          "value_for_entity": "2028-08-31"
+        },
+        {
+          "item": "pending extension receipt + filing date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "visaStamp.expiry: marked informational"
+      ],
+      "reason": "Petition validity is present, but no I-94 admit-until or entry date appears in the exports shown (bamboohr/cms/lca); pending-extension data is also absent."
+    },
+    "h1b.i94.expiration::Sofia Reyes": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "I-94 admit-until date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-94 most recent entry date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition validity start",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-10-01"
+        },
+        {
+          "item": "petition validity end",
+          "found_in": "cms_h1b_cases_export.csv.valid_to",
+          "value_for_entity": "2028-09-30"
+        },
+        {
+          "item": "pending extension receipt + filing date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "visaStamp.expiry: marked informational"
+      ],
+      "reason": "Petition validity is present, but no I-94 admit-until or entry date appears in the exports shown (bamboohr/cms/lca); pending-extension data is also absent."
+    },
+    "h1b.i94.expiration::Yuki Sato": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "I-94 admit-until date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-94 most recent entry date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition validity start",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition validity end",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "pending extension receipt + filing date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "visaStamp.expiry: marked informational"
+      ],
+      "reason": "Petition validity is present, but no I-94 admit-until or entry date appears in the exports shown (bamboohr/cms/lca); pending-extension data is also absent."
+    },
+    "h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "petition validity windows",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "8/8 rows non-empty (e.g. 2025-04-01)"
+        },
+        {
+          "item": "I-94 admit-until",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employment start/stop + employer/worksite",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025-02-03)"
+        },
+        {
+          "item": "extension/port filing dates + decisions",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "grace-period invocations",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admit-until dates, extension/port filings or grace-period records are in the exports shown."
+    },
+    "h1b.max_stay.six_year_limit::Anita Desai": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "all prior H-1B and L petition validity periods",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-11-01"
+        },
+        {
+          "item": "entry/exit history (I-94 travel)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "days physically outside US per validity",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "continuous year abroad (dates)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "proposed extension end date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Only the current CMS petition validity is exported; no travel/entry-exit history, days abroad, or proposed extension end date."
+    },
+    "h1b.max_stay.six_year_limit::Daniel Cho": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "all prior H-1B and L petition validity periods",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-06-01"
+        },
+        {
+          "item": "entry/exit history (I-94 travel)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "days physically outside US per validity",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "continuous year abroad (dates)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "proposed extension end date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Only the current CMS petition validity is exported; no travel/entry-exit history, days abroad, or proposed extension end date."
+    },
+    "h1b.max_stay.six_year_limit::Mei Tanaka": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "all prior H-1B and L petition validity periods",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-08-01"
+        },
+        {
+          "item": "entry/exit history (I-94 travel)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "days physically outside US per validity",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "continuous year abroad (dates)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "proposed extension end date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Only the current CMS petition validity is exported; no travel/entry-exit history, days abroad, or proposed extension end date."
+    },
+    "h1b.max_stay.six_year_limit::Ravi Anand": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "all prior H-1B and L petition validity periods",
+          "found_in": "cms_h1b_cases_export.csv.valid_from",
+          "value_for_entity": "2025-04-01"
+        },
+        {
+          "item": "entry/exit history (I-94 travel)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "days physically outside US per validity",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "continuous year abroad (dates)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "proposed extension end date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Only the current CMS petition validity is exported; no travel/entry-exit history, days abroad, or proposed extension end date."
+    },
+    "h1b.max_stay.six_year_limit::Yuki Sato": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "all prior H-1B and L petition validity periods",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "entry/exit history (I-94 travel)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "days physically outside US per validity",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "continuous year abroad (dates)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "proposed extension end date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Only the current CMS petition validity is exported; no travel/entry-exit history, days abroad, or proposed extension end date."
+    },
+    "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "worker charges/deductions for LCA/petition/attorney/ACWIA/fraud fees",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employer FTE count",
+          "found_in": "bamboohr_active_employees.csv.employmentStatus",
+          "value_for_entity": "12/12 rows non-empty (e.g. Full-Time)"
+        },
+        {
+          "item": "resulting net wage",
+          "found_in": "gusto_payroll_register_2025-q2.csv.net_pay",
+          "value_for_entity": "22/22 rows non-empty (e.g. 3820.72)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Gusto shows only an unitemized pretax_deductions total; no deduction is labelled by purpose, so fee charges cannot be identified."
+    },
+    "h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "existence/terms of early-departure repayment clause",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "amount",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "reasonable pre-estimate of loss",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "governing State",
+          "found_in": "bamboohr_active_employees.csv.state",
+          "value_for_entity": "12/12 rows non-empty (e.g. TX)"
+        },
+        {
+          "item": "ACWIA fee embedded",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "whether worker actually paid",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No repayment/liquidated-damages clause data appears in any export shown."
+    },
+    "h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "gross pay per period",
+          "found_in": "gusto_payroll_register_2025-q2.csv.gross_pay",
+          "value_for_entity": "22/22 rows non-empty (e.g. 5916.67)"
+        },
+        {
+          "item": "each deduction line + reason code",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "net cash paid",
+          "found_in": "gusto_payroll_register_2025-q2.csv.net_pay",
+          "value_for_entity": "22/22 rows non-empty (e.g. 3820.72)"
+        },
+        {
+          "item": "pay date vs period end",
+          "found_in": "gusto_payroll_register_2025-q2.csv.check_date",
+          "value_for_entity": "22/22 rows non-empty (e.g. 2025-06-15)"
+        },
+        {
+          "item": "pay frequency (period start/end)",
+          "found_in": "gusto_payroll_register_2025-q2.csv.pay_period_start",
+          "value_for_entity": "22/22 rows non-empty (e.g. 2025-06-01)"
+        },
+        {
+          "item": "IRS/FICA withholding evidence",
+          "found_in": "gusto_payroll_register_2025-q2.csv.social_security_tax",
+          "value_for_entity": "22/22 rows non-empty (e.g. 366.83)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "pretax_deductions is a single unitemized amount with no reason code, so the authorized/unauthorized character of deductions cannot be read."
+    },
+    "h1b.wage.payment.start-clock::Anita Desai": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "US admission date (I-94)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "work-eligibility date (COS)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first entered-employment date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2023-07-17"
+        },
+        {
+          "item": "first paycheck date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission or change-of-status eligibility date is exported; the payroll register covers only 2025-Q2, so the first paycheck date is not shown."
+    },
+    "h1b.wage.payment.start-clock::Daniel Cho": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "US admission date (I-94)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "work-eligibility date (COS)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first entered-employment date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2025-04-14"
+        },
+        {
+          "item": "first paycheck date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission or change-of-status eligibility date is exported; the payroll register covers only 2025-Q2, so the first paycheck date is not shown."
+    },
+    "h1b.wage.payment.start-clock::Lucia Ferreira": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "US admission date (I-94)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "work-eligibility date (COS)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first entered-employment date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2023-03-06"
+        },
+        {
+          "item": "first paycheck date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission or change-of-status eligibility date is exported; the payroll register covers only 2025-Q2, so the first paycheck date is not shown."
+    },
+    "h1b.wage.payment.start-clock::Omar Farouk": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "US admission date (I-94)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "work-eligibility date (COS)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first entered-employment date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2021-09-20"
+        },
+        {
+          "item": "first paycheck date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission or change-of-status eligibility date is exported; the payroll register covers only 2025-Q2, so the first paycheck date is not shown."
+    },
+    "h1b.wage.payment.start-clock::Sofia Reyes": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "US admission date (I-94)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "work-eligibility date (COS)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first entered-employment date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2022-10-03"
+        },
+        {
+          "item": "first paycheck date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission or change-of-status eligibility date is exported; the payroll register covers only 2025-Q2, so the first paycheck date is not shown."
+    },
+    "h1b.wage.payment.start-clock::Yuki Sato": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "US admission date (I-94)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "work-eligibility date (COS)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first entered-employment date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2024-01-08"
+        },
+        {
+          "item": "first paycheck date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission or change-of-status eligibility date is exported; the payroll register covers only 2025-Q2, so the first paycheck date is not shown."
+    },
+    "h1b.wage.prevailing.pwd-validity::pw:15-1252:L2": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PWD determination/issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "I-200-25010-100001: 2024-12-05; I-200-25010-100003: 2025-02-05; I-200-23010-100009: 2023-07-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "LCA carries a PW tracking number and filing date, but no PWD issue or expiration date."
+    },
+    "h1b.wage.prevailing.pwd-validity::pw:15-1252:L4": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PWD determination/issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2021-08-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "LCA carries a PW tracking number and filing date, but no PWD issue or expiration date."
+    },
+    "h1b.wage.prevailing.pwd-validity::pw:17-2061:L3": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PWD determination/issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2022-07-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "LCA carries a PW tracking number and filing date, but no PWD issue or expiration date."
+    },
+    "h1b.wage.prevailing.pwd-validity::pw:17-2141:L3": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PWD determination/issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2022-09-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "LCA carries a PW tracking number and filing date, but no PWD issue or expiration date."
+    },
+    "h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type enum",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "source document/ID",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "P-200-21300-100005"
+        },
+        {
+          "item": "PW value",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "165000"
+        },
+        {
+          "item": "SOC",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "15-1252"
+        },
+        {
+          "item": "area",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WORKSITE_COUNTY",
+          "value_for_entity": "Travis"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No column states the PW source type; it could only be inferred from the tracking-number format (and PW_OES_YEAR suggests OES), which is ambiguous, so the item is treated as absent."
+    },
+    "h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type enum",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "source document/ID",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "P-200-22300-100007"
+        },
+        {
+          "item": "PW value",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "144000"
+        },
+        {
+          "item": "SOC",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "17-2061"
+        },
+        {
+          "item": "area",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WORKSITE_COUNTY",
+          "value_for_entity": "Travis"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No column states the PW source type; it could only be inferred from the tracking-number format (and PW_OES_YEAR suggests OES), which is ambiguous, so the item is treated as absent."
+    },
+    "h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type enum",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "source document/ID",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "P-200-22300-100006"
+        },
+        {
+          "item": "PW value",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "128000"
+        },
+        {
+          "item": "SOC",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "17-2141"
+        },
+        {
+          "item": "area",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WORKSITE_COUNTY",
+          "value_for_entity": "Travis"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No column states the PW source type; it could only be inferred from the tracking-number format (and PW_OES_YEAR suggests OES), which is ambiguous, so the item is treated as absent."
+    },
+    "h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type enum",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "source document/ID",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "I-200-23010-100002: P-200-22300-100002; I-200-22010-100004: P-200-22300-100004"
+        },
+        {
+          "item": "PW value",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "I-200-23010-100002: 130000; I-200-22010-100004: 145000"
+        },
+        {
+          "item": "SOC",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "I-200-23010-100002: 17-2199; I-200-22010-100004: 17-2199"
+        },
+        {
+          "item": "area",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WORKSITE_COUNTY",
+          "value_for_entity": "I-200-23010-100002: Travis; I-200-22010-100004: Travis"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No column states the PW source type; it could only be inferred from the tracking-number format (and PW_OES_YEAR suggests OES), which is ambiguous, so the item is treated as absent."
+    },
+    "h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "violation type",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "willfulness determination",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "U.S. worker displaced",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition filing date + 90-day windows",
+          "found_in": "cms_h1b_cases_export.csv.filing_date",
+          "value_for_entity": "8/8 rows non-empty (e.g. 2025-01-10)"
+        },
+        {
+          "item": "affected-worker count",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No violation, willfulness or displacement data is exported."
+    },
+    "i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "petition form edition date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition filing date",
+          "found_in": "cms_h1b_cases_export.csv.filing_date",
+          "value_for_entity": "8/8 rows non-empty (e.g. 2025-01-10)"
+        },
+        {
+          "item": "petition classification",
+          "found_in": "cms_h1b_cases_export.csv.classification",
+          "value_for_entity": "8/8 rows non-empty (e.g. H-1B)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-129 form edition date is exported."
+    },
+    "i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "date of alleged act",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "date charge filed: marked 'if known'"
+      ],
+      "reason": "No alleged discriminatory act or date appears in any export."
+    },
+    "i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "canonical document catalog (List A/B/C, hasExpiry, acceptability window)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "per-form recorded doc types",
+          "found_in": "i9_records_export.csv.list_a_doc_title",
+          "value_for_entity": "12/12 rows non-empty (e.g. Foreign Passport with Form I-94 (H-1B))"
+        },
+        {
+          "item": "per-form doc numbers",
+          "found_in": "i9_records_export.csv.list_a_doc_number",
+          "value_for_entity": "12/12 rows non-empty (e.g. P1000001)"
+        },
+        {
+          "item": "per-form doc expiries",
+          "found_in": null,
+          "value_for_entity": "i9_records_export.csv.list_a_doc_expiry is blank for NWR-1010 (James Park) and NWR-1011 (Grace Lindqvist), both U.S. passports; populated on 10/12 forms"
+        },
+        {
+          "item": "reverification docs",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No document catalog is exported; list_a_doc_expiry is blank for 2 of 12 forms (NWR-1010, NWR-1011 U.S. passports); reverification documents are not exported though Lucia Ferreira's Supplement B was due 2026-06-15."
+    },
+    "i9.noi.production-window::deadline-gap:i9.noi.production-window": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "employer id",
+          "found_in": "everify_cases_2025.csv.client_company_name",
+          "value_for_entity": "12/12 rows non-empty (e.g. Northwind Robotics, Inc.)"
+        },
+        {
+          "item": "NOI service date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "production completed date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-9 count produced",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "active roster count",
+          "found_in": "bamboohr_active_employees.csv.status",
+          "value_for_entity": "12/12 rows non-empty (e.g. Active)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No Notice of Inspection or production record is exported."
+    },
+    "i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "documents-per-list count per form",
+          "found_in": "i9_records_export.csv.list_a_doc_title",
+          "value_for_entity": "12/12 rows non-empty (e.g. Foreign Passport with Form I-94 (H-1B))"
+        },
+        {
+          "item": "doc type vs national origin/citizenship",
+          "found_in": "bamboohr_active_employees.csv.nationality",
+          "value_for_entity": "12/12 rows non-empty (e.g. India)"
+        },
+        {
+          "item": "rejection events",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Per-list document fields and nationality are present, but no document-rejection events are recorded."
+    },
+    "i9.receipts.rule::i9-fieldgap:i9.receipts.rule": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "receipt used (bool)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "receipt type",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "hire date",
+          "found_in": "i9_records_export.csv.start_date",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025-02-03)"
+        },
+        {
+          "item": "replacement document presented date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employment duration days",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025-02-03)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No column records whether a receipt was accepted or when a replacement document was presented."
+    },
+    "i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "remote alternative used (bool)",
+          "found_in": "i9_records_export.csv.alternative_procedure",
+          "value_for_entity": "12/12 rows non-empty (e.g. N)"
+        },
+        {
+          "item": "employer enrolled in E-Verify",
+          "found_in": "everify_cases_2025.csv.case_number",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025020300010001)"
+        },
+        {
+          "item": "E-Verify good standing",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "E-Verify case created",
+          "found_in": "i9_records_export.csv.everify_case_number",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025020300010001)"
+        },
+        {
+          "item": "alt-procedure box checked",
+          "found_in": "i9_records_export.csv.alternative_procedure",
+          "value_for_entity": "12/12 rows non-empty (e.g. N)"
+        },
+        {
+          "item": "copies retained front/back",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "live video conducted",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Alternative-procedure flag and E-Verify cases are present, but good standing, copy retention and live-video attestation are not; the text does not make these conditional on remote use."
+    },
+    "i9.retention.storage_and_production::Anita Desai": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "storage medium",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "electronic-system controls (access/backup/audit trail/tamper-evident)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "inspection producibility / time-to-produce",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No export describes how I-9s are stored or how fast they can be produced."
+    },
+    "i9.retention.storage_and_production::Helena Voss": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "storage medium",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "electronic-system controls (access/backup/audit trail/tamper-evident)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "inspection producibility / time-to-produce",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No export describes how I-9s are stored or how fast they can be produced."
+    },
+    "i9.retention.storage_and_production::Hiroshi Yamamoto": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "storage medium",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "electronic-system controls (access/backup/audit trail/tamper-evident)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "inspection producibility / time-to-produce",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No export describes how I-9s are stored or how fast they can be produced."
+    },
+    "i9.retention.storage_and_production::Mei Tanaka": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "storage medium",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "electronic-system controls (access/backup/audit trail/tamper-evident)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "inspection producibility / time-to-produce",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No export describes how I-9s are stored or how fast they can be produced."
+    },
+    "i9.retention.storage_and_production::Omar Farouk": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "storage medium",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "electronic-system controls (access/backup/audit trail/tamper-evident)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "inspection producibility / time-to-produce",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No export describes how I-9s are stored or how fast they can be produced."
+    },
+    "i9.retention.storage_and_production::Ravi Anand": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "storage medium",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "electronic-system controls (access/backup/audit trail/tamper-evident)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "inspection producibility / time-to-produce",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No export describes how I-9s are stored or how fast they can be produced."
+    },
+    "i9.retention.storage_and_production::Sofia Reyes": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "storage medium",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "electronic-system controls (access/backup/audit trail/tamper-evident)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "inspection producibility / time-to-produce",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No export describes how I-9s are stored or how fast they can be produced."
+    },
+    "i9.retention.storage_and_production::Yuki Sato": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "storage medium",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "electronic-system controls (access/backup/audit trail/tamper-evident)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "inspection producibility / time-to-produce",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No export describes how I-9s are stored or how fast they can be produced."
+    },
+    "i9.reverification.unfair::i9-prohibited:i9.reverification.unfair": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "employee count",
+          "found_in": "bamboohr_active_employees.csv.id",
+          "value_for_entity": "12/12 rows non-empty (e.g. b1000000-0000-4000-8000-000000000001)"
+        },
+        {
+          "item": "job-posting citizenship requirements",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "legal/contractual basis for citizenship requirement",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "adverse-action records by protected status",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Headcount is derivable, but no job postings, citizenship-requirement basis or adverse-action records are exported."
+    },
+    "i9.section1.signature::i9-fieldgap:i9.section1.signature": {
+      "decision": "evidence_present",
+      "items": [
+        {
+          "item": "section 1 signature present",
+          "found_in": "i9_records_export.csv.section1_signed_date",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025-02-03)"
+        },
+        {
+          "item": "section 1 sign date",
+          "found_in": "i9_records_export.csv.section1_signed_date",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025-02-03)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "section1_signed_date is populated for all 12 I-9 records; a recorded signed-date is a record that Section 1 was signed and when, so both items are supplied (no separate signature flag exists; the date column is read as the signature record)."
+    },
+    "i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "section 1 status attested (citizen/national/LPR/alien authorized)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "boxes checked count",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No Section 1 attestation-box field is exported; bamboohr visaType is an HR field, not the employee's Section 1 attestation."
+    },
+    "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature": {
+      "decision": "evidence_present",
+      "items": [
+        {
+          "item": "section 2 employer signature present",
+          "found_in": "i9_records_export.csv.section2_examiner_name",
+          "value_for_entity": "12/12 rows non-empty (e.g. Olivia Brandt)"
+        },
+        {
+          "item": "section 2 employer sign date",
+          "found_in": "i9_records_export.csv.section2_signed_date",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025-02-13)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "section2_signed_date, section2_examiner_name and section2_examiner_title are populated for all 12 I-9 records, supplying the employer signer and signature date."
+    },
+    "i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "List A doc title",
+          "found_in": "i9_records_export.csv.list_a_doc_title",
+          "value_for_entity": "12/12 rows non-empty (e.g. Foreign Passport with Form I-94 (H-1B))"
+        },
+        {
+          "item": "List A doc issuing authority",
+          "found_in": "i9_records_export.csv.list_a_doc_issuing_authority",
+          "value_for_entity": "12/12 rows non-empty (e.g. Government of India - Ministry of External Affairs)"
+        },
+        {
+          "item": "List A doc number",
+          "found_in": "i9_records_export.csv.list_a_doc_number",
+          "value_for_entity": "12/12 rows non-empty (e.g. P1000001)"
+        },
+        {
+          "item": "List A doc expiration",
+          "found_in": null,
+          "value_for_entity": "i9_records_export.csv.list_a_doc_expiry is blank for NWR-1010 (James Park) and NWR-1011 (Grace Lindqvist), both U.S. passports; populated on 10/12 forms"
+        },
+        {
+          "item": "remote alternative used (bool)",
+          "found_in": "i9_records_export.csv.alternative_procedure",
+          "value_for_entity": "12/12 rows non-empty (e.g. N)"
+        }
+      ],
+      "conditional_items_skipped": [
+        "copiesRetained: required only if remote; alternative_procedure = N on all 12 forms"
+      ],
+      "reason": "Per-document expiration is blank for 2 of 12 forms (NWR-1010 James Park, NWR-1011 Grace Lindqvist, both U.S. passports, which carry an expiry), so the per-doc item is not present for every form."
+    },
+    "i9.technical.cure-window::deadline-gap:i9.technical.cure-window": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "employer id",
+          "found_in": "everify_cases_2025.csv.client_company_name",
+          "value_for_entity": "12/12 rows non-empty (e.g. Northwind Robotics, Inc.)"
+        },
+        {
+          "item": "notice of technical deficiency date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "flagged items list",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "correction completed date per item",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "pattern-or-practice flag",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "good-faith indicators",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No ICE technical-deficiency notice or correction record is exported."
+    },
+    "lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "dependency / willful-violator flags",
+          "found_in": "lca_certified_h1b_2024-2025.csv.H1B_DEPENDENT",
+          "value_for_entity": "8/8 rows non-empty (e.g. Y)"
+        },
+        {
+          "item": "exempt-only flag",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition filing date",
+          "found_in": "cms_h1b_cases_export.csv.filing_date",
+          "value_for_entity": "8/8 rows non-empty (e.g. 2025-01-10)"
+        },
+        {
+          "item": "U.S.-worker separations same occupation/area within +/-90 days",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "secondary-placement flag + date + inquiry",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "essentially-equivalent job mapping",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "STATUTORY_BASIS (exempt basis) is empty; bamboohr lists active employees only, so separations are not exported; no secondary-placement data."
+    },
+    "lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "dependency flag",
+          "found_in": "lca_certified_h1b_2024-2025.csv.H1B_DEPENDENT",
+          "value_for_entity": "8/8 rows non-empty (e.g. Y)"
+        },
+        {
+          "item": "exempt flag",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "recruitment methods with dates/places",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "compensation offered vs required wage",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WAGE_RATE_OF_PAY_FROM",
+          "value_for_entity": "8/8 rows non-empty (e.g. 140000)"
+        },
+        {
+          "item": "applicant log + disposition",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "equally/better-qualified U.S. applicant record",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF recruitment summary present",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No recruitment, applicant-log or PAF recruitment-summary data is exported; exempt basis is empty."
+    },
+    "lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "violation type",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "willful flag",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "displacement within 90/90 flag",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "workers affected",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "underpayment amount + period",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "good-faith/history factors",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No violation-level data is exported."
+    },
+    "lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "certified-LCA-delivered date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "worker first-report-to-work date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "12/12 rows non-empty (e.g. 2025-02-03)"
+        }
+      ],
+      "conditional_items_skipped": [
+        "acknowledgment of receipt: marked 'if captured'"
+      ],
+      "reason": "No LCA delivery date is exported."
+    },
+    "lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "bargaining rep exists + notice date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "posting locations / dates OR electronic-notice method + window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice content fields",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2022-05-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no bargaining-rep, posting or electronic-notice data is exported for this LCA."
+    },
+    "lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "bargaining rep exists + notice date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "posting locations / dates OR electronic-notice method + window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice content fields",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2022-09-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no bargaining-rep, posting or electronic-notice data is exported for this LCA."
+    },
+    "lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "bargaining rep exists + notice date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "posting locations / dates OR electronic-notice method + window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice content fields",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2022-07-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no bargaining-rep, posting or electronic-notice data is exported for this LCA."
+    },
+    "lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "bargaining rep exists + notice date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "posting locations / dates OR electronic-notice method + window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice content fields",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2023-02-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no bargaining-rep, posting or electronic-notice data is exported for this LCA."
+    },
+    "lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "bargaining rep exists + notice date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "posting locations / dates OR electronic-notice method + window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice content fields",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2023-07-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no bargaining-rep, posting or electronic-notice data is exported for this LCA."
+    },
+    "lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "bargaining rep exists + notice date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "posting locations / dates OR electronic-notice method + window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice content fields",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2025-02-05"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no bargaining-rep, posting or electronic-notice data is exported for this LCA."
+    },
+    "lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "presence/date of each PAF component",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF assembly date vs filing date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF storage location",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "H-1B-dependent/willful flag",
+          "found_in": "lca_certified_h1b_2024-2025.csv.H1B_DEPENDENT",
+          "value_for_entity": "8/8 rows non-empty (e.g. Y)"
+        },
+        {
+          "item": "corporate-change / single-employer flag",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No PAF component, assembly-date or storage-location data is exported."
+    },
+    "lca.retention::retention:I-200-22010-100004": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA certification date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.DECISION_DATE",
+          "value_for_entity": "2022-05-20"
+        },
+        {
+          "item": "LCA expiration date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.END_DATE",
+          "value_for_entity": "2026-07-03"
+        },
+        {
+          "item": "PAF retention records",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "payroll record retention",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "legal-hold / enforcement flag",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Certification and end dates are present, but no PAF/payroll retention records or legal-hold flag."
+    },
+    "lca.retention::retention:I-200-22010-100007": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA certification date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.DECISION_DATE",
+          "value_for_entity": "2022-07-18"
+        },
+        {
+          "item": "LCA expiration date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.END_DATE",
+          "value_for_entity": "2028-07-15"
+        },
+        {
+          "item": "PAF retention records",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "payroll record retention",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "legal-hold / enforcement flag",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Certification and end dates are present, but no PAF/payroll retention records or legal-hold flag."
+    },
+    "lca.retention::retention:I-200-23010-100002": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA certification date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.DECISION_DATE",
+          "value_for_entity": "2023-02-20"
+        },
+        {
+          "item": "LCA expiration date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.END_DATE",
+          "value_for_entity": "2029-05-31"
+        },
+        {
+          "item": "PAF retention records",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "payroll record retention",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "legal-hold / enforcement flag",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Certification and end dates are present, but no PAF/payroll retention records or legal-hold flag."
+    },
+    "lca.retention::retention:I-200-23010-100009": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA certification date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.DECISION_DATE",
+          "value_for_entity": "2023-07-20"
+        },
+        {
+          "item": "LCA expiration date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.END_DATE",
+          "value_for_entity": "2028-10-31"
+        },
+        {
+          "item": "PAF retention records",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "payroll record retention",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "legal-hold / enforcement flag",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Certification and end dates are present, but no PAF/payroll retention records or legal-hold flag."
+    },
+    "lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "labor-dispute/strike/lockout flag + start date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "ETA notice sent date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "H-1B placements at affected worksite",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WORKSITE_ADDRESS1",
+          "value_for_entity": "8/8 rows non-empty (e.g. 300 Colorado St)"
+        },
+        {
+          "item": "occupational classification",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No strike/lockout flag or ETA notice data is exported."
+    },
+    "lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD tracking number",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "P-200-22300-100004"
+        },
+        {
+          "item": "PWD issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "OES area + SOC + level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "Level III"
+        },
+        {
+          "item": "survey publication date + data-collection window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "CBA citation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employer entity-type flag (academic/research)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "PW tracking number, SOC and level are present, but no explicit source type, PWD issue/expiration dates, survey dates, CBA citation or entity-type flag. Only the PWD fields are marked 'if OFLC'; the others are unconditional."
+    },
+    "lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD tracking number",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "P-200-22300-100006"
+        },
+        {
+          "item": "PWD issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "OES area + SOC + level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "Level III"
+        },
+        {
+          "item": "survey publication date + data-collection window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "CBA citation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employer entity-type flag (academic/research)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "PW tracking number, SOC and level are present, but no explicit source type, PWD issue/expiration dates, survey dates, CBA citation or entity-type flag. Only the PWD fields are marked 'if OFLC'; the others are unconditional."
+    },
+    "lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD tracking number",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "P-200-22300-100007"
+        },
+        {
+          "item": "PWD issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "OES area + SOC + level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "Level III"
+        },
+        {
+          "item": "survey publication date + data-collection window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "CBA citation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employer entity-type flag (academic/research)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "PW tracking number, SOC and level are present, but no explicit source type, PWD issue/expiration dates, survey dates, CBA citation or entity-type flag. Only the PWD fields are marked 'if OFLC'; the others are unconditional."
+    },
+    "lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD tracking number",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "P-200-24300-100001"
+        },
+        {
+          "item": "PWD issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "OES area + SOC + level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "Level II"
+        },
+        {
+          "item": "survey publication date + data-collection window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "CBA citation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employer entity-type flag (academic/research)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "PW tracking number, SOC and level are present, but no explicit source type, PWD issue/expiration dates, survey dates, CBA citation or entity-type flag. Only the PWD fields are marked 'if OFLC'; the others are unconditional."
+    },
+    "lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "PW source type",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD tracking number",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_TRACKING_NUMBER",
+          "value_for_entity": "P-200-25300-100003"
+        },
+        {
+          "item": "PWD issue date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PWD expiration date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "OES area + SOC + level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "Level II"
+        },
+        {
+          "item": "survey publication date + data-collection window",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "CBA citation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employer entity-type flag (academic/research)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "PW tracking number, SOC and level are present, but no explicit source type, PWD issue/expiration dates, survey dates, CBA citation or entity-type flag. Only the PWD fields are marked 'if OFLC'; the others are unconditional."
+    },
+    "lca.wage.required_wage_greater_of::Daniel Cho": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA prevailing wage (amount+unit+level)",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "143000"
+        },
+        {
+          "item": "employer actual_wage for the role",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "gross wages paid per period",
+          "found_in": "gusto_payroll_register_2025-q2.csv.gross_pay",
+          "value_for_entity": "6250.00"
+        },
+        {
+          "item": "pay frequency (period start/end)",
+          "found_in": "gusto_payroll_register_2025-q2.csv.pay_period_start",
+          "value_for_entity": "2025-06-01; 2025-06-16"
+        },
+        {
+          "item": "FT/PT",
+          "found_in": "bamboohr_active_employees.csv.employmentStatus",
+          "value_for_entity": "Full-Time"
+        },
+        {
+          "item": "hours",
+          "found_in": "gusto_payroll_register_2025-q2.csv.hours_regular",
+          "value_for_entity": "86.67"
+        },
+        {
+          "item": "cohort wage rates",
+          "found_in": "bamboohr_active_employees.csv.payRate",
+          "value_for_entity": "150000"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Prevailing wage, payroll and individual pay rates are present, but no export states the employer's actual wage for similarly-employed workers (the actual-wage determination is distinct from individual/cohort pay rates, which the rule lists separately)."
+    },
+    "lca.wage.required_wage_greater_of::Hiroshi Yamamoto": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA prevailing wage (amount+unit+level)",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "144000"
+        },
+        {
+          "item": "employer actual_wage for the role",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "gross wages paid per period",
+          "found_in": "gusto_payroll_register_2025-q2.csv.gross_pay",
+          "value_for_entity": "6291.67"
+        },
+        {
+          "item": "pay frequency (period start/end)",
+          "found_in": "gusto_payroll_register_2025-q2.csv.pay_period_start",
+          "value_for_entity": "2025-06-01; 2025-06-16"
+        },
+        {
+          "item": "FT/PT",
+          "found_in": "bamboohr_active_employees.csv.employmentStatus",
+          "value_for_entity": "Full-Time"
+        },
+        {
+          "item": "hours",
+          "found_in": "gusto_payroll_register_2025-q2.csv.hours_regular",
+          "value_for_entity": "86.67"
+        },
+        {
+          "item": "cohort wage rates",
+          "found_in": "bamboohr_active_employees.csv.payRate",
+          "value_for_entity": "151000"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Prevailing wage, payroll and individual pay rates are present, but no export states the employer's actual wage for similarly-employed workers (the actual-wage determination is distinct from individual/cohort pay rates, which the rule lists separately)."
+    },
+    "lca.wage.required_wage_greater_of::Lucia Ferreira": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA prevailing wage (amount+unit+level)",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "130000"
+        },
+        {
+          "item": "employer actual_wage for the role",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "gross wages paid per period",
+          "found_in": "gusto_payroll_register_2025-q2.csv.gross_pay",
+          "value_for_entity": "5750.00"
+        },
+        {
+          "item": "pay frequency (period start/end)",
+          "found_in": "gusto_payroll_register_2025-q2.csv.pay_period_start",
+          "value_for_entity": "2025-06-01; 2025-06-16"
+        },
+        {
+          "item": "FT/PT",
+          "found_in": "bamboohr_active_employees.csv.employmentStatus",
+          "value_for_entity": "Full-Time"
+        },
+        {
+          "item": "hours",
+          "found_in": "gusto_payroll_register_2025-q2.csv.hours_regular",
+          "value_for_entity": "86.67"
+        },
+        {
+          "item": "cohort wage rates",
+          "found_in": "bamboohr_active_employees.csv.payRate",
+          "value_for_entity": "138000"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Prevailing wage, payroll and individual pay rates are present, but no export states the employer's actual wage for similarly-employed workers (the actual-wage determination is distinct from individual/cohort pay rates, which the rule lists separately)."
+    },
+    "lca.wage.start_clock::Anita Desai": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "admission date (I-94) OR in-country eligibility date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "entry pathway",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first available-for-work date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2023-07-17"
+        },
+        {
+          "item": "first pay date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission/eligibility date or entry pathway is exported; payroll covers only 2025-Q2, so the first pay date is not shown."
+    },
+    "lca.wage.start_clock::Hiroshi Yamamoto": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "admission date (I-94) OR in-country eligibility date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "entry pathway",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first available-for-work date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2022-08-15"
+        },
+        {
+          "item": "first pay date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission/eligibility date or entry pathway is exported; payroll covers only 2025-Q2, so the first pay date is not shown."
+    },
+    "lca.wage.start_clock::Lucia Ferreira": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "admission date (I-94) OR in-country eligibility date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "entry pathway",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first available-for-work date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2023-03-06"
+        },
+        {
+          "item": "first pay date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission/eligibility date or entry pathway is exported; payroll covers only 2025-Q2, so the first pay date is not shown."
+    },
+    "lca.wage.start_clock::Omar Farouk": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "admission date (I-94) OR in-country eligibility date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "entry pathway",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first available-for-work date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2021-09-20"
+        },
+        {
+          "item": "first pay date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission/eligibility date or entry pathway is exported; payroll covers only 2025-Q2, so the first pay date is not shown."
+    },
+    "lca.wage.start_clock::Ravi Anand": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "admission date (I-94) OR in-country eligibility date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "entry pathway",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "first available-for-work date",
+          "found_in": "bamboohr_active_employees.csv.hireDate",
+          "value_for_entity": "2025-02-03"
+        },
+        {
+          "item": "first pay date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-94 admission/eligibility date or entry pathway is exported; payroll covers only 2025-Q2, so the first pay date is not shown."
+    },
+    "lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "hSupp Q7 education level required",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA wage level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "8/8 rows non-empty (e.g. Level II)"
+        },
+        {
+          "item": "LCA SOC code",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "SOC usual education category",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA prevailing-wage source",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-129 H Supplement answers are exported, so the stated requirement cannot be compared with the LCA wage level."
+    },
+    "lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "hSupp Q9 years experience required",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA wage level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "8/8 rows non-empty (e.g. Level II)"
+        },
+        {
+          "item": "LCA SOC code",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "SOC SVP range",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-129 H Supplement answers are exported, so the stated requirement cannot be compared with the LCA wage level."
+    },
+    "lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "hSupp Q10 special skills",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA wage level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "8/8 rows non-empty (e.g. Level II)"
+        },
+        {
+          "item": "LCA SOC code",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "SOC entry-level skill baseline",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-129 H Supplement answers are exported, so the stated requirement cannot be compared with the LCA wage level."
+    },
+    "lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "hSupp Q11 number supervised + titles",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA wage level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "8/8 rows non-empty (e.g. Level II)"
+        },
+        {
+          "item": "LCA SOC code",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "SOC is-supervisory flag",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-129 H Supplement answers are exported, so the stated requirement cannot be compared with the LCA wage level."
+    },
+    "lca.worksite.short_term_placement::lca:I-200-22010-100006:stp": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "workday count in short-term area (rolling year)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "flags for the three 60-day conditions",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "per-day lodging paid",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "per-day travel/meals/incidentals",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "required wage paid",
+          "found_in": "gusto_payroll_register_2025-q2.csv.gross_pay",
+          "value_for_entity": "22/22 rows non-empty (e.g. 5916.67)"
+        },
+        {
+          "item": "strike/lockout flag at new site",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No short-term-placement workday, lodging or travel records are exported."
+    },
+    "paf.assembly.one_working_day::paf-ready:I-200-21010-100005": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2021-08-05"
+        },
+        {
+          "item": "PAF assembled / first-available date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "business calendar",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no PAF assembly date is exported."
+    },
+    "paf.assembly.one_working_day::paf-ready:I-200-22010-100006": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2022-09-05"
+        },
+        {
+          "item": "PAF assembled / first-available date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "business calendar",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no PAF assembly date is exported."
+    },
+    "paf.assembly.one_working_day::paf-ready:I-200-22010-100007": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2022-07-05"
+        },
+        {
+          "item": "PAF assembled / first-available date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "business calendar",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no PAF assembly date is exported."
+    },
+    "paf.assembly.one_working_day::paf-ready:I-200-23010-100009": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2023-07-05"
+        },
+        {
+          "item": "PAF assembled / first-available date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "business calendar",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no PAF assembly date is exported."
+    },
+    "paf.assembly.one_working_day::paf-ready:I-200-25010-100001": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2024-12-05"
+        },
+        {
+          "item": "PAF assembled / first-available date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "business calendar",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no PAF assembly date is exported."
+    },
+    "paf.assembly.one_working_day::paf-ready:I-200-25010-100003": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA filing date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.RECEIVED_DATE",
+          "value_for_entity": "2025-02-05"
+        },
+        {
+          "item": "PAF assembled / first-available date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "business calendar",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Filing date is present; no PAF assembly date is exported."
+    },
+    "paf.item1.certified_lca::paf-agg:paf.item1.certified_lca": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "LCA case number",
+          "found_in": "lca_certified_h1b_2024-2025.csv.CASE_NUMBER",
+          "value_for_entity": "8/8 rows non-empty (e.g. I-200-25010-100001)"
+        },
+        {
+          "item": "certified LCA document present",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "signed printout present (e-filed)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "filing method",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "ETA-9035CP cover pages present",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA certification date",
+          "found_in": "lca_certified_h1b_2024-2025.csv.DECISION_DATE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 2024-12-20)"
+        },
+        {
+          "item": "employer signature present",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "The LCA disclosure data identifies cases but not whether the certified, signed LCA and cover pages are in the PAF."
+    },
+    "paf.item2.wage_rate::paf-agg:paf.item2.wage_rate": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "wage-rate document present",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "offered wage amount",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WAGE_RATE_OF_PAY_FROM",
+          "value_for_entity": "8/8 rows non-empty (e.g. 140000)"
+        },
+        {
+          "item": "wage unit",
+          "found_in": "lca_certified_h1b_2024-2025.csv.WAGE_UNIT_OF_PAY",
+          "value_for_entity": "8/8 rows non-empty (e.g. Year)"
+        },
+        {
+          "item": "position title",
+          "found_in": "lca_certified_h1b_2024-2025.csv.JOB_TITLE",
+          "value_for_entity": "8/8 rows non-empty (e.g. Robotics Software Engineer)"
+        },
+        {
+          "item": "worker name/id",
+          "found_in": "bamboohr_active_employees.csv.employeeNumber",
+          "value_for_entity": "12/12 rows non-empty (e.g. NWR-1001)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Wage amounts are present, but nothing records that a wage-rate document exists in the PAF."
+    },
+    "paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "prevailing-wage doc present",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PW source",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PW level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "8/8 rows non-empty (e.g. Level II)"
+        },
+        {
+          "item": "PW SOC",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "PW amount",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 138000)"
+        },
+        {
+          "item": "PW validity dates",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "methodology description present",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "PW amount/level/SOC are present, but no PW documentation, explicit source, validity dates or methodology."
+    },
+    "paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "benefits summary present",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "occupation/SOC",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "benefits differ across employees",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "differentiation statement: only if benefits differ (not established)",
+        "home-country benefits statement: 'if applicable'; not shown to apply"
+      ],
+      "reason": "No benefits data is exported."
+    },
+    "paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "used IRC single-employer definition",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "single-employer entity list present",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "entities in single employer",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employer FTE count",
+          "found_in": "bamboohr_active_employees.csv.id",
+          "value_for_entity": "12/12 rows non-empty (e.g. b1000000-0000-4000-8000-000000000001)"
+        },
+        {
+          "item": "H-1B worker count",
+          "found_in": "bamboohr_active_employees.csv.visaType",
+          "value_for_entity": "12/12 rows non-empty (e.g. H-1B)"
+        },
+        {
+          "item": "dependency status",
+          "found_in": "lca_certified_h1b_2024-2025.csv.H1B_DEPENDENT",
+          "value_for_entity": "8/8 rows non-empty (e.g. Y)"
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Headcount and dependency status are present, but nothing records whether the single-employer definition was used or lists entities."
+    },
+    "paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "H-1B dependent or willful violator",
+          "found_in": "lca_certified_h1b_2024-2025.csv.H1B_DEPENDENT",
+          "value_for_entity": "8/8 rows non-empty (e.g. Y)"
+        },
+        {
+          "item": "LCA indicates exempt-only",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "exempt worker list present",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "exempt workers (id, basis, wage, degree)",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "H1B_DEPENDENT = Y, but STATUTORY_BASIS (exemption basis) is empty on every LCA and no exempt-worker list or degree data is exported."
+    },
+    "paf.public_access_ready::paf:I-200-21010-100005": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "certified LCA copy in PAF",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "wage-rate memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "actual-wage system memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "prevailing-wage documentation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice of posting",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "benefits summary",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "recruitment summary (dependent)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF assembly date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No PAF exhibit or assembly date is exported for this LCA. The recruitment summary applies because H1B_DEPENDENT = Y."
+    },
+    "paf.public_access_ready::paf:I-200-22010-100004": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "certified LCA copy in PAF",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "wage-rate memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "actual-wage system memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "prevailing-wage documentation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice of posting",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "benefits summary",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "recruitment summary (dependent)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF assembly date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No PAF exhibit or assembly date is exported for this LCA. The recruitment summary applies because H1B_DEPENDENT = Y."
+    },
+    "paf.public_access_ready::paf:I-200-22010-100006": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "certified LCA copy in PAF",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "wage-rate memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "actual-wage system memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "prevailing-wage documentation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice of posting",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "benefits summary",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "recruitment summary (dependent)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF assembly date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No PAF exhibit or assembly date is exported for this LCA. The recruitment summary applies because H1B_DEPENDENT = Y."
+    },
+    "paf.public_access_ready::paf:I-200-23010-100002": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "certified LCA copy in PAF",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "wage-rate memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "actual-wage system memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "prevailing-wage documentation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice of posting",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "benefits summary",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "recruitment summary (dependent)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF assembly date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No PAF exhibit or assembly date is exported for this LCA. The recruitment summary applies because H1B_DEPENDENT = Y."
+    },
+    "paf.public_access_ready::paf:I-200-25010-100003": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "certified LCA copy in PAF",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "wage-rate memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "actual-wage system memo",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "prevailing-wage documentation",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "notice of posting",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "benefits summary",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "recruitment summary (dependent)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "PAF assembly date",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No PAF exhibit or assembly date is exported for this LCA. The recruitment summary applies because H1B_DEPENDENT = Y."
+    },
+    "specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "hSupp Q7 education level required",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "Q8 fields of study",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "petition asserted specialty",
+          "found_in": "cms_h1b_cases_export.csv.classification",
+          "value_for_entity": "8/8 rows non-empty (e.g. H-1B)"
+        },
+        {
+          "item": "petition degree requirement",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-129 H Supplement Q7/Q8 or degree-requirement data is exported."
+    },
+    "specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "asserted criterion (1-4)",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "position duties text",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "position SOC code",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "industry degree norm evidence",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "employer normal practice evidence",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "hSupp Q7",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "Q8 fields of study",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "Only the SOC is exported; criterion, duties, and Q7/Q8 are absent."
+    },
+    "uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "case id",
+          "found_in": "cms_h1b_cases_export.csv.matter_id",
+          "value_for_entity": "8/8 rows non-empty (e.g. NWR-2025-0101)"
+        },
+        {
+          "item": "adverse decision date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "service method",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "motion filed date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "motion type",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "delayJustification: only if late"
+      ],
+      "reason": "CMS decisions are all Approved; no adverse decision, service method or motion is exported."
+    },
+    "uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "I-907 request id",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "benefit classification",
+          "found_in": "cms_h1b_cases_export.csv.classification",
+          "value_for_entity": "8/8 rows non-empty (e.g. H-1B)"
+        },
+        {
+          "item": "I-907 receipt date",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "USCIS action date",
+          "found_in": "cms_h1b_cases_export.csv.decision_date",
+          "value_for_entity": "8/8 rows non-empty (e.g. 2025-03-20)"
+        },
+        {
+          "item": "action type",
+          "found_in": "cms_h1b_cases_export.csv.matter_status",
+          "value_for_entity": "8/8 rows non-empty (e.g. Approved)"
+        },
+        {
+          "item": "federal business-day calendar",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "refund issued flag",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [],
+      "reason": "No I-907 premium-processing request or receipt data is exported."
+    },
+    "xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel": {
+      "decision": "evidence_withheld",
+      "items": [
+        {
+          "item": "registration SOC code",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "LCA SOC code",
+          "found_in": "lca_certified_h1b_2024-2025.csv.SOC_CODE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 15-1252)"
+        },
+        {
+          "item": "LCA wage level",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PW_WAGE_LEVEL",
+          "value_for_entity": "8/8 rows non-empty (e.g. Level II)"
+        },
+        {
+          "item": "LCA prevailing wage",
+          "found_in": "lca_certified_h1b_2024-2025.csv.PREVAILING_WAGE",
+          "value_for_entity": "8/8 rows non-empty (e.g. 138000)"
+        },
+        {
+          "item": "LCA actual wage",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "hSupp Q7-Q11",
+          "found_in": null,
+          "value_for_entity": null
+        },
+        {
+          "item": "I-129 SOC code",
+          "found_in": null,
+          "value_for_entity": null
+        }
+      ],
+      "conditional_items_skipped": [
+        "registration.wageLevelProxy: marked 'if captured'"
+      ],
+      "reason": "LCA fields are present, but no registration SOC, I-129 SOC or H Supplement Q7-Q11 is exported."
+    }
+  }
+}
