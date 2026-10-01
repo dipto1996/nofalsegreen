@@ -41,7 +41,9 @@ group cannot drift if the expectation set is later edited.
 
 from __future__ import annotations
 
+import json
 from collections import Counter
+from pathlib import Path
 from dataclasses import replace
 
 from .schema import Label, Prediction, Verdict
@@ -64,13 +66,32 @@ PROSPECTIVE: frozenset[str] = frozenset({
     "h1b.noid.response::Sofia Reyes",
 })
 
-VIEWS = ("engine", "strict")
+VIEWS = ("engine", "strict", "audited")
+
+# The audited view (docs/LABEL_AUDIT_PROTOCOL.md, declared 2026-10-01): withheld
+# pairs a blind audit found to have every required item present in the exports
+# are REMOVED from scoring, not relabelled. Absent the audit file the view is
+# unavailable rather than silently equal to the engine view.
+AUDIT_FILE = Path(__file__).resolve().parent.parent / "docs" / "label_audit.json"
+
+
+def overturned() -> frozenset[str] | None:
+    if not AUDIT_FILE.exists():
+        return None
+    doc = json.loads(AUDIT_FILE.read_text())
+    return frozenset(pid for pid, a in doc["pairs"].items()
+                     if a["decision"] == "evidence_present")
 
 
 def apply_view(labels: list[Label], view: str) -> tuple[list[Label], list[Label]]:
     """Return (labels to score, deadline-alert labels reported separately)."""
     if view == "engine":
         return list(labels), []
+    if view == "audited":
+        gone = overturned()
+        if gone is None:
+            raise FileNotFoundError(f"audited view needs {AUDIT_FILE}")
+        return [l for l in labels if l.pair_id not in gone], []
     if view != "strict":
         raise ValueError(f"unknown view {view!r}; have {VIEWS}")
 

@@ -182,6 +182,31 @@ def table_views() -> str:
     return "\n".join(rows)
 
 
+def table_audited() -> str:
+    """Table 2c: engine view vs the blind-audit view (docs/LABEL_AUDIT_PROTOCOL.md)."""
+    head = ("| Model | Condition | Withheld pairs scored | FGR, engine | FGR, audited "
+            "| FG, audited, answered only |\n|---|---|---|---|---|---|")
+    if not VIEWS.exists():
+        return head + "\n| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |"
+    runs = json.loads(VIEWS.read_text()).get("runs", {})
+    finished = {k for k, v in load_runs().items() if v.get("per_firm")}
+    rows = [head]
+    for key in sorted(runs):
+        r = runs[key]
+        if key not in finished or "audited" not in r:
+            continue
+        e, au = r["engine"], r["audited"]
+        fga = au.get("false_green_rate_answered")
+        cond = "offered" if r["variant"].endswith("offered") else "withheld"
+        rows.append(
+            f"| `{short(r['model'])}` | {cond} | {au['n_withheld']} of {e['n_withheld']} "
+            f"| {e['false_green_rate']:.3f} | {au['false_green_rate']:.3f} "
+            f"| {'—' if fga is None else f'{fga:.3f}'} |")
+    if len(rows) == 1:
+        rows.append("| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -208,6 +233,7 @@ def main() -> int:
     tables = {
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
+        "table2c-audited": table_audited(),
         "table3-ablation": table_ablation(runs),
         "table4-regime": table_regime(runs),
     }

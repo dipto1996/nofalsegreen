@@ -59,7 +59,10 @@ def main() -> int:
         entry = {"model": model, "variant": variant,
                  "n_predictions": len(preds), "complete": len(preds) == len(firm.pairs)}
         for view in VIEWS:
-            scored, alerts = apply_view(firm.labels, view)
+            try:
+                scored, alerts = apply_view(firm.labels, view)
+            except FileNotFoundError:
+                continue  # audited view before the audit exists
             keep = {l.pair_id for l in scored}
             s = score(scored, [p for p in preds if p.pair_id in keep], rule_regimes=regimes)
             entry[view] = {
