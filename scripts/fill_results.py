@@ -54,34 +54,39 @@ def load_runs() -> dict:
 def table_main(runs: dict) -> str:
     """Table 2: main result under abstain_offered."""
     rows = [
-        "| Model | False green | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. |",
-        "|---|---|---|---|---|---|---|---|---|",
+        "| Model | False green | FG, answered only | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. | Answered |",
+        "|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     offered = {k: v for k, v in runs.items()
                if v["variant"].endswith("offered") and v.get("aggregate")}
     if not offered:
-        rows.append("| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |")
+        rows.append("| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |")
+    views = json.loads(VIEWS.read_text()).get("runs", {}) if VIEWS.exists() else {}
     for key in sorted(offered, key=lambda k: offered[k]["aggregate"]["false_green_rate"]["mean"],
                       reverse=True):
         r = offered[key]
         a = r["aggregate"]
         unp = r.get("n_unparseable", 0) / max(r.get("n_pairs", 1), 1)
+        answered = sum(f["n_parsed"] for f in r["per_firm"])
+        n_pairs = sum(f["n_pairs"] for f in r["per_firm"])
+        fga = (views.get(key) or {}).get("engine", {}).get("false_green_rate_answered")
+        fga_s = "—" if fga is None else f"{fga:.3f}"
         rows.append(
-            f"| `{short(r['model'])}` | **{cell(a,'false_green_rate')}** | {cell(a,'violation_recall')} "
+            f"| `{short(r['model'])}` | **{cell(a,'false_green_rate')}** | {fga_s} | {cell(a,'violation_recall')} "
             f"| {cell(a,'violation_precision')} | {cell(a,'false_alarm_rate')} "
             f"| {cell(a,'abstention_precision')} | {cell(a,'abstention_recall')} "
-            f"| {cell(a,'abstention_f1')} | {unp:.3f} |"
+            f"| {cell(a,'abstention_f1')} | {unp:.3f} | {answered}/{n_pairs} |"
         )
     if TRIV.exists():
         t = json.loads(TRIV.read_text())["systems"]
         for name in ("always_pass", "oracle"):
             s = t[name]
             rows.append(
-                f"| `{name}` (ref) | {s['false_green_rate']['mean']:.3f} "
+                f"| `{name}` (ref) | {s['false_green_rate']['mean']:.3f} | {s['false_green_rate']['mean']:.3f} "
                 f"| {s['violation_recall']['mean']:.3f} | {s['violation_precision']['mean']:.3f} "
                 f"| {s['false_alarm_rate']['mean']:.3f} | "
                 f"{s['abstention_precision']['mean'] if 'abstention_precision' in s else 0:.3f} "
-                f"| — | {s['abstention_f1']['mean']:.3f} | 0.000 |"
+                f"| — | {s['abstention_f1']['mean']:.3f} | 0.000 | all |"
             )
     return "\n".join(rows)
 
@@ -154,10 +159,14 @@ def table_views() -> str:
     if not VIEWS.exists():
         return head + "\n| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |"
     runs = json.loads(VIEWS.read_text()).get("runs", {})
+    # A run is listed once the sweep has recorded it as finished, even if some
+    # pairs went unanswered: dropping it would hide exactly the runs whose
+    # delivery failed. Unfinished (deferred) runs are not listed.
+    finished = {k for k, v in load_runs().items() if v.get("per_firm")}
     rows = [head]
     for key in sorted(runs):
         r = runs[key]
-        if not r.get("complete"):
+        if key not in finished:
             continue
         e, st = r["engine"], r["strict"]
         v = st.get("deadline_alerts", {}).get("verdicts", {})

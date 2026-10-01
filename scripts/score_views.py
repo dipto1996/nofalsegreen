@@ -72,7 +72,16 @@ def main() -> int:
                 "violation_precision": round(s.violation_precision, 4),
                 "abstention_f1": round(s.abstention_f1, 4),
                 "n_missing": s.n_missing,
+                # Unanswered pairs sit in the FGR denominator and can never be a
+                # false green, so a run that answers less looks safer. This is
+                # the rate among withheld pairs the model actually answered.
+                "n_withheld_answered": sum(
+                    1 for l in scored if l.verdict.value == "needs_evidence"
+                    and l.pair_id in {p.pair_id for p in preds}),
             }
+            ans = entry[view]["n_withheld_answered"]
+            entry[view]["false_green_rate_answered"] = (
+                round(s.n_false_green / ans, 4) if ans else None)
             if alerts:
                 entry[view]["deadline_alerts"] = alert_report(preds, alerts)
         out["runs"][f"{model}::{variant}"] = entry
