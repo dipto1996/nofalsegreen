@@ -65,6 +65,11 @@ def main() -> int:
     ap.add_argument("--subset", type=int, default=0,
                     help=f"evaluate the declared stratified subset of N pairs "
                          f"(0 = full firm; {DEFAULT_SIZE} is the standard subset)")
+    ap.add_argument("--finalize", action="store_true",
+                    help="record a run whose host kept failing with the pairs it has, "
+                         "flagged finalized_incomplete. Cut-off rule declared 2026-10-01: "
+                         "used only once every other run is finished and the run has "
+                         "been deferred through the final quota window.")
     args = ap.parse_args()
 
     quota = FREE_QUOTAS.get(args.model) or Quota(rpm=10, rpd=250, label=f"{args.model} (assumed)")
@@ -136,7 +141,7 @@ def main() -> int:
                 exhausted = True
                 break
 
-            if r.stopped_early or r.n_failed_batches:
+            if (r.stopped_early or r.n_failed_batches) and not args.finalize:
                 # Never record a run with holes from DELIVERY as finished: its
                 # missing pairs would score as model errors when the cause was
                 # the host. (Unrecovered batches, where the model itself ran to
@@ -155,6 +160,7 @@ def main() -> int:
                 "n_pairs": r.n_pairs, "n_parsed": r.n_parsed,
                 "n_unparseable": r.n_unparseable, "n_off_schema": r.n_off_schema,
                 "n_truncated_calls": r.n_truncated_calls,
+                "finalized_incomplete": bool(r.stopped_early or r.n_failed_batches),
                 "n_incomplete_calls": r.n_incomplete_calls,
                 "n_unrecovered_batches": r.n_unrecovered_batches,
                 "false_green_rate": s.false_green_rate,
