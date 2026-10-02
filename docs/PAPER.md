@@ -7,7 +7,7 @@ their shape is fixed, with cells marked `[…]`, so the reporting structure is c
 before any number exists.
 
 Every quantitative claim in the written sections is recomputed from the artifacts by
-`scripts/verify_paper.py`, which currently confirms 129 of 129. Nothing marked `[TO RUN]`
+`scripts/verify_paper.py`, which currently confirms 146 of 146. Nothing marked `[TO RUN]`
 may be filled by estimation.
 
 Section 8.2 also states what will be reported if the empirical result is null, so the
@@ -677,10 +677,15 @@ is exhibiting a property of itself, not of an ill-posed benchmark.
 
 ### 8.2 Language-model results
 
-`[TO RUN]` — no language-model experiments have been conducted. Section 7 fixes the
-protocol in advance so that the reported result is not a post-hoc selection. The tables
-below are the ones that will be filled, specified now so the structure cannot be chosen
-after seeing the numbers.
+Six free models were evaluated on the declared 140-pair subset of the anchor firm under
+prompt v1.1.0, each under both output schemas: Nemotron 3 Ultra 550B, Nemotron 3 Super
+120B and Nemotron 3.5 Lightning (NVIDIA), Laguna XS 2.1 (Poolside), Qwen 3.8 27B (Alibaba),
+and dots.3 Note Preview (dots-studio), the last two replacing the withdrawn Nex models
+under the rule in Section 7.2. Gemma 4 31B, the other declared replacement, never passed
+the screen and yielded its slot to the fallback. The tables are generated from the
+retained replies (`scripts/fill_results.py`); the table shapes were fixed before any
+number existed. Every table reports coverage, because an unanswered pair cannot be a
+false green (Section 7).
 
 **Table 2 — main result, `abstain_offered`.** One row per model. Every cell is a mean
 across firms with standard deviation; the unparseable column guards the rest.
@@ -695,6 +700,18 @@ across firms with standard deviation; the unparseable column guards the rest.
 
 The trivial baselines are repeated in-table as reference rows, so a reader sees
 immediately where each model sits between the unsafe floor and the attainable ceiling.
+The false-alarm column is 0.000 for every row by construction, since the evaluated subset
+has no conforming pair (Section 9); it is kept so the table matches its declared shape.
+
+**Offered an abstention, models abstain readily and detect little.** False-green rates
+run from 0.042 to 0.142. The lowest belongs to Lightning, which answered only 92 of 140
+pairs; among the withheld pairs it actually answered its rate is 0.059. No model is close
+to `always_pass`, and every model is far from the oracle on violation recall, which runs
+from 0.050 to 0.450. Measured as rates, the missed violation is the larger failure: most
+of the 20 violations are missed, against a minority of the 120 withheld pairs reported as
+compliant. Models answer `needs_evidence` on violations whose evidence is plainly in the
+exports. Abstention F1 is between 0.766 and 0.918, so the abstentions
+mostly land on the right pairs; there are simply too many of them.
 
 **Table 2b — strict label view.** Same runs, scored under the strict view (Section 6),
 with the deadline alerts beside them. Generated from `docs/views_results.json`.
@@ -704,6 +721,23 @@ with the deadline alerts beside them. Generated from `docs/views_results.json`.
 |---|---|---|---|---|---|---|
 | `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |
 <!-- END GENERATED: table2b-strict -->
+
+The strict view moves false-green rates by under 0.02 and raises recall for every model
+under `abstain_offered`, because the five memo pairs that most models answered
+`needs_evidence` stop counting as missed violations. A `pass` on a deadline days away is
+the one deadline-alert outcome a reviewer would never see. Offered an abstention, models
+gave it on 2 of 30 alerts. Without the abstention it rose to 5 of 20, three of them from
+Nemotron Ultra, which answered `pass` on an LCA expiring in four days.
+
+**Table 2c — audited label view.** Same runs, with the two withheld pairs the blind audit
+overturned removed from scoring (Section 6). The scored denominator is stated in every row.
+
+<!-- BEGIN GENERATED: table2c-audited -->
+<!-- END GENERATED: table2c-audited -->
+
+Removing the two I-9 signature pairs lowers each false-green rate by about 0.01 to 0.02
+and changes neither the ordering of models nor the direction or size of any condition
+effect. The label error the audit found is real but too small to account for the result.
 
 **Table 3 — the schema ablation.** The paper's most informative experiment. Same models,
 both conditions, difference reported per model.
@@ -718,6 +752,17 @@ The off-schema column counts pairs where a model returned `needs_evidence` altho
 schema permitted only `pass` and `fail`. A model doing this frequently is refusing a
 schema that cannot express what it observed, which we would report as a finding about the
 interface rather than an instruction-following failure.
+
+**Withholding the abstention roughly triples false greens.** For every model with both
+conditions complete, the false-green rate rises when `needs_evidence` is removed from the
+schema, by between 0.125 (Nemotron Super) and 0.308 (Laguna). No model returned an
+off-schema abstention: given only `pass` and `fail`, every model complied. Forced to
+resolve pairs it could not assess, each model split them between the two permitted
+answers. Most went to `fail`, an unsupported violation (56 to 99 of the 120 withheld
+pairs), and a substantial minority went to `pass` (21 to 52). The second group is the
+false green a dashboard built on this schema would display. Because the prompt, sources
+and models are identical across conditions, the difference is attributable to the schema
+alone.
 
 **Table 4 — false-green rate by regime.** One row per regulatory regime, one column per
 model. This is where the document-versus-field asymmetry in Section 9 is tested.
@@ -734,10 +779,27 @@ comfortably-conforming controls. A gap indicates proximity heuristics rather tha
 application. *Not produced in this study:* the evaluated subset has no conforming pairs
 (Section 9).
 
+**False greens are concentrated in a few regimes.** Under `abstain_offered`, three
+regimes, I-9 and E-Verify, prevailing wage, and the LCA wage rules, hold almost every
+false green. Several regimes, including H-1B status and FDNS site visits, have none for
+any model. The regimes with false greens are the ones whose exports carry a populated
+column *adjacent* to the missing evidence: a signed date beside a signature, a document
+title beside a physical examination, an unitemized deduction total beside an itemized fee
+check. Section 9 returns to this.
+
 **Figure 1 — the separation plot.** Violation recall on one axis, false-green rate on the
 other, one point per model, with the four trivial baselines marking the corners. The
 argument of the paper is that real systems cluster where recall looks acceptable and the
 false-green rate does not, and this figure either shows that or refutes it.
+
+![Figure 1](figure1_separation.svg)
+
+Each model appears twice, once per condition. Offered an abstention, the models sit low
+and left: few false greens, low recall. Without it they move up and right together, gaining
+recall at the cost of false greens. No model reaches the region of high recall and low
+false-green rate that the oracle occupies. Accuracy-style scoring would rank the withheld
+condition higher, since it detects more violations, which is the paper's central point in
+one picture.
 
 **What we will report if the result is null.** If the models tested abstain correctly and
 the false-green rate is uniformly low, we will say so and the paper's claim narrows to the
@@ -749,13 +811,26 @@ advance is what makes the eventual number credible.
 
 ## 9. Analysis
 
-`[TO RUN — depends on 8.2]` The analyses this section will perform, specified now. Each
-names the artifact that answers it, so none can be quietly dropped if inconvenient.
+Each analysis below was specified before any result existed and names the artifact that
+answers it, so none could be quietly dropped. Three proved not measurable on the evaluated
+data; they are reported as such, with the reason. All numbers come from
+`docs/analysis_results.json` (`scripts/analysis.py`).
 
 **Which failure dominates, per model.** Error decomposed into missed violations, false
 greens, false alarms, and unparseable output, as a stacked proportion. A model whose error
 is mostly unparseable output is making a formatting claim, not a reasoning one, and must
 be discussed separately.
+
+*Result.* Offered an abstention, models miss 6 to 14 of the 20 violations and report 5 to 17
+of the 120 withheld pairs as compliant. As a rate the missed violation is the larger
+failure for every model. In absolute counts, false greens outnumber missed violations for
+Laguna, Qwen and dots.3, because withheld pairs are six times as numerous. No reply line named a pair without a verdict, so the unparseable rate is zero
+throughout. The formatting failures that did occur are whole replies with no usable
+lines, which appear as unanswered pairs: 48 for Lightning and 16 for Laguna. Without the
+abstention the picture inverts. Unsupported violations dominate (56 to 99 pairs called
+`fail` with no evidence either way), then false greens (21 to 52), and missed violations
+nearly vanish (1 to 4). The withheld condition buys its recall by calling almost
+everything a violation.
 
 **Where abstention is hardest.** From Table 4. The hypothesis, stated before the run:
 obligations whose required evidence is a *field* (an I-94 expiry, a first-pay date) will
@@ -776,6 +851,25 @@ needing both kinds of evidence counts as a document obligation. Of the 120 withh
 49 are document pairs and 71 are field pairs; the full assignment is in
 `docs/evidence_class_assignment.txt`.
 
+*Result: the declared test holds, but the mechanism is not the one hypothesised.* In every
+evaluated run the false-green rate on document pairs exceeds that on field pairs. Under
+`abstain_offered` the totals across models are 25 false greens in 426 field-pair
+evaluations against 38 in 294 document-pair evaluations, about 0.06 against 0.13. The runs are not
+independent (the same 120 pairs, and the same models in both conditions), so we report
+the counts and the consistency of direction, not a p-value.
+
+The regime breakdown (Table 4) and the excerpts below point to a narrower mechanism than
+"documents are harder". The false greens cluster on obligations whose required item sits
+*next to* a populated export column: a document-presence or signature flag beside a
+document title or signed date, a fee itemisation beside an unitemized deduction total.
+Under the mechanical rule several of these count as document obligations, because their
+required item is a presence flag. Where nothing adjacent is exported, as with the public
+access file, the six-year maximum stay or FDNS site-visit records, no model produced a
+single false green when abstention was offered. The actionable reading for system builders is therefore *adjacent-field
+substitution*. Human review belongs where an export carries a column that looks like the
+evidence but is not it, more than where evidence is wholly absent. This reading was formed
+after the results and is offered as an interpretation, not a confirmed hypothesis.
+
 **Near-miss controls.** From Table 5. Distinguishes rule application from proximity
 heuristics. *Not measurable in the language-model study:* the evaluated subset contains
 only violations and withheld-evidence pairs, with no conforming pair, so there is no
@@ -788,6 +882,14 @@ are the first analyses a funded run should add.
 is offered locates the problem in interface design, which is an actionable finding for
 anyone shipping a compliance dashboard. A small reduction locates it in the models, which
 is a harder problem and a more important result. We commit to reporting whichever occurs.
+
+*Result.* The reduction is large, so the problem sits substantially in the interface.
+Removing `needs_evidence` from the schema raised every model's false-green rate by 0.125 to
+0.308, while the models' behaviour when the option was available shows they can recognise
+most unassessable pairs. A dashboard that has no state for "could not tell" converts that
+recognition into green cells. This does not absolve the models. Even with the option,
+false-green rates of 0.04 to 0.14 remain, and recall is too low for any of them to serve
+as a monitor.
 
 **Evidence-pointer quality.** Among pairs answered correctly, how often the cited evidence
 field is one ground truth records as relevant. A correct verdict reached by pointing at the
@@ -816,6 +918,37 @@ that outcome as it fell, since four models agreeing on a mislabelled pair is its
 finding about the labels. We then apply the same rule once more, skipping overturned
 pairs, and mark those excerpts as the second application. This second step was added after
 the first application's result was seen, and is labelled as such wherever it appears.
+
+*Result, first application.* For the four models whose first hit was an I-9 pair, the rule
+selected the same line from each: a `pass` on the Section 2 employer signature, citing
+`section2_signed_date`. The audit later overturned that label. Four models independently
+reading a populated signed-date column as evidence of a signature is the clearest evidence
+that this label, not the models, was wrong. The other two models' first hits stand after
+the audit and are given below.
+
+*Result, second application (added after the first was seen; see above).* One excerpt per
+model, verbatim, each on a pair whose withheld label the blind audit upheld:
+
+- Qwen 3.8 27B and dots.3 Note Preview, independently:
+  `h1b.wage.deductions.prohibited.business-expense … pass … pretax_deductions` (Qwen; dots.3
+  cites `payroll_register`). The rule asks whether any H-1B worker was charged for LCA,
+  petition or attorney fees. The payroll export carries only an unitemized pretax deduction
+  total, so no fee can be identified either way. Both models cite the total as evidence
+  that no prohibited deduction was taken.
+- Nemotron 3 Super 120B: `i9.remote.alternative_procedure … pass … alternative_procedure`.
+  The export has the alternative-procedure flag. It has nothing on E-Verify good standing,
+  copy retention or the live-video attestation the procedure requires.
+- Nemotron 3 Ultra 550B: `i9.documents.acceptable_list … pass … list_a_doc_title`. A
+  document title is cited as evidence that the document was acceptable. Expiry dates are
+  blank for two of twelve forms, and the reverification documents due on 2026-06-15 are not
+  exported.
+- Nemotron 3.5 Lightning and Laguna XS 2.1, independently:
+  `i9.section2.physical_exam … pass … list_a_doc_title`. Physical examination of documents
+  is inferred from the presence of a document title.
+
+Every one is a populated column standing in for the missing evidence beside it, which is
+the adjacent-field substitution described above. The full reply lines are in
+`docs/analysis_results.json`.
 
 ---
 

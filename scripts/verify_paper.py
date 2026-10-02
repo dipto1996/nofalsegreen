@@ -231,6 +231,76 @@ from baselines.llm import run_firm as _rf
 import inspect as _i
 claim("32_000" in _i.getsource(_rf), "harness default output cap really is 32,000")
 
+print("\nlanguage-model results prose (every number recomputed from the artifacts)")
+_an = json.loads((ROOT / "docs" / "analysis_results.json").read_text())["runs"]
+_vw = json.loads((ROOT / "docs" / "views_results.json").read_text())["runs"]
+_fin = {k for k, v in json.loads((ROOT / "docs" / "llm_results.json").read_text())["runs"].items()
+        if v.get("per_firm")}
+_off = {k: v for k, v in _vw.items() if k in _fin and v["variant"].endswith("offered")}
+_wit = {k: v for k, v in _vw.items() if k in _fin and v["variant"].endswith("withheld")}
+
+
+def _rng(vals, fmt="{:.3f}"):
+    return fmt.format(min(vals)), fmt.format(max(vals))
+
+
+_lo, _hi = _rng([v["engine"]["false_green_rate"] for v in _off.values()])
+claim(f"from {_lo} to {_hi}" in paper, f"offered FGR range {_lo}-{_hi}")
+_lo, _hi = _rng([v["engine"]["violation_recall"] for v in _off.values()])
+claim(f"from {_lo} to {_hi}" in paper, f"offered recall range {_lo}-{_hi}")
+_lo, _hi = _rng([v["engine"]["abstention_f1"] for v in _off.values()])
+claim(f"between {_lo} and {_hi}" in paper, f"offered abstention F1 range {_lo}-{_hi}")
+_lt = _an.get("nvidia/nemotron-3.5-lightning:free::abstain_offered")
+claim(_lt is not None and f"only {_lt['n_answered']} of 140" in paper
+      and f"{_vw['nvidia/nemotron-3.5-lightning:free::abstain_offered']['engine']['false_green_rate_answered']:.3f}" in paper,
+      "Lightning coverage and answered-only FGR")
+
+_pairs = {}
+for k, v in _vw.items():
+    if k in _fin:
+        _pairs.setdefault(v["model"], {})["o" if v["variant"].endswith("offered") else "w"] = v
+_deltas = {m: d["w"]["engine"]["false_green_rate"] - d["o"]["engine"]["false_green_rate"]
+           for m, d in _pairs.items() if "o" in d and "w" in d}
+claim(all(x > 0 for x in _deltas.values()), "FGR rises without abstention for every paired model")
+_lo, _hi = _rng(list(_deltas.values()))
+claim(f"by between {_lo}" in paper and _hi in paper, f"ablation delta range {_lo}-{_hi}")
+claim(all(v["engine"]["false_green_rate"] / max(_pairs[v["model"]]["o"]["engine"]["false_green_rate"], 1e-9) >= 2.5
+          for v in _wit.values() if "o" in _pairs[v["model"]]),
+      "'roughly triples' holds: every withheld/offered FGR ratio >= 2.5")
+
+_dw = [e["decomposition"] for k, e in _an.items() if k in _fin and k.endswith("withheld")]
+_do = [e["decomposition"] for k, e in _an.items() if k in _fin and k.endswith("offered")]
+for _key, _set, _phrase in (("unsupported_violation", _dw, "({} to {} of the 120 withheld"),
+                            ("false_green", _dw, "`pass` ({} to {})"),
+                            ("missed_violation", _dw, "nearly vanish ({} to {})"),
+                            ("missed_violation", _do, "miss {} to {} of the 20"),
+                            ("false_green", _do, "report {} to {}")):
+    _vals = [d.get(_key, 0) for d in _set]
+    _t = _phrase.format(min(_vals), max(_vals))
+    claim(_t in paper, f"decomposition: {_t}")
+
+_ec = [e["by_evidence_class"] for k, e in _an.items() if k in _fin]
+claim(all(b["document"]["fgr"] > b["field"]["fgr"] for b in _ec),
+      "document FGR > field FGR in every evaluated run")
+_eo = [e["by_evidence_class"] for k, e in _an.items() if k in _fin and k.endswith("offered")]
+_ff = sum(b["field"]["n_false_green"] for b in _eo); _fn = sum(b["field"]["n_withheld"] for b in _eo)
+_df = sum(b["document"]["n_false_green"] for b in _eo); _dn = sum(b["document"]["n_withheld"] for b in _eo)
+claim(f"{_ff} false greens in {_fn} field-pair" in paper and f"{_df} in {_dn} document-pair" in paper,
+      f"evidence-class totals {_ff}/{_fn} vs {_df}/{_dn}")
+
+_ap = lambda runs: (sum(r["strict"]["deadline_alerts"]["verdicts"].get("pass", 0) for r in runs),  # noqa: E731
+                    sum(r["strict"]["deadline_alerts"]["n"] for r in runs))
+_p1, _n1 = _ap(_off.values()); _p2, _n2 = _ap(_wit.values())
+claim(f"{_p1} of {_n1} alerts" in paper and f"{_p2} of {_n2}" in paper,
+      f"deadline-alert passes {_p1}/{_n1} offered, {_p2}/{_n2} withheld")
+_llm = json.loads((ROOT / "docs" / "llm_results.json").read_text())["runs"]
+claim(all("n_off_schema" in f and f["n_off_schema"] == 0
+          for k, v in _llm.items() if k in _fin for f in v["per_firm"]),
+      "no off-schema abstention in any finished run")
+_drops = [v["engine"]["false_green_rate"] - v["audited"]["false_green_rate"]
+          for k, v in _vw.items() if k in _fin and "audited" in v]
+claim(all(0.005 <= d <= 0.02 for d in _drops), "audited view lowers every FGR by about 0.01-0.02")
+
 print("\nhonesty checks")
 claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
 claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")
