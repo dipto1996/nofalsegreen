@@ -264,23 +264,42 @@ def table_study2() -> str:
     return "\n".join(rows)
 
 
+COND = {"abstain_offered": "offered", "abstain_removed_only": "removed-only",
+        "abstain_closed": "closed", "abstain_withheld": "dashboard"}
+
+
 def table_vertex() -> str:
-    """Table 7: Vertex block, mean of three repeats [min, max]."""
-    head = ("| Model | Study | Condition | False green | Recall | False alarm, near-miss "
-            "| Abst. F1 | Min answered |\n|---|---|---|---|---|---|---|---|")
+    """Table 7: Vertex block, four schema conditions, mean of three repeats [min, max],
+    with where the withheld pairs went (mean count over repeats)."""
+    head = ("| Model | Study | Schema | False green | Recall | False alarm, near-miss "
+            "| Withheld pairs answered pass / fail / needs_ev. / unmon. | Min answered |"
+            "\n|---|---|---|---|---|---|---|---|")
     if not STUDIES.exists():
         return head
     rows = [head]
-    for key, r in sorted(json.loads(STUDIES.read_text())["vertex"].items()):
+    data = json.loads(STUDIES.read_text())["vertex"]
+    order = list(COND)
+    keys = sorted(data, key=lambda k: (k.split("::")[0], k.split("::")[1], order.index(k.split("::")[2])))
+    for key in keys:
+        r = data[key]
         model, study, variant = key.split("::")
         a = r["summary"]
         cell = lambda k: ("—" if not a[k] else  # noqa: E731
                           f"{a[k]['mean']:.3f} [{a[k]['min']:.3f}, {a[k]['max']:.3f}]")
         n = 140 if study == "study1" else 252
-        cond = "offered" if variant.endswith("offered") else "withheld"
-        rows.append(f"| `{model}` | {study[-1]} | {cond} | {cell('false_green_rate')} "
-                    f"| {cell('violation_recall')} | {cell('false_alarm_near_miss')} "
-                    f"| {cell('abstention_f1')} | {a['answered_min']}/{n} |")
+        reps = r["repeats"]
+        dist = " / ".join(
+            f"{sum(x['counts'].get('withheld_as_' + v, 0) for x in reps) / len(reps):.0f}"
+            for v in ("pass", "fail", "needs_evidence", "unmonitored"))
+        rows.append(f"| `{model.replace('vertex/', '')}` | {study[-1]} | {COND[variant]} "
+                    f"| {cell('false_green_rate')} | {cell('violation_recall')} "
+                    f"| {cell('false_alarm_near_miss')} | {dist} | {a['answered_min']}/{n} |")
+    rows.append("")
+    rows.append("Schemas: *offered* (four verdicts, evidence-anchored definitions); *removed-only* "
+                "(offered minus `needs_evidence`); *closed* (`pass`/`fail` only, evidence-anchored "
+                "definitions kept); *dashboard* (`pass`/`fail` only, `pass` redefined as \"the "
+                "obligation is satisfied\", warning dropped; the `abstain_withheld` condition of Study 1). "
+                "Study 1 has 120 withheld pairs and no conforming controls; Study 2 has 126 withheld pairs.")
     return "\n".join(rows)
 
 
