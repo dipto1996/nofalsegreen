@@ -45,7 +45,7 @@ regimes = rb.rule_regimes()
 scored = {n: score(firm.labels, fn(firm), rule_regimes=regimes) for n, fn in REGISTRY.items()}
 
 print("rulebook claims")
-claim("194 citable" in paper and "194 obligations" in paper, "paper says 194 obligations")
+claim("194 obligations" in paper, "paper says 194 obligations")
 claim(len(rb.obligations) == 194, "rulebook actually has 194 manifest rules")
 claim("196" in paper and "unreconciled" not in paper.lower(),
       "paper explains 196 entries -> 194 rules; no longer calls it unreconciled")
@@ -106,8 +106,6 @@ claim(scored["oracle"].false_green_rate == 0.0 and scored["oracle"].violation_re
 print("\nharness claims")
 claim("PROMPT_VERSION" in paper or "PROMPT_VERSION 1.0.0" in paper.replace("`",""),
       "paper names the frozen prompt version")
-claim("1,446" in paper, "paper quotes the measured 1,446 calls per model per variant")
-claim("2.55M" in paper and "1.73M" in paper, "paper quotes measured token volumes")
 claim("abstain_offered" in paper and "abstain_withheld" in paper,
       "paper names both ablation conditions")
 claim("off-schema" in paper.lower(), "paper defines the off-schema counter")
@@ -123,8 +121,9 @@ _un40 = _ec(firm, rb.all_rules(), batch_size=40, scope_sources=False)
 claim(_sc["max_call_tokens"] == 10688, f"scoped max call is 10,688 (got {_sc['max_call_tokens']:,})")
 claim(_un["max_call_tokens"] == 12185, f"unscoped max call is 12,185 (got {_un['max_call_tokens']:,})")
 claim(_un40["max_call_tokens"] == 16832, f"unscoped batch-40 max call is 16,832 (got {_un40['max_call_tokens']:,})")
-claim("10,688" in paper and "12,185" in paper and "16,832" in paper,
-      "paper quotes all three measured per-call token figures")
+claim("10,688" not in paper and "16,832" not in paper,
+      "stale batch-20/40 token figures removed (every run used batch 12)")
+claim("batches of 12 pairs" in paper, "paper states the batch size actually used")
 claim("do not infer" in paper or "not to infer" in paper,
       "paper documents the anti-inference safeguard on scoped prompts")
 claim("falls back to all sources" in paper or "fall back to all sources" in paper
@@ -178,7 +177,6 @@ claim(abs(_sc["needs_evidence"] / _sc["fail"] - 6.0) < 0.5,
       f"subset ratio is ~6:1 (got {_sc['needs_evidence']/_sc['fail']:.1f})")
 claim("140 pairs" in paper or "140-pair" in paper, "paper states the subset size")
 claim("declared stratified subset" in paper, "paper calls it a declared subset")
-claim("3.8:1" in paper, "paper states the ratio it rejected and why")
 claim("not all 221" in paper or "not all 221\npairs" in paper.replace("\n", " "),
       "limitations name the subset as a limitation")
 
@@ -201,8 +199,9 @@ claim(_frozen["n_pairs"] == 140 and "identical" in paper, "the frozen subset bac
 
 print("\nlabel-view declaration")
 from nofalsegreen.labelviews import DECLARED_ON as _DO, MEMO_ABSENCE as _MA, PROSPECTIVE as _PR
-claim(_DO in paper and "declared before any main-run result was read" in paper,
-      "paper states the views were declared, and when")
+claim(_DO in paper and "fixed before per-pair results were read" in paper
+      and "six minutes after" in paper,
+      "paper states when the views were fixed, and what had been printed before")
 claim(len(_MA) == 5 and len(_PR) == 5, "5 memo + 5 prospective pairs, as the paper says")
 claim("Engine view, the headline" in paper, "engine view is named as the headline")
 claim("denominator of ten" in paper, "paper flags the strict view's small denominator")

@@ -2,57 +2,35 @@
 
 Diptopal Roy, Settle AI Inc. (diptopal@joinsettle.info). See *Competing interests*, Section 11.
 
-**Status of this draft: complete, for review.** All sections are written. Every table is
-generated from retained artifacts by the repository's scripts, and every quantitative
-claim in the text is recomputed from those artifacts by
-`scripts/verify_paper.py`, which currently confirms 136 of 136. Each methodological rule that could have been chosen after
-seeing results (label views, model substitutions, evidence classes, excerpt selection,
-label audit, cut-offs) was committed to the repository before the results it governs,
-and the paper cites the record.
-
 ---
 
 ## Abstract
 
-Automated systems increasingly issue machine-generated compliance verdicts in regulated
-domains, presenting an organisation's obligations as a dashboard of satisfied and
-violated states. The evaluation of such systems measures accuracy on isolated
-determinations, which leaves the deployment-critical error unmeasured: reporting an
-obligation as *satisfied* when the evidence required to assess it was never present. We
-call this a **false green**, and we argue it is categorically worse than a false alarm,
-because a false alarm is corrected by review whereas a false green suppresses the review
-that would correct it.
+Automated systems increasingly present an organisation's regulatory obligations as a
+dashboard of satisfied and violated states. Their evaluation measures accuracy on
+individual determinations, which leaves one deployment-critical error unmeasured:
+reporting an obligation as *satisfied* when the evidence needed to assess it was never
+present. We call this a **false green**. It is worse than a false alarm in one specific
+way: a false alarm prompts the review that corrects it, while a false green removes the
+reason to review.
 
 We introduce **No False Green**, a benchmark for evidence-aware compliance verdicts over
-structured employer records in United States employment-based immigration. An instance is
-a synthetic employer: a bundle of source exports paired with a rulebook of 194 citable
-obligations across ten regulatory regimes. A system must return one of four verdicts for
-each (obligation, entity) pair: `pass`, `fail`, `needs_evidence`, or `unmonitored`.
-Ground truth is fixed by construction. A generator selects each pair's disposition first,
-then renders source records consistent with that choice, so labels are not annotations of
-data but the specification the data was rendered from.
+structured employer records in United States employment-based immigration. A system
+receives an employer's data exports and a rulebook of citable obligations, and returns one
+of four verdicts per (obligation, entity) pair: `pass`, `fail`, `needs_evidence`, or
+`unmonitored`. The benchmark has two parts. A hand-authored anchor firm (221 pairs across
+eight regulatory regimes) carries labels from a rule engine, audited blind for whether the
+exports contain the evidence each label assumes. Generated firms carry labels fixed by
+construction: the generator chooses each pair's outcome and then writes records that decide
+it, including conforming cases placed exactly on the legal boundary. Trivial baselines show
+that no single metric suffices. Answering `pass` everywhere raises no false alarm while
+calling every unassessable obligation satisfied, and abstaining everywhere scores well on
+abstention while detecting nothing.
 
-The benchmark inverts the incentive structure of standard evaluation in one specific way:
-correct abstention is the **majority class**, at 201 of 221 pairs in the hand-authored
-anchor firm and 48.8% of 1,481 pairs across the released set. We report the false-green
-rate alongside violation recall, false-alarm rate on planted controls, abstention
-precision and recall, and a consistency check between a system's headline counts and its
-own per-pair verdicts. Trivial baselines establish that these metrics are not
-individually sufficient: a system answering `pass` everywhere attains a 0.000 false-alarm
-rate and is indistinguishable from a safe system under accuracy-style scoring, while
-scoring 1.000 on the false-green rate; conversely a system abstaining everywhere attains
-0.717 abstention F1 while detecting no violations. An evidence-aware oracle attains 1.000
-on every axis, establishing that the task is solvable and that low scores reflect the
-system under test.
+@@ABSTRACT_RESULTS@@
 
-We evaluate six free API models under two output schemas on a 140-pair declared subset.
-Offered an explicit abstention, they report 0.042 to 0.142 of unassessable obligations as
-satisfied, but detect only 0.050 to 0.450 of violations. With the abstention removed from
-the schema, false greens rise three- to fivefold, to 0.175 to 0.525, though prompt, data
-and models are unchanged. False greens concentrate where an export carries a populated
-column adjacent to the missing evidence, such as a signed date standing in for a signature.
-Where nothing adjacent is exported, models raise no false green at all. Because every instance is synthetic, the benchmark is released without the
-confidentiality constraints that keep comparable compliance data unpublishable.
+Every instance is synthetic, so the benchmark is released without the confidentiality
+constraints that keep comparable compliance data unpublishable.
 
 ---
 
@@ -77,15 +55,22 @@ We call the third option a **false green** and make three claims about it.
 **It is not symmetric with a false alarm.** A false alarm consumes reviewer time and is
 extinguished by the review it triggers. A false green consumes nothing and triggers
 nothing. It is self-concealing: the only signal that would surface it is the review that
-it suppresses. In immigration compliance specifically, the obligations at issue carry
-per-worker civil penalties and the enforcement mechanism is an audit that arrives without
-warning, so a false green converts a curable gap into an uncurable finding.
+it suppresses. In immigration compliance the cost is concrete. Form I-9 paperwork
+violations are penalised per form (8 C.F.R. 274a.10(b)(2)) and LCA violations per violation
+(20 C.F.R. 655.810(b)). A Form I-9 inspection gives the employer at least three business
+days' notice (8 C.F.R. 274a.2(b)(2)(ii)), and technical or procedural failures can be
+corrected within ten business days of notification (8 U.S.C. 1324a(b)(6)(B)), but
+substantive violations cannot, and USCIS FDNS site visits are generally unannounced. A
+gap found before an inspection can often be remedied; the same gap found during one
+becomes a finding. A false green is what keeps it from being found before.
 
-**It is invisible to accuracy.** Violations are a minority class in real compliance data.
-A system that answers `pass` on every pair whose evidence is absent therefore scores well
-on any metric that averages over pairs, and scores *perfectly* on the compliant cases
-that dominate the distribution. Section 8 shows this concretely: our `always_pass`
-baseline attains a false-alarm rate of 0.000 across 31 firms.
+**It is invisible to pass/fail scoring.** An evaluation that labels every pair either
+compliant or violated has no category for "the evidence was not there", so missing
+evidence is scored as compliant, and a system that answers `pass` whenever evidence is
+absent is never penalised. Violations are also a minority class, so on compliant cases
+the same system scores perfectly. Section 8 shows the second point concretely: our
+`always_pass` baseline raises no false alarm in any of the 24 firms that carry conforming
+controls.
 
 **It is barely measured.** Benchmarks in legal NLP evaluate reasoning and classification
 over regulatory text and case law (Guha et al., 2023). Most abstention benchmarks evaluate
@@ -95,18 +80,24 @@ claim verification over databases (Theologitis et al., 2026), and agent governan
 authorisation-limited evidence (Solozobov, 2026; Tallam, 2026). None of it evaluates a
 system reading a third-party employer's structured records and deciding, per legal
 obligation, whether the records support a verdict at all, in a domain where correct
-abstention is the majority class. Section 2 sets out how close each comes.
+abstention is a large share of the task by design. Section 2 sets out how close each comes.
 
-We make three contributions.
+We make four contributions.
 
 1. **A task.** Verdicts over (obligation, entity) pairs with four states, where
    `needs_evidence` is a first-class output with its own correctness condition rather than
    a refusal to participate (Section 4).
-2. **A benchmark.** A hand-authored anchor firm with 221 pinned expectations, a seeded
-   generator producing unbounded additional firms with ground truth by construction, and a
-   rulebook of 194 obligations each carrying its regulatory citation (Section 5).
+2. **A benchmark.** A hand-authored anchor firm with 221 audited expectations across eight
+   regimes; a seeded generator producing arbitrarily many (if deliberately narrow) firms
+   whose labels are fixed by construction, including conforming cases on the legal
+   boundary; and a rulebook of 194 obligations, each with its regulatory citation
+   (Section 5).
 3. **A metric suite** centred on the false-green rate, with baselines demonstrating that
    no single metric in the suite is sufficient alone (Sections 6 and 8).
+4. **An empirical study** of nine language models, including a current frontier model, on
+   both parts of the benchmark. It isolates the effect of removing the abstention option
+   from the output schema, with repeated runs and a one-variable ablation (Sections 8
+   and 9).
 
 The benchmark is fully synthetic, which is the reason it can exist. Compliance data
 describing real employers is subject to attorney-client privilege and employee privacy
@@ -194,11 +185,9 @@ abstention. That is, in substance, our argument that the false-green rate and th
 abstention rate must be read together. We differ in three respects. Our subject is a
 third-party employer and our output a regulatory verdict per (obligation, entity) pair,
 not a governance reconstruction or a retrieval answer; our insufficiency is a property of
-what the employer's exports contain, not of what an agent is permitted to see; and our
-anchor firm alone spans 221 pairs across ten regimes, and the generator
-adds firms at any seed (1,481 pairs over 31 firms in the release, against 64 cases and
-72 tasks respectively), which supports per-firm aggregation and intervals. We do not claim the directional, construction-labelled framing
-as new; both works reach it independently.
+what the employer's exports contain, not of what an agent is permitted to see; and the
+assessment is legal, against cited regulatory obligations. We do not claim the
+directional, construction-labelled framing as new; both works reach it independently.
 
 **Abstention and selective prediction.** This is the closest established literature and
 deserves the most precision, because a reviewer will reasonably ask what is new.
@@ -266,8 +255,10 @@ natural-language claim or question, in that labels are fixed by a generator rath
 annotated or derived from real databases, and in that the two wrong answers on an
 undecidable item are scored asymmetrically.
 
-**Output format and schema constraints.** Our schema ablation removes one permitted
-verdict and leaves everything else fixed. Related work shows that output constraints
+**Output format and schema constraints.** Our schema ablation removes the abstention
+verdict from the output format. We run it in two forms (Section 7): a pass/fail-only
+condition that also rewrites the verdict definitions, and a one-variable condition that
+removes only `needs_evidence` and leaves the rest of the prompt word for word. Related work shows that output constraints
 change model answers. Tam et al. (2024) find that restricting generation to structured
 formats degrades reasoning, more so as constraints tighten. Röttger et al. (2024) show that
 models forced into a multiple-choice format give substantively different answers from those
@@ -279,8 +270,8 @@ that gives no credit for expressing uncertainty, so that guessing improves score
 propose changing how existing benchmarks are scored. Our ablation is an instance of the
 same incentive located in a product interface rather than a leaderboard: a schema with no
 state for "could not tell" forces a guess, and some guesses are green. We are not aware of
-prior work that measures the effect of removing the abstention label alone on a
-directional error rate.
+prior work that measures the effect of removing the abstention label, holding the rest of
+the prompt fixed, on a directional error rate.
 
 **Aggregate consistency.** We searched for prior work measuring whether a system's reported
 headline counts agree with its own per-item outputs and did not find any. We include it as
@@ -291,8 +282,8 @@ card and its drilldown disagree; we flag it as the least-established axis in the
 not a theoretical result. Nor is it the first benchmark to fix evidence insufficiency by
 construction or to score the overclaiming direction separately: DEMM-Bench and Partial
 Evidence Bench do both, in agent governance and authorisation-limited retrieval. What this
-benchmark adds is a task in which correct abstention is the majority class and the
-assessed party is a third-party employer described by structured exports; an instrument
+benchmark adds is a task in which correct abstention is a large share of the pairs by
+design and the assessed party is a third-party employer described by structured exports; an instrument
 for the directional error in that setting, together with an ablation that isolates how
 much of it is produced by the output schema; and a releasable artifact in a domain where
 releasability is the binding constraint. Ground truth by construction has precedent in
@@ -330,7 +321,10 @@ opposite. A not-provided document is an **open gap** that counts against audit r
 An employer export cannot evidence whether an adverse action was taken against a worker
 while a contested tentative nonconfirmation was pending, because that fact lives in
 conduct and not in a record the employer exports. Such an obligation must remain visible
-as unmonitored. Silent omission is itself a false green.
+as unmonitored. Silent omission is itself a false green. In the data evaluated in this
+paper no ground-truth label is `unmonitored`, so the state is defined and permitted but not
+exercised as a target; a model's `unmonitored` answer on a withheld pair is scored as wrong
+but is not a false green.
 
 The distinction between `needs_evidence` and `unmonitored` matters operationally: the
 first is actionable by the firm (provide the document), the second is not (no document
@@ -352,10 +346,14 @@ readiness duty to the employer as a whole.
 
 An **obligation** $r \in R$ carries a regulatory citation, the entity type it attaches to,
 and a set $\mathrm{req}(r)$ of source fields that must be present for the obligation to be
-decidable. This last component is what makes `needs_evidence` computable rather than a
-judgement call: if a field in $\mathrm{req}(r)$ is absent from $S$ for entity $e$, the pair
-is not decidable, and any verdict other than `needs_evidence` is wrong regardless of
-whether the underlying situation happens to be compliant.
+decidable. Two conventions qualify it. Reference knowledge (calendars, federal holidays,
+regulatory thresholds) is supplied by the system rather than required from $S$, and fields
+are matched to $\mathrm{req}(r)$ by meaning rather than by name. With those conventions,
+`needs_evidence` is defined by the data rather than by an annotator's sense of sufficiency:
+if an item of $\mathrm{req}(r)$ is absent from $S$ for entity $e$, the pair is not
+decidable, and any verdict other than `needs_evidence` is wrong regardless of whether the
+underlying situation happens to be compliant. Applying the meaning-match is itself a
+judgement, which is why the anchor labels were audited (Section 6.1).
 
 A **pair** is $(r, e)$ where $e$'s type matches $r$'s attachment. The prediction target is
 a verdict $v \in \{\texttt{pass}, \texttt{fail}, \texttt{needs\_evidence},
@@ -364,9 +362,11 @@ a verdict $v \in \{\texttt{pass}, \texttt{fail}, \texttt{needs\_evidence},
 All date-relative obligations evaluate against $a$ rather than against the current date, so
 planted expiry windows remain valid indefinitely. The anchor firm pins $a$ = 2026-06-29.
 
-**Scoring rule.** A pair with no prediction is counted as an error rather than skipped. A
-system cannot raise its score by declining to answer the pairs it finds hard. This is
-enforced in the harness and tested.
+**Scoring rule.** A pair with no prediction is counted as an error rather than skipped, so
+declining to answer lowers violation recall and every accuracy-type score. It does not raise
+the false-green rate, because an unanswered pair cannot be a false green; every results
+table therefore also reports coverage and the false-green rate among answered pairs
+(Section 7).
 
 ---
 
@@ -383,8 +383,9 @@ as a deadline clock, and are counted once here under I-9.
 
 Each obligation carries the check it performs, its threshold, its regulatory citation, and
 a description of the information needed to decide it. The citations had previously been
-through a verification pass in which incorrect citations and thresholds were corrected
-inline against primary sources. The rulebook is built programmatically from the source
+through a verification pass by the source engine's maintainers (the author's company), in
+which incorrect citations and thresholds were corrected against primary sources; it was
+not an independent legal review. The rulebook is built programmatically from the source
 engine's machine-readable registry of that manifest rather than retyped, so every citation
 is traceable to a source document rather than to our recollection.
 
@@ -402,14 +403,13 @@ United States citizens, operating from two worksites, with eleven source exports
 cases, payroll register, RFE and NOID cases, cap cases, green-card cases, PERM recruitment
 tracker, and benefits census.
 
-Each worker exercises one planted regulatory mechanism. The design is one clean plant per
-persona so that a missed finding localises to a mechanism rather than to an interaction.
-Representative plants:
+Most workers carry one planted regulatory mechanism, so that a missed finding usually
+localises to a mechanism. Representative plants:
 
 | Mechanism | Planted signal |
 |---|---|
 | I-9 Section 2 timeliness | Section 2 completed 8 business days after start, against a 3-day limit |
-| Reverification deadline | List A document expiring 14 days after the pinned date |
+| Reverification deadline | Employment authorisation document expired 14 days before the pinned date, with no reverification recorded |
 | E-Verify TNC window | Notice delivered, no employee decision recorded, well past the response window |
 | LCA expiration | Certified period ending 4 days after the pinned date |
 | Required wage, greater-of | Salary equals the certified rate but falls below the prevailing wage |
@@ -417,16 +417,41 @@ Representative plants:
 | Material change, worksite | Roster location differs from the filing's stated area of intended employment |
 | Petition expiry | Validity ending 21 days after the pinned date |
 
-The firm also carries **clean controls**: one H-1B worker whose records conform on every
-dimension, and three United States citizens outside H-1B scope. A finding on a control is
-a false alarm the harness scores.
+**What the anchor labels are, and their known problems.** The anchor firm's labels were
+written as the acceptance gate for a compliance engine, not generated, so they are not
+"fixed by construction" in the sense the generated firms are. Their `fail` means "requires
+action" in that engine. A review of the 20 violation labels while preparing this paper
+found the following, all disclosed rather than silently corrected, because the labels
+predate every result:
+
+- *Duplicates.* Four facts each carry two violation labels under different rules: Mei
+  Tanaka's wage shortfall, Sofia Reyes's worksite, Daniel Cho's E-Verify case, and Hiroshi
+  Yamamoto's petition expiry. The 20 labels describe 16 distinct facts.
+- *Not violations on the records.* Five "actual-wage memo missing" labels have no evidence
+  in any export, and five are deadlines that had not passed on the evaluation date. The
+  strict view (Section 6) handles both.
+- *Contestable plants.* Some plants ignore exceptions a practitioner would check. A roster
+  location outside the LCA's area may be a permitted short-term placement (20 C.F.R.
+  655.735). A management title against an individual-contributor occupation code is not by
+  itself a material change, since the test is a change in duties (8 C.F.R.
+  214.2(h)(2)(i)(E)). Helena Voss's reverification label has no reverification data in the
+  export. One certified LCA states an offered wage below its prevailing wage, which the
+  Department of Labor would not certify.
+
+We keep the engine's labels as the headline view because they existed before this study.
+The strict view, the duplicate count and the generated firms are the checks on them.
+
+The firm's expectation set contains no `pass` labels. Some workers' records conform, but
+the engine's expectations name only violations and evidence requests, so the anchor firm
+cannot measure false alarms; the generated firms can (Section 5.3).
 
 Its expectation set contains 221 pairs: 20 planted violations and 201 evidence requests.
 The 201 arise because most obligations in this domain require evidence an employer export
 does not contain. A certified LCA does not evidence that the required notice was posted; a
 roster does not evidence which document a worker presented. The honest output for such a
-pair is an evidence request, and the fact that these outnumber confirmed violations
-tenfold is the empirical claim underlying the benchmark's design.
+pair is an evidence request. The ten-to-one ratio reflects which obligations the source
+engine can assess from exports, not a measured property of real employers; we treat the
+large abstention share as a design choice that mirrors that engine's coverage.
 
 ### 5.3 The generator
 
@@ -465,8 +490,9 @@ does not, and every I-9 pair is `needs_evidence`.
 label for every (obligation, entity) pair in the 194-obligation rulebook but rendered
 deciding data for only four rule families, and applied rules to entities they cannot govern
 (L-1 and OPT rules to H-1B workers). A blind consistency check caught this before any
-language-model result on generated firms was reported. An independent labeller, given only
-the records and the rule text for 60 stratified pairs, agreed with its labels on 8. Every
+language-model result on generated firms was reported. An AI agent (Claude) given only the
+records and the rule text for 60 stratified pairs, and not the labels, agreed with its
+labels on 8. Every
 figure from that version, including a released-set size of 58,961 pairs and the trivial
 baselines computed on it in an earlier draft, is withdrawn; the artifacts are archived in
 `docs/study2_v1_invalid/`. The same check on the current generator, on 60 pairs from seeds
@@ -474,7 +500,7 @@ not otherwise used, agreed on all 60 (15 per stratum). The test suite now checks
 rendered record against its label across 40 seeds.
 
 The cost of this design is breadth. The generated firms test four rule families thoroughly,
-including the boundary cases, while the anchor firm's breadth (221 pairs across ten regimes)
+including the boundary cases, while the anchor firm's breadth (221 pairs across eight regimes)
 comes from hand authoring. Generation is deterministic in the seed, which the test suite
 asserts.
 
@@ -500,9 +526,10 @@ Let $T$ be ground truth and $P$ predictions over pairs.
 violation is the failure the domain treats as unforgivable, so this is reported first.
 
 **Violation precision** and **false-alarm rate.** Precision over `fail` predictions, and
-separately the share of `planted_control` pairs on which a system raised any alarm. The
-second is reported separately because controls are the pairs where a false alarm is
-unambiguously an error.
+separately the share of conforming controls (label `pass`) on which a system returned
+anything other than `pass`: `fail`, `needs_evidence` and `unmonitored` all count as an
+alarm, since each sends a compliant item to review. Near-miss controls, placed exactly on
+the legal boundary, are reported separately in Study 2.
 
 **False-green rate.** The headline metric:
 
@@ -517,26 +544,26 @@ so only `pass` counts here.
 matters because a system can drive the false-green rate to zero by abstaining everywhere,
 which the baselines demonstrate.
 
-**Evidence-pointer accuracy.** Among pairs a system got right and for which ground truth
-records the relevant fields, the share where the system's cited evidence intersects them.
-A correct verdict reached by citing the wrong record is not a reliable verdict.
-
-**Consistency drift.** Mean absolute relative disagreement between the counts a system
-displays for a surface and the per-pair verdicts the same system emitted. A card reading
-twelve above a drilldown returning three is internally inconsistent regardless of which
-number is correct. This axis exists because we have observed the failure in deployed
-dashboards and are not aware of it being measured elsewhere.
+Two further axes are defined in the harness for systems that expose them, and are **not
+measured in this paper's studies**. *Evidence-pointer accuracy* is the share of correct
+verdicts whose cited evidence intersects the fields ground truth records as relevant.
+*Consistency drift* is the disagreement between the counts a dashboard displays and its own
+per-pair verdicts. Neither applies to the language models evaluated here; we list them so
+that system builders can report them.
 
 **Reporting requirement.** The false-green rate must be reported alongside violation
 recall. Neither is meaningful alone, and Section 8 shows why.
 
----
+### 6.1 Label views of the anchor firm
 
-**Two label views, declared before any main-run result was read.** The anchor firm's
+**Two label views, fixed before per-pair results were read.** The anchor firm's
 labels were written as the acceptance gate for a compliance engine, where `fail` means
 "requires action". This benchmark's `fail` means "the records show a violation". Ten of
 the 20 planted violations sit between those meanings, so we score under two views, fixed
 in `nofalsegreen/labelviews.py` on 2026-09-24 with each affected pair named by identifier.
+The commit came six minutes after a first, later-discarded attempt at the main run had
+printed preliminary aggregate rates to its log. No per-pair result had been read, but we
+cannot exclude that those printed aggregates influenced the decision, and say so.
 
 - **Engine view, the headline.** The labels as authored. It is the headline because it
   existed before this benchmark did, so nothing decided here can have tuned it.
@@ -597,28 +624,36 @@ so that the reported result cannot be a post-hoc selection of prompt:
   Verdicts are returned one per line as `pair_id`, verdict, evidence field. The
   evaluation date is pinned in the prompt with an explicit instruction not to use the
   real current date, since every deadline rule depends on it.
-- *Output schema ablation.* Each model is run twice. In `abstain_offered` the schema
-  includes `needs_evidence` and states the `pass`-versus-`needs_evidence` distinction
-  explicitly. In `abstain_withheld` only `pass` and `fail` are permitted. The second
-  condition is not a strawman: it is what a system built to fill a dashboard looks like,
-  where every cell must resolve and there is no representation for "we could not tell".
-  The difference isolates how much of the false-green rate is an interface artifact
-  rather than a reasoning failure. We separately count **off-schema** replies, where a
-  model abstains despite the schema forbidding it, which we read as a finding rather
-  than an error.
-- *Models.* The protocol originally called for eight to twelve current instruction-tuned
-  models across providers and sizes. With no compute budget, the study ran six free API
-  models from four providers (Section 7.2); results speak to those models only.
+- *Output schema ablation.* `abstain_offered` permits four verdicts, defines `pass` as "the
+  required evidence is present in the exports and satisfies the obligation", and adds a
+  paragraph stressing the `pass`-versus-`needs_evidence` distinction. `abstain_withheld`
+  permits only `pass` and `fail` and is a dashboard-style schema in which every cell must
+  resolve. It changes four things at once: it removes `needs_evidence`, removes
+  `unmonitored`, redefines `pass` as "the obligation is satisfied", and drops the
+  paragraph. The comparison therefore measures the effect of moving from an
+  evidence-aware schema to a dashboard schema, not of one label. To isolate the label, the
+  Vertex block (Section 8.4) adds `abstain_removed_only`: the offered prompt word for word,
+  minus the `needs_evidence` verdict and the sentences that define it. We count
+  **off-schema** replies, where a model returns a verdict the schema does not permit.
+- *Decoding.* Every request sets temperature 0 and an output cap of 32,000 tokens; for
+  models that reason before answering, the reasoning tokens count toward the cap. Some
+  free-tier hosts may not honour temperature 0 for reasoning models, which is one reason
+  the Vertex block repeats every run three times.
+- *Models.* Study 1 ran six free API models from four providers (Section 7.2). The Vertex
+  block adds three Google models: Gemini 3.1 Pro, Gemini 3.8 Flash and Gemma 4 26B.
+  Results speak to these nine models only.
 - *Aggregation.* Scored per firm, then averaged across firms with standard deviation.
   Pairs within a firm share source records and are not independent.
 
-**Parsing policy, which is a scoring decision.** A reply line naming a pair but no
-permitted verdict yields **no prediction**, and the metric module counts the pair as an
+**Parsing policy, which is a scoring decision.** A reply line naming a pair but none of
+the four verdict words yields **no prediction**, and the metric module counts the pair as an
 error. It is never coerced. Coercing to `needs_evidence` would convert a model's
 formatting failures into abstentions and flatter its false-green rate; coercing to `pass`
 would do the reverse. Either would make the headline number a function of our parser. We
 report the unparseable rate separately so a reader can see how much of a score is
-formatting.
+formatting. A line carrying a recognised verdict that the schema did not permit (for
+example `needs_evidence` under `abstain_withheld`) is parsed as given and counted as
+off-schema.
 
 **Coverage, because an unanswered pair cannot be a false green.** A pair with no
 prediction scores as a miss on violation recall, which is conservative. On the
@@ -638,8 +673,8 @@ is never recorded as finished while a batch is missing for this reason, because 
 missing pairs would score as model errors when the cause was delivery. Two outcomes are
 the model's own and are kept as given: a reply that ends normally but contains no usable
 verdict lines (counted as unanswered), and a reply that runs to our 32,000-token cap on
-all three attempts (the cap sits at the evaluated models' own ceiling, so the model is
-generating without end; the batch is recorded as unanswered). Every attempt, with its
+all three attempts (the cap is close to, and below, the free models' own output ceilings,
+so the model is generating without end; the batch is recorded as unanswered). Every attempt, with its
 token count and the provider's stop reason, is in the sweep log.
 
 Two departures from this rule occurred, and both are disclosed here. First, Lightning's
@@ -652,13 +687,8 @@ harness accepted it because the reply was not empty, contrary to the rule above.
 it, since its answer is complete, and the harness has since been corrected to re-request
 such replies. It is the only reply in the study that ended without a normal stop.
 
-**Measured cost.** The full sweep is 1,446 API calls per model per variant, about 2.55M
-input and 1.73M output tokens over 31 firms at batch size 40. At list prices that is
-roughly \$9 to \$170 per model per variant depending on tier, and \$180 to \$3,400 for
-ten models across both variants. Prompt caching on the sources-and-rulebook prefix should
-reduce input cost materially, since every batch within a firm re-sends the same prefix.
-The anchor firm alone costs under \$1.50 on the most expensive tier, which is the
-recommended first run.
+**Cost.** Study 1 and Study 2 used free API tiers only. The Vertex block was paid from the
+author's startup cloud credits; token counts per run are in `docs/vertex/runs/`.
 
 ### 7.1 Protocol revision after a pilot
 
@@ -676,14 +706,10 @@ We report results obtained entirely on providers' free tiers, which constrains t
 experiment in two ways that must be stated because both affect the measurement.
 
 **Source scoping.** Free tiers cap tokens per minute, and the cap is checked against the
-largest single call, not the average. Sending all eleven exports on every call puts the
-anchor firm's largest call at 12,185 tokens at batch size 20, and 16,832 at batch size 40,
-which exceeds several free per-minute quotas outright. We therefore send only the exports
-whose regime an obligation can be evaluated against, with the HR roster always included
-because every other source joins to it. This reduces the largest call to 10,688 tokens at
-batch size 20. Note that shrinking the batch does not help: the obligation text is
-re-sent with every call, so a smaller batch raises the per-call floor rather than
-lowering it.
+largest single call, not the average. Sending all eleven exports on every call
+exceeds several free per-minute token quotas, so we send only the exports whose regime an
+obligation can be evaluated against, with the HR roster always included because every
+other source joins to it. Every run in this paper uses batches of 12 pairs.
 
 Scoping is a change to the prompt, so we treat it as part of the protocol rather than an
 implementation detail. Two safeguards keep it from manufacturing abstentions. First, the
@@ -692,47 +718,27 @@ absent field exists in an export it cannot see; a model that abstained merely be
 suspected hidden data would otherwise inflate the apparent abstention rate. Second, an
 obligation whose regime is unclassified falls back to all sources, so the mapping can only
 narrow prompts for regimes it knows about and can never hide data from an obligation it
-has not classified. The test suite asserts that a correct model scores identically with
-scoping on and off, and that the pass-guessing baseline is still caught at a false-green
-rate of 1.000 under scoping.
+has not classified. We did not run models with scoping off, so we cannot rule out that
+scoping changes model behaviour; it is applied identically in every condition, so it does
+not bias the comparison between them.
 
-**Model coverage, and the limitation it creates.** Free tiers offer a narrower and
-generally smaller set of models than the specification in Section 7 assumes. Any result we
-obtain this way therefore speaks to the models we could reach, not to the frontier. We
-state the models and their published quotas alongside every number and do not generalise
-beyond them. This is a genuine weakness of the study rather than a presentational choice,
-and it is repeated in Section 10.
+**Model coverage.** Free tiers offer a narrower and generally smaller set of models than a
+funded study would use. The Vertex block adds one frontier model, but no model from other
+frontier providers was evaluated (Section 10).
 
 **Model set.** Six free models were declared. Two (the Nex models) were withdrawn from
 the free tier mid-study; they were replaced by Qwen 3.8 27B and, after Gemma 4 31B never
 passed a screening call, dots.3 Note Preview, under rules committed before any
 replacement had answered a batch. Appendix C gives the full sequence and its commit record.
 
-**The declared evaluation subset.** Evaluating all 221 anchor pairs costs 28 calls per
-model per condition. At a free ceiling of 50 calls per day, one model consumes more than
-half a day and a six-model, two-condition study takes a week. We therefore evaluate a
-**declared stratified subset** of 140 pairs, fixed by a seed recorded in the code
-(`nofalsegreen/subset.py`) before any model was scored.
-
-The subset is constructed to preserve the properties the benchmark's claims rest on, and
-the test suite asserts each one:
-
-- **every planted violation is included**, so violation recall over the subset is recall
-  over the firm's complete violation set rather than a sample of it;
-- **the class ratio is held at roughly 6:1** in favour of abstention. Spending the whole
-  budget on additional violations would have raised the subset to a 3.8:1 ratio and made
-  the task easier than the firm it represents, which would flatter any false-green rate
-  measured on it;
-- **every regulatory regime present in the firm keeps at least one pair**, so the
-  per-regime table has no silently missing rows;
-- **selection is deterministic**: the same seed yields the same 140 pairs permanently.
-
-The cost is a smaller denominator, so the confidence interval on a subset false-green
-rate is wider than a full-firm rate would give. We report the subset size beside every
-subset result and never present a subset rate as a full-firm rate. The trivial baselines
-behave identically on the subset, with `always_pass` still scoring 1.000 on the
-false-green rate and the oracle still scoring 1.000 recall, so the subset does not make
-the task easier in the direction that matters.
+**The declared evaluation subset.** The reason for a subset is the free-tier call budget:
+the full anchor firm at batch 12 costs 19 calls per model per condition against a ceiling
+of 50 calls a day. We evaluate a **declared stratified subset** of 140 pairs, fixed by a
+seed in `nofalsegreen/subset.py` and frozen to a file before any model was scored. It
+contains **every planted violation** (so violation recall is over the complete violation
+set) and 120 of the 201 withheld pairs, sampled in proportion to each regime with at least
+one pair per regime present. The subset's smaller denominator widens every interval; we
+report its size beside every result and never present a subset rate as a full-firm rate.
 
 **A baseline we deliberately exclude.** The anchor firm's expectation set originated as
 the acceptance gate for a commercial compliance engine developed by the author's company
