@@ -1,6 +1,6 @@
 # No False Green: A Benchmark for Evidence-Aware Compliance Verdicts over Structured Employer Records
 
-Diptopal Roy, Settle AI Inc. (diptopal@joinsettle.info). See *Competing interests*, Section 11.
+Diptopal Roy, Settle AI Inc. (diptopal@joinsettle.info). See *Competing interests*, Section 12.
 
 ---
 
@@ -27,7 +27,18 @@ that no single metric suffices. Answering `pass` everywhere raises no false alar
 calling every unassessable obligation satisfied, and abstaining everywhere scores well on
 abstention while detecting nothing.
 
-@@ABSTRACT_RESULTS@@
+We evaluate nine language models, including Google's frontier Gemini 3.1 Pro, on 140 pairs
+from the anchor firm and 252 from six generated firms. Offered an abstention, models report
+0.042 to 0.153 of the anchor firm's unassessable obligations as satisfied while
+detecting 0.050 to 0.500 of its violations. A dashboard-style schema permitting
+only `pass` and `fail` raises the false-green rate in every model, to 0.131 to 0.589.
+Two further conditions show that the cause depends on the model. Removing only the
+abstention verdict changes little, because models move to another non-committal verdict.
+With no non-committal verdict left, a weaker model calls most unassessable obligations
+satisfied, while the frontier model holds as long as `pass` is defined as requiring evidence.
+On the anchor firm, false greens concentrate where an export carries a populated column next
+to the missing evidence; on clean generated exports, the definition of `pass` makes no
+difference.
 
 Every instance is synthetic, so the benchmark is released without the confidentiality
 constraints that keep comparable compliance data unpublishable.
@@ -271,9 +282,10 @@ annotated or derived from real databases, and in that the two wrong answers on a
 undecidable item are scored asymmetrically.
 
 **Output format and schema constraints.** Our schema ablation removes the abstention
-verdict from the output format. We run it in two forms (Section 7): a pass/fail-only
-condition that also rewrites the verdict definitions, and a one-variable condition that
-removes only `needs_evidence` and leaves the rest of the prompt word for word. Related work shows that output constraints
+verdict from the output format. We run it in three forms (Sections 7 and 8.4): a dashboard
+schema that also rewrites the verdict definitions, a condition that removes only
+`needs_evidence`, and a condition that removes every non-committal verdict while keeping the
+evidence-anchored definitions. Related work shows that output constraints
 change model answers. Tam et al. (2024) find that restricting generation to structured
 formats degrades reasoning, more so as constraints tighten. Röttger et al. (2024) show that
 models forced into a multiple-choice format give substantively different answers from those
@@ -308,7 +320,7 @@ by Sainz et al. (2023). Constructed labels are not error-free, and test-set labe
 can change model rankings (Northcutt et al., 2021), which is why we audit the withheld
 labels (Section 6). The release follows datasheet practice (Gebru et al., 2021), and our
 reporting requirement, that the false-green rate always appear beside violation recall, is
-in the spirit of model cards (Mitchell et al., 2019). Section 10 states what this does not
+in the spirit of model cards (Mitchell et al., 2019). Section 11 states what this does not
 establish.
 
 ---
@@ -649,8 +661,9 @@ so that the reported result cannot be a post-hoc selection of prompt:
   `unmonitored`, redefines `pass` as "the obligation is satisfied", and drops the
   paragraph. The comparison therefore measures the effect of moving from an
   evidence-aware schema to a dashboard schema, not of one label. To isolate the label, the
-  Vertex block (Section 8.4) adds `abstain_removed_only`: the offered prompt word for word,
-  minus the `needs_evidence` verdict and the sentences that define it. We count
+  Vertex block (Section 8.4) adds `abstain_removed_only` (the offered prompt word for word,
+  minus the `needs_evidence` verdict and the sentences that define it) and `abstain_closed`
+  (only `pass` and `fail`, with their evidence-anchored definitions and the warning kept). We count
   **off-schema** replies, where a model returns a verdict the schema does not permit.
 - *Decoding.* Every request sets temperature 0 and an output cap of 32,000 tokens; for
   models that reason before answering, the reasoning tokens count toward the cap. Some
@@ -742,7 +755,7 @@ not bias the comparison between them.
 
 **Model coverage.** Free tiers offer a narrower and generally smaller set of models than a
 funded study would use. The Vertex block adds one frontier model, but no model from other
-frontier providers was evaluated (Section 10).
+frontier providers was evaluated (Section 11).
 
 **Model set.** Six free models were declared. Two (the Nex models) were withdrawn from
 the free tier mid-study; they were replaced by Qwen 3.8 27B and, after Gemma 4 31B never
@@ -760,7 +773,7 @@ report its size beside every result and never present a subset rate as a full-fi
 
 **A baseline we deliberately exclude.** The anchor firm's expectation set originated as
 the acceptance gate for a commercial compliance engine developed by the author's company
-(Section 11). That engine would score near
+(Section 12). That engine would score near
 ceiling on this firm for a reason that has nothing to do with capability: the expectations
 and the engine were developed against each other. Reporting it as a baseline would be
 misleading, and we do not.
@@ -1003,39 +1016,101 @@ violations; the false-green axis shows what that preference costs.
 
 Study 2 runs the same protocol on all 252 pairs of six generated firms (Section 5.3), which
 carry what the anchor firm lacks: conforming controls, a third of them near-miss cases on
-the legal boundary. Firms and models were fixed in `nofalsegreen/study2.py` before any call.
+the legal boundary. Firms were fixed in `nofalsegreen/study2.py` before any call. The
+declared free-tier models are still running on the free quota and are not reported here;
+Study 2 results come from the three Vertex models, three runs each, shown in the Study 2
+rows of Table 7 (Section 8.4).
 
-**Table 6 — Study 2, free-tier models.** Mean ± standard deviation over the six firms, each
-rate over the firms in which it is defined.
+**Generated firms are easier, and show the other side of the trade-off.** With abstention
+offered, the three models report 0.021 to 0.071 of withheld pairs as compliant, below their
+Study 1 rates. Gemini 3.1 Pro and 3.8 Flash detect 0.960 to 0.980 of violations; Gemma 4
+detects 0.283. The generated exports are clean, with no populated column next to a missing
+one, which is consistent with the adjacent-field account of Section 9. The conforming
+controls expose a cost that Study 1 could not show. With abstention offered, Gemini 3.1 Pro
+returns something other than `pass` on 0.190 of conforming controls and 0.162 of near-miss
+controls, mostly by asking for evidence that is present. Without any abstention verdict its
+false-alarm rate falls to 0.032 while its false-green rate rises from 0.021 to 0.061. The
+abstention option buys fewer false greens with more review of compliant items.
 
-<!-- BEGIN GENERATED: table6-study2 -->
-| Model | Condition | False green | Recall | False alarm, all controls | False alarm, near-miss | Abst. F1 | Answered |
-|---|---|---|---|---|---|---|---|
-<!-- END GENERATED: table6-study2 -->
-
-@@STUDY2_TEXT@@
+Excluding the reverification pairs, whose violation labels assume no extension was filed
+(Section 11), does not lower any Study 2 false-green rate, so that simplification does not
+drive these results.
 
 ### 8.4 The Vertex block: a frontier model, and repeated runs
 
-Every model above is a free-tier open-weights model, run once. The Vertex block adds
-Gemini 3.1 Pro (Google's frontier tier at the time of writing), Gemini 3.8 Flash, and Gemma
-4 26B (open weights, Google-hosted), on both studies and both schemas, and runs every
-configuration three times (`nofalsegreen/vertex_block.py`, declared before any call). At
-temperature 0 a repeat measures run-to-run variation of the served model. These models were
-added after the free-tier studies began, and are reported apart for that reason.
+Every model in Section 8.2 is a free-tier open-weights model, run once. The Vertex block
+adds Gemini 3.1 Pro (Google's frontier tier at the time of writing), Gemini 3.8 Flash, and
+Gemma 4 26B (open weights, Google-hosted), on both studies, and runs every configuration
+three times (`nofalsegreen/vertex_block.py`). These models were added after the free-tier
+studies began, and are reported apart for that reason.
+
+It also takes the schema ablation apart. The dashboard condition of Section 8.2 changes four
+things at once, so the block adds two conditions, each declared before its first call. In
+*removed-only*, the offered prompt loses only `needs_evidence` and its definition. In
+*closed*, both non-committal verdicts are removed but `pass` and `fail` keep their
+evidence-anchored definitions and the warning sentence. The *closed* condition was added
+after the first *removed-only* results were seen, and is reported as such.
 
 **Table 7 — Vertex block.** Mean of three runs, with the minimum and maximum in brackets.
 
 <!-- BEGIN GENERATED: table7-vertex -->
-| Model | Study | Condition | False green | Recall | False alarm, near-miss | Abst. F1 | Min answered |
+| Model | Study | Schema | False green | Recall | False alarm, near-miss | Withheld pairs answered pass / fail / needs_ev. / unmon. | Min answered |
 |---|---|---|---|---|---|---|---|
-| `vertex/gemma-4-26b-a4b-it-maas` | 1 | offered | 0.153 [0.150, 0.158] | 0.067 [0.050, 0.100] | — | 0.755 [0.750, 0.759] | 140/140 |
-| `vertex/gemma-4-26b-a4b-it-maas` | 1 | withheld | 0.589 [0.567, 0.617] | 0.400 [0.400, 0.400] | — | 0.000 [0.000, 0.000] | 128/140 |
-| `vertex/gemma-4-26b-a4b-it-maas` | 2 | offered | 0.071 [0.071, 0.071] | 0.283 [0.242, 0.303] | 0.061 [0.061, 0.061] | 0.959 [0.955, 0.963] | 252/252 |
-| `vertex/gemma-4-26b-a4b-it-maas` | 2 | withheld | 0.175 [0.175, 0.175] | 0.303 [0.303, 0.303] | 0.030 [0.030, 0.030] | 0.000 [0.000, 0.000] | 252/252 |
+| `gemini-3.1-pro-preview` | 1 | offered | 0.058 [0.058, 0.058] | 0.433 [0.400, 0.450] | — | 7 / 1 / 101 / 11 | 140/140 |
+| `gemini-3.1-pro-preview` | 1 | removed-only | 0.050 [0.025, 0.067] | 0.550 [0.500, 0.600] | — | 6 / 5 / 0 / 109 | 140/140 |
+| `gemini-3.1-pro-preview` | 1 | closed | 0.050 [0.033, 0.067] | 0.950 [0.950, 0.950] | — | 6 / 114 / 0 / 0 | 140/140 |
+| `gemini-3.1-pro-preview` | 1 | dashboard | 0.131 [0.125, 0.142] | 0.917 [0.850, 0.950] | — | 16 / 104 / 0 / 0 | 140/140 |
+| `gemini-3.1-pro-preview` | 2 | offered | 0.021 [0.016, 0.032] | 0.960 [0.939, 0.970] | 0.162 [0.151, 0.182] | 3 / 0 / 123 / 0 | 252/252 |
+| `gemini-3.1-pro-preview` | 2 | removed-only | 0.056 [0.024, 0.071] | 1.000 [1.000, 1.000] | 0.131 [0.091, 0.151] | 7 / 26 / 0 / 93 | 252/252 |
+| `gemini-3.1-pro-preview` | 2 | closed | 0.061 [0.056, 0.064] | 0.980 [0.970, 1.000] | 0.030 [0.030, 0.030] | 8 / 118 / 0 / 0 | 252/252 |
+| `gemini-3.1-pro-preview` | 2 | dashboard | 0.061 [0.056, 0.064] | 0.970 [0.970, 0.970] | 0.061 [0.061, 0.061] | 8 / 118 / 0 / 0 | 252/252 |
+| `gemini-3.8-flash` | 1 | offered | 0.094 [0.092, 0.100] | 0.500 [0.500, 0.500] | — | 11 / 0 / 96 / 12 | 140/140 |
+| `gemini-3.8-flash` | 1 | removed-only | 0.156 [0.125, 0.183] | 0.783 [0.750, 0.850] | — | 19 / 18 / 0 / 79 | 128/140 |
+| `gemini-3.8-flash` | 1 | closed | 0.242 [0.208, 0.283] | 0.767 [0.600, 0.850] | — | 29 / 89 / 0 / 0 | 127/140 |
+| `gemini-3.8-flash` | 1 | dashboard | 0.419 [0.375, 0.458] | 0.833 [0.800, 0.850] | — | 50 / 66 / 0 / 0 | 127/140 |
+| `gemini-3.8-flash` | 2 | offered | 0.026 [0.016, 0.032] | 0.980 [0.970, 1.000] | 0.071 [0.030, 0.121] | 3 / 4 / 117 / 0 | 246/252 |
+| `gemini-3.8-flash` | 2 | removed-only | 0.037 [0.032, 0.048] | 0.990 [0.970, 1.000] | 0.061 [0.061, 0.061] | 5 / 62 / 0 / 59 | 246/252 |
+| `gemini-3.8-flash` | 2 | closed | 0.156 [0.127, 0.182] | 0.980 [0.939, 1.000] | 0.051 [0.030, 0.061] | 20 / 106 / 0 / 0 | 246/252 |
+| `gemini-3.8-flash` | 2 | dashboard | 0.167 [0.167, 0.167] | 1.000 [1.000, 1.000] | 0.061 [0.030, 0.091] | 21 / 105 / 0 / 0 | 252/252 |
+| `gemma-4-26b-a4b-it-maas` | 1 | offered | 0.153 [0.150, 0.158] | 0.067 [0.050, 0.100] | — | 18 / 0 / 76 / 26 | 140/140 |
+| `gemma-4-26b-a4b-it-maas` | 1 | removed-only | 0.183 [0.175, 0.200] | 0.067 [0.050, 0.100] | — | 22 / 0 / 0 / 79 | 116/140 |
+| `gemma-4-26b-a4b-it-maas` | 1 | closed | 0.600 [0.525, 0.667] | 0.400 [0.400, 0.400] | — | 72 / 33 / 0 / 0 | 122/140 |
+| `gemma-4-26b-a4b-it-maas` | 1 | dashboard | 0.589 [0.567, 0.617] | 0.400 [0.400, 0.400] | — | 71 / 41 / 0 / 0 | 128/140 |
+| `gemma-4-26b-a4b-it-maas` | 2 | offered | 0.071 [0.071, 0.071] | 0.283 [0.242, 0.303] | 0.061 [0.061, 0.061] | 9 / 0 / 116 / 1 | 252/252 |
+| `gemma-4-26b-a4b-it-maas` | 2 | removed-only | 0.071 [0.071, 0.071] | 0.313 [0.303, 0.333] | 0.091 [0.091, 0.091] | 9 / 0 / 0 / 117 | 252/252 |
+| `gemma-4-26b-a4b-it-maas` | 2 | closed | 0.172 [0.167, 0.175] | 0.384 [0.303, 0.455] | 0.040 [0.030, 0.061] | 22 / 93 / 0 / 0 | 235/252 |
+| `gemma-4-26b-a4b-it-maas` | 2 | dashboard | 0.175 [0.175, 0.175] | 0.303 [0.303, 0.303] | 0.030 [0.030, 0.030] | 22 / 104 / 0 / 0 | 252/252 |
+
+Schemas: *offered* (four verdicts, evidence-anchored definitions); *removed-only* (offered minus `needs_evidence`); *closed* (`pass`/`fail` only, evidence-anchored definitions kept); *dashboard* (`pass`/`fail` only, `pass` redefined as "the obligation is satisfied", warning dropped; the `abstain_withheld` condition of Study 1). Study 1 has 120 withheld pairs and no conforming controls; Study 2 has 126 withheld pairs.
 <!-- END GENERATED: table7-vertex -->
 
-@@VERTEX_TEXT@@
+**Repeats are stable.** Across all 24 model, study and schema cells, the three runs'
+false-green rates differ by at most 0.142, and by 0.06 or less in 21 of them. A single run
+is a fair estimate for these models.
+
+**The frontier model behaves like the better free models.** Offered an abstention, Gemini
+3.1 Pro reports 0.058 of Study 1's withheld pairs as compliant, inside the free models'
+range of 0.042 to 0.142, while detecting 0.433 of violations.
+
+**Taking the ablation apart, Study 1.**
+
+- *Removing only `needs_evidence` changes little.* The false-green rate moves from 0.058 to
+  0.050 for Gemini 3.1 Pro, 0.094 to 0.156 for Gemini 3.8 Flash and 0.153 to 0.183 for
+  Gemma 4. Models route unassessable pairs to the remaining non-committal verdict,
+  `unmonitored`: Gemini 3.1 Pro sends 109 of 120 there on average.
+- *Removing every abstention verdict* while keeping `pass` evidence-anchored (*closed*)
+  affects the models very differently. Gemini 3.1 Pro is unaffected (0.050); Flash rises to
+  0.242; Gemma 4 rises to 0.600.
+- *Redefining `pass` as "the obligation is satisfied"* and dropping the warning (*dashboard*
+  against *closed*) adds 0.081 for Gemini 3.1 Pro and 0.177 for Flash, and nothing for
+  Gemma 4 (0.589), which has already given up.
+
+So no single change explains the dashboard effect. Which safeguard matters depends on the
+model. A weaker model needs an explicit way to abstain, while a stronger one holds without
+one as long as `pass` is defined in terms of evidence. On Study 2's clean generated firms,
+by contrast, the definition of `pass` makes no difference for any model (*closed* and
+*dashboard* differ by at most 0.011). The definition matters on realistic exports, where
+a populated column sits next to the missing evidence.
 
 ---
 
@@ -1122,16 +1197,18 @@ is offered locates the problem in interface design, which is an actionable findi
 anyone shipping a compliance dashboard. A small reduction locates it in the models, which
 is a harder problem and a more important result. We commit to reporting whichever occurs.
 
-*Result.* The reduction is large, so the problem sits substantially in the interface. This
-is an instance, in a compliance interface, of a mechanism argued generally by Kalai et al.
-(2025): evaluation and output formats that give no credit for expressing uncertainty
-reward guessing.
-Removing `needs_evidence` from the schema raised every model's false-green rate by 0.125 to
-0.425, while the models' behaviour when the option was available shows they can recognise
-most unassessable pairs. A dashboard that has no state for "could not tell" converts that
-recognition into green cells. This does not absolve the models. Even with the option,
-false-green rates of 0.04 to 0.14 remain, and recall is too low for any of them to serve
-as a monitor.
+*Result.* The interface matters, but not as a single switch. Moving to a dashboard schema
+raises every model's false-green rate (Tables 3 and 7). Decomposing that move (Section 8.4)
+shows three separable effects whose sizes depend on the model. Removing the abstention label
+alone does little, because models find another non-committal verdict. Removing every such
+verdict is what breaks a weaker model. Redefining `pass` without reference to evidence is
+what moves a stronger one. This is an instance, in a product interface, of the mechanism
+Kalai et al. (2025) describe for benchmarks: formats that give no credit for expressing
+uncertainty reward guessing. The practical reading is two design rules, both cheap. Keep a
+verdict for "could not tell", and define `pass` as "the required evidence is present and
+satisfies the obligation". Neither absolves the models: with both rules in place, false-green
+rates of 0.04 to 0.15 remain on the anchor firm, and recall is too low for any model to serve
+as an unsupervised monitor.
 
 **Evidence-pointer quality.** Among pairs answered correctly, how often the cited evidence
 field is one ground truth records as relevant. A correct verdict reached by pointing at the
@@ -1197,7 +1274,21 @@ the adjacent-field substitution described above. The full reply lines are in
 
 ---
 
-## 10. Limitations
+## 10. Conclusion
+
+A compliance dashboard that reports an obligation as satisfied when its evidence was never
+present makes the one error its user cannot see. This benchmark measures that error
+directly, and its two parts serve different purposes. An audited anchor firm carries the
+messiness of real exports. Generated firms, labelled by construction, carry conforming and
+boundary cases. Across nine models, a dashboard-style schema raises false greens in every
+one, but no single schema change is responsible, and models differ in which change hurts
+them. Two design rules follow, and both are cheap: keep a verdict for "could not tell", and
+define `pass` in terms of evidence. The most important missing check is independent
+labelling by practising counsel.
+
+---
+
+## 11. Limitations
 
 **One jurisdiction, one domain.** United States employment-based immigration. We claim the
 false-green failure generalises to other regulated domains and claim nothing about whether
@@ -1280,7 +1371,7 @@ all.
 
 ---
 
-## 11. Ethics and release
+## 12. Ethics and release
 
 **No real personal data.** Every record is synthetic. Generated firms draw names from
 generic combinatorial pools; the hand-authored anchor firm's names were written by hand to

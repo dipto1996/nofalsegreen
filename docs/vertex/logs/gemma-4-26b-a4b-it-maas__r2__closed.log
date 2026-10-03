@@ -1,0 +1,170 @@
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r2 --firms 0 --variant abstain_closed --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemma-4-26b-a4b-it-maas#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_closed']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 312 output tokens, 10s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 296 output tokens, 9s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 273 output tokens, 7s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 403 output tokens, 7s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 538 output tokens, 10s, finish=stop, ok
+      batch 6/12 (56 parsed so far)
+        attempt 1: 267 output tokens, 4s, finish=stop, ok
+      batch 7/12 (68 parsed so far)
+        attempt 1: 366 output tokens, 8s, finish=stop, ok
+      batch 8/12 (80 parsed so far)
+        attempt 1: 250 output tokens, 7s, finish=stop, ok
+      batch 9/12 (80 parsed so far)
+        attempt 1: 480 output tokens, 11s, finish=stop, ok
+      batch 10/12 (90 parsed so far)
+        attempt 1: 407 output tokens, 10s, finish=stop, ok
+      batch 11/12 (102 parsed so far)
+        attempt 1: 412 output tokens, 8s, finish=stop, ok
+      batch 12/12 (114 parsed so far)
+        attempt 1: 292 output tokens, 7s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.525  recall 0.400  absF1 0.000  unparsed 6  (12 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r2::abstain_closed: FGR 0.525 (sd 0.000)  recall 0.400  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r2__closed__study1.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r2 --firms 0 --variant abstain_closed --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemma-4-26b-a4b-it-maas__r2__closed__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemma-4-26b-a4b-it-maas#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_closed']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 236 output tokens, 6s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 236 output tokens, 4s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 314 output tokens, 14s, finish=stop, ok
+      batch 4/4 (28 parsed so far)
+        attempt 1: 270 output tokens, 5s, finish=stop, ok
+  synthetic-000001-v2-study2 FGR 0.030  recall 0.000  absF1 0.000  unparsed 8  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 276 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 280 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 383 output tokens, 9s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 234 output tokens, 7s, finish=stop, ok
+  synthetic-000002-v2-study2 FGR 1.000  recall 0.333  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 344 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 344 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 383 output tokens, 9s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 216 output tokens, 3s, finish=stop, ok
+  synthetic-000009-v2-study2 FGR 0.778  recall 0.143  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 236 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 236 output tokens, 6s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 302 output tokens, 7s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 246 output tokens, 9s, finish=stop, ok
+  synthetic-000013-v2-study2 FGR 0.030  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 236 output tokens, 10s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 236 output tokens, 6s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 302 output tokens, 32s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r2: RuntimeError: HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "Connection to backend aborted, possibly due to server shutdown.",
+    "status": "UNAVAILABLE"
+  }
+}
+ after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r2: RuntimeError: HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "Connection to backend aborted, possibly due to server shutdown.",
+    "status": "UNAVAILABLE"
+  }
+}
+ after 0s
+        attempt 1: 270 output tokens, 9s, finish=stop, ok
+  synthetic-000014-v2-study2 FGR 0.030  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 272 output tokens, 27s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 280 output tokens, 8s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r2: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r2: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request C27BasaxJ_aMirgP5f7AmAM is throttled due to too many requests. Please try again later. Ple after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r2: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r2: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 383 output tokens, 24s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 216 output tokens, 7s, finish=stop, ok
+  synthetic-000015-v2-study2 FGR 0.333  recall 0.625  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r2::abstain_closed: FGR 0.367 (sd 0.427)  recall 0.183  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r2__closed__study2.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r2 --firms 0 --variant abstain_closed --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemma-4-26b-a4b-it-maas#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_closed']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertex/gemma-4-26b-a4b-it-maas#r2::abstain_closed: FGR 0.525 (sd 0.000)  recall 0.400  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r2__closed__study1.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r2 --firms 0 --variant abstain_closed --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemma-4-26b-a4b-it-maas__r2__closed__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemma-4-26b-a4b-it-maas#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_closed']
+
+  synthetic-000001-v2-study2 skip (done)
+  synthetic-000002-v2-study2 skip (done)
+  synthetic-000009-v2-study2 skip (done)
+  synthetic-000013-v2-study2 skip (done)
+  synthetic-000014-v2-study2 skip (done)
+  synthetic-000015-v2-study2 skip (done)
+
+  vertex/gemma-4-26b-a4b-it-maas#r2::abstain_closed: FGR 0.367 (sd 0.427)  recall 0.183  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r2__closed__study2.json

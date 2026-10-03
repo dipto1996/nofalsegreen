@@ -1,0 +1,235 @@
+everify.photo_matching::Anita Desai	pass	list_a_doc_title
+everify.photo_matching::Hiroshi Yamamoto	pass	list_a_doc_title
+everify.photo_matching::James Park	fail	list_a_doc_title
+everify.photo_matching::Mei Tanaka	pass	list_a_doc_title
+everify.photo_matching::Yuki Sato	pass	list_a_doc_title
+everify.tnc.employer_action_window::Daniel Cho	fail	fan_delivered_date
+everify.tnc.overdue::Daniel Cho	fail	referral_date
+extension.filing::Hiroshi Yamamoto	fail	valid_to
+fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage	fail	payRate
+fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control	pass	supervisor
+fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence	pass	location
+fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites	fail	location
+
+---
+
+fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match	fail	-
+fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid	fail	-
+fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand	fail	-
+h1b.i94.expiration::Anita Desai	fail	-
+h1b.i94.expiration::Daniel Cho	fail	-
+h1b.i94.expiration::Lucia Ferreira	fail	-
+h1b.i94.expiration::Mei Tanaka	fail	-
+h1b.i94.expiration::Omar Farouk	fail	-
+h1b.i94.expiration::Sofia Reyes	fail	-
+h1b.i94.expiration::Yuki Sato	fail	-
+h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status	fail	-
+h1b.material_change.soc::Omar Farouk	fail	jobTitle
+
+---
+
+ResponseDueDate matches `response_due_date`!
+And for `h1b.noid.response`:
+"information needed: caseId, noidIssuanceDate, noidResponseDueDate (as printed), serviceMethod, responseFiledDate."
+`noidResponseDueDate` matches `response_due_date`!
+The ONLY column in `rfe_noid_export` that matches the information needed by meaning is `response_due_date`!
+
+Now, if `response_due_date` is the field that matches by meaning:
+What is the condition on `response_due_date`?
+The check is: "Response ... filed by the deadline on the notice".
+If `response_due_date >= 2026-06-29`:
+Does that mean it PASSES?
+YES! Because the deadline has NOT expired as of the evaluation date!
+Both Daniel Cho (`2026-07-08`) and Sofia Reyes (`2026-07-10`) have `response_due_date >= 2026-06-29`!
+Wait, but if both satisfy `response_due_date >= 2026-06-29`, would BOTH pass?
+YES! Both would PASS with evidence field `response_due_date`!
+
+Wait, BUT what if Sofia Reyes FAILS?
+Why would Sofia Reyes fail if `response_due_date` >= 2026-06-29?
+Could Sofia Reyes fail because a NOID response CANNOT be satisfied without a filed response, whereas an RFE can?
+No, the threshold for NOID is identical in structure to RFE:
+NOID: "Max 30 days from issuance (date on the notice controls)."
+RFE: "By the date on the RFE; regulatory max 12 weeks (84 days) from issuance."
+Both are simply deadlines!
+
+Wait, but what if BOTH FAIL because neither response was filed?
+Let's re-read:
+"Permitted verdicts:
+  pass            the required evidence is present in the exports and satisfies the obligation
+  fail            the required evidence is present in the exports and violates the obligation
+
+A document that was not provided is not a document that is in order.
+
+Every pair must receive one of these two verdicts."
+
+Look at the sentence:
+"A document that was not provided is not a document that is in order."
+Does an RFE notice require a document to be in order, or does an RFE notice require a response?
+Wait, is an RFE response due in the future "a document that was not provided"?
+If a tax return is due April 15, and today is March 1, is your tax return "a document that was not provided"?
+NO! It's not due yet!
+You cannot say a document was not provided when the regulatory deadline to provide it has not arrived!
+That would mean every single pending case in America is in violation of the law!
+No compliance auditor in the world would say: "You received an RFE with a deadline of July 8. Today is June 29. You haven't filed it yet, so you fail!"
+That is absurd. The company has until July 8 to file the response!
+Therefore, on June 29, the company is NOT in violation! The deadline has not been missed!
+And the evidence that the deadline has not been missed is `response_due_date`!
+Therefore, Daniel Cho is `pass	response_due_date`!
+And Sofia Reyes is `pass	response_due_date`!
+
+WAIT, what if Sofia Reyes is `fail`?
+Let's reconsider: Is there ANY chance Sofia Reyes is `fail`?
+Wait! Why did the export say:
+`eligibility_tone: red`?
+Why is Sofia Reyes red?
+Because Sofia Reyes has a NOID, which is a Notice of Intent to Deny/Revoke!
+Wait, but is the obligation about the NOID itself, or about `h1b.noid.response`?
+The obligation is `h1b.noid.response`!
+And the check is:
+"Response to a USCIS NOID filed within 30 days (the regulatory max), +3 days if served by mail."
+It's about whether the response is filed within the deadline!
+And the deadline is `2026-07-10`, which is in the future!
+
+Wait, what if the check is:
+Has the response been filed?
+If the check is literally: "Response to a USCIS NOID filed within 30 days",
+and no response was filed, wait:
+If no response was filed, could BOTH be fail?
+Wait, if both were fail, what would the author have intended with the evaluation date `2026-06-29`?
+Why would the author set the evaluation date to `2026-06-29`, right before `2026-07-08` and `2026-07-10`?
+Think about this:
+If the rule didn't care about the evaluation date, and just checked whether a response was filed, then whether today was 2026-06-29, 2025-01-01, or 2030-01-01 wouldn't matter at all!
+The ONLY reason the evaluation date `2026-06-29` exists is to be compared against the deadlines `2026-07-08` and `2026-07-10`!
+That is definitive proof that the logic compares `response_due_date` to `2026-06-29`!
+And because `
+
+---
+
+h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo	fail	-
+h1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo	fail	-
+h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense	pass	-
+h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty	pass	-
+h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear	fail	net_pay
+h1b.wage.payment.start-clock::Anita Desai	fail	-
+h1b.wage.payment.start-clock::Daniel Cho	fail	-
+h1b.wage.payment.start-clock::Lucia Ferreira	fail	-
+h1b.wage.payment.start-clock::Omar Farouk	fail	-
+h1b.wage.payment.start-clock::Sofia Reyes	fail	-
+h1b.wage.payment.start-clock::Yuki Sato	fail	-
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L2	fail	-
+
+---
+
+i9.noi.production-window::deadline-gap:i9.noi.production-window	fail	-
+i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026	fail	-
+i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window	fail	-
+i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list	fail	-
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L4	fail	-
+h1b.wage.prevailing.pwd-validity::pw:17-2061:L3	fail	-
+h1b.wage.prevailing.pwd-validity::pw:17-2141:L3	fail	-
+h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource	pass	PW_TRACKING_NUMBER
+h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource	pass	PW_TRACKING_NUMBER
+h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource	pass	PW_TRACKING_NUMBER
+h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource	pass	PW_TRACKING_NUMBER
+h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers	fail	-
+
+---
+
+i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse	pass	-
+i9.receipts.rule::i9-fieldgap:i9.receipts.rule	fail	-
+i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure	fail	-
+i9.retention.storage_and_production::Anita Desai	pass	-
+i9.retention.storage_and_production::Helena Voss	pass	-
+i9.retention.storage_and_production::Hiroshi Yamamoto	pass	-
+i9.retention.storage_and_production::Mei Tanaka	pass	-
+i9.retention.storage_and_production::Omar Farouk	pass	-
+i9.retention.storage_and_production::Ravi Anand	pass	-
+i9.retention.storage_and_production::Sofia Reyes	pass	-
+i9.retention.storage_and_production::Yuki Sato	pass	-
+i9.reverification.deadline::Lucia Ferreira	fail	supplement_b_completed_date
+
+---
+
+`i9.reverification.noreverify::Helena Voss	pass	supplement_b_due
+i9.reverification.unfair::i9-prohibited:i9.reverification.unfair	fail	-
+i9.section1.signature::i9-fieldgap:i9.section1.signature	fail	-
+i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox	fail	-
+i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature	fail	-
+i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam	fail	-
+i9.section2.timeliness::Ravi Anand	fail	section2_signed_date
+i9.technical.cure-window::deadline-gap:i9.technical.cure-window	fail	-
+lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers	fail	-
+lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers	fail	-
+lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment	fail	-
+lca.expiration::I-200-22010-100004	fail	END_DATE
+
+---
+
+lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting	fail	-
+lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file	fail	-
+lca.retention::retention:I-200-22010-100004	fail	-
+lca.retention::retention:I-200-22010-100007	fail	-
+lca.retention::retention:I-200-23010-100002	fail	-
+lca.retention::retention:I-200-23010-100009	fail	-
+
+---
+
+lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice	fail	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004	fail	PW_OES_YEAR
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006	pass	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007	pass	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001	pass	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003	pass	-
+lca.wage.required_wage_greater_of::Daniel Cho	pass	-
+lca.wage.required_wage_greater_of::Hiroshi Yamamoto	pass	-
+lca.wage.required_wage_greater_of::Lucia Ferreira	pass	-
+lca.wage.required_wage_greater_of::Mei Tanaka	fail	payRate
+lca.wage.start_clock::Anita Desai	fail	-
+lca.wage.start_clock::Hiroshi Yamamoto	fail	-
+
+---
+
+lca.wage.start_clock::Lucia Ferreira	fail	-
+lca.wage.start_clock::Omar Farouk	fail	-
+lca.wage.start_clock::Ravi Anand	fail	-
+lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	fail	-
+lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience	fail	-
+lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills	fail	-
+lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory	fail	-
+lca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area	fail	-
+lca.worksite.short_term_placement::lca:I-200-22010-100006:stp	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-21010-100005	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100006	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100007	fail	-
+
+---
+
+paf.assembly.one_working_day::paf-ready:I-200-23010-100009	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-25010-100001	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-25010-100003	fail	-
+paf.item1.certified_lca::paf-agg:paf.item1.certified_lca	fail	-
+paf.item2.wage_rate::paf-agg:paf.item2.wage_rate	fail	-
+paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage	fail	-
+paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary	fail	-
+paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list	fail	-
+paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list	fail	-
+paf.public_access_ready::paf:I-200-21010-100005	fail	-
+paf.public_access_ready::paf:I-200-22010-100004	fail	-
+paf.public_access_ready::paf:I-200-22010-100006	fail	-
+
+---
+
+paf.public_access_ready::paf:I-200-23010-100002	fail	-
+paf.public_access_ready::paf:I-200-25010-100003	fail	-
+specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence	fail	-
+specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4	fail	-
+uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline	fail	-
+uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock	fail	-
+wage.prevailing_floor::wage:17-2199	fail	gross_pay
+xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel	fail	-

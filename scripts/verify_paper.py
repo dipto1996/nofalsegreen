@@ -118,9 +118,6 @@ from baselines.llm import estimate_cost as _ec
 _sc = _ec(firm, rb.all_rules(), batch_size=20, scope_sources=True)
 _un = _ec(firm, rb.all_rules(), batch_size=20, scope_sources=False)
 _un40 = _ec(firm, rb.all_rules(), batch_size=40, scope_sources=False)
-claim(_sc["max_call_tokens"] == 10688, f"scoped max call is 10,688 (got {_sc['max_call_tokens']:,})")
-claim(_un["max_call_tokens"] == 12185, f"unscoped max call is 12,185 (got {_un['max_call_tokens']:,})")
-claim(_un40["max_call_tokens"] == 16832, f"unscoped batch-40 max call is 16,832 (got {_un40['max_call_tokens']:,})")
 claim("10,688" not in paper and "16,832" not in paper,
       "stale batch-20/40 token figures removed (every run used batch 12)")
 claim("batches of 12 pairs" in paper, "paper states the batch size actually used")
@@ -131,15 +128,16 @@ claim("falls back to all sources" in paper or "fall back to all sources" in pape
       "paper documents the unclassified-regime fallback")
 claim("Model coverage is limited to free API tiers" in paper,
       "limitations name the model-coverage weakness")
-claim("24 calls" in paper, "paper quotes the measured anchor-firm call count for both variants")
+claim("12 calls per model and condition" in paper and "costs 24" in paper,
+      "paper quotes the per-run call counts at batch 12 (Study 1: 12, Study 2: 24)")
 
 print("\nstructural-skeleton claims")
 import re as _re
 _heads = [l for l in paper.splitlines() if l.startswith(("## ", "### "))]
 _nums = [h for h in _heads if _re.match(r"^## \d+\.", h)]
-claim(len(_nums) == 11, f"11 numbered sections, contiguous (got {len(_nums)})")
-claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(1, 12)),
-      "section numbers run 1..11 with no gaps or repeats")
+claim(len(_nums) == 12, f"12 numbered sections, contiguous (got {len(_nums)})")
+claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(1, 13)),
+      "section numbers run 1..12 with no gaps or repeats")
 claim("## 2. Related work" in paper, "Related work is a real section, not an appendix stub")
 claim("Appendix B: Related work to engage" not in paper, "the old related-work stub is gone")
 for t in ("Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Figure 1"):
@@ -147,7 +145,7 @@ for t in ("Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Figure 1"):
 claim("[\u2026]" not in paper and "[…]" not in paper, "no empty result cell remains")
 _bad = _re.findall(r"Section \d+", paper)
 _maxsec = max(int(x.split()[1]) for x in _bad)
-claim(_maxsec <= 11, f"no cross-reference points past section 11 (max {_maxsec})")
+claim(_maxsec <= 12, f"no cross-reference points past section 12 (max {_maxsec})")
 
 print("\nfree-model screening claims")
 _screen = json.loads((ROOT / "docs" / "free_model_live_probe_2026-09-21b.json").read_text())
@@ -315,9 +313,20 @@ claim("have not yet been run" not in paper and "has not been run" not in paper,
 _t2 = paper[paper.index("BEGIN GENERATED: table2-main"):paper.index("END GENERATED: table2-main")]
 claim(all(f"`{k.split('/')[-1].split('::')[0].replace(':free', '')}`" in _t2
           for k in _fin if k.endswith("offered")), "Table 2 has a row for every finished offered run")
-_wo = [v["engine"]["false_green_rate"] for v in _wit.values()]
-claim(f"to {min(_wo):.3f} to {max(_wo):.3f}" in paper.replace("\n", " "),
-      f"abstract: withheld FGR range {min(_wo):.3f}-{max(_wo):.3f}")
+_V = json.loads((ROOT / "docs" / "studies_results.json").read_text())["vertex"]
+_vm = lambda cond, metric: [_V[k]["summary"][metric]["mean"] for k in _V if f"study1::{cond}" in k]  # noqa: E731
+_ab = paper[paper.index("## Abstract"):paper.index("## 1. Introduction")].replace("\n", " ")
+_o = [v["engine"]["false_green_rate"] for v in _off.values()] + _vm("abstain_offered", "false_green_rate")
+_r = [v["engine"]["violation_recall"] for v in _off.values()] + _vm("abstain_offered", "violation_recall")
+_w = [v["engine"]["false_green_rate"] for v in _wit.values()] + _vm("abstain_withheld", "false_green_rate")
+for _lab, _xs in (("offered FGR", _o), ("offered recall", _r), ("dashboard FGR", _w)):
+    claim(f"{min(_xs):.3f} to {max(_xs):.3f}" in _ab, f"abstract {_lab} range {min(_xs):.3f}-{max(_xs):.3f} (9 models)")
+claim(len(_V) == 24 and all(v["n_repeats"] == 3 for v in _V.values()),
+      "Vertex block: 24 cells, three repeats each")
+_sp = [v["summary"]["false_green_rate"]["max"] - v["summary"]["false_green_rate"]["min"] for v in _V.values()]
+claim(f"differ by at most {max(_sp):.3f}" in paper.replace("\n", " ")
+      and f"in {sum(1 for x in _sp if x <= 0.06 + 1e-9)} of them" in paper.replace("\n", " "),
+      "repeat-spread claims match")
 claim(results["note"].startswith("Trivial baselines only"), "results.json is labelled as trivial baselines")
 claim("Language-model results" in readme and "0.042 to 0.142" in readme, "README reports LM results")
 for forbidden in ["250-rule", "237-rule", "612 cases", "768 checks"]:

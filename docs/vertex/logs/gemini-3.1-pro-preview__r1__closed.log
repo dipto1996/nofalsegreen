@@ -1,0 +1,126 @@
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r1 --firms 0 --variant abstain_closed --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.1-pro-preview#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_closed']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 5829 output tokens, 38s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 5290 output tokens, 35s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 6285 output tokens, 42s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 9597 output tokens, 63s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 6993 output tokens, 46s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 3786 output tokens, 26s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 3578 output tokens, 22s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 3711 output tokens, 24s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 5483 output tokens, 34s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 4644 output tokens, 26s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+        attempt 1: 3567 output tokens, 23s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+        attempt 1: 4622 output tokens, 31s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.033  recall 0.950  absF1 0.000  unparsed 0  (12 calls)
+
+  vertex/gemini-3.1-pro-preview#r1::abstain_closed: FGR 0.033 (sd 0.000)  recall 0.950  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r1__closed__study1.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r1 --firms 0 --variant abstain_closed --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemini-3.1-pro-preview__r1__closed__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_closed']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1845 output tokens, 13s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2051 output tokens, 14s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3816 output tokens, 25s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 12351 output tokens, 80s, finish=stop, ok
+  synthetic-000001-v2-study2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3158 output tokens, 19s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3459 output tokens, 21s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 8624 output tokens, 55s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 15117 output tokens, 93s, finish=stop, ok
+  synthetic-000002-v2-study2 FGR 0.556  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6132 output tokens, 35s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3632 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3384 output tokens, 21s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1670 output tokens, 13s, finish=stop, ok
+  synthetic-000009-v2-study2 FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2195 output tokens, 15s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1758 output tokens, 13s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5147 output tokens, 34s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4847 output tokens, 30s, finish=stop, ok
+  synthetic-000013-v2-study2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1721 output tokens, 12s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1962 output tokens, 14s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5888 output tokens, 38s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 13500 output tokens, 89s, finish=stop, ok
+  synthetic-000014-v2-study2 FGR 0.000  recall 0.667  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3578 output tokens, 22s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3076 output tokens, 20s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4775 output tokens, 31s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1777 output tokens, 22s, finish=stop, ok
+  synthetic-000015-v2-study2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r1::abstain_closed: FGR 0.148 (sd 0.240)  recall 0.944  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r1__closed__study2.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r1 --firms 0 --variant abstain_closed --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.1-pro-preview#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_closed']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertex/gemini-3.1-pro-preview#r1::abstain_closed: FGR 0.033 (sd 0.000)  recall 0.950  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r1__closed__study1.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r1 --firms 0 --variant abstain_closed --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemini-3.1-pro-preview__r1__closed__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_closed']
+
+  synthetic-000001-v2-study2 skip (done)
+  synthetic-000002-v2-study2 skip (done)
+  synthetic-000009-v2-study2 skip (done)
+  synthetic-000013-v2-study2 skip (done)
+  synthetic-000014-v2-study2 skip (done)
+  synthetic-000015-v2-study2 skip (done)
+
+  vertex/gemini-3.1-pro-preview#r1::abstain_closed: FGR 0.148 (sd 0.240)  recall 0.944  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r1__closed__study2.json

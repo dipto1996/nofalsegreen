@@ -124,3 +124,57 @@ batch 12  scoped_sources True  firms 6  variants ['abstain_withheld']
   vertex/gemma-4-26b-a4b-it-maas#r1::abstain_withheld: FGR 0.367 (sd 0.427)  recall 0.177  over 6 firm(s)
 
 wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study2.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r1 --firms 0 --variant abstain_offered --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemma-4-26b-a4b-it-maas#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertex/gemma-4-26b-a4b-it-maas#r1::abstain_offered: FGR 0.150 (sd 0.000)  recall 0.050  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study1.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r1 --firms 0 --variant abstain_withheld --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemma-4-26b-a4b-it-maas#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertex/gemma-4-26b-a4b-it-maas#r1::abstain_withheld: FGR 0.567 (sd 0.000)  recall 0.400  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study1.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r1 --firms 0 --variant abstain_offered --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemma-4-26b-a4b-it-maas__r1__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemma-4-26b-a4b-it-maas#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_offered']
+
+  synthetic-000001-v2-study2 skip (done)
+  synthetic-000002-v2-study2 skip (done)
+  synthetic-000009-v2-study2 skip (done)
+  synthetic-000013-v2-study2 skip (done)
+  synthetic-000014-v2-study2 skip (done)
+  synthetic-000015-v2-study2 skip (done)
+
+  vertex/gemma-4-26b-a4b-it-maas#r1::abstain_offered: FGR 0.167 (sd 0.408)  recall 0.177  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study2.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r1 --firms 0 --variant abstain_withheld --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemma-4-26b-a4b-it-maas__r1__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemma-4-26b-a4b-it-maas#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_withheld']
+
+  synthetic-000001-v2-study2 skip (done)
+  synthetic-000002-v2-study2 skip (done)
+  synthetic-000009-v2-study2 skip (done)
+  synthetic-000013-v2-study2 skip (done)
+  synthetic-000014-v2-study2 skip (done)
+  synthetic-000015-v2-study2 skip (done)
+
+  vertex/gemma-4-26b-a4b-it-maas#r1::abstain_withheld: FGR 0.367 (sd 0.427)  recall 0.177  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study2.json

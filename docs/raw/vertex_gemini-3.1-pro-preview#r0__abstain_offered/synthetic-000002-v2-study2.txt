@@ -37,8 +37,8 @@ i9.section1.timeliness::SYN-1011	fail	section1SignDate
 i9.section2.timeliness::SYN-1011	pass	section2EmployerSignDate
 i9.section1.timeliness::SYN-1012	pass	section1SignDate
 i9.section2.timeliness::SYN-1012	pass	section2EmployerSignDate
-lca.wage.required_wage_greater_of::I-200-25000-100001	needs_evidence	-
-lca.wage.required_wage_greater_of::I-200-25001-100002	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	grossPay
 lca.wage.required_wage_greater_of::I-200-25002-100003	needs_evidence	-
 
 ---

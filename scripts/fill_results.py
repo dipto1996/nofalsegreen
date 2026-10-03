@@ -328,7 +328,6 @@ def main() -> int:
 
     tables = {
         "table1-trivial": table_trivial(),
-        "table6-study2": table_study2(),
         "table7-vertex": table_vertex(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),

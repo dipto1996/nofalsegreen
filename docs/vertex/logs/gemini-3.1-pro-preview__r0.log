@@ -81,3 +81,172 @@ batch 12  scoped_sources True  firms 6  variants ['abstain_offered']
       batch 3/4 (24 parsed so far)
         attempt 1: 3904 output tokens, 26s, finish=stop, ok
       batch 4/4 (36 parsed so far)
+        attempt 1: 3683 output tokens, 26s, finish=stop, ok
+  synthetic-000001-v2-study2 FGR 0.000  recall 0.500  absF1 0.917  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2988 output tokens, 19s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3197 output tokens, 19s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10467 output tokens, 68s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 8636 output tokens, 134s, finish=stop, ok
+  synthetic-000002-v2-study2 FGR 0.222  recall 1.000  absF1 0.875  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3391 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3132 output tokens, 19s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3187 output tokens, 20s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 996 output tokens, 8s, finish=stop, ok
+  synthetic-000009-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1263 output tokens, 9s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1331 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6827 output tokens, 46s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6604 output tokens, 45s, finish=stop, ok
+  synthetic-000013-v2-study2 FGR 0.000  recall 1.000  absF1 0.892  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1365 output tokens, 10s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1438 output tokens, 11s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 25595 output tokens, 166s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6904 output tokens, 41s, finish=stop, ok
+  synthetic-000014-v2-study2 FGR 0.000  recall 1.000  absF1 0.943  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3993 output tokens, 24s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3519 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3409 output tokens, 20s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1163 output tokens, 9s, finish=stop, ok
+  synthetic-000015-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_offered: FGR 0.037 (sd 0.091)  recall 0.917  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r0__study2.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_withheld --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemini-3.1-pro-preview__r0__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1883 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1842 output tokens, 15s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4626 output tokens, 31s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 23753 output tokens, 157s, finish=stop, ok
+  synthetic-000001-v2-study2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3530 output tokens, 22s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3246 output tokens, 20s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5703 output tokens, 36s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 18840 output tokens, 122s, finish=stop, ok
+  synthetic-000002-v2-study2 FGR 0.556  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4729 output tokens, 28s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3005 output tokens, 19s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3511 output tokens, 23s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1535 output tokens, 12s, finish=stop, ok
+  synthetic-000009-v2-study2 FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1785 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1960 output tokens, 15s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5075 output tokens, 34s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6893 output tokens, 43s, finish=stop, ok
+  synthetic-000013-v2-study2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1666 output tokens, 13s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1874 output tokens, 13s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4946 output tokens, 32s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 9741 output tokens, 63s, finish=stop, ok
+  synthetic-000014-v2-study2 FGR 0.000  recall 0.667  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3572 output tokens, 21s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3537 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4785 output tokens, 30s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1631 output tokens, 13s, finish=stop, ok
+  synthetic-000015-v2-study2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld: FGR 0.148 (sd 0.240)  recall 0.944  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r0__study2.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_offered --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_offered: FGR 0.058 (sd 0.000)  recall 0.450  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r0__study1.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_withheld --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld: FGR 0.125 (sd 0.000)  recall 0.950  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r0__study1.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_offered --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemini-3.1-pro-preview__r0__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_offered']
+
+  synthetic-000001-v2-study2 skip (done)
+  synthetic-000002-v2-study2 skip (done)
+  synthetic-000009-v2-study2 skip (done)
+  synthetic-000013-v2-study2 skip (done)
+  synthetic-000014-v2-study2 skip (done)
+  synthetic-000015-v2-study2 skip (done)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_offered: FGR 0.037 (sd 0.091)  recall 0.917  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r0__study2.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_withheld --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemini-3.1-pro-preview__r0__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_withheld']
+
+  synthetic-000001-v2-study2 skip (done)
+  synthetic-000002-v2-study2 skip (done)
+  synthetic-000009-v2-study2 skip (done)
+  synthetic-000013-v2-study2 skip (done)
+  synthetic-000014-v2-study2 skip (done)
+  synthetic-000015-v2-study2 skip (done)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld: FGR 0.148 (sd 0.240)  recall 0.944  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.1-pro-preview__r0__study2.json

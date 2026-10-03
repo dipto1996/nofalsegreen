@@ -1,12 +1,13 @@
 {
   "completed": [
-    "vertex/gemini-3.8-flash#r2::abstain_offered::northwind-robotics-subset140"
+    "vertex/gemini-3.8-flash#r2::abstain_offered::northwind-robotics-subset140",
+    "vertex/gemini-3.8-flash#r2::abstain_withheld::northwind-robotics-subset140"
   ],
   "usage": {
     "vertex/gemini-3.8-flash#r2": {
-      "calls": 12,
-      "input_tokens": 160966,
-      "output_tokens": 155929
+      "calls": 29,
+      "input_tokens": 390833,
+      "output_tokens": 675369
     }
   }
 }

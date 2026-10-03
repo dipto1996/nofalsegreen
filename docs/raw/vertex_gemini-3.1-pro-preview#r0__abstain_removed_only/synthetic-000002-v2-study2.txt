@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	section1SignDate
+i9.section2.timeliness::SYN-1001	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1001	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1002	pass	section1SignDate
+i9.section2.timeliness::SYN-1002	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1002	pass	supplementBReverificationDate
+i9.section1.timeliness::SYN-1003	fail	section1SignDate
+i9.section2.timeliness::SYN-1003	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1003	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1004	pass	section1SignDate
+i9.section2.timeliness::SYN-1004	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1004	fail	supplementBReverificationDate
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	section1SignDate
+i9.section2.timeliness::SYN-1005	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1005	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1006	pass	section1SignDate
+i9.section2.timeliness::SYN-1006	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1006	pass	supplementBReverificationDate
+i9.section1.timeliness::SYN-1007	pass	section1SignDate
+i9.section2.timeliness::SYN-1007	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1007	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1008	fail	section1SignDate
+i9.section2.timeliness::SYN-1008	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1008	pass	supplementBReverificationDate
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	section1SignDate
+i9.section2.timeliness::SYN-1009	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1009	pass	supplementBReverificationDate
+i9.section1.timeliness::SYN-1010	pass	section1SignDate
+i9.section2.timeliness::SYN-1010	pass	section2EmployerSignDate
+i9.section1.timeliness::SYN-1011	fail	section1SignDate
+i9.section2.timeliness::SYN-1011	pass	section2EmployerSignDate
+i9.section1.timeliness::SYN-1012	pass	section1SignDate
+i9.section2.timeliness::SYN-1012	pass	section2EmployerSignDate
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	grossPay
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	-
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	-
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	-
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	-
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	-
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	-
