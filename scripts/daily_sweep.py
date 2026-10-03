@@ -252,7 +252,7 @@ def main() -> int:
         print(f"withdrawn from the free tier, not run: {m}")
 
     print(f"study: {len(MODELS)} models x {len(VARIANTS)} conditions = {total} runs")
-    per_run = 30 if STUDY2 else -(-args.subset // BATCH)
+    per_run = 24 if STUDY2 else -(-args.subset // BATCH)
     print(f"~{per_run} calls per run")
     print(f"done: {len(done)}/{total}   remaining: {len(q)}")
     print(f"at 50 calls/day: ~{-(-len(q) * per_run // 50)} more day(s)\n")
