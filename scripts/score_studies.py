@@ -117,6 +117,9 @@ def main() -> int:
     anchor = subset_firm(northwind.load(anchor_dir, anchor_dir / "expectations.json"), rb.rule_regimes())
     firms2 = study2.load_firms(rb)
     cache = json.loads(CACHE.read_text())
+    # Vertex runs keep one cache per (model, repeat); merge them read-only.
+    for vc in sorted((ROOT / "docs" / "vertex" / "cache").glob("*.json")):
+        cache.update(json.loads(vc.read_text()))
 
     def finished(path: Path, n_firms: int) -> set[str]:
         if not path.exists():
@@ -135,16 +138,18 @@ def main() -> int:
 
     # Vertex block
     reps: dict[tuple, list] = defaultdict(list)
-    for study, path in (("study1", ROOT / "docs" / "vertex" / "study1_llm_results.json"),
-                        ("study2", ROOT / "docs" / "vertex" / "study2_llm_results.json")):
-        for key in sorted(finished(path, 1 if study == "study1" else len(firms2))):
-            model, variant = key.split("::")
-            base = model.split("#")[0]
-            if study == "study1":
-                m = metrics(anchor.labels, preds_for(cache, anchor, model, variant))
-            else:
-                m = pool(firms2, cache, model, variant)
-            reps[(base, study, variant)].append({"rep": model.split("#")[-1], **m})
+    vertex_runs = []
+    for study in ("study1", "study2"):
+        for path in sorted((ROOT / "docs" / "vertex" / "runs").glob(f"*__{study}.json")):
+            vertex_runs += [(study, k) for k in finished(path, 1 if study == "study1" else len(firms2))]
+    for study, key in vertex_runs:
+        model, variant = key.split("::")
+        base = model.split("#")[0]
+        if study == "study1":
+            m = metrics(anchor.labels, preds_for(cache, anchor, model, variant))
+        else:
+            m = pool(firms2, cache, model, variant)
+        reps[(base, study, variant)].append({"rep": model.split("#")[-1], **m})
     for (base, study, variant), runs in sorted(reps.items()):
         agg = {}
         for k in ("false_green_rate", "violation_recall", "violation_precision", "false_alarm_rate",
