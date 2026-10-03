@@ -271,9 +271,9 @@ COND = {"abstain_offered": "offered", "abstain_removed_only": "removed-only",
 def table_vertex() -> str:
     """Table 7: Vertex block, four schema conditions, mean of three repeats [min, max],
     with where the withheld pairs went (mean count over repeats)."""
-    head = ("| Model | Study | Schema | False green | Recall | False alarm, near-miss "
+    head = ("| Model | Study | Schema | False green | FG, answered only | Recall | False alarm, near-miss "
             "| Withheld pairs answered pass / fail / needs_ev. / unmon. | Min answered |"
-            "\n|---|---|---|---|---|---|---|---|")
+            "\n|---|---|---|---|---|---|---|---|---|")
     if not STUDIES.exists():
         return head
     rows = [head]
@@ -292,14 +292,43 @@ def table_vertex() -> str:
             f"{sum(x['counts'].get('withheld_as_' + v, 0) for x in reps) / len(reps):.0f}"
             for v in ("pass", "fail", "needs_evidence", "unmonitored"))
         rows.append(f"| `{model.replace('vertex/', '')}` | {study[-1]} | {COND[variant]} "
-                    f"| {cell('false_green_rate')} | {cell('violation_recall')} "
+                    f"| {cell('false_green_rate')} | {_f((a.get('false_green_rate_answered') or {}).get('mean'))} "
+                    f"| {cell('violation_recall')} "
                     f"| {cell('false_alarm_near_miss')} | {dist} | {a['answered_min']}/{n} |")
     rows.append("")
     rows.append("Schemas: *offered* (four verdicts, evidence-anchored definitions); *removed-only* "
                 "(offered minus `needs_evidence`); *closed* (`pass`/`fail` only, evidence-anchored "
                 "definitions kept); *dashboard* (`pass`/`fail` only, `pass` redefined as \"the "
                 "obligation is satisfied\", warning dropped; the `abstain_withheld` condition of Study 1). "
-                "Study 1 has 120 withheld pairs and no conforming controls; Study 2 has 126 withheld pairs.")
+                "Study 1 has 120 withheld pairs and no conforming controls; Study 2 rates are pooled "
+                "over its six firms (126 withheld pairs). The verdict columns show every off-schema "
+                "answer: none occurred on a withheld pair in any cell.")
+    return "\n".join(rows)
+
+
+def table_contrasts() -> str:
+    """Table 8: paired contrasts between schema conditions, Vertex block."""
+    head = ("| Model | Study | Change of schema | Withheld pairs | Change in FGR [95% CI] | Holm p |"
+            "\n|---|---|---|---|---|---|")
+    if not STUDIES.exists():
+        return head
+    cs = json.loads(STUDIES.read_text()).get("contrasts", {})
+    lab = {"abstain_offered->abstain_removed_only": "offered → removed-only",
+           "abstain_offered->abstain_closed": "offered → closed",
+           "abstain_closed->abstain_withheld": "closed → dashboard",
+           "abstain_offered->abstain_withheld": "offered → dashboard"}
+    rows = [head]
+    for k in sorted(cs, key=lambda k: (k.split("::")[0], k.split("::")[1], list(lab).index(k.split("::")[2]))):
+        m, st, c = k.split("::")
+        v = cs[k]
+        mark = " **" if v["p_holm"] < 0.05 else ""
+        rows.append(f"| `{m.replace('vertex/', '')}` | {st[-1]} | {lab[c]} | {v['n_pairs']} "
+                    f"| {v['delta']:+.3f} [{v['ci95'][0]:+.2f}, {v['ci95'][1]:+.2f}] "
+                    f"| {v['p_holm']:.3f}{mark} |")
+    rows.append("")
+    rows.append("Each withheld pair's outcome is its share of `pass` over the three runs. Pairs answered "
+                "in every run of both conditions; obligations resampled (2,000 draws, firm by obligation "
+                "in Study 2); two-sided p-values Holm-corrected across all 24 contrasts; ** marks p < 0.05.")
     return "\n".join(rows)
 
 
@@ -329,6 +358,7 @@ def main() -> int:
     tables = {
         "table1-trivial": table_trivial(),
         "table7-vertex": table_vertex(),
+        "table8-contrasts": table_contrasts(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

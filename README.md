@@ -72,10 +72,10 @@ cleanly when the daily ceiling is reached, and resumes from a checkpoint. Re-iss
 same command each day to continue. It exits 0 on quota exhaustion, so it can be driven
 from cron. Standard library only, no provider SDK.
 
-**Source scoping.** Free tiers cap tokens per minute against the *largest single call*.
-Sending all eleven exports every call puts the anchor firm at 12,185 tokens per call at
-batch 20, over several free quotas. Scoping sends only the exports an obligation's regime
-can be evaluated against, plus the roster, which brings the largest call to 10,688.
+**Source scoping.** Free tiers cap tokens per minute against the *largest single call*, and
+sending all eleven exports on every call exceeds several free quotas. Scoping sends only the
+exports an obligation's regime can be evaluated against, plus the roster. Every run in the
+paper uses batches of 12 pairs.
 
 Three safeguards stop this from manufacturing abstentions:
 

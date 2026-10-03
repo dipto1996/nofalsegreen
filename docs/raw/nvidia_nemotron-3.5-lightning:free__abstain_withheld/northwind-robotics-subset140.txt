@@ -44,7 +44,7 @@ From everify_case_export:
 2023071700010009,Anita,Desai,"Northwind Robotics, Inc.",2023-07-19,2023-07-17,Employment Authorized,,,,,,,Employment Authorized,2023-07-24,2023-07-24
 
 From hris_roster_export:
-b1000000-0000-4000-8000-000000000009,NWR-1009,Anita,Desai,,Anita,Anita Desai,1990-09-09,***-**-1009,Female,Married,India,anita.desai@northwindrobotics.com,anitadesai@gmail.com,+1-512-555-0109,"3300 Guadalupe St, Apt 1",Austin,TX,78705,United States,2023-07-17,2023-07-17,Full-Time,Robotics Software Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,149000,Salary,Annually,40,H-1B,P1000009,Active
+b1000000-0000-4000-8000-000000000009,NWR-1009,Anita,Desai,,Anita,Anita Desai,1990-09-09,***-**-1009,Female,Married,India,anita.desai@northwind-robotics.example,anitadesai@personal.example,+1-512-555-0109,"3300 Alder St, Apt 1",Austin,TX,78705,United States,2023-07-17,2023-07-17,Full-Time,Robotics Software Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,149000,Salary,Annually,40,H-1B,P1000009,Active
 
 Now, for the photo_matching check, I need to see if there's photo matching information. Looking at the everify_case_export, the columns are:
 case_number,employee_first_name,employee_last_name,client_company_name,case_creation_date,hire_date,case_status,ssa_tnc_date,dhs_tnc_date,fan_delivered_date,employee_decision,employee_decision_date,referral_date,final_result,case_closed_date,last_updated
@@ -180,7 +180,7 @@ From everify_case_export:
 2022081500010007,Hiroshi,Yamamoto,"Northwind Robotics, Inc.",2022-08-17,2022-08-15,Employment Authorized,,,,,,,Employment Authorized,2022-08-22,2022-08-22
 
 From hris_roster_export:
-b1000000-0000-4000-8000-000000000007,NWR-1007,Hiroshi,Yamamoto,,Hiroshi,Hiroshi Yamamoto,1991-12-02,***-**-1007,Male,Married,Japan,hiroshi.yamamoto@northwindrobotics.com,hiroshiy@gmail.com,+1-512-555-0107,"500 E 5th St, Apt 18",Austin,TX,78701,United States,2022-08-15,2022-08-15,Full-Time,Embedded Systems Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,151000,Salary,Annually,40,H-1B,P1000007,Active
+b1000000-0000-4000-8000-000000000007,NWR-1007,Hiroshi,Yamamoto,,Hiroshi,Hiroshi Yamamoto,1991-12-02,***-**-1007,Male,Married,Japan,hiroshi.yamamoto@northwind-robotics.example,hiroshiy@personal.example,+1-512-555-0107,"500 Laurel St, Apt 18",Austin,TX,78701,United States,2022-08-15,2022-08-15,Full-Time,Embedded Systems Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,151000,Salary,Annually,40,H-1B,P1000007,Active
 
 ### 3. everify.photo_matching::James Park
 
@@ -191,7 +191,7 @@ From everify_case_export:
 2020050400010010,James,Park,"Northwind Robotics, Inc.",2020-05-06,2020-05-04,Employment Authorized,,,,,,,Employment Authorized,2020-05-11,2020-05-11
 
 From hris_roster_export:
-b1000000-0000-4000-8000-000000000010,NWR-1010,James,Park,,James,James Park,1987-02-18,***-**-1010,Male,Married,United States,james.park@northwindrobotics.com,jamespark@gmail.com,+1-512-555-0110,"4500 Mueller Blvd, Apt 14",Austin,TX,78723,United States,2020-05-04,2020-05-04,Full-Time,VP of Engineering,Engineering,Technology,Austin - HQ,,,225000,Salary,Annually,40,US Citizen,,Active
+b1000000-0000-4000-8000-000000000010,NWR-1010,James,Park,,James,James Park,1987-02-18,***-**-1010,Male,Married,United States,james.park@northwind-robotics.example,jamespark@personal.example,+1-512-555-0110,"4500 Rowan Ave, Apt 14",Austin,TX,78723,United States,2020-05-04,2020-05-04,Full-Time,VP of Engineering,Engineering,Technology,Austin - HQ,,,225000,Salary,Annually,40,US Citizen,,Active
 
 James Park is a US Citizen.
 
@@ -204,7 +204,7 @@ From everify_case_export:
 2022061300010004,Mei,Tanaka,"Northwind Robotics, Inc.",2022-06-15,2022-06-13,Employment Authorized,,,,,,,Employment Authorized,2022-06-20,2022-06-20
 
 From hris_roster_export:
-b1000000-0000-4000-8000-000000000004,NWR-1004,Mei,Tanaka,,Mei,Mei Tanaka,1989-11-05,***-**-1004,Female,Married,Japan,mei.tanaka@northwindrobotics.com,meitanaka@gmail.com,+1-512-555-0104,"1100 S Lamar Blvd, Apt 22",Austin,TX,78704,United States,2022-06-13,2022-06-13,Full-Time,Senior Robotics Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,96000,Salary,Annually,40,H-1B,P1000004,Active
+b1000000-0000-4000-8000-000000000004,NWR-1004,Mei,Tanaka,,Mei,Mei Tanaka,1989-11-05,***-**-1004,Female,Married,Japan,mei.tanaka@northwind-robotics.example,meitanaka@personal.example,+1-512-555-0104,"1100 Willow Ave, Apt 22",Austin,TX,78704,United States,2022-06-13,2022-06-13,Full-Time,Senior Robotics Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,96000,Salary,Annually,40,H-1B,P1000004,Active
 
 ### 5. everify.photo_matching::Yuki Sato
 
@@ -215,7 +215,7 @@ From everify_case_export:
 2024010800010008,Yuki,Sato,"Northwind Robotics, Inc.",2024-01-10,2024-01-08,Employment Authorized,,,,,,,Employment Authorized,2024-01-15,2024-01-15
 
 From hris_roster_export:
-b1000000-0000-4000-8000-000000000008,NWR-1008,Yuki,Sato,,Yuki,Yuki Sato,1995-05-30,***-**-1008,Female,Single,Japan,yuki.sato@northwindrobotics.com,yukisato@gmail.com,+1-512-555-0108,"1601 Barton Springs Rd, Apt 6",Austin,TX,78704,United States,2024-01-08,2024-01-08,Full-Time,Computer Vision Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,147000,Salary,Annually,40,H-1B,P1000008,Active
+b1000000-0000-4000-8000-000000000008,NWR-1008,Yuki,Sato,,Yuki,Yuki Sato,1995-05-30,***-**-1008,Female,Single,Japan,yuki.sato@northwind-robotics.example,yukisato@personal.example,+1-512-555-0108,"1601 Hazel Ave, Apt 6",Austin,TX,78704,United States,2024-01-08,2024-01-08,Full-Time,Computer Vision Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,147000,Salary,Annually,40,H-1B,P1000008,Active
 
 Now let me look at the next pairs.
 
@@ -337,7 +337,7 @@ So:
 - section2_signed_date: 2025-04-16
 
 And from hris_roster_export:
-b1000000-0000-4000-8000-000000000003,NWR-1003,Daniel,Cho,,Daniel,Daniel Cho,1994-01-27,***-**-1003,Male,Single,South Korea,daniel.cho@northwindrobotics.com,danielcho@gmail.com,+1-512-555-0103,"600 W 6th St, Apt 3B",Austin,TX,78701,United States,2025-04-14,2025-04-14,Full-Time,Perception Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,150000,Salary,Annually,40,H-1B,P1000003,Active
+b1000000-0000-4000-8000-000000000003,NWR-1003,Daniel,Cho,,Daniel,Daniel Cho,1994-01-27,***-**-1003,Male,Single,South Korea,daniel.cho@northwind-robotics.example,danielcho@personal.example,+1-512-555-0103,"600 Birch St, Apt 3B",Austin,TX,78701,United States,2025-04-14,2025-04-14,Full-Time,Perception Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,150000,Salary,Annually,40,H-1B,P1000003,Active
 
 Hire date: 2025-04-14
 
@@ -427,7 +427,7 @@ NWR-1007,Hiroshi,Yamamoto,2022-08-15,2022-08-15,2022-08-17,Olivia Brandt,HR Gene
 The I-94 admitUntilDate isn't directly shown, but the i94 information might be embedded in the document details. The section2_signed_date is 2022-08-15, and the passport is "Foreign Passport with Form I-94 (H-1B)" with expiry 2029-08-14.
 
 From cms_case_export:
-NWR-2025-0107,H-1B Petition,Approved,2022-06-15,Hiroshi,Yamamoto,1991-12-02,Japan,A-301000007,P1000007,"Northwind Robotics, Inc.",91-3055120,WAC2290010007,2022-07-01,2022-07-18,2022-09-30,"Priya Raman, Esq.",Tomás Reyes,I-200-22010-100007,"300 Colorado St, Suite 1900",Austin,TX,78701,H-1B,2023-07-16,2026-07-20
+NWR-2025-0107,H-1B Petition,Approved,2022-06-15,Hiroshi,Yamamoto,1991-12-02,Japan,A-301000007,P1000007,"Northwind Robotics, Inc.",91-3055120,WAC2290010007,2022-07-01,2022-07-18,2022-09-30,"Priya Raman, Esq.",Tomás Reyes,I-200-22010-100007,"300 Birch St, Suite 1900",Austin,TX,78701,H-1B,2023-07-16,2026-07-20
 
 So for Hiroshi Yamamoto:
 - Priority date: 2022-07-01
@@ -438,7 +438,7 @@ So for Hiroshi Yamamoto:
 - Valid to: 2026-07-20
 
 From lca_export:
-I-200-22010-100007,CERTIFIED,2022-07-05,2022-07-18,2022-07-18,H-1B,Embedded Systems Engineer,17-2061,Computer Hardware Engineers,Y,2025-07-16,2028-07-15,1,0,1,0,0,0,0,"Northwind Robotics, Inc.",... WORKSITE_WORKERS, 300 Colorado St,Austin,TX,78701,148000,160000,Year,144000,Year,P-200-22300-100007,Level III,2022,Y,N,N,,Disclose Business
+I-200-22010-100007,CERTIFIED,2022-07-05,2022-07-18,2022-07-18,H-1B,Embedded Systems Engineer,17-2061,Computer Hardware Engineers,Y,2025-07-16,2028-07-15,1,0,1,0,0,0,0,"Northwind Robotics, Inc.",... WORKSITE_WORKERS, 300 Birch St,Austin,TX,78701,148000,160000,Year,144000,Year,P-200-22300-100007,Level III,2022,Y,N,N,,Disclose Business
 
 So LCA certified on 2022-07-05, with validity from 2025-07-16 to 2028-07-15.
 
@@ -456,7 +456,7 @@ And the CMS case:
 There seems to be a discrepancy. The LCA begins on 2025-07-16 but the CMS case began on 2023-07-16.
 
 From hris_roster_export:
-b1000000-0000-4000-8000-000000000007,NWR-1007,Hiroshi,Yamamoto,,Hiroshi,Hiroshi Yamamoto,1991-12-02,***-**-1007,Male,Married,Japan,hiroshi.yamamoto@northwindrobotics.com,hiroshiy@gmail.com,+1-512-555-0107,"500 E 5th St, Apt 18",Austin,TX,78701,United States,2022-08-15,2022-08-15,Full-Time,Embedded Systems Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,151000,Salary,Annually,40,H-1B,P1000007,Active
+b1000000-0000-4000-8000-000000000007,NWR-1007,Hiroshi,Yamamoto,,Hiroshi,Hiroshi Yamamoto,1991-12-02,***-**-1007,Male,Married,Japan,hiroshi.yamamoto@northwind-robotics.example,hiroshiy@personal.example,+1-512-555-0107,"500 Laurel St, Apt 18",Austin,TX,78701,United States,2022-08-15,2022-08-15,Full-Time,Embedded Systems Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,151000,Salary,Annually,40,H-1B,P1000007,Active
 
 Hire date: 2022-08-15
 
@@ -514,7 +514,7 @@ NWR-2025-0104:
 Wait, these don't match! The CMS case valid_from is 2025-08-01, but the LCA BEGIN_DATE is 2023-07-04. And CMS valid_to is 2028-07-31, but LCA END_DATE is 2026-07-03.
 
 Hmm, let me recheck NWR-2025-0104:
-NWR-2025-0104,H-1B Petition,Approved,2022-04-08,Mei,Tanaka,1989-11-05,Japan,A-301000004,P1000004,"Northwind Robotics, Inc.",91-3055120,WAC2290010004,2022-05-02,2022-05-18,2022-07-30,"Priya Raman, Esq.",Tomás Reyes,I-200-22010-100004,"300 Colorado St, Suite 1900",Austin,TX,78701,H-1B,2025-08-01,2028-07-31
+NWR-2025-0104,H-1B Petition,Approved,2022-04-08,Mei,Tanaka,1989-11-05,Japan,A-301000004,P1000004,"Northwind Robotics, Inc.",91-3055120,WAC2290010004,2022-05-02,2022-05-18,2022-07-30,"Priya Raman, Esq.",Tomás Reyes,I-200-22010-100004,"300 Birch St, Suite 1900",Austin,TX,78701,H-1B,2025-08-01,2028-07-31
 
 So CMS valid_from: 2025-08-01, valid_to: 2028-07-31
 LCA: BEGIN_DATE: 2023-07-04, END_DATE: 2026-07-03

@@ -153,12 +153,12 @@ JOB_TITLE: `Mechanical Engineer`
 PW_WAGE_LEVEL: `Level III`
 Wait, Sofia Reyes: hireDate 2022-10-03, DOB 1993, Mechanical Engineer (Level III? Or is it worksite?).
 WAIT! Look at `I-200-22010-100006` WORKSITE again:
-LCA worksite: `300 Colorado St, Austin, TX 78701`.
-Employee in HRIS: `location: Boston - Lab`. Address: `75 State St, Apt 4, Boston, MA`.
+LCA worksite: `300 Birch St, Austin, TX 78701`.
+Employee in HRIS: `location: Boston - Lab`. Address: `75 Juniper Ave, Apt 4, Boston, MA`.
 Payroll: `work_location: Boston, MA`.
 LCA worksite is Austin, TX!
 Wait, what is Sofia Reyes's case in `cms_case_export`?
-`worksite_address1: 300 Colorado St, worksite_city: Austin, worksite_state: TX, worksite_zip: 78701`!
+`worksite_address1: 300 Birch St, worksite_city: Austin, worksite_state: TX, worksite_zip: 78701`!
 Even the H-1B petition says Austin, TX, but she works in Boston, MA!
 
 WAIT! Look at `I-200-22010-100007`:

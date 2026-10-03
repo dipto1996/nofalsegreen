@@ -74,9 +74,11 @@ def metrics(labels, pred: dict[str, str]) -> dict:
           if prec_abst and rec_abst else (0.0 if c["withheld"] else None))
     alarms = c["ctrl_alarm"] + c["near_alarm"]
     controls = c["ctrl"] + c["near"]
+    withheld_answered = sum(c[k] for k in c if k.startswith("withheld_as_"))
     return {
         "n": len(labels), "answered": c["answered"],
         "false_green_rate": r("fg", "withheld"),
+        "false_green_rate_answered": (c["fg"] / withheld_answered) if withheld_answered else None,
         "violation_recall": r("tp", "fail"),
         "violation_precision": (c["tp"] / c["pred_fail"]) if c["pred_fail"] else None,
         "false_alarm_rate": (alarms / controls) if controls else None,
@@ -157,19 +159,77 @@ def main() -> int:
         else:
             m = pool(firms2, cache, model, variant)
             # Sensitivity: a late reverification may be lawful under the 240-day
-            # rule, which the exports cannot show (paper, Section 10).
+            # rule, which the exports cannot show (paper, Section 11).
             m["without_reverification"] = pool(firms2, cache, model, variant,
                                                exclude_rule="i9.reverification.deadline")
         reps[(base, study, variant)].append({"rep": model.split("#")[-1], **m})
     for (base, study, variant), runs in sorted(reps.items()):
         agg = {}
-        for k in ("false_green_rate", "violation_recall", "violation_precision", "false_alarm_rate",
-                  "false_alarm_near_miss", "abstention_f1"):
+        for k in ("false_green_rate", "false_green_rate_answered", "violation_recall",
+                  "violation_precision", "false_alarm_rate", "false_alarm_near_miss", "abstention_f1"):
             xs = [r[k] for r in runs if r[k] is not None]
             agg[k] = ({"mean": round(statistics.mean(xs), 4), "min": round(min(xs), 4),
                        "max": round(max(xs), 4)} if xs else None)
         agg["answered_min"] = min(r["answered"] for r in runs)
         out["vertex"][f"{base}::{study}::{variant}"] = {"n_repeats": len(runs), "repeats": runs, "summary": agg}
+
+    # Paired contrasts between schema conditions, per model and study. Each pair's
+    # outcome is its share of `pass` across the three repeats; obligations are
+    # resampled (2,000 draws), restricted to withheld pairs answered in every
+    # repeat of both conditions; Holm-corrected across all contrasts.
+    import random
+    contrasts = [("abstain_offered", "abstain_removed_only"), ("abstain_offered", "abstain_closed"),
+                 ("abstain_closed", "abstain_withheld"), ("abstain_offered", "abstain_withheld")]
+    units = {"study1": [("", anchor)], "study2": [(f.firm_id, f) for f in firms2]}
+
+    def pass_share(model_base, study, variant):
+        reps = [k for k in vertex_runs if k[0] == study and k[1].split("::")[1] == variant
+                and k[1].split("::")[0].split("#")[0] == model_base]
+        per: dict[str, list] = {}
+        for _, key in reps:
+            model = key.split("::")[0]
+            for fid, firm in units[study]:
+                pr = preds_for(cache, firm, model, variant)
+                for l in firm.labels:
+                    if l.verdict.value == "needs_evidence":
+                        per.setdefault(f"{fid}|{l.pair_id}", []).append(pr.get(l.pair_id))
+        return per, len(reps)
+
+    out["contrasts"] = {}
+    bases = sorted({k[1].split("::")[0].split("#")[0] for k in vertex_runs})
+    for base in bases:
+        for study in ("study1", "study2"):
+            for a, b in contrasts:
+                pa, na = pass_share(base, study, a)
+                pb, nb = pass_share(base, study, b)
+                ids = [i for i in pa if i in pb and None not in pa[i] and None not in pb[i]
+                       and len(pa[i]) == na and len(pb[i]) == nb]
+                if not ids:
+                    continue
+                d = {i: (sum(x == "pass" for x in pb[i]) / nb) - (sum(x == "pass" for x in pa[i]) / na)
+                     for i in ids}
+                by_rule: dict[str, list] = defaultdict(list)
+                for i in ids:
+                    by_rule[i.split("|")[-1].split("::")[0] + "|" + i.split("|")[0]].append(i)
+                rules = sorted(by_rule)
+                rng = random.Random(20261003)
+                boots = []
+                for _ in range(2000):
+                    pick = [i for r in (rng.choice(rules) for _ in rules) for i in by_rule[r]]
+                    boots.append(sum(d[i] for i in pick) / len(pick))
+                boots.sort()
+                point = sum(d.values()) / len(d)
+                two_sided = 2 * min(sum(x <= 0 for x in boots), sum(x >= 0 for x in boots)) / 2000
+                out["contrasts"][f"{base}::{study}::{a}->{b}"] = {
+                    "n_pairs": len(ids), "delta": round(point, 4),
+                    "ci95": [round(boots[50], 4), round(boots[1949], 4)],
+                    "p_two_sided": round(min(1.0, max(two_sided, 1 / 2000)), 4)}
+    cs = out["contrasts"]
+    order = sorted(cs, key=lambda k: cs[k]["p_two_sided"])
+    run = 0.0
+    for i, k in enumerate(order):
+        run = max(run, min(1.0, (len(order) - i) * cs[k]["p_two_sided"]))
+        cs[k]["p_holm"] = round(run, 4)
 
     OUT.write_text(json.dumps(out, indent=2))
     print(f"wrote {OUT}: {len(out['study2'])} Study 2 runs, {len(out['vertex'])} Vertex cells")

@@ -126,7 +126,7 @@ claim("do not infer" in paper or "not to infer" in paper,
 claim("falls back to all sources" in paper or "fall back to all sources" in paper
       or "falls back to all sources" in paper.replace("\n"," "),
       "paper documents the unclassified-regime fallback")
-claim("Model coverage is limited to free API tiers" in paper,
+claim("Model coverage is narrow" in paper,
       "limitations name the model-coverage weakness")
 claim("12 calls per model and condition" in paper and "costs 24" in paper,
       "paper quotes the per-run call counts at batch 12 (Study 1: 12, Study 2: 24)")
@@ -140,7 +140,7 @@ claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(
       "section numbers run 1..12 with no gaps or repeats")
 claim("## 2. Related work" in paper, "Related work is a real section, not an appendix stub")
 claim("Appendix B: Related work to engage" not in paper, "the old related-work stub is gone")
-for t in ("Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Figure 1"):
+for t in ("Table 1", "Table 2", "Table 3", "Table 4", "Table 7", "Table 8", "Figure 1"):
     claim(t in paper, f"{t} is named in the paper")
 claim("[\u2026]" not in paper and "[…]" not in paper, "no empty result cell remains")
 _bad = _re.findall(r"Section \d+", paper)
@@ -153,7 +153,7 @@ _s = _screen["summary"]
 claim(_s["n_candidates"] == 15, f"15 candidates screened (got {_s['n_candidates']})")
 claim(_s["n_held_format"] == 6, f"6 returned a usable answer (got {_s['n_held_format']})")
 claim(_s["n_false_green"] == 0, "zero false greens on the easy case")
-claim("only 6 returned a usable answer" in paper,
+claim("only 6 returned a usable answer" in paper.replace("\n", " "),
       "paper quotes the measured 6-of-15 screening outcome")
 claim("15 free chat models" in paper, "paper states the candidate count")
 claim(_s["failure_modes"].get("rate_limited_429") == 5, "5 rate-limited")
@@ -305,6 +305,25 @@ _abl = json.loads((ROOT / "docs" / "views_results.json").read_text()).get("ablat
 claim(len(_abl) == 6 and all(v["holm_reject_0.05"] for v in _abl.values())
       and "All six remain significant" in paper,
       f"all {len(_abl)} paired ablation tests significant after Holm, as stated")
+
+_C = json.loads((ROOT / "docs" / "studies_results.json").read_text())["contrasts"]
+_dash_sig = sum(1 for v in _abl.values() if v["holm_reject_0.05"]) + sum(
+    1 for k, v in _C.items() if "study1::abstain_offered->abstain_withheld" in k and v["p_holm"] < 0.05)
+claim(_dash_sig == 8 and "eight of the nine" in paper.replace("\n", " "),
+      f"dashboard schema significant for {_dash_sig} of 9 models, as stated")
+claim(not any(v["p_holm"] < 0.05 for k, v in _C.items() if "::study2::" in k)
+      and "no contrast survives correction" in paper.replace("\n", " "),
+      "no Study 2 contrast survives Holm, as stated")
+_sig1 = {k.split("::")[0].replace("vertex/", "") + "|" + k.split("::")[2] for k, v in _C.items()
+         if "::study1::" in k and v["p_holm"] < 0.05}
+claim(_sig1 == {"gemma-4-26b-a4b-it-maas|abstain_offered->abstain_removed_only",
+                "gemma-4-26b-a4b-it-maas|abstain_offered->abstain_closed",
+                "gemini-3.8-flash|abstain_offered->abstain_closed",
+                "gemini-3.1-pro-preview|abstain_closed->abstain_withheld",
+                "gemini-3.8-flash|abstain_closed->abstain_withheld",
+                "gemma-4-26b-a4b-it-maas|abstain_offered->abstain_withheld",
+                "gemini-3.8-flash|abstain_offered->abstain_withheld"},
+      f"the significant Study 1 contrasts are exactly those the text describes ({len(_sig1)})")
 
 print("\nhonesty checks")
 claim("[TO RUN]" not in paper and "`[…]`" not in paper, "no unfilled placeholder remains")
