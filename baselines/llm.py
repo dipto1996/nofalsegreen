@@ -236,6 +236,7 @@ def run_firm(
     progress: bool = False,
     cache_path: Path | None = None,
     max_attempts: int = 3,
+    stop_on_host_failure: bool = True,
 ) -> RunResult:
     """Run one firm through a provider, batching pairs.
 
@@ -341,7 +342,9 @@ def run_firm(
                 # down. Each attempt costs a request from a 50-a-day allowance,
                 # so stop and resume after the reset.
                 bad_streak += 1
-                if bad_streak >= max_attempts:
+                # A finalizing pass tries every batch once more instead, then
+                # records whatever was answered.
+                if stop_on_host_failure and bad_streak >= max_attempts:
                     stopped_early = True
                     break
             else:

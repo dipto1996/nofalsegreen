@@ -133,7 +133,7 @@ def main() -> int:
             try:
                 r = run_firm(provider, firm, rb.all_rules(), variant=variant,
                              batch_size=args.batch, scope_sources=scope, keep_raw=True,
-                             progress=True,
+                             progress=True, stop_on_host_failure=not args.finalize,
                              cache_path=ROOT / "docs" / ".batch_cache.json")  # keys carry PROMPT_VERSION
             except DailyQuotaExhausted as e:
                 print(f"\n  daily quota exhausted: {str(e)[:160]}")
