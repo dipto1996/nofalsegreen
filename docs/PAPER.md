@@ -1668,11 +1668,11 @@ output cap.
 
 ### C.3 Throughput on free tiers
 
-At a representative free quota of 10 requests per minute and 250 per day,
-the anchor firm across both ablation conditions is 24 calls, or about a tenth of one day.
-Adding five generated firms is roughly four days of quota. The runner paces itself under
-the per-minute limit, backs off on a transient rate-limit response, stops cleanly when the
-daily ceiling is reached, and resumes from a checkpoint, so a multi-day run is a matter of
-re-issuing the same command. Every model response is retained so that any reported number
-can be traced back to output.
+The OpenRouter free tier allowed 50 requests a day across all free models and 20 a
+minute. At batch 12, the Study 1 subset costs 12 calls per model and condition, and each
+Study 2 run (six generated firms) costs 24. The runner paces itself under the per-minute
+limit, waits patiently on upstream rate limits (which were not charged against the daily
+allowance), stops cleanly when the daily ceiling is reached, and resumes from a
+checkpoint. Every model response is retained so that any reported number can be traced
+back to output.
 

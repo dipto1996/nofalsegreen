@@ -48,13 +48,13 @@ a reasoning failure.
 **Parsing policy.** A reply naming a pair but no permitted verdict yields *no
 prediction*, and the metrics count it as an error. It is never coerced to a verdict,
 because coercing to `needs_evidence` would turn formatting failures into abstentions and
-flatter the false-green rate. The unparseable rate is reported separately. The tests
-assert that a model emitting no valid verdicts scores zero on both the false-green rate
-and recall, so bad formatting can never look like safety.
+flatter the false-green rate. The unparseable rate is reported separately. An unanswered
+pair cannot be a false green, so every results table also reports coverage and the
+false-green rate among answered pairs.
 
-**Measured cost.** 1,446 calls per model per variant, about 2.55M input and 1.73M output
-tokens over 31 firms. Roughly $9 to $170 per model per variant at list prices depending
-on tier. Run `scripts/cost_probe.py` for current arithmetic.
+**Cost.** The free-tier studies cost nothing; at batch 12 the Study 1 subset is 12 calls
+per model and condition and Study 2 is 24. Run `scripts/cost_probe.py` for list-price
+arithmetic.
 
 ## Running on a free tier (no spend)
 
@@ -101,11 +101,11 @@ per `(obligation, entity)` pair:
 | `needs_evidence` | the evidence required to decide is **absent** |
 | `unmonitored` | not assessable from this class of source data |
 
-`needs_evidence` is the abstention, and it is the **majority class**: 201 of the 221
-pairs in the anchor firm, and 45.3% of pairs across the generated set. A system that
+`needs_evidence` is the abstention, and it is a large share of the task by design: 201 of
+the 221 pairs in the anchor firm, and 48.8% of the 1,481 pairs in the released set. A system that
 maximises coverage by guessing scores worse than one that routes to human review.
 
-## Why accuracy hides the failure
+## Why pass/fail scoring hides the failure
 
 A system that answers `pass` everywhere:
 
@@ -118,18 +118,22 @@ FALSE GREEN RATE        1.000     <- reports all 201 unassessed duties as satisf
 It never raises a false alarm. Only the false-green rate separates it from a safe
 system. This is the benchmark's argument in one table.
 
-The converse also holds. A system that abstains everywhere scores 0.632 abstention F1
+The converse also holds. A system that abstains everywhere scores 0.717 abstention F1
 across the generated firms while detecting zero violations, so the metrics must be read
 as a set. Neither the false-green rate nor abstention F1 is meaningful alone.
 
-## Results (trivial baselines, 31 firms, 58,961 pairs)
+## Results (trivial baselines, 31 firms, 1,481 pairs, generator v2)
 
 | system | false green | recall | precision | false alarm | abstention F1 |
 |---|---|---|---|---|---|
-| `always_pass` | **1.000** | 0.000 | 0.000 | 0.000 | 0.000 |
-| `always_abstain` | 0.000 | 0.000 | 0.000 | 0.968 | 0.632 |
-| `always_fail` | 0.000 | 1.000 | 0.119 | 0.968 | 0.000 |
+| `always_pass` | 1.000 | 0.000 | — | 0.000 | 0.000 |
+| `always_abstain` | 0.000 | 0.000 | — | 1.000 | 0.717 |
+| `always_fail` | 0.000 | 1.000 | 0.170 | 1.000 | 0.000 |
 | `oracle` | 0.000 | 1.000 | 1.000 | 0.000 | 1.000 |
+
+Each rate is averaged over the firms in which it is defined. An earlier generator (v1)
+produced labels its own records did not support; its figures (58,961 pairs) are withdrawn
+and archived in `docs/study2_v1_invalid/`.
 
 The oracle reaches 1.000 on every axis, so the task is solvable in principle and a low
 score is a property of the system under test rather than of an ill-posed benchmark.
@@ -140,19 +144,24 @@ schemas) are in `docs/PAPER.md` Section 8.2, generated from `docs/llm_results.js
 report 0.042 to 0.142 of unassessable obligations as satisfied. Without the abstention in
 the schema, that rises three- to fivefold, to 0.175 to 0.525.
 
-## Ground truth by construction
+## Where the labels come from
 
-Labels are not annotations of generated data. The generator decides each pair's
-disposition **first**, then renders source records consistent with that decision:
+**Generated firms (generator v2): by construction.** The generator decides each pair's
+outcome first, then writes records that decide it:
 
-- `planted_violation` a specific regulatory breach is injected
-- `planted_control` a conforming case is injected, some placed exactly on the legal
-  boundary to test whether a system flags on proximity rather than on the rule
-- `withheld_evidence` a required input is omitted
-- `not_applicable` the obligation does not attach to the entity
+- `planted_violation` the records show a breach
+- `planted_control` the records show conformity, some placed exactly on the legal boundary
+- `withheld_evidence` the export carrying the required information is not provided at all
 
-There is no annotation step, so there is no annotator disagreement to measure. Every
-label is auditable back to the decision that produced it.
+It emits a pair only for the four rule families whose every listed input it renders, and
+only where the rule applies. A blind AI consistency check agreed with 60 of 60 sampled
+labels; the test suite checks every record against its label across 40 seeds.
+
+**Anchor firm: from a rule engine, audited.** The anchor firm's 221 expectations were
+written as the acceptance gate for the author's company's compliance engine. Its withheld
+labels were audited blind by an AI agent (2 of 120 overturned); its known label problems
+are disclosed in the paper (Section 5.2). No label was validated by an independent human
+expert; `docs/expert_labelling/` is a blind kit for anyone who wants to.
 
 ## Contents
 
@@ -163,10 +172,10 @@ label is auditable back to the decision that produced it.
 | `nofalsegreen/generator.py` | seeded firm generator |
 | `nofalsegreen/rulebook.py` | rulebook loader |
 | `nofalsegreen/northwind.py` | anchor-firm loader |
-| `rulebook/rulebook.json` | 194 manifest obligations + 17 engine aliases/roll-ups, 10 regimes, every one cited |
+| `rulebook/rulebook.json` | 194 manifest obligations + 17 engine aliases/roll-ups, every one cited |
 | `data/firms/northwind-robotics/` | anchor firm: 11 exports, 221 pinned expectations |
 | `baselines/trivial.py` | floor and ceiling baselines |
-| `tests/test_benchmark.py` | 52 assertions |
+| `tests/` | benchmark, harness and free-tier test suites |
 | `docs/DATASHEET.md` | datasheet |
 
 ## Data statement

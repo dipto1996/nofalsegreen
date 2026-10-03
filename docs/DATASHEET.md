@@ -29,8 +29,8 @@ compliance product. No external funding.
 | Anchor firm (hand-authored) | 1 firm, 221 pairs, 11 source exports, 151 entities |
 | Anchor firm planted violations | 20 |
 | Anchor firm evidence requests | 201 |
-| Generated firms (seeds 1-30, default config) | 30 firms, 58,740 pairs |
-| Generated withheld-evidence share | 45.3% |
+| Generated firms (seeds 1-30, generator v2 default config) | 30 firms, 1,260 pairs |
+| Withheld-evidence share, release (anchor + 30 generated) | 48.8% |
 | Rulebook obligations | 194 across 10 regimes (196 manifest entries), plus 17 engine aliases/roll-ups |
 
 Generated firm count is unbounded; any seed produces a new instance.
@@ -48,18 +48,18 @@ aggregated per firm before averaging, which is what `scripts/sweep.py` does.
 **Recommended splits?** None. This is a diagnostic evaluation set, not a training set.
 Fitting a model to these labels would defeat the purpose.
 
-**Errors or noise?** The generated labels are exact by construction. The anchor firm's
-expectations are hand-authored and were revised repeatedly as defects were found in the
-reference engine; the current pin is 221 items and its revision history is documented in
-the source project rather than here.
+**Errors or noise?** Generated labels (generator v2) are fixed by construction and were
+checked blind against their records (60 of 60). An earlier generator (v1) failed that check
+(8 of 60) and is withdrawn. The anchor firm's expectations come from a compliance engine;
+a blind audit overturned 2 of 120 withheld labels, and the paper (Section 5.2) lists known
+problems with its 20 violation labels, including four duplicated facts.
 
 **Self-contained?** Yes. No external downloads, no API keys, no network access.
 
 **Confidential or offensive content?** None. Every record is synthetic.
 
-**Does it relate to people?** It depicts fictional people. Names are drawn
-combinatorially from generic given-name and family-name pools so that CSV joins are
-legible. No real individual's data is present, and no name is intended to refer to
+**Does it relate to people?** It depicts fictional people. Generated firms draw names
+combinatorially from generic pools; the anchor firm's names were written by hand. No real individual's data is present, and no name is intended to refer to
 anyone. Identifiers such as passport and Social Security numbers are obviously
 patterned placeholders.
 
