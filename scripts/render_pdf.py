@@ -258,9 +258,12 @@ def parse(md: str, width: float) -> list:
             continue
         if stripped.startswith("```"):
             flush_para()
+            # A fence closes only on a line of the same backtick run, so a block
+            # that itself contains ```csv fences (Appendix B) can use ````.
+            fence = stripped[: len(stripped) - len(stripped.lstrip("`"))]
             i += 1
             buf = []
-            while i < len(lines) and not lines[i].strip().startswith("```"):
+            while i < len(lines) and lines[i].strip() != fence:
                 buf.append(esc(lines[i]))
                 i += 1
             i += 1
@@ -327,7 +330,7 @@ def parse(md: str, width: float) -> list:
                 b = re.match(r"^[-*]\s+(.*)$", st)
                 n = re.match(r"^(\d+)\.\s+(.*)$", st)
                 if not (b or n):
-                    if st and lines[i].startswith(("   ", "\t")) and items:
+                    if st and lines[i].startswith(("  ", "\t")) and items:
                         items[-1] += " " + st
                         i += 1
                         continue

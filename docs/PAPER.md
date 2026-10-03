@@ -1593,9 +1593,11 @@ A document that was not provided is not a document that is in order.
 ```
 
 **User prompt** for the first batch of the anchor subset, with CSV rows and most
-obligations elided here for length (the model receives them in full):
+obligations elided here for length (the model receives them in full). It is shown with the
+released data; the evaluated prompts carried the earlier e-mail and street strings
+(Section 12), which no rule reads.
 
-```text
+````text
 # Employer: Northwind Robotics, Inc.
 # Evaluation date: 2026-06-29
 
@@ -1606,8 +1608,8 @@ obligations elided here for length (the model receives them in full):
 ### cms_case_export  (cms_h1b_cases_export.csv)
 ```csv
 matter_id,matter_type,matter_status,opened_date,client_first_name,client_last_name,client_dob,client_country_of_birth,client_a_number,beneficiary_passport_number,petitioner_company_name,petitioner_fein,receipt_number,priority_date,filing_date,decision_date,attorney_of_record,paralegal,lca_case_number,worksite_address1,worksite_city,worksite_state,worksite_zip,classification,valid_from,valid_to
-NWR-2025-0101,H-1B Petition,Approved,2024-11-02,Ravi,Anand,1990-04-11,India,A-301000001,P1000001,"Northwind Robotics, Inc.",91-3055120,WAC2590010001,2024-12-01,2025-01-10,2025-03-20,"Priya Raman, Esq.",Tomás Reyes,I-200-25010-100001,"300 Colorado St, Suite 1900",Austin,TX,78701,H-1B,2025-04-01,2028-03-31
-NWR-2025-0102,H-1B Petition,Approved,2023-01-09,Lucia,Ferreira,1992-08-19,Brazil,A-301000002,P1000002,"Northwind Robotics, Inc.",91-3055120,WAC2390010002,2023-02-01,2023-02-15,2023-04-22,"Priya Raman, Esq.",Tomás Reyes,I-200-23010-100002,"300 Colorado St, Suite 1900",Austin,TX,78701,H-1B,2023-06-01,2029-05-31
+NWR-2025-0101,H-1B Petition,Approved,2024-11-02,Ravi,Anand,1990-04-11,India,A-301000001,P1000001,"Northwind Robotics, Inc.",91-3055120,WAC2590010001,2024-12-01,2025-01-10,2025-03-20,"Priya Raman, Esq.",Tomás Reyes,I-200-25010-100001,"300 Birch St, Suite 1900",Austin,TX,78701,H-1B,2025-04-01,2028-03-31
+NWR-2025-0102,H-1B Petition,Approved,2023-01-09,Lucia,Ferreira,1992-08-19,Brazil,A-301000002,P1000002,"Northwind Robotics, Inc.",91-3055120,WAC2390010002,2023-02-01,2023-02-15,2023-04-22,"Priya Raman, Esq.",Tomás Reyes,I-200-23010-100002,"300 Birch St, Suite 1900",Austin,TX,78701,H-1B,2023-06-01,2029-05-31
 ...(remaining rows elided here; sent in full)
 ```
 
@@ -1622,8 +1624,8 @@ case_number,employee_first_name,employee_last_name,client_company_name,case_crea
 ### hris_roster_export  (bamboohr_active_employees.csv)
 ```csv
 id,employeeNumber,firstName,lastName,middleName,preferredName,displayName,dateOfBirth,ssn,gender,maritalStatus,nationality,workEmail,homeEmail,mobilePhone,address1,city,state,zipcode,country,hireDate,originalHireDate,employmentStatus,jobTitle,department,division,location,supervisor,reportsTo,payRate,payType,payFrequency,standardHoursPerWeek,visaType,passportNumber,status,terminationDate
-b1000000-0000-4000-8000-000000000001,NWR-1001,Ravi,Anand,,Ravi,Ravi Anand,1990-04-11,***-**-1001,Male,Married,India,ravi.anand@northwindrobotics.com,ravianand@gmail.com,+1-512-555-0101,"900 Congress Ave, Apt 12",Austin,TX,78701,United States,2025-02-03,2025-02-03,Full-Time,Robotics Software Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,142000,Salary,Annually,40,H-1B,P1000001,Active,
-b1000000-0000-4000-8000-000000000002,NWR-1002,Lucia,Ferreira,,Lucia,Lucia Ferreira,1992-08-19,***-**-1002,Female,Single,Brazil,lucia.ferreira@northwindrobotics.com,luciaf@gmail.com,+1-512-555-0102,"1500 Lavaca St, Unit 7",Austin,TX,78701,United States,2023-03-06,2023-03-06,Full-Time,Controls Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,138000,Salary,Annually,40,H-1B,P1000002,Active,
+b1000000-0000-4000-8000-000000000001,NWR-1001,Ravi,Anand,,Ravi,Ravi Anand,1990-04-11,***-**-1001,Male,Married,India,ravi.anand@northwind-robotics.example,ravianand@personal.example,+1-512-555-0101,"900 Maple St, Apt 12",Austin,TX,78701,United States,2025-02-03,2025-02-03,Full-Time,Robotics Software Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,142000,Salary,Annually,40,H-1B,P1000001,Active,
+b1000000-0000-4000-8000-000000000002,NWR-1002,Lucia,Ferreira,,Lucia,Lucia Ferreira,1992-08-19,***-**-1002,Female,Single,Brazil,lucia.ferreira@northwind-robotics.example,luciaf@personal.example,+1-512-555-0102,"1500 Cedar Ave, Unit 7",Austin,TX,78701,United States,2023-03-06,2023-03-06,Full-Time,Controls Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,138000,Salary,Annually,40,H-1B,P1000002,Active,
 ...(remaining rows elided here; sent in full)
 ```
 
@@ -1638,8 +1640,8 @@ NWR-1002,Lucia,Ferreira,2023-03-06,2023-03-06,2023-03-08,Olivia Brandt,HR Genera
 ### lca_export  (lca_certified_h1b_2024-2025.csv)
 ```csv
 CASE_NUMBER,CASE_STATUS,RECEIVED_DATE,DECISION_DATE,ORIGINAL_CERT_DATE,VISA_CLASS,JOB_TITLE,SOC_CODE,SOC_TITLE,FULL_TIME_POSITION,BEGIN_DATE,END_DATE,TOTAL_WORKER_POSITIONS,NEW_EMPLOYMENT,CONTINUED_EMPLOYMENT,CHANGE_PREVIOUS_EMPLOYMENT,NEW_CONCURRENT_EMPLOYMENT,CHANGE_EMPLOYER,AMENDED_PETITION,EMPLOYER_NAME,TRADE_NAME_DBA,EMPLOYER_ADDRESS1,EMPLOYER_ADDRESS2,EMPLOYER_CITY,EMPLOYER_STATE,EMPLOYER_POSTAL_CODE,EMPLOYER_COUNTRY,EMPLOYER_PHONE,NAICS_CODE,EMPLOYER_POC_LAST_NAME,EMPLOYER_POC_FIRST_NAME,EMPLOYER_POC_MIDDLE_NAME,EMPLOYER_POC_JOB_TITLE,EMPLOYER_POC_ADDRESS1,EMPLOYER_POC_CITY,EMPLOYER_POC_STATE,EMPLOYER_POC_POSTAL_CODE,EMPLOYER_POC_EMAIL,EMPLOYER_POC_PHONE,AGENT_ATTORNEY_LAST_NAME,AGENT_ATTORNEY_FIRST_NAME,AGENT_ATTORNEY_ADDRESS1,AGENT_ATTORNEY_CITY,AGENT_ATTORNEY_STATE,AGENT_ATTORNEY_POSTAL_CODE,AGENT_ATTORNEY_EMAIL,AGENT_ATTORNEY_PHONE,LAWFIRM_NAME_BUSINESS_NAME,SECONDARY_ENTITY,SECONDARY_ENTITY_BUSINESS_NAME,WORKSITE_WORKERS,WORKSITE_ADDRESS1,WORKSITE_CITY,WORKSITE_COUNTY,WORKSITE_STATE,WORKSITE_POSTAL_CODE,WAGE_RATE_OF_PAY_FROM,WAGE_RATE_OF_PAY_TO,WAGE_UNIT_OF_PAY,PREVAILING_WAGE,PW_UNIT_OF_PAY,PW_TRACKING_NUMBER,PW_WAGE_LEVEL,PW_OES_YEAR,H1B_DEPENDENT,WILLFUL_VIOLATOR,SUPPORT_H1B,STATUTORY_BASIS,PUBLIC_DISCLOSURE
-I-200-25010-100001,CERTIFIED,2024-12-05,2024-12-20,2024-12-20,H-1B,Robotics Software Engineer,15-1252,Software Developers,Y,2025-04-01,2028-03-31,1,1,0,0,0,0,0,"Northwind Robotics, Inc.",Northwind Robotics,300 Colorado St,Suite 1900,Austin,TX,78701,UNITED STATES OF AMERICA,512-555-0100,541512,Lindqvist,Grace,M,Director of Engineering,300 Colorado St Suite 1900,Austin,TX,78701,glindqvist@northwindrobotics.com,512-555-0100,Raman,Priya,500 W 2nd St Suite 1900,Austin,TX,78701,praman@aperturelegal.com,512-555-0190,Aperture Legal Partners LLP,N,,1,300 Colorado St,Austin,Travis,TX,78701,140000,150000,Year,138000,Year,P-200-24300-100001,Level II,2024,Y,N,N,,Disclose Business
-I-200-23010-100002,CERTIFIED,2023-02-05,2023-02-20,2023-02-20,H-1B,Controls Engineer,17-2199,"Engineers, All Other",Y,2023-06-01,2029-05-31,1,1,0,0,0,0,0,"Northwind Robotics, Inc.",Northwind Robotics,300 Colorado St,Suite 1900,Austin,TX,78701,UNITED STATES OF AMERICA,512-555-0100,541512,Lindqvist,Grace,M,Director of Engineering,300 Colorado St Suite 1900,Austin,TX,78701,glindqvist@northwindrobotics.com,512-555-0100,Raman,Priya,500 W 2nd St Suite 1900,Austin,TX,78701,praman@aperturelegal.com,512-555-0190,Aperture Legal Partners LLP,N,,1,300 Colorado St,Austin,Travis,TX,78701,132000,142000,Year,130000,Year,P-200-22300-100002,Level III,2022,Y,N,N,,Disclose Business
+I-200-25010-100001,CERTIFIED,2024-12-05,2024-12-20,2024-12-20,H-1B,Robotics Software Engineer,15-1252,Software Developers,Y,2025-04-01,2028-03-31,1,1,0,0,0,0,0,"Northwind Robotics, Inc.",Northwind Robotics,300 Birch St,Suite 1900,Austin,TX,78701,UNITED STATES OF AMERICA,512-555-0100,541512,Lindqvist,Grace,M,Director of Engineering,300 Birch St Suite 1900,Austin,TX,78701,glindqvist@northwind-robotics.example,512-555-0100,Raman,Priya,500 Willow Ave Suite 1900,Austin,TX,78701,praman@aperture-legal.example,512-555-0190,Aperture Legal Partners LLP,N,,1,300 Birch St,Austin,Travis,TX,78701,140000,150000,Year,138000,Year,P-200-24300-100001,Level II,2024,Y,N,N,,Disclose Business
+I-200-23010-100002,CERTIFIED,2023-02-05,2023-02-20,2023-02-20,H-1B,Controls Engineer,17-2199,"Engineers, All Other",Y,2023-06-01,2029-05-31,1,1,0,0,0,0,0,"Northwind Robotics, Inc.",Northwind Robotics,300 Birch St,Suite 1900,Austin,TX,78701,UNITED STATES OF AMERICA,512-555-0100,541512,Lindqvist,Grace,M,Director of Engineering,300 Birch St Suite 1900,Austin,TX,78701,glindqvist@northwind-robotics.example,512-555-0100,Raman,Priya,500 Willow Ave Suite 1900,Austin,TX,78701,praman@aperture-legal.example,512-555-0190,Aperture Legal Partners LLP,N,,1,300 Birch St,Austin,Travis,TX,78701,132000,142000,Year,130000,Year,P-200-22300-100002,Level III,2022,Y,N,N,,Disclose Business
 ...(remaining rows elided here; sent in full)
 ```
 
@@ -1672,7 +1674,7 @@ fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_peti
 fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control	[employer: fdns-gap:fdns.asvvp.employer_employee_right_to_control]
 fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence	[employer: fdns-gap:fdns.asvvp.entity_physical_existence]
 fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites	[employer: fdns-gap:fdns.asvvp.itinerary_when_multiple_sites]
-```
+````
 
 Changing any of these text blocks changes the benchmark. Any edit bumps
 `PROMPT_VERSION`, and results carry the version they were produced under.
