@@ -1,17 +1,42 @@
-"""Seeded firm generator.
+"""Seeded firm generator, v2.
 
-Produces synthetic employers whose ground truth is fixed BY CONSTRUCTION: the
-generator decides, per (obligation, entity) pair, whether to
-  - plant a violation      -> label FAIL
-  - plant a conforming case -> label PASS
-  - withhold a required input -> label NEEDS_EVIDENCE
-and only then writes the source CSVs consistent with that decision. Labels are
-therefore not annotations of generated data; the data is a rendering of the
-labels. There is no annotator disagreement to measure because there is no
-annotation step.
+Produces synthetic employers whose ground truth is fixed BY CONSTRUCTION: for
+each (obligation, entity) pair the generator first chooses a disposition and
+then renders source records that decide it.
 
-Every firm is reproducible from (seed, config). Nothing is sampled from a real
-employer, and no real person's data is used.
+WHY v2. A blind consistency check (2026-10-03) found that v1 emitted a label
+for every (rule, entity) pair in the rulebook but rendered deciding data for
+only four rule families, and applied rules to entities they cannot govern
+(e.g. L-1 rules to H-1B workers). Its labels agreed with an independent
+reading of its own records on 8 of 60 sampled pairs. v2 therefore emits a pair
+only when BOTH hold:
+
+  1. the rule applies to the entity (an I-9 rule to every worker; the
+     reverification rule only to workers whose temporary authorization has
+     expired; the LCA wage rule to every certified LCA), and
+  2. every item the rulebook lists as "information needed" for that rule is
+     rendered in an export, OR the export carrying it is withheld from the
+     firm altogether.
+
+Withholding is done at the level of a whole export, never by blanking one
+worker's cell: a blank cell for a past deadline reads to a practitioner as
+"not done", which is a violation, not missing evidence. A firm either provides
+its I-9 export (and every I-9 pair is decidable) or does not (and every I-9
+pair is `needs_evidence`).
+
+Rule families rendered (rule ids as in the rulebook):
+  i9.section1.timeliness       Section 1 signed on/before the first day of
+                               employment and not before offer acceptance
+  i9.section2.timeliness       Section 2 within 3 business days of the first
+                               day (weekends and federal holidays excluded)
+  i9.reverification.deadline   Supplement B on/before the authorization expiry
+  lca.wage.required_wage_greater_of
+                               wages actually paid >= max(prevailing wage,
+                               employer's actual wage for similar workers)
+
+Near-miss controls sit exactly on the boundary: Section 1 on the first day,
+Section 2 on business day 3, Supplement B on the expiry date, pay exactly equal
+to the required wage. Every firm is reproducible from (seed, config).
 """
 
 from __future__ import annotations
@@ -25,8 +50,6 @@ from pathlib import Path
 from .rulebook import Rulebook
 from .schema import Entity, Firm, Label, Pair, Severity, Verdict
 
-# Name pools are deliberately generic and combinatorial. They exist to make
-# joins legible in a CSV, not to depict anyone.
 GIVEN = ["Amara", "Bao", "Camila", "Dmitri", "Elena", "Farid", "Grace", "Hana",
          "Ibrahim", "Jonas", "Keiko", "Lars", "Mira", "Nadia", "Omar", "Priya",
          "Qing", "Rosa", "Samir", "Tomas", "Uma", "Viktor", "Wen", "Yara", "Zane"]
@@ -34,90 +57,184 @@ FAMILY = ["Abara", "Bianchi", "Costa", "Duarte", "Eriksen", "Fontaine", "Gupta",
           "Haddad", "Ivanov", "Jansen", "Kovac", "Lindqvist", "Mwangi", "Nakamura",
           "Okafor", "Petrov", "Quintero", "Rahman", "Santos", "Tanaka", "Ueda",
           "Volkov", "Whitfield", "Xu", "Yilmaz", "Zhao"]
-SOC = [("15-1252", "Software Developers", False), ("17-2199", "Engineers, All Other", False),
-       ("15-1211", "Computer Systems Analysts", False), ("11-9041", "Architectural and Engineering Managers", True)]
-CITIES = [("Austin", "TX", "78701", "Austin-Round Rock, TX"),
-          ("Boston", "MA", "02109", "Boston-Cambridge-Newton, MA-NH"),
-          ("Denver", "CO", "80202", "Denver-Aurora-Lakewood, CO"),
-          ("Raleigh", "NC", "27601", "Raleigh-Cary, NC")]
+# (SOC, title, wage level, prevailing wage, employer actual wage); all annual
+# amounts are multiples of 1,200 so semimonthly pay is a whole dollar amount.
+ROLES = [("15-1252", "Software Developers", "II", 132_000, 138_000),
+         ("15-1211", "Computer Systems Analysts", "II", 118_800, 116_400),
+         ("17-2199", "Engineers, All Other", "III", 142_800, 150_000),
+         ("11-9041", "Architectural and Engineering Managers", "III", 178_800, 186_000)]
+CITIES = [("Austin", "TX", "Austin-Round Rock-Georgetown, TX"),
+          ("Boston", "MA", "Boston-Cambridge-Newton, MA-NH")]
+
+R_S1 = "i9.section1.timeliness"
+R_S2 = "i9.section2.timeliness"
+R_RV = "i9.reverification.deadline"
+R_WG = "lca.wage.required_wage_greater_of"
+RENDERED = (R_S1, R_S2, R_RV, R_WG)
+# Which export each rule's information lives in; withholding any one of these
+# makes every pair of that rule `needs_evidence`.
+NEEDS = {R_S1: ("i9",), R_S2: ("i9",), R_RV: ("i9",), R_WG: ("payroll", "actual_wage")}
+
+
+# ---------- business-day calendar ----------
+
+def _nth_weekday(y: int, m: int, weekday: int, n: int) -> date:
+    d = date(y, m, 1)
+    d += timedelta(days=(weekday - d.weekday()) % 7)
+    return d + timedelta(weeks=n - 1)
+
+
+def _last_weekday(y: int, m: int, weekday: int) -> date:
+    d = date(y, m + 1, 1) - timedelta(days=1) if m < 12 else date(y, 12, 31)
+    return d - timedelta(days=(d.weekday() - weekday) % 7)
+
+
+def _observed(d: date) -> date:
+    if d.weekday() == 5:
+        return d - timedelta(days=1)
+    if d.weekday() == 6:
+        return d + timedelta(days=1)
+    return d
+
+
+def federal_holidays(y: int) -> set[date]:
+    """US federal holidays (5 U.S.C. 6103) with the observed-date rule."""
+    fixed = [date(y, 1, 1), date(y, 6, 19), date(y, 7, 4), date(y, 11, 11), date(y, 12, 25)]
+    out = {_observed(d) for d in fixed}
+    out |= {
+        _nth_weekday(y, 1, 0, 3),   # Martin Luther King Jr. Day
+        _nth_weekday(y, 2, 0, 3),   # Washington's Birthday
+        _last_weekday(y, 5, 0),     # Memorial Day
+        _nth_weekday(y, 9, 0, 1),   # Labor Day
+        _nth_weekday(y, 10, 0, 2),  # Columbus Day
+        _nth_weekday(y, 11, 3, 4),  # Thanksgiving Day
+    }
+    return out
+
+
+def is_business_day(d: date) -> bool:
+    return d.weekday() < 5 and d not in federal_holidays(d.year)
+
+
+def add_business_days(d: date, n: int) -> date:
+    while n > 0:
+        d += timedelta(days=1)
+        if is_business_day(d):
+            n -= 1
+    return d
 
 
 @dataclass
 class GeneratorConfig:
-    """Knobs that control the difficulty and shape of a generated firm."""
-
     n_workers: int = 12
     h1b_share: float = 0.75
-    violation_rate: float = 0.12       # share of applicable pairs that get a planted breach
-    withhold_rate: float = 0.45        # share that get a required input withheld
-    n_worksites: int = 2
+    violation_rate: float = 0.25    # of decidable pairs
+    near_miss_share: float = 0.25   # of decidable pairs
+    withhold_export: float = 0.4    # chance each of i9 / payroll / actual-wage export is withheld
     as_of: date = date(2026, 6, 29)
-    # A near-miss is a conforming case placed just inside the legal boundary
-    # (e.g. I-9 Section 2 on business day 3 of 3). It tests whether a system
-    # flags on proximity rather than on the rule.
-    near_miss_share: float = 0.25
 
 
 class FirmGenerator:
     def __init__(self, rulebook: Rulebook, config: GeneratorConfig | None = None):
         self.rb = rulebook
         self.cfg = config or GeneratorConfig()
-
-    # ---------- public ----------
+        known = rulebook.by_id()
+        missing = [r for r in RENDERED if r not in known]
+        if missing:
+            raise ValueError(f"rulebook lacks rendered rules {missing}")
+        self.rules = {r: known[r] for r in RENDERED}
 
     def generate(self, seed: int, out_dir: Path) -> Firm:
         rng = random.Random(seed)
         cfg = self.cfg
         out_dir.mkdir(parents=True, exist_ok=True)
+        withheld = {e for e in ("i9", "payroll", "actual_wage") if rng.random() < cfg.withhold_export}
 
         workers = self._make_workers(rng)
-        worksites = self._make_worksites(rng)
-        lcas = self._make_lcas(rng, workers, worksites)
+        lcas = self._make_lcas(rng, workers)
 
-        entities: list[Entity] = []
-        entities += [Entity(w["employee_number"], "worker", w["display_name"]) for w in workers]
-        entities += [Entity(l["case_number"], "lca", f"LCA {l['case_number']}") for l in lcas]
-        entities += [Entity(s["id"], "worksite", s["label"]) for s in worksites]
-        entities.append(Entity("EMPLOYER", "employer", "employer scope"))
+        entities = [Entity(w["id"], "worker", w["name"]) for w in workers]
+        entities += [Entity(l["case"], "lca", f"LCA {l['case']}") for l in lcas]
 
         pairs: list[Pair] = []
         labels: list[Label] = []
 
-        # The decision pass. For every applicable (rule, entity) pair, choose a
-        # disposition FIRST; the writers below then render data that matches.
-        for ob in self.rb.obligations:
-            for ent in entities:
-                if ent.entity_type != ob.applies_to:
-                    continue
-                pair = Pair.make(ob.rule_id, ent.entity_id)
-                roll = rng.random()
-                if not ob.evidence_required:
-                    # Nothing to withhold: structurally unmonitored from exports.
-                    verdict, basis = Verdict.UNMONITORED, "not_applicable"
-                elif roll < cfg.violation_rate:
-                    verdict, basis = Verdict.FAIL, "planted_violation"
-                elif roll < cfg.violation_rate + cfg.withhold_rate:
-                    verdict, basis = Verdict.NEEDS_EVIDENCE, "withheld_evidence"
+        def decide(rule: str) -> tuple[Verdict, str, bool]:
+            if any(src in withheld for src in NEEDS[rule]):
+                return Verdict.NEEDS_EVIDENCE, "withheld_evidence", False
+            roll = rng.random()
+            if roll < cfg.violation_rate:
+                return Verdict.FAIL, "planted_violation", False
+            if roll < cfg.violation_rate + cfg.near_miss_share:
+                return Verdict.PASS, "planted_control", True
+            return Verdict.PASS, "planted_control", False
+
+        def emit(rule: str, ent_id: str, v: Verdict, basis: str, near: bool) -> None:
+            pair = Pair.make(rule, ent_id)
+            pairs.append(pair)
+            labels.append(Label(
+                pair_id=pair.pair_id, verdict=v, basis=basis,
+                severity=self._severity(v),
+                evidence_fields=self.rules[rule].evidence_required,
+                note="near-miss control" if near else "",
+            ))
+
+        for w in workers:
+            # Section 1: offer accepted, then signed on/before day 1.
+            v, b, near = decide(R_S1)
+            start = w["start"]
+            w["offer"] = start - timedelta(days=rng.randint(14, 45))
+            if v is Verdict.FAIL:
+                w["s1"] = start + timedelta(days=rng.randint(1, 10))
+            elif near:
+                w["s1"] = start
+            else:
+                w["s1"] = start - timedelta(days=rng.randint(1, 7))
+            emit(R_S1, w["id"], v, b, near)
+
+            # Section 2: within 3 business days after day 1.
+            v, b, near = decide(R_S2)
+            if v is Verdict.FAIL:
+                w["s2"] = add_business_days(start, rng.randint(4, 12))
+            elif near:
+                w["s2"] = add_business_days(start, 3)
+            else:
+                w["s2"] = add_business_days(start, rng.randint(0, 2))
+            emit(R_S2, w["id"], v, b, near)
+
+            # The employee signs Section 1 before the employer completes Section
+            # 2. A late Section 1 must still precede Section 2 in the record.
+            if w["s1"] > w["s2"]:
+                if w["s2"] == start:  # an early Section 2 on day 0 moves to day 1
+                    w["s2"] = add_business_days(start, 1)
+                w["s1"] = start + timedelta(days=rng.randint(1, (w["s2"] - start).days))
+
+            # Reverification: only workers whose prior authorization expired.
+            if w["visa"] == "H-1B":
+                v, b, near = decide(R_RV)
+                exp = w["auth_expiry"]
+                if v is Verdict.FAIL:
+                    w["suppb"] = exp + timedelta(days=rng.randint(1, 45))
+                elif near:
+                    w["suppb"] = exp
                 else:
-                    verdict, basis = Verdict.PASS, "planted_control"
-                pairs.append(pair)
-                labels.append(
-                    Label(
-                        pair_id=pair.pair_id,
-                        verdict=verdict,
-                        basis=basis,
-                        severity=self._severity(ob.rule_id, verdict, rng),
-                        evidence_fields=ob.evidence_required,
-                        note=(
-                            "near-miss control" if basis == "planted_control"
-                            and roll > 1 - cfg.near_miss_share else ""
-                        ),
-                    )
-                )
+                    w["suppb"] = exp - timedelta(days=rng.randint(1, 60))
+                emit(R_RV, w["id"], v, b, near)
 
-        self._apply_dispositions(workers, lcas, labels, rng)
-        sources = self._write_sources(out_dir, workers, lcas, worksites)
+        by_worker = {w["id"]: w for w in workers}
+        for l in lcas:
+            v, b, near = decide(R_WG)
+            required = max(l["pw"], l["actual"])
+            if v is Verdict.FAIL:
+                pay = required - 1_200 * rng.randint(1, 10)
+            elif near:
+                pay = required
+            else:
+                pay = required + 1_200 * rng.randint(1, 15)
+            by_worker[l["worker"]]["annual"] = pay
+            emit(R_WG, l["case"], v, b, near)
 
+        sources = self._write_sources(out_dir, workers, lcas, withheld)
         return Firm(
             firm_id=f"synthetic-{seed:06d}",
             name=f"Synthetic Robotics {seed:04d}, Inc.",
@@ -128,12 +245,12 @@ class FirmGenerator:
             labels=labels,
             provenance={
                 "seed": seed,
+                "generator": "v2",
+                "withheld_exports": sorted(withheld),
                 "config": {
-                    "n_workers": cfg.n_workers,
-                    "violation_rate": cfg.violation_rate,
-                    "withhold_rate": cfg.withhold_rate,
+                    "n_workers": cfg.n_workers, "violation_rate": cfg.violation_rate,
                     "near_miss_share": cfg.near_miss_share,
-                    "as_of": cfg.as_of.isoformat(),
+                    "withhold_export": cfg.withhold_export, "as_of": cfg.as_of.isoformat(),
                 },
                 "rulebook_version": self.rb.version,
                 "synthetic": True,
@@ -148,176 +265,116 @@ class FirmGenerator:
         n_h1b = max(1, round(n * self.cfg.h1b_share))
         out = []
         for i in range(n):
-            soc, title, is_mgr = rng.choice(SOC)
-            city, st, zipc, msa = rng.choice(CITIES[: self.cfg.n_worksites])
-            hire = self.cfg.as_of - timedelta(days=rng.randint(120, 1800))
-            out.append({
-                "employee_number": f"SYN-{1001 + i}",
-                "first_name": rng.choice(GIVEN),
-                "last_name": rng.choice(FAMILY),
-                "display_name": "",  # filled below
-                "visa_type": "H-1B" if i < n_h1b else "US Citizen",
-                "job_title": title,
-                "soc_code": soc,
-                "is_manager_title": is_mgr,
-                "city": city, "state": st, "zip": zipc, "msa": msa,
-                "hire_date": hire,
-                "pay_rate": rng.choice([96000, 118000, 134000, 142000, 151000, 178000]),
-                "i9_section2_date": None,
-                "reverification_due": None,
-                "salary_override": None,
-            })
-        for w in out:
-            w["display_name"] = f"{w['first_name']} {w['last_name']}"
+            soc, title, level, pw, actual = rng.choice(ROLES)
+            city, st, msa = rng.choice(CITIES)
+            start = self.cfg.as_of - timedelta(days=rng.randint(150, 1800))
+            while not is_business_day(start):
+                start += timedelta(days=1)
+            w = {
+                "id": f"SYN-{1001 + i}",
+                "first": rng.choice(GIVEN), "last": rng.choice(FAMILY),
+                "visa": "H-1B" if i < n_h1b else "US Citizen",
+                "soc": soc, "title": title, "level": level, "pw": pw, "actual": actual,
+                "city": city, "state": st, "msa": msa, "start": start,
+                "annual": max(pw, actual) + 1_200 * rng.randint(1, 15),
+                "auth_expiry": None, "suppb": None,
+            }
+            if w["visa"] == "H-1B":
+                # Prior H-1B validity ended after hire and before the evaluation date.
+                lo = max(30, (self.cfg.as_of - start).days - 1400)
+                w["auth_expiry"] = self.cfg.as_of - timedelta(days=rng.randint(lo, max(lo, (self.cfg.as_of - start).days - 60)))
+            w["name"] = f"{w['first']} {w['last']}"
+            out.append(w)
         return out
 
-    def _make_worksites(self, rng: random.Random) -> list[dict]:
-        return [
-            {"id": f"WS-{i+1}", "label": f"{c[0]} - {'HQ' if i == 0 else 'Lab'}",
-             "city": c[0], "state": c[1], "zip": c[2], "msa": c[3]}
-            for i, c in enumerate(CITIES[: self.cfg.n_worksites])
-        ]
-
-    def _make_lcas(self, rng: random.Random, workers: list[dict], worksites: list[dict]) -> list[dict]:
+    def _make_lcas(self, rng: random.Random, workers: list[dict]) -> list[dict]:
         out = []
-        for i, w in enumerate(x for x in workers if x["visa_type"] == "H-1B"):
-            ws = rng.choice(worksites)
-            pw = rng.choice([118000, 132000, 143000, 145000])
+        for i, w in enumerate(x for x in workers if x["visa"] == "H-1B"):
+            begin = self.cfg.as_of - timedelta(days=rng.randint(90, 700))
             out.append({
-                "case_number": f"I-200-{25000 + i}-{100001 + i}",
-                "employee_number": w["employee_number"],
-                "beneficiary": w["display_name"],
-                "soc_code": w["soc_code"],
-                "wage_rate": w["pay_rate"],
-                "prevailing_wage": pw,
-                "worksite_city": ws["city"],
-                "worksite_state": ws["state"],
-                "msa": ws["msa"],
-                "begin_date": self.cfg.as_of - timedelta(days=rng.randint(200, 900)),
-                "end_date": self.cfg.as_of + timedelta(days=rng.randint(30, 700)),
+                "case": f"I-200-{25000 + i}-{100001 + i}", "worker": w["id"], "beneficiary": w["name"],
+                "soc": w["soc"], "title": w["title"], "level": w["level"],
+                "pw": w["pw"], "actual": w["actual"], "offered": max(w["pw"], w["actual"]),
+                "city": w["city"], "state": w["state"], "msa": w["msa"],
+                "begin": begin, "end": begin + timedelta(days=3 * 365 - 1),
             })
         return out
 
-    def _apply_dispositions(
-        self, workers: list[dict], lcas: list[dict], labels: list[Label], rng: random.Random
-    ) -> None:
-        """Render the chosen labels into the underlying records.
+    def _write_sources(self, out_dir: Path, workers: list[dict], lcas: list[dict],
+                       withheld: set[str]) -> dict[str, Path]:
+        files: dict[str, Path] = {}
 
-        Only the mechanisms with a concrete data expression are rendered here;
-        the remainder are expressed by withholding the source column entirely
-        (see `_write_sources`), which is what produces NEEDS_EVIDENCE.
-        """
-        by_worker = {w["employee_number"]: w for w in workers}
-        by_lca = {l["case_number"]: l for l in lcas}
-
-        for lab in labels:
-            rule_id, ent_id = lab.pair_id.split("::")
-
-            if rule_id == "i9.section2.timeliness" and ent_id in by_worker:
-                w = by_worker[ent_id]
-                if lab.verdict is Verdict.FAIL:
-                    w["i9_section2_date"] = w["hire_date"] + timedelta(days=rng.randint(8, 20))
-                elif lab.verdict is Verdict.PASS:
-                    # near-miss controls land exactly on business day 3
-                    offset = 3 if lab.note == "near-miss control" else rng.randint(0, 2)
-                    w["i9_section2_date"] = w["hire_date"] + timedelta(days=offset)
-                else:
-                    w["i9_section2_date"] = None  # withheld
-
-            elif rule_id == "lca.expiration" and ent_id in by_lca:
-                l = by_lca[ent_id]
-                if lab.verdict is Verdict.FAIL:
-                    l["end_date"] = self.cfg.as_of + timedelta(days=rng.randint(1, 7))
-                elif lab.verdict is Verdict.PASS:
-                    l["end_date"] = self.cfg.as_of + timedelta(
-                        days=8 if lab.note == "near-miss control" else rng.randint(90, 700)
-                    )
-                else:
-                    l["end_date"] = None
-
-            elif rule_id == "lca.wage.required_wage_greater_of" and ent_id in by_lca:
-                l = by_lca[ent_id]
-                w = by_worker.get(l["employee_number"])
-                if not w:
-                    continue
-                floor = max(l["wage_rate"], l["prevailing_wage"])
-                if lab.verdict is Verdict.FAIL:
-                    # Pays the certified rate but under the prevailing wage: the
-                    # exact false-pass the greater-of reading exists to catch.
-                    w["salary_override"] = min(l["wage_rate"], l["prevailing_wage"]) - 1
-                elif lab.verdict is Verdict.PASS:
-                    w["salary_override"] = floor if lab.note == "near-miss control" else floor + rng.randint(1000, 20000)
-                else:
-                    w["salary_override"] = None
-
-            elif rule_id == "h1b.material_change.soc" and ent_id in by_lca:
-                l = by_lca[ent_id]
-                w = by_worker.get(l["employee_number"])
-                if not w:
-                    continue
-                if lab.verdict is Verdict.FAIL:
-                    w["job_title"] = "Engineering Manager"
-                    l["soc_code"] = "15-1252"  # IC code against a management title
-
-            elif rule_id == "h1b.material_change.worksite" and ent_id in by_lca:
-                l = by_lca[ent_id]
-                w = by_worker.get(l["employee_number"])
-                if not w:
-                    continue
-                if lab.verdict is Verdict.FAIL:
-                    other = [c for c in CITIES[: self.cfg.n_worksites] if c[0] != l["worksite_city"]]
-                    if other:
-                        w["city"], w["state"], w["zip"], w["msa"] = rng.choice(other)
-
-    def _write_sources(
-        self, out_dir: Path, workers: list[dict], lcas: list[dict], worksites: list[dict]
-    ) -> dict[str, Path]:
-        roster = out_dir / "hris_roster_export.csv"
-        with roster.open("w", newline="") as f:
+        p = out_dir / "hris_roster_export.csv"
+        with p.open("w", newline="") as f:
             wr = csv.writer(f)
-            wr.writerow(["employeeNumber", "firstName", "lastName", "displayName", "visaType",
-                         "jobTitle", "city", "state", "zipcode", "hireDate", "payRate",
-                         "payType", "payFrequency", "location"])
+            wr.writerow(["employeeNumber", "firstName", "lastName", "visaType", "jobTitle",
+                         "city", "state", "hireDate", "employmentStatus", "terminationDate"])
             for w in workers:
-                site = next((s["label"] for s in worksites if s["city"] == w["city"]), worksites[0]["label"])
-                wr.writerow([w["employee_number"], w["first_name"], w["last_name"], w["display_name"],
-                             w["visa_type"], w["job_title"], w["city"], w["state"], w["zip"],
-                             w["hire_date"].isoformat(),
-                             w["salary_override"] if w["salary_override"] is not None else w["pay_rate"],
-                             "Salary", "Annually", site])
+                wr.writerow([w["id"], w["first"], w["last"], w["visa"], w["title"], w["city"],
+                             w["state"], w["start"].isoformat(), "Active", ""])
+        files["hris_roster_export"] = Path(p.name)
 
-        i9 = out_dir / "i9_record_export.csv"
-        with i9.open("w", newline="") as f:
+        p = out_dir / "lca_export.csv"
+        with p.open("w", newline="") as f:
             wr = csv.writer(f)
-            wr.writerow(["employeeNumber", "startDate", "section1SignDate", "section2CompletedDate"])
-            for w in workers:
-                s2 = w["i9_section2_date"]
-                wr.writerow([w["employee_number"], w["hire_date"].isoformat(),
-                             w["hire_date"].isoformat(), s2.isoformat() if s2 else ""])
-
-        lca = out_dir / "lca_export.csv"
-        with lca.open("w", newline="") as f:
-            wr = csv.writer(f)
-            wr.writerow(["CASE_NUMBER", "EMPLOYEE_NUMBER", "BENEFICIARY", "SOC_CODE", "WAGE_RATE",
-                         "PREVAILING_WAGE", "WORKSITE_CITY", "WORKSITE_STATE", "MSA",
-                         "BEGIN_DATE", "END_DATE"])
+            wr.writerow(["CASE_NUMBER", "EMPLOYEE_NUMBER", "BENEFICIARY", "SOC_CODE", "JOB_TITLE",
+                         "PW_WAGE_LEVEL", "PREVAILING_WAGE", "PW_UNIT_OF_PAY", "WAGE_RATE_OF_PAY_FROM",
+                         "WAGE_UNIT_OF_PAY", "FULL_TIME_POSITION", "WORKSITE_CITY", "WORKSITE_STATE",
+                         "AREA_OF_EMPLOYMENT", "BEGIN_DATE", "END_DATE"])
             for l in lcas:
-                wr.writerow([l["case_number"], l["employee_number"], l["beneficiary"], l["soc_code"],
-                             l["wage_rate"], l["prevailing_wage"], l["worksite_city"],
-                             l["worksite_state"], l["msa"], l["begin_date"].isoformat(),
-                             l["end_date"].isoformat() if l["end_date"] else ""])
+                wr.writerow([l["case"], l["worker"], l["beneficiary"], l["soc"], l["title"], l["level"],
+                             l["pw"], "Year", l["offered"], "Year", "Y", l["city"], l["state"], l["msa"],
+                             l["begin"].isoformat(), l["end"].isoformat()])
+        files["lca_export"] = Path(p.name)
 
-        # Relative names keep firm.json portable and byte-identical across
-        # output directories, so two seeds can be diffed meaningfully.
-        return {
-            "hris_roster_export": Path(roster.name),
-            "i9_record_export": Path(i9.name),
-            "lca_export": Path(lca.name),
-        }
+        if "i9" not in withheld:
+            p = out_dir / "i9_record_export.csv"
+            with p.open("w", newline="") as f:
+                wr = csv.writer(f)
+                wr.writerow(["employeeNumber", "offerAcceptedDate", "firstDayOfEmployment",
+                             "section1Signed", "section1SignDate", "section2EmployerSignDate",
+                             "workAuthorizationExpiry", "supplementBReverificationDate",
+                             "supplementBDocumentType"])
+                for w in workers:
+                    wr.writerow([w["id"], w["offer"].isoformat(), w["start"].isoformat(), "Y",
+                                 w["s1"].isoformat(), w["s2"].isoformat(),
+                                 w["auth_expiry"].isoformat() if w["auth_expiry"] else "",
+                                 w["suppb"].isoformat() if w["suppb"] else "",
+                                 "Form I-797A Approval Notice with Form I-94" if w["suppb"] else ""])
+            files["i9_record_export"] = Path(p.name)
 
-    def _severity(self, rule_id: str, verdict: Verdict, rng: random.Random) -> Severity | None:
+        if "payroll" not in withheld:
+            p = out_dir / "payroll_register.csv"
+            with p.open("w", newline="") as f:
+                wr = csv.writer(f)
+                wr.writerow(["employeeNumber", "payPeriodStart", "payPeriodEnd", "payDate",
+                             "payFrequency", "fullOrPartTime", "regularHours", "grossPay"])
+                periods = [(date(2026, m, 1), date(2026, m, 15)) for m in (4, 5, 6)]
+                periods += [(date(2026, m, 16), (date(2026, m + 1, 1) - timedelta(days=1))) for m in (4, 5, 6)]
+                # Only periods paid on or before the evaluation date exist.
+                periods = [(a, b) for a, b in periods if b <= self.cfg.as_of]
+                for w in workers:
+                    for a, b in sorted(periods):
+                        wr.writerow([w["id"], a.isoformat(), b.isoformat(), b.isoformat(),
+                                     "Semimonthly", "FT", 86.67, w["annual"] // 24])
+            files["payroll_register"] = Path(p.name)
+
+        if "actual_wage" not in withheld:
+            p = out_dir / "actual_wage_system.csv"
+            with p.open("w", newline="") as f:
+                wr = csv.writer(f)
+                wr.writerow(["SOC_CODE", "JOB_TITLE", "ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL",
+                             "BASIS"])
+                for soc, title, _lvl, _pw, actual in ROLES:
+                    wr.writerow([soc, title, actual, "Employer actual wage system: rate paid to "
+                                 "workers with similar experience and qualifications in this role"])
+            files["actual_wage_system"] = Path(p.name)
+
+        return files
+
+    def _severity(self, verdict: Verdict) -> Severity | None:
         if verdict is Verdict.NEEDS_EVIDENCE:
-            return Severity.MEDIUM  # an unassessed obligation is never "urgent"
+            return Severity.MEDIUM
         if verdict is Verdict.FAIL:
-            return Severity.URGENT if "expir" in rule_id or "deadline" in rule_id else Severity.HIGH
+            return Severity.HIGH
         return None

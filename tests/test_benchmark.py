@@ -155,6 +155,34 @@ check(
 
 
 
+# generator v2: every record is internally consistent, across many seeds
+import csv as _csv  # noqa: E402
+from datetime import date as _date  # noqa: E402
+from nofalsegreen.generator import add_business_days as _abd  # noqa: E402
+_bad = []
+for _seed in range(1, 41):
+    _f = gen.generate(_seed, out / f"v2_{_seed}")
+    _d = out / f"v2_{_seed}"
+    _lab = {l.pair_id: l for l in _f.labels}
+    if (_d / "i9_record_export.csv").exists() and "i9_record_export" in _f.sources:
+        for r in _csv.DictReader(open(_d / "i9_record_export.csv")):
+            s1, s2 = _date.fromisoformat(r["section1SignDate"]), _date.fromisoformat(r["section2EmployerSignDate"])
+            st = _date.fromisoformat(r["firstDayOfEmployment"])
+            if s1 > s2:
+                _bad.append((_seed, r["employeeNumber"], "s1 after s2"))
+            lab2 = _lab[f"i9.section2.timeliness::{r['employeeNumber']}"]
+            on_time = s2 <= _abd(st, 3)
+            if on_time != (lab2.verdict.value == "pass"):
+                _bad.append((_seed, r["employeeNumber"], "s2 label vs data"))
+            lab1 = _lab[f"i9.section1.timeliness::{r['employeeNumber']}"]
+            if (s1 <= st) != (lab1.verdict.value == "pass"):
+                _bad.append((_seed, r["employeeNumber"], "s1 label vs data"))
+    if "payroll_register" in _f.sources:
+        for r in _csv.DictReader(open(_d / "payroll_register.csv")):
+            if _date.fromisoformat(r["payDate"]) > _date.fromisoformat(_f.as_of):
+                _bad.append((_seed, r["employeeNumber"], "pay after as_of"))
+check(not _bad, f"generator v2 records consistent with labels over 40 seeds ({_bad[:3]})")
+
 # ── declared evaluation subset ──────────────────────────────────────────────
 print("\ndeclared subset")
 from nofalsegreen.subset import DEFAULT_SIZE, SUBSET_SEED, subset_firm  # noqa: E402

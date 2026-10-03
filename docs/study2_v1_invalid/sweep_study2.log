@@ -1,0 +1,27 @@
+study: 5 models x 2 conditions = 10 runs
+~30 calls per run
+done: 0/10   remaining: 10
+at 50 calls/day: ~6 more day(s)
+
+  nemotron-3-ultra-550b-a55b:free / abstain_offered
+    Study 2: 5 generated firms x 72 pairs
+    nvidia/nemotron-3-ultra-550b-a55b:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 5  variants ['abstain_offered']
+    
+          batch 1/6 (0 parsed so far)
+=== Sat Oct  3 02:40:20 PDT 2026: STUDY 2 restart after source-path fix ===
+study: 5 models x 2 conditions = 10 runs
+~30 calls per run
+done: 0/10   remaining: 10
+at 50 calls/day: ~6 more day(s)
+
+  nemotron-3-ultra-550b-a55b:free / abstain_offered
+    Study 2: 5 generated firms x 72 pairs
+    nvidia/nemotron-3-ultra-550b-a55b:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 5  variants ['abstain_offered']
+    
+          batch 1/6 (0 parsed so far)
+            attempt 1: 3056 output tokens, 74s, finish=stop, ok
+          batch 2/6 (12 parsed so far)
+            attempt 1: 3797 output tokens, 78s, finish=stop, ok
+          batch 3/6 (24 parsed so far)
