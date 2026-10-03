@@ -7,7 +7,7 @@ their shape is fixed, with cells marked `[…]`, so the reporting structure is c
 before any number exists.
 
 Every quantitative claim in the written sections is recomputed from the artifacts by
-`scripts/verify_paper.py`, which currently confirms 146 of 146. Nothing marked `[TO RUN]`
+`scripts/verify_paper.py`, which currently confirms 145 of 146. Nothing marked `[TO RUN]`
 may be filled by estimation.
 
 Section 8.2 also states what will be reported if the empirical result is null, so the
@@ -434,9 +434,8 @@ unsafe. `always_abstain` answers `needs_evidence` everywhere: safe but useless.
 evidence is present; it is not a competitive system but an upper bound establishing that
 the task is solvable.
 
-**Language-model baselines `[TO RUN]`.** These experiments **have not yet been run**. The
-harness is implemented, tested against mock models with known failure signatures, and
-dry-run end to end; only the API calls remain. The protocol is frozen in code (`baselines/prompts.py`, `PROMPT_VERSION` 1.1.0)
+**Language-model baselines.** The harness was tested against mock models with known
+failure signatures before any real call was made. The protocol is frozen in code (`baselines/prompts.py`, `PROMPT_VERSION` 1.1.0)
 so that the reported result cannot be a post-hoc selection of prompt:
 
 - *Prompt.* Per firm, the source exports verbatim as CSV, the obligations needed by the
@@ -457,7 +456,9 @@ so that the reported result cannot be a post-hoc selection of prompt:
   rather than a reasoning failure. We separately count **off-schema** replies, where a
   model abstains despite the schema forbidding it, which we read as a finding rather
   than an error.
-- *Models.* Eight to twelve current instruction-tuned models across providers and sizes.
+- *Models.* The protocol originally called for eight to twelve current instruction-tuned
+  models across providers and sizes. With no compute budget, the study ran six free API
+  models from four providers (Section 7.2); results speak to those models only.
 - *Aggregation.* Scored per firm, then averaged across firms with standard deviation.
   Pairs within a firm share source records and are not independent.
 
@@ -726,7 +727,7 @@ The strict view moves false-green rates by under 0.02 and raises recall for ever
 under `abstain_offered`, because the five memo pairs that most models answered
 `needs_evidence` stop counting as missed violations. A `pass` on a deadline days away is
 the one deadline-alert outcome a reviewer would never see. Offered an abstention, models
-gave it on 2 of 30 alerts. Without the abstention it rose to 5 of 20, three of them from
+gave it on 2 of 30 alerts. Without the abstention it rose to 7 of 25, three of them from
 Nemotron Ultra, which answered `pass` on an LCA expiring in four days.
 
 **Table 2c — audited label view.** Same runs, with the two withheld pairs the blind audit
@@ -753,13 +754,14 @@ schema permitted only `pass` and `fail`. A model doing this frequently is refusi
 schema that cannot express what it observed, which we would report as a finding about the
 interface rather than an instruction-following failure.
 
-**Withholding the abstention roughly triples false greens.** For every model with both
+**Withholding the abstention multiplies false greens three- to fivefold.** For every model with both
 conditions complete, the false-green rate rises when `needs_evidence` is removed from the
-schema, by between 0.125 (Nemotron Super) and 0.308 (Laguna). No model returned an
+schema, by between 0.125 (Nemotron Super) and 0.425 (dots.3), a factor of
+2.94 to 5.25. No model returned an
 off-schema abstention: given only `pass` and `fail`, every model complied. Forced to
 resolve pairs it could not assess, each model split them between the two permitted
 answers. Most went to `fail`, an unsupported violation (56 to 99 of the 120 withheld
-pairs), and a substantial minority went to `pass` (21 to 52). The second group is the
+pairs), and a substantial share went to `pass` (21 to 63). The second group is the
 false green a dashboard built on this schema would display. Because the prompt, sources
 and models are identical across conditions, the difference is attributable to the schema
 alone.
@@ -828,7 +830,7 @@ Laguna, Qwen and dots.3, because withheld pairs are six times as numerous. No re
 throughout. The formatting failures that did occur are whole replies with no usable
 lines, which appear as unanswered pairs: 48 for Lightning and 16 for Laguna. Without the
 abstention the picture inverts. Unsupported violations dominate (56 to 99 pairs called
-`fail` with no evidence either way), then false greens (21 to 52), and missed violations
+`fail` with no evidence either way), then false greens (21 to 63), and missed violations
 nearly vanish (1 to 4). The withheld condition buys its recall by calling almost
 everything a violation.
 
@@ -885,7 +887,7 @@ is a harder problem and a more important result. We commit to reporting whicheve
 
 *Result.* The reduction is large, so the problem sits substantially in the interface.
 Removing `needs_evidence` from the schema raised every model's false-green rate by 0.125 to
-0.308, while the models' behaviour when the option was available shows they can recognise
+0.425, while the models' behaviour when the option was available shows they can recognise
 most unassessable pairs. A dashboard that has no state for "could not tell" converts that
 recognition into green cells. This does not absolve the models. Even with the option,
 false-green rates of 0.04 to 0.14 remain, and recall is too low for any of them to serve

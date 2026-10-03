@@ -264,9 +264,12 @@ _deltas = {m: d["w"]["engine"]["false_green_rate"] - d["o"]["engine"]["false_gre
 claim(all(x > 0 for x in _deltas.values()), "FGR rises without abstention for every paired model")
 _lo, _hi = _rng(list(_deltas.values()))
 claim(f"by between {_lo}" in paper and _hi in paper, f"ablation delta range {_lo}-{_hi}")
-claim(all(v["engine"]["false_green_rate"] / max(_pairs[v["model"]]["o"]["engine"]["false_green_rate"], 1e-9) >= 2.5
-          for v in _wit.values() if "o" in _pairs[v["model"]]),
-      "'roughly triples' holds: every withheld/offered FGR ratio >= 2.5")
+# Ratio of false-green COUNTS (same 120-pair denominator), so rounding of the
+# stored rates cannot move it.
+_ratios = [d["w"]["engine"]["n_false_green"] / d["o"]["engine"]["n_false_green"]
+           for d in _pairs.values() if "o" in d and "w" in d]
+claim(f"factor of\n{min(_ratios):.2f} to {max(_ratios):.2f}" in paper and min(_ratios) >= 2.5,
+      f"withheld/offered FGR factor {min(_ratios):.2f}-{max(_ratios):.2f} ('three- to fivefold')")
 
 _dw = [e["decomposition"] for k, e in _an.items() if k in _fin and k.endswith("withheld")]
 _do = [e["decomposition"] for k, e in _an.items() if k in _fin and k.endswith("offered")]
