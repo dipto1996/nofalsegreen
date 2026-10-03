@@ -120,33 +120,34 @@ def table_main(runs: dict) -> str:
 
 
 def table_ablation(runs: dict) -> str:
-    """Table 3: schema ablation, offered vs withheld."""
+    """Table 3: schema ablation, paired on withheld pairs answered in BOTH conditions."""
+    abl = json.loads(VIEWS.read_text()).get("ablation", {}) if VIEWS.exists() else {}
+    rows = [
+        "| Model | Withheld pairs answered in both | FGR offered | FGR withheld | Change [95% CI] "
+        "| Holm-adjusted p | Off-schema replies (withheld) |",
+        "|---|---|---|---|---|---|---|",
+    ]
     by_model: dict[str, dict] = {}
     for r in runs.values():
-        if not r.get("aggregate"):
+        if r.get("aggregate"):
+            by_model.setdefault(r["model"], {})["o" if r["variant"].endswith("offered") else "w"] = r
+    views = json.loads(VIEWS.read_text())["runs"] if VIEWS.exists() else {}
+    for m, a in sorted(abl.items()):
+        if m not in by_model or "w" not in by_model[m]:
             continue
-        by_model.setdefault(r["model"], {})[
-            "offered" if r["variant"].endswith("offered") else "withheld"] = r
-
-    rows = [
-        "| Model | FGR, abstention offered | FGR, abstention withheld | Change [95% CI] | Off-schema abstentions |",
-        "|---|---|---|---|---|",
-    ]
-    abl = json.loads(VIEWS.read_text()).get("ablation", {}) if VIEWS.exists() else {}
-    paired = {m: v for m, v in by_model.items() if "offered" in v and "withheld" in v}
-    if not paired:
-        rows.append("| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[n of N]` |")
-        if by_model:
-            have = ", ".join(f"{short(m)} ({'/'.join(sorted(v))})" for m, v in by_model.items())
-            rows.append(f"| *partial: {have}* | | | | |")
-    for m, v in sorted(paired.items()):
-        fo = v["offered"]["aggregate"]["false_green_rate"]["mean"]
-        fw = v["withheld"]["aggregate"]["false_green_rate"]["mean"]
-        offs = v["withheld"].get("n_off_schema", 0)
-        n = v["withheld"].get("n_pairs", 0)
-        c = abl.get(m, {}).get("ci95")
-        cs = f" [{c[0]:+.2f}, {c[1]:+.2f}]" if c else ""
-        rows.append(f"| `{short(m)}` | {fo:.3f} | {fw:.3f} | {fw - fo:+.3f}{cs} | {offs} of {n} |")
+        w = by_model[m]["w"]
+        offs = sum(f.get("n_off_schema", 0) for f in w["per_firm"])
+        ans = sum(f["n_parsed"] for f in w["per_firm"])
+        n, d, c = a["n_pairs_answered_both"], a["delta_fgr"], a["ci95"]
+        # rates on the same restricted pair set
+        fo = views[f"{m}::abstain_offered"]["engine"]
+        rows.append(f"| `{short(m)}` | {n} of 120 | {views[f'{m}::abstain_offered']['engine']['false_green_rate']:.3f} "
+                    f"| {views[f'{m}::abstain_withheld']['engine']['false_green_rate']:.3f} "
+                    f"| {d:+.3f} [{c[0]:+.2f}, {c[1]:+.2f}] | {a['p_holm']:.3f} | {offs} of {ans} answered |")
+    rows.append("")
+    rows.append("FGR columns are over all 120 withheld pairs, as in Table 2. The change, its interval "
+                "(obligation-cluster bootstrap, 2,000 draws) and the one-sided p-value are computed on "
+                "the withheld pairs both runs answered; the bootstrap p-value has a floor of 1/2,000.")
     return "\n".join(rows)
 
 

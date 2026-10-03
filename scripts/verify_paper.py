@@ -144,8 +144,6 @@ claim("## 2. Related work" in paper, "Related work is a real section, not an app
 claim("Appendix B: Related work to engage" not in paper, "the old related-work stub is gone")
 for t in ("Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Figure 1"):
     claim(t in paper, f"{t} is named in the paper")
-claim("if the result is null" in paper,
-      "paper commits in advance to reporting a null result")
 claim("[\u2026]" not in paper and "[…]" not in paper, "no empty result cell remains")
 _bad = _re.findall(r"Section \d+", paper)
 _maxsec = max(int(x.split()[1]) for x in _bad)
@@ -257,20 +255,20 @@ _deltas = {m: d["w"]["engine"]["false_green_rate"] - d["o"]["engine"]["false_gre
 claim(all(x > 0 for x in _deltas.values()), "FGR rises without abstention for every paired model")
 _lo, _hi = _rng(list(_deltas.values()))
 claim(f"by between {_lo}" in paper and _hi in paper, f"ablation delta range {_lo}-{_hi}")
-# Ratio of false-green COUNTS (same 120-pair denominator), so rounding of the
-# stored rates cannot move it.
-_ratios = [d["w"]["engine"]["n_false_green"] / d["o"]["engine"]["n_false_green"]
-           for d in _pairs.values() if "o" in d and "w" in d]
-claim(f"factor of\n{min(_ratios):.2f} to {max(_ratios):.2f}" in paper and min(_ratios) >= 2.5,
-      f"withheld/offered FGR factor {min(_ratios):.2f}-{max(_ratios):.2f} ('three- to fivefold')")
+claim("fold" not in paper.replace("manifold", ""), "no fold-change language (ratios of small counts)")
 
 _dw = [e["decomposition"] for k, e in _an.items() if k in _fin and k.endswith("withheld")]
 _do = [e["decomposition"] for k, e in _an.items() if k in _fin and k.endswith("offered")]
-for _key, _set, _phrase in (("unsupported_violation", _dw, "({} to {} of the 120 withheld"),
-                            ("false_green", _dw, "`pass` ({} to {})"),
-                            ("missed_violation", _dw, "nearly vanish ({} to {})"),
-                            ("missed_violation", _do, "miss {} to {} of the 20"),
-                            ("false_green", _do, "report {} to {}")):
+# Missed violations count unanswered violation pairs as misses (1 - recall).
+_miss = lambda runs: [round((1 - v["engine"]["violation_recall"]) * 20) for v in runs]  # noqa: E731
+for _t in (f"between {min(_miss(_off.values()))} and {max(_miss(_off.values()))} of the 20",
+           f"misses {min(_miss(_wit.values()))} to {max(_miss(_wit.values()))}"):
+    claim(_t in paper.replace("\n", " "), f"missed-violation range stated: {_t}")
+_dots = _an.get("dots-studio/dots-3-note-preview:free::abstain_withheld", {}).get("decomposition", {})
+claim(f"more to `pass` ({_dots.get('false_green')}) than to `fail` ({_dots.get('unsupported_violation')})"
+      in paper.replace("\n", " "), "dots.3 forced-choice split stated")
+for _key, _set, _phrase in (("unsupported_violation", _dw, "({} to {} of 120)"),
+                            ("false_green", _do, "reports {} to {}")):
     _vals = [d.get(_key, 0) for d in _set]
     _t = _phrase.format(min(_vals), max(_vals))
     claim(_t in paper, f"decomposition: {_t}")
@@ -306,12 +304,9 @@ _sv = max(abs(v["engine"]["false_green_rate"] - v["strict"]["false_green_rate"])
 claim(f"by at most {_sv:.3f}" in paper, f"strict view shifts FGR by at most {_sv:.3f}")
 
 _abl = json.loads((ROOT / "docs" / "views_results.json").read_text()).get("ablation", {})
-claim(len(_abl) >= 1 and all(v["ci95"][0] > 0 for v in _abl.values())
-      and "every model's 95% interval excludes\nzero" in paper,
-      f"paired ablation CI excludes zero for all {len(_abl)} models, as stated")
-_wfg = [v["engine"]["false_green_rate"] for v in _wit.values()]
-claim(f"from {min(_wfg):.3f} to {max(_wfg):.3f}" in paper.replace("\n", " "),
-      "forced-choice pass share range stated")
+claim(len(_abl) == 6 and all(v["holm_reject_0.05"] for v in _abl.values())
+      and "All six remain significant" in paper,
+      f"all {len(_abl)} paired ablation tests significant after Holm, as stated")
 
 print("\nhonesty checks")
 claim("[TO RUN]" not in paper and "`[…]`" not in paper, "no unfilled placeholder remains")

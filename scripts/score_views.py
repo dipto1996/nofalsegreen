@@ -148,22 +148,36 @@ def main() -> int:
         if "o" not in d or "w" not in d or not {f"{model}::abstain_offered",
                                                  f"{model}::abstain_withheld"} <= finished:
             continue
+        # Restrict to withheld pairs BOTH conditions answered, so a coverage
+        # difference between the runs cannot masquerade as an effect.
+        both = {r: [pid for pid in by_rule[r] if pid in d["o"] and pid in d["w"]] for r in rules}
+        rules_b = [r for r in rules if both[r]]
         rng = random.Random(BOOT_SEED)
         diffs = []
         for _ in range(BOOT_REPS):
-            ids = [pid for r in (rng.choice(rules) for _ in rules) for pid in by_rule[r]]
+            ids = [pid for r in (rng.choice(rules_b) for _ in rules_b) for pid in both[r]]
             fo = sum(d["o"].get(i) == "pass" for i in ids) / len(ids)
             fw = sum(d["w"].get(i) == "pass" for i in ids) / len(ids)
             diffs.append(fw - fo)
         diffs.sort()
-        all_ids = [pid for r in rules for pid in by_rule[r]]
+        all_ids = [pid for r in rules_b for pid in both[r]]
         point = (sum(d["w"].get(i) == "pass" for i in all_ids)
                  - sum(d["o"].get(i) == "pass" for i in all_ids)) / len(all_ids)
         out["ablation"][model] = {
+            "n_pairs_answered_both": len(all_ids),
             "delta_fgr": round(point, 4),
             "ci95": [round(diffs[int(0.025 * BOOT_REPS)], 4), round(diffs[int(0.975 * BOOT_REPS) - 1], 4)],
-            "share_boot_le_0": round(sum(x <= 0 for x in diffs) / BOOT_REPS, 4),
+            "p_boot_one_sided": round(max(sum(x <= 0 for x in diffs), 1) / BOOT_REPS, 4),
         }
+    # Holm correction across the per-model tests.
+    ab = out["ablation"]
+    order = sorted(ab, key=lambda m: ab[m]["p_boot_one_sided"])
+    k = len(order)
+    running = 0.0
+    for i, m in enumerate(order):
+        running = max(running, min(1.0, (k - i) * ab[m]["p_boot_one_sided"]))
+        ab[m]["p_holm"] = round(running, 4)
+        ab[m]["holm_reject_0.05"] = running < 0.05
 
     OUT.write_text(json.dumps(out, indent=2))
     print(f"wrote {OUT}: {len(out['runs'])} run(s) scored under {len(VIEWS)} views")
