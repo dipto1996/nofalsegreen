@@ -105,8 +105,13 @@ def load_firms(rb: Rulebook) -> list[Firm]:
     for s in SEEDS:
         firm = generate(s, rb)
         keep = set(doc["firms"][str(s)])
+        # The generator stores export names relative to its output directory;
+        # resolve them here so a prompt can never be built without the data.
+        sources = {k: (v if Path(v).is_absolute() else DIR / f"firm_s{s}" / v)
+                   for k, v in firm.sources.items()}
         out.append(replace(
             firm,
+            sources=sources,
             firm_id=f"{firm.firm_id}-study2",
             pairs=[p for p in firm.pairs if p.pair_id in keep],
             labels=[l for l in firm.labels if l.pair_id in keep],

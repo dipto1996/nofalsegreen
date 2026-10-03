@@ -316,5 +316,14 @@ with tempfile.TemporaryDirectory() as _td:
     check(_f.calls == _nb + 1 and _rf.n_incomplete_calls == 1,
           "a non-empty reply ending in an upstream error is re-requested")
 
+print("\na prompt is never built without its source data")
+from dataclasses import replace as _replace  # noqa: E402
+_broken = _replace(_sub, sources={k: Path("/nonexistent") / Path(v).name for k, v in _sub.sources.items()})
+try:
+    user_prompt(_broken, obs, [p.pair_id for p in _broken.pairs][:12], scope_sources=True)
+    check(False, "missing export raises")
+except FileNotFoundError:
+    check(True, "a missing export raises instead of sending '(file not available)'")
+
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)

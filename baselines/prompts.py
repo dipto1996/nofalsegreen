@@ -148,8 +148,10 @@ def _render_sources(
             candidates = [d / p for d in (Path(firm.provenance.get("dir", ".")),)]
             p = next((c for c in candidates if c.exists()), p)
         if not p.exists():
-            out.append(f"### {kind}\n(file not available)\n")
-            continue
+            # Never send a prompt without its data: a model asked to judge
+            # obligations against a missing export can only abstain or guess,
+            # and the reply would be scored as if it had seen the records.
+            raise FileNotFoundError(f"source export {kind!r} not found at {p}")
         text = p.read_text()
         if len(text) > max_chars_per_source:
             text = text[:max_chars_per_source] + "\n...(truncated)"
