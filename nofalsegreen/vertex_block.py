@@ -20,6 +20,14 @@ identical requests. At temperature 0 a repeat measures run-to-run variation of
 the served model, not sampling. Point estimates are the mean of the three;
 the spread is reported beside them.
 
+ONE-VARIABLE ABLATION, added 2026-10-03 after an internal review found that the
+`abstain_withheld` condition changes four things at once (it removes
+`needs_evidence` AND `unmonitored`, redefines `pass` as "the obligation is
+satisfied", and drops the warning paragraph). `abstain_removed_only` removes
+ONLY `needs_evidence` and the sentences defining it; everything else is the
+offered prompt word for word. Run on the same models, studies and repeats,
+declared here before any call.
+
 REPORTING. In a block separate from the free-tier models: different access
 route, different cost, and models chosen after the free-tier studies began,
 which the paper states.

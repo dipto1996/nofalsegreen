@@ -31,7 +31,8 @@ from typing import Callable, Protocol
 
 from nofalsegreen.schema import Firm, Obligation, Prediction, Verdict
 
-from .prompts import ABSTAIN_OFFERED, ABSTAIN_WITHHELD, PROMPT_VERSION, system_prompt, user_prompt
+from .prompts import (ABSTAIN_OFFERED, ABSTAIN_REMOVED_ONLY, ABSTAIN_WITHHELD, PROMPT_VERSION,
+                      system_prompt, user_prompt)
 
 _VERDICTS = {v.value: v for v in Verdict}
 
@@ -216,6 +217,8 @@ def parse_response(text: str, expected_pair_ids: list[str], variant: str):
     if variant == ABSTAIN_WITHHELD:
         off_schema = sum(1 for pr in seen.values()
                          if pr.verdict in (Verdict.NEEDS_EVIDENCE, Verdict.UNMONITORED))
+    elif variant == ABSTAIN_REMOVED_ONLY:
+        off_schema = sum(1 for pr in seen.values() if pr.verdict is Verdict.NEEDS_EVIDENCE)
     missing = len(expected) - len(seen) - unparseable
     return list(seen.values()), unparseable, max(0, missing), off_schema
 

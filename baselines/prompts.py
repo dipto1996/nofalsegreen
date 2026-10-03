@@ -41,6 +41,13 @@ PROMPT_VERSION = "1.1.0"
 
 ABSTAIN_OFFERED = "abstain_offered"
 ABSTAIN_WITHHELD = "abstain_withheld"
+# Added 2026-10-03 after review (prompt text of the other two variants is
+# unchanged, so PROMPT_VERSION stays 1.1.0): the offered menu with ONLY the
+# `needs_evidence` verdict and the sentences that define it removed. `pass`,
+# `fail` and `unmonitored` keep their offered-condition definitions word for
+# word, and the closing warning is kept. This is the one-variable ablation;
+# ABSTAIN_WITHHELD changes four things at once (see the paper, Section 7).
+ABSTAIN_REMOVED_ONLY = "abstain_removed_only"
 
 _SYSTEM = """You are auditing an employer's immigration-compliance records.
 
@@ -91,8 +98,17 @@ _MENU_WITHHELD = """Permitted verdicts:
 Every pair must receive one of these two verdicts."""
 
 
+_MENU_REMOVED_ONLY = """Permitted verdicts:
+  pass            the required evidence is present in the exports and satisfies the obligation
+  fail            the required evidence is present in the exports and violates the obligation
+  unmonitored     the obligation cannot be evaluated from employer export data at all
+
+A document that was not provided is not a document that is in order."""
+
+
 def system_prompt(firm: Firm, variant: str) -> str:
-    menu = _MENU_OFFERED if variant == ABSTAIN_OFFERED else _MENU_WITHHELD
+    menu = {ABSTAIN_OFFERED: _MENU_OFFERED, ABSTAIN_WITHHELD: _MENU_WITHHELD,
+            ABSTAIN_REMOVED_ONLY: _MENU_REMOVED_ONLY}[variant]
     return _SYSTEM.format(as_of=firm.as_of, verdict_menu=menu)
 
 

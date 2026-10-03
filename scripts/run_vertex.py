@@ -26,14 +26,14 @@ STUDIES = {"study1": ["--subset", "140"], "study2": ["--study2"]}
 VARIANTS = ("abstain_offered", "abstain_withheld")
 
 
-def jobs_for(model: str, rep: int) -> list[list[str]]:
+def jobs_for(model: str, rep: int, variants=VARIANTS, group: str = "") -> list[list[str]]:
     """One process per (model, repeat), each with its OWN cache, results and
     checkpoint files: the harness rewrites those files whole on every save, so
     two writers on one file lose each other's work."""
-    tag = f"{model}__r{rep}"
+    tag = f"{model}__r{rep}{'__' + group if group else ''}"
     out = []
     for study, extra in STUDIES.items():
-        for variant in VARIANTS:
+        for variant in variants:
             out.append([
                 sys.executable, "-u", str(ROOT / "scripts" / "run_free.py"),
                 "--provider", "vertex", "--model", f"vertex/{model}#r{rep}",
@@ -47,10 +47,10 @@ def jobs_for(model: str, rep: int) -> list[list[str]]:
     return out
 
 
-def run_job(model: str, rep: int) -> str:
-    log = OUT / "logs" / f"{model}__r{rep}.log"
+def run_job(model: str, rep: int, variants=VARIANTS, group: str = "") -> str:
+    log = OUT / "logs" / f"{model}__r{rep}{'__' + group if group else ''}.log"
     with log.open("a") as fh:
-        for cmd in jobs_for(model, rep):
+        for cmd in jobs_for(model, rep, variants, group):
             fh.write(f"\n=== {' '.join(cmd[4:12])} {' '.join(cmd[-2:])}\n")
             fh.flush()
             subprocess.run(cmd, cwd=ROOT, stdout=fh, stderr=subprocess.STDOUT)
@@ -61,16 +61,19 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--plan", action="store_true")
     ap.add_argument("--models", nargs="*", default=list(MODELS))
+    ap.add_argument("--variants", nargs="*", default=list(VARIANTS))
+    ap.add_argument("--group", default="",
+                    help="separates this invocation's cache/results files from another running one")
     args = ap.parse_args()
     for d in ("cache", "runs", "logs"):
         (OUT / d).mkdir(parents=True, exist_ok=True)
     work = [(m, r) for m in args.models for r in REPEATS]
     if args.plan:
         for m, r in work:
-            print(m, f"r{r}", len(jobs_for(m, r)), "runs")
+            print(m, f"r{r}", len(jobs_for(m, r, args.variants, args.group)), "runs")
         return 0
     with ThreadPoolExecutor(max_workers=len(work)) as ex:
-        for done in ex.map(lambda mr: run_job(*mr), work):
+        for done in ex.map(lambda mr: run_job(*mr, args.variants, args.group), work):
             print("finished", done, flush=True)
     return 0
 

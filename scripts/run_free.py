@@ -48,7 +48,7 @@ def main() -> int:
     ap.add_argument("--model", required=True)
     ap.add_argument("--firms", type=int, default=0, help="generated firms (0 = anchor only)")
     ap.add_argument("--variant", default="both",
-                    choices=[ABSTAIN_OFFERED, ABSTAIN_WITHHELD, "both"])
+                    choices=[ABSTAIN_OFFERED, ABSTAIN_WITHHELD, "abstain_removed_only", "both"])
     ap.add_argument("--batch", type=int, default=8,
                     help="pairs per call; reasoning models need a small batch "
                          "so their trace plus verdicts fit the output budget")
