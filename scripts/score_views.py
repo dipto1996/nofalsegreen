@@ -46,6 +46,42 @@ def predictions_by_run(firm, cache: dict) -> dict[tuple[str, str], list]:
     return {k: list(v.values()) for k, v in grouped.items()}
 
 
+BOOT_SEED = 20261003
+BOOT_REPS = 2000
+
+
+def cluster_ci(labels, preds, metric: str, reps: int = BOOT_REPS) -> list[float] | None:
+    """95% percentile interval, resampling OBLIGATIONS (rule ids) with replacement.
+
+    Pairs under one obligation share records and a single rule text, so they
+    are not independent; resampling pairs would understate the interval."""
+    import random
+    rng = random.Random(BOOT_SEED)
+    pred = {p.pair_id: p.verdict.value for p in preds}
+    by_rule: dict[str, list] = defaultdict(list)
+    for l in labels:
+        by_rule[l.pair_id.split("::")[0]].append(l)
+    rules = sorted(by_rule)
+    vals = []
+    for _ in range(reps):
+        num = den = 0
+        for r in (rng.choice(rules) for _ in rules):
+            for l in by_rule[r]:
+                t = l.verdict.value
+                if metric == "fgr" and t == "needs_evidence":
+                    den += 1
+                    num += pred.get(l.pair_id) == "pass"
+                elif metric == "recall" and t == "fail":
+                    den += 1
+                    num += pred.get(l.pair_id) == "fail"
+        if den:
+            vals.append(num / den)
+    if not vals:
+        return None
+    vals.sort()
+    return [round(vals[int(0.025 * len(vals))], 4), round(vals[int(0.975 * len(vals)) - 1], 4)]
+
+
 def main() -> int:
     rb = Rulebook.load(ROOT / "rulebook" / "rulebook.json")
     regimes = rb.rule_regimes()
@@ -82,12 +118,52 @@ def main() -> int:
                     1 for l in scored if l.verdict.value == "needs_evidence"
                     and l.pair_id in {p.pair_id for p in preds}),
             }
+            kept = [p for p in preds if p.pair_id in keep]
+            entry[view]["fgr_ci95"] = cluster_ci(scored, kept, "fgr")
+            entry[view]["recall_ci95"] = cluster_ci(scored, kept, "recall")
             ans = entry[view]["n_withheld_answered"]
             entry[view]["false_green_rate_answered"] = (
                 round(s.n_false_green / ans, 4) if ans else None)
             if alerts:
                 entry[view]["deadline_alerts"] = alert_report(preds, alerts)
         out["runs"][f"{model}::{variant}"] = entry
+
+    # Paired test of the schema ablation: both conditions answer the SAME pairs,
+    # so the interval is on the within-model difference, resampling obligations
+    # jointly for both conditions.
+    import random
+    out["ablation"] = {}
+    by_model: dict[str, dict] = defaultdict(dict)
+    for (model, variant), preds in runs.items():
+        by_model[model]["o" if variant.endswith("offered") else "w"] = {p.pair_id: p.verdict.value for p in preds}
+    by_rule: dict[str, list] = defaultdict(list)
+    for l in firm.labels:
+        if l.verdict.value == "needs_evidence":
+            by_rule[l.pair_id.split("::")[0]].append(l.pair_id)
+    rules = sorted(by_rule)
+    llm = ROOT / "docs" / "llm_results.json"
+    finished = {k for k, v in json.loads(llm.read_text()).get("runs", {}).items()
+                if v.get("per_firm")} if llm.exists() else set()
+    for model, d in sorted(by_model.items()):
+        if "o" not in d or "w" not in d or not {f"{model}::abstain_offered",
+                                                 f"{model}::abstain_withheld"} <= finished:
+            continue
+        rng = random.Random(BOOT_SEED)
+        diffs = []
+        for _ in range(BOOT_REPS):
+            ids = [pid for r in (rng.choice(rules) for _ in rules) for pid in by_rule[r]]
+            fo = sum(d["o"].get(i) == "pass" for i in ids) / len(ids)
+            fw = sum(d["w"].get(i) == "pass" for i in ids) / len(ids)
+            diffs.append(fw - fo)
+        diffs.sort()
+        all_ids = [pid for r in rules for pid in by_rule[r]]
+        point = (sum(d["w"].get(i) == "pass" for i in all_ids)
+                 - sum(d["o"].get(i) == "pass" for i in all_ids)) / len(all_ids)
+        out["ablation"][model] = {
+            "delta_fgr": round(point, 4),
+            "ci95": [round(diffs[int(0.025 * BOOT_REPS)], 4), round(diffs[int(0.975 * BOOT_REPS) - 1], 4)],
+            "share_boot_le_0": round(sum(x <= 0 for x in diffs) / BOOT_REPS, 4),
+        }
 
     OUT.write_text(json.dumps(out, indent=2))
     print(f"wrote {OUT}: {len(out['runs'])} run(s) scored under {len(VIEWS)} views")

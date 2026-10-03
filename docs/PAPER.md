@@ -1,9 +1,11 @@
 # No False Green: A Benchmark for Evidence-Aware Compliance Verdicts over Structured Employer Records
 
+Diptopal Roy, Settle AI Inc. (diptopal@joinsettle.info). See *Competing interests*, Section 11.
+
 **Status of this draft: complete, for review.** All sections are written. Every table is
 generated from retained artifacts by the repository's scripts, and every quantitative
 claim in the text is recomputed from those artifacts by
-`scripts/verify_paper.py`, which currently confirms 149 of 149. Each methodological rule that could have been chosen after
+`scripts/verify_paper.py`, which currently confirms 151 of 151. Each methodological rule that could have been chosen after
 seeing results (label views, model substitutions, evidence classes, excerpt selection,
 label audit, cut-offs) was committed to the repository before the results it governs,
 and the paper cites the record.
@@ -85,11 +87,15 @@ on any metric that averages over pairs, and scores *perfectly* on the compliant 
 that dominate the distribution. Section 8 shows this concretely: our `always_pass`
 baseline attains a false-alarm rate of 0.000 across 31 firms.
 
-**It is not measured.** Benchmarks in legal NLP evaluate reasoning and classification over
-regulatory text and case law. Benchmarks for abstention evaluate free-text question
-answering, where "insufficient evidence" is a property of a query. Neither addresses a
-system reading an organisation's structured records and deciding, per obligation, whether
-the records support a verdict at all.
+**It is barely measured.** Benchmarks in legal NLP evaluate reasoning and classification
+over regulatory text and case law (Guha et al., 2023). Most abstention benchmarks evaluate
+free-text question answering. Recent work has begun to score evidence sufficiency and the
+overclaiming direction directly, in retrieval-augmented generation (Joren et al., 2024),
+claim verification over databases (Theologitis et al., 2026), and agent governance and
+authorisation-limited evidence (Solozobov, 2026; Tallam, 2026). None of it evaluates a
+system reading a third-party employer's structured records and deciding, per legal
+obligation, whether the records support a verdict at all, in a domain where correct
+abstention is the majority class. Section 2 sets out how close each comes.
 
 We make three contributions.
 
@@ -111,45 +117,114 @@ has remained open.
 
 ## 2. Related work
 
-Four literatures touch this problem. None occupies the position this benchmark takes, and
-the reason in each case is a difference in what the system is given and what it must
-return.
+Several literatures touch this problem. None occupies quite the position this benchmark
+takes, but three recent benchmarks come closer than a reader of the introduction might
+expect, and we say where. In each case the difference lies in what the system is given,
+what it must return, and how the label is established.
 
 **Legal and regulatory NLP benchmarks.** Work in this area evaluates reasoning and
-classification over *regulatory text*: statutes, case law, policy manuals. A system is
-given a legal question or a document and asked to answer, classify, or retrieve. Our
-input is an organisation's structured operational records, and our output is a verdict
-per obligation about that organisation. A model that scores well on legal reasoning has
-demonstrated nothing about whether it will report an unassessable duty as satisfied,
-because the task never asks it to decide whether its evidence base is sufficient.
+classification over *legal text*. LegalBench assembles 162 tasks spanning six types of
+legal reasoning, designed and hand-crafted by legal professionals (Guha et al., 2023).
+LexGLUE standardises a collection of legal language-understanding datasets (Chalkidis et
+al., 2022); CaseHOLD poses over 53,000 multiple-choice questions identifying the holding
+of a cited case (Zheng et al., 2021); CUAD asks models to highlight salient portions
+of contracts, with over 13,000 annotations from legal experts (Hendrycks et al., 2021); and
+LawBench tests legal knowledge at the levels of memorisation, understanding and
+application (Fei et al., 2024). A system is given a legal question or a document and
+asked to answer, classify, or retrieve. Our input is an organisation's structured
+operational records, and our output is a verdict per obligation about that organisation.
+A model that scores well on legal reasoning has demonstrated nothing about whether it
+will report an unassessable duty as satisfied, because these tasks do not ask it to
+decide whether its evidence base is sufficient.
 
-**Immigration-specific datasets.** Recent work covers question answering over
-immigration policy sources, and reasoning over administrative appellate decisions
-including adjudicator error. Both are beneficiary-side and text-side: the questions
-concern what the law says or how a decision was reasoned. Employer-side obligations,
-which is where the per-worker civil penalties and the audit exposure actually sit, are
-absent. We are not aware of a public dataset of employer immigration-compliance records
-with labelled obligation outcomes, and the reason is straightforward: real ones cannot
-be published.
+The legal hallucination literature is closer in motivation. Dahl et al. (2024) find
+hallucination rates between 58% and 88% when models are asked verifiable questions about
+federal court cases, and report that models cannot always predict when they are
+hallucinating. Magesh et al. (2025), in a preregistered evaluation, find that commercial
+legal research tools hallucinate less than a general-purpose chatbot but substantially
+more than their vendors claim. Both measure unsupported output about the law. We measure
+unsupported output about a regulated party, where the support that is missing is a record
+rather than a precedent.
 
-**Compliance benchmarks for AI systems.** A growing body of work assesses whether an AI
-system complies with rules governing AI, including regulation-conformance assessment and
-runtime governance-evidence sufficiency for agent audit trails. The direction of
-assessment is inverted relative to ours. There, the system under test is the regulated
-subject. Here, the system under test is the *assessor*, and the regulated subject is a
-third party whose records it reads. The nearest neighbour in spirit is work asking
-whether an evidence bundle suffices to reconstruct a decision; the difference is that we
-ask whether a system correctly declines to issue a regulatory verdict about someone else.
+**Immigration-specific datasets.** ImmigrationQA provides 17,058 question-answer pairs
+generated from United States immigration sources including the USCIS Policy Manual and
+8 CFR (Shportun, 2026). ImmigrationReason structures 12,375 non-precedent decisions of the
+USCIS Administrative Appeals Office, recording for each the applicable legal framework,
+per-criterion evidence-sufficiency findings under a five-category label, and verbatim
+adjudicator criticism, including nearly 9,000 instances of legal error identified by the
+Office (Afsharrad and Mousavi, 2026). ImmigrationReason is nearer to our task than a
+policy-QA dataset, since it labels whether evidence sufficed for a criterion. Its labels,
+however, are extracted from the text of adjudications: the sufficiency judgement is the
+adjudicator's, made about a petition record that the dataset does not contain. Both
+datasets are text-side. Employer-side obligations, where the per-worker civil penalties and
+the audit exposure sit, are absent. We are not aware of a public dataset of employer
+immigration-compliance records with labelled obligation outcomes, and the reason is
+straightforward: real ones cannot be published.
 
-**Abstention and selective prediction.** This is the closest literature and deserves the
-most precision, because a reviewer will reasonably ask what is new.
+**Compliance benchmarks for AI systems.** Automated compliance checking predates language
+models. In construction, regulatory text is converted into machine-checkable rules by
+semantic information extraction (Zhang and El-Gohary, 2016); in data protection, privacy
+policies are checked for completeness against GDPR provisions (Amaral et al., 2022) and
+questioned directly, with expert analysis of which questions a policy can answer at all
+(Ravichander et al., 2019). Recent LLM work divides into two directions. In the first, the
+AI system is the regulated subject: COMPL-AI translates the EU AI Act into technical
+requirements and benchmarks twelve LLMs against them (Guldimann et al., 2024). The
+direction of assessment is inverted relative to ours. In the second, the AI system is an
+assessor of someone else. HSE-Bench poses over 1,000 IRAC-structured health, safety and
+environment compliance questions (Wang et al., 2025). Principle-Bench evaluates LLM judges
+of financial promotions against two regulatory principles under a pre-registered rubric
+(Sarkar, 2026). ReguSim's monitoring benchmark asks a model to judge a marked record within
+a window of trading records, and finds that simple structured baselines match or exceed
+prompt-only LLMs (Luo et al., 2026). These share our assessor-side orientation, and the
+last shares our record-level input. None of them gives insufficiency of the record its
+own correct label.
 
-Selective prediction gives a model the option to abstain and evaluates it on a
-risk-coverage curve: coverage is a good to be maximised subject to a risk budget, and
-abstention is a *cost* incurred to avoid error. Recent abstention benchmarks evaluate
-whether models recognise unanswerable or underspecified questions, typically in free
-text, where insufficiency is a property of the query and ground truth is established by
-annotation.
+Two recent benchmarks do, and they are the nearest neighbours of this work. DEMM-Bench
+asks whether agent-runtime records (traces, ledgers, policy logs and the like) are
+sufficient to reconstruct properties of a specific decision, labels cases with a
+construction oracle, and reports an overclaim rate as its primary diagnostic (Solozobov,
+2026). Its "container fallacy", treating the presence of an evidence container as
+sufficiency, is close to what we call adjacent-field substitution, where a populated column
+beside the missing evidence is read as the evidence. Partial Evidence Bench constructs
+deterministic synthetic scenarios, including a compliance-audit family, in which material
+evidence lies outside an agent's authorisation boundary, and scores *unsafe completeness*:
+an answer that appears complete when it is not (Tallam, 2026). It reports that explicit
+fail-and-report behaviour removes unsafe completeness without collapsing into trivial
+abstention. That is, in substance, our argument that the false-green rate and the
+abstention rate must be read together. We differ in three respects. Our subject is a
+third-party employer and our output a regulatory verdict per (obligation, entity) pair,
+not a governance reconstruction or a retrieval answer; our insufficiency is a property of
+what the employer's exports contain, not of what an agent is permitted to see; and our
+scale (58,961 pairs over 31 firms, against 64 cases and 72 tasks respectively) supports per-firm
+aggregation and intervals. We do not claim the directional, construction-labelled framing
+as new; both works reach it independently.
+
+**Abstention and selective prediction.** This is the closest established literature and
+deserves the most precision, because a reviewer will reasonably ask what is new.
+
+The reject option goes back to Chow (1970), who characterised the optimal tradeoff between
+recognition error and rejection. Selective classification formalises it as a risk-coverage
+trade-off (El-Yaniv and Wiener, 2010), and Geifman and El-Yaniv (2017) construct selective
+deep classifiers that reject as needed to meet a user-set risk level. In this framing
+coverage is a good to be maximised subject to a risk budget, and abstention is a *cost*
+incurred to avoid error.
+
+For language models, abstention is evaluated mostly on questions. SQuAD 2.0 adds
+unanswerable questions to reading comprehension (Rajpurkar et al., 2018); SelfAware pairs
+unanswerable questions with answerable counterparts to measure self-knowledge (Yin et al.,
+2023); AbstentionBench aggregates 20 datasets of unknown-answer, underspecified,
+false-premise and similar questions, and finds that scaling helps little and that
+reasoning fine-tuning degrades abstention by 24% on average (Kirichenko et al., 2025). Wen
+et al. (2025) survey the area and organise it by query, model and human values. On the
+model side, Kadavath et al. (2022) show that models can be trained to predict whether they
+know an answer. The work nearest ours in this line is Joren et al. (2024), who define
+whether a retrieved context is *sufficient* to answer a query and find that strong models
+often answer incorrectly rather than abstain when it is not. That is a statement about the
+evidence base rather than the query, as ours is, though in open-domain retrieval rather
+than over an organisation's records. Hallucination benchmarks that measure falsehood
+against world knowledge (Lin et al., 2022) or the share of atomic claims supported by a
+knowledge source (Min et al., 2023) address a related failure without an abstention
+label.
 
 Three things differ here.
 
@@ -160,9 +235,10 @@ curve, it is producing wrong answers that happen to look like answers.
 
 Second, insufficiency is a property of the evidence base rather than the query, so it is
 determinable **by construction**. The generator withholds a required field and the label
-follows mechanically. Free-text abstention benchmarks must annotate insufficiency, and
-annotation of legal sufficiency is exactly the judgement call that makes such datasets
-small and contestable.
+follows mechanically. Most abstention benchmarks annotate insufficiency, and annotation of
+legal sufficiency is exactly the judgement call that makes such datasets small and
+contestable. Joren et al. (2024) and the two benchmarks above are partial exceptions: the
+first classifies sufficiency with an autorater, the latter two fix it by construction.
 
 Third, the error is directional in a way the risk-coverage framing does not capture.
 Answering `fail` on an undecidable pair is wrong but triggers review. Answering `pass` is
@@ -170,16 +246,63 @@ wrong and *suppresses* review. Aggregating both into a single risk term hides th
 distinction that matters operationally, which is why we report the false-green rate as a
 separate quantity rather than as one minus abstention recall.
 
-**Aggregate consistency.** We are not aware of prior work measuring whether a system's
-reported headline counts agree with its own per-item outputs. We include it as a metric
-because we have observed the failure in deployed compliance dashboards, where a card and
-its drilldown disagree; we flag it as the least-established axis in the suite.
+**Reasoning over structured and tabular data.** Table-based fact verification asks whether
+a statement is entailed or refuted by a table (Chen et al., 2020), and text-to-SQL asks a
+system to answer questions over relational databases (Yu et al., 2018). Both originally
+assumed that every item could be decided. The three-way label of FEVER, with Supported,
+Refuted and NotEnoughInfo assigned by annotators (Thorne et al., 2018), is the nearest
+label structure to `pass`, `fail` and `needs_evidence`; FEVEROUS extends it to evidence in
+table cells (Aly et al., 2021). Unanswerable questions over structured data appear in
+EHRSQL, a text-to-SQL benchmark over electronic health records (Lee et al., 2022), in work
+categorising ambiguous and unanswerable text-to-SQL questions (Wang et al., 2023), and in
+TrustSQL, which scores abstention on infeasible questions with penalties for incorrect
+output (Lee et al., 2024). ClaimDB is the closest: claims verified against real
+multi-table databases, with a not-enough-info class, and a finding that both open and
+closed models struggle to abstain when there is no evidence to decide (Theologitis et al.,
+2026). Our setting shares the structured input and the insufficiency class. It differs in
+that the item to be decided is a regulatory obligation attached to an entity rather than a
+natural-language claim or question, in that labels are fixed by a generator rather than
+annotated or derived from real databases, and in that the two wrong answers on an
+undecidable item are scored asymmetrically.
+
+**Output format and schema constraints.** Our schema ablation removes one permitted
+verdict and leaves everything else fixed. Related work shows that output constraints
+change model answers. Tam et al. (2024) find that restricting generation to structured
+formats degrades reasoning, more so as constraints tighten. Röttger et al. (2024) show that
+models forced into a multiple-choice format give substantively different answers from those
+they give unforced, and that the answers depend on how they are forced. Sclar et al. (2024)
+report swings of up to 76 accuracy points from meaning-preserving changes to prompt format,
+which is one reason our prompt is frozen and identical across conditions. Closest in
+argument is Kalai et al. (2025), who attribute persistent hallucination partly to grading
+that gives no credit for expressing uncertainty, so that guessing improves scores, and
+propose changing how existing benchmarks are scored. Our ablation is an instance of the
+same incentive located in a product interface rather than a leaderboard: a schema with no
+state for "could not tell" forces a guess, and some guesses are green. We are not aware of
+prior work that measures the effect of removing the abstention label alone on a
+directional error rate.
+
+**Aggregate consistency.** We searched for prior work measuring whether a system's reported
+headline counts agree with its own per-item outputs and did not find any. We include it as
+a metric because we have observed the failure in deployed compliance dashboards, where a
+card and its drilldown disagree; we flag it as the least-established axis in the suite.
 
 **Positioning, stated plainly.** The contribution is not a new abstention algorithm and
-not a theoretical result. It is a task formulation in which correct abstention is the
-majority class and is fixed by construction, an instrument for measuring the directional
-error that matters in deployment, and a releasable artifact in a domain where
-releasability is the binding constraint. Section 10 states what this does not establish.
+not a theoretical result. Nor is it the first benchmark to fix evidence insufficiency by
+construction or to score the overclaiming direction separately: DEMM-Bench and Partial
+Evidence Bench do both, in agent governance and authorisation-limited retrieval. What this
+benchmark adds is a task in which correct abstention is the majority class and the
+assessed party is a third-party employer described by structured exports; an instrument
+for the directional error in that setting, together with an ablation that isolates how
+much of it is produced by the output schema; and a releasable artifact in a domain where
+releasability is the binding constraint. Ground truth by construction has precedent in
+synthetic task suites such as bAbI (Weston et al., 2015); here it also means fresh firms
+can be drawn at any seed, which addresses the per-benchmark contamination concern raised
+by Sainz et al. (2023). Constructed labels are not error-free, and test-set label errors
+can change model rankings (Northcutt et al., 2021), which is why we audit the withheld
+labels (Section 6). The release follows datasheet practice (Gebru et al., 2021), and our
+reporting requirement, that the false-green rate always appear beside violation recall, is
+in the spirit of model cards (Mitchell et al., 2019). Section 10 states what this does not
+establish.
 
 ---
 
@@ -512,48 +635,15 @@ reduce input cost materially, since every batch within a firm re-sends the same 
 The anchor firm alone costs under \$1.50 on the most expensive tier, which is the
 recommended first run.
 
-### 7.1 A pilot run, and the protocol revision it forced
+### 7.1 Protocol revision after a pilot
 
-The protocol above is version 1.1. Version 1.0 was run first, on the same 140 pairs, and
-completed four of twelve model-condition runs before we stopped it. We report what it found
-because it changed the protocol, and a reader should be able to judge whether the change
-was principled.
-
-The pilot showed violation recall of 0.000 for both models whenever the abstention option
-was offered. On inspection this was mostly the harness, for three reasons. Thirty of the
-140 pairs, including 10 of the 20 planted violations, used rule identifiers absent from the
-version 1.0 rulebook and reached the prompt with no obligation text at all. The evidence
-list shown for every obligation had been damaged by our extraction into run-together
-tokens that matched no export column, and it named reference data no export contains, such
-as a federal-holiday calendar. And version 1.0 defined `needs_evidence` as a required field
-being absent, so a model that followed the prompt literally was obliged to abstain. In the
-clearest case, a Section 2 completed eight business days late, both dates were in the I-9
-export, and the model still answered `needs_evidence`.
-
-Version 1.1 fixes these defects and changes nothing else. Every pair's rule is defined.
-The evidence description is the manifest's own prose. `needs_evidence` is defined by the
-firm's records rather than by field names. The same two reading rules are added to both
-ablation conditions. The verdict menus are otherwise unchanged. The evaluated pairs are
-identical, fixed in a file before either version ran, so any difference between the pilot
-and the main run is attributable to the prompt. The pilot's raw replies and scores are
-retained in the repository.
-
-The first attempt at the version 1.1 run exposed one further defect, in the harness
-rather than the prompt. We had capped each reply at 8,400 output tokens. Reasoning models
-spend most of a reply thinking before they answer, and 46 of the first 84 batch replies
-were cut off or came back empty before any verdict was written. The pairs in those
-batches would have scored as misses, depressing recall for reasons that had nothing to
-do with the models. We raised the cap to 32,000 tokens, which is below every evaluated
-model's own limit, and re-requested only the affected batches. The 38 replies that had
-finished within the lower cap were kept, because a cap that was never reached did not
-affect them. Truncated or empty replies are no longer cached, and the parser now counts
-a pair as unparseable only if it is never answered, not each time a model mentions it
-while reasoning. The affected attempt is archived intact beside the pilot.
-
-One pilot observation did not depend on the defects. When forced to choose between `pass`
-and `fail`, both pilot models called most unassessable obligations violations rather than
-compliant, with false-green rates of 0.117 and 0.075. We report version 1.1 as the result
-and the pilot only as the account of how the protocol reached its final form.
+A pilot under prompt v1.0 exposed three defects in our own harness, not in the models:
+obligations sent without their definitions, a mangled "information needed" field, and a
+definition of `needs_evidence` that a literal reader could apply to every pair. We fixed
+them in prompt v1.1.0, archived the pilot, and report no pilot number as a result. The
+main runs then exposed an output cap that cut off reasoning models mid-reply; incomplete
+replies were purged and re-requested under a larger cap. Both revisions, with the numbers
+that motivated them, are in Appendix C.
 
 ### 7.2 Running on free API tiers
 
@@ -588,30 +678,10 @@ state the models and their published quotas alongside every number and do not ge
 beyond them. This is a genuine weakness of the study rather than a presentational choice,
 and it is repeated in Section 10.
 
-**A mid-study substitution, declared before its results.** The study was declared with
-six free models. After four of the twelve model-condition runs had completed, OpenRouter
-withdrew the free versions of both Nex models (N2.5 Pro and N2.5 Mini); the paid versions
-remain, and paying for them is outside this study's zero-cost constraint. Three batches of
-Nex N2.5 Pro replies had been collected; they cover too few pairs to score and are
-reported as an incomplete run, not as a result. Dropping both models would have left four,
-three of them from one provider family (NVIDIA Nemotron). We therefore replaced them with
-Qwen 3.8 27B and Gemma 4 31B, chosen for provider diversity among the models still free
-whose output limit exceeds the 32,000-token cap, with Inkling named in advance as the
-substitute should either fail the same two-pair screen the original models passed. Inkling
-then turned out to refuse API calls outright (it is served only inside agent applications),
-so before any replacement reply existed the fallback was changed to dots.3 Note Preview,
-the one remaining free model from a provider family not already in the set. A transient
-upstream rate limit is not treated as a screen failure. Both replacements then returned
-upstream rate limits on every screen attempt for over an hour, so a cut-off was added,
-again before any replacement had answered a benchmark batch: when the sweep reaches a
-replacement it screens it once more, and a model that has still never passed yields its
-slot to the fallback. The fallback fills at most one slot; a second unscreenable
-replacement is dropped and reported as such. Every screen attempt is logged
-(`docs/replacement_screen_2026-09-30.json`). The
-replacements and the fallback rule were committed on 30 September 2026, before any reply
-from either model existed; as with the label views, the commit history is the evidence of
-that ordering. The replacements run under the identical prompt, subset, batch size, and
-output cap.
+**Model set.** Six free models were declared. Two (the Nex models) were withdrawn from
+the free tier mid-study; they were replaced by Qwen 3.8 27B and, after Gemma 4 31B never
+passed a screening call, dots.3 Note Preview, under rules committed before any
+replacement had answered a batch. Appendix C gives the full sequence and its commit record.
 
 **The declared evaluation subset.** Evaluating all 221 anchor pairs costs 28 calls per
 model per condition. At a free ceiling of 50 calls per day, one model consumes more than
@@ -639,16 +709,9 @@ behave identically on the subset, with `always_pass` still scoring 1.000 on the
 false-green rate and the oracle still scoring 1.000 recall, so the subset does not make
 the task easier in the direction that matters.
 
-**Throughput.** At a representative free quota of 10 requests per minute and 250 per day,
-the anchor firm across both ablation conditions is 24 calls, or about a tenth of one day.
-Adding five generated firms is roughly four days of quota. The runner paces itself under
-the per-minute limit, backs off on a transient rate-limit response, stops cleanly when the
-daily ceiling is reached, and resumes from a checkpoint, so a multi-day run is a matter of
-re-issuing the same command. Every model response is retained so that any reported number
-can be traced back to output.
-
 **A baseline we deliberately exclude.** The anchor firm's expectation set originated as
-the acceptance gate for a commercial compliance engine. That engine would score near
+the acceptance gate for a commercial compliance engine developed by the author's company
+(Section 11). That engine would score near
 ceiling on this firm for a reason that has nothing to do with capability: the expectations
 and the engine were developed against each other. Reporting it as a baseline would be
 misleading, and we do not.
@@ -700,6 +763,16 @@ retained replies (`scripts/fill_results.py`); the table shapes were fixed before
 number existed. Every table reports coverage, because an unanswered pair cannot be a
 false green (Section 7).
 
+**Uncertainty, and what it does and does not allow.** Bracketed figures are 95% percentile
+intervals from a bootstrap that resamples *obligations* (2,000 draws, fixed seed): the
+pairs under one obligation share a rule text and records, so resampling pairs would
+understate the interval. The intervals are wide. At 140 pairs, most differences *between
+models* within a condition are not resolved, and we do not rank the models. The
+comparison the study is built for is *within* a model across the two schemas, on identical
+pairs. For it we bootstrap the paired difference, and every model's 95% interval excludes
+zero (Table 3). Study 2 (Section 8.3) adds five independent firms, so between-firm
+variance can be reported directly.
+
 **Table 2 — main result, `abstain_offered`.** One row per model, scored on the declared
 140-pair subset of the anchor firm. The protocol averages across firms with a standard
 deviation; with one firm evaluated, each cell is that firm's value. The unparseable and
@@ -708,12 +781,12 @@ answered columns guard the rest.
 <!-- BEGIN GENERATED: table2-main -->
 | Model | False green | FG, answered only | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. | Answered |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `qwen3.8-27b` | **0.142** | 0.142 | 0.350 | 0.875 | 0.000 | 0.894 | 0.842 | 0.867 | 0.000 | 140/140 |
-| `laguna-xs-2.1` | **0.125** | 0.135 | 0.200 | 0.667 | 0.000 | 0.940 | 0.783 | 0.855 | 0.000 | 124/140 |
-| `dots-3-note-preview` | **0.100** | 0.100 | 0.450 | 0.900 | 0.000 | 0.906 | 0.883 | 0.894 | 0.000 | 140/140 |
-| `nemotron-3-ultra-550b-a55b` | **0.067** | 0.067 | 0.300 | 1.000 | 0.000 | 0.903 | 0.933 | 0.918 | 0.000 | 140/140 |
-| `nemotron-3-super-120b-a12b` | **0.050** | 0.050 | 0.300 | 0.857 | 0.000 | 0.896 | 0.858 | 0.877 | 0.000 | 140/140 |
-| `nemotron-3.5-lightning` | **0.042** | 0.059 | 0.050 | 0.500 | 0.000 | 0.951 | 0.642 | 0.766 | 0.000 | 92/140 |
+| `qwen3.8-27b` | **0.142** [0.06, 0.25] | 0.142 | 0.350 [0.14, 0.67] | 0.875 | 0.000 | 0.894 | 0.842 | 0.867 | 0.000 | 140/140 |
+| `laguna-xs-2.1` | **0.125** [0.05, 0.24] | 0.135 | 0.200 [0.04, 0.45] | 0.667 | 0.000 | 0.940 | 0.783 | 0.855 | 0.000 | 124/140 |
+| `dots-3-note-preview` | **0.100** [0.03, 0.21] | 0.100 | 0.450 [0.20, 0.79] | 0.900 | 0.000 | 0.906 | 0.883 | 0.894 | 0.000 | 140/140 |
+| `nemotron-3-ultra-550b-a55b` | **0.067** [0.02, 0.14] | 0.067 | 0.300 [0.10, 0.60] | 1.000 | 0.000 | 0.903 | 0.933 | 0.918 | 0.000 | 140/140 |
+| `nemotron-3-super-120b-a12b` | **0.050** [0.01, 0.11] | 0.050 | 0.300 [0.10, 0.61] | 0.857 | 0.000 | 0.896 | 0.858 | 0.877 | 0.000 | 140/140 |
+| `nemotron-3.5-lightning` | **0.042** [0.01, 0.09] | 0.059 | 0.050 [0.00, 0.18] | 0.500 | 0.000 | 0.951 | 0.642 | 0.766 | 0.000 | 92/140 |
 | `always_pass` (ref) | 1.000 | 1.000 | 0.000 | 0.000 | 0.000 | 0.000 | — | 0.000 | 0.000 | all |
 | `oracle` (ref) | 0.000 | 0.000 | 1.000 | 1.000 | 0.000 | 0.000 | — | 1.000 | 0.000 | all |
 <!-- END GENERATED: table2-main -->
@@ -789,14 +862,14 @@ ordering of models nor the direction of any condition effect. The label error th
 both conditions, difference reported per model.
 
 <!-- BEGIN GENERATED: table3-ablation -->
-| Model | FGR, abstention offered | FGR, abstention withheld | Change | Off-schema abstentions |
+| Model | FGR, abstention offered | FGR, abstention withheld | Change [95% CI] | Off-schema abstentions |
 |---|---|---|---|---|
-| `dots-3-note-preview` | 0.100 | 0.525 | +0.425 | 0 of 140 |
-| `nemotron-3-super-120b-a12b` | 0.050 | 0.175 | +0.125 | 0 of 140 |
-| `nemotron-3-ultra-550b-a55b` | 0.067 | 0.217 | +0.150 | 0 of 140 |
-| `nemotron-3.5-lightning` | 0.042 | 0.208 | +0.167 | 0 of 140 |
-| `laguna-xs-2.1` | 0.125 | 0.433 | +0.308 | 0 of 140 |
-| `qwen3.8-27b` | 0.142 | 0.417 | +0.275 | 0 of 140 |
+| `dots-3-note-preview` | 0.100 | 0.525 | +0.425 [+0.26, +0.59] | 0 of 140 |
+| `nemotron-3-super-120b-a12b` | 0.050 | 0.175 | +0.125 [+0.03, +0.24] | 0 of 140 |
+| `nemotron-3-ultra-550b-a55b` | 0.067 | 0.217 | +0.150 [+0.07, +0.27] | 0 of 140 |
+| `nemotron-3.5-lightning` | 0.042 | 0.208 | +0.167 [+0.02, +0.34] | 0 of 140 |
+| `laguna-xs-2.1` | 0.125 | 0.433 | +0.308 [+0.16, +0.48] | 0 of 140 |
+| `qwen3.8-27b` | 0.142 | 0.417 | +0.275 [+0.13, +0.43] | 0 of 140 |
 <!-- END GENERATED: table3-ablation -->
 
 The off-schema column counts pairs where a model returned `needs_evidence` although the
@@ -804,7 +877,15 @@ schema permitted only `pass` and `fail`. A model doing this frequently is refusi
 schema that cannot express what it observed, which we would report as a finding about the
 interface rather than an instruction-following failure.
 
-**Withholding the abstention multiplies false greens three- to fivefold.** For every model with both
+**Withholding the abstention multiplies false greens three- to fivefold.** The direction of
+this effect is not a discovery. A schema with only `pass` and `fail` forces every
+unassessable pair into one of the two, so some false greens are guaranteed, and the
+withheld-condition false-green rate is simply the share of forced decisions that went to
+`pass`. Three things are not determined by the design, and they are the result. First,
+how that forced share splits varies more than threefold across models, from 0.175 to 0.525.
+Nothing in the schema says an unassessable pair should be called compliant rather than
+violated, and models differ widely in which way they lean. Second, no model refused the
+schema. Third, false greens persist when abstention *is* offered. For every model with both
 conditions complete, the false-green rate rises when `needs_evidence` is removed from the
 schema, by between 0.125 (Nemotron Super) and 0.425 (dots.3), a factor of
 2.94 to 5.25. No model returned an
@@ -933,7 +1014,11 @@ access file, the six-year maximum stay or FDNS site-visit records, no model prod
 single false green when abstention was offered. The actionable reading for system builders is therefore *adjacent-field
 substitution*. Human review belongs where an export carries a column that looks like the
 evidence but is not it, more than where evidence is wholly absent. This reading was formed
-after the results and is offered as an interpretation, not a confirmed hypothesis.
+after the results and is offered as an interpretation, not a confirmed hypothesis. It is
+close to what DEMM-Bench calls the container fallacy, treating the presence of an evidence
+container as sufficiency (Solozobov, 2026). Our version is field-level: the container is
+a populated column whose meaning is adjacent to, but not the same as, the evidence
+required.
 
 **Near-miss controls.** From Table 5. Distinguishes rule application from proximity
 heuristics. *Not measurable in the language-model study:* the evaluated subset contains
@@ -948,7 +1033,10 @@ is offered locates the problem in interface design, which is an actionable findi
 anyone shipping a compliance dashboard. A small reduction locates it in the models, which
 is a harder problem and a more important result. We commit to reporting whichever occurs.
 
-*Result.* The reduction is large, so the problem sits substantially in the interface.
+*Result.* The reduction is large, so the problem sits substantially in the interface. This
+is an instance, in a compliance interface, of a mechanism argued generally by Kalai et al.
+(2025): evaluation and output formats that give no credit for expressing uncertainty
+reward guessing.
 Removing `needs_evidence` from the schema raised every model's false-green rate by 0.125 to
 0.425, while the models' behaviour when the option was available shows they can recognise
 most unassessable pairs. A dashboard that has no state for "could not tell" converts that
@@ -1105,8 +1193,121 @@ satisfied could in principle guide a vendor toward suppressing the measurement r
 the failure. We judge the risk low and the transparency benefit high: the failure mode is
 already occurring and is currently unmeasured.
 
+**Competing interests.** The author is affiliated with Settle AI Inc., which develops
+commercial compliance software for US employment-based immigration. The anchor firm's
+expectations were written as the acceptance gate for that company's engine, and the
+rulebook is derived from the same company's rule registry. Three safeguards follow from
+this. The company's engine is excluded as a baseline (Section 7). The generated firms used
+in Study 2 take their labels from the generator, not from the engine. And the withheld
+labels were audited blind (Section 6), with an expert-labelling kit for practising
+immigration counsel released alongside (`docs/expert_labelling/`) so the labels can be
+checked by people with no stake in them. No model provider evaluated here was consulted,
+and no result was shared with one before publication.
+
+**Use of AI assistance.** An AI coding assistant (Anthropic's Claude) was used to write the
+benchmark code, run the experiments, draft the text, and perform the blind label audit
+and the generated-label consistency check, both reported as AI checks, not expert
+review. Every quantitative claim is recomputed from released artifacts by
+`scripts/verify_paper.py`; the author is responsible for all content.
+
 **Release.** Code under Apache-2.0, data and rulebook under CC-BY-4.0, with a datasheet.
 The harness requires only the Python standard library and runs offline.
+
+---
+
+## References
+
+Afsharrad, A. and Mousavi, S. S. (2026). ImmigrationReason: A Structured Dataset of U.S. Immigration Appeals for Legal Reasoning Research. arXiv preprint arXiv:2608.20391. https://arxiv.org/abs/2608.20391
+
+Aly, R., Guo, Z., Schlichtkrull, M., Thorne, J., Vlachos, A., Christodoulopoulos, C., Cocarascu, O. and Mittal, A. (2021). FEVEROUS: Fact Extraction and VERification Over Unstructured and Structured information. NeurIPS 2021 Datasets and Benchmarks Track. https://arxiv.org/abs/2106.05707
+
+Amaral, O., Abualhaija, S., Torre, D., Sabetzadeh, M. and Briand, L. C. (2022). AI-enabled Automation for Completeness Checking of Privacy Policies. IEEE Transactions on Software Engineering 48(11). https://doi.org/10.1109/TSE.2021.3124332
+
+Chalkidis, I., Jana, A., Hartung, D., Bommarito, M., Androutsopoulos, I., Katz, D. M. and Aletras, N. (2022). LexGLUE: A Benchmark Dataset for Legal Language Understanding in English. Proceedings of ACL 2022. https://aclanthology.org/2022.acl-long.297
+
+Chen, W., Wang, H., Chen, J., Zhang, Y., Wang, H., Li, S., Zhou, X. and Wang, W. Y. (2020). TabFact: A Large-scale Dataset for Table-based Fact Verification. ICLR 2020. https://arxiv.org/abs/1909.02164
+
+Chow, C. (1970). On optimum recognition error and reject tradeoff. IEEE Transactions on Information Theory 16(1):41-46. https://doi.org/10.1109/TIT.1970.1054406
+
+Dahl, M., Magesh, V., Suzgun, M. and Ho, D. E. (2024). Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models. Journal of Legal Analysis 16(1):64-93. https://arxiv.org/abs/2401.01301
+
+El-Yaniv, R. and Wiener, Y. (2010). On the Foundations of Noise-free Selective Classification. Journal of Machine Learning Research 11:1605-1641. https://jmlr.org/papers/v11/el-yaniv10a.html
+
+Fei, Z., Shen, X., Zhu, D., Zhou, F., Han, Z., Zhang, S., Chen, K., Shen, Z. and Ge, J. (2024). LawBench: Benchmarking Legal Knowledge of Large Language Models. Proceedings of EMNLP 2024. https://aclanthology.org/2024.emnlp-main.452
+
+Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé, H. and Crawford, K. (2021). Datasheets for Datasets. Communications of the ACM 64(12). https://doi.org/10.1145/3458723
+
+Geifman, Y. and El-Yaniv, R. (2017). Selective Classification for Deep Neural Networks. Advances in Neural Information Processing Systems 30. https://arxiv.org/abs/1705.08500
+
+Guha, N., Nyarko, J., Ho, D. E., Ré, C., et al. (2023). LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models. NeurIPS 2023 Datasets and Benchmarks Track. https://arxiv.org/abs/2308.11462
+
+Guldimann, P., Spiridonov, A., Staab, R., Jovanović, N., Vero, M., Vechev, V., Gueorguieva, A.-M., Balunović, M., Konstantinov, N., Bielik, P., Tsankov, P. and Vechev, M. (2024). COMPL-AI Framework: A Technical Interpretation and LLM Benchmarking Suite for the EU Artificial Intelligence Act. arXiv preprint arXiv:2410.07959. https://arxiv.org/abs/2410.07959
+
+Hendrycks, D., Burns, C., Chen, A. and Ball, S. (2021). CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review. NeurIPS 2021 Datasets and Benchmarks Track. https://arxiv.org/abs/2103.06268
+
+Joren, H., Zhang, J., Ferng, C.-S., Juan, D.-C., Taly, A. and Rashtchian, C. (2024). Sufficient Context: A New Lens on Retrieval Augmented Generation Systems. arXiv preprint arXiv:2411.06037. https://arxiv.org/abs/2411.06037
+
+Kadavath, S., Conerly, T., Askell, A., Henighan, T., Drain, D., Perez, E., et al. (2022). Language Models (Mostly) Know What They Know. arXiv preprint arXiv:2207.05221. https://arxiv.org/abs/2207.05221
+
+Kalai, A. T., Nachum, O., Vempala, S. S. and Zhang, E. (2025). Why Language Models Hallucinate. arXiv preprint arXiv:2509.04664. https://arxiv.org/abs/2509.04664
+
+Kirichenko, P., Ibrahim, M., Chaudhuri, K. and Bell, S. J. (2025). AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions. arXiv preprint arXiv:2506.09038. https://arxiv.org/abs/2506.09038
+
+Lee, G., Chay, W., Cho, S. and Choi, E. (2024). TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring. arXiv preprint arXiv:2403.15879. https://arxiv.org/abs/2403.15879
+
+Lee, G., Hwang, H., Bae, S., Kwon, Y., Shin, W., Yang, S., Seo, M., Kim, J.-Y. and Choi, E. (2022). EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records. NeurIPS 2022 Datasets and Benchmarks Track. https://arxiv.org/abs/2301.07695
+
+Lin, S., Hilton, J. and Evans, O. (2022). TruthfulQA: Measuring How Models Mimic Human Falsehoods. Proceedings of ACL 2022. https://aclanthology.org/2022.acl-long.229
+
+Luo, Y., Jiang, Y., Xie, Q., Lan, L., Cong, L. W., Rao, A. and Song, Y. (2026). ReguSim: Evaluating LLM Agent Rule Grounding in Financial Compliance. arXiv preprint arXiv:2608.19974. https://arxiv.org/abs/2608.19974
+
+Magesh, V., Surani, F., Dahl, M., Suzgun, M., Manning, C. D. and Ho, D. E. (2025). Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools. Journal of Empirical Legal Studies 22(2). https://doi.org/10.1111/jels.12413
+
+Min, S., Krishna, K., Lyu, X., Lewis, M., Yih, W., Koh, P. W., Iyyer, M., Zettlemoyer, L. and Hajishirzi, H. (2023). FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation. Proceedings of EMNLP 2023. https://aclanthology.org/2023.emnlp-main.741
+
+Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I. D. and Gebru, T. (2019). Model Cards for Model Reporting. Proceedings of FAT* 2019. https://doi.org/10.1145/3287560.3287596
+
+Northcutt, C. G., Athalye, A. and Mueller, J. (2021). Pervasive Label Errors in Test Sets Destabilize Machine Learning Benchmarks. NeurIPS 2021 Datasets and Benchmarks Track. https://arxiv.org/abs/2103.14749
+
+Rajpurkar, P., Jia, R. and Liang, P. (2018). Know What You Don't Know: Unanswerable Questions for SQuAD. Proceedings of ACL 2018. https://aclanthology.org/P18-2124
+
+Ravichander, A., Black, A. W., Wilson, S., Norton, T. and Sadeh, N. (2019). Question Answering for Privacy Policies: Combining Computational and Legal Perspectives. Proceedings of EMNLP-IJCNLP 2019. https://aclanthology.org/D19-1500
+
+Röttger, P., Hofmann, V., Pyatkin, V., Hinck, M., Kirk, H. R., Schütze, H. and Hovy, D. (2024). Political Compass or Spinning Arrow? Towards More Meaningful Evaluations for Values and Opinions in Large Language Models. Proceedings of ACL 2024. https://aclanthology.org/2024.acl-long.816
+
+Sainz, O., Campos, J. A., García-Ferrero, I., Etxaniz, J., Lopez de Lacalle, O. and Agirre, E. (2023). NLP Evaluation in trouble: On the Need to Measure LLM Data Contamination for each Benchmark. Findings of EMNLP 2023. https://aclanthology.org/2023.findings-emnlp.722
+
+Sarkar, D. (2026). A Four-Axis Trustworthiness Benchmark for LLM-as-Judge in Principle-Based Regulation. KDD 2026 Workshop on Secure and Trustworthy Large Language Models. arXiv:2608.14329. https://arxiv.org/abs/2608.14329
+
+Sclar, M., Choi, Y., Tsvetkov, Y. and Suhr, A. (2024). Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How I learned to start worrying about prompt formatting. ICLR 2024. https://arxiv.org/abs/2310.11324
+
+Shportun, N. (2026). ImmigrationQA: A Source-Grounded Dataset and Small-Model Adaptation for U.S. Immigration Law. arXiv preprint arXiv:2605.30589. https://arxiv.org/abs/2605.30589
+
+Solozobov, O. (2026). DEMM-Bench: A Cross-Regime Benchmark for Agent-Runtime Governance-Evidence Sufficiency. arXiv preprint arXiv:2606.20634. https://arxiv.org/abs/2606.20634
+
+Tallam, K. (2026). Partial Evidence Bench: Benchmarking Authorization-Limited Evidence in Agentic Systems. arXiv preprint arXiv:2605.05379. https://arxiv.org/abs/2605.05379
+
+Tam, Z. R., Wu, C.-K., Tsai, Y.-L., Lin, C.-Y., Lee, H. and Chen, Y.-N. (2024). Let Me Speak Freely? A Study On The Impact Of Format Restrictions On Large Language Model Performance. Proceedings of EMNLP 2024: Industry Track. https://aclanthology.org/2024.emnlp-industry.91
+
+Theologitis, M., Dammu, P. P. S., Shah, C. and Suciu, D. (2026). ClaimDB: A Fact Verification Benchmark over Large Structured Data. ACL 2026. arXiv:2601.14698. https://arxiv.org/abs/2601.14698
+
+Thorne, J., Vlachos, A., Christodoulopoulos, C. and Mittal, A. (2018). FEVER: a Large-scale Dataset for Fact Extraction and VERification. Proceedings of NAACL-HLT 2018. https://aclanthology.org/N18-1074
+
+Wang, B., Gao, Y., Li, Z. and Lou, J.-G. (2023). Know What I don't Know: Handling Ambiguous and Unknown Questions for Text-to-SQL. Findings of ACL 2023. https://aclanthology.org/2023.findings-acl.352
+
+Wang, J., Wang, M., Zhou, Y., Xing, Z., Liu, Q., Xu, X., Zhang, W. and Zhu, L. (2025). LLM-based HSE Compliance Assessment: Benchmark, Performance, and Advancements. arXiv preprint arXiv:2505.22959. https://arxiv.org/abs/2505.22959
+
+Wen, B., Yao, J., Feng, S., Xu, C., Tsvetkov, Y., Howe, B. and Wang, L. L. (2025). Know Your Limits: A Survey of Abstention in Large Language Models. Transactions of the Association for Computational Linguistics. https://aclanthology.org/2025.tacl-1.26
+
+Weston, J., Bordes, A., Chopra, S., Rush, A. M., van Merriënboer, B., Joulin, A. and Mikolov, T. (2015). Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks. arXiv preprint arXiv:1502.05698. https://arxiv.org/abs/1502.05698
+
+Yin, Z., Sun, Q., Guo, Q., Wu, J., Qiu, X. and Huang, X. (2023). Do Large Language Models Know What They Don't Know? Findings of ACL 2023. https://aclanthology.org/2023.findings-acl.551
+
+Yu, T., Zhang, R., Yang, K., Yasunaga, M., Wang, D., Li, Z., Ma, J., Li, I., Yao, Q., Roman, S., Zhang, Z. and Radev, D. (2018). Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task. Proceedings of EMNLP 2018. https://aclanthology.org/D18-1425
+
+Zhang, J. and El-Gohary, N. M. (2016). Semantic NLP-Based Information Extraction from Construction Regulatory Documents for Automated Compliance Checking. Journal of Computing in Civil Engineering 30(2). https://doi.org/10.1061/(ASCE)CP.1943-5487.0000346
+
+Zheng, L., Guha, N., Anderson, B. R., Henderson, P. and Ho, D. E. (2021). When Does Pretraining Help? Assessing Self-Supervised Learning for Law and the CaseHOLD Dataset. ICAIL 2021. https://arxiv.org/abs/2104.08671
 
 ---
 
@@ -1134,3 +1335,94 @@ published is not reproducible.
 
 Changing any of these text blocks changes the benchmark. Any edit bumps
 `PROMPT_VERSION`, and results carry the version they were produced under.
+
+---
+
+## Appendix C: Protocol history and run log
+
+This appendix holds the sequence of protocol decisions that the main text summarises.
+Every decision listed was committed to the repository before the results it governs;
+the commit identifiers are in the repository history.
+
+### C.1 The v1.0 pilot and the revision it forced
+
+The protocol above is version 1.1. Version 1.0 was run first, on the same 140 pairs, and
+completed four of twelve model-condition runs before we stopped it. We report what it found
+because it changed the protocol, and a reader should be able to judge whether the change
+was principled.
+
+The pilot showed violation recall of 0.000 for both models whenever the abstention option
+was offered. On inspection this was mostly the harness, for three reasons. Thirty of the
+140 pairs, including 10 of the 20 planted violations, used rule identifiers absent from the
+version 1.0 rulebook and reached the prompt with no obligation text at all. The evidence
+list shown for every obligation had been damaged by our extraction into run-together
+tokens that matched no export column, and it named reference data no export contains, such
+as a federal-holiday calendar. And version 1.0 defined `needs_evidence` as a required field
+being absent, so a model that followed the prompt literally was obliged to abstain. In the
+clearest case, a Section 2 completed eight business days late, both dates were in the I-9
+export, and the model still answered `needs_evidence`.
+
+Version 1.1 fixes these defects and changes nothing else. Every pair's rule is defined.
+The evidence description is the manifest's own prose. `needs_evidence` is defined by the
+firm's records rather than by field names. The same two reading rules are added to both
+ablation conditions. The verdict menus are otherwise unchanged. The evaluated pairs are
+identical, fixed in a file before either version ran, so any difference between the pilot
+and the main run is attributable to the prompt. The pilot's raw replies and scores are
+retained in the repository.
+
+The first attempt at the version 1.1 run exposed one further defect, in the harness
+rather than the prompt. We had capped each reply at 8,400 output tokens. Reasoning models
+spend most of a reply thinking before they answer, and 46 of the first 84 batch replies
+were cut off or came back empty before any verdict was written. The pairs in those
+batches would have scored as misses, depressing recall for reasons that had nothing to
+do with the models. We raised the cap to 32,000 tokens, which is below every evaluated
+model's own limit, and re-requested only the affected batches. The 38 replies that had
+finished within the lower cap were kept, because a cap that was never reached did not
+affect them. Truncated or empty replies are no longer cached, and the parser now counts
+a pair as unparseable only if it is never answered, not each time a model mentions it
+while reasoning. The affected attempt is archived intact beside the pilot.
+
+One pilot observation did not depend on the defects. When forced to choose between `pass`
+and `fail`, both pilot models called most unassessable obligations violations rather than
+compliant, with false-green rates of 0.117 and 0.075. We report version 1.1 as the result
+and the pilot only as the account of how the protocol reached its final form.
+
+
+### C.2 Model substitutions
+
+The study was declared with
+six free models. After four of the twelve model-condition runs had completed, OpenRouter
+withdrew the free versions of both Nex models (N2.5 Pro and N2.5 Mini); the paid versions
+remain, and paying for them is outside this study's zero-cost constraint. Three batches of
+Nex N2.5 Pro replies had been collected; they cover too few pairs to score and are
+reported as an incomplete run, not as a result. Dropping both models would have left four,
+three of them from one provider family (NVIDIA Nemotron). We therefore replaced them with
+Qwen 3.8 27B and Gemma 4 31B, chosen for provider diversity among the models still free
+whose output limit exceeds the 32,000-token cap, with Inkling named in advance as the
+substitute should either fail the same two-pair screen the original models passed. Inkling
+then turned out to refuse API calls outright (it is served only inside agent applications),
+so before any replacement reply existed the fallback was changed to dots.3 Note Preview,
+the one remaining free model from a provider family not already in the set. A transient
+upstream rate limit is not treated as a screen failure. Both replacements then returned
+upstream rate limits on every screen attempt for over an hour, so a cut-off was added,
+again before any replacement had answered a benchmark batch: when the sweep reaches a
+replacement it screens it once more, and a model that has still never passed yields its
+slot to the fallback. The fallback fills at most one slot; a second unscreenable
+replacement is dropped and reported as such. Every screen attempt is logged
+(`docs/replacement_screen_2026-09-30.json`). The
+replacements and the fallback rule were committed on 30 September 2026, before any reply
+from either model existed; as with the label views, the commit history is the evidence of
+that ordering. The replacements run under the identical prompt, subset, batch size, and
+output cap.
+
+
+### C.3 Throughput on free tiers
+
+At a representative free quota of 10 requests per minute and 250 per day,
+the anchor firm across both ablation conditions is 24 calls, or about a tenth of one day.
+Adding five generated firms is roughly four days of quota. The runner paces itself under
+the per-minute limit, backs off on a transient rate-limit response, stops cleanly when the
+daily ceiling is reached, and resumes from a checkpoint, so a multi-day run is a matter of
+re-issuing the same command. Every model response is retained so that any reported number
+can be traced back to output.
+

@@ -1,0 +1,813 @@
+[
+  {
+    "key": "chow1970",
+    "authors": [
+      "C. Chow"
+    ],
+    "title": "On optimum recognition error and reject tradeoff",
+    "year": 1970,
+    "venue": "IEEE Transactions on Information Theory 16(1):41-46",
+    "url": "https://doi.org/10.1109/TIT.1970.1054406",
+    "verified_from": "https://api.crossref.org/works/10.1109/TIT.1970.1054406",
+    "relevance": "Origin of the reject option as an error-reject tradeoff; the framing in which abstention is a cost, which our task departs from."
+  },
+  {
+    "key": "elyaniv2010",
+    "authors": [
+      "Ran El-Yaniv",
+      "Yair Wiener"
+    ],
+    "title": "On the Foundations of Noise-free Selective Classification",
+    "year": 2010,
+    "venue": "Journal of Machine Learning Research 11:1605-1641",
+    "url": "https://jmlr.org/papers/v11/el-yaniv10a.html",
+    "verified_from": "https://jmlr.org/papers/v11/el-yaniv10a.html",
+    "relevance": "Names selective classification and the risk-coverage trade-off, the evaluation frame we contrast with."
+  },
+  {
+    "key": "geifman2017",
+    "authors": [
+      "Yonatan Geifman",
+      "Ran El-Yaniv"
+    ],
+    "title": "Selective Classification for Deep Neural Networks",
+    "year": 2017,
+    "venue": "Advances in Neural Information Processing Systems 30 (NIPS 2017)",
+    "url": "https://arxiv.org/abs/1705.08500",
+    "verified_from": "https://papers.nips.cc/paper/7073-selective-classification-for-deep-neural-networks ; https://export.arxiv.org/api/query?id_list=1705.08500 (arXiv abstract record)",
+    "relevance": "Selective classifier with a user-set risk level that rejects to meet it; abstention traded against coverage."
+  },
+  {
+    "key": "rajpurkar2018",
+    "authors": [
+      "Pranav Rajpurkar",
+      "Robin Jia",
+      "Percy Liang"
+    ],
+    "title": "Know What You Don't Know: Unanswerable Questions for SQuAD",
+    "year": 2018,
+    "venue": "Proceedings of ACL 2018 (Volume 2: Short Papers)",
+    "url": "https://aclanthology.org/P18-2124",
+    "verified_from": "https://aclanthology.org/P18-2124.bib ; https://export.arxiv.org/api/query?id_list=1806.03822 (arXiv abstract record)",
+    "relevance": "Canonical unanswerable-QA benchmark where insufficiency is a property of a question against a passage, established by annotation."
+  },
+  {
+    "key": "yin2023",
+    "authors": [
+      "Zhangyue Yin",
+      "Qiushi Sun",
+      "Qipeng Guo",
+      "Jiawen Wu",
+      "Xipeng Qiu",
+      "Xuanjing Huang"
+    ],
+    "title": "Do Large Language Models Know What They Don't Know?",
+    "year": 2023,
+    "venue": "Findings of ACL 2023",
+    "url": "https://aclanthology.org/2023.findings-acl.551",
+    "verified_from": "https://aclanthology.org/2023.findings-acl.551.bib ; https://export.arxiv.org/api/query?id_list=2305.18153 (arXiv abstract record)",
+    "relevance": "SelfAware: unanswerable questions in free text for measuring LLM self-knowledge; query-side insufficiency."
+  },
+  {
+    "key": "kadavath2022",
+    "authors": [
+      "Saurav Kadavath",
+      "Tom Conerly",
+      "Amanda Askell",
+      "Tom Henighan",
+      "Dawn Drain",
+      "Ethan Perez",
+      "Nicholas Schiefer",
+      "Zac Hatfield-Dodds",
+      "Nova DasSarma",
+      "Eli Tran-Johnson",
+      "Scott Johnston",
+      "Sheer El-Showk",
+      "Andy Jones",
+      "Nelson Elhage",
+      "Tristan Hume",
+      "Anna Chen",
+      "Yuntao Bai",
+      "Sam Bowman",
+      "Stanislav Fort",
+      "Deep Ganguli",
+      "Danny Hernandez",
+      "Josh Jacobson",
+      "Jackson Kernion",
+      "Shauna Kravec",
+      "Liane Lovitt",
+      "Kamal Ndousse",
+      "Catherine Olsson",
+      "Sam Ringer",
+      "Dario Amodei",
+      "Tom Brown",
+      "Jack Clark",
+      "Nicholas Joseph",
+      "Ben Mann",
+      "Sam McCandlish",
+      "Chris Olah",
+      "Jared Kaplan"
+    ],
+    "title": "Language Models (Mostly) Know What They Know",
+    "year": 2022,
+    "venue": "arXiv preprint arXiv:2207.05221",
+    "url": "https://arxiv.org/abs/2207.05221",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2207.05221 (arXiv abstract record)",
+    "relevance": "Models can estimate whether they know an answer (P(IK)); bears on whether models can recognise unassessable pairs when allowed to say so."
+  },
+  {
+    "key": "wen2025",
+    "authors": [
+      "Bingbing Wen",
+      "Jihan Yao",
+      "Shangbin Feng",
+      "Chenjun Xu",
+      "Yulia Tsvetkov",
+      "Bill Howe",
+      "Lucy Lu Wang"
+    ],
+    "title": "Know Your Limits: A Survey of Abstention in Large Language Models",
+    "year": 2025,
+    "venue": "Transactions of the Association for Computational Linguistics",
+    "url": "https://aclanthology.org/2025.tacl-1.26",
+    "verified_from": "https://aclanthology.org/2025.tacl-1.26.bib ; https://export.arxiv.org/api/query?id_list=2407.18418 (arXiv abstract record)",
+    "relevance": "Survey organising LLM abstention by query, model and human values; situates our evidence-base insufficiency within that taxonomy."
+  },
+  {
+    "key": "kirichenko2025",
+    "authors": [
+      "Polina Kirichenko",
+      "Mark Ibrahim",
+      "Kamalika Chaudhuri",
+      "Samuel J. Bell"
+    ],
+    "title": "AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions",
+    "year": 2025,
+    "venue": "arXiv preprint arXiv:2506.09038",
+    "url": "https://arxiv.org/abs/2506.09038",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2506.09038 (arXiv abstract record)",
+    "relevance": "Large abstention benchmark over 20 datasets of unanswerable/underspecified questions; closest general-purpose abstention evaluation, query-side and free text."
+  },
+  {
+    "key": "joren2024",
+    "authors": [
+      "Hailey Joren",
+      "Jianyi Zhang",
+      "Chun-Sung Ferng",
+      "Da-Cheng Juan",
+      "Ankur Taly",
+      "Cyrus Rashtchian"
+    ],
+    "title": "Sufficient Context: A New Lens on Retrieval Augmented Generation Systems",
+    "year": 2024,
+    "venue": "arXiv preprint arXiv:2411.06037",
+    "url": "https://arxiv.org/abs/2411.06037",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2411.06037 (arXiv abstract record)",
+    "relevance": "Defines context sufficiency and finds strong models answer incorrectly rather than abstain when context is insufficient; the closest analogue of our evidence-base insufficiency in RAG."
+  },
+  {
+    "key": "kalai2025",
+    "authors": [
+      "Adam Tauman Kalai",
+      "Ofir Nachum",
+      "Santosh S. Vempala",
+      "Edwin Zhang"
+    ],
+    "title": "Why Language Models Hallucinate",
+    "year": 2025,
+    "venue": "arXiv preprint arXiv:2509.04664",
+    "url": "https://arxiv.org/abs/2509.04664",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2509.04664 (arXiv abstract record)",
+    "relevance": "Argues binary grading that gives no credit for expressing uncertainty rewards guessing; our schema ablation is an interface-level instance of the same incentive."
+  },
+  {
+    "key": "lin2022",
+    "authors": [
+      "Stephanie Lin",
+      "Jacob Hilton",
+      "Owain Evans"
+    ],
+    "title": "TruthfulQA: Measuring How Models Mimic Human Falsehoods",
+    "year": 2022,
+    "venue": "Proceedings of ACL 2022 (Volume 1: Long Papers)",
+    "url": "https://aclanthology.org/2022.acl-long.229",
+    "verified_from": "https://aclanthology.org/2022.acl-long.229.bib ; https://export.arxiv.org/api/query?id_list=2109.07958 (arXiv abstract record)",
+    "relevance": "Hallucination benchmark measuring falsehoods against world knowledge rather than against a supplied evidence base."
+  },
+  {
+    "key": "min2023",
+    "authors": [
+      "Sewon Min",
+      "Kalpesh Krishna",
+      "Xinxi Lyu",
+      "Mike Lewis",
+      "Wen-tau Yih",
+      "Pang Wei Koh",
+      "Mohit Iyyer",
+      "Luke Zettlemoyer",
+      "Hannaneh Hajishirzi"
+    ],
+    "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+    "year": 2023,
+    "venue": "Proceedings of EMNLP 2023",
+    "url": "https://aclanthology.org/2023.emnlp-main.741",
+    "verified_from": "https://aclanthology.org/2023.emnlp-main.741.bib ; https://export.arxiv.org/api/query?id_list=2305.14251 (arXiv abstract record)",
+    "relevance": "Scores whether atomic claims are supported by a knowledge source; support-checking of generated text, not verdicts with an insufficiency class."
+  },
+  {
+    "key": "thorne2018",
+    "authors": [
+      "James Thorne",
+      "Andreas Vlachos",
+      "Christos Christodoulopoulos",
+      "Arpit Mittal"
+    ],
+    "title": "FEVER: a Large-scale Dataset for Fact Extraction and VERification",
+    "year": 2018,
+    "venue": "Proceedings of NAACL-HLT 2018 (Volume 1: Long Papers)",
+    "url": "https://aclanthology.org/N18-1074",
+    "verified_from": "https://aclanthology.org/N18-1074.bib ; https://export.arxiv.org/api/query?id_list=1803.05355 (arXiv abstract record)",
+    "relevance": "Three-way Supported/Refuted/NotEnoughInfo labelling with annotated evidence; the nearest label structure to pass/fail/needs_evidence."
+  },
+  {
+    "key": "aly2021",
+    "authors": [
+      "Rami Aly",
+      "Zhijiang Guo",
+      "Michael Schlichtkrull",
+      "James Thorne",
+      "Andreas Vlachos",
+      "Christos Christodoulopoulos",
+      "Oana Cocarascu",
+      "Arpit Mittal"
+    ],
+    "title": "FEVEROUS: Fact Extraction and VERification Over Unstructured and Structured information",
+    "year": 2021,
+    "venue": "NeurIPS 2021 Datasets and Benchmarks Track",
+    "url": "https://arxiv.org/abs/2106.05707",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2106.05707 (arXiv abstract record)",
+    "relevance": "Extends supports/refutes/not-enough-info verification to table cells; annotated rather than constructed labels."
+  },
+  {
+    "key": "chen2020",
+    "authors": [
+      "Wenhu Chen",
+      "Hongmin Wang",
+      "Jianshu Chen",
+      "Yunkai Zhang",
+      "Hong Wang",
+      "Shiyang Li",
+      "Xiyou Zhou",
+      "William Yang Wang"
+    ],
+    "title": "TabFact: A Large-scale Dataset for Table-based Fact Verification",
+    "year": 2020,
+    "venue": "ICLR 2020",
+    "url": "https://arxiv.org/abs/1909.02164",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=1909.02164 (arXiv abstract record)",
+    "relevance": "Fact verification over tables with two labels (entailed/refuted) and no insufficiency class."
+  },
+  {
+    "key": "theologitis2026",
+    "authors": [
+      "Michael Theologitis",
+      "Preetam Prabhu Srikar Dammu",
+      "Chirag Shah",
+      "Dan Suciu"
+    ],
+    "title": "ClaimDB: A Fact Verification Benchmark over Large Structured Data",
+    "year": 2026,
+    "venue": "ACL 2026 (per arXiv comment); arXiv:2601.14698",
+    "url": "https://arxiv.org/abs/2601.14698",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2601.14698 (arXiv abstract record)",
+    "relevance": "Claim verification over real multi-table databases with a not-enough-info class; reports that models struggle to abstain. Close to our structured-data-plus-abstention setting."
+  },
+  {
+    "key": "yu2018",
+    "authors": [
+      "Tao Yu",
+      "Rui Zhang",
+      "Kai Yang",
+      "Michihiro Yasunaga",
+      "Dongxu Wang",
+      "Zifan Li",
+      "James Ma",
+      "Irene Li",
+      "Qingning Yao",
+      "Shanelle Roman",
+      "Zilin Zhang",
+      "Dragomir Radev"
+    ],
+    "title": "Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task",
+    "year": 2018,
+    "venue": "Proceedings of EMNLP 2018",
+    "url": "https://aclanthology.org/D18-1425",
+    "verified_from": "https://aclanthology.org/D18-1425.bib ; https://export.arxiv.org/api/query?id_list=1809.08887 (arXiv abstract record)",
+    "relevance": "Standard text-to-SQL benchmark in which every question is answerable over the database."
+  },
+  {
+    "key": "lee2022",
+    "authors": [
+      "Gyubok Lee",
+      "Hyeonji Hwang",
+      "Seongsu Bae",
+      "Yeonsu Kwon",
+      "Woncheol Shin",
+      "Seongjun Yang",
+      "Minjoon Seo",
+      "Jong-Yeup Kim",
+      "Edward Choi"
+    ],
+    "title": "EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records",
+    "year": 2022,
+    "venue": "NeurIPS 2022 Datasets and Benchmarks Track",
+    "url": "https://arxiv.org/abs/2301.07695",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2301.07695 (arXiv abstract record)",
+    "relevance": "Text-to-SQL over structured health records including unanswerable questions; a regulated-domain structured-records precedent for answerability."
+  },
+  {
+    "key": "wang2023",
+    "authors": [
+      "Bing Wang",
+      "Yan Gao",
+      "Zhoujun Li",
+      "Jian-Guang Lou"
+    ],
+    "title": "Know What I don't Know: Handling Ambiguous and Unknown Questions for Text-to-SQL",
+    "year": 2023,
+    "venue": "Findings of ACL 2023",
+    "url": "https://aclanthology.org/2023.findings-acl.352",
+    "verified_from": "https://aclanthology.org/2023.findings-acl.352.bib ; https://export.arxiv.org/api/query?id_list=2212.08902 (arXiv abstract record)",
+    "relevance": "Categorises ambiguous and unanswerable text-to-SQL questions and generates them counterfactually; insufficiency again a property of the question against a schema."
+  },
+  {
+    "key": "lee2024",
+    "authors": [
+      "Gyubok Lee",
+      "Woosog Chay",
+      "Seonhee Cho",
+      "Edward Choi"
+    ],
+    "title": "TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring",
+    "year": 2024,
+    "venue": "arXiv preprint arXiv:2403.15879",
+    "url": "https://arxiv.org/abs/2403.15879",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2403.15879 (arXiv abstract record)",
+    "relevance": "Benchmarks text-to-SQL reliability as answering feasible questions and abstaining on infeasible ones, under penalty-based scoring for incorrect output; the closest structured-data precedent for scoring abstention against wrong answers."
+  },
+  {
+    "key": "guha2023",
+    "authors": [
+      "Neel Guha",
+      "Julian Nyarko",
+      "Daniel E. Ho",
+      "Christopher Ré",
+      "Adam Chilton",
+      "Aditya Narayana",
+      "Alex Chohlas-Wood",
+      "Austin Peters",
+      "Brandon Waldon",
+      "Daniel N. Rockmore",
+      "Diego Zambrano",
+      "Dmitry Talisman",
+      "Enam Hoque",
+      "Faiz Surani",
+      "Frank Fagan",
+      "Galit Sarfaty",
+      "Gregory M. Dickinson",
+      "Haggai Porat",
+      "Jason Hegland",
+      "Jessica Wu",
+      "Joe Nudell",
+      "Joel Niklaus",
+      "John Nay",
+      "Jonathan H. Choi",
+      "Kevin Tobia",
+      "Margaret Hagan",
+      "Megan Ma",
+      "Michael Livermore",
+      "Nikon Rasumov-Rahe",
+      "Nils Holzenberger",
+      "Noam Kolt",
+      "Peter Henderson",
+      "Sean Rehaag",
+      "Sharad Goel",
+      "Shang Gao",
+      "Spencer Williams",
+      "Sunny Gandhi",
+      "Tom Zur",
+      "Varun Iyer",
+      "Zehua Li"
+    ],
+    "title": "LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models",
+    "year": 2023,
+    "venue": "NeurIPS 2023 Datasets and Benchmarks Track",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/89e44582fd28ddfea1ea4dcb0ebbf4b0-Paper-Datasets_and_Benchmarks.pdf",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2308.11462 (arXiv abstract record); venue from NeurIPS 2023 proceedings PDF URL returned by search",
+    "relevance": "162 expert-built legal reasoning tasks; evaluates reasoning over legal text, not evidence sufficiency over an organisation's records."
+  },
+  {
+    "key": "chalkidis2022",
+    "authors": [
+      "Ilias Chalkidis",
+      "Abhik Jana",
+      "Dirk Hartung",
+      "Michael Bommarito",
+      "Ion Androutsopoulos",
+      "Daniel Martin Katz",
+      "Nikolaos Aletras"
+    ],
+    "title": "LexGLUE: A Benchmark Dataset for Legal Language Understanding in English",
+    "year": 2022,
+    "venue": "Proceedings of ACL 2022 (Volume 1: Long Papers)",
+    "url": "https://aclanthology.org/2022.acl-long.297",
+    "verified_from": "https://aclanthology.org/2022.acl-long.297.bib ; https://export.arxiv.org/api/query?id_list=2110.00976 (arXiv abstract record)",
+    "relevance": "Standardised legal NLU benchmark over legal text classification tasks."
+  },
+  {
+    "key": "hendrycks2021",
+    "authors": [
+      "Dan Hendrycks",
+      "Collin Burns",
+      "Anya Chen",
+      "Spencer Ball"
+    ],
+    "title": "CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review",
+    "year": 2021,
+    "venue": "NeurIPS 2021 Datasets and Benchmarks Track",
+    "url": "https://arxiv.org/abs/2103.06268",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2103.06268 (arXiv abstract record)",
+    "relevance": "Expert-annotated contract review (clause highlighting); illustrates the cost of expert annotation our construction avoids."
+  },
+  {
+    "key": "zheng2021",
+    "authors": [
+      "Lucia Zheng",
+      "Neel Guha",
+      "Brandon R. Anderson",
+      "Peter Henderson",
+      "Daniel E. Ho"
+    ],
+    "title": "When Does Pretraining Help? Assessing Self-Supervised Learning for Law and the CaseHOLD Dataset",
+    "year": 2021,
+    "venue": "ICAIL 2021",
+    "url": "https://arxiv.org/abs/2104.08671",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2104.08671 (arXiv abstract record)",
+    "relevance": "Multiple-choice case-holding identification; legal reasoning over case law."
+  },
+  {
+    "key": "fei2024",
+    "authors": [
+      "Zhiwei Fei",
+      "Xiaoyu Shen",
+      "Dawei Zhu",
+      "Fengzhe Zhou",
+      "Zhuo Han",
+      "Songyang Zhang",
+      "Kai Chen",
+      "Zongwen Shen",
+      "Jidong Ge"
+    ],
+    "title": "LawBench: Benchmarking Legal Knowledge of Large Language Models",
+    "year": 2024,
+    "venue": "Proceedings of EMNLP 2024",
+    "url": "https://aclanthology.org/2024.emnlp-main.452",
+    "verified_from": "https://aclanthology.org/2024.emnlp-main.452.bib ; https://export.arxiv.org/api/query?id_list=2309.16289 (arXiv abstract record)",
+    "relevance": "Legal knowledge memorisation, understanding and application tasks over legal text; text-side."
+  },
+  {
+    "key": "dahl2024",
+    "authors": [
+      "Matthew Dahl",
+      "Varun Magesh",
+      "Mirac Suzgun",
+      "Daniel E. Ho"
+    ],
+    "title": "Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models",
+    "year": 2024,
+    "venue": "Journal of Legal Analysis 16(1):64-93",
+    "url": "https://arxiv.org/abs/2401.01301",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2401.01301 (arXiv abstract record) (journal_ref)",
+    "relevance": "Documents prevalent legal hallucination and that models do not always know when they hallucinate; motivates measuring unsupported legal outputs."
+  },
+  {
+    "key": "magesh2025",
+    "authors": [
+      "Varun Magesh",
+      "Faiz Surani",
+      "Matthew Dahl",
+      "Mirac Suzgun",
+      "Christopher D. Manning",
+      "Daniel E. Ho"
+    ],
+    "title": "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools",
+    "year": 2025,
+    "venue": "Journal of Empirical Legal Studies 22(2)",
+    "url": "https://doi.org/10.1111/jels.12413",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2405.20362 (arXiv abstract record) ; https://api.crossref.org/works?query.bibliographic=Hallucination-Free (DOI 10.1111/jels.12413)",
+    "relevance": "Pre-registered evaluation showing commercial legal tools hallucinate despite vendor claims; precedent for testing deployed legal-AI claims and for pre-registration."
+  },
+  {
+    "key": "shportun2026",
+    "authors": [
+      "Nazarii Shportun"
+    ],
+    "title": "ImmigrationQA: A Source-Grounded Dataset and Small-Model Adaptation for U.S. Immigration Law",
+    "year": 2026,
+    "venue": "arXiv preprint arXiv:2605.30589",
+    "url": "https://arxiv.org/abs/2605.30589",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2605.30589 (arXiv abstract record)",
+    "relevance": "Question answering over US immigration policy sources; text-side, no employer records."
+  },
+  {
+    "key": "afsharrad2026",
+    "authors": [
+      "Amirhossein Afsharrad",
+      "Seyed Shahabeddin Mousavi"
+    ],
+    "title": "ImmigrationReason: A Structured Dataset of U.S. Immigration Appeals for Legal Reasoning Research",
+    "year": 2026,
+    "venue": "arXiv preprint arXiv:2608.20391",
+    "url": "https://arxiv.org/abs/2608.20391",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2608.20391 (arXiv abstract record)",
+    "relevance": "Structured dataset of USCIS AAO appeal decisions with per-criterion evidence-sufficiency findings and adjudicator-error quotes; closest immigration dataset, but labels extracted from adjudications, not employer records."
+  },
+  {
+    "key": "zhang2016",
+    "authors": [
+      "Jiansong Zhang",
+      "Nora M. El-Gohary"
+    ],
+    "title": "Semantic NLP-Based Information Extraction from Construction Regulatory Documents for Automated Compliance Checking",
+    "year": 2016,
+    "venue": "Journal of Computing in Civil Engineering 30(2)",
+    "url": "https://doi.org/10.1061/(ASCE)CP.1943-5487.0000346",
+    "verified_from": "https://api.crossref.org/works/10.1061/(ASCE)CP.1943-5487.0000346",
+    "relevance": "Representative automated compliance checking work: extracting rules from regulatory text to check against project data."
+  },
+  {
+    "key": "ravichander2019",
+    "authors": [
+      "Abhilasha Ravichander",
+      "Alan W Black",
+      "Shomir Wilson",
+      "Thomas Norton",
+      "Norman Sadeh"
+    ],
+    "title": "Question Answering for Privacy Policies: Combining Computational and Legal Perspectives",
+    "year": 2019,
+    "venue": "Proceedings of EMNLP-IJCNLP 2019",
+    "url": "https://aclanthology.org/D19-1500",
+    "verified_from": "https://aclanthology.org/D19-1500.bib ; https://export.arxiv.org/api/query?id_list=1911.00841 (arXiv abstract record)",
+    "relevance": "PrivacyQA, with expert annotations and analysis of question answerability over privacy policies."
+  },
+  {
+    "key": "amaral2022",
+    "authors": [
+      "Orlando Amaral",
+      "Sallam Abualhaija",
+      "Damiano Torre",
+      "Mehrdad Sabetzadeh",
+      "Lionel C. Briand"
+    ],
+    "title": "AI-enabled Automation for Completeness Checking of Privacy Policies",
+    "year": 2022,
+    "venue": "IEEE Transactions on Software Engineering 48(11)",
+    "url": "https://doi.org/10.1109/TSE.2021.3124332",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2106.05688 (arXiv abstract record) ; Crossref DOI 10.1109/tse.2021.3124332",
+    "relevance": "GDPR completeness checking of privacy policies: compliance assessment of a document against provisions, the closest pre-LLM compliance-checking task."
+  },
+  {
+    "key": "guldimann2024",
+    "authors": [
+      "Philipp Guldimann",
+      "Alexander Spiridonov",
+      "Robin Staab",
+      "Nikola Jovanović",
+      "Mark Vero",
+      "Velko Vechev",
+      "Anna-Maria Gueorguieva",
+      "Mislav Balunović",
+      "Nikola Konstantinov",
+      "Pavol Bielik",
+      "Petar Tsankov",
+      "Martin Vechev"
+    ],
+    "title": "COMPL-AI Framework: A Technical Interpretation and LLM Benchmarking Suite for the EU Artificial Intelligence Act",
+    "year": 2024,
+    "venue": "arXiv preprint arXiv:2410.07959",
+    "url": "https://arxiv.org/abs/2410.07959",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2410.07959 (arXiv abstract record)",
+    "relevance": "Assesses whether LLMs comply with the EU AI Act; the AI system is the regulated subject, the inverse of our setting."
+  },
+  {
+    "key": "wang2025hse",
+    "authors": [
+      "Jianwei Wang",
+      "Mengqi Wang",
+      "Yinsi Zhou",
+      "Zhenchang Xing",
+      "Qing Liu",
+      "Xiwei Xu",
+      "Wenjie Zhang",
+      "Liming Zhu"
+    ],
+    "title": "LLM-based HSE Compliance Assessment: Benchmark, Performance, and Advancements",
+    "year": 2025,
+    "venue": "arXiv preprint arXiv:2505.22959",
+    "url": "https://arxiv.org/abs/2505.22959",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2505.22959 (arXiv abstract record)",
+    "relevance": "HSE-Bench: LLMs assessing health-and-safety compliance via IRAC-structured questions; compliance assessment framed as question answering."
+  },
+  {
+    "key": "luo2026",
+    "authors": [
+      "Yiyang Luo",
+      "Yihang Jiang",
+      "Qijun Xie",
+      "Liang Lan",
+      "Lin Willian Cong",
+      "Anyi Rao",
+      "Yunya Song"
+    ],
+    "title": "ReguSim: Evaluating LLM Agent Rule Grounding in Financial Compliance",
+    "year": 2026,
+    "venue": "arXiv preprint arXiv:2608.19974",
+    "url": "https://arxiv.org/abs/2608.19974",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2608.19974 (arXiv abstract record)",
+    "relevance": "Includes ReguBench, a target-marked monitoring benchmark judging records for rule violations; finds simple structured baselines match or exceed prompt-only LLMs. Close to our record-level verdict setting in finance."
+  },
+  {
+    "key": "sarkar2026",
+    "authors": [
+      "Dipankar Sarkar"
+    ],
+    "title": "A Four-Axis Trustworthiness Benchmark for LLM-as-Judge in Principle-Based Regulation",
+    "year": 2026,
+    "venue": "KDD 2026 Workshop on Secure and Trustworthy LLMs (per arXiv comment); arXiv:2608.14329",
+    "url": "https://arxiv.org/abs/2608.14329",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2608.14329 (arXiv abstract record)",
+    "relevance": "LLM-as-judge compliance assessment of financial promotions under a pre-registered rubric; assessor-side, like ours, but over text against principles."
+  },
+  {
+    "key": "solozobov2026",
+    "authors": [
+      "Oleg Solozobov"
+    ],
+    "title": "DEMM-Bench: A Cross-Regime Benchmark for Agent-Runtime Governance-Evidence Sufficiency",
+    "year": 2026,
+    "venue": "arXiv preprint arXiv:2606.20634",
+    "url": "https://arxiv.org/abs/2606.20634",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2606.20634 (arXiv abstract record)",
+    "relevance": "Measures whether agent-runtime records suffice to reconstruct decision properties, with an overclaim rate and construction-oracle labels; its \"container fallacy\" closely parallels our adjacent-field substitution."
+  },
+  {
+    "key": "tallam2026",
+    "authors": [
+      "Krti Tallam"
+    ],
+    "title": "Partial Evidence Bench: Benchmarking Authorization-Limited Evidence in Agentic Systems",
+    "year": 2026,
+    "venue": "arXiv preprint arXiv:2605.05379",
+    "url": "https://arxiv.org/abs/2605.05379",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2605.05379 (arXiv abstract record)",
+    "relevance": "Deterministic synthetic benchmark (including a compliance-audit family) scoring unsafe completeness when evidence lies outside an agent's view; the closest prior work to our false-green framing."
+  },
+  {
+    "key": "gebru2021",
+    "authors": [
+      "Timnit Gebru",
+      "Jamie Morgenstern",
+      "Briana Vecchione",
+      "Jennifer Wortman Vaughan",
+      "Hanna Wallach",
+      "Hal Daumé",
+      "Kate Crawford"
+    ],
+    "title": "Datasheets for Datasets",
+    "year": 2021,
+    "venue": "Communications of the ACM 64(12)",
+    "url": "https://doi.org/10.1145/3458723",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=1803.09010 (arXiv abstract record) ; https://api.crossref.org/works/10.1145/3458723",
+    "relevance": "Documentation standard our released datasheet follows."
+  },
+  {
+    "key": "mitchell2019",
+    "authors": [
+      "Margaret Mitchell",
+      "Simone Wu",
+      "Andrew Zaldivar",
+      "Parker Barnes",
+      "Lucy Vasserman",
+      "Ben Hutchinson",
+      "Elena Spitzer",
+      "Inioluwa Deborah Raji",
+      "Timnit Gebru"
+    ],
+    "title": "Model Cards for Model Reporting",
+    "year": 2019,
+    "venue": "Proceedings of FAT* 2019",
+    "url": "https://doi.org/10.1145/3287560.3287596",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=1810.03993 (arXiv abstract record) ; https://api.crossref.org/works/10.1145/3287560.3287596",
+    "relevance": "Reporting standard for models; precedent for our stated reporting requirement (false-green rate always beside recall)."
+  },
+  {
+    "key": "northcutt2021",
+    "authors": [
+      "Curtis G. Northcutt",
+      "Anish Athalye",
+      "Jonas Mueller"
+    ],
+    "title": "Pervasive Label Errors in Test Sets Destabilize Machine Learning Benchmarks",
+    "year": 2021,
+    "venue": "NeurIPS 2021 Datasets and Benchmarks Track",
+    "url": "https://arxiv.org/abs/2103.14749",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2103.14749 (arXiv abstract record)",
+    "relevance": "Shows test-set label errors are common and can change model rankings; motivates our blind label audit and its reported effect on rankings."
+  },
+  {
+    "key": "sainz2023",
+    "authors": [
+      "Oscar Sainz",
+      "Jon Ander Campos",
+      "Iker García-Ferrero",
+      "Julen Etxaniz",
+      "Oier Lopez de Lacalle",
+      "Eneko Agirre"
+    ],
+    "title": "NLP Evaluation in trouble: On the Need to Measure LLM Data Contamination for each Benchmark",
+    "year": 2023,
+    "venue": "Findings of EMNLP 2023",
+    "url": "https://aclanthology.org/2023.findings-emnlp.722",
+    "verified_from": "https://aclanthology.org/2023.findings-emnlp.722.bib ; https://export.arxiv.org/api/query?id_list=2310.18018 (arXiv abstract record)",
+    "relevance": "Argues contamination must be measured per benchmark; the seeded generator lets fresh firms be drawn so a static test set need not be trusted."
+  },
+  {
+    "key": "weston2015",
+    "authors": [
+      "Jason Weston",
+      "Antoine Bordes",
+      "Sumit Chopra",
+      "Alexander M. Rush",
+      "Bart van Merriënboer",
+      "Armand Joulin",
+      "Tomas Mikolov"
+    ],
+    "title": "Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks",
+    "year": 2015,
+    "venue": "arXiv preprint arXiv:1502.05698",
+    "url": "https://arxiv.org/abs/1502.05698",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=1502.05698 (arXiv abstract record)",
+    "relevance": "bAbI: synthetic tasks with answers fixed by the generator; precedent for ground truth by construction."
+  },
+  {
+    "key": "tam2024",
+    "authors": [
+      "Zhi Rui Tam",
+      "Cheng-Kuang Wu",
+      "Yi-Lin Tsai",
+      "Chieh-Yen Lin",
+      "Hung-yi Lee",
+      "Yun-Nung Chen"
+    ],
+    "title": "Let Me Speak Freely? A Study On The Impact Of Format Restrictions On Large Language Model Performance",
+    "year": 2024,
+    "venue": "Proceedings of EMNLP 2024: Industry Track",
+    "url": "https://aclanthology.org/2024.emnlp-industry.91",
+    "verified_from": "https://aclanthology.org/2024.emnlp-industry.91.bib ; https://export.arxiv.org/api/query?id_list=2408.02442 (arXiv abstract record)",
+    "relevance": "Format restrictions on generation degrade LLM reasoning; related to, but distinct from, our ablation, which removes a label from the permitted set."
+  },
+  {
+    "key": "rottger2024",
+    "authors": [
+      "Paul Röttger",
+      "Valentin Hofmann",
+      "Valentina Pyatkin",
+      "Musashi Hinck",
+      "Hannah Rose Kirk",
+      "Hinrich Schütze",
+      "Dirk Hovy"
+    ],
+    "title": "Political Compass or Spinning Arrow? Towards More Meaningful Evaluations for Values and Opinions in Large Language Models",
+    "year": 2024,
+    "venue": "Proceedings of ACL 2024 (Volume 1: Long Papers)",
+    "url": "https://aclanthology.org/2024.acl-long.816",
+    "verified_from": "https://aclanthology.org/2024.acl-long.816.bib ; https://export.arxiv.org/api/query?id_list=2402.16786 (arXiv abstract record)",
+    "relevance": "Models give substantively different answers when forced into a multiple-choice format than when not forced; forced choice manufactures answers, as our withheld condition does."
+  },
+  {
+    "key": "sclar2024",
+    "authors": [
+      "Melanie Sclar",
+      "Yejin Choi",
+      "Yulia Tsvetkov",
+      "Alane Suhr"
+    ],
+    "title": "Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How I learned to start worrying about prompt formatting",
+    "year": 2024,
+    "venue": "ICLR 2024",
+    "url": "https://arxiv.org/abs/2310.11324",
+    "verified_from": "https://export.arxiv.org/api/query?id_list=2310.11324 (arXiv abstract record)",
+    "relevance": "Large performance swings from meaning-preserving prompt-format changes; caution for our single frozen prompt and reason to hold it fixed across conditions."
+  }
+]

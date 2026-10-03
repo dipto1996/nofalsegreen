@@ -69,10 +69,13 @@ def table_main(runs: dict) -> str:
         unp = r.get("n_unparseable", 0) / max(r.get("n_pairs", 1), 1)
         answered = sum(f["n_parsed"] for f in r["per_firm"])
         n_pairs = sum(f["n_pairs"] for f in r["per_firm"])
-        fga = (views.get(key) or {}).get("engine", {}).get("false_green_rate_answered")
+        ev = (views.get(key) or {}).get("engine", {})
+        fga = ev.get("false_green_rate_answered")
         fga_s = "—" if fga is None else f"{fga:.3f}"
+        ci = lambda c: f" [{c[0]:.2f}, {c[1]:.2f}]" if c else ""  # noqa: E731
         rows.append(
-            f"| `{short(r['model'])}` | **{cell(a,'false_green_rate')}** | {fga_s} | {cell(a,'violation_recall')} "
+            f"| `{short(r['model'])}` | **{cell(a,'false_green_rate')}**{ci(ev.get('fgr_ci95'))} | {fga_s} "
+            f"| {cell(a,'violation_recall')}{ci(ev.get('recall_ci95'))} "
             f"| {cell(a,'violation_precision')} | {cell(a,'false_alarm_rate')} "
             f"| {cell(a,'abstention_precision')} | {cell(a,'abstention_recall')} "
             f"| {cell(a,'abstention_f1')} | {unp:.3f} | {answered}/{n_pairs} |"
@@ -101,9 +104,10 @@ def table_ablation(runs: dict) -> str:
             "offered" if r["variant"].endswith("offered") else "withheld"] = r
 
     rows = [
-        "| Model | FGR, abstention offered | FGR, abstention withheld | Change | Off-schema abstentions |",
+        "| Model | FGR, abstention offered | FGR, abstention withheld | Change [95% CI] | Off-schema abstentions |",
         "|---|---|---|---|---|",
     ]
+    abl = json.loads(VIEWS.read_text()).get("ablation", {}) if VIEWS.exists() else {}
     paired = {m: v for m, v in by_model.items() if "offered" in v and "withheld" in v}
     if not paired:
         rows.append("| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[n of N]` |")
@@ -115,7 +119,9 @@ def table_ablation(runs: dict) -> str:
         fw = v["withheld"]["aggregate"]["false_green_rate"]["mean"]
         offs = v["withheld"].get("n_off_schema", 0)
         n = v["withheld"].get("n_pairs", 0)
-        rows.append(f"| `{short(m)}` | {fo:.3f} | {fw:.3f} | {fw - fo:+.3f} | {offs} of {n} |")
+        c = abl.get(m, {}).get("ci95")
+        cs = f" [{c[0]:+.2f}, {c[1]:+.2f}]" if c else ""
+        rows.append(f"| `{short(m)}` | {fo:.3f} | {fw:.3f} | {fw - fo:+.3f}{cs} | {offs} of {n} |")
     return "\n".join(rows)
 
 

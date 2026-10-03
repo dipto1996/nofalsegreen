@@ -312,6 +312,14 @@ _sv = max(abs(v["engine"]["false_green_rate"] - v["strict"]["false_green_rate"])
           for k, v in _vw.items() if k in _fin)
 claim(f"by at most {_sv:.3f}" in paper, f"strict view shifts FGR by at most {_sv:.3f}")
 
+_abl = json.loads((ROOT / "docs" / "views_results.json").read_text()).get("ablation", {})
+claim(len(_abl) >= 1 and all(v["ci95"][0] > 0 for v in _abl.values())
+      and "every model's 95% interval excludes\nzero" in paper,
+      f"paired ablation CI excludes zero for all {len(_abl)} models, as stated")
+_wfg = [v["engine"]["false_green_rate"] for v in _wit.values()]
+claim(f"from {min(_wfg):.3f} to {max(_wfg):.3f}" in paper.replace("\n", " "),
+      "forced-choice pass share range stated")
+
 print("\nhonesty checks")
 claim("[TO RUN]" not in paper and "`[…]`" not in paper, "no unfilled placeholder remains")
 claim("have not yet been run" not in paper and "has not been run" not in paper,
