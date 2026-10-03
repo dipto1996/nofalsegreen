@@ -1,0 +1,340 @@
+everify.photo_matching::Anita Desai	needs_evidence	-
+everify.photo_matching::Hiroshi Yamamoto	needs_evidence	-
+everify.photo_matching::James Park	needs_evidence	-
+everify.photo_matching::Mei Tanaka	needs_evidence	-
+everify.photo_matching::Yuki Sato	needs_evidence	-
+everify.tnc.employer_action_window::Daniel Cho	fail	fan_delivered_date
+everify.tnc.overdue::Daniel Cho	needs_evidence	-
+extension.filing::Hiroshi Yamamoto	needs_evidence	-
+fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage	needs_evidence	-
+fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control	needs_evidence	-
+fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence	needs_evidence	-
+fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites	needs_evidence	-
+
+---
+
+fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match	needs_evidence	-
+fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid	unmonitored	-
+fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand	needs_evidence	-
+h1b.i94.expiration::Anita Desai	unmonitored	-
+h1b.i94.expiration::Daniel Cho	unmonitored	-
+h1b.i94.expiration::Lucia Ferreira	unmonitored	-
+h1b.i94.expiration::Mei Tanaka	unmonitored	-
+h1b.i94.expiration::Omar Farouk	unmonitored	-
+h1b.i94.expiration::Sofia Reyes	unmonitored	-
+h1b.i94.expiration::Yuki Sato	unmonitored	-
+h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status	unmonitored	-
+h1b.material_change.soc::Omar Farouk	needs_evidence	-
+
+---
+
+We need to evaluate each pair against the data.
+
+First, understand each obligation and what evidence needed.
+
+We have exports: cms_case_export (H-1B cases), hris_roster_export (employees), i9_record_export (I-9 records), lca_export (LCAs), payroll_register (payroll), rfe_noid_export (RFE/NOID cases).
+
+We need to evaluate for each worker or wage cohort.
+
+Let's list each pair:
+
+1. h1b.material_change.worksite::Sofia Reyes
+   Check: Moving worker to worksite outside existing MSA/area of intended employment (requiring new LCA) is material change requiring amended petition.
+   Information needed: approvedPetition.worksites[] (with MSA), newWorksite.address + derived MSA, newLCA.certified (bool) + certifiedDate, moveEffectiveDate, amendedPetition.filedDate, shortTermPlacement (bool, days).
+   We need to see if there is any evidence of a worksite change for Sofia Reyes. The data: we have her current worksite from cms_case_export? Let's see.
+
+   Sofia Reyes appears in cms_case_export: NWR-2025-0106 (H-1B Petition, Approved) with worksite_address1: "300 Colorado St, Suite 1900", worksite_city: Austin, worksite_state: TX, worksite_zip: 78701, classification H-1B, valid_from: 2025-10-01, valid_to: 2028-09-30. Also in hris_roster_export: she is in Boston - Lab (location: Boston - Lab) with address: "75 State St, Apt 4", Boston, MA 02109. Wait, hris_roster_export shows her location as Boston - Lab, address in Boston. However, the cms_case_export shows worksite in Austin, TX. There's a discrepancy: maybe the LCA/worksite is Austin but she is physically located in Boston? The obligation is about moving worker to a worksite outside existing MSA/area of intended employment (requiring new LCA). We need to see if there is evidence of a worksite change (i.e., a new worksite different from the approved petition's worksite). The data shows her current worksite in the petition is Austin, but her HR location is Boston. However, we don't have evidence of a move effective date, new LCA, amended petition. We have no data about a new worksite or LCA. The obligation requires checking if there is a material change (i.e., if she moved to a new worksite outside MSA requiring new LCA and amended petition). We need to see if there is any evidence of such a change. The data does not show any new worksite or LCA for her. The hris_roster shows her location Boston, but that could be her home address? Actually hris_roster includes address1, city, state, zipcode. For Sofia Reyes: address1: "75 State St, Apt 4", city: Boston, state: MA, zipcode: 02109. That's her home address, not worksite. The worksite is likely from the LCA or petition. The hris_roster also has location field: "Boston - Lab". That could be her worksite location (division/location). So maybe her worksite is Boston Lab. But the petition says Austin. This could be a material change if she moved to Boston without amended petition. However, we need to see if there is evidence of a new LCA for Boston worksite. We have lca_export: we can check if there is an LCA for Sofia Reyes with worksite in Boston. Let's search lca_export for Sofia Reyes. The lca_export includes beneficiary info? It includes CASE_NUMBER etc. It does not have employee name directly. But we can match via petitioner company name and maybe the LCA number? The lca_export includes CASE_NUMBER like I-200-22010-100006 etc. The cms_case_export includes lca_case_number. For Sofia Reyes, cms_case_export NWR-2025-0106 has lca_case_number: I-200-22010-100006. Let's check lca_export for that CASE_NUMBER: I-200-22010-100006 appears in lca_export: row for I-200-22010-100006 (Mechanical Engineer). Worksit e: WORKSITE_ADDRESS1: 300 Colorado St, WORKSITE_CITY: Austin, WORKSITE_STATE: TX, WORKSITE_POSTAL_CODE: 78701. So the LCA is for Austin worksite. So the approved petition and LCA are for Austin. The hris_roster shows location Boston - Lab, but that may be a different location field (maybe her assigned lab location but still worksite Austin? Could be remote? Not sure). We have no evidence of a new worksite or new LCA. So we cannot determine if there is a material change. The obligation requires evidence of approvedPetition.worksites[], newWorksite.address, newLCA.certified, moveEffectiveDate, amendedPetition.filedDate, shortTermPlacement. We have approvedPetition worksites (Austin). We do not have any evidence of a new worksite or new LCA. So we lack needed evidence. Therefore verdict: needs_evidence.
+
+But we must consider if the obligation is unmonitored? It can be evaluated from employer export data at all? We have some data (approved petition worksite, LCA, employee location). However, we lack evidence of a change. The obligation is to check if moving the worker to a worksite outside existing MSA requiring new LCA is a material change requiring amended petition. To evaluate, we need to know if there was a move. We have no data indicating a move. So we cannot say pass or fail; we need evidence of a move. So needs_evidence.
+
+Thus pair 1: needs_evidence.
+
+2. h1b.max_stay.six_year_limit::Anita Desai
+   Check: total H-1B (+L) time ≤6 years; beyond 6 requires either 1-year-abroad reset or AC21 7th-year exemption.
+   Information needed: all prior H-1B and L petition validity periods + entry/exit history (I-94 travel), daysPhysicallyOutsideUS per validity, anyContinuousYearAbroad (dates), proposedExtension.endDate.
+   We need to compute Anita Desai's total H-1B time. She has one H-1B petition in cms_case_export: NWR-2025-0109, valid_from: 2025-11-01, valid_to: 2028-10-31. That's about 3 years (from Nov 2025 to Oct 2028). However, we need prior H-1B time. She may have prior H-1B periods not shown? The cms_case_export only shows approved petitions; we have her petition from 2025-11-01 to 2028-10-31. But we also have her hire date in hris_roster: originalHireDate: 2023-07-17. She started working on H-1B maybe earlier? The I-9 record shows start_date: 2023-07-17, section2_signed_date: 2023-07-19, with document Foreign Passport with Form I-94 (H-1B) and expiry 2028-10-31. That suggests her H-1B validity is from 2023-07-17? Actually the I-9 shows list_a_doc_expiry: 2028-10-31, which matches the petition valid_to. The start_date is 2023-07-17 (hire date). So likely she had an earlier H-1B petition that got extended? But we only see one petition in cms_case_export with valid_from 2025-11-01. That seems to be a future validity (starting Nov 2025). However, the I-9 shows expiry 2028-10-31, which matches the petition's valid_to. The valid_from in petition is 2025-11-01, but the I-9 start_date is 2023-07-17. This could be because the petition is for an extension, and the valid_from is the start of the extension period, but the previous validity period is not shown in cms_case_export? The cms_case_export may only show the latest petition? It shows opened_date: 2023-06-17 (when the case was opened). The petition receipt_number: WAC2390010009. The validity periods: valid_from 2025-11-01, valid_to 2028-10-31. That seems odd: the petition was opened in 2023 but valid_from is 2025. Maybe it's a future-dated extension (like a cap-gap?). However, we also have lca_export for her: I-200-23010-100009 (LCA) with BEGIN_DATE: 2025-11-01, END_DATE: 2028-10-31. So the LCA also starts 2025-11-01. So the current H-1B validity is from 2025-11-01 to 2028-10-31. But she started working in 2023. So she must have had prior H-1B time from 2023 to 2025? Not shown in exports. We have no data about prior H-1B petitions. The obligation requires all prior H-1B and L petition validity periods. We lack that. So we cannot compute total time. Therefore needs_evidence.
+
+But maybe we can infer from I-9: the list_a_doc_expiry is 2028-10-31, and the document is Foreign Passport with Form I-94 (H-1B). The I-9 does not show prior periods. So we cannot know prior time. So needs_evidence.
+
+Thus pair 2: needs_evidence.
+
+3. h1b.max_stay.six_year_limit::Daniel Cho
+   Daniel Cho: cms_case_export NWR-2025-0103: valid_from 2025-06-01, valid_to 2028-05-31. Hris_roster: hireDate 2025-04-14, originalHireDate same. I-9: start_date 2025-04-14, list_a_doc_expiry 2028-05-31. So his H-1B validity appears to start 2025-06-01 (future) but his start date is 2025-04-14. Again, we lack prior H-1B time. He is a new hire? He started 2025-04-14, maybe he had prior H-1B elsewhere? Not shown. So we lack prior periods. Needs_evidence.
+
+But maybe we can consider that his H-1B time so far is from start_date to today? However, the obligation is about total H-1B time (including prior). We don't have prior. So needs_evidence.
+
+Thus pair 3: needs_evidence.
+
+4. h1b.max_stay.six_year_limit::Mei Tanaka
+   Mei Tanaka: cms_case_export NWR-2025-0104: valid_from 2025-08-01, valid_to 2028-07-31. Hris_roster: hireDate 2022-06-13, originalHireDate same. I-9: start_date 2022-06-13, list_a_doc_expiry 2028-07-31. So again, her H-1B validity appears to start 2025-08-01 (future) but she started 2022. So she likely had prior H-1B periods not shown. We lack prior periods. Needs_evidence.
+
+Thus pair 4: needs_evidence.
+
+5. h1b.max_stay.six_year_limit::Ravi Anand
+   Ravi Anand: cms_case_export NWR-2025-0101: valid_from 2025-04-01, valid_to 2028-03-31. Hris_roster: hireDate 2025-02-03, originalHireDate same. I-9: start_date 2025-02-03, list_a_doc_expiry 2028-03-31. So again, validity starts 2025-04-01, but hire date 2025-02-03. He is new hire; likely no prior H-1B. So his total H-1B time would be from 2025-04-01 to today? Actually we need to compute total H-1B time up to evaluation date 2026-06-29. His H-1B validity period is from 2025-04-01 to 2028-03-31. So as of 2026-06-29, he has accrued time from 2025-04-01 to 2026-06-29. That's about 1 year 2 months 28 days? Let's calculate: from 2025-04-01 to 2026-04-01 is 1 year. Then to 2026-06-29 is extra 2 months 28 days. So total ~1 year 2 months 28 days = about 448 days? Actually 1 year = 365 days, plus 2 months (approx 61 days) plus 28 days = 454 days. Well under 6 years. So he passes. However, we need to consider any prior H-1B time. He is new hire, likely none. But we don't have evidence of prior H-1B. The obligation requires all prior H-1B and L petition validity periods. We have no data showing prior periods. However, we can infer that if he had prior H-1B, it would be shown in cms_case_export? The export shows only one petition for him. If he had prior H-1B with another employer, we wouldn't have it. But the obligation is about the employer's records; we only need to consider the employer's records? The description: "all prior H-1B and L petition validity periods + entry/exit history (I-94 travel), daysPhysicallyOutsideUS per validity, anyContinuousYearAbroad (dates), proposedExtension.endDate." It doesn't specify that it's limited to this employer; it's about the worker's total H-1B time. To evaluate, we need all prior periods. If we lack data, we cannot be sure. However, we might assume that if there is no evidence of prior H-1B in the exports, we cannot assume there is none. The instruction: "Only facts about this employer and its workers must come from the exports." So we cannot use external knowledge. We cannot assume he had no prior H-1B because we don't have evidence. So we lack evidence of prior periods. Therefore needs_evidence.
+
+But maybe we can consider that the I-9 document shows list_a_doc_expiry 2028-03-31, which matches the petition valid_to. The I-9 does not show prior periods. So we cannot know. So needs_evidence.
+
+Thus pair 5: needs_evidence.
+
+6. h1b.max_stay.six_year_limit::Yuki Sato
+   Yuki Sato: cms_case_export? I don't see Yuki Sato in cms_case_export. Let's check: cms_case_export list includes NWR-2025-0101 through NWR-2025-0109, but missing 0108? Actually we have NWR-2025-0101 to NWR-2025-0109, but there is no NWR-2025-0108? Wait we have NWR-2025-0101, 0102, 0103, 0104, 0105, 0106, 0107, 0109. Missing 0108. Yuki Sato is NWR-1008 in hris_roster. She may not have an H-1B petition in the cms_case_export? Let's verify: hris_roster shows visaType H-1B, passportNumber P1000008. I-9 record for NWR-1008: Yuki Sato, start_date 2024-01-08, list_a_doc_expiry 2027-01-07. So she has an H-1B I-9 but no corresponding cms_case_export row? Possibly the cms_case_export only includes certain cases? But we have to treat exports as complete record for the obligations listed. If there is no cms_case_export row for Yuki Sato, then we lack evidence of her H-1B petition validity periods. However, we have I-9 showing expiry date, which indicates H-1B validity. But we need petition validity periods (start and end). The I-9 gives expiry but not start of validity? It gives start_date (employment start) and list_a_doc_expiry (document expiry). The H-1B validity period is usually tied to the petition validity, which may be same as I-9 expiry? Not necessarily. We have no petition data. So we lack prior H-1B periods and current validity start. So needs_evidence.
+
+Thus pair 6: needs_evidence.
+
+7. h1b.noid.response::Sofia Reyes
+   Check: Response to a USCIS NOID filed within 30 days (the regulatory max), +3 days if served by mail.
+   Information needed: caseId, noidIssuanceDate, noidResponseDueDate (as printed), serviceMethod, responseFiledDate.
+   We have rfe_noid_export: includes rows for Daniel Cho (RFE) and Sofia Reyes (NOID). Let's examine Sofia Reyes row:
+   client_first_name: Sofia, client_last_name: Reyes, visa_category: H-1B, case_type: noid, response_due_date: 2026-07-10, eligibility_status: Worksite/itinerary evidence requested, eligibility_tone: red, is_alert: 1, sort_order: 2.
+   So we have caseId? Not explicitly, but we can infer from client name and case_type. We have noidIssuanceDate? Not given. We have response_due_date (as printed). We need noidIssuanceDate to compute if response filed within 30 days (+3 if mail). We also need serviceMethod and responseFiledDate. None of these are present in the export. So we lack issuance date, service method, response filed date. Therefore cannot evaluate. Verdict: needs_evidence.
+
+8. h1b.petition.expiry::Hiroshi Yamamoto
+   Check: H-1B petition (I-797) initial validity ≤3 years and ≤ the LCA validity period.
+   Information needed: petition.receiptNumber, validityStart, validityEnd, classification (specialty/DOD/fashion), lca.validityStart, lca.validityEnd.
+   We have Hiroshi Yamamoto: cms_case_export NWR-2025-0107: receipt_number: WAC2290010007, validityStart (valid_from): 2023-07-16, validityEnd (valid_to): 2026-07-20, classification: H-1B (specialty). LCA: we need to find LCA for him. lca_case_number in cms_case_export: I-200-22010-100007. Let's find that in lca_export: I-200-22010-100007 row: BEGIN_DATE: 2025-07-16, END_DATE: 2028-07-15. Wait, that seems off: the LCA validity starts 2025-07-16, ends 2028-07-15. But the petition validity is 2023-07-16 to 2026-07-20. So the LCA validity start is later than petition start? Actually the LCA BEGIN_DATE is 2025-07-16, which is after the petition start. That seems inconsistent; maybe the LCA is for an extension? Let's double-check: The cms_case_export shows opened_date 2022-06-15, filing_date 2022-07-01, decision_date 2022-09-30. The valid_from 2023-07-16, valid_to 2026-07-20. That suggests the petition is valid from 2023-07-16 to 2026-07-20 (3 years). The LCA for that petition should have validity covering that period. However, the lca_export shows BEGIN_DATE 2025-07-16, END_DATE 2028-07-15. That's a different period (maybe for an amended or extended petition?). But we only have one LCA row for that case number. Let's verify if there is another LCA for Hiroshi? The lca_export includes many rows; we can search for his A-number or passport? Not needed. The lca_case_number matches. So the LCA validity start is 2025-07-16, which is after the petition start. That would mean the petition validity is not ≤ LCA validity period (since LCA starts later). However, we need to check if the LCA validity period covers the petition validity. The requirement: validity end ≤ LCA end. Also initial validity ≤3 years. The petition validity end is 2026-07-20, LCA end is 2028-07-15, so end condition passes (petition ends before LCA ends). But we also need validity start? The check says: H-1B petition (I-797) initial validity ≤3 years and ≤ the LCA validity period. I think they mean the petition validity period must be within the LCA validity period (i.e., both start and end within LCA). Or at least the petition validity end ≤ LCA end and petition validity start ≥ LCA start? The description: "≤ the LCA validity period." Could be interpreted as the petition validity period must not exceed the LCA validity period (i.e., petition end ≤ LCA end and petition start ≥ LCA start). Usually, the petition validity cannot exceed the LCA validity. So we need both. We have petition start 2023-07-16, LCA start 2025-07-16. Petition start is before LCA start, so petition validity period starts before LCA starts, which violates the condition that petition validity must be within LCA period. Therefore, this is a fail.
+
+But we need to verify if the LCA we looked at is indeed the correct one for this petition. The cms_case_export shows lca_case_number: I-200-22010-100007. The lca_export row for that case number shows BEGIN_DATE 2025-07-16, END_DATE 2028-07-15. However, note that the cms_case_export also shows valid_from 2023-07-16, valid_to 2026-07-20. There's a mismatch of about 2 years. Could be that the LCA is for an extension or a different petition? But the case number matches exactly. Let's check other fields: In lca_export, the JOB_TITLE: Embedded Systems Engineer, which matches Hiroshi's job title in hris_roster: Embedded Systems Engineer. So it's likely the same. The LCA BEGIN_DATE 2025-07-16 is after his hire date 2022-08-15. So maybe the LCA was filed later for an extension, but the petition validity shown is the original petition? However, the cms_case_export shows decision_date 2022-09-30, which is when the petition was approved. The valid_from 2023-07-16 suggests the validity start is after approval (maybe due to previous cap?). Actually, H-1B petitions can be valid from the date of approval or from a future date (like October 1 for cap). But here valid_from is 2023-07-16, which is about 9 months after decision. That seems odd. Could be that the petition is for a change of employer or extension with a future start date. However, we have no other data.
+
+Given the data as is, we must evaluate based on the fields present. The obligation requires petition.receiptNumber, validityStart, validityEnd, classification, lca.validityStart, lca.validityEnd. We have all these fields. We can compute: petition validity period: 2023-07-16 to 2026-07-20 (duration ~3 years exactly? Let's calculate: from 2023-07-16 to 2026-07-16 is 3 years, plus 4 days to 2026-07-20 = 3 years 4 days). That's slightly over 3 years? Actually 3 years exactly would be 2026-07-16. So 2026-07-20 is 4 days beyond 3 years. So initial validity >3 years? The threshold: ≤3 years (specialty). So this petition validity exceeds 3 years by 4 days. That alone would be a fail. Additionally, we need to check ≤ LCA validity period. LCA validity: 2025-07-16 to 2028-07-15. Petition validity start 2023-07-16 is before LCA start, so not within LCA period. So fail.
+
+Thus verdict: fail. Evidence field: we need to cite the evidence field that shows the violation. Which field? We can cite the petition validityEnd (valid_to) and LCA validityStart (BEGIN_DATE) or classification. The instruction: <evidence_field_or_dash>. We need to output the specific field that evidences the violation. Could be "valid_to" or "valid_from". Let's choose "valid_to" as it shows end date beyond 3 years? Or we could cite both. But we need a single field. Probably we can cite "valid_to" as evidence that validity exceeds 3 years. Or we could cite "BEGIN_DATE" as evidence that LCA starts after petition start. Which is more direct? The obligation has two parts: initial validity ≤3 years and validity end ≤ LCA end. The first part is violated by valid_to being >3 years from valid_from. We can compute that. But we need to output a field name from the export. Let's output "valid_to" as evidence that the petition validity end is 2026-07-20, which is >3 years from valid_start 2023-07-16. Or we could output "valid_from" and "valid_to" but only one field allowed. The format expects a single field. We'll choose "valid_to". However, we could also output "BEGIN_DATE" to show LCA start after petition start. But the evidence must be from the exports. Either is fine. I'll choose "valid_to".
+
+Thus pair 8: fail, evidence_field: valid_to.
+
+9. h1b.rfe.response::Daniel Cho
+   Check: Response to a USCIS RFE filed by the deadline on the notice (max 12 weeks / 84 days), +3 days if served by mail.
+   Information needed: caseId, rfeIssuanceDate, rfeResponseDueDate (as printed), serviceMethod, responseFiledDate, responseReceivedConfirmation.
+   We have rfe_noid_export row for Daniel Cho: client_first_name: Daniel, client_last_name: Cho, visa_category: H-1B, case_type: rfe, response_due_date: 2026-07-08, eligibility_status: Specialty occupation evidence requested, eligibility_tone: yellow, is_alert: 1, sort_order: 1.
+   We have response_due_date (as printed). We lack rfeIssuanceDate, serviceMethod, responseFiledDate, responseReceivedConfirmation. So cannot evaluate. Needs_evidence.
+
+Thus pair 9: needs_evidence.
+
+10. h1b.wage.actual.memo::17-2199:L3:Austin, TX:memo
+   Check: Retains a memo/documentation describing the actual-wage system and how the H-1B wage relates to others.
+   Information needed: Boolean: actual-wage memo present; date; whether it identifies the wage-setting factors and ties to payroll.
+   We need to see if there is an actual-wage memo for the wage cohort: SOC 17-2199, Level 3, Austin, TX. The exports do not contain any memo documentation. There is no export for memos. So we lack evidence. Therefore needs_evidence.
+
+Thus pair 10: needs_evidence.
+
+11. h1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo
+   Similarly, no memo evidence. Needs_evidence.
+
+12. h1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo
+   Similarly, needs_evidence.
+
+Now we need to output lines in format: <pair_id>	<verdict>	<evidence_field_or_dash>
+
+Pair IDs are as given in the list, but we need to match the exact string before the double colon? The pairs are listed as:
+
+h1b.material_change.worksite::Sofia Reyes	[worker: Sofia Reyes]
+h1b.max_stay.six_year_limit::Anita Desai	[worker: Anita Desai]
+...
+
+Thus the pair_id is the part before the tab? Actually the list shows each pair with a description in brackets. The format we need to output is just the pair_id (the obligation::entity) then a tab, verdict, tab, evidence field or dash.
+
+Thus for each line, we output:
+
+h1b.material_change.worksite::Sofia Reyes	<verdict>	<evidence>
+
+We need to use a literal tab character between fields. In plain text, we can just separate by tabs.
+
+Now determine evidence field for each:
+
+1. needs_evidence -> evidence_field: dash (since no evidence). Actually for needs_evidence, we output dash because we lack evidence. The spec: <evidence_field_or_dash>. For needs_evidence, we output dash.
+
+2. same for others.
+
+3. For fail (pair 8), we need to output the evidence field that shows violation. We'll output "valid_to". But we need to ensure it's the exact column name from the export. In cms_case_export, the column is "valid_to". Yes.
+
+Now let's compile:
+
+Pair 1: h1b.material_change.worksite::Sofia Reyes -> needs_evidence -> dash
+Pair 2: h1b.max_stay.six_year_limit::Anita Desai -> needs_evidence -> dash
+Pair 3: h1b.max_stay.six_year_limit::Daniel Cho -> needs_evidence -> dash
+Pair 4: h1b.max_stay.six_year_limit::Mei Tanaka -> needs_evidence -> dash
+Pair 5: h1b.max_stay.six_year_limit::Ravi Anand -> needs_evidence -> dash
+Pair 6: h1b.max_stay.six_year_limit::Yuki Sato -> needs_evidence -> dash
+Pair 7: h1b.noid.response::Sofia Reyes -> needs_evidence -> dash
+Pair 8: h1b.petition.expiry::Hiroshi Yamamoto -> fail -> valid_to
+Pair 9: h1b.rfe.response::Daniel Cho -> needs_evidence -> dash
+Pair 10: h1b.wage.actual.memo::17-2199:L3:Austin, TX:memo -> needs_evidence -> dash
+Pair 11: h1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo -> needs_evidence -> dash
+Pair 12: h1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo -> needs_evidence -> dash
+
+Now we need to output each line with tabs.
+
+Let's write them.
+
+Note: Ensure no extra spaces.
+
+We'll produce:
+
+h1b.material_change.worksite::Sofia Reyes	needs_evidence	-
+h1b.max_stay.six_year_limit::Anita Desai	needs_evidence	-
+h1b.max_stay.six_year_limit::Daniel Cho	needs_evidence	-
+h1b.max_stay.six_year_limit::Mei Tanaka	needs_evidence	-
+h1b.max_stay.six_year_limit::Ravi Anand	needs_evidence	-
+h1b.max_stay.six_year_limit::Yuki Sato	needs_evidence	-
+h1b.noid.response::Sofia Reyes	needs_evidence	-
+h1b.petition.expiry::Hiroshi Yamamoto	fail	valid_to
+h1b.rfe.response::Daniel Cho	needs_evidence	-
+h1b.wage.actual.memo::17-2199:L3:Austin, TX:memo	needs_evidence	-
+h1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo	needs_evidence	-
+h1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo	needs_evidence	-
+
+Check that we used dash for evidence field when needs_evidence. The spec says <evidence_field_or_dash>. So dash is "-".
+
+Now double-check pair 8: Is the verdict indeed fail? Let's verify the calculation more precisely.
+
+Petition validityStart: valid_from = 2023-07-16
+Petition validityEnd: valid_to = 2026-07-20
+
+Duration: from 2023-07-16 to 2026-07-16 is exactly 3 years. Adding 4 days to 2026-07-20 gives 3 years and 4 days. So >3 years.
+
+Thus initial validity >3 years -> fail.
+
+Also check LCA: LCA validityStart = BEGIN_DATE = 2025-07-16, LCA validityEnd = END_DATE = 2028-07-15.
+
+Petition validityEnd 2026-07-20 is before LCA end 2028-07-15, so that condition passes. But the petition validityStart 2023-07-16 is before LCA start 2025-07-16, so petition validity period is not fully within LCA period. The requirement "≤ the LCA validity period" likely means the petition validity period must not exceed the LCA validity period, i.e., both start and end within LCA. Since start is before LCA start, it exceeds. So fail.
+
+Thus fail is correct.
+
+Now evidence field: we chose "valid_to". Could also choose "valid_from" but valid_to is more directly showing the end date beyond 3 years. However, to show exceeding 3 years, we need both dates. But we can only output one field. The instruction: "evidence_field_or_dash". It expects a field that evidences the violation. Could be "valid_to" as it shows the end date that is too far. Or we could output "valid_from" and "valid_to" but not allowed. We'll stick with "valid_to".
+
+Alternatively, we could output "BEGIN_DATE" to show LCA starts after petition start. But either is fine. I'll keep "valid_to".
+
+Now ensure we have correct spelling of pair IDs exactly as in the list. The list includes:
+
+h1b.material_change.worksite::Sofia Reyes
+
+---
+
+h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo	needs_evidence	-
+h1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo	needs_evidence	-
+h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense	needs_evidence	-
+h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty	needs_evidence	-
+h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear	needs_evidence	-
+h1b.wage.payment.start-clock::Anita Desai	needs_evidence	-
+h1b.wage.payment.start-clock::Daniel Cho	needs_evidence	-
+h1b.wage.payment.start-clock::Lucia Ferreira	needs_evidence	-
+h1b.wage.payment.start-clock::Omar Farouk	needs_evidence	-
+h1b.wage.payment.start-clock::Sofia Reyes	needs_evidence	-
+h1b.wage.payment.start-clock::Yuki Sato	needs_evidence	-
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L2	needs_evidence	-
+
+---
+
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L4	needs_evidence	-
+h1b.wage.prevailing.pwd-validity::pw:17-2061:L3	needs_evidence	-
+h1b.wage.prevailing.pwd-validity::pw:17-2141:L3	needs_evidence	-
+h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource	needs_evidence	-
+h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource	needs_evidence	-
+h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource	needs_evidence	-
+h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource	needs_evidence	-
+h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers	needs_evidence	-
+i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026	needs_evidence	-
+i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window	needs_evidence	-
+i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list	fail	list_a_doc_expiry
+i9.noi.production-window::deadline-gap:i9.noi.production-window	needs_evidence	-
+
+---
+
+i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse	pass	list_b_doc_title
+i9.receipts.rule::i9-fieldgap:i9.receipts.rule	needs_evidence	-
+i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure	pass	alternative_procedure
+i9.retention.storage_and_production::Anita Desai	needs_evidence	-
+i9.retention.storage_and_production::Helena Voss	needs_evidence	-
+i9.retention.storage_and_production::Hiroshi Yamamoto	needs_evidence	-
+i9.retention.storage_and_production::Mei Tanaka	needs_evidence	-
+i9.retention.storage_and_production::Omar Farouk	needs_evidence	-
+i9.retention.storage_and_production::Ravi Anand	needs_evidence	-
+i9.retention.storage_and_production::Sofia Reyes	needs_evidence	-
+i9.retention.storage_and_production::Yuki Sato	needs_evidence	-
+i9.reverification.deadline::Lucia Ferreira	fail	supplement_b_completed_date
+
+---
+
+i9.reverification.noreverify::Helena Voss	pass	i9_record_export.supplement_b_due
+i9.reverification.unfair::i9-prohibited:i9.reverification.unfair	unmonitored	-
+i9.section1.signature::i9-fieldgap:i9.section1.signature	pass	i9_record_export.section1_signed_date
+i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox	needs_evidence	-
+i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature	pass	i9_record_export.section2_signed_date
+i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam	needs_evidence	-
+i9.section2.timeliness::Ravi Anand	fail	i9_record_export.start_date, i9_record_export.section2_signed_date
+i9.technical.cure-window::deadline-gap:i9.technical.cure-window	needs_evidence	-
+lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers	needs_evidence	-
+lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers	needs_evidence	-
+lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment	needs_evidence	-
+lca.expiration::I-200-22010-100004	fail	lca_export.END_DATE; cms_case_export.valid_to
+
+---
+
+lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting	needs_evidence	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting	needs_evidence	-
+lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file	needs_evidence	-
+lca.retention::retention:I-200-22010-100004	needs_evidence	-
+lca.retention::retention:I-200-22010-100007	needs_evidence	-
+lca.retention::retention:I-200-23010-100002	needs_evidence	-
+lca.retention::retention:I-200-23010-100009	needs_evidence	-
+
+---
+
+lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice	needs_evidence	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004	needs_evidence	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006	needs_evidence	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007	needs_evidence	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001	needs_evidence	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003	needs_evidence	-
+lca.wage.required_wage_greater_of::Daniel Cho	pass	payroll_register.gross_pay
+lca.wage.required_wage_greater_of::Hiroshi Yamamoto	needs_evidence	-
+lca.wage.required_wage_greater_of::Lucia Ferreira	pass	payroll_register.gross_pay
+lca.wage.required_wage_greater_of::Mei Tanaka	fail	payroll_register.gross_pay
+lca.wage.start_clock::Anita Desai	needs_evidence	-
+lca.wage.start_clock::Hiroshi Yamamoto	needs_evidence	-
+
+---
+
+lca.wage.start_clock::Lucia Ferreira	needs_evidence	-
+lca.wage.start_clock::Omar Farouk	needs_evidence	-
+lca.wage.start_clock::Ravi Anand	needs_evidence	-
+lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	needs_evidence	-
+lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience	needs_evidence	-
+lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills	needs_evidence	-
+lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory	needs_evidence	-
+lca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area	pass	WORKSITE_CITY
+lca.worksite.short_term_placement::lca:I-200-22010-100006:stp	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-21010-100005	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100006	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100007	needs_evidence	-
+
+---
+
+paf.assembly.one_working_day::paf-ready:I-200-23010-100009	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-25010-100001	needs_evidence	-
+paf.assembly.one_working_day::paf-ready:I-200-25010-100003	needs_evidence	-
+paf.item1.certified_lca::paf-agg:paf.item1.certified_lca	needs_evidence	-
+paf.item2.wage_rate::paf-agg:paf.item2.wage_rate	needs_evidence	-
+paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage	needs_evidence	-
+paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary	needs_evidence	-
+paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list	needs_evidence	-
+paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list	needs_evidence	-
+paf.public_access_ready::paf:I-200-21010-100005	needs_evidence	-
+paf.public_access_ready::paf:I-200-22010-100004	needs_evidence	-
+paf.public_access_ready::paf:I-200-22010-100006	needs_evidence	-
+
+---
+
+paf.public_access_ready::paf:I-200-23010-100002	needs_evidence	-
+paf.public_access_ready::paf:I-200-25010-100003	needs_evidence	-
+specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence	needs_evidence	-
+specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4	needs_evidence	-
+uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline	needs_evidence	-
+uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock	needs_evidence	-
+wage.prevailing_floor::wage:17-2199	needs_evidence	-
+xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel	needs_evidence	-

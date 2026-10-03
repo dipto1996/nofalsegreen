@@ -1,0 +1,1701 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "false_green_rate": 0.06666666666666667,
+          "n_false_green": 8,
+          "n_withheld": 120,
+          "violation_recall": 0.3,
+          "violation_precision": 1.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.9032258064516129,
+          "abstention_recall": 0.9333333333333333,
+          "abstention_f1": 0.9180327868852459,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.25,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.4,
+              "false_green_rate": 0.21739130434782608,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 0.6666666666666666,
+              "false_green_rate": 0.1,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.16666666666666666,
+              "false_green_rate": 0.0,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 27123,
+        "output_tokens": 12440,
+        "calls": 2,
+        "wall_seconds": 135.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0667,
+          "stdev": 0.0,
+          "min": 0.0667,
+          "max": 0.0667,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.3,
+          "stdev": 0.0,
+          "min": 0.3,
+          "max": 0.3,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.9032,
+          "stdev": 0.0,
+          "min": 0.9032,
+          "max": 0.9032,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.9333,
+          "stdev": 0.0,
+          "min": 0.9333,
+          "max": 0.9333,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.918,
+          "stdev": 0.0,
+          "min": 0.918,
+          "max": 0.918,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "provider": "openrouter",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "false_green_rate": 0.21666666666666667,
+          "n_false_green": 26,
+          "n_withheld": 120,
+          "violation_recall": 0.8,
+          "violation_precision": 0.14545454545454545,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.75,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.2857142857142857,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.38461538461538464,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.125,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.391304347826087,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 0.6666666666666666,
+              "false_green_rate": 0.13333333333333333,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.1111111111111111,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 32130,
+        "output_tokens": 15649,
+        "calls": 2,
+        "wall_seconds": 140.5
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.2167,
+          "stdev": 0.0,
+          "min": 0.2167,
+          "max": 0.2167,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.8,
+          "stdev": 0.0,
+          "min": 0.8,
+          "max": 0.8,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.1455,
+          "stdev": 0.0,
+          "min": 0.1455,
+          "max": 0.1455,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3-super-120b-a12b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "false_green_rate": 0.05,
+          "n_false_green": 6,
+          "n_withheld": 120,
+          "violation_recall": 0.3,
+          "violation_precision": 0.8571428571428571,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.8956521739130435,
+          "abstention_recall": 0.8583333333333333,
+          "abstention_f1": 0.8765957446808511,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.25,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.6,
+              "false_green_rate": 0.17391304347826086,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 0.6666666666666666,
+              "false_green_rate": 0.06666666666666667,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 64927,
+        "output_tokens": 43913,
+        "calls": 4,
+        "wall_seconds": 424.8
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.05,
+          "stdev": 0.0,
+          "min": 0.05,
+          "max": 0.05,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.3,
+          "stdev": 0.0,
+          "min": 0.3,
+          "max": 0.3,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.8571,
+          "stdev": 0.0,
+          "min": 0.8571,
+          "max": 0.8571,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.8957,
+          "stdev": 0.0,
+          "min": 0.8957,
+          "max": 0.8957,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.8583,
+          "stdev": 0.0,
+          "min": 0.8583,
+          "max": 0.8583,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.8766,
+          "stdev": 0.0,
+          "min": 0.8766,
+          "max": 0.8766,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "provider": "openrouter",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3-super-120b-a12b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "false_green_rate": 0.175,
+          "n_false_green": 21,
+          "n_withheld": 120,
+          "violation_recall": 0.95,
+          "violation_precision": 0.16101694915254236,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.5,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.3076923076923077,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.125,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.30434782608695654,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.058823529411764705,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.3333333333333333,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 73198,
+        "output_tokens": 45146,
+        "calls": 5,
+        "wall_seconds": 535.6
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.175,
+          "stdev": 0.0,
+          "min": 0.175,
+          "max": 0.175,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.95,
+          "stdev": 0.0,
+          "min": 0.95,
+          "max": 0.95,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.161,
+          "stdev": 0.0,
+          "min": 0.161,
+          "max": 0.161,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "nex-agi/nex-n2.5-pro:free::abstain_offered": {
+      "model": "nex-agi/nex-n2.5-pro:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nex-agi/nex-n2.5-pro:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "calls": 0,
+        "wall_seconds": 0.0
+      }
+    },
+    "nvidia/nemotron-3.5-lightning:free::abstain_offered": {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3.5-lightning:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 92,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "n_incomplete_calls": 1,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.041666666666666664,
+          "n_false_green": 5,
+          "n_withheld": 120,
+          "violation_recall": 0.05,
+          "violation_precision": 0.5,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.9506172839506173,
+          "abstention_recall": 0.6416666666666667,
+          "abstention_f1": 0.7661691542288558,
+          "n_missing": 48,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.2,
+              "false_green_rate": 0.17391304347826086,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.058823529411764705,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 30173,
+        "output_tokens": 46823,
+        "calls": 3,
+        "wall_seconds": 1504.0
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0417,
+          "stdev": 0.0,
+          "min": 0.0417,
+          "max": 0.0417,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.05,
+          "stdev": 0.0,
+          "min": 0.05,
+          "max": 0.05,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.9506,
+          "stdev": 0.0,
+          "min": 0.9506,
+          "max": 0.9506,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.6417,
+          "stdev": 0.0,
+          "min": 0.6417,
+          "max": 0.6417,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.7662,
+          "stdev": 0.0,
+          "min": 0.7662,
+          "max": 0.7662,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "nvidia/nemotron-3.5-lightning:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "provider": "openrouter",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "nvidia/nemotron-3.5-lightning:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 68,
+          "n_unparseable": 12,
+          "n_off_schema": 0,
+          "n_truncated_calls": 2,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 14,
+          "n_unrecovered_batches": 1,
+          "false_green_rate": 0.20833333333333334,
+          "n_false_green": 25,
+          "n_withheld": 120,
+          "violation_recall": 0.5,
+          "violation_precision": 0.23809523809523808,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 72,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.38461538461538464,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.2,
+              "false_green_rate": 0.391304347826087,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 0.6666666666666666,
+              "false_green_rate": 0.36666666666666664,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 226635,
+        "output_tokens": 460780,
+        "calls": 23,
+        "wall_seconds": 11568.5
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.2083,
+          "stdev": 0.0,
+          "min": 0.2083,
+          "max": 0.2083,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.2381,
+          "stdev": 0.0,
+          "min": 0.2381,
+          "max": 0.2381,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 12,
+      "n_off_schema": 0,
+      "n_truncated_calls": 2
+    },
+    "poolside/laguna-xs-2.1:free::abstain_offered": {
+      "model": "poolside/laguna-xs-2.1:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "poolside/laguna-xs-2.1:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 124,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.125,
+          "n_false_green": 15,
+          "n_withheld": 120,
+          "violation_recall": 0.2,
+          "violation_precision": 0.6666666666666666,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.94,
+          "abstention_recall": 0.7833333333333333,
+          "abstention_f1": 0.8545454545454546,
+          "n_missing": 16,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.4,
+              "false_green_rate": 0.21739130434782608,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 0.6666666666666666,
+              "false_green_rate": 0.1,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.3888888888888889,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 15464,
+        "output_tokens": 268,
+        "calls": 1,
+        "wall_seconds": 2.9
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.125,
+          "stdev": 0.0,
+          "min": 0.125,
+          "max": 0.125,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.2,
+          "stdev": 0.0,
+          "min": 0.2,
+          "max": 0.2,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.6667,
+          "stdev": 0.0,
+          "min": 0.6667,
+          "max": 0.6667,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.94,
+          "stdev": 0.0,
+          "min": 0.94,
+          "max": 0.94,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.7833,
+          "stdev": 0.0,
+          "min": 0.7833,
+          "max": 0.7833,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.8545,
+          "stdev": 0.0,
+          "min": 0.8545,
+          "max": 0.8545,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "poolside/laguna-xs-2.1:free::abstain_withheld": {
+      "model": "poolside/laguna-xs-2.1:free",
+      "provider": "openrouter",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "poolside/laguna-xs-2.1:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 128,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 2,
+          "n_incomplete_calls": 2,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.43333333333333335,
+          "n_false_green": 52,
+          "n_withheld": 120,
+          "violation_recall": 0.9,
+          "violation_precision": 0.24324324324324326,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 12,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.25,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.5714285714285714,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.3076923076923077,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.125,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.9130434782608695,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 0.6666666666666666,
+              "false_green_rate": 0.43333333333333335,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.4444444444444444,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 41637,
+        "output_tokens": 89909,
+        "calls": 4,
+        "wall_seconds": 2195.8
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.4333,
+          "stdev": 0.0,
+          "min": 0.4333,
+          "max": 0.4333,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.9,
+          "stdev": 0.0,
+          "min": 0.9,
+          "max": 0.9,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.2432,
+          "stdev": 0.0,
+          "min": 0.2432,
+          "max": 0.2432,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 2
+    },
+    "qwen/qwen3.8-27b:free::abstain_offered": {
+      "model": "qwen/qwen3.8-27b:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "qwen/qwen3.8-27b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.14166666666666666,
+          "n_false_green": 17,
+          "n_withheld": 120,
+          "violation_recall": 0.35,
+          "violation_precision": 0.875,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.8938053097345132,
+          "abstention_recall": 0.8416666666666667,
+          "abstention_f1": 0.8669527896995708,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.25,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.25,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.125,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.4,
+              "false_green_rate": 0.30434782608695654,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.1,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.16666666666666666,
+              "false_green_rate": 0.2777777777777778,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 38201,
+        "output_tokens": 20174,
+        "calls": 3,
+        "wall_seconds": 354.0
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.1417,
+          "stdev": 0.0,
+          "min": 0.1417,
+          "max": 0.1417,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.35,
+          "stdev": 0.0,
+          "min": 0.35,
+          "max": 0.35,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.875,
+          "stdev": 0.0,
+          "min": 0.875,
+          "max": 0.875,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.8938,
+          "stdev": 0.0,
+          "min": 0.8938,
+          "max": 0.8938,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.8417,
+          "stdev": 0.0,
+          "min": 0.8417,
+          "max": 0.8417,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.867,
+          "stdev": 0.0,
+          "min": 0.867,
+          "max": 0.867,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "qwen/qwen3.8-27b:free::abstain_withheld": {
+      "model": "qwen/qwen3.8-27b:free",
+      "provider": "openrouter",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "qwen/qwen3.8-27b:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "n_incomplete_calls": 2,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.4166666666666667,
+          "n_false_green": 50,
+          "n_withheld": 120,
+          "violation_recall": 0.85,
+          "violation_precision": 0.19540229885057472,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.75,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.42857142857142855,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.38461538461538464,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.125,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.5652173913043478,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.43333333333333335,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.6666666666666666,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 169281,
+        "output_tokens": 254619,
+        "calls": 14,
+        "wall_seconds": 5634.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.4167,
+          "stdev": 0.0,
+          "min": 0.4167,
+          "max": 0.4167,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.85,
+          "stdev": 0.0,
+          "min": 0.85,
+          "max": 0.85,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.1954,
+          "stdev": 0.0,
+          "min": 0.1954,
+          "max": 0.1954,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "dots-studio/dots-3-note-preview:free::abstain_offered": {
+      "model": "dots-studio/dots-3-note-preview:free",
+      "provider": "openrouter",
+      "variant": "abstain_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "dots-studio/dots-3-note-preview:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.1,
+          "n_false_green": 12,
+          "n_withheld": 120,
+          "violation_recall": 0.45,
+          "violation_precision": 0.9,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.905982905982906,
+          "abstention_recall": 0.8833333333333333,
+          "abstention_f1": 0.8945147679324895,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.6,
+              "false_green_rate": 0.17391304347826086,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.1,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 0.16666666666666666,
+              "false_green_rate": 0.2777777777777778,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 155569,
+        "output_tokens": 142043,
+        "calls": 12,
+        "wall_seconds": 1394.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.1,
+          "stdev": 0.0,
+          "min": 0.1,
+          "max": 0.1,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.45,
+          "stdev": 0.0,
+          "min": 0.45,
+          "max": 0.45,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.9,
+          "stdev": 0.0,
+          "min": 0.9,
+          "max": 0.9,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.906,
+          "stdev": 0.0,
+          "min": 0.906,
+          "max": 0.906,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.8833,
+          "stdev": 0.0,
+          "min": 0.8833,
+          "max": 0.8833,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.8945,
+          "stdev": 0.0,
+          "min": 0.8945,
+          "max": 0.8945,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "dots-studio/dots-3-note-preview:free::abstain_withheld": {
+      "model": "dots-studio/dots-3-note-preview:free",
+      "provider": "openrouter",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 50,
+        "tpm": null,
+        "label": "dots-studio/dots-3-note-preview:free (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.525,
+          "n_false_green": 63,
+          "n_withheld": 120,
+          "violation_recall": 0.8,
+          "violation_precision": 0.2191780821917808,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.5,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.5714285714285714,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.38461538461538464,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.625,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.6,
+              "false_green_rate": 0.8695652173913043,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.36666666666666664,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.5882352941176471,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.3333333333333333,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 65113,
+        "output_tokens": 79047,
+        "calls": 5,
+        "wall_seconds": 857.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.525,
+          "stdev": 0.0,
+          "min": 0.525,
+          "max": 0.525,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.8,
+          "stdev": 0.0,
+          "min": 0.8,
+          "max": 0.8,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.2192,
+          "stdev": 0.0,
+          "min": 0.2192,
+          "max": 0.2192,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    }
+  }
+}

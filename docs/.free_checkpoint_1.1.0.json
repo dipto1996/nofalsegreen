@@ -1,0 +1,48 @@
+{
+  "completed": [
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered::northwind-robotics-subset140",
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_withheld::northwind-robotics-subset140",
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_offered::northwind-robotics-subset140",
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_withheld::northwind-robotics-subset140",
+    "nvidia/nemotron-3.5-lightning:free::abstain_offered::northwind-robotics-subset140",
+    "poolside/laguna-xs-2.1:free::abstain_offered::northwind-robotics-subset140",
+    "poolside/laguna-xs-2.1:free::abstain_withheld::northwind-robotics-subset140",
+    "qwen/qwen3.8-27b:free::abstain_offered::northwind-robotics-subset140",
+    "qwen/qwen3.8-27b:free::abstain_withheld::northwind-robotics-subset140",
+    "dots-studio/dots-3-note-preview:free::abstain_offered::northwind-robotics-subset140",
+    "dots-studio/dots-3-note-preview:free::abstain_withheld::northwind-robotics-subset140",
+    "nvidia/nemotron-3.5-lightning:free::abstain_withheld::northwind-robotics-subset140"
+  ],
+  "usage": {
+    "nvidia/nemotron-3-ultra-550b-a55b:free": {
+      "calls": 4,
+      "input_tokens": 59253,
+      "output_tokens": 28089
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free": {
+      "calls": 9,
+      "input_tokens": 138125,
+      "output_tokens": 89059
+    },
+    "nvidia/nemotron-3.5-lightning:free": {
+      "calls": 26,
+      "input_tokens": 256808,
+      "output_tokens": 507603
+    },
+    "poolside/laguna-xs-2.1:free": {
+      "calls": 5,
+      "input_tokens": 57101,
+      "output_tokens": 90177
+    },
+    "qwen/qwen3.8-27b:free": {
+      "calls": 17,
+      "input_tokens": 207482,
+      "output_tokens": 274793
+    },
+    "dots-studio/dots-3-note-preview:free": {
+      "calls": 17,
+      "input_tokens": 220682,
+      "output_tokens": 221090
+    }
+  }
+}

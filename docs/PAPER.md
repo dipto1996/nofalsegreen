@@ -1,17 +1,12 @@
 # No False Green: A Benchmark for Evidence-Aware Compliance Verdicts over Structured Employer Records
 
-**Status of this draft: structural review.** Sections 1 through 7 and 10 through 11 are
-written. Section 8.1 reports trivial-baseline results that have been run and verified.
-Sections 8.2 and 9 are specified but empty: the tables, figure, and analyses are named and
-their shape is fixed, with cells marked `[…]`, so the reporting structure is committed
-before any number exists.
-
-Every quantitative claim in the written sections is recomputed from the artifacts by
-`scripts/verify_paper.py`, which currently confirms 145 of 146. Nothing marked `[TO RUN]`
-may be filled by estimation.
-
-Section 8.2 also states what will be reported if the empirical result is null, so the
-paper's structure does not depend on the outcome being interesting.
+**Status of this draft: complete, for review.** All sections are written. Every table is
+generated from retained artifacts by the repository's scripts, and every quantitative
+claim in the text is recomputed from those artifacts by
+`scripts/verify_paper.py`, which currently confirms 149 of 149. Each methodological rule that could have been chosen after
+seeing results (label views, model substitutions, evidence classes, excerpt selection,
+label audit, cut-offs) was committed to the repository before the results it governs,
+and the paper cites the record.
 
 ---
 
@@ -46,8 +41,15 @@ rate and is indistinguishable from a safe system under accuracy-style scoring, w
 scoring 1.000 on the false-green rate; conversely a system abstaining everywhere attains
 0.632 abstention F1 while detecting no violations. An evidence-aware oracle attains 1.000
 on every axis, establishing that the task is solvable and that low scores reflect the
-system under test. Language-model baselines are specified in Section 7 and **have not yet
-been run**. Because every instance is synthetic, the benchmark is released without the
+system under test.
+
+We evaluate six free API models under two output schemas on a 140-pair declared subset.
+Offered an explicit abstention, they report 0.042 to 0.142 of unassessable obligations as
+satisfied, but detect only 0.050 to 0.450 of violations. With the abstention removed from
+the schema, false greens rise three- to fivefold, to 0.175 to 0.525, though prompt, data
+and models are unchanged. False greens concentrate where an export carries a populated
+column adjacent to the missing evidence, such as a signed date standing in for a signature.
+Where nothing adjacent is exported, models raise no false green at all. Because every instance is synthetic, the benchmark is released without the
 confidentiality constraints that keep comparable compliance data unpublishable.
 
 ---
@@ -492,6 +494,16 @@ all three attempts (the cap sits at the evaluated models' own ceiling, so the mo
 generating without end; the batch is recorded as unanswered). Every attempt, with its
 token count and the provider's stop reason, is in the sweep log.
 
+Two departures from this rule occurred, and both are disclosed here. First, Lightning's
+second run never finished normally: its host repeatedly cut replies off at a ten-minute
+limit. Under a cut-off rule committed before the final quota window, once every other run
+had finished, the run was given one pass that tried each remaining batch up to three times
+and was then recorded with what it had answered: 68 of 140 pairs. Second, during that pass
+one reply ended with an upstream error *after* delivering all twelve verdict lines. The
+harness accepted it because the reply was not empty, contrary to the rule above. We keep
+it, since its answer is complete, and the harness has since been corrected to re-request
+such replies. It is the only reply in the study that ended without a normal stop.
+
 **Measured cost.** The full sweep is 1,446 API calls per model per variant, about 2.55M
 input and 1.73M output tokens over 31 firms at batch size 40. At list prices that is
 roughly \$9 to \$170 per model per variant depending on tier, and \$180 to \$3,400 for
@@ -688,15 +700,22 @@ retained replies (`scripts/fill_results.py`); the table shapes were fixed before
 number existed. Every table reports coverage, because an unanswered pair cannot be a
 false green (Section 7).
 
-**Table 2 — main result, `abstain_offered`.** One row per model. Every cell is a mean
-across firms with standard deviation; the unparseable column guards the rest.
+**Table 2 — main result, `abstain_offered`.** One row per model, scored on the declared
+140-pair subset of the anchor firm. The protocol averages across firms with a standard
+deviation; with one firm evaluated, each cell is that firm's value. The unparseable and
+answered columns guard the rest.
 
 <!-- BEGIN GENERATED: table2-main -->
-| Model | False green | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. |
-|---|---|---|---|---|---|---|---|---|
-| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |
-| `always_pass` (ref) | 1.000 | 0.000 | 0.000 | 0.000 | 0.000 | — | 0.000 | 0.000 |
-| `oracle` (ref) | 0.000 | 1.000 | 1.000 | 0.000 | 0.000 | — | 1.000 | 0.000 |
+| Model | False green | FG, answered only | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. | Answered |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `qwen3.8-27b` | **0.142** | 0.142 | 0.350 | 0.875 | 0.000 | 0.894 | 0.842 | 0.867 | 0.000 | 140/140 |
+| `laguna-xs-2.1` | **0.125** | 0.135 | 0.200 | 0.667 | 0.000 | 0.940 | 0.783 | 0.855 | 0.000 | 124/140 |
+| `dots-3-note-preview` | **0.100** | 0.100 | 0.450 | 0.900 | 0.000 | 0.906 | 0.883 | 0.894 | 0.000 | 140/140 |
+| `nemotron-3-ultra-550b-a55b` | **0.067** | 0.067 | 0.300 | 1.000 | 0.000 | 0.903 | 0.933 | 0.918 | 0.000 | 140/140 |
+| `nemotron-3-super-120b-a12b` | **0.050** | 0.050 | 0.300 | 0.857 | 0.000 | 0.896 | 0.858 | 0.877 | 0.000 | 140/140 |
+| `nemotron-3.5-lightning` | **0.042** | 0.059 | 0.050 | 0.500 | 0.000 | 0.951 | 0.642 | 0.766 | 0.000 | 92/140 |
+| `always_pass` (ref) | 1.000 | 1.000 | 0.000 | 0.000 | 0.000 | 0.000 | — | 0.000 | 0.000 | all |
+| `oracle` (ref) | 0.000 | 0.000 | 1.000 | 1.000 | 0.000 | 0.000 | — | 1.000 | 0.000 | all |
 <!-- END GENERATED: table2-main -->
 
 The trivial baselines are repeated in-table as reference rows, so a reader sees
@@ -720,33 +739,64 @@ with the deadline alerts beside them. Generated from `docs/views_results.json`.
 <!-- BEGIN GENERATED: table2b-strict -->
 | Model | Condition | FGR, engine | FGR, strict | Recall, engine (of 20) | Recall, strict (of 10) | Alerts: fail / pass / other |
 |---|---|---|---|---|---|---|
-| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |
+| `dots-3-note-preview` | offered | 0.100 | 0.096 | 0.45 | 0.70 | 2 / 0 / 3 |
+| `dots-3-note-preview` | withheld | 0.525 | 0.504 | 0.80 | 0.80 | 3 / 2 / 0 |
+| `nemotron-3-super-120b-a12b` | offered | 0.050 | 0.048 | 0.30 | 0.40 | 2 / 0 / 3 |
+| `nemotron-3-super-120b-a12b` | withheld | 0.175 | 0.168 | 0.95 | 0.90 | 5 / 0 / 0 |
+| `nemotron-3-ultra-550b-a55b` | offered | 0.067 | 0.064 | 0.30 | 0.50 | 1 / 1 / 3 |
+| `nemotron-3-ultra-550b-a55b` | withheld | 0.217 | 0.208 | 0.80 | 0.90 | 2 / 3 / 0 |
+| `nemotron-3.5-lightning` | offered | 0.042 | 0.040 | 0.05 | 0.10 | 0 / 1 / 4 |
+| `nemotron-3.5-lightning` | withheld | 0.208 | 0.200 | 0.50 | 0.40 | 3 / 0 / 2 |
+| `laguna-xs-2.1` | offered | 0.125 | 0.120 | 0.20 | 0.30 | 1 / 0 / 4 |
+| `laguna-xs-2.1` | withheld | 0.433 | 0.416 | 0.90 | 0.80 | 5 / 0 / 0 |
+| `qwen3.8-27b` | offered | 0.142 | 0.136 | 0.35 | 0.50 | 2 / 0 / 3 |
+| `qwen3.8-27b` | withheld | 0.417 | 0.400 | 0.85 | 0.90 | 3 / 2 / 0 |
 <!-- END GENERATED: table2b-strict -->
 
-The strict view moves false-green rates by under 0.02 and raises recall for every model
+The strict view moves false-green rates by at most 0.021 and raises recall for every model
 under `abstain_offered`, because the five memo pairs that most models answered
 `needs_evidence` stop counting as missed violations. A `pass` on a deadline days away is
 the one deadline-alert outcome a reviewer would never see. Offered an abstention, models
-gave it on 2 of 30 alerts. Without the abstention it rose to 7 of 25, three of them from
+gave it on 2 of 30 alerts. Without the abstention it rose to 7 of 30, three of them from
 Nemotron Ultra, which answered `pass` on an LCA expiring in four days.
 
 **Table 2c — audited label view.** Same runs, with the two withheld pairs the blind audit
 overturned removed from scoring (Section 6). The scored denominator is stated in every row.
 
 <!-- BEGIN GENERATED: table2c-audited -->
+| Model | Condition | Withheld pairs scored | FGR, engine | FGR, audited | FG, audited, answered only |
+|---|---|---|---|---|---|
+| `dots-3-note-preview` | offered | 118 of 120 | 0.100 | 0.085 | 0.085 |
+| `dots-3-note-preview` | withheld | 118 of 120 | 0.525 | 0.517 | 0.517 |
+| `nemotron-3-super-120b-a12b` | offered | 118 of 120 | 0.050 | 0.034 | 0.034 |
+| `nemotron-3-super-120b-a12b` | withheld | 118 of 120 | 0.175 | 0.161 | 0.161 |
+| `nemotron-3-ultra-550b-a55b` | offered | 118 of 120 | 0.067 | 0.051 | 0.051 |
+| `nemotron-3-ultra-550b-a55b` | withheld | 118 of 120 | 0.217 | 0.203 | 0.203 |
+| `nemotron-3.5-lightning` | offered | 118 of 120 | 0.042 | 0.025 | 0.036 |
+| `nemotron-3.5-lightning` | withheld | 118 of 120 | 0.208 | 0.212 | 0.439 |
+| `laguna-xs-2.1` | offered | 118 of 120 | 0.125 | 0.110 | 0.119 |
+| `laguna-xs-2.1` | withheld | 118 of 120 | 0.433 | 0.424 | 0.472 |
+| `qwen3.8-27b` | offered | 118 of 120 | 0.142 | 0.127 | 0.127 |
+| `qwen3.8-27b` | withheld | 118 of 120 | 0.417 | 0.407 | 0.407 |
 <!-- END GENERATED: table2c-audited -->
 
-Removing the two I-9 signature pairs lowers each false-green rate by about 0.01 to 0.02
-and changes neither the ordering of models nor the direction or size of any condition
-effect. The label error the audit found is real but too small to account for the result.
+Removing the two I-9 signature pairs lowers the false-green rate by 0.008 to 0.016 in 11
+of the 12 runs. In the twelfth, Lightning without the abstention, it rises by 0.004,
+because neither removed pair was one of that run's false greens. It changes neither the
+ordering of models nor the direction of any condition effect. The label error the audit found is real but too small to account for the result.
 
 **Table 3 — the schema ablation.** The paper's most informative experiment. Same models,
 both conditions, difference reported per model.
 
 <!-- BEGIN GENERATED: table3-ablation -->
-| Model | FGR, abstention offered | FGR, abstention withheld | Δ | Off-schema abstentions |
+| Model | FGR, abstention offered | FGR, abstention withheld | Change | Off-schema abstentions |
 |---|---|---|---|---|
-| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[n of N]` |
+| `dots-3-note-preview` | 0.100 | 0.525 | +0.425 | 0 of 140 |
+| `nemotron-3-super-120b-a12b` | 0.050 | 0.175 | +0.125 | 0 of 140 |
+| `nemotron-3-ultra-550b-a55b` | 0.067 | 0.217 | +0.150 | 0 of 140 |
+| `nemotron-3.5-lightning` | 0.042 | 0.208 | +0.167 | 0 of 140 |
+| `laguna-xs-2.1` | 0.125 | 0.433 | +0.308 | 0 of 140 |
+| `qwen3.8-27b` | 0.142 | 0.417 | +0.275 | 0 of 140 |
 <!-- END GENERATED: table3-ablation -->
 
 The off-schema column counts pairs where a model returned `needs_evidence` although the
@@ -760,7 +810,7 @@ schema, by between 0.125 (Nemotron Super) and 0.425 (dots.3), a factor of
 2.94 to 5.25. No model returned an
 off-schema abstention: given only `pass` and `fail`, every model complied. Forced to
 resolve pairs it could not assess, each model split them between the two permitted
-answers. Most went to `fail`, an unsupported violation (56 to 99 of the 120 withheld
+answers. Most went to `fail`, an unsupported violation (32 to 99 of the 120 withheld
 pairs), and a substantial share went to `pass` (21 to 63). The second group is the
 false green a dashboard built on this schema would display. Because the prompt, sources
 and models are identical across conditions, the difference is attributable to the schema
@@ -770,9 +820,18 @@ alone.
 model. This is where the document-versus-field asymmetry in Section 9 is tested.
 
 <!-- BEGIN GENERATED: table4-regime -->
-| Regime | `[TO RUN]` |
-|---|---|
-| *ten rows, one per regime, one column per model* | `[…]` |
+| Regime | `nemotron-3-ultra-550b-a55b` | `nemotron-3-super-120b-a12b` | `nemotron-3.5-lightning` | `laguna-xs-2.1` | `qwen3.8-27b` | `dots-3-note-preview` |
+|---|---|---|---|---|---|---|
+| `deadlines-penalties` | 0.000 (6) | 0.000 (6) | 0.000 (6) | 0.000 (6) | 0.250 (6) | 0.000 (6) |
+| `fdns-sitevisit` | 0.000 (7) | 0.000 (7) | 0.000 (7) | 0.000 (7) | 0.000 (7) | 0.000 (7) |
+| `h1b-status` | 0.000 (17) | 0.000 (17) | 0.000 (17) | 0.000 (17) | 0.000 (17) | 0.000 (17) |
+| `i129-supplement` | 0.000 (8) | 0.000 (8) | 0.000 (8) | 0.000 (8) | 0.125 (8) | 0.000 (8) |
+| `i9-everify` | 0.217 (28) | 0.174 (28) | 0.174 (28) | 0.217 (28) | 0.304 (28) | 0.174 (28) |
+| `lca-dol` | 0.100 (33) | 0.067 (33) | 0.000 (33) | 0.100 (33) | 0.100 (33) | 0.100 (33) |
+| `paf` | 0.000 (17) | 0.000 (17) | 0.059 (17) | 0.000 (17) | 0.000 (17) | 0.000 (17) |
+| `wage-prevailing` | 0.000 (24) | 0.000 (24) | 0.000 (24) | 0.389 (24) | 0.278 (24) | 0.278 (24) |
+
+Cells are the false-green rate with the number of scored pairs in parentheses. A dash means the regime contributed no scored pair for that model.
 <!-- END GENERATED: table4-regime -->
 
 **Table 5 — near-miss controls.** For conforming cases placed exactly on the legal
@@ -828,8 +887,9 @@ of the 120 withheld pairs as compliant. As a rate the missed violation is the la
 failure for every model. In absolute counts, false greens outnumber missed violations for
 Laguna, Qwen and dots.3, because withheld pairs are six times as numerous. No reply line named a pair without a verdict, so the unparseable rate is zero
 throughout. The formatting failures that did occur are whole replies with no usable
-lines, which appear as unanswered pairs: 48 for Lightning and 16 for Laguna. Without the
-abstention the picture inverts. Unsupported violations dominate (56 to 99 pairs called
+lines, which appear as unanswered pairs: 48 and 72 in Lightning's two runs, 16 and 12 in
+Laguna's. Without the
+abstention the picture inverts. Unsupported violations dominate (32 to 99 pairs called
 `fail` with no evidence either way), then false greens (21 to 63), and missed violations
 nearly vanish (1 to 4). The withheld condition buys its recall by calling almost
 everything a violation.
@@ -853,8 +913,11 @@ needing both kinds of evidence counts as a document obligation. Of the 120 withh
 49 are document pairs and 71 are field pairs; the full assignment is in
 `docs/evidence_class_assignment.txt`.
 
-*Result: the declared test holds, but the mechanism is not the one hypothesised.* In every
-evaluated run the false-green rate on document pairs exceeds that on field pairs. Under
+*Result: the declared test mostly holds, but the mechanism is not the one hypothesised.* In
+11 of the 12 runs the false-green rate on document pairs exceeds that on field pairs. The
+exception is Lightning without the abstention. It answered only 17 of the 49 document
+pairs, but the reversal holds even among pairs it answered: 0.575 on field pairs against
+0.118 on document pairs. Under
 `abstain_offered` the totals across models are 25 false greens in 426 field-pair
 evaluations against 38 in 294 document-pair evaluations, about 0.06 against 0.13. The runs are not
 independent (the same 120 pairs, and the same models in both conditions), so we report
@@ -915,7 +978,7 @@ rule was fixed in code before any excerpt was read (`scripts/analysis.py`). For 
 under `abstain_offered` and in the frozen subset order, the excerpt is the first `pass` on
 a withheld pair whose reply line cites an evidence field. One excerpt per model, quoted
 verbatim beside the fixed label. Applied as declared, the rule selected the same pair
-for every model: the Section 2 signature label that the audit later overturned. We report
+for four of the six models: the Section 2 signature label that the audit later overturned. We report
 that outcome as it fell, since four models agreeing on a mislabelled pair is itself a
 finding about the labels. We then apply the same rule once more, skipping overturned
 pairs, and mark those excerpts as the second application. This second step was added after
@@ -995,8 +1058,12 @@ with a permissions error, 1 returned an upstream provider failure, and 1 returne
 completion. Which models are evaluable on a given day is therefore decided by provider
 capacity rather than by our selection, and the model set in any free-tier result is
 partly an artifact of when it was run. We report the screening outcome alongside results
-so the composition of the model set is visible. The same instability struck during the study itself: two of the six declared models
-were withdrawn from the free tier mid-run and replaced (Section 7.2). Whether the largest current proprietary
+so the composition of the model set is visible. The same instability struck during the study itself. Two of the six declared models were
+withdrawn from the free tier mid-run and replaced, one declared replacement never passed
+the screen, and one evaluated model's host cut replies off so often that its runs answered
+92 and 68 of 140 pairs (Section 7.2). The final set is six models from four providers,
+three of them NVIDIA Nemotron variants, with nothing above roughly 550B parameters and no
+proprietary frontier model. Whether the largest current proprietary
 models exhibit the same false-green behaviour is untested, and it is the single most
 valuable extension of this work.
 

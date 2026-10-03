@@ -1,0 +1,173 @@
+everify.photo_matching::Anita Desai	fail	-
+everify.photo_matching::Hiroshi Yamamoto	fail	-
+everify.photo_matching::James Park	fail	-
+everify.photo_matching::Mei Tanaka	fail	-
+everify.photo_matching::Yuki Sato	fail	-
+everify.tnc.employer_action_window::Daniel Cho	fail	ssa_tnc_date=2025-04-18, fan_delivered_date=2026-05-01
+everify.tnc.overdue::Daniel Cho	fail	referralDate missing
+extension.filing::Hiroshi Yamamoto	fail	valid_to=2026-07-20, no extension.filedDate
+fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage	fail	Mei Tanaka payRate=96000 < PREVAILING_WAGE=145000
+fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control	pass	worksite_address1=300 Colorado St, supervisor=Grace Lindqvist
+fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence	fail	no lease/utility/VIBE/D&B in exports
+fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites	fail	Sofia Reyes location=Boston - Lab vs LCA worksite=Austin
+
+---
+
+fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match	fail	hris_roster_export.jobTitle "Engineering Manager" vs lca_export.JOB_TITLE "Robotics Software Engineer" SOC 15-1252 for Omar Farouk (passport P1000005)
+fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid	pass	-
+fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand	fail	-
+h1b.i94.expiration::Anita Desai	fail	-
+h1b.i94.expiration::Daniel Cho	fail	-
+h1b.i94.expiration::Lucia Ferreira	fail	-
+h1b.i94.expiration::Mei Tanaka	fail	-
+h1b.i94.expiration::Omar Farouk	fail	-
+h1b.i94.expiration::Sofia Reyes	fail	-
+h1b.i94.expiration::Yuki Sato	fail	-
+h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status	fail	-
+h1b.material_change.soc::Omar Farouk	fail	hris_roster_export.jobTitle "Engineering Manager" vs lca_export.JOB_TITLE "Robotics Software Engineer" SOC 15-1252 for current validity period (BEGIN_DATE 2025-09-01), lca_export.AMENDED_PETITION=0
+
+---
+
+h1b.material_change.worksite::Sofia Reyes	fail	hris_roster_export.location=Boston - Lab vs cms_case_export.worksite_city=Austin
+h1b.max_stay.six_year_limit::Anita Desai	pass	hris_roster_export.hireDate=2023-07-17
+h1b.max_stay.six_year_limit::Daniel Cho	pass	hris_roster_export.hireDate=2025-04-14
+h1b.max_stay.six_year_limit::Mei Tanaka	pass	hris_roster_export.hireDate=2022-06-13
+h1b.max_stay.six_year_limit::Ravi Anand	pass	hris_roster_export.hireDate=2025-02-03
+h1b.max_stay.six_year_limit::Yuki Sato	pass	hris_roster_export.hireDate=2024-01-08
+h1b.noid.response::Sofia Reyes	pass	rfe_noid_export.response_due_date=2026-07-10
+h1b.petition.expiry::Hiroshi Yamamoto	fail	cms_case_export.valid_from=2023-07-16, valid_to=2026-07-20
+h1b.rfe.response::Daniel Cho	pass	rfe_noid_export.response_due_date=2026-07-08
+h1b.wage.actual.memo::17-2199:L3:Austin, TX:memo	fail	-
+h1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo	fail	-
+h1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo	fail	-
+
+---
+
+h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo	fail	-
+h1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo	fail	-
+h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense	pass	payroll_register.pretax_deductions
+h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty	pass	-
+h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear	fail	payroll_register.gross_pay (NWR-1004) < lca_export.PREVAILING_WAGE (I-200-22010-100004)
+h1b.wage.payment.start-clock::Anita Desai	fail	-
+h1b.wage.payment.start-clock::Daniel Cho	fail	-
+h1b.wage.payment.start-clock::Lucia Ferreira	fail	-
+h1b.wage.payment.start-clock::Omar Farouk	fail	-
+h1b.wage.payment.start-clock::Sofia Reyes	fail	-
+h1b.wage.payment.start-clock::Yuki Sato	fail	-
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L2	fail	-
+
+---
+
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L4	fail	-
+h1b.wage.prevailing.pwd-validity::pw:17-2061:L3	fail	-
+h1b.wage.prevailing.pwd-validity::pw:17-2141:L3	fail	-
+h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource	fail	-
+h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource	fail	-
+h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource	fail	-
+h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource	fail	-
+h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers	fail	-
+i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026	pass	cms_case_export.filing_date
+i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window	fail	-
+i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list	pass	i9_record_export.list_a_doc_title
+i9.noi.production-window::deadline-gap:i9.noi.production-window	pass	-
+
+---
+
+i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse	pass	list_b_doc_title,list_c_doc_title (all empty)
+i9.receipts.rule::i9-fieldgap:i9.receipts.rule	pass	-
+i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure	pass	alternative_procedure (all N)
+i9.retention.storage_and_production::Anita Desai	fail	-
+i9.retention.storage_and_production::Helena Voss	fail	-
+i9.retention.storage_and_production::Hiroshi Yamamoto	fail	-
+i9.retention.storage_and_production::Mei Tanaka	fail	-
+i9.retention.storage_and_production::Omar Farouk	fail	-
+i9.retention.storage_and_production::Ravi Anand	fail	-
+i9.retention.storage_and_production::Sofia Reyes	fail	-
+i9.retention.storage_and_production::Yuki Sato	fail	-
+i9.reverification.deadline::Lucia Ferreira	fail	supplement_b_completed_date (empty), supplement_b_due (2026-06-15)
+
+---
+
+i9.reverification.noreverify::Helena Voss	pass	i9_record_export: no supplement_b_due or supplement_b_completed_date for NWR-1012; hris_roster_export: visaType=US Citizen
+i9.reverification.unfair::i9-prohibited:i9.reverification.unfair	pass	hris_roster_export: diverse nationalities (India, Brazil, South Korea, Japan, Egypt, Philippines, US) among 12 employees; no job-posting or adverse-action data showing citizenship discrimination
+i9.section1.signature::i9-fieldgap:i9.section1.signature	pass	i9_record_export: section1_signed_date populated for all 12 employees (NWR-1001 through NWR-1012)
+i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox	pass	i9_record_export: each employee presents exactly one List A document consistent with a single citizenship/immigration status (US Passport for 3 citizens; Foreign Passport with I-94 for 8 H-1B; EAD for 1)
+i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature	pass	i9_record_export: section2_signed_date, section2_examiner_name, section2_examiner_title populated for all 12 employees
+i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam	pass	i9_record_export: list_a_doc_title, list_a_doc_number, list_a_doc_issuing_authority, list_a_doc_expiry complete for all 12; alternative_procedure=N for all
+i9.section2.timeliness::Ravi Anand	fail	i9_record_export: start_date=2025-02-03 (Mon), section2_signed_date=2025-02-13 (Thu) — 8 business days after hire (due by 3rd business day, 2025-02-06)
+i9.technical.cure-window::deadline-gap:i9.technical.cure-window	pass	no noticeOfTechnicalDeficiencyDate, flagged items, or correction records in any export
+lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers	fail	lca_export: H1B_DEPENDENT=Y for all LCAs; no US-worker separation data, reason codes, essentially-equivalent-job mapping, or PAF records in any export
+lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers	fail	lca_export: H1B_DEPENDENT=Y for all LCAs; no recruitment method list, applicant log, compensation comparison, or PAF recruitment summary in any export
+lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment	pass	no DOL violation records, back-wage assessments, or CMPs in any export
+lca.expiration::I-200-22010-100004	pass	lca_export: END_DATE=2026-07-03 for I-200-22010-100004; cms_case_export: valid_from=2025-08-01, valid_to=2028-07-31 for NWR-2025-0104; evaluation date 2026-06-29 < LCA expiration
+
+---
+
+lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting	fail	-
+lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting	fail	-
+lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file	fail	-
+lca.retention::retention:I-200-22010-100004	fail	-
+lca.retention::retention:I-200-22010-100007	fail	-
+lca.retention::retention:I-200-23010-100002	fail	-
+lca.retention::retention:I-200-23010-100009	fail	-
+
+---
+
+lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice	fail	-
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004	fail	lca_export:PW_TRACKING_NUMBER,PW_OES_YEAR,RECEIVED_DATE (missing PWD issue/expiration dates)
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006	fail	lca_export:PW_TRACKING_NUMBER,PW_OES_YEAR,RECEIVED_DATE (missing PWD issue/expiration dates)
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007	fail	lca_export:PW_TRACKING_NUMBER,PW_OES_YEAR,RECEIVED_DATE (missing PWD issue/expiration dates)
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001	fail	lca_export:PW_TRACKING_NUMBER,PW_OES_YEAR,RECEIVED_DATE (missing PWD issue/expiration dates)
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003	fail	lca_export:PW_TRACKING_NUMBER,PW_OES_YEAR,RECEIVED_DATE (missing PWD issue/expiration dates)
+lca.wage.required_wage_greater_of::Daniel Cho	pass	payroll_register:gross_pay,hris_roster_export:payRate,lca_export:PREVAILING_WAGE,WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::Hiroshi Yamamoto	pass	payroll_register:gross_pay,hris_roster_export:payRate,lca_export:PREVAILING_WAGE,WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::Lucia Ferreira	pass	payroll_register:gross_pay,hris_roster_export:payRate,lca_export:PREVAILING_WAGE,WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::Mei Tanaka	fail	lca_export:PREVAILING_WAGE,WAGE_RATE_OF_PAY_FROM,payroll_register:gross_pay
+lca.wage.start_clock::Anita Desai	fail	hris_roster_export:hireDate (missing admission/eligibility date)
+lca.wage.start_clock::Hiroshi Yamamoto	fail	hris_roster_export:hireDate (missing admission/eligibility date)
+
+---
+
+lca.wage.start_clock::Lucia Ferreira	fail	-
+lca.wage.start_clock::Omar Farouk	fail	-
+lca.wage.start_clock::Ravi Anand	fail	-
+lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	fail	-
+lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience	fail	-
+lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills	fail	-
+lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory	fail	-
+lca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area	fail	hris_roster_export.location
+lca.worksite.short_term_placement::lca:I-200-22010-100006:stp	fail	hris_roster_export.hireDate
+paf.assembly.one_working_day::paf-ready:I-200-21010-100005	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100006	fail	-
+paf.assembly.one_working_day::paf-ready:I-200-22010-100007	fail	-
+
+---
+
+paf.assembly.one_working_day::paf-ready:I-200-23010-100009	fail	pafAssembledDate
+paf.assembly.one_working_day::paf-ready:I-200-25010-100001	fail	pafAssembledDate
+paf.assembly.one_working_day::paf-ready:I-200-25010-100003	fail	pafAssembledDate
+paf.item1.certified_lca::paf-agg:paf.item1.certified_lca	fail	certifiedLcaDocumentPresent
+paf.item2.wage_rate::paf-agg:paf.item2.wage_rate	fail	wageRateDocPresent
+paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage	fail	prevailingWageDocPresent
+paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary	fail	benefitsSummaryPresent
+paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list	fail	singleEmployerEntityListPresent
+paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list	fail	exemptWorkerListPresent
+paf.public_access_ready::paf:I-200-21010-100005	fail	pafAssembledDate
+paf.public_access_ready::paf:I-200-22010-100004	fail	pafAssembledDate
+paf.public_access_ready::paf:I-200-22010-100006	fail	pafAssembledDate
+
+---
+
+paf.public_access_ready::paf:I-200-23010-100002	fail	lca_export:I-200-23010-100002 (no PAF exhibits in exports)
+paf.public_access_ready::paf:I-200-25010-100003	fail	lca_export:I-200-25010-100003 (no PAF exhibits in exports)
+specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence	fail	no I-129 Q7/Q8 data in exports
+specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4	fail	no I-129 criteria data in exports
+uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline	pass	cms_case_export: all matters Approved, no adverse decisions
+uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock	fail	no I-907/premium processing data in exports
+wage.prevailing_floor::wage:17-2199	fail	lca_export:I-200-22010-100004 prevailing_wage=145000 + payroll_register:NWR-1004 gross_pay=96000/yr
+xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel	fail	no H-1B registration or I-129 SOC data in exports

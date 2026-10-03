@@ -134,7 +134,11 @@ as a set. Neither the false-green rate nor abstention F1 is meaningful alone.
 The oracle reaches 1.000 on every axis, so the task is solvable in principle and a low
 score is a property of the system under test rather than of an ill-posed benchmark.
 
-**No language-model results are reported.** Those experiments have not been run.
+**Language-model results** (six free API models, 140-pair declared subset, both output
+schemas) are in `docs/PAPER.md` Section 8.2, generated from `docs/llm_results.json`,
+`docs/views_results.json` and `docs/analysis_results.json`. Offered an abstention, models
+report 0.042 to 0.142 of unassessable obligations as satisfied. Without the abstention in
+the schema, that rises three- to fivefold, to 0.175 to 0.525.
 
 ## Ground truth by construction
 

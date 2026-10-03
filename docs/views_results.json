@@ -4,6 +4,124 @@
   "firm_id": "northwind-robotics-subset140",
   "n_pairs": 140,
   "runs": {
+    "dots-studio/dots-3-note-preview:free::abstain_offered": {
+      "model": "dots-studio/dots-3-note-preview:free",
+      "variant": "abstain_offered",
+      "n_predictions": 140,
+      "complete": true,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.1,
+        "n_false_green": 12,
+        "n_withheld": 120,
+        "violation_recall": 0.45,
+        "violation_precision": 0.9,
+        "abstention_f1": 0.8945,
+        "n_missing": 0,
+        "n_withheld_answered": 120,
+        "false_green_rate_answered": 0.1
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.096,
+        "n_false_green": 12,
+        "n_withheld": 125,
+        "violation_recall": 0.7,
+        "violation_precision": 0.875,
+        "abstention_f1": 0.9289,
+        "n_missing": 0,
+        "n_withheld_answered": 125,
+        "false_green_rate_answered": 0.096,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "fail": 2,
+            "needs_evidence": 3
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "fail",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "needs_evidence",
+            "h1b.rfe.response::Daniel Cho": "needs_evidence",
+            "h1b.noid.response::Sofia Reyes": "needs_evidence"
+          }
+        }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.0847,
+        "n_false_green": 10,
+        "n_withheld": 118,
+        "violation_recall": 0.45,
+        "violation_precision": 0.9,
+        "abstention_f1": 0.9021,
+        "n_missing": 0,
+        "n_withheld_answered": 118,
+        "false_green_rate_answered": 0.0847
+      }
+    },
+    "dots-studio/dots-3-note-preview:free::abstain_withheld": {
+      "model": "dots-studio/dots-3-note-preview:free",
+      "variant": "abstain_withheld",
+      "n_predictions": 140,
+      "complete": true,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.525,
+        "n_false_green": 63,
+        "n_withheld": 120,
+        "violation_recall": 0.8,
+        "violation_precision": 0.2192,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 120,
+        "false_green_rate_answered": 0.525
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.504,
+        "n_false_green": 63,
+        "n_withheld": 125,
+        "violation_recall": 0.8,
+        "violation_precision": 0.1143,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 125,
+        "false_green_rate_answered": 0.504,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "fail": 3,
+            "pass": 2
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "fail",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "fail",
+            "h1b.rfe.response::Daniel Cho": "pass",
+            "h1b.noid.response::Sofia Reyes": "pass"
+          }
+        }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.5169,
+        "n_false_green": 61,
+        "n_withheld": 118,
+        "violation_recall": 0.8,
+        "violation_precision": 0.2192,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 118,
+        "false_green_rate_answered": 0.5169
+      }
+    },
     "nex-agi/nex-n2.5-pro:free::abstain_offered": {
       "model": "nex-agi/nex-n2.5-pro:free",
       "variant": "abstain_offered",
@@ -18,7 +136,9 @@
         "violation_recall": 0.0,
         "violation_precision": 0.0,
         "abstention_f1": 0.2937,
-        "n_missing": 116
+        "n_missing": 116,
+        "n_withheld_answered": 22,
+        "false_green_rate_answered": 0.0
       },
       "strict": {
         "n_scored": 135,
@@ -30,6 +150,8 @@
         "violation_precision": 0.0,
         "abstention_f1": 0.3108,
         "n_missing": 111,
+        "n_withheld_answered": 24,
+        "false_green_rate_answered": 0.0,
         "deadline_alerts": {
           "n": 5,
           "verdicts": {
@@ -43,6 +165,19 @@
             "h1b.noid.response::Sofia Reyes": "no answer"
           }
         }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.0,
+        "n_false_green": 0,
+        "n_withheld": 118,
+        "violation_recall": 0.0,
+        "violation_precision": 0.0,
+        "abstention_f1": 0.2979,
+        "n_missing": 114,
+        "n_withheld_answered": 22,
+        "false_green_rate_answered": 0.0
       }
     },
     "nex-agi/nex-n2.5-pro:free::abstain_withheld": {
@@ -59,7 +194,9 @@
         "violation_recall": 0.0,
         "violation_precision": 0.0,
         "abstention_f1": 0.0,
-        "n_missing": 128
+        "n_missing": 128,
+        "n_withheld_answered": 12,
+        "false_green_rate_answered": 0.0
       },
       "strict": {
         "n_scored": 135,
@@ -71,6 +208,8 @@
         "violation_precision": 0.0,
         "abstention_f1": 0.0,
         "n_missing": 123,
+        "n_withheld_answered": 12,
+        "false_green_rate_answered": 0.0,
         "deadline_alerts": {
           "n": 5,
           "verdicts": {
@@ -84,66 +223,155 @@
             "h1b.noid.response::Sofia Reyes": "no answer"
           }
         }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.0,
+        "n_false_green": 0,
+        "n_withheld": 118,
+        "violation_recall": 0.0,
+        "violation_precision": 0.0,
+        "abstention_f1": 0.0,
+        "n_missing": 126,
+        "n_withheld_answered": 12,
+        "false_green_rate_answered": 0.0
       }
     },
     "nvidia/nemotron-3-super-120b-a12b:free::abstain_offered": {
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "variant": "abstain_offered",
-      "n_predictions": 97,
-      "complete": false,
+      "n_predictions": 140,
+      "complete": true,
       "engine": {
         "n_scored": 140,
         "n_violations": 20,
-        "false_green_rate": 0.0167,
-        "n_false_green": 2,
+        "false_green_rate": 0.05,
+        "n_false_green": 6,
         "n_withheld": 120,
-        "violation_recall": 0.15,
-        "violation_precision": 1.0,
-        "abstention_f1": 0.6931,
-        "n_missing": 43
+        "violation_recall": 0.3,
+        "violation_precision": 0.8571,
+        "abstention_f1": 0.8766,
+        "n_missing": 0,
+        "n_withheld_answered": 120,
+        "false_green_rate_answered": 0.05
       },
       "strict": {
         "n_scored": 135,
         "n_violations": 10,
-        "false_green_rate": 0.016,
-        "n_false_green": 2,
+        "false_green_rate": 0.048,
+        "n_false_green": 6,
         "n_withheld": 125,
-        "violation_recall": 0.2,
-        "violation_precision": 1.0,
-        "abstention_f1": 0.7353,
-        "n_missing": 42,
+        "violation_recall": 0.4,
+        "violation_precision": 0.8,
+        "abstention_f1": 0.9114,
+        "n_missing": 0,
+        "n_withheld_answered": 125,
+        "false_green_rate_answered": 0.048,
         "deadline_alerts": {
           "n": 5,
           "verdicts": {
-            "no answer": 1,
-            "fail": 1,
+            "fail": 2,
             "needs_evidence": 3
           },
           "by_pair": {
-            "lca.expiration::I-200-22010-100004": "no answer",
+            "lca.expiration::I-200-22010-100004": "fail",
             "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
             "extension.filing::Hiroshi Yamamoto": "needs_evidence",
             "h1b.rfe.response::Daniel Cho": "needs_evidence",
             "h1b.noid.response::Sofia Reyes": "needs_evidence"
           }
         }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.0339,
+        "n_false_green": 4,
+        "n_withheld": 118,
+        "violation_recall": 0.3,
+        "violation_precision": 0.8571,
+        "abstention_f1": 0.8841,
+        "n_missing": 0,
+        "n_withheld_answered": 118,
+        "false_green_rate_answered": 0.0339
       }
     },
     "nvidia/nemotron-3-super-120b-a12b:free::abstain_withheld": {
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "variant": "abstain_withheld",
-      "n_predictions": 84,
-      "complete": false,
+      "n_predictions": 140,
+      "complete": true,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.175,
+        "n_false_green": 21,
+        "n_withheld": 120,
+        "violation_recall": 0.95,
+        "violation_precision": 0.161,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 120,
+        "false_green_rate_answered": 0.175
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.168,
+        "n_false_green": 21,
+        "n_withheld": 125,
+        "violation_recall": 0.9,
+        "violation_precision": 0.0796,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 125,
+        "false_green_rate_answered": 0.168,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "fail": 5
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "fail",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "fail",
+            "h1b.rfe.response::Daniel Cho": "fail",
+            "h1b.noid.response::Sofia Reyes": "fail"
+          }
+        }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.161,
+        "n_false_green": 19,
+        "n_withheld": 118,
+        "violation_recall": 0.95,
+        "violation_precision": 0.161,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 118,
+        "false_green_rate_answered": 0.161
+      }
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "variant": "abstain_offered",
+      "n_predictions": 140,
+      "complete": true,
       "engine": {
         "n_scored": 140,
         "n_violations": 20,
         "false_green_rate": 0.0667,
         "n_false_green": 8,
         "n_withheld": 120,
-        "violation_recall": 0.4,
-        "violation_precision": 0.1067,
-        "abstention_f1": 0.0,
-        "n_missing": 56
+        "violation_recall": 0.3,
+        "violation_precision": 1.0,
+        "abstention_f1": 0.918,
+        "n_missing": 0,
+        "n_withheld_answered": 120,
+        "false_green_rate_answered": 0.0667
       },
       "strict": {
         "n_scored": 135,
@@ -151,30 +379,105 @@
         "false_green_rate": 0.064,
         "n_false_green": 8,
         "n_withheld": 125,
-        "violation_recall": 0.6,
-        "violation_precision": 0.0822,
-        "abstention_f1": 0.0,
-        "n_missing": 53,
+        "violation_recall": 0.5,
+        "violation_precision": 1.0,
+        "abstention_f1": 0.9512,
+        "n_missing": 0,
+        "n_withheld_answered": 125,
+        "false_green_rate_answered": 0.064,
         "deadline_alerts": {
           "n": 5,
           "verdicts": {
-            "fail": 2,
-            "no answer": 3
+            "pass": 1,
+            "fail": 1,
+            "needs_evidence": 3
           },
           "by_pair": {
-            "lca.expiration::I-200-22010-100004": "fail",
-            "h1b.petition.expiry::Hiroshi Yamamoto": "no answer",
-            "extension.filing::Hiroshi Yamamoto": "fail",
-            "h1b.rfe.response::Daniel Cho": "no answer",
-            "h1b.noid.response::Sofia Reyes": "no answer"
+            "lca.expiration::I-200-22010-100004": "pass",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "needs_evidence",
+            "h1b.rfe.response::Daniel Cho": "needs_evidence",
+            "h1b.noid.response::Sofia Reyes": "needs_evidence"
           }
         }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.0508,
+        "n_false_green": 6,
+        "n_withheld": 118,
+        "violation_recall": 0.3,
+        "violation_precision": 1.0,
+        "abstention_f1": 0.9256,
+        "n_missing": 0,
+        "n_withheld_answered": 118,
+        "false_green_rate_answered": 0.0508
       }
     },
-    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered": {
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_withheld": {
       "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "variant": "abstain_withheld",
+      "n_predictions": 140,
+      "complete": true,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.2167,
+        "n_false_green": 26,
+        "n_withheld": 120,
+        "violation_recall": 0.8,
+        "violation_precision": 0.1455,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 120,
+        "false_green_rate_answered": 0.2167
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.208,
+        "n_false_green": 26,
+        "n_withheld": 125,
+        "violation_recall": 0.9,
+        "violation_precision": 0.0833,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 125,
+        "false_green_rate_answered": 0.208,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "pass": 3,
+            "fail": 2
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "pass",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "fail",
+            "h1b.rfe.response::Daniel Cho": "pass",
+            "h1b.noid.response::Sofia Reyes": "pass"
+          }
+        }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.2034,
+        "n_false_green": 24,
+        "n_withheld": 118,
+        "violation_recall": 0.8,
+        "violation_precision": 0.1455,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 118,
+        "false_green_rate_answered": 0.2034
+      }
+    },
+    "nvidia/nemotron-3.5-lightning:free::abstain_offered": {
+      "model": "nvidia/nemotron-3.5-lightning:free",
       "variant": "abstain_offered",
-      "n_predictions": 118,
+      "n_predictions": 92,
       "complete": false,
       "engine": {
         "n_scored": 140,
@@ -182,10 +485,12 @@
         "false_green_rate": 0.0417,
         "n_false_green": 5,
         "n_withheld": 120,
-        "violation_recall": 0.25,
-        "violation_precision": 1.0,
-        "abstention_f1": 0.8584,
-        "n_missing": 22
+        "violation_recall": 0.05,
+        "violation_precision": 0.5,
+        "abstention_f1": 0.7662,
+        "n_missing": 48,
+        "n_withheld_answered": 85,
+        "false_green_rate_answered": 0.0588
       },
       "strict": {
         "n_scored": 135,
@@ -193,69 +498,334 @@
         "false_green_rate": 0.04,
         "n_false_green": 5,
         "n_withheld": 125,
-        "violation_recall": 0.4,
-        "violation_precision": 1.0,
-        "abstention_f1": 0.8908,
-        "n_missing": 21,
+        "violation_recall": 0.1,
+        "violation_precision": 0.5,
+        "abstention_f1": 0.7476,
+        "n_missing": 44,
+        "n_withheld_answered": 85,
+        "false_green_rate_answered": 0.0588,
         "deadline_alerts": {
           "n": 5,
           "verdicts": {
             "pass": 1,
-            "fail": 1,
-            "no answer": 1,
-            "needs_evidence": 2
+            "no answer": 4
           },
           "by_pair": {
             "lca.expiration::I-200-22010-100004": "pass",
-            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "no answer",
             "extension.filing::Hiroshi Yamamoto": "no answer",
-            "h1b.rfe.response::Daniel Cho": "needs_evidence",
-            "h1b.noid.response::Sofia Reyes": "needs_evidence"
+            "h1b.rfe.response::Daniel Cho": "no answer",
+            "h1b.noid.response::Sofia Reyes": "no answer"
           }
         }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.0254,
+        "n_false_green": 3,
+        "n_withheld": 118,
+        "violation_recall": 0.05,
+        "violation_precision": 0.5,
+        "abstention_f1": 0.7739,
+        "n_missing": 48,
+        "n_withheld_answered": 83,
+        "false_green_rate_answered": 0.0361
       }
     },
-    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_withheld": {
-      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "nvidia/nemotron-3.5-lightning:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3.5-lightning:free",
       "variant": "abstain_withheld",
-      "n_predictions": 116,
+      "n_predictions": 68,
       "complete": false,
       "engine": {
         "n_scored": 140,
         "n_violations": 20,
-        "false_green_rate": 0.1333,
-        "n_false_green": 16,
+        "false_green_rate": 0.2083,
+        "n_false_green": 25,
         "n_withheld": 120,
-        "violation_recall": 0.7,
-        "violation_precision": 0.1429,
+        "violation_recall": 0.5,
+        "violation_precision": 0.2381,
         "abstention_f1": 0.0,
-        "n_missing": 24
+        "n_missing": 72,
+        "n_withheld_answered": 57,
+        "false_green_rate_answered": 0.4386
       },
       "strict": {
         "n_scored": 135,
         "n_violations": 10,
-        "false_green_rate": 0.128,
-        "n_false_green": 16,
+        "false_green_rate": 0.2,
+        "n_false_green": 25,
         "n_withheld": 125,
-        "violation_recall": 0.7,
-        "violation_precision": 0.0729,
+        "violation_recall": 0.4,
+        "violation_precision": 0.1026,
         "abstention_f1": 0.0,
-        "n_missing": 23,
+        "n_missing": 70,
+        "n_withheld_answered": 60,
+        "false_green_rate_answered": 0.4167,
         "deadline_alerts": {
           "n": 5,
           "verdicts": {
-            "no answer": 1,
-            "fail": 2,
-            "pass": 2
+            "no answer": 2,
+            "fail": 3
           },
           "by_pair": {
             "lca.expiration::I-200-22010-100004": "no answer",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "no answer",
+            "h1b.rfe.response::Daniel Cho": "fail",
+            "h1b.noid.response::Sofia Reyes": "fail"
+          }
+        }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.2119,
+        "n_false_green": 25,
+        "n_withheld": 118,
+        "violation_recall": 0.5,
+        "violation_precision": 0.2381,
+        "abstention_f1": 0.0,
+        "n_missing": 70,
+        "n_withheld_answered": 57,
+        "false_green_rate_answered": 0.4386
+      }
+    },
+    "poolside/laguna-xs-2.1:free::abstain_offered": {
+      "model": "poolside/laguna-xs-2.1:free",
+      "variant": "abstain_offered",
+      "n_predictions": 124,
+      "complete": false,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.125,
+        "n_false_green": 15,
+        "n_withheld": 120,
+        "violation_recall": 0.2,
+        "violation_precision": 0.6667,
+        "abstention_f1": 0.8545,
+        "n_missing": 16,
+        "n_withheld_answered": 111,
+        "false_green_rate_answered": 0.1351
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.12,
+        "n_false_green": 15,
+        "n_withheld": 125,
+        "violation_recall": 0.3,
+        "violation_precision": 0.6,
+        "abstention_f1": 0.8571,
+        "n_missing": 13,
+        "n_withheld_answered": 113,
+        "false_green_rate_answered": 0.1327,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "fail": 1,
+            "no answer": 3,
+            "needs_evidence": 1
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "fail",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "no answer",
+            "extension.filing::Hiroshi Yamamoto": "needs_evidence",
+            "h1b.rfe.response::Daniel Cho": "no answer",
+            "h1b.noid.response::Sofia Reyes": "no answer"
+          }
+        }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.1102,
+        "n_false_green": 13,
+        "n_withheld": 118,
+        "violation_recall": 0.2,
+        "violation_precision": 0.6667,
+        "abstention_f1": 0.8624,
+        "n_missing": 16,
+        "n_withheld_answered": 109,
+        "false_green_rate_answered": 0.1193
+      }
+    },
+    "poolside/laguna-xs-2.1:free::abstain_withheld": {
+      "model": "poolside/laguna-xs-2.1:free",
+      "variant": "abstain_withheld",
+      "n_predictions": 128,
+      "complete": false,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.4333,
+        "n_false_green": 52,
+        "n_withheld": 120,
+        "violation_recall": 0.9,
+        "violation_precision": 0.2432,
+        "abstention_f1": 0.0,
+        "n_missing": 12,
+        "n_withheld_answered": 108,
+        "false_green_rate_answered": 0.4815
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.416,
+        "n_false_green": 52,
+        "n_withheld": 125,
+        "violation_recall": 0.8,
+        "violation_precision": 0.1159,
+        "abstention_f1": 0.0,
+        "n_missing": 12,
+        "n_withheld_answered": 113,
+        "false_green_rate_answered": 0.4602,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "fail": 5
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "fail",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "fail",
+            "h1b.rfe.response::Daniel Cho": "fail",
+            "h1b.noid.response::Sofia Reyes": "fail"
+          }
+        }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.4237,
+        "n_false_green": 50,
+        "n_withheld": 118,
+        "violation_recall": 0.9,
+        "violation_precision": 0.2432,
+        "abstention_f1": 0.0,
+        "n_missing": 12,
+        "n_withheld_answered": 106,
+        "false_green_rate_answered": 0.4717
+      }
+    },
+    "qwen/qwen3.8-27b:free::abstain_offered": {
+      "model": "qwen/qwen3.8-27b:free",
+      "variant": "abstain_offered",
+      "n_predictions": 140,
+      "complete": true,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.1417,
+        "n_false_green": 17,
+        "n_withheld": 120,
+        "violation_recall": 0.35,
+        "violation_precision": 0.875,
+        "abstention_f1": 0.867,
+        "n_missing": 0,
+        "n_withheld_answered": 120,
+        "false_green_rate_answered": 0.1417
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.136,
+        "n_false_green": 17,
+        "n_withheld": 125,
+        "violation_recall": 0.5,
+        "violation_precision": 0.8333,
+        "abstention_f1": 0.9021,
+        "n_missing": 0,
+        "n_withheld_answered": 125,
+        "false_green_rate_answered": 0.136,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "fail": 2,
+            "needs_evidence": 3
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "fail",
+            "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
+            "extension.filing::Hiroshi Yamamoto": "needs_evidence",
+            "h1b.rfe.response::Daniel Cho": "needs_evidence",
+            "h1b.noid.response::Sofia Reyes": "needs_evidence"
+          }
+        }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.1271,
+        "n_false_green": 15,
+        "n_withheld": 118,
+        "violation_recall": 0.35,
+        "violation_precision": 0.875,
+        "abstention_f1": 0.8745,
+        "n_missing": 0,
+        "n_withheld_answered": 118,
+        "false_green_rate_answered": 0.1271
+      }
+    },
+    "qwen/qwen3.8-27b:free::abstain_withheld": {
+      "model": "qwen/qwen3.8-27b:free",
+      "variant": "abstain_withheld",
+      "n_predictions": 140,
+      "complete": true,
+      "engine": {
+        "n_scored": 140,
+        "n_violations": 20,
+        "false_green_rate": 0.4167,
+        "n_false_green": 50,
+        "n_withheld": 120,
+        "violation_recall": 0.85,
+        "violation_precision": 0.1954,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 120,
+        "false_green_rate_answered": 0.4167
+      },
+      "strict": {
+        "n_scored": 135,
+        "n_violations": 10,
+        "false_green_rate": 0.4,
+        "n_false_green": 50,
+        "n_withheld": 125,
+        "violation_recall": 0.9,
+        "violation_precision": 0.1071,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 125,
+        "false_green_rate_answered": 0.4,
+        "deadline_alerts": {
+          "n": 5,
+          "verdicts": {
+            "fail": 3,
+            "pass": 2
+          },
+          "by_pair": {
+            "lca.expiration::I-200-22010-100004": "fail",
             "h1b.petition.expiry::Hiroshi Yamamoto": "fail",
             "extension.filing::Hiroshi Yamamoto": "fail",
             "h1b.rfe.response::Daniel Cho": "pass",
             "h1b.noid.response::Sofia Reyes": "pass"
           }
         }
+      },
+      "audited": {
+        "n_scored": 138,
+        "n_violations": 20,
+        "false_green_rate": 0.4068,
+        "n_false_green": 48,
+        "n_withheld": 118,
+        "violation_recall": 0.85,
+        "violation_precision": 0.1954,
+        "abstention_f1": 0.0,
+        "n_missing": 0,
+        "n_withheld_answered": 118,
+        "false_green_rate_answered": 0.4068
       }
     }
   }

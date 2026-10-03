@@ -153,7 +153,7 @@ for t in ("Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Figure 1"):
     claim(t in paper, f"{t} is named in the paper")
 claim("if the result is null" in paper,
       "paper commits in advance to reporting a null result")
-claim("[\u2026]" in paper or "[…]" in paper, "empty result cells are marked as placeholders")
+claim("[\u2026]" not in paper and "[…]" not in paper, "no empty result cell remains")
 _bad = _re.findall(r"Section \d+", paper)
 _maxsec = max(int(x.split()[1]) for x in _bad)
 claim(_maxsec <= 11, f"no cross-reference points past section 11 (max {_maxsec})")
@@ -283,8 +283,9 @@ for _key, _set, _phrase in (("unsupported_violation", _dw, "({} to {} of the 120
     claim(_t in paper, f"decomposition: {_t}")
 
 _ec = [e["by_evidence_class"] for k, e in _an.items() if k in _fin]
-claim(all(b["document"]["fgr"] > b["field"]["fgr"] for b in _ec),
-      "document FGR > field FGR in every evaluated run")
+_docwins = sum(b["document"]["fgr"] > b["field"]["fgr"] for b in _ec)
+claim(f"{_docwins} of the {len(_ec)} runs" in paper.replace("\n", " "),
+      f"document FGR > field FGR in {_docwins} of {len(_ec)} runs, as the paper states")
 _eo = [e["by_evidence_class"] for k, e in _an.items() if k in _fin and k.endswith("offered")]
 _ff = sum(b["field"]["n_false_green"] for b in _eo); _fn = sum(b["field"]["n_withheld"] for b in _eo)
 _df = sum(b["document"]["n_false_green"] for b in _eo); _dn = sum(b["document"]["n_withheld"] for b in _eo)
@@ -302,15 +303,27 @@ claim(all("n_off_schema" in f and f["n_off_schema"] == 0
       "no off-schema abstention in any finished run")
 _drops = [v["engine"]["false_green_rate"] - v["audited"]["false_green_rate"]
           for k, v in _vw.items() if k in _fin and "audited" in v]
-claim(all(0.005 <= d <= 0.02 for d in _drops), "audited view lowers every FGR by about 0.01-0.02")
+_pos = [d for d in _drops if d > 0]
+claim(f"by {min(_pos):.3f} to {max(_pos):.3f} in {len(_pos)}" in paper.replace("\n", " "),
+      f"audited view lowers FGR by {min(_pos):.3f}-{max(_pos):.3f} in {len(_pos)} runs")
+claim(all(d > 0 for d in _drops) or "rises by" in paper, "any audited-view rise is disclosed")
+
+_sv = max(abs(v["engine"]["false_green_rate"] - v["strict"]["false_green_rate"])
+          for k, v in _vw.items() if k in _fin)
+claim(f"by at most {_sv:.3f}" in paper, f"strict view shifts FGR by at most {_sv:.3f}")
 
 print("\nhonesty checks")
-claim("[TO RUN]" in paper, "unrun experiments are marked, not estimated")
-claim(paper.count("[TO RUN]") >= 3, "each unrun section is marked")
-claim("have not yet been run" in paper or "has not been run" in paper or "not been conducted" in paper,
-      "paper states plainly that LM experiments are unrun")
+claim("[TO RUN]" not in paper and "`[…]`" not in paper, "no unfilled placeholder remains")
+claim("have not yet been run" not in paper and "has not been run" not in paper,
+      "paper no longer claims the LM experiments are unrun")
+_t2 = paper[paper.index("BEGIN GENERATED: table2-main"):paper.index("END GENERATED: table2-main")]
+claim(all(f"`{k.split('/')[-1].split('::')[0].replace(':free', '')}`" in _t2
+          for k in _fin if k.endswith("offered")), "Table 2 has a row for every finished offered run")
+_wo = [v["engine"]["false_green_rate"] for v in _wit.values()]
+claim(f"to {min(_wo):.3f} to {max(_wo):.3f}" in paper.replace("\n", " "),
+      f"abstract: withheld FGR range {min(_wo):.3f}-{max(_wo):.3f}")
 claim(results["note"].startswith("Trivial baselines only"), "results.json disclaims LM results")
-claim("No language-model results are reported" in readme, "README disclaims LM results")
+claim("Language-model results" in readme and "0.042 to 0.142" in readme, "README reports LM results")
 for forbidden in ["250-rule", "237-rule", "612 cases", "768 checks"]:
     claim(forbidden not in paper, f"paper avoids unverified figure '{forbidden}'")
 claim("not an independent baseline" in paper or "do not" in paper and "acceptance gate" in paper,

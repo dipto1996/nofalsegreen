@@ -1,0 +1,485 @@
+Weellsellsellsells another
+.,,,,, let me, hiro Yamamoto everyone the worker: Northwind Robotics, Inc. (not the employer: Northwind Robotics, Inc.
+
+---
+
+fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match	needs_evidence	-
+fdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid	needs_evidence	-
+fdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand	needs_evidence	-
+h1b.i94.expiration::Anita Desai	needs_evidence	-
+h1b.i94.expiration::Daniel Cho	needs_evidence	-
+h1b.i94.expiration::Lucia Ferreira	needs_evidence	-
+h1b.i94.expiration::Mei Tanaka	needs_evidence	-
+h1b.i94.expiration::Omar Farouk	needs_evidence	-
+h1b.i94.expiration::Sofia Reyes	needs_evidence	-
+h1b.i94.expiration::Yuki Sato	needs_evidence	-
+h1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status	needs_evidence	-
+h1b.material_change.soc::Omar Farouk	needs_evidence	-
+
+---
+
+Let me analyze each obligation pair against the data exports. I need to evaluate each one carefully, checking what information is available and what verdict to assign.
+
+First, let me understand the evaluation date: 2026-06-29.
+
+Let me go through each pair one by one.
+
+### 1. h1b.material_change.worksite::Sofia Reyes
+
+This checks if moving a worker to a worksite outside the existing MSA/area of intended employment requires a new LCA/amended petition.
+
+From the data:
+- Sofia Reyes is NWR-1006 in hris_roster_export
+- In i9_record_export, her start_date is 2022-10-03, section2_signed_date is 2022-10-05
+- In cms_case_export, NWR-2025-0106 is for Sofia Reyes, H-1B petition, opened 2022-08-03, valid_from 2025-10-01, valid_to 2028-09-30
+- In lca_export, I-200-22010-100006 is for Sofia Reyes, H-1B, BEGIN_DATE 2025-10-01, END_DATE 2028-09-30, WORKSITE_STATE TX, WORKSITE_CITY Austin
+- In payroll_register, Sofia Reyes has work_location "Boston, MA" for the pay periods
+
+Wait, let me check more carefully. In the payroll_register, Sofia Reyes (NWR-1006) has work_location "Boston, MA". But in the LCA and CMS data, her worksite is Austin, TX.
+
+Let me check the hris_roster_export for Sofia Reyes:
+- NWR-1006, Sofia, Reyes, hireDate 2022-10-03, worksite not directly shown but we have location info
+- Actually, the hris data shows city=Austin, state=MA... wait no, let me re-read.
+
+From hris_roster_export:
+b1000000-0000-4000-8000-000000000006,NWR-1006,Sofia,Reyes,...,city,Boston,state,MA,zipcode,02109,...
+
+So Sofia's worksite in the HR system is Boston, MA.
+
+From LCA export I-200-22010-100006:
+- WORKSITE_CITY: Austin
+- WORKSITE_STATE: TX
+- BEGIN_DATE: 2025-10-01
+- END_DATE: 2028-09-30
+
+From CMS export NWR-2025-0106:
+- matter_status: Approved
+- opened_date: 2022-08-03
+- valid_from: 2025-10-01
+- valid_to: 2028-09-30
+
+So there's a discrepancy: The LCA shows worksite Austin, TX with validity 2025-10-01 to 2028-09-30, and the CMS case shows the same. But the HR roster shows Boston, MA as the worksite/city, and the payroll shows work_location "Boston, MA".
+
+For the material change check, I need to know:
+- approvedPetition.worksites[] (with MSA)
+- newWorksite.address + derived MSA
+- newLCA.certified (bool) + certifiedDate
+- moveEffectiveDate
+- amendedPetition.filedDate
+- shortTermPlacement (bool, days)
+
+The obligation is about moving to a worksite outside the existing MSA/area of intended employment. 
+
+Looking at the data, I see that Sofia Reyes has:
+- LCA worksite: Austin, TX
+- HR worksite/city: Boston, MA
+- Payroll work_location: Boston, MA
+
+This suggests she may have been moved to Boston, MA. But I need to check if this is outside the existing MSA/area of intended employment.
+
+The LCA has WORKSITE_CITY: Austin, WORKSITE_STATE: TX. The HR system shows Boston, MA. These are different cities/states.
+
+However, I need to determine if this is a "material change" requiring an amended petition. The key question is whether the new worksite (Boston, MA) is outside the existing MSA/area of intended employment.
+
+But I don't have explicit MSA information in the data. The LCA has worksite city/county/state, but no MSA field. 
+
+Also, I need to check if there's an amended petition filed before the worker began at the new location.
+
+Looking at the data more carefully:
+- The LCA I-200-22010-100006 has BEGIN_DATE 2025-10-01, END_DATE 2028-09-30
+- But Sofia was hired 2022-10-03 according to HR
+- The CMS case NWR-2025-0106 was opened 2022-08-03, valid_from 2025-10-01
+
+Wait, there's something odd. The LCA BEGIN_DATE is 2025-10-01, but Sofia was hired 2022-10-03. Let me check the CMS case again.
+
+NWR-2025-0106: opened_date 2022-08-03, valid_from 2025-10-01, valid_to 2028-09-30
+
+Hmm, the valid_from is 2025-10-01, which is in the future relative to when the case was opened (2022-08-03). But today is 2026-06-29, so 2025-10-01 is in the past.
+
+Actually, looking at the hris_roster, Sofia's hireDate is 2022-10-03, and her start_date in I-9 is 2022-10-03. But the LCA BEGIN_DATE is 2025-10-01, which is almost 3 years after her hire date. That seems odd.
+
+Wait, let me re-read the LCA data. I-200-22010-100006:
+- RECEIVED_DATE: 2022-09-05
+- DECISION_DATE: 2022-09-20
+- ORIGINAL_CERT_DATE: 2022-09-20
+- BEGIN_DATE: 2025-10-01
+- END_DATE: 2028-09-30
+
+So the LCA was certified in 2022 but has a BEGIN_DATE of 2025-10-01. This might be because the H-1B petition starts later.
+
+Actually, looking at the CMS case NWR-2025-0106:
+- opened_date: 2022-08-03
+- filing_date: 2022-09-15
+- decision_date: 2022-11-22
+- valid_from: 2025-10-01
+- valid_to: 2028-09-30
+
+So the H-1B petition was filed in 2022 but has a validity period starting 2025-10-01. This is unusual but possible if it's a cap-exempt or certain type of filing.
+
+Now, for the material change check: I need to determine if Sofia Reyes moved to a worksite outside the existing MSA/area of intended employment.
+
+From the data:
+- LCA worksite: Austin, TX
+- HR worksite/city: Boston, MA
+- Payroll work_location: Boston, MA
+
+This suggests she moved from Austin, TX to Boston, MA. Austin and Boston are clearly different cities in different states. Without explicit MSA information, I need to determine if this is outside the "existing MSA/area of intended employment."
+
+The obligation states: "Moving the worker to a worksite outside the existing MSA/area of intended employment (requiring a new LCA) is a MATERIAL CHANGE requiring an amended petition (Matter of Simeio Solutions)."
+
+The key question is: Is Boston, MA outside the existing MSA/area of intended employment for Sofia Reyes?
+
+Since the LCA shows worksite Austin, TX, and the new worksite is Boston, MA, these are different locations. Without MSA definitions, I would assume they are different areas. But I need to be careful.
+
+Actually, the obligation requires: "New worksite OUTSIDE the existing MSA/area of intended employment AND requiring a new LCA → amended petition, filed BEFORE the worker begins at the new location."
+
+I need to check:
+1. Is the new worksite (Boston, MA) outside the existing MSA/area of intended employment?
+2. Was an amended petition filed before the worker began at the new location?
+
+From the data, I can see:
+- The LCA has worksite Austin, TX
+- The HR system shows Boston, MA as the worksite
+- There's no explicit mention of an amended petition
+
+But I don't have enough information to determine:
+- What the "existing MSA/area of intended employment" is
+- Whether Boston, MA is outside that MSA
+- Whether an amended petition was filed
+- The moveEffectiveDate
+- Whether this is a short-term placement
+
+Actually, let me re-read the obligation more carefully. The check is: "Moving the worker to a worksite outside the existing MSA/area of intended employment (requiring a new LCA) is a MATERIAL CHANGE requiring an amended petition (Matter of Simeio Solutions)."
+
+The threshold: "New worksite OUTSIDE the existing MSA/area of intended employment AND requiring a new LCA → amended petition, filed BEFORE the worker begins at the new location. Within-MSA: posting only."
+
+So I need to determine:
+1. Is the new worksite outside the existing MSA/area of intended employment?
+2. Does it require a new LCA?
+3. Was an amended petition filed before the worker began at the new location?
+
+From the data:
+- The LCA shows worksite Austin, TX
+- The HR/payroll shows Boston, MA as the worksite
+- There's no explicit amended petition data
+
+I think I need to evaluate this as "needs_evidence" because I don't have the specific MSA information, the moveEffectiveDate, or whether an amended petition was filed.
+
+Wait, but let me think about this differently. The obligation is about whether a material change occurred. The data shows Sofia Reyes has worksite Boston, MA in the HR system, but the LCA shows Austin, TX. This suggests a change of worksite.
+
+But without MSA definitions and without knowing if an amended petition was filed, I can't definitively say pass or fail. I think this might be "needs_evidence" because I lack specific information about the MSA, amended petition filing, etc.
+
+Actually, let me reconsider. The question is whether I can evaluate this from the export data. The export data shows:
+- LCA worksite: Austin, TX
+- HR worksite/city: Boston, MA
+- Payroll work_location: Boston, MA
+
+This clearly indicates a worksite change from Austin, TX to Boston, MA. But I don't have:
+- MSA definitions
+- Whether an amended petition was filed
+- The move effective date
+- Whether a new LCA was certified
+
+Given the instruction: "The distinction between `pass` and `needs_evidence` is the one that matters most. `pass` asserts you checked and the obligation is met. `needs_evidence` says the data needed to check was never provided."
+
+I think for this obligation, I need specific information about MSAs, amended petition filing dates, etc., which aren't in the exports. So this might be "needs_evidence."
+
+But wait, let me check if there's any indication in the data. The LCA I-200-22010-100006 has BEGIN_DATE 2025-10-01, END_DATE 2028-09-30. If Sofia moved to Boston after this date, and no amended petition was filed, that would be a violation.
+
+But I don't have the moveEffectiveDate. The payroll data shows her work_location as Boston, MA for the 2025-q2 pay periods, which suggests she's been working there.
+
+Actually, I think I need to be more careful. Let me look at what information I have and what I need.
+
+For h1b.material_change.worksite, I need:
+- approvedPetition.worksites[] (with MSA)
+- newWorksite.address + derived MSA
+- newLCA.certified (bool) + certifiedDate
+- moveEffectiveDate
+- amendedPetition.filedDate
+- shortTermPlacement (bool, days)
+
+From the exports, I have:
+- LCA worksite: Austin, TX (from lca_export)
+- HR worksite/city: Boston, MA (from hris_roster_export)
+- Payroll work_location: Boston, MA (from payroll_register)
+
+But I don't have:
+- MSA definitions
+- Whether a new LCA was certified
+- moveEffectiveDate
+- amendedPetition.filedDate
+
+So I think this is "needs_evidence" because I lack the specific information needed to determine if this is a material change requiring an amended petition.
+
+Actually, wait. Let me re-read the obligation description again:
+
+"check: Moving the worker to a worksite outside the existing MSA/area of intended employment (requiring a new LCA) is a MATERIAL CHANGE requiring an amended petition (Matter of Simeio Solutions)."
+"threshold: New worksite OUTSIDE the existing MSA/area of intended employment AND requiring a new LCA → amended petition, filed BEFORE the worker begins at the new location. Within-MSA: posting only."
+
+The key question is whether the new worksite is outside the existing MSA/area of intended employment. Without MSA definitions, I can't determine this definitively. But Austin, TX and Boston, MA are in different states, so they're likely in different MSAs.
+
+However, I still lack:
+- Whether an amended petition was filed
+- The moveEffectiveDate
+- Whether a new LCA was certified
+
+So I think this is "needs_evidence."
+
+Actually, let me think about this more carefully. The instruction says: "Only facts about this employer and its workers must come from the exports." And: "the exports do not contain the firm-specific information needed to decide this obligation for this entity, so it cannot be evaluated either way."
+
+I think for h1b.material_change.worksite, I need specific MSA information, amended petition filing dates, etc., which aren't in the exports. So this should be "needs_evidence."
+
+But let me check the other pairs first, and then come back to this.
+
+### 2. h1b.max_stay.six_year_limit::Anita Desai
+
+This checks if total H-1B (+L) time ≤6 years; beyond 6 requires either a 1-year-abroad reset or an AC21 7th-year exemption.
+
+Threshold: 6 years (2,190 days) aggregate H-1B + L physical presence. Time >24h physically outside the U.S. during validity is NOT counted and is recapturable. Reset to a fresh 6 years requires 1 continuous year abroad.
+
+Information needed: all prior H-1B and L petition validity periods + entry/exit history (I-94 travel), daysPhysicallyOutsideUS per validity, anyContinuousYearAbroad (dates), proposedExtension.endDate.
+
+From the data for Anita Desai (NWR-1009):
+
+In hris_roster_export:
+- NWR-1009, Anita, Desai, dateOfBirth 1990-09-09, hireDate 2023-07-17, visaType H-1B, passportNumber P1000009, status Active
+
+In cms_case_export:
+- NWR-2025-0109, Anita, Desai, H-1B Petition, Approved, opened_date 2023-06-17, valid_from 2025-11-01, valid_to 2028-10-31
+
+In i9_record_export:
+- NWR-1009, Anita, Desai, start_date 2023-07-17, section1_signed_date 2023-07-17, section2_signed_date 2023-07-19
+
+In lca_export:
+- I-200-23010-100009, H-1B, CERTIFIED, BEGIN_DATE 2025-11-01, END_DATE 2028-10-31, WORKSITE_CITY Austin, WORKSITE_STATE TX
+
+So Anita Desai has:
+- H-1B petition valid from 2025-11-01 to 2028-10-31 (3 years)
+- Hired 2023-07-17
+- Visa type H-1B
+
+But I need to calculate her total H-1B time. The evaluation date is 2026-06-29.
+
+Let me see what H-1B time she has accumulated.
+
+From the CMS data, she has one H-1B petition NWR-2025-0109 with validity 2025-11-01 to 2028-10-31.
+
+But she was hired 2023-07-17. Did she have H-1B status before this petition? The CMS data only shows this one petition.
+
+Looking at the hris_roster, her visaType is H-1B and passportNumber is P1000009. The I-9 shows she started 2023-07-17 with a Foreign Passport with Form I-94 (H-1B).
+
+But I don't have information about her prior H-1B time before this current petition. The CMS data only shows one petition.
+
+Actually, 2026-06-29, 14:00:00
+
+---
+
+We are asked to evaluate each of the 12 pairs against the data in the exports. We need to output one line per pair in the format:
+
+<pair_id>	<verdict>	<evidence_field_or_dash>
+
+Verdicts: pass, fail, needs_evidence, unmonitored.
+
+We have the obligations and the pairs. Let's parse each pair and the obligations.
+
+First, list the pairs:
+
+1. h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo
+2. h1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo
+3. h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense
+4. h1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty
+5. h1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear
+6. h1b.wage.payment.start-clock::Anita Desai
+7. h1b.wage.payment.start-clock::Daniel Cho
+8. h1b.wage.payment.start-clock::Lucia Ferreira
+9. h1b.wage.payment.start-clock::Omar Farouk
+10. h1b.wage.payment.start-clock::Sofia Reyes
+11. h1b.wage.payment.start-clock::Yuki Sato
+12. h1b.wage.prevailing.pwd-validity::pw:15-1252:L2
+
+Now, we need to evaluate each against the data in the exports. The exports are: hris_roster_export, lca_export, payroll_register.
+
+We need to understand each obligation and what information is needed, and then see if the exports contain that information.
+
+Let's first understand the obligations:
+
+- h1b.wage.actual.memo: check: Retains a memo/documentation describing the actual-wage system and how the H-1B wage relates to others. threshold: Existence + adequacy of the actual-wage memo. information needed: Boolean: actual-wage memo present; date; whether it identifies the wage-setting factors and ties to payroll.
+
+- h1b.wage.deductions.prohibited.business-expense: check: Employer H-1B business expenses (LCA/petition attorney fees, the ACWIA fee
+fee
+
+---
+
+h1b.wage.prevailing.pwd-validity::pw:15-1252:L4	needs_evidence	dash
+h1b.wage.prevailing.pwd-validity::pw:17-2061:L3	needs_evidence	dash
+h1b.wage.prevailing.pwd-validity::pw:17-2141:L3	needs_evidence	dash
+h1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource	needs_evidence	dash
+h1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource	needs_evidence	dash
+h1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource	needs_evidence	dash
+h1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource	needs_evidence	dash
+h1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers	needs_evidence	dash
+i129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026	unmonitored	dash
+i9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window	needs_evidence	dash
+i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list	fail	list_a_doc_expiry
+i9.noi.production-window::deadline-gap:i9.noi.production-window	needs_evidence	dash
+
+---
+
+i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse	pass	list_a_doc_title
+i9.receipts.rule::i9-fieldgap:i9.receipts.rule	needs_evidence	-
+i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure	needs_evidence	-
+i9.retention.storage_and_production::Anita Desai	needs_evidence	-
+i9.retention.storage_and_production::Helena Voss	needs_evidence	-
+i9.retention.storage_and_production::Hiroshi Yamamoto	needs_evidence	-
+i9.retention.storage_and_production::Mei Tanaka	needs_evidence	-
+i9.retention.storage_and_production::Omar Farouk	needs_evidence	-
+i9.retention.storage_and_production::Ravi Anand	needs_evidence	-
+i9.retention.storage_and_production::Sofia Reyes	needs_evidence	-
+i9.retention.storage_and_production::Yuki Sato	needs_evidence	-
+i9.reverification.deadline::Lucia Ferreira	pass	supplement_b_completed_date
+
+---
+
+i9.reverification.noreverify::Helena Voss	needs_evidence	dash
+i9.reverification.unfair::i9-prohibited:i9.reverification.unfair	needs_evidence	dash
+i9.section1.signature::i9-fieldgap:i9.section1.signature	pass	section1_signed_date
+i9.section1.statusbox::i9-fieldgap:i9.section1.statusbox	needs_evidence	dash
+i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature	pass	section2_signed_date
+i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam	pass	list_a_doc_title
+i9.section2.timeliness::Ravi Anand	fail	section2_signed_date
+i9.technical.cure-window::deadline-gap:i9.technical.cure-window	needs_evidence	dash
+lca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers	needs_evidence	dash
+lca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers	needs_evidence	dash
+lca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment	needs_evidence	dash
+lca.expiration::I-200-22010-100004	pass	LCA_BEGIN_DATE_END_DATE
+
+---
+
+lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker	needs_evidence	- 
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting	needs_evidence	- 
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting	needs_evidence	- 
+lca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting	needs_evidence	- 
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting	needs_evidence	- 
+lca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting	needs_evidence	- 
+lca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting	needs_evidence	- 
+lca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file	needs_evidence	- 
+lca.retention::retention:I-200-22010-100004	needs_evidence	- 
+lca.retention::retention:I-200-22010-100007	needs_evidence	- 
+lca.retention::retention:I-200-23010-100002	needs_evidence	- 
+lca.retention::retention:I-200-23010-100009	needs_evidence	- 
+
+---
+
+lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice	needs_evidence	dash
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004	needs_evidence	dash
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006	needs_evidence	dash
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007	needs_evidence	dash
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001	needs_evidence	dash
+lca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003	needs_evidence	dash
+lca.wage.required_wage_greater_of::Daniel Cho	needs_evidence	dash
+lca.wage.required_wage_greater_of::Hiroshi Yamamoto	needs_evidence	dash
+lca.wage.required_wage_greater_of::Lucia Ferreira	needs_evidence	dash
+lca.wage.required_wage_greater_of::Mei Tanaka	needs_evidence	dash
+lca.wage.start_clock::Anita Desai	needs_evidence	dash
+lca.wage.start_clock::Hiroshi Yamamoto	needs_evidence	dash
+
+---
+
+We are asked to evaluate each pair against the data actually present in the exports. The evaluation date is 2026-06-29. We need to output one line per pair in format: <pair_id>	<verdict>	<evidence_field_or_dash>
+
+We have 12 pairs. Let's parse each pair and the obligations, and see what data we have.
+
+First, list the pairs:
+
+1. lca.wage.start_clock::Lucia Ferreira	[worker: Lucia Ferreira]
+2. lca.wage.start_clock::Omar Farouk	[worker: Omar Farouk]
+3. lca.wage.start_clock::Ravi Anand	[worker: Ravi Anand]
+4. lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	[employer: i129-gap:lca.wagelevel.consistency.education]
+5. lca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience	[employer: i129-gap:lca.wagelevel.consistency.experience]
+6. lca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills	[employer: i129-gap:lca.wagelevel.consistency.specialskills]
+7. lca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory	[employer: i129-gap:lca.wagelevel.consistency.supervisory]
+8. lca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area	[wage_cohort: lca:I-200-22010-100006:area]
+9. lca.worksite.short_term_placement::lca:I-200-22010-100006:stp	[wage_cohort: lca:I-200-22010-100006:stp]
+10. paf.assembly.one_working_day::paf-ready:I-200-21010-100005	[employer: paf-ready:I-200-21010-100005]
+11. paf.assembly.one_working_day::paf-ready:I-200-22010-100006	[employer: paf-ready:I-200-22010-100006]
+12. paf.assembly.one_working_day::paf-ready:I-200-22010-100007	[employer: paf-ready:I-200-22010-100007]
+
+We need to evaluate each against the data in the exports. The exports are: cms_case_export, hris_roster_export, lca_export, payroll_register.
+
+We need to match column names by meaning. The obligations require certain information. We need to see if the required info is present, and if it satisfies or violates the obligation, or if we need evidence (i.e., data not present), or unmonitored (cannot be evaluated from export data at all).
+
+We need to be careful: The instructions: "Two reading rules: - Export column names will not match the wording of the obligations. Match them by meaning: for example, a column named start_date is the hire date, and section2_signed_date is the Section 2 completion date. - Reference knowledge is not evidence you need from the exports. Calendars and federal holidays, regulatory thresholds, and the evaluation date are yours to apply. Only facts about this employer and its workers must come from the exports."
+
+Thus we need to use the exports to find facts about the workers. For each pair, we need to see if the required info is present. If not present, verdict is needs_evidence. If present and satisfies, pass. If present and violates, fail.
+
+But we need to interpret the obligations and see what data we have.
+
+Let's examine each obligation and the required information.
+
+First, lca.wage.start_clock: check: Required-wage liability begins no later than 30 days after admission, or 60 days after becoming eligible to work (if already present). threshold: 30 days after admission; OR 60 days after becoming eligible (already in U.S.). citation: 20 CFR 655.731(c)(6)(i)-(ii). information needed: Per worker: consular admission date (I-94) OR in-country eligibility date; entry pathway; first available-for-work date; first pay date.
+
+We have three pairs for this: Lucia Ferreira, Omar Farouk, Ravi Anand.
+
+We need to find for each worker: consular admission date (I-94) or in-country eligibility date, entry pathway, first available-for-work date, first pay date.
+
+Where can we find these? The exports: hris_roster_export has hireDate, originalHireDate, terminationDate, etc. lca_export has maybe admission dates? Not sure. cms_case_export has matter_status, opened_date, filing_date, decision_date, but not admission date. payroll_register has pay_period_start, check_date, etc.
+
+We need to see if the exports contain the necessary info. Let's examine each worker's data.
+
+First, hris_roster_export: For each employee, we have id, employeeNumber, firstName, lastName, dateOfBirth, ssn, gender, maritalStatus, nationality, workEmail, homeEmail, mobilePhone, address1, city, state, zipcode, country, hireDate, originalHireDate, employmentStatus, jobTitle, department, division, location, supervisor, reportsTo, payRate, payType, payFrequency, standardHoursPerWeek, visaType, passportNumber, status, terminationDate.
+
+We have for Lucia Ferreira: NWR-1002, hireDate 2023-03-06, originalHireDate 2023-03-06, status Active, visaType H-1B, passportNumber P1000002. No admission date or I-94 date. Maybe we can infer from LCA? LCA has BEGIN_DATE and END_DATE. For I-200-23010-100002 (Lucia Ferreira? Actually check LCA: I-200-23010-100002 is for Controls Engineer, maybe Lucia? Let's check LCA export: I-200-23010-100002 has BEGIN_DATE 2023-06-01, END_DATE 2029-05-31. That's the LCA period. But admission date might be earlier. The H-1B petition was approved 2023-04-22 (from cms_case_export NWR-2025-0102). The LCA received date 2023-02-05. The worker's hireDate 2023-03-06. So likely the worker was hired after LCA certification. But we need consular admission date. Not present in exports. Maybe we can get from cms_case_export? It has matter_status, opened_date, filing_date, decision_date. For NWR-2025-0102, opened_date 2023-01-09, filing_date 2023-02-15, decision_date 2023-04-22. That's the petition filing and approval. But admission date (I-94) is not there.
+
+Thus for lca.wage.start_clock, we likely cannot determine the consular admission date or first pay date from the exports. However, we might have first pay date from payroll_register? The payroll_register shows pay periods in 2025-q2 (June 2025). But the worker may have been hired earlier. For Lucia, hireDate 2023-03-06, but payroll_register shows payments starting 2025-06-01? Actually payroll_register shows entries for 2025-06-01 to 2025-06-30. That's recent. But the first pay date might be when they started receiving pay. Not clear.
+
+Given the obligation requires "Per worker: consular admission date (I-94) OR in-country eligibility date; entry pathway; first available-for-work date; first pay date." We don't have I-94 date, entry pathway, first available-for-work date, first pay date. So likely needs_evidence.
+
+But we must check if any of the exports contain such info. The hris_roster has hireDate, which could be considered "first available-for-work date"? Possibly, but the obligation says "first available-for-work date" might be different from hireDate. Also "consular admission date (I-94)" is not present. So likely needs_evidence for all three.
+
+But we need to be thorough: maybe the LCA export has BEGIN_DATE which could be the admission date? For Lucia, LCA BEGIN_DATE 2023-06-01, but that's the start of employment under LCA, not necessarily admission. The worker's hireDate 2023-03-06, which is before LCA start. So not consistent.
+
+Thus for lca.wage.start_clock pairs, verdict likely needs_evidence because we lack the required info.
+
+But we must consider the possibility that the obligation can be evaluated as unmonitored if the data is not available from export data at all. The distinction: "unmonitored: the obligation cannot be evaluated from employer export data at all." "needs_evidence: the exports do not contain the firm-specific information needed to decide this obligation for this entity, so it cannot be evaluated either way." So if the info is not in the exports, it's needs_evidence, not unmonitored, unless the obligation inherently cannot be evaluated from any employer export data. But the instruction: "Only facts about this employer and its workers must come from the exports." So if the required fact is not present, it's needs_evidence.
+
+Thus for the three start_clock pairs, we will output needs_evidence, and evidence_field_or_dash should be something like "-" or maybe the field name missing. The format says "<evidence_field_or_dash>. So we need to provide the evidence field or dash. Probably we should indicate which field is missing, but we can just put "-" if we cannot determine. But maybe we should specify the missing field, e.g., "no I-94 date". However the instruction: "evidence_field_or_dash" - likely we put the field name that would provide the evidence, or dash if not available. Since we don't have the data, we can put "-". But we need to be consistent. Let's see the example: not given. I'll assume we put "-" if the data is not present.
+
+But we need to evaluate each pair individually. Maybe some pairs have data present. Let's check each.
+
+Second pair: lca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education	[employer: i129-gap:lca.wagelevel.consistency.education]
+
+Obligation check: Stated minimum education (I-129 Q7) consistent with the LCA prevailing-wage LEVEL and the SOC/OEWS occupation. threshold: Education above the O*NET-SOC E&T/Appendix-D usual category = +1 step per category above (DOL Step 3). Flag when education-implied level > LCA wage level. information needed: hSupp.q7_educationLevelRequired; lca.wageLevel (I–IV); lca.socCode; soc.usualEducationCategory; lca.prevailingWageSource.
+
+We need to see if the exports have these fields. The exports: lca_export has lca.socCode? Let's examine lca_export columns: CASE_NUMBER, CASE_STATUS, RECEIVED_DATE, DECISION_DATE, ORIGINAL_CERT_DATE, VISA_CLASS, JOB_TITLE, SOC_CODE, SOC_TITLE, FULL_TIME_POSITION, BEGIN_DATE, END_DATE, TOTAL_WORKER_POSITIONS, NEW_EMPLOYMENT, CONTINUED_EMPLOYMENT, CHANGE_PREVIOUS_EMPLOYMENT, NEW_CONCURRENT_EMPLOYMENT, CHANGE_EMPLOYER, AMENDED_PETITION, EMPLOYER_NAME, TRADE_NAME_DBA, EMPLOYER_ADDRESS1, EMPLOYER_ADDRESS2, EMPLOYER_CITY, EMPLOYER_STATE, EMPLOYER_POSTAL_CODE, EMPLOYER_COUNTRY, EMPLOYER_PHONE, NAICS_CODE, EMPLOYER_POC_LAST_NAME, EMPLOYER_POC_FIRST_NAME, EMPLOYER_POC_MIDDLE_NAME, EMPLOYER_POC_JOB_TITLE, EMPLOYER_POC_ADDRESS1, EMPLOYER_POC_CITY, EMPLOYER_POC_STATE, EMPLOYER_POC_POSTAL_CODE, EMPLOYER_POC_EMAIL, EMPLOYER_POC_PHONE, AGENT_ATTORQUE... etc. It has SOC_CODE. It does not have education level required (Q7). The hSupp.q7_educationLevelRequired is not in the exports. The hris_roster has maybe education? Not present. cms_case_export has maybe not. payroll_register no.
+
+Thus we likely cannot evaluate this obligation; needs_evidence.
+
+But we need to check if there is any way to infer education level from other data. The worker's degree maybe not in exports. So needs_evidence.
+
+The pair is for employer i12026-06-29
+
+---
+
+paf.assembly.one_working_day::paf-ready:I-200-23010-100009	needs_evidence	dash
+paf.assembly.one_working_day::paf-ready:I-200-25010-100001	needs_evidence	dash
+paf.assembly.one_working_day::paf-ready:I-200-25010-100003	needs_evidence	dash
+paf.item1.certified_lca::paf-agg:paf.item1.certified_lca	needs_evidence	dash
+paf.item2.wage_rate::paf-agg:paf.item2.wage_rate	pass	WAGE_RATE_OF_PAY_FROM
+paf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage	needs_evidence	dash
+paf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary	unmonitored	dash
+paf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list	needs_evidence	dash
+paf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list	needs_evidence	dash
+paf.public_access_ready::paf:I-200-21010-100005	needs_evidence	dash
+paf.public_access_ready::paf:I-200-22010-100004	needs_evidence	dash
+paf.public_access_ready::paf:I-200-22010-100006	needs_evidence	dash
+
+---
+
+paf.public_access_ready::paf:I-200-23010-100002	needs_evidence	-
+paf.public_access_ready::paf:I-200-25010-100003	needs_evidence	-
+specialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence	needs_evidence	-
+specialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4	needs_evidence	-
+uscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline	needs_evidence	-
+uscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock	needs_evidence	-
+wage.prevailing_floor::wage:17-2199	needs_evidence	-
+xdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel	needs_evidence	-

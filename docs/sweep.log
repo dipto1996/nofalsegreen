@@ -1,0 +1,847 @@
+study: 6 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 0/12   remaining: 12
+at 50 calls/day: ~3 more day(s)
+
+  nemotron-3-ultra-550b-a55b:free / abstain_offered
+    northwind-robotics-subset140 FGR 0.067  recall 0.300  absF1 0.918  unparsed 0  (2 calls)
+  nemotron-3-ultra-550b-a55b:free / abstain_withheld
+    northwind-robotics-subset140 FGR 0.217  recall 0.800  absF1 0.000  unparsed 0  (2 calls)
+  nemotron-3-super-120b-a12b:free / abstain_offered
+    northwind-robotics-subset140 FGR 0.050  recall 0.300  absF1 0.877  unparsed 0  (4 calls)
+  nemotron-3-super-120b-a12b:free / abstain_withheld
+    northwind-robotics-subset140 FGR 0.175  recall 0.950  absF1 0.000  unparsed 0  (5 calls)
+  nex-n2.5-pro:free / abstain_offered
+    quota exhausted mid-run; will resume after reset
+  quota spent; resets 2026-09-25 17:00 local (17.4h). Sleeping.
+  quota spent; resets 2026-09-25 18:01 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-25 19:02 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-25 20:03 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-25 21:04 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-25 22:05 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-25 23:06 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 00:07 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 01:08 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 02:09 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 03:10 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 04:11 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 05:12 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 06:13 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 07:14 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 08:15 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 09:16 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 10:17 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 11:18 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 12:19 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 13:20 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 14:21 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 15:22 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 16:23 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 17:24 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 18:25 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 19:26 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 20:27 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 21:28 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 22:29 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-26 23:30 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 00:31 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 01:32 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 02:33 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 03:34 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 04:35 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 05:36 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 06:37 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 07:38 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 08:39 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 09:40 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 10:41 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 11:42 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 12:43 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 13:44 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 14:45 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 15:46 local (1.0h). Sleeping.
+  quota spent; resets 2026-09-27 16:47 local (1.0h). Sleeping.
+=== restart Wed Sep 30 00:51:51 PDT 2026 after probe fix ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 6 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 4/12   remaining: 4
+at 50 calls/day: ~1 more day(s)
+
+  nemotron-3.5-lightning:free / abstain_offered
+=== restart Wed Sep 30 01:43:27 PDT 2026 with retry logging ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 8 models x 2 conditions = 16 runs
+subset: 140 pairs -> ~12 calls each
+done: 4/16   remaining: 8
+at 50 calls/day: ~2 more day(s)
+
+  nemotron-3.5-lightning:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (12 parsed so far)
+          batch 4/12 (12 parsed so far)
+          batch 5/12 (12 parsed so far)
+=== restart Wed Sep 30 02:08:47 PDT 2026 with bounded re-request of empty/capped replies ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 8 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 4/12   remaining: 8
+at 50 calls/day: ~2 more day(s)
+
+  nemotron-3.5-lightning:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (12 parsed so far)
+=== restart Wed Sep 30 02:09:49 PDT 2026: finish_reason detection; 1 cut-off Lightning reply purged ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 8 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 4/12   remaining: 8
+at 50 calls/day: ~2 more day(s)
+
+  nemotron-3.5-lightning:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+            attempt 1: 2989 output tokens, 318s, finish=error, EMPTY
+            attempt 2: 1 output tokens, 174s, finish=error, EMPTY
+            attempt 3: 11328 output tokens, 601s, finish=error, EMPTY
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (12 parsed so far)
+=== restart Wed Sep 30 02:29:12 PDT 2026: cross-batch breaker + defer ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 8 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 4/12   remaining: 8
+at 50 calls/day: ~2 more day(s)
+
+  nemotron-3.5-lightning:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+            attempt 1: 43 output tokens, 85s, finish=stop, ok
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (12 parsed so far)
+            attempt 1: 12136 output tokens, 601s, finish=error, EMPTY
+            attempt 2: 11522 output tokens, 604s, finish=error, EMPTY
+            attempt 3: 4186 output tokens, 422s, finish=stop, ok
+          batch 4/12 (12 parsed so far)
+            attempt 1: 578 output tokens, 119s, finish=stop, ok
+          batch 5/12 (12 parsed so far)
+            attempt 1: 13304 output tokens, 483s, finish=stop, ok
+          batch 6/12 (24 parsed so far)
+            attempt 1: 13762 output tokens, 400s, finish=stop, ok
+          batch 7/12 (36 parsed so far)
+            attempt 1: 21027 output tokens, 662s, finish=error, EMPTY
+            attempt 2: 10960 output tokens, 601s, finish=error, EMPTY
+            attempt 3: 14456 output tokens, 604s, finish=error, EMPTY
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 36/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  nemotron-3.5-lightning:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+            attempt 1: 13061 output tokens, 415s, finish=stop, ok
+          batch 2/12 (0 parsed so far)
+            attempt 1: 14505 output tokens, 600s, finish=error, EMPTY
+            attempt 2: 6961 output tokens, 601s, finish=error, EMPTY
+            attempt 3: 745 output tokens, 428s, finish=error, EMPTY
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 0/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  laguna-xs-2.1:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    poolside/laguna-xs-2.1:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'poolside/laguna-xs-2.1:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 17229 output tokens, 276s, finish=stop, ok
+          batch 2/12 (12 parsed so far)
+            attempt 1: 32000 output tokens, 418s, finish=length, CAP
+            attempt 2: 5647 output tokens, 80s, finish=stop, ok
+          batch 3/12 (24 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          batch 4/12 (24 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 12371 output tokens, 174s, finish=stop, ok
+          batch 5/12 (36 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 32000 output tokens, 411s, finish=length, CAP
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 2: 10453 output tokens, 128s, finish=stop, ok
+          batch 6/12 (48 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 9237 output tokens, 106s, finish=stop, ok
+          batch 7/12 (60 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 5767 output tokens, 51s, finish=stop, ok
+          batch 8/12 (72 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 32000 output tokens, 437s, finish=length, CAP
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 2: 536 output tokens, 6s, finish=stop, ok
+          batch 9/12 (84 parsed so far)
+            attempt 1: 391 output tokens, 6s, finish=stop, ok
+          batch 10/12 (96 parsed so far)
+            attempt 1: 12033 output tokens, 157s, finish=stop, ok
+          batch 11/12 (104 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 11607 output tokens, 137s, finish=stop, ok
+          batch 12/12 (116 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+      northwind-robotics-subset140 INCOMPLETE: 116/140 pairs, 0 unrecovered + 2 failed batches; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  laguna-xs-2.1:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    poolside/laguna-xs-2.1:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'poolside/laguna-xs-2.1:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 1s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          batch 2/12 (0 parsed so far)
+            attempt 1: 32000 output tokens, 299s, finish=length, CAP
+            attempt 2: 15949 output tokens, 164s, finish=stop, ok
+          batch 3/12 (12 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 15053 output tokens, 138s, finish=stop, ok
+          batch 4/12 (24 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 32000 output tokens, 395s, finish=length, CAP
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          batch 5/12 (24 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 32000 output tokens, 665s, finish=length, CAP
+            attempt 2: 17356 output tokens, 216s, finish=stop, ok
+          batch 6/12 (36 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"head after 0s
+    
+      daily quota exhausted: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-R
+      progress saved; re-run the same command tomorrow to continue.
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    quota exhausted mid-run; will resume after reset
+  quota spent; resets 2026-09-30 17:00 local (11.3h). Sleeping.
+=== restart Wed Sep 30 05:45:13 PDT 2026: deferrals clear on reset ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 8 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 4/12   remaining: 8
+at 50 calls/day: ~2 more day(s)
+
+  quota spent; resets 2026-09-30 17:00 local (11.3h). Sleeping.
+  nemotron-3.5-lightning:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (12 parsed so far)
+          batch 4/12 (12 parsed so far)
+          batch 5/12 (12 parsed so far)
+          batch 6/12 (24 parsed so far)
+          batch 7/12 (36 parsed so far)
+            attempt 1: 16557 output tokens, 601s, finish=error, EMPTY
+            attempt 2: 20528 output tokens, 537s, finish=stop, ok
+          batch 8/12 (48 parsed so far)
+            attempt 1: 10518 output tokens, 311s, finish=stop, ok
+          batch 9/12 (60 parsed so far)
+            attempt 1: 8221 output tokens, 600s, finish=error, EMPTY
+            attempt 2: 5290 output tokens, 600s, finish=error, EMPTY
+            attempt 3: 10975 output tokens, 414s, finish=stop, ok
+          batch 10/12 (72 parsed so far)
+            attempt 1: 11240 output tokens, 601s, finish=error, EMPTY
+            attempt 2: 3173 output tokens, 354s, finish=stop, ok
+          batch 11/12 (72 parsed so far)
+            attempt 1: 9965 output tokens, 602s, finish=error, EMPTY
+            attempt 2: 3 output tokens, 303s, finish=error, EMPTY
+            attempt 3: 1 output tokens, 233s, finish=error, EMPTY
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 72/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  nemotron-3.5-lightning:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+            attempt 1: 13642 output tokens, 600s, finish=error, EMPTY
+            attempt 2: 4239 output tokens, 601s, finish=error, EMPTY
+            attempt 3: 4414 output tokens, 521s, finish=stop, ok
+          batch 3/12 (0 parsed so far)
+          retry nvidia/nemotron-3.5-lightning:free: RuntimeError: upstream 504: Upstream idle timeout exceeded after 121s
+            attempt 1: 12875 output tokens, 616s, finish=error, EMPTY
+            attempt 2: 12264 output tokens, 604s, finish=error, EMPTY
+            attempt 3: 32000 output tokens, 599s, finish=length, CAP
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 0/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  laguna-xs-2.1:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    poolside/laguna-xs-2.1:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'poolside/laguna-xs-2.1:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (12 parsed so far)
+          batch 3/12 (24 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+=== restart Wed Sep 30 19:28:26 PDT 2026: replacement screen cut-off live ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 8 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 4/12   remaining: 8
+at 50 calls/day: ~2 more day(s)
+
+  nemotron-3.5-lightning:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (12 parsed so far)
+          batch 4/12 (12 parsed so far)
+          batch 5/12 (12 parsed so far)
+          batch 6/12 (24 parsed so far)
+          batch 7/12 (36 parsed so far)
+          batch 8/12 (48 parsed so far)
+          batch 9/12 (60 parsed so far)
+          batch 10/12 (72 parsed so far)
+          batch 11/12 (72 parsed so far)
+            attempt 1: 16303 output tokens, 600s, finish=error, EMPTY
+            attempt 2: 19054 output tokens, 497s, finish=stop, ok
+          batch 12/12 (84 parsed so far)
+            attempt 1: 11466 output tokens, 407s, finish=stop, ok
+      northwind-robotics-subset140 FGR 0.042  recall 0.050  absF1 0.766  unparsed 0  (3 calls)
+    
+      nvidia/nemotron-3.5-lightning:free::abstain_offered: FGR 0.042 (sd 0.000)  recall 0.050  over 1 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+  nemotron-3.5-lightning:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (0 parsed so far)
+            attempt 1: 16142 output tokens, 600s, finish=error, EMPTY
+            attempt 2: 5790 output tokens, 601s, finish=error, EMPTY
+            attempt 3: 8188 output tokens, 602s, finish=error, EMPTY
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 0/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  laguna-xs-2.1:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    poolside/laguna-xs-2.1:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'poolside/laguna-xs-2.1:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (12 parsed so far)
+          batch 3/12 (24 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 1s
+            attempt 1: 6778 output tokens, 64s, finish=stop, ok
+          batch 4/12 (24 parsed so far)
+          batch 5/12 (36 parsed so far)
+          batch 6/12 (48 parsed so far)
+          batch 7/12 (60 parsed so far)
+          batch 8/12 (72 parsed so far)
+          batch 9/12 (84 parsed so far)
+          batch 10/12 (96 parsed so far)
+          batch 11/12 (104 parsed so far)
+          batch 12/12 (116 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+      northwind-robotics-subset140 INCOMPLETE: 116/140 pairs, 0 unrecovered + 1 failed batches; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  laguna-xs-2.1:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    poolside/laguna-xs-2.1:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'poolside/laguna-xs-2.1:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+=== restart Wed Sep 30 20:28:15 PDT 2026: patient upstream-429 handling ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 8 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 5/12   remaining: 7
+at 50 calls/day: ~2 more day(s)
+
+  nemotron-3.5-lightning:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (0 parsed so far)
+            attempt 1: 18769 output tokens, 603s, finish=error, EMPTY
+            attempt 2: 14074 output tokens, 601s, finish=error, EMPTY
+            attempt 3: 11445 output tokens, 601s, finish=error, EMPTY
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 0/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  laguna-xs-2.1:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    poolside/laguna-xs-2.1:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'poolside/laguna-xs-2.1:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (12 parsed so far)
+          batch 3/12 (24 parsed so far)
+          batch 4/12 (24 parsed so far)
+          batch 5/12 (36 parsed so far)
+          batch 6/12 (48 parsed so far)
+          batch 7/12 (60 parsed so far)
+          batch 8/12 (72 parsed so far)
+          batch 9/12 (84 parsed so far)
+          batch 10/12 (96 parsed so far)
+          batch 11/12 (104 parsed so far)
+          batch 12/12 (116 parsed so far)
+            attempt 1: 268 output tokens, 3s, finish=stop, ok
+      northwind-robotics-subset140 FGR 0.125  recall 0.200  absF1 0.855  unparsed 0  (1 calls)
+    
+      poolside/laguna-xs-2.1:free::abstain_offered: FGR 0.125 (sd 0.000)  recall 0.200  over 1 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+  laguna-xs-2.1:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    poolside/laguna-xs-2.1:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'poolside/laguna-xs-2.1:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+            attempt 1: 8229 output tokens, 66s, finish=stop, ok
+          batch 2/12 (12 parsed so far)
+          batch 3/12 (24 parsed so far)
+          batch 4/12 (36 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 11303 output tokens, 101s, finish=stop, ok
+          batch 5/12 (48 parsed so far)
+          batch 6/12 (60 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 1743 output tokens, 23s, finish=stop, ok
+          batch 7/12 (72 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 3303 output tokens, 31s, finish=stop, ok
+          batch 8/12 (84 parsed so far)
+            attempt 1: 4347 output tokens, 36s, finish=stop, ok
+          batch 9/12 (96 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 350 output tokens, 4s, finish=stop, ok
+          batch 10/12 (108 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 10161 output tokens, 89s, finish=stop, ok
+          batch 11/12 (120 parsed so far)
+            attempt 1: 32000 output tokens, 334s, finish=length, CAP
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 2: 32000 output tokens, 281s, finish=length, CAP
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 3: 32000 output tokens, 313s, finish=length, CAP
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 120/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+    screen passed: qwen/qwen3.8-27b:free
+  qwen3.8-27b:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    qwen/qwen3.8-27b:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'qwen/qwen3.8-27b:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 31824 output tokens, 670s, finish=stop, ok
+          batch 2/12 (12 parsed so far)
+            attempt 1: 12613 output tokens, 259s, finish=stop, ok
+          batch 3/12 (24 parsed so far)
+            attempt 1: 18062 output tokens, 466s, finish=stop, ok
+          batch 4/12 (36 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 25213 output tokens, 506s, finish=stop, ok
+          batch 5/12 (48 parsed so far)
+            attempt 1: 447 output tokens, 7s, finish=error, EMPTY
+            attempt 2: 8235 output tokens, 155s, finish=stop, ok
+          batch 6/12 (60 parsed so far)
+            attempt 1: 7123 output tokens, 135s, finish=stop, ok
+          batch 7/12 (72 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 10339 output tokens, 175s, finish=stop, ok
+          batch 8/12 (84 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 4074 output tokens, 69s, finish=stop, ok
+          batch 9/12 (96 parsed so far)
+            attempt 1: 10807 output tokens, 176s, finish=stop, ok
+          batch 10/12 (108 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"head after 0s
+    
+      daily quota exhausted: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-R
+      progress saved; re-run the same command tomorrow to continue.
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    quota exhausted mid-run; will resume after reset
+  quota spent; resets 2026-10-01 17:00 local (18.7h). Sleeping.
+=== restart Wed Sep 30 22:16:12 PDT 2026: runaway batches are final; host faults defer ===
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-mini:free
+withdrawn from the free tier, not run: nex-agi/nex-n2.5-pro:free
+study: 8 models x 2 conditions = 12 runs
+subset: 140 pairs -> ~12 calls each
+done: 6/12   remaining: 6
+at 50 calls/day: ~2 more day(s)
+
+  quota spent; resets 2026-10-01 17:00 local (18.7h). Sleeping.
+  nemotron-3.5-lightning:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (0 parsed so far)
+            attempt 1: 16514 output tokens, 600s, finish=error, EMPTY
+            attempt 2: 22003 output tokens, 600s, finish=error, EMPTY
+            attempt 3: 13385 output tokens, 600s, finish=error, EMPTY
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 0/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  laguna-xs-2.1:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    poolside/laguna-xs-2.1:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'poolside/laguna-xs-2.1:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (12 parsed so far)
+          batch 3/12 (24 parsed so far)
+          batch 4/12 (36 parsed so far)
+          batch 5/12 (48 parsed so far)
+          batch 6/12 (60 parsed so far)
+          batch 7/12 (72 parsed so far)
+          batch 8/12 (84 parsed so far)
+          batch 9/12 (96 parsed so far)
+          batch 10/12 (108 parsed so far)
+          batch 11/12 (120 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 32000 output tokens, 239s, finish=length, CAP
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 2: 32000 output tokens, 413s, finish=length, CAP
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 3: 16419 output tokens, 148s, finish=stop, ok
+          batch 12/12 (120 parsed so far)
+          retry poolside/laguna-xs-2.1:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"poolside/laguna-xs-2.1:free is temporarily rate-limited upstream. Please r after 0s
+            attempt 1: 9490 output tokens, 74s, finish=stop, ok
+      northwind-robotics-subset140 FGR 0.433  recall 0.900  absF1 0.000  unparsed 0  (4 calls)  TRUNCATED 2
+    
+      poolside/laguna-xs-2.1:free::abstain_withheld: FGR 0.433 (sd 0.000)  recall 0.900  over 1 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+  qwen3.8-27b:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    qwen/qwen3.8-27b:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'qwen/qwen3.8-27b:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (12 parsed so far)
+          batch 3/12 (24 parsed so far)
+          batch 4/12 (36 parsed so far)
+          batch 5/12 (48 parsed so far)
+          batch 6/12 (60 parsed so far)
+          batch 7/12 (72 parsed so far)
+          batch 8/12 (84 parsed so far)
+          batch 9/12 (96 parsed so far)
+          batch 10/12 (108 parsed so far)
+            attempt 1: 5274 output tokens, 86s, finish=stop, ok
+          batch 11/12 (120 parsed so far)
+            attempt 1: 8395 output tokens, 146s, finish=stop, ok
+          batch 12/12 (132 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 6505 output tokens, 92s, finish=stop, ok
+      northwind-robotics-subset140 FGR 0.142  recall 0.350  absF1 0.867  unparsed 0  (3 calls)
+    
+      qwen/qwen3.8-27b:free::abstain_offered: FGR 0.142 (sd 0.000)  recall 0.350  over 1 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+  qwen3.8-27b:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    qwen/qwen3.8-27b:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'qwen/qwen3.8-27b:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 21605 output tokens, 492s, finish=stop, ok
+          batch 2/12 (12 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 14077 output tokens, 205s, finish=stop, ok
+          batch 3/12 (24 parsed so far)
+            attempt 1: 7305 output tokens, 112s, finish=stop, ok
+          batch 4/12 (36 parsed so far)
+            attempt 1: 23238 output tokens, 468s, finish=error, EMPTY
+            attempt 2: 31844 output tokens, 669s, finish=stop, ok
+          batch 5/12 (48 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 7654 output tokens, 177s, finish=error, EMPTY
+            attempt 2: 27098 output tokens, 485s, finish=stop, ok
+          batch 6/12 (60 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 11697 output tokens, 184s, finish=stop, ok
+          batch 7/12 (72 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 23171 output tokens, 451s, finish=stop, ok
+          batch 8/12 (84 parsed so far)
+            attempt 1: 8981 output tokens, 162s, finish=stop, ok
+          batch 9/12 (96 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 31991 output tokens, 535s, finish=stop, ok
+          batch 10/12 (108 parsed so far)
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+          retry qwen/qwen3.8-27b:free: RuntimeError: HTTP 429: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.8-27b:free is temporarily rate-limited upstream. Please retry s after 0s
+            attempt 1: 28452 output tokens, 572s, finish=stop, ok
+          batch 11/12 (120 parsed so far)
+            attempt 1: 4990 output tokens, 111s, finish=stop, ok
+          batch 12/12 (132 parsed so far)
+            attempt 1: 12516 output tokens, 199s, finish=stop, ok
+      northwind-robotics-subset140 FGR 0.417  recall 0.850  absF1 0.000  unparsed 0  (14 calls)
+    
+      qwen/qwen3.8-27b:free::abstain_withheld: FGR 0.417 (sd 0.000)  recall 0.850  over 1 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    google/gemma-4-31b-it:free never passed the screen (HTTP Error 429: Too Many Requests); slot taken by dots-studio/dots-3-note-preview:free
+  dots-3-note-preview:free / abstain_offered
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    dots-studio/dots-3-note-preview:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'dots-studio/dots-3-note-preview:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+    
+          batch 1/12 (0 parsed so far)
+            attempt 1: 6425 output tokens, 63s, finish=stop, ok
+          batch 2/12 (12 parsed so far)
+            attempt 1: 12633 output tokens, 132s, finish=stop, ok
+          batch 3/12 (24 parsed so far)
+            attempt 1: 14348 output tokens, 142s, finish=stop, ok
+          batch 4/12 (36 parsed so far)
+            attempt 1: 8006 output tokens, 75s, finish=stop, ok
+          batch 5/12 (48 parsed so far)
+            attempt 1: 25370 output tokens, 254s, finish=stop, ok
+          batch 6/12 (60 parsed so far)
+            attempt 1: 10341 output tokens, 97s, finish=stop, ok
+          batch 7/12 (72 parsed so far)
+            attempt 1: 14922 output tokens, 142s, finish=stop, ok
+          batch 8/12 (84 parsed so far)
+            attempt 1: 6260 output tokens, 65s, finish=stop, ok
+          batch 9/12 (96 parsed so far)
+            attempt 1: 15305 output tokens, 145s, finish=stop, ok
+          batch 10/12 (108 parsed so far)
+            attempt 1: 7478 output tokens, 76s, finish=stop, ok
+          batch 11/12 (120 parsed so far)
+            attempt 1: 7106 output tokens, 68s, finish=stop, ok
+          batch 12/12 (132 parsed so far)
+            attempt 1: 13849 output tokens, 135s, finish=stop, ok
+      northwind-robotics-subset140 FGR 0.100  recall 0.450  absF1 0.895  unparsed 0  (12 calls)
+    
+      dots-studio/dots-3-note-preview:free::abstain_offered: FGR 0.100 (sd 0.000)  recall 0.450  over 1 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+  dots-3-note-preview:free / abstain_withheld
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    dots-studio/dots-3-note-preview:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'dots-studio/dots-3-note-preview:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+            attempt 1: 20400 output tokens, 186s, finish=stop, ok
+          batch 2/12 (12 parsed so far)
+            attempt 1: 20228 output tokens, 198s, finish=stop, ok
+          batch 3/12 (24 parsed so far)
+            attempt 1: 28145 output tokens, 279s, finish=stop, ok
+          batch 4/12 (36 parsed so far)
+            attempt 1: 32000 output tokens, 325s, finish=length, CAP
+            attempt 2: 32000 output tokens, 328s, finish=length, CAP
+            attempt 3: 32000 output tokens, 318s, finish=length, CAP
+          batch 5/12 (36 parsed so far)
+            attempt 1: 32000 output tokens, 307s, finish=length, CAP
+            attempt 2: 32000 output tokens, 304s, finish=length, CAP
+            attempt 3: 32000 output tokens, 315s, finish=length, CAP
+          batch 6/12 (36 parsed so far)
+            attempt 1: 32000 output tokens, 302s, finish=length, CAP
+            attempt 2: 6436 output tokens, 62s, finish=stop, ok
+          batch 7/12 (48 parsed so far)
+            attempt 1: 20544 output tokens, 200s, finish=stop, ok
+          batch 8/12 (60 parsed so far)
+            attempt 1: 32000 output tokens, 329s, finish=length, CAP
+            attempt 2: 13284 output tokens, 131s, finish=stop, ok
+          batch 9/12 (72 parsed so far)
+            attempt 1: 25080 output tokens, 245s, finish=stop, ok
+          batch 10/12 (84 parsed so far)
+          retry dots-studio/dots-3-note-preview:free: RuntimeError: HTTP 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"head after 0s
+    
+      daily quota exhausted: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-R
+      progress saved; re-run the same command tomorrow to continue.
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    quota exhausted mid-run; will resume after reset
+  quota spent; resets 2026-10-02 17:00 local (19.8h). Sleeping.
+  nemotron-3.5-lightning:free / abstain_withheld
+Python(16312) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (0 parsed so far)
+          batch 3/12 (0 parsed so far)
+            attempt 1: 20318 output tokens, 600s, finish=error, EMPTY
+            attempt 2: 20801 output tokens, 601s, finish=error, EMPTY
+            attempt 3: 14173 output tokens, 600s, finish=error, EMPTY
+          stopping: 3 consecutive incomplete replies; resume later
+      northwind-robotics-subset140 INCOMPLETE: 0/140 pairs, 0 unrecovered + 0 failed batches, stopped early; resume later
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+    upstream failing; deferred to after the next reset
+  dots-3-note-preview:free / abstain_withheld
+Python(26312) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+    using declared subset: 140 of 221 pairs (seed 20260921)
+    dots-studio/dots-3-note-preview:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'dots-studio/dots-3-note-preview:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+    
+          batch 1/12 (0 parsed so far)
+          batch 2/12 (12 parsed so far)
+          batch 3/12 (24 parsed so far)
+          batch 4/12 (36 parsed so far)
+            attempt 1: 6151 output tokens, 66s, finish=stop, ok
+          batch 5/12 (48 parsed so far)
+            attempt 1: 27849 output tokens, 285s, finish=stop, ok
+          batch 6/12 (60 parsed so far)
+          batch 7/12 (72 parsed so far)
+          batch 8/12 (84 parsed so far)
+          batch 9/12 (96 parsed so far)
+          batch 10/12 (108 parsed so far)
+            attempt 1: 17374 output tokens, 187s, finish=stop, ok
+          batch 11/12 (120 parsed so far)
+            attempt 1: 17845 output tokens, 207s, finish=stop, ok
+          batch 12/12 (132 parsed so far)
+            attempt 1: 9828 output tokens, 113s, finish=stop, ok
+      northwind-robotics-subset140 FGR 0.525  recall 0.800  absF1 0.000  unparsed 0  (5 calls)
+    
+      dots-studio/dots-3-note-preview:free::abstain_withheld: FGR 0.525 (sd 0.000)  recall 0.800  over 1 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json
+  every remaining run is deferred; retrying after the reset (23.3h). Sleeping.
+=== Fri Oct  2 17:47:10 PDT 2026: finalize pass for lightning abstain_withheld (cut-off rule, every other run finished) ===
+using declared subset: 140 of 221 pairs (seed 20260921)
+nvidia/nemotron-3.5-lightning:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3.5-lightning:free (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+      batch 1/12 (0 parsed so far)
+      batch 2/12 (0 parsed so far)
+      batch 3/12 (0 parsed so far)
+        attempt 1: 12463 output tokens, 600s, finish=error, EMPTY
+        attempt 2: 29940 output tokens, 412s, finish=stop, ok
+      batch 4/12 (12 parsed so far)
+        attempt 1: 13898 output tokens, 600s, finish=error, EMPTY
+        attempt 2: 10643 output tokens, 601s, finish=error, EMPTY
+        attempt 3: 520 output tokens, 68s, finish=stop, ok
+      batch 5/12 (12 parsed so far)
+        attempt 1: 15819 output tokens, 600s, finish=error, EMPTY
+        attempt 2: 3267 output tokens, 217s, finish=stop, ok
+      batch 6/12 (12 parsed so far)
+        attempt 1: 16031 output tokens, 601s, finish=error, EMPTY
+        attempt 2: 23199 output tokens, 600s, finish=error, EMPTY
+        attempt 3: 29255 output tokens, 600s, finish=error, ok
+      batch 7/12 (24 parsed so far)
+        attempt 1: 22500 output tokens, 601s, finish=error, EMPTY
+        attempt 2: 25801 output tokens, 491s, finish=stop, ok
+      batch 8/12 (24 parsed so far)
+        attempt 1: 24341 output tokens, 564s, finish=stop, ok
+      batch 9/12 (36 parsed so far)
+        attempt 1: 30073 output tokens, 218s, finish=stop, ok
+      batch 10/12 (48 parsed so far)
+        attempt 1: 12829 output tokens, 600s, finish=error, EMPTY
+        attempt 2: 32000 output tokens, 487s, finish=length, CAP
+        attempt 3: 27789 output tokens, 370s, finish=stop, ok
+      batch 11/12 (60 parsed so far)
+        attempt 1: 11063 output tokens, 600s, finish=error, EMPTY
+        attempt 2: 32000 output tokens, 595s, finish=length, CAP
+        attempt 3: 23191 output tokens, 600s, finish=error, EMPTY
+      batch 12/12 (60 parsed so far)
+        attempt 1: 29549 output tokens, 601s, finish=error, EMPTY
+        attempt 2: 3159 output tokens, 465s, finish=error, EMPTY
+        attempt 3: 31450 output tokens, 476s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.208  recall 0.500  absF1 0.000  unparsed 12  (23 calls)  TRUNCATED 2
+
+  nvidia/nemotron-3.5-lightning:free::abstain_withheld: FGR 0.208 (sd 0.000)  recall 0.500  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/llm_results.json

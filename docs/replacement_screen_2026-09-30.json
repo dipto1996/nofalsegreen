@@ -3,8 +3,12 @@
   "rule": "a replacement passes if it responds and its reply is parseable (the criterion the original six passed on 2026-09-21)",
   "results": {
     "qwen/qwen3.8-27b:free": {
-      "ok": false,
-      "error": "HTTP Error 429: Too Many Requests"
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tfail\tsection2CompletedDate | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate"
     },
     "google/gemma-4-31b-it:free": {
       "ok": false,
@@ -147,6 +151,27 @@
       "missing_case_correct": true,
       "false_green": false,
       "raw": " |  | i9.section2.timeliness::SYN-1001\tfail\t- | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate"
+    },
+    {
+      "at": "2026-09-30T21:24:28",
+      "model": "qwen/qwen3.8-27b:free",
+      "at_slot_start": true,
+      "ok": true,
+      "parseable": true,
+      "late_case_correct": true,
+      "missing_case_correct": true,
+      "false_green": false,
+      "raw": "i9.section2.timeliness::SYN-1001\tfail\tsection2CompletedDate | i9.section2.timeliness::SYN-1002\tneeds_evidence\tsection2CompletedDate"
+    },
+    {
+      "at": "2026-10-01T19:47:26",
+      "model": "google/gemma-4-31b-it:free",
+      "at_slot_start": true,
+      "ok": false,
+      "error": "HTTP Error 429: Too Many Requests"
     }
-  ]
+  ],
+  "substitutions": {
+    "google/gemma-4-31b-it:free": "dots-studio/dots-3-note-preview:free"
+  }
 }

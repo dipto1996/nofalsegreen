@@ -1,0 +1,443 @@
+{
+  "prompt_version": "1.1.0",
+  "n_pairs": 140,
+  "label_mix": {
+    "fail": 20,
+    "needs_evidence": 120
+  },
+  "not_measurable": {
+    "false_alarm_rate": "the evaluated subset has no conforming (pass) pairs",
+    "near_miss_controls": "the evaluated subset has no conforming (pass) pairs",
+    "evidence_pointer_accuracy": "anchor labels record no ground-truth evidence fields",
+    "consistency_drift": "no system under test exposes headline counts"
+  },
+  "runs": {
+    "dots-studio/dots-3-note-preview:free::abstain_offered": {
+      "model": "dots-studio/dots-3-note-preview:free",
+      "variant": "abstain_offered",
+      "n_answered": 140,
+      "decomposition": {
+        "correct": 115,
+        "missed_violation": 11,
+        "other_wrong": 1,
+        "false_green": 12,
+        "unsupported_violation": 1
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 71,
+          "n_false_green": 5,
+          "n_abstained": 66,
+          "fgr": 0.0704,
+          "fgr_answered": 0.0704
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 7,
+          "n_abstained": 40,
+          "fgr": 0.1429,
+          "fgr_answered": 0.1429
+        }
+      },
+      "excerpt": {
+        "pair_id": "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense",
+        "reply_line": "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense\tpass\tpayroll_register",
+        "label": "needs_evidence",
+        "label_note": "h1b.wage.deductions.prohibited.business-expense \u2014 structurally-uncaptured evidence class (employer-scope request)"
+      },
+      "excerpt_second_application": {
+        "pair_id": "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense",
+        "reply_line": "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense\tpass\tpayroll_register",
+        "label": "needs_evidence",
+        "label_note": "h1b.wage.deductions.prohibited.business-expense \u2014 structurally-uncaptured evidence class (employer-scope request)"
+      }
+    },
+    "dots-studio/dots-3-note-preview:free::abstain_withheld": {
+      "model": "dots-studio/dots-3-note-preview:free",
+      "variant": "abstain_withheld",
+      "n_answered": 140,
+      "decomposition": {
+        "correct": 16,
+        "missed_violation": 4,
+        "false_green": 63,
+        "unsupported_violation": 57
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 71,
+          "n_false_green": 33,
+          "n_abstained": 0,
+          "fgr": 0.4648,
+          "fgr_answered": 0.4648
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 30,
+          "n_abstained": 0,
+          "fgr": 0.6122,
+          "fgr_answered": 0.6122
+        }
+      }
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "variant": "abstain_offered",
+      "n_answered": 140,
+      "decomposition": {
+        "correct": 109,
+        "missed_violation": 14,
+        "other_wrong": 10,
+        "false_green": 6,
+        "unsupported_violation": 1
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 71,
+          "n_false_green": 3,
+          "n_abstained": 60,
+          "fgr": 0.0423,
+          "fgr_answered": 0.0423
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 3,
+          "n_abstained": 43,
+          "fgr": 0.0612,
+          "fgr_answered": 0.0612
+        }
+      },
+      "excerpt": {
+        "pair_id": "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature",
+        "reply_line": "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature\tpass\ti9_record_export.section2_signed_date",
+        "label": "needs_evidence",
+        "label_note": "i9.section2.employer_signature \u2014 evidence class not captured (Wave-B employer-scope request)"
+      },
+      "excerpt_second_application": {
+        "pair_id": "i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure",
+        "reply_line": "i9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure\tpass\talternative_procedure",
+        "label": "needs_evidence",
+        "label_note": "i9.remote.alternative_procedure \u2014 field-level I-9 data not captured (employer-scope request)"
+      }
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "variant": "abstain_withheld",
+      "n_answered": 140,
+      "decomposition": {
+        "correct": 19,
+        "missed_violation": 1,
+        "unsupported_violation": 99,
+        "false_green": 21
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 71,
+          "n_false_green": 10,
+          "n_abstained": 0,
+          "fgr": 0.1408,
+          "fgr_answered": 0.1408
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 11,
+          "n_abstained": 0,
+          "fgr": 0.2245,
+          "fgr_answered": 0.2245
+        }
+      }
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "variant": "abstain_offered",
+      "n_answered": 140,
+      "decomposition": {
+        "correct": 118,
+        "missed_violation": 14,
+        "false_green": 8
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 71,
+          "n_false_green": 4,
+          "n_abstained": 67,
+          "fgr": 0.0563,
+          "fgr_answered": 0.0563
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 4,
+          "n_abstained": 45,
+          "fgr": 0.0816,
+          "fgr_answered": 0.0816
+        }
+      },
+      "excerpt": {
+        "pair_id": "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature",
+        "reply_line": "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature\tpass\ti9_record_export.section2_signed_date,i9_record_export.section2_examiner_name",
+        "label": "needs_evidence",
+        "label_note": "i9.section2.employer_signature \u2014 evidence class not captured (Wave-B employer-scope request)"
+      },
+      "excerpt_second_application": {
+        "pair_id": "i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list",
+        "reply_line": "i9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list\tpass\ti9_record_export.list_a_doc_title",
+        "label": "needs_evidence",
+        "label_note": "i9.documents.acceptable_list \u2014 field-level I-9 data not captured (employer-scope request)"
+      }
+    },
+    "nvidia/nemotron-3-ultra-550b-a55b:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "variant": "abstain_withheld",
+      "n_answered": 140,
+      "decomposition": {
+        "correct": 16,
+        "missed_violation": 4,
+        "unsupported_violation": 94,
+        "false_green": 26
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 71,
+          "n_false_green": 15,
+          "n_abstained": 0,
+          "fgr": 0.2113,
+          "fgr_answered": 0.2113
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 11,
+          "n_abstained": 0,
+          "fgr": 0.2245,
+          "fgr_answered": 0.2245
+        }
+      }
+    },
+    "nvidia/nemotron-3.5-lightning:free::abstain_offered": {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "variant": "abstain_offered",
+      "n_answered": 92,
+      "decomposition": {
+        "correct": 78,
+        "missed_violation": 6,
+        "unanswered": 48,
+        "other_wrong": 2,
+        "false_green": 5,
+        "unsupported_violation": 1
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 45,
+          "n_false_green": 0,
+          "n_abstained": 44,
+          "fgr": 0.0,
+          "fgr_answered": 0.0
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 40,
+          "n_false_green": 5,
+          "n_abstained": 33,
+          "fgr": 0.102,
+          "fgr_answered": 0.125
+        }
+      },
+      "excerpt": {
+        "pair_id": "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature",
+        "reply_line": "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature\tpass\tsection2_signed_date",
+        "label": "needs_evidence",
+        "label_note": "i9.section2.employer_signature \u2014 evidence class not captured (Wave-B employer-scope request)"
+      },
+      "excerpt_second_application": {
+        "pair_id": "i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam",
+        "reply_line": "i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam\tpass\tlist_a_doc_title",
+        "label": "needs_evidence",
+        "label_note": "i9.section2.physical_exam \u2014 evidence class not captured (Wave-B employer-scope request)"
+      }
+    },
+    "nvidia/nemotron-3.5-lightning:free::abstain_withheld": {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "variant": "abstain_withheld",
+      "n_answered": 68,
+      "decomposition": {
+        "unanswered": 72,
+        "correct": 10,
+        "missed_violation": 1,
+        "unsupported_violation": 32,
+        "false_green": 25
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 40,
+          "n_false_green": 23,
+          "n_abstained": 0,
+          "fgr": 0.3239,
+          "fgr_answered": 0.575
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 17,
+          "n_false_green": 2,
+          "n_abstained": 0,
+          "fgr": 0.0408,
+          "fgr_answered": 0.1176
+        }
+      }
+    },
+    "poolside/laguna-xs-2.1:free::abstain_offered": {
+      "model": "poolside/laguna-xs-2.1:free",
+      "variant": "abstain_offered",
+      "n_answered": 124,
+      "decomposition": {
+        "correct": 98,
+        "missed_violation": 9,
+        "unanswered": 16,
+        "unsupported_violation": 2,
+        "false_green": 15
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 62,
+          "n_false_green": 6,
+          "n_abstained": 55,
+          "fgr": 0.0845,
+          "fgr_answered": 0.0968
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 9,
+          "n_abstained": 39,
+          "fgr": 0.1837,
+          "fgr_answered": 0.1837
+        }
+      },
+      "excerpt": {
+        "pair_id": "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature",
+        "reply_line": "i9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature\tpass\tsection2_signed_date",
+        "label": "needs_evidence",
+        "label_note": "i9.section2.employer_signature \u2014 evidence class not captured (Wave-B employer-scope request)"
+      },
+      "excerpt_second_application": {
+        "pair_id": "i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam",
+        "reply_line": "i9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam\tpass\tlist_a_doc_title",
+        "label": "needs_evidence",
+        "label_note": "i9.section2.physical_exam \u2014 evidence class not captured (Wave-B employer-scope request)"
+      }
+    },
+    "poolside/laguna-xs-2.1:free::abstain_withheld": {
+      "model": "poolside/laguna-xs-2.1:free",
+      "variant": "abstain_withheld",
+      "n_answered": 128,
+      "decomposition": {
+        "correct": 18,
+        "missed_violation": 2,
+        "unsupported_violation": 56,
+        "false_green": 52,
+        "unanswered": 12
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 68,
+          "n_false_green": 30,
+          "n_abstained": 0,
+          "fgr": 0.4225,
+          "fgr_answered": 0.4412
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 40,
+          "n_false_green": 22,
+          "n_abstained": 0,
+          "fgr": 0.449,
+          "fgr_answered": 0.55
+        }
+      }
+    },
+    "qwen/qwen3.8-27b:free::abstain_offered": {
+      "model": "qwen/qwen3.8-27b:free",
+      "variant": "abstain_offered",
+      "n_answered": 140,
+      "decomposition": {
+        "correct": 108,
+        "missed_violation": 13,
+        "unsupported_violation": 1,
+        "false_green": 17,
+        "other_wrong": 1
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 71,
+          "n_false_green": 7,
+          "n_abstained": 62,
+          "fgr": 0.0986,
+          "fgr_answered": 0.0986
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 10,
+          "n_abstained": 39,
+          "fgr": 0.2041,
+          "fgr_answered": 0.2041
+        }
+      },
+      "excerpt": {
+        "pair_id": "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense",
+        "reply_line": "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense\tpass\tpretax_deductions",
+        "label": "needs_evidence",
+        "label_note": "h1b.wage.deductions.prohibited.business-expense \u2014 structurally-uncaptured evidence class (employer-scope request)"
+      },
+      "excerpt_second_application": {
+        "pair_id": "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense",
+        "reply_line": "h1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense\tpass\tpretax_deductions",
+        "label": "needs_evidence",
+        "label_note": "h1b.wage.deductions.prohibited.business-expense \u2014 structurally-uncaptured evidence class (employer-scope request)"
+      }
+    },
+    "qwen/qwen3.8-27b:free::abstain_withheld": {
+      "model": "qwen/qwen3.8-27b:free",
+      "variant": "abstain_withheld",
+      "n_answered": 140,
+      "decomposition": {
+        "correct": 17,
+        "missed_violation": 3,
+        "false_green": 50,
+        "unsupported_violation": 70
+      },
+      "by_evidence_class": {
+        "field": {
+          "n_withheld": 71,
+          "n_answered": 71,
+          "n_false_green": 29,
+          "n_abstained": 0,
+          "fgr": 0.4085,
+          "fgr_answered": 0.4085
+        },
+        "document": {
+          "n_withheld": 49,
+          "n_answered": 49,
+          "n_false_green": 21,
+          "n_abstained": 0,
+          "fgr": 0.4286,
+          "fgr_answered": 0.4286
+        }
+      }
+    }
+  }
+}

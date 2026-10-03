@@ -319,6 +319,11 @@ def run_firm(
                 usage.add(u)
                 capped = (bool(u.output_tokens) and u.output_tokens >= max_tokens) \
                     or u.finish_reason == "length"
+                # An upstream error ending a non-empty reply is a delivery
+                # failure too (fixed after the study: one Lightning reply ended
+                # this way after all 12 verdict lines and was kept; see paper).
+                if u.finish_reason == "error":
+                    capped = True
                 if progress:
                     state = "CAP" if capped else ("EMPTY" if not text.strip() else "ok")
                     print(f"        attempt {attempt}: {u.output_tokens} output tokens, "
@@ -378,7 +383,7 @@ def run_firm(
             raw.append(text)
         consecutive_failures = 0
         hit_cap = (bool(u.output_tokens) and u.output_tokens >= max_tokens) \
-            or u.finish_reason == "length"
+            or u.finish_reason in ("length", "error")
         # Never cache a reply that was cut off or empty: a cached truncation
         # would be replayed forever instead of re-requested with more budget.
         if cache_path is not None and text.strip() and not hit_cap:

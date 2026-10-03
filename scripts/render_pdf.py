@@ -161,6 +161,75 @@ def table_flowable(rows: list[list[str]], width: float):
     return t
 
 
+def figure1(width: float):
+    """Figure 1 drawn natively (no SVG dependency), from the same points as
+    scripts/make_figure.py. Each model's two conditions are joined by a line, so
+    the move from offered (filled) to withheld (open) is visible."""
+    from reportlab.graphics.shapes import Circle, Drawing, Group, Line, Rect, String
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from make_figure import collect
+
+    pts = collect()
+    W, H = width, width * 0.62
+    L, R, T, B = 46, 150, 14, 36
+    pw, ph = W - L - R, H - T - B
+    X = lambda r: L + r * pw  # noqa: E731
+    Y = lambda f: B + f * ph  # noqa: E731
+    d = Drawing(W, H)
+    grey = colors.HexColor("#d8d8de")
+    for k in range(6):
+        v = k / 5
+        d.add(Line(X(v), B, X(v), B + ph, strokeColor=grey, strokeWidth=0.4))
+        d.add(Line(L, Y(v), L + pw, Y(v), strokeColor=grey, strokeWidth=0.4))
+        d.add(String(X(v), B - 11, f"{v:.1f}", fontSize=7, textAnchor="middle"))
+        d.add(String(L - 4, Y(v) - 2.5, f"{v:.1f}", fontSize=7, textAnchor="end"))
+    d.add(Rect(L, B, pw, ph, fillColor=None, strokeColor=colors.HexColor("#555"), strokeWidth=0.6))
+    d.add(String(L + pw / 2, 6, "Violation recall", fontSize=8, textAnchor="middle"))
+    ylab = Group(String(0, 0, "False-green rate", fontSize=8, textAnchor="middle"))
+    ylab.transform = (0, 1, -1, 0, 14, B + ph / 2)  # rotate 90 degrees
+    d.add(ylab)
+    blue = colors.HexColor("#1a4d7a")
+    corners: dict[tuple, list] = {}
+    for q in pts:
+        if q["kind"] == "baseline":
+            corners.setdefault((round(q["recall"], 3), round(q["fgr"], 3)), []).append(q["label"])
+    for (rc, fg), names in corners.items():
+        x, y = X(rc), Y(fg)
+        d.add(Rect(x - 3, y - 3, 6, 6, fillColor=colors.HexColor("#8a8a8a"), strokeColor=None))
+        right = rc > 0.5  # labels on the right edge go inside the plot
+        d.add(String(x - 5 if right else x + 5, y + 4, " / ".join(sorted(names)), fontSize=6.5,
+                     fillColor=colors.HexColor("#666"), textAnchor="end" if right else "start"))
+    models: dict[str, dict] = {}
+    for q in pts:
+        if q["kind"] == "model":
+            name, cond = q["label"].rsplit(" (", 1)
+            models.setdefault(name, {})[cond.rstrip(")")] = q
+    ly = B + ph - 4
+    for i, (name, c) in enumerate(sorted(models.items())):
+        num = str(i + 1)
+        if "offered" in c and "withheld" in c:
+            d.add(Line(X(c["offered"]["recall"]), Y(c["offered"]["fgr"]),
+                       X(c["withheld"]["recall"]), Y(c["withheld"]["fgr"]),
+                       strokeColor=colors.HexColor("#9fb4c8"), strokeWidth=0.7))
+        if "offered" in c:
+            d.add(Circle(X(c["offered"]["recall"]), Y(c["offered"]["fgr"]), 3.2,
+                         fillColor=blue, strokeColor=None))
+        if "withheld" in c:
+            x, y = X(c["withheld"]["recall"]), Y(c["withheld"]["fgr"])
+            d.add(Circle(x, y, 3.2, fillColor=colors.white, strokeColor=blue, strokeWidth=1))
+            d.add(String(x + 5, y - 2.5, num, fontSize=7, fillColor=blue))
+        d.add(String(L + pw + 10, ly - i * 11, f"{num}  {name}", fontSize=7))
+    ly2 = ly - len(models) * 11 - 8
+    d.add(Circle(L + pw + 14, ly2 + 2.5, 3.2, fillColor=blue, strokeColor=None))
+    d.add(String(L + pw + 22, ly2, "abstention offered", fontSize=7))
+    d.add(Circle(L + pw + 14, ly2 - 9, 3.2, fillColor=colors.white, strokeColor=blue, strokeWidth=1))
+    d.add(String(L + pw + 22, ly2 - 11.5, "abstention withheld", fontSize=7))
+    d.add(Rect(L + pw + 11, ly2 - 23, 6, 6, fillColor=colors.HexColor("#8a8a8a"), strokeColor=None))
+    d.add(String(L + pw + 22, ly2 - 22.5, "trivial baseline", fontSize=7))
+    return d
+
+
 def parse(md: str, width: float) -> list:
     flow: list = []
     lines = md.split("\n")
@@ -181,6 +250,12 @@ def parse(md: str, width: float) -> list:
         line = lines[i]
         stripped = line.strip()
 
+        if stripped.startswith("![Figure 1]"):
+            flush_para()
+            flow.append(figure1(width))
+            flow.append(Spacer(1, 6))
+            i += 1
+            continue
         if stripped.startswith("```"):
             flush_para()
             i += 1
@@ -287,18 +362,19 @@ def footer(canvas, doc) -> None:
     canvas.saveState()
     canvas.setFont("Helvetica", 7.5)
     canvas.setFillColor(MUTED)
-    canvas.drawString(0.9 * inch, 0.55 * inch, "No False Green — structural draft for review")
+    canvas.drawString(0.9 * inch, 0.55 * inch, "No False Green — complete draft for review")
     canvas.drawRightString(LETTER[0] - 0.9 * inch, 0.55 * inch, f"{doc.page}")
     canvas.restoreState()
 
 
 def main() -> int:
-    md = SRC.read_text()
+    # Generated-region markers are for scripts/fill_results.py, not for readers.
+    md = re.sub(r"^<!--[^\n]*-->[ \t]*\n", "", SRC.read_text(), flags=re.M)
     doc = SimpleDocTemplate(
         str(OUT), pagesize=LETTER,
         leftMargin=0.9 * inch, rightMargin=0.9 * inch,
         topMargin=0.85 * inch, bottomMargin=0.85 * inch,
-        title="No False Green — structural draft",
+        title="No False Green — complete draft",
         author="Diptopal Roy",
         subject="Benchmark for evidence-aware compliance verdicts",
     )

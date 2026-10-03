@@ -101,7 +101,7 @@ def table_ablation(runs: dict) -> str:
             "offered" if r["variant"].endswith("offered") else "withheld"] = r
 
     rows = [
-        "| Model | FGR, abstention offered | FGR, abstention withheld | Δ | Off-schema abstentions |",
+        "| Model | FGR, abstention offered | FGR, abstention withheld | Change | Off-schema abstentions |",
         "|---|---|---|---|---|",
     ]
     paired = {m: v for m, v in by_model.items() if "offered" in v and "withheld" in v}
