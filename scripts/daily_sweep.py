@@ -180,7 +180,11 @@ def completed() -> set[str]:
     doc = json.loads(RESULTS.read_text())
     if doc.get("prompt_version") != PROMPT_VERSION:
         return set()
-    return {k for k, v in doc.get("runs", {}).items() if v.get("per_firm")}
+    # A run is finished only when EVERY firm of the study is scored: Study 2
+    # has six firms, and a quota stop between firms leaves a partial run.
+    from nofalsegreen import study2 as _s2
+    need = len(_s2.SEEDS) if STUDY2 else 1
+    return {k for k, v in doc.get("runs", {}).items() if len(v.get("per_firm", [])) >= need}
 
 
 def queue(skip: set[str] = frozenset()) -> list[tuple[str, str]]:

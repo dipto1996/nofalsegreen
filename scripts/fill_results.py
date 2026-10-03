@@ -238,6 +238,52 @@ def table_audited() -> str:
     return "\n".join(rows)
 
 
+STUDIES = ROOT / "docs" / "studies_results.json"
+
+
+def _f(x, nd=3):
+    return "—" if x is None else f"{x:.{nd}f}"
+
+
+def table_study2() -> str:
+    """Table 6: Study 2, free-tier models, six generated firms (mean ± sd over firms)."""
+    head = ("| Model | Condition | False green | Recall | False alarm, all controls "
+            "| False alarm, near-miss | Abst. F1 | Answered |\n|---|---|---|---|---|---|---|---|")
+    if not STUDIES.exists():
+        return head
+    rows = [head]
+    for key, r in sorted(json.loads(STUDIES.read_text())["study2"].items()):
+        model, variant = key.split("::")
+        m = r["mean_over_firms"]
+        ms = lambda k: (f"{m[k]['mean']:.3f} ± {m[k]['sd']:.3f}" if m[k]["sd"] is not None  # noqa: E731
+                        else _f(m[k]["mean"]))
+        cond = "offered" if variant.endswith("offered") else "withheld"
+        rows.append(f"| `{short(model)}` | {cond} | {ms('false_green_rate')} | {ms('violation_recall')} "
+                    f"| {ms('false_alarm_rate')} | {ms('false_alarm_near_miss')} | {ms('abstention_f1')} "
+                    f"| {r['pooled']['answered']}/{r['pooled']['n']} |")
+    return "\n".join(rows)
+
+
+def table_vertex() -> str:
+    """Table 7: Vertex block, mean of three repeats [min, max]."""
+    head = ("| Model | Study | Condition | False green | Recall | False alarm, near-miss "
+            "| Abst. F1 | Min answered |\n|---|---|---|---|---|---|---|---|")
+    if not STUDIES.exists():
+        return head
+    rows = [head]
+    for key, r in sorted(json.loads(STUDIES.read_text())["vertex"].items()):
+        model, study, variant = key.split("::")
+        a = r["summary"]
+        cell = lambda k: ("—" if not a[k] else  # noqa: E731
+                          f"{a[k]['mean']:.3f} [{a[k]['min']:.3f}, {a[k]['max']:.3f}]")
+        n = 140 if study == "study1" else 252
+        cond = "offered" if variant.endswith("offered") else "withheld"
+        rows.append(f"| `{model}` | {study[-1]} | {cond} | {cell('false_green_rate')} "
+                    f"| {cell('violation_recall')} | {cell('false_alarm_near_miss')} "
+                    f"| {cell('abstention_f1')} | {a['answered_min']}/{n} |")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -263,6 +309,8 @@ def main() -> int:
 
     tables = {
         "table1-trivial": table_trivial(),
+        "table6-study2": table_study2(),
+        "table7-vertex": table_vertex(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),
