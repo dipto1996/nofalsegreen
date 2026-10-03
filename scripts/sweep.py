@@ -44,30 +44,39 @@ def main() -> int:
 
     rows: dict[str, dict] = {}
     for name, fn in REGISTRY.items():
-        fg, vr, vp, fa, af = [], [], [], [], []
+        # A rate enters a firm's average only where its denominator exists in
+        # that firm: a generated firm may have no violations, or no withheld
+        # pairs, and scoring an undefined rate as 0 would bias every mean.
+        per: dict[str, list[float]] = {k: [] for k in
+                                       ("false_green_rate", "violation_recall", "violation_precision",
+                                        "false_alarm_rate", "abstention_f1")}
         for _, firm in firms:
-            r = score(firm.labels, fn(firm), rule_regimes=regimes)
-            fg.append(r.false_green_rate)
-            vr.append(r.violation_recall)
-            vp.append(r.violation_precision)
-            fa.append(r.false_alarm_rate)
-            af.append(r.abstention_f1)
+            preds = fn(firm)
+            r = score(firm.labels, preds, rule_regimes=regimes)
+            v = [l.verdict.value for l in firm.labels]
+            pv = {p.pair_id: p.verdict.value for p in preds}
+            if "needs_evidence" in v:
+                per["false_green_rate"].append(r.false_green_rate)
+                per["abstention_f1"].append(r.abstention_f1)
+            if "fail" in v:
+                per["violation_recall"].append(r.violation_recall)
+            if "fail" in pv.values():
+                per["violation_precision"].append(r.violation_precision)
+            if "pass" in v:
+                per["false_alarm_rate"].append(r.false_alarm_rate)
 
         def agg(xs: list[float]) -> dict:
+            if not xs:
+                return {"mean": None, "stdev": None, "min": None, "max": None, "n_firms": 0}
             return {
                 "mean": round(statistics.mean(xs), 4),
                 "stdev": round(statistics.stdev(xs), 4) if len(xs) > 1 else 0.0,
                 "min": round(min(xs), 4),
                 "max": round(max(xs), 4),
+                "n_firms": len(xs),
             }
 
-        rows[name] = {
-            "false_green_rate": agg(fg),
-            "violation_recall": agg(vr),
-            "violation_precision": agg(vp),
-            "false_alarm_rate": agg(fa),
-            "abstention_f1": agg(af),
-        }
+        rows[name] = {k: agg(xs) for k, xs in per.items()}
 
     total_pairs = sum(len(f.pairs) for _, f in firms)
     total_withheld = sum(
@@ -83,11 +92,10 @@ def main() -> int:
     print("-" * len(hdr))
     for name, r in rows.items():
         print(f"{name:<16}"
-              f"{r['false_green_rate']['mean']:>8.3f}"
-              f"{r['violation_recall']['mean']:>9.3f}"
-              f"{r['violation_precision']['mean']:>8.3f}"
-              f"{r['false_alarm_rate']['mean']:>9.3f}"
-              f"{r['abstention_f1']['mean']:>8.3f}")
+              + "".join(f"{(r[k]['mean'] if r[k]['mean'] is not None else float('nan')):>{w}.3f}"
+                        for k, w in (("false_green_rate", 8), ("violation_recall", 9),
+                                     ("violation_precision", 8), ("false_alarm_rate", 9),
+                                     ("abstention_f1", 8))))
 
     doc = {
         "n_firms": len(firms),
@@ -97,9 +105,11 @@ def main() -> int:
         "rulebook_version": rb.version,
         "rulebook_obligations": len(rb.obligations),
         "systems": rows,
+        "generator": "v2",
         "note": (
-            "Trivial baselines only. No language-model results are reported here; "
-            "those experiments have not been run."
+            "Trivial baselines only; language-model results are in llm_results.json "
+            "(Study 1) and study2/llm_results.json (Study 2). Each mean is over the "
+            "firms in which the rate is defined (n_firms)."
         ),
     }
     Path(args.out).write_text(json.dumps(doc, indent=2))

@@ -1,8 +1,8 @@
 {
   "n_firms": 31,
-  "n_pairs": 58961,
-  "n_withheld": 26682,
-  "n_planted_violations": 7044,
+  "n_pairs": 1481,
+  "n_withheld": 723,
+  "n_planted_violations": 238,
   "rulebook_version": "2.0.0",
   "rulebook_obligations": 194,
   "systems": {
@@ -11,31 +11,36 @@
         "mean": 1.0,
         "stdev": 0.0,
         "min": 1.0,
-        "max": 1.0
+        "max": 1.0,
+        "n_firms": 21
       },
       "violation_recall": {
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 25
       },
       "violation_precision": {
-        "mean": 0.0,
-        "stdev": 0.0,
-        "min": 0.0,
-        "max": 0.0
+        "mean": null,
+        "stdev": null,
+        "min": null,
+        "max": null,
+        "n_firms": 0
       },
       "false_alarm_rate": {
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 24
       },
       "abstention_f1": {
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 21
       }
     },
     "always_abstain": {
@@ -43,31 +48,36 @@
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 21
       },
       "violation_recall": {
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 25
       },
       "violation_precision": {
-        "mean": 0.0,
-        "stdev": 0.0,
-        "min": 0.0,
-        "max": 0.0
+        "mean": null,
+        "stdev": null,
+        "min": null,
+        "max": null,
+        "n_firms": 0
       },
       "false_alarm_rate": {
-        "mean": 0.9677,
-        "stdev": 0.1796,
-        "min": 0.0,
-        "max": 1.0
+        "mean": 1.0,
+        "stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "n_firms": 24
       },
       "abstention_f1": {
-        "mean": 0.6321,
-        "stdev": 0.0604,
-        "min": 0.6024,
-        "max": 0.9526
+        "mean": 0.717,
+        "stdev": 0.2963,
+        "min": 0.3529,
+        "max": 1.0,
+        "n_firms": 21
       }
     },
     "always_fail": {
@@ -75,31 +85,36 @@
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 21
       },
       "violation_recall": {
         "mean": 1.0,
         "stdev": 0.0,
         "min": 1.0,
-        "max": 1.0
+        "max": 1.0,
+        "n_firms": 25
       },
       "violation_precision": {
-        "mean": 0.1186,
-        "stdev": 0.0094,
-        "min": 0.0905,
-        "max": 0.1323
+        "mean": 0.1704,
+        "stdev": 0.1296,
+        "min": 0.0,
+        "max": 0.4286,
+        "n_firms": 31
       },
       "false_alarm_rate": {
-        "mean": 0.9677,
-        "stdev": 0.1796,
-        "min": 0.0,
-        "max": 1.0
+        "mean": 1.0,
+        "stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "n_firms": 24
       },
       "abstention_f1": {
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 21
       }
     },
     "oracle": {
@@ -107,33 +122,39 @@
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 21
       },
       "violation_recall": {
         "mean": 1.0,
         "stdev": 0.0,
         "min": 1.0,
-        "max": 1.0
+        "max": 1.0,
+        "n_firms": 25
       },
       "violation_precision": {
         "mean": 1.0,
         "stdev": 0.0,
         "min": 1.0,
-        "max": 1.0
+        "max": 1.0,
+        "n_firms": 25
       },
       "false_alarm_rate": {
         "mean": 0.0,
         "stdev": 0.0,
         "min": 0.0,
-        "max": 0.0
+        "max": 0.0,
+        "n_firms": 24
       },
       "abstention_f1": {
         "mean": 1.0,
         "stdev": 0.0,
         "min": 1.0,
-        "max": 1.0
+        "max": 1.0,
+        "n_firms": 21
       }
     }
   },
-  "note": "Trivial baselines only. No language-model results are reported here; those experiments have not been run."
+  "generator": "v2",
+  "note": "Trivial baselines only; language-model results are in llm_results.json (Study 1) and study2/llm_results.json (Study 2). Each mean is over the firms in which the rate is defined (n_firms)."
 }

@@ -72,31 +72,24 @@ rows = sum(max(0, len(p.read_text().strip().splitlines()) - 1) for p in csvs)
 claim(len(csvs) == 11, f"11 source exports on disk (got {len(csvs)})")
 claim(rows == 93, f"93 data rows across exports (got {rows})")
 
-print("\nsweep claims")
+print("\nsweep claims (generator v2, recomputed)")
+claim(results.get("generator") == "v2", "released-set figures come from generator v2")
 claim(results["n_firms"] == 31, "31 firms")
-claim(results["n_pairs"] == 58961, f"58,961 pairs (got {results['n_pairs']})")
-claim(results["n_withheld"] == 26682, f"26,682 withheld (got {results['n_withheld']})")
-claim(results["n_planted_violations"] == 7044, f"7,044 planted violations (got {results['n_planted_violations']})")
-share = results["n_withheld"] / results["n_pairs"]
-claim(abs(share - 0.453) < 0.0005, f"withheld share 45.3% (got {share:.1%})")
-claim("58,961" in paper and "26,682" in paper and "45.3" in paper and "57,701" not in paper,
-      "paper quotes the regenerated figures and none of the stale ones")
-claim("7,044" in paper, "paper quotes 7,044 planted violations")
-
-print("\ntable 7.1 vs results.json")
-expect = {
-    "always_pass":    (1.000, 0.000, 0.000, 0.000, 0.000),
-    "always_abstain": (0.000, 0.000, 0.000, 0.968, 0.632),
-    "always_fail":    (0.000, 1.000, 0.119, 0.968, 0.000),
-    "oracle":         (0.000, 1.000, 1.000, 0.000, 1.000),
-}
-for name, (fgr, rec, prec, fa, af1) in expect.items():
-    s = results["systems"][name]
-    claim(abs(s["false_green_rate"]["mean"] - fgr) < 0.001, f"{name} FGR = {fgr:.3f}")
-    claim(abs(s["violation_recall"]["mean"] - rec) < 0.001, f"{name} recall = {rec:.3f}")
-    claim(abs(s["violation_precision"]["mean"] - prec) < 0.001, f"{name} precision = {prec:.3f}")
-    claim(abs(s["false_alarm_rate"]["mean"] - fa) < 0.001, f"{name} false alarm = {fa:.3f}")
-    claim(abs(s["abstention_f1"]["mean"] - af1) < 0.001, f"{name} abstention F1 = {af1:.3f}")
+_np, _nw, _nf = results["n_pairs"], results["n_withheld"], results["n_planted_violations"]
+claim(f"{_np:,}" in paper and f"{_nw:,}" in paper and f"{_nw / _np:.1%}" in paper and f"{_nf:,}" in paper,
+      f"paper quotes {_np:,} pairs, {_nw:,} withheld ({_nw / _np:.1%}), {_nf:,} violations")
+claim("58,961" not in paper.replace("released-set size of 58,961 pairs", ""),
+      "the withdrawn v1 size appears only where it is withdrawn")
+claim("8 of 60" not in paper or "agreed with its labels on 8" in paper, "v1 blind-check result disclosed")
+claim("table1-trivial" in paper, "Table 1 is generated, not hand-typed")
+_t1 = paper[paper.index("BEGIN GENERATED: table1-trivial"):paper.index("END GENERATED: table1-trivial")]
+for _n, _s in results["systems"].items():
+    claim(f"`{_n}`" in _t1, f"Table 1 row for {_n}")
+claim(results["systems"]["oracle"]["false_green_rate"]["mean"] == 0.0
+      and results["systems"]["oracle"]["violation_recall"]["mean"] == 1.0, "oracle perfect on the release")
+claim(results["systems"]["always_pass"]["false_alarm_rate"]["mean"] == 0.0
+      and results["systems"]["always_pass"]["false_green_rate"]["mean"] == 1.0,
+      "always_pass: no false alarm, every withheld pair a false green")
 
 print("\nanchor-firm specific claims in the text")
 claim(scored["always_pass"].n_false_green == 201,
@@ -105,7 +98,8 @@ claim(scored["always_pass"].false_alarm_rate == 0.0, "always_pass raises zero fa
 claim(abs(scored["always_abstain"].abstention_f1 - 0.953) < 0.001,
       f"always_abstain hits 0.953 abstention F1 on anchor (got {scored['always_abstain'].abstention_f1:.3f})")
 claim("0.953" in paper, "paper quotes the 0.953 anchor figure")
-claim("0.632" in paper, "paper quotes the 0.632 swept figure")
+claim(f"{results['systems']['always_abstain']['abstention_f1']['mean']:.3f}" in paper,
+      "paper quotes the swept always_abstain abstention F1")
 claim(scored["oracle"].false_green_rate == 0.0 and scored["oracle"].violation_recall == 1.0,
       "oracle is perfect on anchor")
 
@@ -330,7 +324,7 @@ claim(all(f"`{k.split('/')[-1].split('::')[0].replace(':free', '')}`" in _t2
 _wo = [v["engine"]["false_green_rate"] for v in _wit.values()]
 claim(f"to {min(_wo):.3f} to {max(_wo):.3f}" in paper.replace("\n", " "),
       f"abstract: withheld FGR range {min(_wo):.3f}-{max(_wo):.3f}")
-claim(results["note"].startswith("Trivial baselines only"), "results.json disclaims LM results")
+claim(results["note"].startswith("Trivial baselines only"), "results.json is labelled as trivial baselines")
 claim("Language-model results" in readme and "0.042 to 0.142" in readme, "README reports LM results")
 for forbidden in ["250-rule", "237-rule", "612 cases", "768 checks"]:
     claim(forbidden not in paper, f"paper avoids unverified figure '{forbidden}'")
@@ -339,7 +333,7 @@ claim("not an independent baseline" in paper or "do not" in paper and "acceptanc
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
-claim(pcts <= {"45.3%"}, f"only verified percentages appear (found {sorted(pcts)})")
+claim(pcts <= {f"{_nw / _np:.1%}"}, f"only verified percentages appear (found {sorted(pcts)})")
 
 # The status header states how many claims this script confirms. Rather than
 # asking a human to keep that in sync, the script writes it, so the number can

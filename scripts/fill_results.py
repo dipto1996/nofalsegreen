@@ -51,6 +51,24 @@ def load_runs() -> dict:
     return json.loads(LLM.read_text()).get("runs", {})
 
 
+def table_trivial() -> str:
+    """Table 1: trivial baselines over the anchor and 30 generated firms."""
+    t = json.loads(TRIV.read_text())["systems"]
+    rows = ["| System | False green | Violation recall | Precision | False alarm | Abstention F1 |",
+            "|---|---|---|---|---|---|"]
+    for name in ("always_pass", "always_abstain", "always_fail", "oracle"):
+        cells = []
+        for k in ("false_green_rate", "violation_recall", "violation_precision",
+                  "false_alarm_rate", "abstention_f1"):
+            m = t[name][k]["mean"]
+            cells.append("—" if m is None else f"{m:.3f}")
+        rows.append(f"| `{name}` | " + " | ".join(cells) + " |")
+    rows.append("")
+    rows.append("A dash marks a rate undefined for that system: `always_pass` and `always_abstain` "
+                "never predict a violation, so their precision has no denominator.")
+    return "\n".join(rows)
+
+
 def table_main(runs: dict) -> str:
     """Table 2: main result under abstain_offered."""
     rows = [
@@ -80,17 +98,24 @@ def table_main(runs: dict) -> str:
             f"| {cell(a,'abstention_precision')} | {cell(a,'abstention_recall')} "
             f"| {cell(a,'abstention_f1')} | {unp:.3f} | {answered}/{n_pairs} |"
         )
-    if TRIV.exists():
-        t = json.loads(TRIV.read_text())["systems"]
-        for name in ("always_pass", "oracle"):
-            s = t[name]
-            rows.append(
-                f"| `{name}` (ref) | {s['false_green_rate']['mean']:.3f} | {s['false_green_rate']['mean']:.3f} "
-                f"| {s['violation_recall']['mean']:.3f} | {s['violation_precision']['mean']:.3f} "
-                f"| {s['false_alarm_rate']['mean']:.3f} | "
-                f"{s['abstention_precision']['mean'] if 'abstention_precision' in s else 0:.3f} "
-                f"| — | {s['abstention_f1']['mean']:.3f} | 0.000 | all |"
-            )
+    # Reference rows scored on the SAME 140-pair anchor subset as the models above.
+    from baselines.trivial import REGISTRY
+    from nofalsegreen import northwind
+    from nofalsegreen.metrics import score
+    from nofalsegreen.rulebook import Rulebook
+    from nofalsegreen.subset import subset_firm
+    anchor_dir = ROOT / "data" / "firms" / "northwind-robotics"
+    rb = Rulebook.load(ROOT / "rulebook" / "rulebook.json")
+    sub = subset_firm(northwind.load(anchor_dir, anchor_dir / "expectations.json"), rb.rule_regimes())
+    for name in ("always_pass", "oracle"):
+        r = score(sub.labels, REGISTRY[name](sub))
+        prec = f"{r.violation_precision:.3f}" if name == "oracle" else "—"
+        rows.append(
+            f"| `{name}` (ref) | {r.false_green_rate:.3f} | {r.false_green_rate:.3f} "
+            f"| {r.violation_recall:.3f} | {prec} | {r.false_alarm_rate:.3f} "
+            f"| {r.abstention_precision:.3f} | {r.abstention_recall:.3f} | {r.abstention_f1:.3f} "
+            f"| 0.000 | {len(sub.pairs)}/{len(sub.pairs)} |"
+        )
     return "\n".join(rows)
 
 
@@ -237,6 +262,7 @@ def main() -> int:
         print(f"  {k:<58}{state}")
 
     tables = {
+        "table1-trivial": table_trivial(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

@@ -5,7 +5,7 @@ Diptopal Roy, Settle AI Inc. (diptopal@joinsettle.info). See *Competing interest
 **Status of this draft: complete, for review.** All sections are written. Every table is
 generated from retained artifacts by the repository's scripts, and every quantitative
 claim in the text is recomputed from those artifacts by
-`scripts/verify_paper.py`, which currently confirms 151 of 151. Each methodological rule that could have been chosen after
+`scripts/verify_paper.py`, which currently confirms 136 of 136. Each methodological rule that could have been chosen after
 seeing results (label views, model substitutions, evidence classes, excerpt selection,
 label audit, cut-offs) was committed to the repository before the results it governs,
 and the paper cites the record.
@@ -34,14 +34,14 @@ data but the specification the data was rendered from.
 
 The benchmark inverts the incentive structure of standard evaluation in one specific way:
 correct abstention is the **majority class**, at 201 of 221 pairs in the hand-authored
-anchor firm and 45.3% of 58,961 pairs across the released set. We report the false-green
+anchor firm and 48.8% of 1,481 pairs across the released set. We report the false-green
 rate alongside violation recall, false-alarm rate on planted controls, abstention
 precision and recall, and a consistency check between a system's headline counts and its
 own per-pair verdicts. Trivial baselines establish that these metrics are not
 individually sufficient: a system answering `pass` everywhere attains a 0.000 false-alarm
 rate and is indistinguishable from a safe system under accuracy-style scoring, while
 scoring 1.000 on the false-green rate; conversely a system abstaining everywhere attains
-0.632 abstention F1 while detecting no violations. An evidence-aware oracle attains 1.000
+0.717 abstention F1 while detecting no violations. An evidence-aware oracle attains 1.000
 on every axis, establishing that the task is solvable and that low scores reflect the
 system under test.
 
@@ -195,8 +195,9 @@ abstention rate must be read together. We differ in three respects. Our subject 
 third-party employer and our output a regulatory verdict per (obligation, entity) pair,
 not a governance reconstruction or a retrieval answer; our insufficiency is a property of
 what the employer's exports contain, not of what an agent is permitted to see; and our
-scale (58,961 pairs over 31 firms, against 64 cases and 72 tasks respectively) supports per-firm
-aggregation and intervals. We do not claim the directional, construction-labelled framing
+anchor firm alone spans 221 pairs across ten regimes, and the generator
+adds firms at any seed (1,481 pairs over 31 firms in the release, against 64 cases and
+72 tasks respectively), which supports per-firm aggregation and intervals. We do not claim the directional, construction-labelled framing
 as new; both works reach it independently.
 
 **Abstention and selective prediction.** This is the closest established literature and
@@ -228,13 +229,13 @@ label.
 
 Three things differ here.
 
-First, abstention is not a cost. For 45.3% of pairs in our released set it is the
+First, abstention is not a cost. For 48.8% of pairs in our released set it is the
 *correct output*, and it is actionable: `needs_evidence` names a document the firm must
 produce. A system that trades abstention for coverage is not moving along a tradeoff
 curve, it is producing wrong answers that happen to look like answers.
 
 Second, insufficiency is a property of the evidence base rather than the query, so it is
-determinable **by construction**. The generator withholds a required field and the label
+determinable **by construction**. The generator withholds a required export and the label
 follows mechanically. Most abstention benchmarks annotate insufficiency, and annotation of
 legal sufficiency is exactly the judgement call that makes such datasets small and
 contestable. Joren et al. (2024) and the two benchmarks above are partial exceptions: the
@@ -429,39 +430,63 @@ tenfold is the empirical claim underlying the benchmark's design.
 
 ### 5.3 The generator
 
-The anchor firm is too small to support a confidence interval on any system's error rate.
-The generator addresses this.
+The anchor firm is one employer, too small to support an interval on any system's error
+rate and lacking conforming controls. The generator addresses both, over a deliberately
+narrow set of rules.
 
 Its central property is that **labels precede data**. For each applicable (obligation,
-entity) pair the generator draws a disposition:
+entity) pair the generator first draws a disposition and then writes records that decide
+it:
 
-- `planted_violation`, and a specific regulatory breach is rendered into the records;
-- `planted_control`, and a conforming case is rendered, with a configurable share placed
-  exactly on the legal boundary (I-9 Section 2 on business day three of three, an LCA
-  expiring on day eight of a seven-day window, a salary equal to the floor) to test whether
-  a system flags on proximity rather than on the rule;
-- `withheld_evidence`, and a required input is omitted;
-- `not_applicable`, for obligations with no expression in export data.
+- `planted_violation`: the records show the breach;
+- `planted_control`: the records show conformity, with a configured share placed exactly on
+  the legal boundary (near-miss controls) to test whether a system flags on proximity rather
+  than on the rule;
+- `withheld_evidence`: the export that would carry the required information is not provided
+  to the firm at all.
 
-Only after the full disposition map is drawn are the CSVs written. There is consequently no
-annotation step and no annotator disagreement to report, and each label is auditable back
-to the decision that produced it. The cost of this design is that the generator can only
-express mechanisms we have implemented renderers for; unrendered obligations reach the
-label set as withheld-evidence or not-applicable, which is honest but limits the diversity
-of planted violations relative to the hand-authored firm.
+The generator emits a pair only for the four rule families whose every listed input it
+renders: I-9 Section 1 timeliness (signed on or before the first day of employment, not
+before offer acceptance), I-9 Section 2 timeliness (within three business days, weekends and
+federal holidays with their observed dates excluded), reverification on or before the
+expiry of temporary work authorisation, and the LCA required wage (wages paid at least the
+greater of the prevailing wage and the employer's actual wage for similar workers, from a
+semimonthly payroll register and an actual-wage table). Each rule is applied only to
+entities it governs. Near-miss controls sit on the boundary: Section 1 on the first day,
+Section 2 on business day three, Supplement B on the expiry date, pay exactly equal to the
+required wage.
 
-Generation is deterministic in the seed. Two runs of the same seed produce byte-identical
-label sets and firm metadata, which the test suite asserts.
+Evidence is withheld a whole export at a time, never by blanking one worker's cell. A blank
+date for a past deadline reads to a practitioner as "not done", which is a violation, not
+missing evidence. A firm either provides its I-9 export, and every I-9 pair is decidable, or
+does not, and every I-9 pair is `needs_evidence`.
+
+**An earlier generator failed this standard, and we replaced it.** A first version emitted a
+label for every (obligation, entity) pair in the 194-obligation rulebook but rendered
+deciding data for only four rule families, and applied rules to entities they cannot govern
+(L-1 and OPT rules to H-1B workers). A blind consistency check caught this before any
+language-model result on generated firms was reported. An independent labeller, given only
+the records and the rule text for 60 stratified pairs, agreed with its labels on 8. Every
+figure from that version, including a released-set size of 58,961 pairs and the trivial
+baselines computed on it in an earlier draft, is withdrawn; the artifacts are archived in
+`docs/study2_v1_invalid/`. The same check on the current generator, on 60 pairs from seeds
+not otherwise used, agreed on all 60 (15 per stratum). The test suite now checks every
+rendered record against its label across 40 seeds.
+
+The cost of this design is breadth. The generated firms test four rule families thoroughly,
+including the boundary cases, while the anchor firm's breadth (221 pairs across ten regimes)
+comes from hand authoring. Generation is deterministic in the seed, which the test suite
+asserts.
 
 ### 5.4 Released scale
 
 | | Value |
 |---|---|
 | Firms | 31 (1 anchor + 30 generated at seeds 1-30) |
-| Pairs | 58,961 |
-| Withheld-evidence pairs | 26,682 (45.3%) |
-| Planted violations | 7,044 |
-| Obligations | 194 |
+| Pairs | 1,481 |
+| Withheld-evidence pairs | 723 (48.8%) |
+| Planted violations | 238 |
+| Obligations in the rulebook | 194 (the generator renders four rule families) |
 
 Additional firms are available at any seed.
 
@@ -722,28 +747,34 @@ misleading, and we do not.
 
 ### 8.1 Trivial baselines
 
-**Table 1 — trivial baselines.** Across 31 firms and 58,961 pairs, aggregated per firm
-then averaged. Reproduced by `python3 scripts/sweep.py --firms 30`.
+**Table 1 — trivial baselines.** Across 31 firms (the anchor and 30 generated), aggregated
+per firm then averaged over the firms in which each rate is defined: a generated firm may
+withhold every export, or none, so not every rate exists in every firm. Reproduced by
+`python3 scripts/sweep.py --firms 30`.
 
+<!-- BEGIN GENERATED: table1-trivial -->
 | System | False green | Violation recall | Precision | False alarm | Abstention F1 |
 |---|---|---|---|---|---|
-| `always_pass` | **1.000** | 0.000 | 0.000 | **0.000** | 0.000 |
-| `always_abstain` | 0.000 | 0.000 | 0.000 | 0.968 | **0.632** |
-| `always_fail` | 0.000 | **1.000** | 0.119 | 0.968 | 0.000 |
+| `always_pass` | 1.000 | 0.000 | — | 0.000 | 0.000 |
+| `always_abstain` | 0.000 | 0.000 | — | 1.000 | 0.717 |
+| `always_fail` | 0.000 | 1.000 | 0.170 | 1.000 | 0.000 |
 | `oracle` | 0.000 | 1.000 | 1.000 | 0.000 | 1.000 |
+
+A dash marks a rate undefined for that system: `always_pass` and `always_abstain` never predict a violation, so their precision has no denominator.
+<!-- END GENERATED: table1-trivial -->
 
 Three readings.
 
 **The false-green rate is not redundant.** `always_pass` attains a false-alarm rate of
 0.000, the best possible score on compliant cases. Under any metric that rewards not
 crying wolf, it is indistinguishable from a careful system. It is in fact the worst
-possible system for deployment, reporting all 26,682 undecidable pairs as satisfied. Only
+possible system for deployment, reporting all 723 undecidable pairs as satisfied. Only
 the false-green rate separates them. On the anchor firm alone the separation is starker:
 `always_pass` reports all 201 unassessed obligations as satisfied while raising zero false
 alarms.
 
 **The false-green rate is also not sufficient.** `always_abstain` attains 0.000 on it
-while detecting no violations, and reaches 0.632 abstention F1. On the anchor firm, whose
+while detecting no violations, and reaches 0.717 abstention F1. On the anchor firm, whose
 expectation set declares no control pairs, it reaches 0.953 abstention F1 while being
 useless. Abstention scores are therefore gameable in isolation, which is why the suite
 must be reported jointly.
@@ -787,8 +818,8 @@ answered columns guard the rest.
 | `nemotron-3-ultra-550b-a55b` | **0.067** [0.02, 0.14] | 0.067 | 0.300 [0.10, 0.60] | 1.000 | 0.000 | 0.903 | 0.933 | 0.918 | 0.000 | 140/140 |
 | `nemotron-3-super-120b-a12b` | **0.050** [0.01, 0.11] | 0.050 | 0.300 [0.10, 0.61] | 0.857 | 0.000 | 0.896 | 0.858 | 0.877 | 0.000 | 140/140 |
 | `nemotron-3.5-lightning` | **0.042** [0.01, 0.09] | 0.059 | 0.050 [0.00, 0.18] | 0.500 | 0.000 | 0.951 | 0.642 | 0.766 | 0.000 | 92/140 |
-| `always_pass` (ref) | 1.000 | 1.000 | 0.000 | 0.000 | 0.000 | 0.000 | — | 0.000 | 0.000 | all |
-| `oracle` (ref) | 0.000 | 0.000 | 1.000 | 1.000 | 0.000 | 0.000 | — | 1.000 | 0.000 | all |
+| `always_pass` (ref) | 1.000 | 1.000 | 0.000 | — | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 140/140 |
+| `oracle` (ref) | 0.000 | 0.000 | 1.000 | 1.000 | 0.000 | 1.000 | 1.000 | 1.000 | 0.000 | 140/140 |
 <!-- END GENERATED: table2-main -->
 
 The trivial baselines are repeated in-table as reference rows, so a reader sees
