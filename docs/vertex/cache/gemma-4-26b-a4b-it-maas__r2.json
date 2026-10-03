@@ -1,0 +1,434 @@
+{
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|everify.photo_matching::Anita Desai|12": {
+  "text": "everify.photo_matching::Anita Desai\tneeds_evidence\neverify.photo_matching::Hiroshi Yamamoto\tneeds_evidence\neverify.photo_matching::James Park\tneeds_evidence\neverify.photo_matching::Mei Tanaka\tneeds_evidence\neverify.photo_matching::Yuki Sato\tneeds_evidence\neverify.tnc.employer_action_window::Daniel Cho\tfail\t2025-04-18\neverify.tnc.overdue::Daniel Cho\tneeds_evidence\nextension.filing::Hiroshi Yamamoto\tpass\t2026-07-20\nfdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage\tpass\t149000\nfdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control\tunmonitored\nfdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence\tunmonitored\nfdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites\tunmonitored",
+  "output_tokens": 309,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match|12": {
+  "text": "fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match\tunmonitored\nfdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid\tunmonitored\nfdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand\tunmonitored\nh1b.i94.expiration::Anita Desai\tneeds_evidence\nh1b.i94.expiration::Daniel Cho\tneeds_evidence\nh1b.i94.expiration::Lucia Ferreira\tneeds_evidence\nh1b.i94.expiration::Mei Tanaka\tneeds_evidence\nh1b.i94.expiration::Omar Farouk\tneeds_evidence\nh1b.i94.expiration::Sofia Reyes\tneeds_evidence\nh1b.i94.expiration::Yuki Sato\tneeds_evidence\nh1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status\tunmonitored\nh1b.material_change.soc::Omar Farouk\tpass",
+  "output_tokens": 298,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|h1b.material_change.worksite::Sofia Reyes|12": {
+  "text": "h1b.material_change.worksite::Sofia Reyes\tunmonitored\nh1b.max_stay.six_year_limit::Anita Desai\tneeds_evidence\nh1b.max_stay.six_year_limit::Daniel Cho\tneeds_evidence\nh1b.max_stay.six_year_limit::Mei Tanaka\tneeds_evidence\nh1b.max_stay.six_year_limit::Ravi Anand\tneeds_evidence\nh1b.max_stay.six_year_limit::Yuki Sato\tneeds_evidence\nh1b.noid.response::Sofia Reyes\tneeds_evidence\nh1b.petition.expiry::Hiroshi Yamamoto\tpass\nh1b.rfe.response::Daniel Cho\tneeds_evidence\nh1b.wage.actual.memo::17-2199:L3:Austin, TX:memo\tneeds_evidence\nh1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo\tneeds_evidence\nh1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo\tneeds_evidence",
+  "output_tokens": 270,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo|12": {
+  "text": "h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo\tunmonitored\nh1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo\tunmonitored\nh1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense\tneeds_evidence\nh1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty\tneeds_evidence\nh1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear\tpass\nh1b.wage.payment.start-clock::Anita Desai\tneeds_evidence\nh1b.wage.payment.start-clock::Daniel Cho\tneeds_evidence\nh1b.wage.payment.start-clock::Lucia Ferreira\tneeds_evidence\nh1b.wage.payment.start-clock::Omar Farouk\tneeds_evidence\nh1b.wage.payment.start-clock::Sofia Reyes\tneeds_evidence\nh1b.wage.payment.start-clock::Yuki Sato\tneeds_evidence\nh1b.wage.prevailing.pwd-validity::pw:15-1252:L2\tneeds_evidence",
+  "output_tokens": 340,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|h1b.wage.prevailing.pwd-validity::pw:15-1252:L4|12": {
+  "text": "h1b.wage.prevailing.pwd-validity::pw:15-1252:L4\tneeds_evidence\t-\nh1b.wage.prevailing.pwd-validity::pw:17-2061:L3\tneeds_evidence\t-\nh1b.wage.prevailing.pwd-validity::pw:17-2141:L3\tneeds_evidence\t-\nh1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource\tneeds_evidence\t-\nh1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource\tneeds_evidence\t-\nh1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource\tneeds_evidence\t-\nh1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource\tneeds_evidence\t-\nh1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers\tunmonitored\t-\ni129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026\tneeds_evidence\t-\ni9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window\tunmonitored\t-\ni9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list\tpass\tlist_a_doc_expiry\ni9.noi.production-window::deadline-gap:i9.noi.production-window\tunmonitored\t-",
+  "output_tokens": 433,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse|12": {
+  "text": "i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse\tpass\t-\ni9.receipts.rule::i9-fieldgap:i9.receipts.rule\tneeds_evidence\t-\ni9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure\tneeds_evidence\t-\ni9.retention.storage_and_production::Anita Desai\tneeds_evidence\t-\ni9.retention.storage_and_production::Helena Voss\tneeds_evidence\t-\ni9.retention.storage_and_production::Hiroshi Yamamoto\tneeds_evidence\t-\ni9.retention.storage_and_production::Mei Tanaka\tneeds_evidence\t-\ni9.retention.storage_and_production::Omar Farouk\tneeds_evidence\t-\ni9.retention.storage_and_production::Ravi Anand\tneeds_evidence\t-\ni9.retention.storage_and_production::Sofia Reyes\tneeds_evidence\t-\ni9.retention.storage_and_production::Yuki Sato\tneeds_evidence\t-\ni9.reverification.deadline::Lucia Ferreira\tpass\t2026-06-15",
+  "output_tokens": 287,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|i9.reverification.noreverify::Helena Voss|12": {
+  "text": "i9.reverification.noreverify::Helena Voss\tpass\t-\ni9.reverification.unfair::i9-prohibited:i9.reverification.unfair\tunmonitored\t-\ni9.section1.signature::i9-fieldgap:i9.section1.signature\tneeds_evidence\t-\ni9.section1.statusbox::i9-fieldgap:i9.section1.statusbox\tneeds_evidence\t-\ni9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature\tneeds_evidence\t-\ni9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam\tneeds_evidence\t-\ni9.section2.timeliness::Ravi Anand\tpass\t2025-02-13\ni9.technical.cure-window::deadline-gap:i9.technical.cure-window\tunmonitored\t-\nlca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers\tunmonitored\t-\nlca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers\tunmonitored\t-\nlca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment\tunmonitored\t-\nlca.expiration::I-200-22010-100004\tpass\t2026-07-03",
+  "output_tokens": 384,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker|12": {
+  "text": "lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker\tneeds_evidence\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting\tneeds_evidence\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting\tneeds_evidence\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting\tneeds_evidence\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting\tneeds_evidence\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting\tneeds_evidence\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting\tneeds_evidence\t-\nlca.recordkeeping.public_access_file::lca-gap:lca.recordkeeping.public_access_file\tneeds_evidence\t-\nlca.retention::retention:I-200-22010-100004\tpass\tI-200-22010-100004\nlca.retention::retention:I-200-22010-100007\tpass\tI-200-22010-100007\nlca.retention::retention:I-200-23010-100002\tpass\tI-200-23010-100002\nlca.retention::retention:I-200-23010-100009\tpass\tI-200-23010-100009",
+  "output_tokens": 534,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice|12": {
+  "text": "lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice\tunmonitored\t-\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004\tpass\tP-200-22300-100004\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006\tpass\tP-200-22300-100006\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007\tpass\tP-200-22300-100007\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001\tpass\tP-200-24300-100001\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003\tpass\tP-200-25300-100003\nlca.wage.required_wage_greater_of::Daniel Cho\tpass\t150000\nlca.wage.required_wage_greater_of::Hiroshi Yamamoto\tpass\t151000\nlca.wage.required_wage_greater_of::Lucia Ferreira\tpass\t138000\nlca.wage.required_wage_greater_of::Mei Tanaka\tfail\t96000\nlca.wage.start_clock::Anita Desai\tneeds_evidence\t-\nlca.wage.start_clock::Hiroshi Yamamoto\tneeds_evidence\t-",
+  "output_tokens": 491,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|lca.wage.start_clock::Lucia Ferreira|12": {
+  "text": "lca.wage.start_clock::Lucia Ferreira\tpass\t2023-03-06\nlca.wage.start_clock::Omar Farouk\tpass\t2021-09-20\nlca.wage.start_clock::Ravi Anand\tpass\t2025-02-03\nlca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education\tneeds_evidence\t-\nlca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience\tneeds_evidence\t-\nlca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills\tneeds_evidence\t-\nlca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory\tneeds_evidence\t-\nlca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area\tpass\tAustin, TX\nlca.worksite.short_term_placement::lca:I-200-22010-100006:stp\tunmonitored\t-\npaf.assembly.one_working_day::paf-ready:I-200-21010-100005\tneeds_evidence\t-\npaf.assembly.one_working_day::paf-ready:I-200-22010-100006\tneeds_evidence\t-\npaf.assembly.one_working_day::paf-ready:I-200-22010-100007\tneeds_evidence\t-",
+  "output_tokens": 424,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|paf.assembly.one_working_day::paf-ready:I-200-23010-100009|12": {
+  "text": "paf.assembly.one_working_day::paf-ready:I-200-23010-100009\tunmonitored\t-\npaf.assembly.one_working_day::paf-ready:I-200-25010-100001\tunmonitored\t-\npaf.assembly.one_working_day::paf-ready:I-200-25010-100003\tunmonitored\t-\npaf.item1.certified_lca::paf-agg:paf.item1.certified_lca\tneeds_evidence\t-\npaf.item2.wage_rate::paf-agg:paf.item2.wage_rate\tneeds_evidence\t-\npaf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage\tneeds_evidence\t-\npaf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary\tneeds_evidence\t-\npaf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list\tneeds_evidence\t-\npaf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list\tneeds_evidence\t-\npaf.public_access_ready::paf:I-200-21010-100005\tneeds_evidence\t-\npaf.public_access_ready::paf:I-200-22010-100004\tneeds_evidence\t-\npaf.public_access_ready::paf:I-200-22010-100006\tneeds_evidence\t-",
+  "output_tokens": 439,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|northwind-robotics-subset140|paf.public_access_ready::paf:I-200-23010-100002|8": {
+  "text": "paf.public_access_ready::paf:I-200-23010-100002\tunmonitored\npaf.public_access_ready::paf:I-200-25010-100003\tunmonitored\nspecialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence\tneeds_evidence\nspecialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4\tneeds_evidence\nuscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline\tunmonitored\nuscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock\tunmonitored\nwage.prevailing_floor::wage:17-2199\tpass\nxdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel\tneeds_evidence",
+  "output_tokens": 292,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|everify.photo_matching::Anita Desai|12": {
+  "text": "everify.photo_matching::Anita Desai\tpass\t-\neverify.photo_matching::Hiroshi Yamamoto\tpass\t-\neverify.photo_matching::James Park\tpass\t-\neverify.photo_matching::Mei Tanaka\tpass\t-\neverify.photo_matching::Yuki Sato\tpass\t-\neverify.tnc.employer_action_window::Daniel Cho\tpass\t2025-04-18\neverify.tnc.overdue::Daniel Cho\tpass\t2026-05-01\nextension.filing::Hiroshi Yamamoto\tpass\t2026-07-20\nfdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage\tfail\tMei Tanaka\nfdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control\tpass\t-\nfdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence\tpass\t-\nfdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites\tpass\t-",
+  "output_tokens": 312,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match|12": {
+  "text": "fdns.asvvp.title_duties_soc_match::fdns-gap:fdns.asvvp.title_duties_soc_match\tpass\t-\nfdns.postvisit.response_to_rfe_noir_noid::fdns-gap:fdns.postvisit.response_to_rfe_noir_noid\tpass\t-\nfdns.readiness.public_access_file_onhand::fdns-gap:fdns.readiness.public_access_file_onhand\tpass\t-\nh1b.i94.expiration::Anita Desai\tpass\t-\nh1b.i94.expiration::Daniel Cho\tpass\t-\nh1b.i94.expiration::Lucia Ferreira\tpass\t-\nh1b.i94.expiration::Mei Tanaka\tpass\t-\nh1b.i94.expiration::Omar Farouk\tpass\t-\nh1b.i94.expiration::Sofia Reyes\tpass\t-\nh1b.i94.expiration::Yuki Sato\tpass\t-\nh1b.maintenance_of_status::h1b-gap:h1b.maintenance_of_status\tpass\t-\nh1b.material_change.soc::Omar Farouk\tpass\t-",
+  "output_tokens": 296,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|h1b.material_change.worksite::Sofia Reyes|12": {
+  "text": "h1b.material_change.worksite::Sofia Reyes\tpass\t-\nh1b.max_stay.six_year_limit::Anita Desai\tpass\t-\nh1b.max_stay.six_year_limit::Daniel Cho\tpass\t-\nh1b.max_stay.six_year_limit::Mei Tanaka\tpass\t-\nh1b.max_stay.six_year_limit::Ravi Anand\tpass\t-\nh1b.max_stay.six_year_limit::Yuki Sato\tpass\t-\nh1b.noid.response::Sofia Reyes\tfail\t-\nh1b.petition.expiry::Hiroshi Yamamoto\tpass\t2026-07-20\nh1b.rfe.response::Daniel Cho\tfail\t-\nh1b.wage.actual.memo::17-2199:L3:Austin, TX:memo\tfail\t-\nh1b.wage.actual.memo::wage:15-1252:L2:Austin, TX:memo\tfail\t-\nh1b.wage.actual.memo::wage:15-1252:L4:Austin, TX:memo\tfail\t-",
+  "output_tokens": 280,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo|12": {
+  "text": "h1b.wage.actual.memo::wage:17-2061:L3:Austin, TX:memo\tfail\t-\nh1b.wage.actual.memo::wage:17-2141:L3:Austin, TX:memo\tfail\t-\nh1b.wage.deductions.prohibited.business-expense::wage-gap:h1b.wage.deductions.prohibited.business-expense\tpass\t-\nh1b.wage.deductions.prohibited.early-cessation-penalty::wage-gap:h1b.wage.deductions.prohibited.early-cessation-penalty\tpass\t-\nh1b.wage.payment.free-and-clear::wage-gap:h1b.wage.payment.free-and-clear\tpass\t-\nh1b.wage.payment.start-clock::Anita Desai\tfail\t-\nh1b.wage.payment.start-clock::Daniel Cho\tfail\t-\nh1b.wage.payment.start-clock::Lucia Ferreira\tfail\t-\nh1b.wage.payment.start-clock::Omar Farouk\tfail\t-\nh1b.wage.payment.start-clock::Sofia Reyes\tfail\t-\nh1b.wage.payment.start-clock::Yuki Sato\tfail\t-\nh1b.wage.prevailing.pwd-validity::pw:15-1252:L2\tpass\tI-200-25010-100001",
+  "output_tokens": 357,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|h1b.wage.prevailing.pwd-validity::pw:15-1252:L4|12": {
+  "text": "h1b.wage.prevailing.pwd-validity::pw:15-1252:L4\tfail\t-\nh1b.wage.prevailing.pwd-validity::pw:17-2061:L3\tfail\t-\nh1b.wage.prevailing.pwd-validity::pw:17-2141:L3\tfail\t-\nh1b.wage.prevailing.source::wage:15-1252:L4:Austin, TX:pwsource\tpass\tNPWC_PWD\nh1b.wage.prevailing.source::wage:17-2061:L3:Austin, TX:pwsource\tpass\tNPWC_PWD\nh1b.wage.prevailing.source::wage:17-2141:L3:Austin, TX:pwsource\tpass\tNPWC_PWD\nh1b.wage.prevailing.source::wage:17-2199:L3:Austin, TX:pwsource\tpass\tNPWC_PWD\nh1b.wage.remedy.cmp-tiers::wage-gap:h1b.wage.remedy.cmp-tiers\tfail\tN/A\ni129.hsupp.edition.mandatory_2026::i129-gap:i129.hsupp.edition.mandatory_2026\tfail\t-\ni9.antidiscrimination.charge_window::i9-prohibited:i9.antidiscrimination.charge_window\tpass\t-\ni9.documents.acceptable_list::i9-fieldgap:i9.documents.acceptable_list\tpass\t-\ni9.noi.production-window::deadline-gap:i9.noi.production-window\tpass\t-",
+  "output_tokens": 416,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse|12": {
+  "text": "i9.prohibited.document_abuse::i9-prohibited:i9.prohibited.document_abuse\tpass\t-\ni9.receipts.rule::i9-fieldgap:i9.receipts.rule\tpass\t-\ni9.remote.alternative_procedure::i9-fieldgap:i9.remote.alternative_procedure\tpass\t-\ni9.retention.storage_and_production::Anita Desai\tpass\t-\ni9.retention.storage_and_production::Helena Voss\tpass\t-\ni9.retention.storage_and_production::Hiroshi Yamamoto\tpass\t-\ni9.retention.storage_and_production::Mei Tanaka\tpass\t-\ni9.retention.storage_and_production::Omar Farouk\tpass\t-\ni9.retention.storage_and_production::Ravi Anand\tpass\t-\ni9.retention.storage_and_production::Sofia Reyes\tpass\t-\ni9.retention.storage_and_production::Yuki Sato\tpass\t-\ni9.reverification.deadline::Lucia Ferreira\tpass\t2026-06-15",
+  "output_tokens": 267,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|i9.reverification.noreverify::Helena Voss|12": {
+  "text": "i9.reverification.noreverify::Helena Voss\tpass\t-\ni9.reverification.unfair::i9-prohibited:i9.reverification.unfair\tpass\t-\ni9.section1.signature::i9-fieldgap:i9.section1.signature\tpass\tsection1_signed_date\ni9.section1.statusbox::i9-fieldgap:i9.section1.statusbox\tpass\t-\ni9.section2.employer_signature::i9-fieldgap:i9.section2.employer_signature\tpass\tsection2_signed_date\ni9.section2.physical_exam::i9-fieldgap:i9.section2.physical_exam\tpass\tlist_a_doc_title\ni9.section2.timeliness::Ravi Anand\tpass\tsection2_signed_date\ni9.technical.cure-window::deadline-gap:i9.technical.cure-window\tpass\t-\nlca.dependency.nondisplacement_us_workers::lca-gap:lca.dependency.nondisplacement_us_workers\tpass\t-\nlca.dependency.recruitment_us_workers::lca-gap:lca.dependency.recruitment_us_workers\tpass\t-\nlca.enforcement.penalties_backwages_debarment::lca-gap:lca.enforcement.penalties_backwages_debarment\tpass\t-\nlca.expiration::I-200-22010-100004\tpass\tEND_DATE",
+  "output_tokens": 366,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|lca.notice.deliver_lca_to_worker::lca-gap:lca.notice.deliver_lca_to_worker|12": {
+  "text": "lca.notice.deliver_lca_to_worker\tfail\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-22010-100004:posting\tfail\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-22010-100006:posting\tfail\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-22010-100007:posting\tfail\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-23010-100002:posting\tfail\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-23010-100009:posting\tfail\t-\nlca.notice.posting_or_bargaining_rep::lca:I-200-25010-100003:posting\tfail\t-\nlca.recordkeeping.public_access_file\tfail\t-\nlca.retention::retention:I-200-22010-100004\tpass\t2026-07-03\nlca.retention::retention:I-200-22010-100007\tpass\t2028-07-15\nlca.retention::retention:I-200-23010-100002\tpass\t2029-05-31\nlca.retention::retention:I-200-23010-100009\tpass\t2028-10-31",
+  "output_tokens": 450,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice|12": {
+  "text": "lca.strike_lockout.attestation_and_notice::lca-gap:lca.strike_lockout.attestation_and_notice\tpass\t-\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100004\tpass\tP-200-22300-100004\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100006\tpass\tP-200-22300-100006\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-22010-100007\tpass\tP-200-22300-100007\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100001\tpass\tP-200-24300-100001\nlca.wage.prevailing_wage_source_level_validity::lca-pwd:I-200-25010-100003\tpass\tP-200-25300-100003\nlca.wage.required_wage_greater_of::Daniel Cho\tpass\t150000\nlca.wage.required_wage_greater_of::Hiroshi Yamamoto\tpass\t151000\nlca.wage.required_wage_greater_of::Lucia Ferreira\tpass\t138000\nlca.wage.required_wage_greater_of::Mei Tanaka\tfail\t96000\nlca.wage.start_clock::Anita Desai\tpass\t2023-07-17\nlca.wage.start_clock::Hiroshi Yamamoto\tpass\t2022-08-15",
+  "output_tokens": 502,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|lca.wage.start_clock::Lucia Ferreira|12": {
+  "text": "lca.wage.start_clock::Lucia Ferreira\tpass\t2023-03-06\nlca.wage.start_clock::Omar Farouk\tpass\t2021-09-20\nlca.wage.start_clock::Ravi Anand\tpass\t2025-02-03\nlca.wagelevel.consistency.education::i129-gap:lca.wagelevel.consistency.education\tfail\t-\nlca.wagelevel.consistency.experience::i129-gap:lca.wagelevel.consistency.experience\tfail\t-\nlca.wagelevel.consistency.specialskills::i129-gap:lca.wagelevel.consistency.specialskills\tfail\t-\nlca.wagelevel.consistency.supervisory::i129-gap:lca.wagelevel.consistency.supervisory\tfail\t-\nlca.worksite.area_of_intended_employment::lca:I-200-22010-100006:area\tpass\tAustin, TX\nlca.worksite.short_term_placement::lca:I-200-22010-100006:stp\tpass\t-\npaf.assembly.one_working_day::paf-ready:I-200-21010-100005\tfail\t-\npaf.assembly.one_working_day::paf-ready:I-200-22010-100006\tfail\t-\npaf.assembly.one_working_day::paf-ready:I-200-22010-100007\tfail\t-",
+  "output_tokens": 407,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|paf.assembly.one_working_day::paf-ready:I-200-23010-100009|12": {
+  "text": "paf.assembly.one_working_day::paf-ready:I-200-23010-100009\tfail\t-\npaf.assembly.one_working_day::paf-ready:I-200-25010-100001\tfail\t-\npaf.assembly.one_working_day::paf-ready:I-200-25010-100003\tfail\t-\npaf.item1.certified_lca::paf-agg:paf.item1.certified_lca\tfail\t-\npaf.item2.wage_rate::paf-agg:paf.item2.wage_rate\tfail\t-\npaf.item4.prevailing_wage::paf-agg:paf.item4.prevailing_wage\tfail\t-\npaf.item6.benefits_summary::paf-agg:paf.item6.benefits_summary\tfail\t-\npaf.item8.single_employer_entity_list::paf-gap:paf.item8.single_employer_entity_list\tfail\t-\npaf.item9.exempt_worker_list::paf-gap:paf.item9.exempt_worker_list\tfail\t-\npaf.public_access_ready::paf:I-200-21010-100005\tfail\t-\npaf.public_access_ready::paf:I-200-22010-100004\tfail\t-\npaf.public_access_ready::paf:I-200-22010-100006\tfail\t-",
+  "output_tokens": 412,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|northwind-robotics-subset140|paf.public_access_ready::paf:I-200-23010-100002|8": {
+  "text": "paf.public_access_ready::paf:I-200-23010-100002\tfail\t-\npaf.public_access_ready::paf:I-200-25010-100003\tfail\t-\nspecialty.occupation.A1_vs_q7.degree_min_coherence::i129-gap:specialty.occupation.A1_vs_q7.degree_min_coherence\tfail\t-\nspecialty.occupation.criteria.A1_A4::i129-gap:specialty.occupation.criteria.A1_A4\tfail\t-\nuscis.motion.reopen-reconsider-deadline::deadline-gap:uscis.motion.reopen-reconsider-deadline\tfail\t-\nuscis.premium-processing.clock::deadline-gap:uscis.premium-processing.clock\tfail\t-\nwage.prevailing_floor::wage:17-2199\tpass\t138000\nxdoc.consistency.registration_lca_i129.soc_wagelevel::i129-gap:xdoc.consistency.registration_lca_i129.soc_wagelevel\tfail\t-",
+  "output_tokens": 295,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tneeds_evidence\tdash\ni9.section2.timeliness::SYN-1001\tneeds_evidence\tdash\ni9.reverification.deadline::SYN-1001\tneeds_evidence\tdash\ni9.section1.timeliness::SYN-1002\tneeds_evidence\tdash\ni9.section2.timeliness::SYN-1002\tneeds_evidence\tdash\ni9.reverification.deadline::SYN-1002\tneeds_evidence\tdash\ni9.section1.timeliness::SYN-1003\tneeds_evidence\tdash\ni9.section2.timeliness::SYN-1003\tneeds_evidence\tdash\ni9.reverification.deadline::SYN-1003\tneeds_evidence\tdash\ni9.section1.timeliness::SYN-1004\tneeds_evidence\tdash\ni9.section2.timeliness::SYN-1004\tneeds_evidence\tdash\ni9.reverification.deadline::SYN-1004\tneeds_evidence\tdash",
+  "output_tokens": 260,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tneeds_evidence\tdash\ni9.section2.timeliness::SYN-1005\tneeds_evidence\tdash\ni9.reverification.deadline::SYN-1005\tneeds_evidence\tdash\ni9.section1.timeliness::SYN-1006\tneeds_evidence\tdash\ni9.section2.timeliness::SYN-1006\tneeds_evidence\tdash\ni9.reverification.deadline::SYN-1006\tneeds_evidence\tdash\ni9.section1.timeliness::SYN-1007\tneeds_evidence\tdash\ni9.section2.timeliness::SYN-1007\tneeds_evidence\tdash\ni9.reverification.deadline::SYN-1007\tneeds_evidence\tdash\ni9.section1.timeliness::SYN-1008\tneeds_evidence\tdash\ni9.section2.timeliness::SYN-1008\tneeds_evidence\tdash\ni9.reverification.deadline::SYN-1008\tneeds_evidence\tdash",
+  "output_tokens": 260,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1009\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1009\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1010\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1010\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1011\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1011\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1012\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1012\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 332,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000001-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 270,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 280,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 280,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\t2023-04-30\ni9.section2.timeliness::SYN-1009\tpass\t2023-05-05\ni9.reverification.deadline::SYN-1009\tpass\t2023-06-09\ni9.section1.timeliness::SYN-1010\tpass\t2023-06-27\ni9.section2.timeliness::SYN-1010\tpass\t2023-07-03\ni9.section1.timeliness::SYN-1011\tpass\t2022-05-24\ni9.section2.timeliness::SYN-1011\tpass\t2022-05-24\ni9.section1.timeliness::SYN-1012\tpass\t2021-09-23\ni9.section2.timeliness::SYN-1012\tpass\t2021-10-01\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t138000\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t150000\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t186000",
+  "output_tokens": 383,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000002-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\t8300\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t7800\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\t5550\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\t6700\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\t6400\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t8300",
+  "output_tokens": 234,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\t2023-04-05\ni9.section2.timeliness::SYN-1001\tpass\t2023-04-07\ni9.reverification.deadline::SYN-1001\tpass\t2024-05-21\ni9.section1.timeliness::SYN-1002\tpass\t2025-02-11\ni9.section2.timeliness::SYN-1002\tpass\t2025-02-21\ni9.reverification.deadline::SYN-1002\tpass\t2025-09-18\ni9.section1.timeliness::SYN-1003\tpass\t2024-09-30\ni9.section2.timeliness::SYN-1003\tpass\t2024-10-03\ni9.reverification.deadline::SYN-1003\tpass\t2024-11-21\ni9.section1.timeliness::SYN-1004\tpass\t2021-08-20\ni9.section2.timeliness::SYN-1004\tpass\t2021-08-27\ni9.reverification.deadline::SYN-1004\tfail\t2023-11-09",
+  "output_tokens": 344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\t2022-01-10\ni9.section2.timeliness::SYN-1005\tpass\t2022-01-10\ni9.reverification.deadline::SYN-1005\tpass\t2024-06-18\ni9.section1.timeliness::SYN-1006\tpass\t2024-07-05\ni9.section2.timeliness::SYN-1006\tpass\t2024-07-23\ni9.reverification.deadline::SYN-1006\tpass\t2025-10-06\ni9.section1.timeliness::SYN-1007\tpass\t2025-10-10\ni9.section2.timeliness::SYN-1007\tpass\t2025-10-10\ni9.reverification.deadline::SYN-1007\tpass\t2026-05-24\ni9.section1.timeliness::SYN-1008\tpass\t2021-12-20\ni9.section2.timeliness::SYN-1008\tpass\t2021-12-20\ni9.reverification.deadline::SYN-1008\tpass\t2025-02-09",
+  "output_tokens": 344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25001-100002\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25002-100003\tneeds_evidence\t-",
+  "output_tokens": 325,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000009-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25006-100007\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25008-100009\tneeds_evidence\t-",
+  "output_tokens": 228,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1001\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1001\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1002\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1002\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1002\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1003\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1003\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1003\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1004\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1004\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1004\tneeds_evidence\t-",
+  "output_tokens": 260,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1005\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1005\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1006\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1006\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1006\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1007\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1007\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1007\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1008\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1008\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1008\tneeds_evidence\t-",
+  "output_tokens": 260,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1009\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1009\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1010\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1010\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1011\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1011\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1012\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1012\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 332,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000013-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tlca_export.WAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tlca_export.WAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tlca_export.WAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tlca_export.WAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tlca_export.WAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tlca_export.WAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 300,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1001\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1001\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1002\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1002\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1002\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1003\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1003\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1003\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1004\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1004\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1004\tneeds_evidence\t-",
+  "output_tokens": 260,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1005\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1005\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1006\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1006\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1006\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1007\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1007\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1007\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1008\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1008\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1008\tneeds_evidence\t-",
+  "output_tokens": 260,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1009\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1009\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1010\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1010\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1011\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1011\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1012\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1012\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 332,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000014-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 270,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tfail\tworkAuthorizationExpiry\ni9.section1.timeliness::SYN-1002\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tfail\tworkAuthorizationExpiry\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tworkAuthorizationExpiry\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tfail\tworkAuthorizationExpiry",
+  "output_tokens": 272,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tfail\tsupplementBReverificationDate",
+  "output_tokens": 280,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25001-100002\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25002-100003\tneeds_evidence\t-",
+  "output_tokens": 325,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_offered|synthetic-000015-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tneeds_evidence\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tneeds_evidence\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tneeds_evidence\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tneeds_evidence\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tneeds_evidence\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tneeds_evidence\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 282,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 236,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\t-\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\t-\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\t-\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\t-\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 236,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tfail\t-\ni9.reverification.deadline::SYN-1009\tpass\t-\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tfail\t-\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tfail\t-\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t150000\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t118800\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t186000",
+  "output_tokens": 302,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000001-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 270,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\t2025-02-11\ni9.section2.timeliness::SYN-1001\tpass\t2025-02-20\ni9.reverification.deadline::SYN-1001\tfail\t2025-12-24\ni9.section1.timeliness::SYN-1002\tpass\t2022-09-05\ni9.section2.timeliness::SYN-1002\tpass\t2022-09-06\ni9.reverification.deadline::SYN-1002\tpass\t2025-07-10\ni9.section1.timeliness::SYN-1003\tfail\t2021-08-08\ni9.section2.timeliness::SYN-1003\tfail\t2021-08-11\ni9.reverification.deadline::SYN-1003\tfail\t2022-05-12\ni9.section1.timeliness::SYN-1004\tpass\t2025-11-14\ni9.section2.timeliness::SYN-1004\tpass\t2025-11-18\ni9.reverification.deadline::SYN-1004\tpass\t2026-03-10",
+  "output_tokens": 344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\t2023-02-23\ni9.section2.timeliness::SYN-1005\tpass\t2023-02-28\ni9.reverification.deadline::SYN-1005\tpass\t2025-02-03\ni9.section1.timeliness::SYN-1006\tpass\t2025-02-03\ni9.section2.timeliness::SYN-1006\tpass\t2025-02-03\ni9.reverification.deadline::SYN-1006\tpass\t2025-08-08\ni9.section1.timeliness::SYN-1007\tpass\t2023-07-28\ni9.section2.timeliness::SYN-1007\tfail\t2023-08-11\ni9.reverification.deadline::SYN-1007\tpass\t2023-11-17\ni9.section1.timeliness::SYN-1008\tpass\t2024-01-23\ni9.section2.timeliness::SYN-1008\tpass\t2024-01-25\ni9.reverification.deadline::SYN-1008\tpass\t2025-04-16",
+  "output_tokens": 344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\t2023-04-30\ni9.section2.timeliness::SYN-1009\tpass\t2023-05-05\ni9.reverification.deadline::SYN-1009\tpass\t2023-06-09\ni9.section1.timeliness::SYN-1010\tpass\t2023-06-27\ni9.section2.timeliness::SYN-1010\tpass\t2023-07-03\ni9.section1.timeliness::SYN-1011\tpass\t2022-05-24\ni9.section2.timeliness::SYN-1011\tpass\t2022-05-24\ni9.section1.timeliness::SYN-1012\tpass\t2021-09-23\ni9.section2.timeliness::SYN-1012\tpass\t2021-10-01\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t138000\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t150000\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t186000",
+  "output_tokens": 383,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000002-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\t8300\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t7800\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\t5550\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\t6700\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\t6400\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t8300",
+  "output_tokens": 234,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\t2023-04-05\ni9.section2.timeliness::SYN-1001\tpass\t2023-04-07\ni9.reverification.deadline::SYN-1001\tfail\t2024-05-21\ni9.section1.timeliness::SYN-1002\tpass\t2025-02-11\ni9.section2.timeliness::SYN-1002\tpass\t2025-02-21\ni9.reverification.deadline::SYN-1002\tpass\t2025-09-18\ni9.section1.timeliness::SYN-1003\tpass\t2024-09-30\ni9.section2.timeliness::SYN-1003\tpass\t2024-10-03\ni9.reverification.deadline::SYN-1003\tpass\t2024-11-21\ni9.section1.timeliness::SYN-1004\tpass\t2021-08-20\ni9.section2.timeliness::SYN-1004\tpass\t2021-08-27\ni9.reverification.deadline::SYN-1004\tfail\t2023-11-09",
+  "output_tokens": 344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\t2022-01-10\ni9.section2.timeliness::SYN-1005\tpass\t2022-01-10\ni9.reverification.deadline::SYN-1005\tpass\t2024-06-18\ni9.section1.timeliness::SYN-1006\tpass\t2024-07-05\ni9.section2.timeliness::SYN-1006\tpass\t2024-07-23\ni9.reverification.deadline::SYN-1006\tpass\t2025-10-06\ni9.section1.timeliness::SYN-1007\tpass\t2025-10-10\ni9.section2.timeliness::SYN-1007\tpass\t2025-10-10\ni9.reverification.deadline::SYN-1007\tpass\t2026-05-24\ni9.section1.timeliness::SYN-1008\tpass\t2021-12-20\ni9.section2.timeliness::SYN-1008\tpass\t2021-12-20\ni9.reverification.deadline::SYN-1008\tpass\t2025-02-09",
+  "output_tokens": 344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\t2024-03-19\ni9.section2.timeliness::SYN-1009\tpass\t2024-03-26\ni9.reverification.deadline::SYN-1009\tpass\t2024-12-06\ni9.section1.timeliness::SYN-1010\tpass\t2022-11-14\ni9.section2.timeliness::SYN-1010\tpass\t2022-11-16\ni9.section1.timeliness::SYN-1011\tfail\t2025-09-13\ni9.section2.timeliness::SYN-1011\tpass\t2025-09-17\ni9.section1.timeliness::SYN-1012\tpass\t2025-02-06\ni9.section2.timeliness::SYN-1012\tpass\t2025-02-25\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t138000\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t138000\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t118800",
+  "output_tokens": 383,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000009-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t-",
+  "output_tokens": 216,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 236,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\t-\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\t-\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\t-\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\t-\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 236,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tfail\t-\ni9.reverification.deadline::SYN-1009\tpass\t-\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tfail\t-\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tfail\t-\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t118800\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t109000\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t157000",
+  "output_tokens": 302,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000013-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 270,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 236,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\t-\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\t-\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\t-\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\t-\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 236,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tfail\t-\ni9.reverification.deadline::SYN-1009\tpass\t-\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tfail\t-\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tfail\t-\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t118800\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t186000\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t138000",
+  "output_tokens": 302,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000014-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\t150000\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t118800\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\t138000\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\t186000\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\t150000\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t118800",
+  "output_tokens": 246,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\t2025-12-26\ni9.section2.timeliness::SYN-1001\tfail\t2026-01-14\ni9.reverification.deadline::SYN-1001\tfail\t2026-05-12\ni9.section1.timeliness::SYN-1002\tfail\t2025-06-09\ni9.section2.timeliness::SYN-1002\tpass\t2025-06-10\ni9.reverification.deadline::SYN-1002\tfail\t2025-11-29\ni9.section1.timeliness::SYN-1003\tpass\t2024-08-09\ni9.section2.timeliness::SYN-1003\tpass\t2024-08-12\ni9.reverification.deadline::SYN-1003\tpass\t2025-10-31\ni9.section1.timeliness::SYN-1004\tpass\t2024-10-30\ni9.section2.timeliness::SYN-1004\tpass\t2024-11-01\ni9.reverification.deadline::SYN-1004\tfail\t2025-03-26",
+  "output_tokens": 344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\t2023-09-21\ni9.section2.timeliness::SYN-1005\tpass\t2023-09-28\ni9.reverification.deadline::SYN-1005\tpass\t2024-09-13\ni9.section1.timeliness::SYN-1006\tpass\t2022-11-21\ni9.section2.timeliness::SYN-1006\tpass\t2022-11-25\ni9.reverification.deadline::SYN-1006\tfail\t2023-09-29\ni9.section1.timeliness::SYN-1007\tpass\t2023-05-02\ni9.section2.timeliness::SYN-1007\tpass\t2023-05-15\ni9.reverification.deadline::SYN-1007\tpass\t2025-04-14\ni9.section1.timeliness::SYN-1008\tpass\t2023-02-07\ni9.section2.timeliness::SYN-1008\tpass\t2023-03-01\ni9.reverification.deadline::SYN-1008\tpass\t2025-11-07",
+  "output_tokens": 344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\t2025-10-23\ni9.section2.timeliness::SYN-1009\tpass\t2025-10-30\ni9.reverification.deadline::SYN-1009\tpass\t2025-11-24\ni9.section1.timeliness::SYN-1010\tpass\t2023-04-11\ni9.section2.timeliness::SYN-1010\tpass\t2023-04-12\ni9.section1.timeliness::SYN-1011\tpass\t2024-10-04\ni9.section2.timeliness::SYN-1011\tpass\t2024-10-07\ni9.section1.timeliness::SYN-1012\tpass\t2023-05-31\ni9.section2.timeliness::SYN-1012\tpass\t2023-06-05\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t118800\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t150000\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t150000",
+  "output_tokens": 383,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|abstain_withheld|synthetic-000015-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25008-100009\tfail\t-",
+  "output_tokens": 216,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

@@ -1,0 +1,428 @@
+{
+  "prompt_version": "1.1.0",
+  "study2": {},
+  "vertex": {
+    "vertex/gemma-4-26b-a4b-it-maas::study1::abstain_offered": {
+      "n_repeats": 3,
+      "repeats": [
+        {
+          "rep": "r0",
+          "n": 140,
+          "answered": 140,
+          "false_green_rate": 0.15,
+          "violation_recall": 0.05,
+          "violation_precision": 1.0,
+          "false_alarm_rate": null,
+          "false_alarm_near_miss": null,
+          "false_alarm_other_controls": null,
+          "abstention_f1": 0.75,
+          "counts": {
+            "answered": 140,
+            "fail": 20,
+            "tp": 1,
+            "pred_fail": 1,
+            "pred_abst": 80,
+            "withheld": 120,
+            "fg": 18,
+            "abst": 75,
+            "ctrl_alarm": 0,
+            "near_alarm": 0,
+            "ctrl": 0,
+            "near": 0
+          }
+        },
+        {
+          "rep": "r1",
+          "n": 140,
+          "answered": 140,
+          "false_green_rate": 0.15,
+          "violation_recall": 0.05,
+          "violation_precision": 1.0,
+          "false_alarm_rate": null,
+          "false_alarm_near_miss": null,
+          "false_alarm_other_controls": null,
+          "abstention_f1": 0.7562189054726368,
+          "counts": {
+            "answered": 140,
+            "fail": 20,
+            "tp": 1,
+            "pred_fail": 1,
+            "pred_abst": 81,
+            "withheld": 120,
+            "fg": 18,
+            "abst": 76,
+            "ctrl_alarm": 0,
+            "near_alarm": 0,
+            "ctrl": 0,
+            "near": 0
+          }
+        },
+        {
+          "rep": "r2",
+          "n": 140,
+          "answered": 140,
+          "false_green_rate": 0.15833333333333333,
+          "violation_recall": 0.1,
+          "violation_precision": 1.0,
+          "false_alarm_rate": null,
+          "false_alarm_near_miss": null,
+          "false_alarm_other_controls": null,
+          "abstention_f1": 0.7586206896551725,
+          "counts": {
+            "answered": 140,
+            "fail": 20,
+            "tp": 2,
+            "pred_fail": 2,
+            "pred_abst": 83,
+            "withheld": 120,
+            "fg": 19,
+            "abst": 77,
+            "ctrl_alarm": 0,
+            "near_alarm": 0,
+            "ctrl": 0,
+            "near": 0
+          }
+        }
+      ],
+      "summary": {
+        "false_green_rate": {
+          "mean": 0.1528,
+          "min": 0.15,
+          "max": 0.1583
+        },
+        "violation_recall": {
+          "mean": 0.0667,
+          "min": 0.05,
+          "max": 0.1
+        },
+        "violation_precision": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "false_alarm_rate": null,
+        "false_alarm_near_miss": null,
+        "abstention_f1": {
+          "mean": 0.7549,
+          "min": 0.75,
+          "max": 0.7586
+        },
+        "answered_min": 140
+      }
+    },
+    "vertex/gemma-4-26b-a4b-it-maas::study1::abstain_withheld": {
+      "n_repeats": 3,
+      "repeats": [
+        {
+          "rep": "r0",
+          "n": 140,
+          "answered": 128,
+          "false_green_rate": 0.5833333333333334,
+          "violation_recall": 0.4,
+          "violation_precision": 0.17391304347826086,
+          "false_alarm_rate": null,
+          "false_alarm_near_miss": null,
+          "false_alarm_other_controls": null,
+          "abstention_f1": 0.0,
+          "counts": {
+            "answered": 128,
+            "fail": 20,
+            "tp": 8,
+            "pred_fail": 46,
+            "pred_abst": 0,
+            "withheld": 120,
+            "fg": 70,
+            "abst": 0,
+            "ctrl_alarm": 0,
+            "near_alarm": 0,
+            "ctrl": 0,
+            "near": 0
+          }
+        },
+        {
+          "rep": "r1",
+          "n": 140,
+          "answered": 128,
+          "false_green_rate": 0.5666666666666667,
+          "violation_recall": 0.4,
+          "violation_precision": 0.16666666666666666,
+          "false_alarm_rate": null,
+          "false_alarm_near_miss": null,
+          "false_alarm_other_controls": null,
+          "abstention_f1": 0.0,
+          "counts": {
+            "answered": 128,
+            "fail": 20,
+            "tp": 8,
+            "pred_fail": 48,
+            "pred_abst": 0,
+            "withheld": 120,
+            "fg": 68,
+            "abst": 0,
+            "ctrl_alarm": 0,
+            "near_alarm": 0,
+            "ctrl": 0,
+            "near": 0
+          }
+        },
+        {
+          "rep": "r2",
+          "n": 140,
+          "answered": 138,
+          "false_green_rate": 0.6166666666666667,
+          "violation_recall": 0.4,
+          "violation_precision": 0.15384615384615385,
+          "false_alarm_rate": null,
+          "false_alarm_near_miss": null,
+          "false_alarm_other_controls": null,
+          "abstention_f1": 0.0,
+          "counts": {
+            "answered": 138,
+            "fail": 20,
+            "tp": 8,
+            "pred_fail": 52,
+            "pred_abst": 0,
+            "withheld": 120,
+            "fg": 74,
+            "abst": 0,
+            "ctrl_alarm": 0,
+            "near_alarm": 0,
+            "ctrl": 0,
+            "near": 0
+          }
+        }
+      ],
+      "summary": {
+        "false_green_rate": {
+          "mean": 0.5889,
+          "min": 0.5667,
+          "max": 0.6167
+        },
+        "violation_recall": {
+          "mean": 0.4,
+          "min": 0.4,
+          "max": 0.4
+        },
+        "violation_precision": {
+          "mean": 0.1648,
+          "min": 0.1538,
+          "max": 0.1739
+        },
+        "false_alarm_rate": null,
+        "false_alarm_near_miss": null,
+        "abstention_f1": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "answered_min": 128
+      }
+    },
+    "vertex/gemma-4-26b-a4b-it-maas::study2::abstain_offered": {
+      "n_repeats": 3,
+      "repeats": [
+        {
+          "rep": "r0",
+          "n": 252,
+          "answered": 252,
+          "false_green_rate": 0.07142857142857142,
+          "violation_recall": 0.30303030303030304,
+          "violation_precision": 0.7142857142857143,
+          "false_alarm_rate": 0.043010752688172046,
+          "false_alarm_near_miss": 0.06060606060606061,
+          "false_alarm_other_controls": 0.03333333333333333,
+          "abstention_f1": 0.9547325102880659,
+          "counts": {
+            "answered": 252,
+            "withheld": 126,
+            "fg": 9,
+            "abst": 116,
+            "pred_fail": 14,
+            "pred_abst": 117,
+            "ctrl": 60,
+            "ctrl_alarm": 2,
+            "fail": 33,
+            "tp": 10,
+            "near": 33,
+            "near_alarm": 2
+          }
+        },
+        {
+          "rep": "r1",
+          "n": 252,
+          "answered": 252,
+          "false_green_rate": 0.07142857142857142,
+          "violation_recall": 0.30303030303030304,
+          "violation_precision": 0.7692307692307693,
+          "false_alarm_rate": 0.03225806451612903,
+          "false_alarm_near_miss": 0.06060606060606061,
+          "false_alarm_other_controls": 0.016666666666666666,
+          "abstention_f1": 0.9586776859504132,
+          "counts": {
+            "answered": 252,
+            "withheld": 126,
+            "fg": 9,
+            "abst": 116,
+            "pred_fail": 13,
+            "pred_abst": 116,
+            "ctrl": 60,
+            "ctrl_alarm": 1,
+            "fail": 33,
+            "tp": 10,
+            "near": 33,
+            "near_alarm": 2
+          }
+        },
+        {
+          "rep": "r2",
+          "n": 252,
+          "answered": 252,
+          "false_green_rate": 0.07142857142857142,
+          "violation_recall": 0.24242424242424243,
+          "violation_precision": 0.6666666666666666,
+          "false_alarm_rate": 0.043010752688172046,
+          "false_alarm_near_miss": 0.06060606060606061,
+          "false_alarm_other_controls": 0.03333333333333333,
+          "abstention_f1": 0.962962962962963,
+          "counts": {
+            "answered": 252,
+            "withheld": 126,
+            "fg": 9,
+            "abst": 117,
+            "pred_fail": 12,
+            "pred_abst": 117,
+            "ctrl": 60,
+            "ctrl_alarm": 2,
+            "fail": 33,
+            "tp": 8,
+            "near": 33,
+            "near_alarm": 2
+          }
+        }
+      ],
+      "summary": {
+        "false_green_rate": {
+          "mean": 0.0714,
+          "min": 0.0714,
+          "max": 0.0714
+        },
+        "violation_recall": {
+          "mean": 0.2828,
+          "min": 0.2424,
+          "max": 0.303
+        },
+        "violation_precision": {
+          "mean": 0.7167,
+          "min": 0.6667,
+          "max": 0.7692
+        },
+        "false_alarm_rate": {
+          "mean": 0.0394,
+          "min": 0.0323,
+          "max": 0.043
+        },
+        "false_alarm_near_miss": {
+          "mean": 0.0606,
+          "min": 0.0606,
+          "max": 0.0606
+        },
+        "abstention_f1": {
+          "mean": 0.9588,
+          "min": 0.9547,
+          "max": 0.963
+        },
+        "answered_min": 252
+      }
+    },
+    "vertex/gemma-4-26b-a4b-it-maas::study2::abstain_withheld": {
+      "n_repeats": 2,
+      "repeats": [
+        {
+          "rep": "r0",
+          "n": 252,
+          "answered": 252,
+          "false_green_rate": 0.1746031746031746,
+          "violation_recall": 0.30303030303030304,
+          "violation_precision": 0.0847457627118644,
+          "false_alarm_rate": 0.043010752688172046,
+          "false_alarm_near_miss": 0.030303030303030304,
+          "false_alarm_other_controls": 0.05,
+          "abstention_f1": 0.0,
+          "counts": {
+            "answered": 252,
+            "withheld": 126,
+            "fg": 22,
+            "abst": 0,
+            "pred_fail": 118,
+            "pred_abst": 0,
+            "ctrl": 60,
+            "ctrl_alarm": 3,
+            "fail": 33,
+            "tp": 10,
+            "near": 33,
+            "near_alarm": 1
+          }
+        },
+        {
+          "rep": "r1",
+          "n": 252,
+          "answered": 252,
+          "false_green_rate": 0.1746031746031746,
+          "violation_recall": 0.30303030303030304,
+          "violation_precision": 0.08403361344537816,
+          "false_alarm_rate": 0.053763440860215055,
+          "false_alarm_near_miss": 0.030303030303030304,
+          "false_alarm_other_controls": 0.06666666666666667,
+          "abstention_f1": 0.0,
+          "counts": {
+            "answered": 252,
+            "withheld": 126,
+            "fg": 22,
+            "abst": 0,
+            "pred_fail": 119,
+            "pred_abst": 0,
+            "ctrl": 60,
+            "ctrl_alarm": 4,
+            "fail": 33,
+            "tp": 10,
+            "near": 33,
+            "near_alarm": 1
+          }
+        }
+      ],
+      "summary": {
+        "false_green_rate": {
+          "mean": 0.1746,
+          "min": 0.1746,
+          "max": 0.1746
+        },
+        "violation_recall": {
+          "mean": 0.303,
+          "min": 0.303,
+          "max": 0.303
+        },
+        "violation_precision": {
+          "mean": 0.0844,
+          "min": 0.084,
+          "max": 0.0847
+        },
+        "false_alarm_rate": {
+          "mean": 0.0484,
+          "min": 0.043,
+          "max": 0.0538
+        },
+        "false_alarm_near_miss": {
+          "mean": 0.0303,
+          "min": 0.0303,
+          "max": 0.0303
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "answered_min": 252
+      }
+    }
+  }
+}

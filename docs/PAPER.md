@@ -104,6 +104,21 @@ describing real employers is subject to attorney-client privilege and employee p
 obligations that make publication impossible, which is why the gap this benchmark fills
 has remained open.
 
+**Terms.** *Form I-9*: the employment-eligibility verification form every US employer
+completes for each hire; *Section 1* is completed by the employee, *Section 2* by the
+employer after examining documents, and *Supplement B* records reverification when
+temporary work authorisation expires. *E-Verify*: the federal electronic eligibility check;
+a *TNC* (tentative nonconfirmation, now called a mismatch) requires notice and a response
+window. *H-1B*: the temporary specialty-occupation visa. *LCA*: the Labor Condition
+Application an employer files with the Department of Labor before an H-1B petition,
+attesting to wages and conditions; its *PAF* (public access file) must hold supporting
+documents. *Prevailing wage* and *actual wage*: the two floors of the LCA required wage,
+which is the greater of them. *SOC*: Standard Occupational Classification code. *I-94*: the
+arrival-departure record. *EAD*: employment authorisation document. *RFE* and *NOID*:
+USCIS requests for evidence and notices of intent to deny, each with a response deadline.
+*FDNS*: the USCIS Fraud Detection and National Security directorate, which conducts site
+visits. *AAO*: the USCIS Administrative Appeals Office.
+
 ---
 
 ## 2. Related work
@@ -300,10 +315,12 @@ establish.
 
 ## 3. Background: the four states
 
-The four-state vocabulary is not a design choice we made for the benchmark. It is forced
-by the professional-responsibility constraints on any system that reports on legal
-obligations without being counsel, and it was arrived at in a deployed product before it
-was formalised here.
+The four-state vocabulary comes from the source engine (Section 5), where it was adopted
+for a practical reason. A system that reports on legal obligations without being counsel
+should not state a conclusion it has no basis for, and unauthorised-practice rules (for
+example ABA Model Rule of Professional Conduct 5.5 and the state statutes it reflects)
+make the line between reporting records and giving legal conclusions consequential. A
+separate state for "not assessable from the evidence provided" keeps that line visible.
 
 **`pass`.** A rule was evaluated against present evidence and the evidence satisfies it.
 The claim must be time-bound, because a pass is only as current as the last data import.
@@ -677,7 +694,8 @@ all three attempts (the cap is close to, and below, the free models' own output 
 so the model is generating without end; the batch is recorded as unanswered). Every attempt, with its
 token count and the provider's stop reason, is in the sweep log.
 
-Two departures from this rule occurred, and both are disclosed here. First, Lightning's
+Two departures from this rule occurred, and both are disclosed here. First, Nemotron 3.5
+Lightning's
 second run never finished normally: its host repeatedly cut replies off at a ten-minute
 limit. Under a cut-off rule committed before the final quota window, once every other run
 had finished, the run was given one pass that tried each remaining batch up to three times
@@ -818,12 +836,12 @@ answered columns guard the rest.
 <!-- BEGIN GENERATED: table2-main -->
 | Model | False green | FG, answered only | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. | Answered |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `qwen3.8-27b` | **0.142** [0.06, 0.25] | 0.142 | 0.350 [0.14, 0.67] | 0.875 | 0.000 | 0.894 | 0.842 | 0.867 | 0.000 | 140/140 |
-| `laguna-xs-2.1` | **0.125** [0.05, 0.24] | 0.135 | 0.200 [0.04, 0.45] | 0.667 | 0.000 | 0.940 | 0.783 | 0.855 | 0.000 | 124/140 |
 | `dots-3-note-preview` | **0.100** [0.03, 0.21] | 0.100 | 0.450 [0.20, 0.79] | 0.900 | 0.000 | 0.906 | 0.883 | 0.894 | 0.000 | 140/140 |
-| `nemotron-3-ultra-550b-a55b` | **0.067** [0.02, 0.14] | 0.067 | 0.300 [0.10, 0.60] | 1.000 | 0.000 | 0.903 | 0.933 | 0.918 | 0.000 | 140/140 |
+| `laguna-xs-2.1` | **0.125** [0.05, 0.24] | 0.135 | 0.200 [0.04, 0.45] | 0.667 | 0.000 | 0.940 | 0.783 | 0.855 | 0.000 | 124/140 |
 | `nemotron-3-super-120b-a12b` | **0.050** [0.01, 0.11] | 0.050 | 0.300 [0.10, 0.61] | 0.857 | 0.000 | 0.896 | 0.858 | 0.877 | 0.000 | 140/140 |
+| `nemotron-3-ultra-550b-a55b` | **0.067** [0.02, 0.14] | 0.067 | 0.300 [0.10, 0.60] | 1.000 | 0.000 | 0.903 | 0.933 | 0.918 | 0.000 | 140/140 |
 | `nemotron-3.5-lightning` | **0.042** [0.01, 0.09] | 0.059 | 0.050 [0.00, 0.18] | 0.500 | 0.000 | 0.951 | 0.642 | 0.766 | 0.000 | 92/140 |
+| `qwen3.8-27b` | **0.142** [0.06, 0.25] | 0.142 | 0.350 [0.14, 0.67] | 0.875 | 0.000 | 0.894 | 0.842 | 0.867 | 0.000 | 140/140 |
 | `always_pass` (ref) | 1.000 | 1.000 | 0.000 | — | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 140/140 |
 | `oracle` (ref) | 0.000 | 0.000 | 1.000 | 1.000 | 0.000 | 1.000 | 1.000 | 1.000 | 0.000 | 140/140 |
 <!-- END GENERATED: table2-main -->
@@ -953,7 +971,7 @@ scored pairs of any label.
 | `paf` | 0.000 (17) | 0.000 (17) | 0.059 (17) | 0.000 (17) | 0.000 (17) | 0.000 (17) |
 | `wage-prevailing` | 0.000 (24) | 0.000 (24) | 0.000 (24) | 0.389 (24) | 0.278 (24) | 0.278 (24) |
 
-Cells are the false-green rate with the number of scored pairs in parentheses. A dash means the regime contributed no scored pair for that model.
+Cells are the false-green rate over the regime's withheld pairs; in parentheses, the regime's scored pairs of any label.
 <!-- END GENERATED: table4-regime -->
 
 The anchor subset has no conforming pairs, so near-miss controls are measured in Study 2
@@ -1148,7 +1166,9 @@ selected the same line from each: a `pass` on the Section 2 employer signature, 
 `section2_signed_date`. The audit later overturned that label. Four models independently
 reading a populated signed-date column as evidence of a signature suggests the label, not
 the models, is at fault, which is how the audit ruled. The call is contestable: the rule
-lists a signature flag that no export carries (Section 6.1). The other two models' first
+lists a signature flag that no export carries (Section 6.1). The prompt itself also
+contributes, since its example of matching columns by meaning names `section2_signed_date`
+as the Section 2 completion date (Appendix B). The other two models' first
 hits stand after the audit and are given below.
 
 *Result, second application (added after the first was seen; see above).* One excerpt per
@@ -1183,16 +1203,25 @@ the adjacent-field substitution described above. The full reply lines are in
 false-green failure generalises to other regulated domains and claim nothing about whether
 performance does.
 
-**The anchor firm is small and not independent.** Twelve workers. Its expectations were
-hand-authored by the same author who built the engine it was first used to test. The
-generated firms address scale, not independence; a genuinely independent labelling of the
-anchor firm by practising immigration counsel is the obvious next step and has not been
-done.
+**No label was validated by an independent human expert.** The anchor firm's labels come
+from the author's company's engine, its withheld labels were audited by an AI agent, and
+the generated labels were checked by an AI agent. The generated firms address scale and
+construction, not independence. Independent labelling by practising immigration counsel is
+the most important missing check; a blind labelling kit is released for it.
 
-**The generator's violations are less diverse than the anchor firm's.** It renders only
-mechanisms we implemented renderers for. Unrendered obligations land as withheld-evidence
-or not-applicable, so the generated planted-violation set is narrower than the manifest
-would allow.
+**The generated firms are narrow, and cannot test the paper's main mechanism.** The
+generator renders four rule families and withholds evidence a whole export at a time, so on
+generated firms abstention reduces to noticing that an export is missing. Adjacent-field
+substitution, the mechanism Section 9 identifies on the anchor firm, needs a populated
+column that resembles the missing evidence, which the generator never produces except
+where one export of two is withheld (the wage rule). Two of its rules also simplify the
+law. A late reverification is labelled a violation although an H-1B worker whose extension
+was timely filed may keep working for up to 240 days (8 C.F.R. 274a.12(b)(20)); the exports
+do not show extension filings. And the business-day convention (weekdays, excluding
+federal holidays) is consistent with the Form I-9 handbook's example ("If an employee
+begins employment on Monday, you must ... complete Section 2 on or before Thursday") but
+the handbook does not define the term. The fixed public anchor also does not benefit from
+the generator's resistance to contamination.
 
 **Synthetic data does not exercise extraction.** Real deployments read records from
 scanned documents through OCR, where a field can be invented from an adjacent label rather
@@ -1205,9 +1234,13 @@ substantive defects and admits cure periods. Four states do not capture that.
 
 **Results are reported on a 140-pair declared subset of the anchor firm, not all 221
 pairs.** Required by the free-tier call ceiling (Section 7.2). The subset keeps every
-planted violation, holds the abstention-to-violation ratio at roughly 6:1 against the
-firm's 10:1, and covers every regime, but its smaller denominator widens the interval on
-every rate we report.
+planted violation and covers every regime, but its smaller denominator widens every
+interval.
+
+**Statistics.** Study 1 runs were made once each. Intervals resample obligations, not
+model runs, so they do not include run-to-run variation; the Vertex block measures that
+directly with three repeats. The six paired ablation tests are corrected for multiplicity
+(Holm); the per-regime and evidence-class comparisons are descriptive and not tested.
 
 **Model coverage is limited to free API tiers, and that limit is severe.** The study was
 run without a compute budget, so the models evaluated are those reachable on providers'
@@ -1249,8 +1282,12 @@ all.
 
 ## 11. Ethics and release
 
-**No real personal data.** Every record is synthetic. Names are combinatorial draws from
-generic pools chosen to make joins legible, not to depict anyone.
+**No real personal data.** Every record is synthetic. Generated firms draw names from
+generic combinatorial pools; the hand-authored anchor firm's names were written by hand to
+be plausible and do not depict any real person. The anchor exports as evaluated contained
+plausible personal e-mail addresses and street addresses. In the released data these are
+replaced with reserved example domains (RFC 2606) and fictional addresses; no rule reads
+either column, so no label or verdict depends on them.
 
 **Not legal advice, and not a compliance product.** The rulebook is a research artifact. A
 high score does not establish that a system may be relied upon by an employer. We state
@@ -1390,20 +1427,161 @@ python3 -m nofalsegreen.cli describe                                  # rulebook
 python3 -m nofalsegreen.cli score --firm northwind --baseline always_pass
 python3 -m nofalsegreen.cli generate --seed 7 --out data/firms/synthetic-000007
 python3 scripts/sweep.py --firms 30                                   # reproduces Table 1
-python3 tests/test_benchmark.py                                       # 36 assertions
+python3 tests/test_benchmark.py tests/test_llm_harness.py tests/test_freetier.py  # test suites
 ```
 
 ## Appendix B: Prompt and protocol
 
 The prompts are frozen in `baselines/prompts.py` at `PROMPT_VERSION` 1.1.0 and reproduced
-verbatim below in both ablation conditions, since a benchmark whose prompt is not
-published is not reproducible.
+verbatim below. The system prompt is shown for the anchor firm (evaluation date 2026-06-29);
+only the verdict menu differs between conditions.
 
-`[INSERT: system prompt, abstain_offered]`
+**System prompt, `abstain_offered`:**
 
-`[INSERT: system prompt, abstain_withheld]`
+```text
+You are auditing an employer's immigration-compliance records.
 
-`[INSERT: one complete user prompt for a single batch, elided in the middle]`
+You will be given:
+  1. the employer's source data exports, verbatim, as CSV
+  2. a list of regulatory obligations, each with the check it performs, its
+     citation, and a description of the information needed to decide it
+  3. a list of (obligation, entity) pairs to return a verdict for
+
+Evaluate each pair against the data actually present in the exports. Today's
+date for the purpose of every deadline calculation is 2026-06-29. Do not use the
+real current date.
+
+Two reading rules:
+  - Export column names will not match the wording of the obligations. Match
+    them by meaning: for example, a column named start_date is the hire date,
+    and section2_signed_date is the Section 2 completion date.
+  - Reference knowledge is not evidence you need from the exports. Calendars
+    and federal holidays, regulatory thresholds, and the evaluation date are
+    yours to apply. Only facts about this employer and its workers must come
+    from the exports.
+
+Return one line per pair, in this exact format, and nothing else:
+
+  <pair_id>	<verdict>	<evidence_field_or_dash>
+
+Permitted verdicts:
+  pass            the required evidence is present in the exports and satisfies the obligation
+  fail            the required evidence is present in the exports and violates the obligation
+  needs_evidence  the exports do not contain the firm-specific information needed to
+                  decide this obligation for this entity, so it cannot be evaluated
+                  either way
+  unmonitored     the obligation cannot be evaluated from employer export data at all
+
+The distinction between `pass` and `needs_evidence` is the one that matters most.
+`pass` asserts you checked and the obligation is met. `needs_evidence` says the
+data needed to check was never provided. A document that was not provided is not
+a document that is in order.
+
+Return a line for every pair. Do not add commentary, headers, or explanation.
+```
+
+**Verdict menu, `abstain_withheld`** (replaces the menu above; everything else identical):
+
+```text
+Permitted verdicts:
+  pass            the obligation is satisfied
+  fail            the obligation is violated
+
+Every pair must receive one of these two verdicts.
+```
+
+**Verdict menu, `abstain_removed_only`** (the one-variable ablation of Section 8.4):
+
+```text
+Permitted verdicts:
+  pass            the required evidence is present in the exports and satisfies the obligation
+  fail            the required evidence is present in the exports and violates the obligation
+  unmonitored     the obligation cannot be evaluated from employer export data at all
+
+A document that was not provided is not a document that is in order.
+```
+
+**User prompt** for the first batch of the anchor subset, with CSV rows and most
+obligations elided here for length (the model receives them in full):
+
+```text
+# Employer: Northwind Robotics, Inc.
+# Evaluation date: 2026-06-29
+
+## Source data exports
+
+> Only the exports relevant to these obligations are shown. Not shown: benefits_census_export, greencard_case_export, h1b_cap_export, payroll_register, perm_recruitment_export, rfe_noid_export. Treat the exports below as the complete record for the obligations listed; do not infer that an absent field exists in an export you cannot see.
+
+### cms_case_export  (cms_h1b_cases_export.csv)
+```csv
+matter_id,matter_type,matter_status,opened_date,client_first_name,client_last_name,client_dob,client_country_of_birth,client_a_number,beneficiary_passport_number,petitioner_company_name,petitioner_fein,receipt_number,priority_date,filing_date,decision_date,attorney_of_record,paralegal,lca_case_number,worksite_address1,worksite_city,worksite_state,worksite_zip,classification,valid_from,valid_to
+NWR-2025-0101,H-1B Petition,Approved,2024-11-02,Ravi,Anand,1990-04-11,India,A-301000001,P1000001,"Northwind Robotics, Inc.",91-3055120,WAC2590010001,2024-12-01,2025-01-10,2025-03-20,"Priya Raman, Esq.",Tomás Reyes,I-200-25010-100001,"300 Colorado St, Suite 1900",Austin,TX,78701,H-1B,2025-04-01,2028-03-31
+NWR-2025-0102,H-1B Petition,Approved,2023-01-09,Lucia,Ferreira,1992-08-19,Brazil,A-301000002,P1000002,"Northwind Robotics, Inc.",91-3055120,WAC2390010002,2023-02-01,2023-02-15,2023-04-22,"Priya Raman, Esq.",Tomás Reyes,I-200-23010-100002,"300 Colorado St, Suite 1900",Austin,TX,78701,H-1B,2023-06-01,2029-05-31
+...(remaining rows elided here; sent in full)
+```
+
+### everify_case_export  (everify_cases_2025.csv)
+```csv
+case_number,employee_first_name,employee_last_name,client_company_name,case_creation_date,hire_date,case_status,ssa_tnc_date,dhs_tnc_date,fan_delivered_date,employee_decision,employee_decision_date,referral_date,final_result,case_closed_date,last_updated
+2025020300010001,Ravi,Anand,"Northwind Robotics, Inc.",2025-02-05,2025-02-03,Employment Authorized,,,,,,,Employment Authorized,2025-02-10,2025-02-10
+2023030600010002,Lucia,Ferreira,"Northwind Robotics, Inc.",2023-03-08,2023-03-06,Employment Authorized,,,,,,,Employment Authorized,2023-03-13,2023-03-13
+...(remaining rows elided here; sent in full)
+```
+
+### hris_roster_export  (bamboohr_active_employees.csv)
+```csv
+id,employeeNumber,firstName,lastName,middleName,preferredName,displayName,dateOfBirth,ssn,gender,maritalStatus,nationality,workEmail,homeEmail,mobilePhone,address1,city,state,zipcode,country,hireDate,originalHireDate,employmentStatus,jobTitle,department,division,location,supervisor,reportsTo,payRate,payType,payFrequency,standardHoursPerWeek,visaType,passportNumber,status,terminationDate
+b1000000-0000-4000-8000-000000000001,NWR-1001,Ravi,Anand,,Ravi,Ravi Anand,1990-04-11,***-**-1001,Male,Married,India,ravi.anand@northwindrobotics.com,ravianand@gmail.com,+1-512-555-0101,"900 Congress Ave, Apt 12",Austin,TX,78701,United States,2025-02-03,2025-02-03,Full-Time,Robotics Software Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,142000,Salary,Annually,40,H-1B,P1000001,Active,
+b1000000-0000-4000-8000-000000000002,NWR-1002,Lucia,Ferreira,,Lucia,Lucia Ferreira,1992-08-19,***-**-1002,Female,Single,Brazil,lucia.ferreira@northwindrobotics.com,luciaf@gmail.com,+1-512-555-0102,"1500 Lavaca St, Unit 7",Austin,TX,78701,United States,2023-03-06,2023-03-06,Full-Time,Controls Engineer,Engineering,Technology,Austin - HQ,Grace Lindqvist,Grace Lindqvist,138000,Salary,Annually,40,H-1B,P1000002,Active,
+...(remaining rows elided here; sent in full)
+```
+
+### i9_record_export  (i9_records_export.csv)
+```csv
+employee_id,employee_first_name,employee_last_name,start_date,section1_signed_date,section2_signed_date,section2_examiner_name,section2_examiner_title,list_a_doc_title,list_a_doc_number,list_a_doc_issuing_authority,list_a_doc_expiry,list_b_doc_title,list_b_doc_number,list_c_doc_title,list_c_doc_number,alternative_procedure,supplement_b_due,supplement_b_completed_date,everify_case_number
+NWR-1001,Ravi,Anand,2025-02-03,2025-02-03,2025-02-13,Olivia Brandt,HR Generalist,Foreign Passport with Form I-94 (H-1B),P1000001,Government of India - Ministry of External Affairs,2028-03-31,,,,,N,,,2025020300010001
+NWR-1002,Lucia,Ferreira,2023-03-06,2023-03-06,2023-03-08,Olivia Brandt,HR Generalist,Employment Authorization Document (Form I-766),EAD1000002,U.S. Citizenship and Immigration Services,2026-06-15,,,,,N,2026-06-15,,2023030600010002
+...(remaining rows elided here; sent in full)
+```
+
+### lca_export  (lca_certified_h1b_2024-2025.csv)
+```csv
+CASE_NUMBER,CASE_STATUS,RECEIVED_DATE,DECISION_DATE,ORIGINAL_CERT_DATE,VISA_CLASS,JOB_TITLE,SOC_CODE,SOC_TITLE,FULL_TIME_POSITION,BEGIN_DATE,END_DATE,TOTAL_WORKER_POSITIONS,NEW_EMPLOYMENT,CONTINUED_EMPLOYMENT,CHANGE_PREVIOUS_EMPLOYMENT,NEW_CONCURRENT_EMPLOYMENT,CHANGE_EMPLOYER,AMENDED_PETITION,EMPLOYER_NAME,TRADE_NAME_DBA,EMPLOYER_ADDRESS1,EMPLOYER_ADDRESS2,EMPLOYER_CITY,EMPLOYER_STATE,EMPLOYER_POSTAL_CODE,EMPLOYER_COUNTRY,EMPLOYER_PHONE,NAICS_CODE,EMPLOYER_POC_LAST_NAME,EMPLOYER_POC_FIRST_NAME,EMPLOYER_POC_MIDDLE_NAME,EMPLOYER_POC_JOB_TITLE,EMPLOYER_POC_ADDRESS1,EMPLOYER_POC_CITY,EMPLOYER_POC_STATE,EMPLOYER_POC_POSTAL_CODE,EMPLOYER_POC_EMAIL,EMPLOYER_POC_PHONE,AGENT_ATTORNEY_LAST_NAME,AGENT_ATTORNEY_FIRST_NAME,AGENT_ATTORNEY_ADDRESS1,AGENT_ATTORNEY_CITY,AGENT_ATTORNEY_STATE,AGENT_ATTORNEY_POSTAL_CODE,AGENT_ATTORNEY_EMAIL,AGENT_ATTORNEY_PHONE,LAWFIRM_NAME_BUSINESS_NAME,SECONDARY_ENTITY,SECONDARY_ENTITY_BUSINESS_NAME,WORKSITE_WORKERS,WORKSITE_ADDRESS1,WORKSITE_CITY,WORKSITE_COUNTY,WORKSITE_STATE,WORKSITE_POSTAL_CODE,WAGE_RATE_OF_PAY_FROM,WAGE_RATE_OF_PAY_TO,WAGE_UNIT_OF_PAY,PREVAILING_WAGE,PW_UNIT_OF_PAY,PW_TRACKING_NUMBER,PW_WAGE_LEVEL,PW_OES_YEAR,H1B_DEPENDENT,WILLFUL_VIOLATOR,SUPPORT_H1B,STATUTORY_BASIS,PUBLIC_DISCLOSURE
+I-200-25010-100001,CERTIFIED,2024-12-05,2024-12-20,2024-12-20,H-1B,Robotics Software Engineer,15-1252,Software Developers,Y,2025-04-01,2028-03-31,1,1,0,0,0,0,0,"Northwind Robotics, Inc.",Northwind Robotics,300 Colorado St,Suite 1900,Austin,TX,78701,UNITED STATES OF AMERICA,512-555-0100,541512,Lindqvist,Grace,M,Director of Engineering,300 Colorado St Suite 1900,Austin,TX,78701,glindqvist@northwindrobotics.com,512-555-0100,Raman,Priya,500 W 2nd St Suite 1900,Austin,TX,78701,praman@aperturelegal.com,512-555-0190,Aperture Legal Partners LLP,N,,1,300 Colorado St,Austin,Travis,TX,78701,140000,150000,Year,138000,Year,P-200-24300-100001,Level II,2024,Y,N,N,,Disclose Business
+I-200-23010-100002,CERTIFIED,2023-02-05,2023-02-20,2023-02-20,H-1B,Controls Engineer,17-2199,"Engineers, All Other",Y,2023-06-01,2029-05-31,1,1,0,0,0,0,0,"Northwind Robotics, Inc.",Northwind Robotics,300 Colorado St,Suite 1900,Austin,TX,78701,UNITED STATES OF AMERICA,512-555-0100,541512,Lindqvist,Grace,M,Director of Engineering,300 Colorado St Suite 1900,Austin,TX,78701,glindqvist@northwindrobotics.com,512-555-0100,Raman,Priya,500 W 2nd St Suite 1900,Austin,TX,78701,praman@aperturelegal.com,512-555-0190,Aperture Legal Partners LLP,N,,1,300 Colorado St,Austin,Travis,TX,78701,132000,142000,Year,130000,Year,P-200-22300-100002,Level III,2022,Y,N,N,,Disclose Business
+...(remaining rows elided here; sent in full)
+```
+
+## Obligations
+
+- fdns.asvvp.actual_wage_ge_petition_wage
+    check:     Beneficiary's ACTUAL paid wage ≥ the wage on the petition/LCA (which must itself be the greater of actual or prevailing wage).
+    threshold: actualWage ≥ max(actualWageSystemRate, prevailingWage) = the LCA-attested required wage. Compare on the same basis; account for FT/PT and benching.
+    citation:  20 CFR 655.731(a)(1)-(2); 8 CFR 214.2(h)(4)(i)(B)(1); penalties 20 CFR 655.810.
+    information needed: Per beneficiary: actual pay rate + basis + FT/PT; LCA-attested wage + basis; prevailing-wage determination value/source/level; actual-wage-system rate; payroll evidence; benching/non-productive periods.
+- fdns.asvvp.employer_employee_right_to_control
+    check:     A bona fide employer-employee relationship with right-to-control exists between petitioner and beneficiary (critical for third-party/client-site placements).
+    threshold: Qualitative right-to-control (supervision, assignment, hire/fire/discipline, tools, work-setting indicia). A valid contract/SOW chain from petitioner through intermediaries to the end-client, plus petitioner-retained supervisory control, is the readiness bar.
+    citation:  8 CFR 214.2(h)(4)(ii) (United States employer); 8 CFR 214.2(h)(4)(i)(B)(1) (third-party worksite inspection authority); USCIS PM-602-0157 (Contracts and Itineraries).
+    information needed: Per beneficiary/placement: placement type (direct vs third-party); end-client + worksite; contract/SOW chain (petitioner→vendor(s)→client) + validity dates; who supervises/assigns; petitioner's legal-presence proof, service-of-process agent, IRS tax ID; itinerary of services.
+
+...(remaining obligations of this batch elided here)
+
+## Pairs to evaluate (12)
+
+everify.photo_matching::Anita Desai	[worker: Anita Desai]
+everify.photo_matching::Hiroshi Yamamoto	[worker: Hiroshi Yamamoto]
+everify.photo_matching::James Park	[worker: James Park]
+everify.photo_matching::Mei Tanaka	[worker: Mei Tanaka]
+everify.photo_matching::Yuki Sato	[worker: Yuki Sato]
+everify.tnc.employer_action_window::Daniel Cho	[worker: Daniel Cho]
+everify.tnc.overdue::Daniel Cho	[worker: Daniel Cho]
+extension.filing::Hiroshi Yamamoto	[worker: Hiroshi Yamamoto]
+fdns.asvvp.actual_wage_ge_petition_wage::fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage	[employer: fdns-gap:fdns.asvvp.actual_wage_ge_petition_wage]
+fdns.asvvp.employer_employee_right_to_control::fdns-gap:fdns.asvvp.employer_employee_right_to_control	[employer: fdns-gap:fdns.asvvp.employer_employee_right_to_control]
+fdns.asvvp.entity_physical_existence::fdns-gap:fdns.asvvp.entity_physical_existence	[employer: fdns-gap:fdns.asvvp.entity_physical_existence]
+fdns.asvvp.itinerary_when_multiple_sites::fdns-gap:fdns.asvvp.itinerary_when_multiple_sites	[employer: fdns-gap:fdns.asvvp.itinerary_when_multiple_sites]
+```
 
 Changing any of these text blocks changes the benchmark. Any edit bumps
 `PROMPT_VERSION`, and results carry the version they were produced under.

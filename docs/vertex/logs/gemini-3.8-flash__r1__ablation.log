@@ -1,0 +1,11 @@
+
+=== vertex --model vertex/gemini-3.8-flash#r1 --firms 0 --variant abstain_removed_only --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.8-flash#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_removed_only']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 31375 output tokens, 178s, finish=stop, ok
+      batch 2/12 (11 parsed so far)
+        attempt 1: 23748 output tokens, 129s, finish=stop, ok
+      batch 3/12 (23 parsed so far)

@@ -1,0 +1,152 @@
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_offered --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 30, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 3450 output tokens, 23s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 4106 output tokens, 28s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 4738 output tokens, 33s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 3921 output tokens, 24s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 8010 output tokens, 55s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 5893 output tokens, 57s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 7109 output tokens, 50s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 3329 output tokens, 21s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 5375 output tokens, 36s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 4497 output tokens, 30s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+        attempt 1: 3849 output tokens, 24s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+        attempt 1: 3622 output tokens, 24s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.058  recall 0.450  absF1 0.874  unparsed 0  (12 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_offered: FGR 0.058 (sd 0.000)  recall 0.450  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/study1_llm_results.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_withheld --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 30, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 9529 output tokens, 65s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 4371 output tokens, 30s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 11607 output tokens, 79s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 8763 output tokens, 59s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 6956 output tokens, 45s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 3461 output tokens, 24s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 4261 output tokens, 28s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 4930 output tokens, 31s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 5451 output tokens, 35s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 8589 output tokens, 60s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+        attempt 1: 10175 output tokens, 69s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+        attempt 1: 3329 output tokens, 22s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.133  recall 0.950  absF1 0.000  unparsed 0  (12 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld: FGR 0.133 (sd 0.000)  recall 0.950  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/study1_llm_results.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_offered --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/.checkpoint_study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 30, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1378 output tokens, 10s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1351 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3650 output tokens, 25s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3683 output tokens, 26s, finish=stop, ok
+  synthetic-000001-v2-study2 FGR 0.000  recall 0.500  absF1 0.917  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2988 output tokens, 24s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2979 output tokens, 19s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 9951 output tokens, 65s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 8636 output tokens, 58s, finish=stop, ok
+  synthetic-000002-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4157 output tokens, 24s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3132 output tokens, 19s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3187 output tokens, 19s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1124 output tokens, 9s, finish=stop, ok
+  synthetic-000009-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1263 output tokens, 9s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1362 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 7216 output tokens, 49s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5278 output tokens, 36s, finish=stop, ok
+  synthetic-000013-v2-study2 FGR 0.000  recall 1.000  absF1 0.892  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1453 output tokens, 10s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1438 output tokens, 11s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 7615 output tokens, 50s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6904 output tokens, 43s, finish=stop, ok
+  synthetic-000014-v2-study2 FGR 0.000  recall 1.000  absF1 0.943  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3993 output tokens, 24s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3233 output tokens, 20s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3211 output tokens, 19s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1163 output tokens, 9s, finish=stop, ok
+  synthetic-000015-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_offered: FGR 0.000 (sd 0.000)  recall 0.917  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/study2_llm_results.json
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_withheld --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/.checkpoint_study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 30, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1817 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2005 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4626 output tokens, 30s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 23753 output tokens, 153s, finish=stop, ok
+  synthetic-000001-v2-study2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2900 output tokens, 18s, finish=stop, ok
+      batch 2/4 (12 parsed so far)

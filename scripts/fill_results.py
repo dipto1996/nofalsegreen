@@ -80,8 +80,7 @@ def table_main(runs: dict) -> str:
     if not offered:
         rows.append("| `[TO RUN]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` | `[…]` |")
     views = json.loads(VIEWS.read_text()).get("runs", {}) if VIEWS.exists() else {}
-    for key in sorted(offered, key=lambda k: offered[k]["aggregate"]["false_green_rate"]["mean"],
-                      reverse=True):
+    for key in sorted(offered, key=lambda k: short(offered[k]["model"])):  # alphabetical: models are not ranked
         r = offered[key]
         a = r["aggregate"]
         unp = r.get("n_unparseable", 0) / max(r.get("n_pairs", 1), 1)
@@ -179,8 +178,8 @@ def table_regime(runs: dict) -> str:
             cells.append(f"{sum(vals)/len(vals):.3f} ({pairs})" if vals else "—")
         rows.append(f"| `{regime}` | " + " | ".join(cells) + " |")
     rows.append("")
-    rows.append("Cells are the false-green rate with the number of scored pairs in parentheses. "
-                "A dash means the regime contributed no scored pair for that model.")
+    rows.append("Cells are the false-green rate over the regime's withheld pairs; in parentheses, "
+                "the regime's scored pairs of any label.")
     return "\n".join(rows)
 
 

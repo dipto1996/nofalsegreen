@@ -143,7 +143,7 @@ def build(pts: list[dict]) -> str:
         else:
             s.append(f'<circle cx="{cx}" cy="{ly}" r="4.5" fill="{st["fill"]}"/>')
         s.append(f'<text x="{cx + 9}" y="{ly + 3.5}" font-size="8.6" fill="#333">'
-                 f'{esc(p["label"])[:22]}</text>')
+                 f'{esc(p["label"])}</text>')
         ly += 14
 
     if not any(p["kind"] == "model" for p in pts):

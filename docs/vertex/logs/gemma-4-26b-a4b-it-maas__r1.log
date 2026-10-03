@@ -1,0 +1,126 @@
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r1 --firms 0 --variant abstain_offered --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemma-4-26b-a4b-it-maas#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+      batch 1/12 (0 parsed so far)
+      batch 2/12 (12 parsed so far)
+      batch 3/12 (24 parsed so far)
+      batch 4/12 (36 parsed so far)
+      batch 5/12 (48 parsed so far)
+      batch 6/12 (60 parsed so far)
+      batch 7/12 (72 parsed so far)
+      batch 8/12 (84 parsed so far)
+      batch 9/12 (96 parsed so far)
+      batch 10/12 (108 parsed so far)
+      batch 11/12 (120 parsed so far)
+      batch 12/12 (132 parsed so far)
+  northwind-robotics-subset140 FGR 0.150  recall 0.050  absF1 0.756  unparsed 0  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r1::abstain_offered: FGR 0.150 (sd 0.000)  recall 0.050  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study1.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r1 --firms 0 --variant abstain_withheld --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemma-4-26b-a4b-it-maas#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+      batch 1/12 (0 parsed so far)
+      batch 2/12 (12 parsed so far)
+      batch 3/12 (24 parsed so far)
+      batch 4/12 (36 parsed so far)
+      batch 5/12 (48 parsed so far)
+      batch 6/12 (60 parsed so far)
+      batch 7/12 (72 parsed so far)
+      batch 8/12 (84 parsed so far)
+      batch 9/12 (84 parsed so far)
+      batch 10/12 (96 parsed so far)
+      batch 11/12 (108 parsed so far)
+      batch 12/12 (120 parsed so far)
+  northwind-robotics-subset140 FGR 0.567  recall 0.400  absF1 0.000  unparsed 0  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r1::abstain_withheld: FGR 0.567 (sd 0.000)  recall 0.400  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study1.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r1 --firms 0 --variant abstain_offered --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemma-4-26b-a4b-it-maas__r1__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemma-4-26b-a4b-it-maas#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000001-v2-study2 FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000002-v2-study2 FGR 1.000  recall 0.417  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000009-v2-study2 FGR 0.000  recall 0.143  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000013-v2-study2 FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000014-v2-study2 FGR 0.000  recall 0.000  absF1 0.985  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000015-v2-study2 FGR 0.000  recall 0.500  absF1 1.000  unparsed 0  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r1::abstain_offered: FGR 0.167 (sd 0.408)  recall 0.177  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study2.json
+
+=== vertex --model vertex/gemma-4-26b-a4b-it-maas#r1 --firms 0 --variant abstain_withheld --batch /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/.ckpt_gemma-4-26b-a4b-it-maas__r1__study2.json --study2
+Study 2: 6 generated firms x 42 pairs
+vertex/gemma-4-26b-a4b-it-maas#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000001-v2-study2 FGR 0.030  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000002-v2-study2 FGR 1.000  recall 0.417  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000009-v2-study2 FGR 0.778  recall 0.143  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000013-v2-study2 FGR 0.030  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000014-v2-study2 FGR 0.030  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-000015-v2-study2 FGR 0.333  recall 0.500  absF1 0.000  unparsed 0  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r1::abstain_withheld: FGR 0.367 (sd 0.427)  recall 0.177  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemma-4-26b-a4b-it-maas__r1__study2.json

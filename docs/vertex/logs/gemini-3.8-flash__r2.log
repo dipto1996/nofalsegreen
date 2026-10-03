@@ -1,0 +1,42 @@
+
+=== vertex --model vertex/gemini-3.8-flash#r2 --firms 0 --variant abstain_offered --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.8-flash#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 20596 output tokens, 121s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 5924 output tokens, 37s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 18110 output tokens, 96s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 19809 output tokens, 113s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 20631 output tokens, 138s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 11181 output tokens, 78s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 17675 output tokens, 120s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 2909 output tokens, 61s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 14350 output tokens, 87s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 13580 output tokens, 77s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+        attempt 1: 7174 output tokens, 34s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+        attempt 1: 3990 output tokens, 24s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.092  recall 0.500  absF1 0.868  unparsed 0  (12 calls)
+
+  vertex/gemini-3.8-flash#r2::abstain_offered: FGR 0.092 (sd 0.000)  recall 0.500  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/vertex/runs/gemini-3.8-flash__r2__study1.json
+
+=== vertex --model vertex/gemini-3.8-flash#r2 --firms 0 --variant abstain_withheld --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.8-flash#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+      batch 1/12 (0 parsed so far)

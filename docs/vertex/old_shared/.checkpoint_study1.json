@@ -1,0 +1,40 @@
+{
+  "completed": [
+    "vertex/gemma-4-26b-a4b-it-maas#r0::abstain_offered::northwind-robotics-subset140",
+    "vertex/gemma-4-26b-a4b-it-maas#r0::abstain_withheld::northwind-robotics-subset140",
+    "vertex/gemini-3.1-pro-preview#r0::abstain_offered::northwind-robotics-subset140",
+    "vertex/gemma-4-26b-a4b-it-maas#r1::abstain_offered::northwind-robotics-subset140",
+    "vertex/gemini-3.1-pro-preview#r0::abstain_withheld::northwind-robotics-subset140",
+    "vertex/gemma-4-26b-a4b-it-maas#r1::abstain_withheld::northwind-robotics-subset140",
+    "vertex/gemini-3.8-flash#r0::abstain_offered::northwind-robotics-subset140",
+    "vertex/gemma-4-26b-a4b-it-maas#r2::abstain_offered::northwind-robotics-subset140",
+    "vertex/gemma-4-26b-a4b-it-maas#r2::abstain_withheld::northwind-robotics-subset140"
+  ],
+  "usage": {
+    "vertex/gemma-4-26b-a4b-it-maas#r0": {
+      "calls": 24,
+      "input_tokens": 320864,
+      "output_tokens": 8632
+    },
+    "vertex/gemini-3.1-pro-preview#r0": {
+      "calls": 24,
+      "input_tokens": 320432,
+      "output_tokens": 139321
+    },
+    "vertex/gemma-4-26b-a4b-it-maas#r1": {
+      "calls": 24,
+      "input_tokens": 320864,
+      "output_tokens": 8633
+    },
+    "vertex/gemini-3.8-flash#r0": {
+      "calls": 12,
+      "input_tokens": 160966,
+      "output_tokens": 175375
+    },
+    "vertex/gemma-4-26b-a4b-it-maas#r2": {
+      "calls": 24,
+      "input_tokens": 320864,
+      "output_tokens": 8861
+    }
+  }
+}

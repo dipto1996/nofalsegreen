@@ -1,0 +1,27 @@
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r2 --firms 0 --variant abstain_removed_only --batch --subset 140
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertex/gemini-3.1-pro-preview#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_removed_only']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 4253 output tokens, 41s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 5157 output tokens, 34s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 5189 output tokens, 34s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 13180 output tokens, 89s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 4689 output tokens, 32s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 2525 output tokens, 18s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 6920 output tokens, 46s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 2913 output tokens, 19s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 4773 output tokens, 32s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 3460 output tokens, 24s, finish=stop, ok
+      batch 11/12 (120 parsed so far)

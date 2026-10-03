@@ -1,0 +1,65 @@
+=== Sat Oct  3 02:51:12 PDT 2026: STUDY 2 (generator v2) start ===
+study: 5 models x 2 conditions = 10 runs
+~24 calls per run
+done: 0/10   remaining: 10
+at 50 calls/day: ~5 more day(s)
+
+  nemotron-3-ultra-550b-a55b:free / abstain_offered
+    Study 2: 6 generated firms x 42 pairs
+    nvidia/nemotron-3-ultra-550b-a55b:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 6  variants ['abstain_offered']
+    
+          batch 1/4 (0 parsed so far)
+            attempt 1: 1027 output tokens, 55s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 979 output tokens, 39s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 4932 output tokens, 174s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 8833 output tokens, 290s, finish=stop, ok
+      synthetic-000001-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+          batch 1/4 (0 parsed so far)
+            attempt 1: 4824 output tokens, 174s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 4065 output tokens, 81s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 7728 output tokens, 161s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 15333 output tokens, 486s, finish=stop, ok
+      synthetic-000002-v2-study2 FGR 0.889  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+          batch 1/4 (0 parsed so far)
+            attempt 1: 4887 output tokens, 131s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 5242 output tokens, 119s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 6831 output tokens, 136s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 758 output tokens, 53s, finish=stop, ok
+      synthetic-000009-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+          batch 1/4 (0 parsed so far)
+            attempt 1: 794 output tokens, 16s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 777 output tokens, 18s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 6332 output tokens, 101s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 8065 output tokens, 161s, finish=stop, ok
+      synthetic-000013-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+          batch 1/4 (0 parsed so far)
+          retry nvidia/nemotron-3-ultra-550b-a55b:free: RuntimeError: HTTP 429: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"head after 0s
+    
+      daily quota exhausted: {"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-R
+      progress saved; re-run the same command tomorrow to continue.
+    
+      nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered: FGR 0.222 (sd 0.444)  recall 1.000  over 4 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/study2/llm_results.json
+    quota exhausted mid-run; will resume after reset
+  quota spent; resets 2026-10-03 17:00 local (13.6h). Sleeping.
+=== Sat Oct  3 13:09:43 PDT 2026: restart (run completion = all firms) ===
+study: 5 models x 2 conditions = 10 runs
+~24 calls per run
+done: 0/10   remaining: 10
+at 50 calls/day: ~5 more day(s)
+
+  quota spent; resets 2026-10-03 17:00 local (3.9h). Sleeping.
