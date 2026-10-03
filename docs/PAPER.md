@@ -980,6 +980,36 @@ task, the construction method, and the instrument, with the empirical section re
 negative result. The benchmark is publishable either way, and committing to this in
 advance is what makes the eventual number credible.
 
+### 8.3 Study 2: generated firms
+
+Study 2 runs the same protocol on all 252 pairs of six generated firms (Section 5.3), which
+carry what the anchor firm lacks: conforming controls, a third of them near-miss cases on
+the legal boundary. Firms and models were fixed in `nofalsegreen/study2.py` before any call.
+
+**Table 6 — Study 2, free-tier models.** Mean ± standard deviation over the six firms, each
+rate over the firms in which it is defined.
+
+<!-- BEGIN GENERATED: table6-study2 -->
+<!-- END GENERATED: table6-study2 -->
+
+@@STUDY2_TEXT@@
+
+### 8.4 The Vertex block: a frontier model, and repeated runs
+
+Every model above is a free-tier open-weights model, run once. The Vertex block adds
+Gemini 3.1 Pro (Google's frontier tier at the time of writing), Gemini 3.8 Flash, and Gemma
+4 26B (open weights, Google-hosted), on both studies and both schemas, and runs every
+configuration three times (`nofalsegreen/vertex_block.py`, declared before any call). At
+temperature 0 a repeat measures run-to-run variation of the served model. These models were
+added after the free-tier studies began, and are reported apart for that reason.
+
+**Table 7 — Vertex block.** Mean of three runs, with the minimum and maximum in brackets.
+
+<!-- BEGIN GENERATED: table7-vertex -->
+<!-- END GENERATED: table7-vertex -->
+
+@@VERTEX_TEXT@@
+
 ---
 
 ## 9. Analysis
@@ -1230,9 +1260,9 @@ expectations were written as the acceptance gate for that company's engine, and 
 rulebook is derived from the same company's rule registry. Three safeguards follow from
 this. The company's engine is excluded as a baseline (Section 7). The generated firms used
 in Study 2 take their labels from the generator, not from the engine. And the withheld
-labels were audited blind (Section 6), with an expert-labelling kit for practising
-immigration counsel released alongside (`docs/expert_labelling/`) so the labels can be
-checked by people with no stake in them. No model provider evaluated here was consulted,
+labels were audited blind (Section 6). A blind labelling kit is released
+(`docs/expert_labelling/`) so that anyone with no stake in the labels, including practising
+counsel, can check them independently. No such external labelling was done for this paper. No model provider evaluated here was consulted,
 and no result was shared with one before publication.
 
 **Use of AI assistance.** An AI coding assistant (Anthropic's Claude) was used to write the
