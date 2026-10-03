@@ -64,6 +64,8 @@ def metrics(labels, pred: dict[str, str]) -> dict:
             c[k] += 1
             c[k + "_alarm"] += g is not None and g != "pass"
         c["pred_fail"] += g == "fail"
+        if t == "needs_evidence" and g is not None:
+            c[f"withheld_as_{g}"] += 1
         c["pred_abst"] += g == "needs_evidence"
     r = lambda a, b: (c[a] / c[b]) if c[b] else None  # noqa: E731
     prec_abst = c["abst"] / c["pred_abst"] if c["pred_abst"] else None
@@ -85,7 +87,7 @@ def metrics(labels, pred: dict[str, str]) -> dict:
     }
 
 
-def pool(firms, cache, model, variant) -> dict:
+def pool(firms, cache, model, variant, exclude_rule: str | None = None) -> dict:
     """Pooled over firms. Pair ids repeat across generated firms (every firm
     has SYN-1001), so each pair is keyed by firm as well."""
     from dataclasses import replace as _r
@@ -93,6 +95,8 @@ def pool(firms, cache, model, variant) -> dict:
     for f in firms:
         p = preds_for(cache, f, model, variant)
         for l in f.labels:
+            if exclude_rule and l.pair_id.startswith(exclude_rule + "::"):
+                continue
             k = f"{f.firm_id}|{l.pair_id}"
             labels.append(_r(l, pair_id=k))
             if l.pair_id in p:
@@ -134,7 +138,10 @@ def main() -> int:
         model, variant = key.split("::")
         per = [metrics(f.labels, preds_for(cache, f, model, variant)) for f in firms2]
         pooled = pool(firms2, cache, model, variant)
-        out["study2"][key] = {"per_firm": per, "mean_over_firms": summarise(per), "pooled": pooled}
+        out["study2"][key] = {"per_firm": per, "mean_over_firms": summarise(per), "pooled": pooled,
+                              "pooled_without_reverification": pool(
+                                  firms2, cache, model, variant,
+                                  exclude_rule="i9.reverification.deadline")}
 
     # Vertex block
     reps: dict[tuple, list] = defaultdict(list)
@@ -149,6 +156,10 @@ def main() -> int:
             m = metrics(anchor.labels, preds_for(cache, anchor, model, variant))
         else:
             m = pool(firms2, cache, model, variant)
+            # Sensitivity: a late reverification may be lawful under the 240-day
+            # rule, which the exports cannot show (paper, Section 10).
+            m["without_reverification"] = pool(firms2, cache, model, variant,
+                                               exclude_rule="i9.reverification.deadline")
         reps[(base, study, variant)].append({"rep": model.split("#")[-1], **m})
     for (base, study, variant), runs in sorted(reps.items()):
         agg = {}

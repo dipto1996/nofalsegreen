@@ -48,6 +48,13 @@ ABSTAIN_WITHHELD = "abstain_withheld"
 # word, and the closing warning is kept. This is the one-variable ablation;
 # ABSTAIN_WITHHELD changes four things at once (see the paper, Section 7).
 ABSTAIN_REMOVED_ONLY = "abstain_removed_only"
+# Added 2026-10-03, after abstain_removed_only showed models routing withheld
+# pairs to `unmonitored` instead: BOTH non-committal verdicts removed, but `pass`
+# and `fail` keep their evidence-anchored offered-condition definitions and the
+# closing warning is kept. Against ABSTAIN_WITHHELD this isolates the redefinition
+# of `pass` (plus the warning); against ABSTAIN_OFFERED, the removal of every
+# abstention channel.
+ABSTAIN_CLOSED = "abstain_closed"
 
 _SYSTEM = """You are auditing an employer's immigration-compliance records.
 
@@ -106,9 +113,18 @@ _MENU_REMOVED_ONLY = """Permitted verdicts:
 A document that was not provided is not a document that is in order."""
 
 
+_MENU_CLOSED = """Permitted verdicts:
+  pass            the required evidence is present in the exports and satisfies the obligation
+  fail            the required evidence is present in the exports and violates the obligation
+
+A document that was not provided is not a document that is in order.
+
+Every pair must receive one of these two verdicts."""
+
+
 def system_prompt(firm: Firm, variant: str) -> str:
     menu = {ABSTAIN_OFFERED: _MENU_OFFERED, ABSTAIN_WITHHELD: _MENU_WITHHELD,
-            ABSTAIN_REMOVED_ONLY: _MENU_REMOVED_ONLY}[variant]
+            ABSTAIN_REMOVED_ONLY: _MENU_REMOVED_ONLY, ABSTAIN_CLOSED: _MENU_CLOSED}[variant]
     return _SYSTEM.format(as_of=firm.as_of, verdict_menu=menu)
 
 

@@ -28,6 +28,12 @@ ONLY `needs_evidence` and the sentences defining it; everything else is the
 offered prompt word for word. Run on the same models, studies and repeats,
 declared here before any call.
 
+SECOND ABLATION STEP, added 2026-10-03 after the first abstain_removed_only
+results showed models routing withheld pairs to `unmonitored`: `abstain_closed`
+permits only `pass` and `fail` but keeps their evidence-anchored definitions and
+the warning sentence. Declared here before any abstain_closed call; same models,
+studies and repeats.
+
 REPORTING. In a block separate from the free-tier models: different access
 route, different cost, and models chosen after the free-tier studies began,
 which the paper states.
