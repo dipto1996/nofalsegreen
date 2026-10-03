@@ -26,31 +26,35 @@ STUDIES = {"study1": ["--subset", "140"], "study2": ["--study2"]}
 VARIANTS = ("abstain_offered", "abstain_withheld")
 
 
-def jobs_for(model: str) -> list[list[str]]:
+def jobs_for(model: str, rep: int) -> list[list[str]]:
+    """One process per (model, repeat), each with its OWN cache, results and
+    checkpoint files: the harness rewrites those files whole on every save, so
+    two writers on one file lose each other's work."""
+    tag = f"{model}__r{rep}"
     out = []
-    for rep in REPEATS:
-        for study, extra in STUDIES.items():
-            for variant in VARIANTS:
-                out.append([
-                    sys.executable, "-u", str(ROOT / "scripts" / "run_free.py"),
-                    "--provider", "vertex", "--model", f"vertex/{model}#r{rep}",
-                    "--firms", "0", "--variant", variant, "--batch", "12",
-                    "--rpm", "30", "--rpd", "100000",
-                    "--out", str(OUT / f"{study}_llm_results.json"),
-                    "--checkpoint", str(OUT / f".checkpoint_{study}.json"),
-                    *extra,
-                ])
+    for study, extra in STUDIES.items():
+        for variant in VARIANTS:
+            out.append([
+                sys.executable, "-u", str(ROOT / "scripts" / "run_free.py"),
+                "--provider", "vertex", "--model", f"vertex/{model}#r{rep}",
+                "--firms", "0", "--variant", variant, "--batch", "12",
+                "--rpm", "10", "--rpd", "100000",
+                "--cache", str(OUT / "cache" / f"{tag}.json"),
+                "--out", str(OUT / "runs" / f"{tag}__{study}.json"),
+                "--checkpoint", str(OUT / "runs" / f".ckpt_{tag}__{study}.json"),
+                *extra,
+            ])
     return out
 
 
-def run_model(model: str) -> str:
-    log = OUT / f"{model}.log"
+def run_job(model: str, rep: int) -> str:
+    log = OUT / "logs" / f"{model}__r{rep}.log"
     with log.open("a") as fh:
-        for cmd in jobs_for(model):
+        for cmd in jobs_for(model, rep):
             fh.write(f"\n=== {' '.join(cmd[4:12])} {' '.join(cmd[-2:])}\n")
             fh.flush()
             subprocess.run(cmd, cwd=ROOT, stdout=fh, stderr=subprocess.STDOUT)
-    return model
+    return f"{model} r{rep}"
 
 
 def main() -> int:
@@ -58,14 +62,16 @@ def main() -> int:
     ap.add_argument("--plan", action="store_true")
     ap.add_argument("--models", nargs="*", default=list(MODELS))
     args = ap.parse_args()
-    OUT.mkdir(parents=True, exist_ok=True)
+    for d in ("cache", "runs", "logs"):
+        (OUT / d).mkdir(parents=True, exist_ok=True)
+    work = [(m, r) for m in args.models for r in REPEATS]
     if args.plan:
-        for m in args.models:
-            print(m, len(jobs_for(m)), "runs")
+        for m, r in work:
+            print(m, f"r{r}", len(jobs_for(m, r)), "runs")
         return 0
-    with ThreadPoolExecutor(max_workers=len(args.models)) as ex:
-        for m in ex.map(run_model, args.models):
-            print("finished", m, flush=True)
+    with ThreadPoolExecutor(max_workers=len(work)) as ex:
+        for done in ex.map(lambda mr: run_job(*mr), work):
+            print("finished", done, flush=True)
     return 0
 
 

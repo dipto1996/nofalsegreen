@@ -65,6 +65,9 @@ def main() -> int:
     ap.add_argument("--subset", type=int, default=0,
                     help=f"evaluate the declared stratified subset of N pairs "
                          f"(0 = full firm; {DEFAULT_SIZE} is the standard subset)")
+    ap.add_argument("--cache", default=str(ROOT / "docs" / ".batch_cache.json"),
+                    help="batch cache file. Each concurrently running process MUST "
+                         "have its own: the cache is rewritten whole on every save")
     ap.add_argument("--study2", action="store_true",
                     help="evaluate the five declared Study 2 generated firms "
                          "(nofalsegreen/study2.py) instead of the anchor firm")
@@ -146,7 +149,7 @@ def main() -> int:
                 r = run_firm(provider, firm, rb.all_rules(), variant=variant,
                              batch_size=args.batch, scope_sources=scope, keep_raw=True,
                              progress=True, stop_on_host_failure=not args.finalize,
-                             cache_path=ROOT / "docs" / ".batch_cache.json")  # keys carry PROMPT_VERSION
+                             cache_path=Path(args.cache))  # keys carry PROMPT_VERSION
             except DailyQuotaExhausted as e:
                 print(f"\n  daily quota exhausted: {str(e)[:160]}")
                 print("  progress saved; re-run the same command tomorrow to continue.")
