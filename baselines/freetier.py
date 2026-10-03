@@ -355,6 +355,85 @@ class OpenRouterFreeProvider:
         raise RuntimeError(f"{self.name}: gave up after {self.max_retries} attempts: {last_err}")
 
 
+class VertexProvider:
+    """Google models through Vertex AI (generateContent), paid from cloud credits.
+
+    `model` is "vertex/<publisher model id>#r<k>": the #r<k> suffix marks a
+    repeat, so each repeat has its own cache keys and results entry while the
+    request sent is identical. Auth is the gcloud user's access token,
+    refreshed before it expires; no key file is involved.
+    """
+
+    def __init__(self, model: str, quota: Quota, *, max_retries: int = 6):
+        from nofalsegreen.vertex_block import LOCATION, PROJECT
+
+        self.name = model
+        base = model.split("/", 1)[-1]
+        self.model_id = base.split("#", 1)[0]
+        self.project, self.location = PROJECT, LOCATION
+        self.limiter = RateLimiter(quota)
+        self.max_retries = max_retries
+        self._token, self._token_at = "", 0.0
+
+    def _auth(self) -> str:
+        import subprocess
+        if not self._token or time.time() - self._token_at > 45 * 60:
+            self._token = subprocess.run(["gcloud", "auth", "print-access-token"],
+                                         capture_output=True, text=True, check=True).stdout.strip()
+            self._token_at = time.time()
+        return self._token
+
+    def complete(self, system: str, user: str, max_tokens: int) -> tuple[str, Usage]:
+        host = ("aiplatform.googleapis.com" if self.location == "global"
+                else f"{self.location}-aiplatform.googleapis.com")
+        url = (f"https://{host}/v1/projects/{self.project}/locations/{self.location}"
+               f"/publishers/google/models/{self.model_id}:generateContent")
+        body = json.dumps({
+            "systemInstruction": {"parts": [{"text": system}]},
+            "contents": [{"role": "user", "parts": [{"text": user}]}],
+            "generationConfig": {"temperature": 0, "maxOutputTokens": max_tokens},
+        }).encode()
+        delay, last_err = 10.0, None
+        for _ in range(self.max_retries):
+            self.limiter.acquire()
+            t0 = time.time()
+            req = urllib.request.Request(url, data=body, headers={
+                "Content-Type": "application/json", "Authorization": f"Bearer {self._auth()}",
+                "x-goog-user-project": self.project})
+            try:
+                with urllib.request.urlopen(req, timeout=900) as resp:
+                    payload = json.loads(resp.read())
+            except urllib.error.HTTPError as e:
+                detail = e.read().decode("utf-8", "replace")[:300]
+                last_err = RuntimeError(f"HTTP {e.code}: {detail}")
+                _log_retry(self.name, last_err, t0)
+                if e.code == 401:
+                    self._token = ""
+                if e.code in (401, 429) or e.code >= 500:
+                    time.sleep(delay)
+                    delay = min(delay * 2, 240.0)
+                    continue
+                raise last_err from e
+            except (urllib.error.URLError, TimeoutError) as e:
+                last_err = e
+                _log_retry(self.name, e, t0)
+                time.sleep(delay)
+                delay = min(delay * 2, 240.0)
+                continue
+            cand = (payload.get("candidates") or [{}])[0]
+            text = "".join(p.get("text", "") for p in (cand.get("content") or {}).get("parts", [])
+                           if not p.get("thought"))
+            fr = (cand.get("finishReason") or "").upper()
+            finish = {"STOP": "stop", "MAX_TOKENS": "length"}.get(fr, fr.lower() or "")
+            u = payload.get("usageMetadata", {}) or {}
+            return text, Usage(
+                input_tokens=u.get("promptTokenCount", 0),
+                output_tokens=u.get("candidatesTokenCount", 0) + u.get("thoughtsTokenCount", 0),
+                calls=1, seconds=time.time() - t0, finish_reason=finish,
+            )
+        raise RuntimeError(f"{self.name}: gave up after {self.max_retries} attempts: {last_err}")
+
+
 # Quotas as published in vendor docs, September 2026. Verify before a run; the
 # value actually used is recorded in the results file.
 FREE_QUOTAS = {
@@ -372,6 +451,7 @@ FREE_PROVIDERS = {
     "gemini": GeminiFreeProvider,
     "groq": GroqFreeProvider,
     "openrouter": OpenRouterFreeProvider,
+    "vertex": VertexProvider,
 }
 
 

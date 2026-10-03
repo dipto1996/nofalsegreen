@@ -89,7 +89,8 @@ def main() -> int:
         from nofalsegreen import study2
         if args.out == str(ROOT / "docs" / "llm_results.json"):
             args.out = str(ROOT / "docs" / "study2" / "llm_results.json")
-        args.checkpoint = str(ROOT / "docs" / "study2" / f".checkpoint_{PROMPT_VERSION}.json")
+        if args.checkpoint == str(ROOT / "docs" / f".free_checkpoint_{PROMPT_VERSION}.json"):
+            args.checkpoint = str(ROOT / "docs" / "study2" / f".checkpoint_{PROMPT_VERSION}.json")
     anchor = northwind.load(ANCHOR, ANCHOR / "expectations.json")
     if args.subset:
         anchor = subset_firm(anchor, regimes, size=args.subset)
