@@ -65,6 +65,9 @@ def main() -> int:
     ap.add_argument("--subset", type=int, default=0,
                     help=f"evaluate the declared stratified subset of N pairs "
                          f"(0 = full firm; {DEFAULT_SIZE} is the standard subset)")
+    ap.add_argument("--study2", action="store_true",
+                    help="evaluate the five declared Study 2 generated firms "
+                         "(nofalsegreen/study2.py) instead of the anchor firm")
     ap.add_argument("--finalize", action="store_true",
                     help="record a run whose host kept failing with the pairs it has, "
                          "flagged finalized_incomplete. Cut-off rule declared 2026-10-01: "
@@ -82,6 +85,11 @@ def main() -> int:
     regimes = rb.rule_regimes()
     gen = FirmGenerator(rb, GeneratorConfig(n_workers=args.workers))
 
+    if args.study2:
+        from nofalsegreen import study2
+        if args.out == str(ROOT / "docs" / "llm_results.json"):
+            args.out = str(ROOT / "docs" / "study2" / "llm_results.json")
+        args.checkpoint = str(ROOT / "docs" / "study2" / f".checkpoint_{PROMPT_VERSION}.json")
     anchor = northwind.load(ANCHOR, ANCHOR / "expectations.json")
     if args.subset:
         anchor = subset_firm(anchor, regimes, size=args.subset)
@@ -89,6 +97,9 @@ def main() -> int:
               f"{anchor.provenance['parent_pairs']} pairs "
               f"(seed {anchor.provenance['subset_seed']})")
     firms = [anchor]
+    if args.study2:
+        firms = study2.load_firms(rb)
+        print(f"Study 2: {len(firms)} generated firms x {len(firms[0].pairs)} pairs")
     for seed in range(1, args.firms + 1):
         firms.append(gen.generate(seed, ROOT / ".llm-tmp" / f"s{seed}"))
 

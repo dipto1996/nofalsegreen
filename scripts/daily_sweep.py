@@ -200,7 +200,7 @@ def run_one(model: str, variant: str, subset: int) -> str:
         "--provider", "openrouter", "--model", model,
         "--firms", "0", "--variant", variant,
         "--batch", str(BATCH), "--subset", str(subset), "--rpd", "50",
-    ]
+    ] + (["--study2"] if STUDY2 else [])
     # Stream the child's output as it arrives: per-batch progress and every
     # retry must be visible while a run is in flight, not only after it ends.
     proc = subprocess.Popen(cmd, cwd=ROOT, stdout=subprocess.PIPE,
@@ -221,8 +221,14 @@ def run_one(model: str, variant: str, subset: int) -> str:
     return "done"
 
 
+STUDY2 = False
+
+
 def main() -> int:
+    global RESULTS, STUDY2
     ap = argparse.ArgumentParser()
+    ap.add_argument("--study2", action="store_true",
+                    help="run the declared Study 2 (generated firms, its own model list)")
     ap.add_argument("--plan", action="store_true", help="print the queue, make no calls")
     ap.add_argument("--subset", type=int, default=DEFAULT_SIZE)
     ap.add_argument("--wait", action="store_true",
@@ -230,7 +236,14 @@ def main() -> int:
                          "repeating until the study is done")
     args = ap.parse_args()
 
-    apply_substitutions()
+    if args.study2:
+        from nofalsegreen import study2
+        STUDY2 = True
+        RESULTS = ROOT / "docs" / "study2" / "llm_results.json"
+        MODELS[:] = list(study2.MODELS)
+        args.subset = 0
+    else:
+        apply_substitutions()
     gone = withdrawn_models()
     q = queue(gone)
     done = completed()
@@ -239,9 +252,10 @@ def main() -> int:
         print(f"withdrawn from the free tier, not run: {m}")
 
     print(f"study: {len(MODELS)} models x {len(VARIANTS)} conditions = {total} runs")
-    print(f"subset: {args.subset} pairs -> ~{-(-args.subset // BATCH)} calls each")
+    per_run = 30 if STUDY2 else -(-args.subset // BATCH)
+    print(f"~{per_run} calls per run")
     print(f"done: {len(done)}/{total}   remaining: {len(q)}")
-    print(f"at 50 calls/day: ~{-(-len(q) * (-(-args.subset // BATCH)) // 50)} more day(s)\n")
+    print(f"at 50 calls/day: ~{-(-len(q) * per_run // 50)} more day(s)\n")
 
     if args.plan:
         for m, v in q:
