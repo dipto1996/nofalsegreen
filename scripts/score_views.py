@@ -167,15 +167,17 @@ def main() -> int:
             "n_pairs_answered_both": len(all_ids),
             "delta_fgr": round(point, 4),
             "ci95": [round(diffs[int(0.025 * BOOT_REPS)], 4), round(diffs[int(0.975 * BOOT_REPS) - 1], 4)],
-            "p_boot_one_sided": round(max(sum(x <= 0 for x in diffs), 1) / BOOT_REPS, 4),
+            # Two-sided, as every other contrast in the paper (round-3 review).
+            "p_boot_two_sided": round(min(1.0, max(2 * min(sum(x <= 0 for x in diffs),
+                                                           sum(x >= 0 for x in diffs)), 1) / BOOT_REPS), 4),
         }
     # Holm correction across the per-model tests.
     ab = out["ablation"]
-    order = sorted(ab, key=lambda m: ab[m]["p_boot_one_sided"])
+    order = sorted(ab, key=lambda m: ab[m]["p_boot_two_sided"])
     k = len(order)
     running = 0.0
     for i, m in enumerate(order):
-        running = max(running, min(1.0, (k - i) * ab[m]["p_boot_one_sided"]))
+        running = max(running, min(1.0, (k - i) * ab[m]["p_boot_two_sided"]))
         ab[m]["p_holm"] = round(running, 4)
         ab[m]["holm_reject_0.05"] = running < 0.05
 

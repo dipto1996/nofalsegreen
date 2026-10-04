@@ -1,0 +1,868 @@
+{
+ "note": "EXPLORATORY: not in the Study 3 declaration; added after the results.",
+ "cited_evidence_on_false_greens": {
+  "i9::decoy::abstain_offered": {
+   "total": 134,
+   "by_field": {
+    "workAuthValidThrough": 33,
+    "onboardingCompletedDate": 85,
+    "other": 16
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "workAuthValidThrough": 8
+    },
+    "gemini-3.8-flash": {
+     "workAuthValidThrough": 12
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "onboardingCompletedDate": 57,
+     "other": 8,
+     "workAuthValidThrough": 5
+    },
+    "gpt-oss-120b-maas": {
+     "other": 4,
+     "onboardingCompletedDate": 4
+    },
+    "deepseek-v3.2-maas": {
+     "other": 4
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "onboardingCompletedDate": 24,
+     "workAuthValidThrough": 8
+    }
+   }
+  },
+  "wage::decoy::abstain_offered": {
+   "total": 364,
+   "by_field": {
+    "annualBaseSalary": 123,
+    "other": 122,
+    "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 119
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "annualBaseSalary": 6,
+     "other": 19
+    },
+    "gemini-3.8-flash": {
+     "annualBaseSalary": 31,
+     "other": 22
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "other": 24,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 54,
+     "annualBaseSalary": 3
+    },
+    "gpt-oss-120b-maas": {
+     "annualBaseSalary": 34,
+     "other": 5,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 5
+    },
+    "deepseek-v3.2-maas": {
+     "annualBaseSalary": 10,
+     "other": 38,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 3
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "annualBaseSalary": 27,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 48,
+     "other": 6
+    },
+    "kimi-k2-thinking-maas": {
+     "annualBaseSalary": 12,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 9,
+     "other": 8
+    }
+   }
+  },
+  "i9::decoy::abstain_removed_only": {
+   "total": 192,
+   "by_field": {
+    "onboardingCompletedDate": 136,
+    "workAuthValidThrough": 38,
+    "other": 18
+   },
+   "by_model": {
+    "gemini-3.8-flash": {
+     "onboardingCompletedDate": 12,
+     "workAuthValidThrough": 17
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "onboardingCompletedDate": 58,
+     "workAuthValidThrough": 13,
+     "other": 8
+    },
+    "gpt-oss-120b-maas": {
+     "onboardingCompletedDate": 4
+    },
+    "deepseek-v3.2-maas": {
+     "workAuthValidThrough": 4,
+     "onboardingCompletedDate": 7,
+     "other": 8
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "onboardingCompletedDate": 46,
+     "other": 2,
+     "workAuthValidThrough": 4
+    },
+    "kimi-k2-thinking-maas": {
+     "onboardingCompletedDate": 9
+    }
+   }
+  },
+  "wage::decoy::abstain_removed_only": {
+   "total": 392,
+   "by_field": {
+    "other": 149,
+    "annualBaseSalary": 129,
+    "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 114
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "other": 34,
+     "annualBaseSalary": 3
+    },
+    "gemini-3.8-flash": {
+     "annualBaseSalary": 30,
+     "other": 19
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "other": 21,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 57,
+     "annualBaseSalary": 3
+    },
+    "gpt-oss-120b-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 3,
+     "annualBaseSalary": 22,
+     "other": 12
+    },
+    "deepseek-v3.2-maas": {
+     "other": 44,
+     "annualBaseSalary": 11
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "annualBaseSalary": 24,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 48,
+     "other": 9
+    },
+    "kimi-k2-thinking-maas": {
+     "annualBaseSalary": 36,
+     "other": 10,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 6
+    }
+   }
+  },
+  "i9::decoy::abstain_closed": {
+   "total": 375,
+   "by_field": {
+    "onboardingCompletedDate": 183,
+    "workAuthValidThrough": 103,
+    "other": 89
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "onboardingCompletedDate": 20,
+     "workAuthValidThrough": 15
+    },
+    "gemini-3.8-flash": {
+     "onboardingCompletedDate": 28,
+     "workAuthValidThrough": 27
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "onboardingCompletedDate": 58,
+     "workAuthValidThrough": 25,
+     "other": 8
+    },
+    "gpt-oss-120b-maas": {
+     "onboardingCompletedDate": 4
+    },
+    "deepseek-v3.2-maas": {
+     "workAuthValidThrough": 4,
+     "onboardingCompletedDate": 1,
+     "other": 71
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "onboardingCompletedDate": 55,
+     "workAuthValidThrough": 15,
+     "other": 10
+    },
+    "kimi-k2-thinking-maas": {
+     "workAuthValidThrough": 17,
+     "onboardingCompletedDate": 17
+    }
+   }
+  },
+  "wage::decoy::abstain_closed": {
+   "total": 451,
+   "by_field": {
+    "annualBaseSalary": 146,
+    "other": 221,
+    "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 84
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "annualBaseSalary": 23,
+     "other": 45
+    },
+    "gemini-3.8-flash": {
+     "annualBaseSalary": 27,
+     "other": 33
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "other": 48,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 33
+    },
+    "gpt-oss-120b-maas": {
+     "annualBaseSalary": 36,
+     "other": 9
+    },
+    "deepseek-v3.2-maas": {
+     "annualBaseSalary": 3,
+     "other": 56,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 3
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "other": 12,
+     "annualBaseSalary": 21,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 48
+    },
+    "kimi-k2-thinking-maas": {
+     "annualBaseSalary": 36,
+     "other": 18
+    }
+   }
+  },
+  "i9::decoy::abstain_withheld": {
+   "total": 462,
+   "by_field": {
+    "workAuthValidThrough": 88,
+    "onboardingCompletedDate": 188,
+    "other": 186
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "workAuthValidThrough": 23,
+     "onboardingCompletedDate": 28
+    },
+    "gemini-3.8-flash": {
+     "onboardingCompletedDate": 12,
+     "workAuthValidThrough": 12,
+     "other": 59
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "onboardingCompletedDate": 50,
+     "workAuthValidThrough": 20,
+     "other": 17
+    },
+    "gpt-oss-120b-maas": {
+     "onboardingCompletedDate": 20
+    },
+    "deepseek-v3.2-maas": {
+     "other": 78
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "onboardingCompletedDate": 46,
+     "other": 28,
+     "workAuthValidThrough": 10
+    },
+    "kimi-k2-thinking-maas": {
+     "onboardingCompletedDate": 32,
+     "workAuthValidThrough": 23,
+     "other": 4
+    }
+   }
+  },
+  "wage::decoy::abstain_withheld": {
+   "total": 437,
+   "by_field": {
+    "annualBaseSalary": 124,
+    "other": 268,
+    "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 45
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "annualBaseSalary": 28,
+     "other": 38
+    },
+    "gemini-3.8-flash": {
+     "annualBaseSalary": 5,
+     "other": 52
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "other": 56,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 18
+    },
+    "gpt-oss-120b-maas": {
+     "annualBaseSalary": 37,
+     "other": 15
+    },
+    "deepseek-v3.2-maas": {
+     "other": 61
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "other": 30,
+     "annualBaseSalary": 24,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 27
+    },
+    "kimi-k2-thinking-maas": {
+     "annualBaseSalary": 30,
+     "other": 16
+    }
+   }
+  },
+  "i9::plain::abstain_offered": {
+   "total": 0,
+   "by_field": {},
+   "by_model": {}
+  },
+  "wage::plain::abstain_offered": {
+   "total": 238,
+   "by_field": {
+    "other": 140,
+    "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 98
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "other": 19
+    },
+    "gemini-3.8-flash": {
+     "other": 26,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 3
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 32,
+     "other": 29
+    },
+    "gpt-oss-120b-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 18,
+     "other": 6
+    },
+    "deepseek-v3.2-maas": {
+     "other": 20
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "other": 24,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 33
+    },
+    "kimi-k2-thinking-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 12,
+     "other": 16
+    }
+   }
+  },
+  "i9::plain::abstain_removed_only": {
+   "total": 0,
+   "by_field": {},
+   "by_model": {}
+  },
+  "wage::plain::abstain_removed_only": {
+   "total": 306,
+   "by_field": {
+    "other": 158,
+    "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 148
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "other": 34
+    },
+    "gemini-3.8-flash": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 18,
+     "other": 21
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 43,
+     "other": 17
+    },
+    "gpt-oss-120b-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 24,
+     "other": 19
+    },
+    "deepseek-v3.2-maas": {
+     "other": 38
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 48,
+     "other": 15
+    },
+    "kimi-k2-thinking-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 15,
+     "other": 14
+    }
+   }
+  },
+  "i9::plain::abstain_closed": {
+   "total": 2,
+   "by_field": {
+    "other": 2
+   },
+   "by_model": {
+    "gemma-4-26b-a4b-it-maas": {
+     "other": 2
+    }
+   }
+  },
+  "wage::plain::abstain_closed": {
+   "total": 359,
+   "by_field": {
+    "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 140,
+    "other": 219
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 9,
+     "other": 28
+    },
+    "gemini-3.8-flash": {
+     "other": 36,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 27
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 43,
+     "other": 28
+    },
+    "gpt-oss-120b-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 15,
+     "other": 26
+    },
+    "deepseek-v3.2-maas": {
+     "other": 33,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 1
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "other": 45,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 21
+    },
+    "kimi-k2-thinking-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 24,
+     "other": 23
+    }
+   }
+  },
+  "i9::plain::abstain_withheld": {
+   "total": 16,
+   "by_field": {
+    "other": 16
+   },
+   "by_model": {
+    "gemma-4-26b-a4b-it-maas": {
+     "other": 3
+    },
+    "deepseek-v3.2-maas": {
+     "other": 7
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "other": 6
+    }
+   }
+  },
+  "wage::plain::abstain_withheld": {
+   "total": 378,
+   "by_field": {
+    "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 122,
+    "other": 256
+   },
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 18,
+     "other": 35
+    },
+    "gemini-3.8-flash": {
+     "other": 62,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 3
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "other": 53,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 18
+    },
+    "gpt-oss-120b-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 24,
+     "other": 17
+    },
+    "deepseek-v3.2-maas": {
+     "other": 41
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+     "other": 27,
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 38
+    },
+    "kimi-k2-thinking-maas": {
+     "WAGE_RATE_OF_PAY_FROM (LCA offered wage)": 21,
+     "other": 21
+    }
+   }
+  }
+ },
+ "proxy_arm_false_greens_citing_a_proxy_column": {
+  "n": 2807,
+  "citing_proxy": 1376,
+  "share": 0.4902
+ },
+ "schema_contrasts_by_arm": {
+  "abstention (offered -> closed) | plain": {
+   "delta": 0.0927,
+   "ci95": [
+    0.0406,
+    0.158
+   ],
+   "p_two_sided_unadjusted": 0.0005
+  },
+  "abstention (offered -> closed) | decoy": {
+   "delta": 0.2594,
+   "ci95": [
+    0.1976,
+    0.3252
+   ],
+   "p_two_sided_unadjusted": 0.0005
+  },
+  "definition and warning (closed -> dashboard) | plain": {
+   "delta": 0.0346,
+   "ci95": [
+    0.0113,
+    0.0612
+   ],
+   "p_two_sided_unadjusted": 0.008
+  },
+  "definition and warning (closed -> dashboard) | decoy": {
+   "delta": 0.0841,
+   "ci95": [
+    0.0438,
+    0.1204
+   ],
+   "p_two_sided_unadjusted": 0.0005
+  }
+ },
+ "proxy_effect_cluster_signs": {
+  "abstain_withheld": {
+   "clusters": 18,
+   "positive": 15,
+   "zero": 1,
+   "negative": 2
+  },
+  "abstain_offered": {
+   "clusters": 18,
+   "positive": 16,
+   "zero": 0,
+   "negative": 2
+  }
+ },
+ "cluster_composition": {
+  "lca.wage.required_wage_greater_of": 9,
+  "i9.reverification.deadline": 3,
+  "i9.section1.timeliness": 3,
+  "i9.section2.timeliness": 3
+ },
+ "firms_per_family": {
+  "i9": 3,
+  "wage": 9
+ },
+ "verdict_flow": {
+  "gemini-3.1-pro-preview::decoy::abstain_offered": {
+   "pass": 33,
+   "needs_evidence": 143,
+   "fail": 4,
+   "unanswered": 0
+  },
+  "gemini-3.1-pro-preview::decoy::abstain_removed_only": {
+   "unmonitored": 132,
+   "pass": 37,
+   "fail": 11,
+   "unanswered": 0
+  },
+  "gemini-3.1-pro-preview::decoy::abstain_closed": {
+   "pass": 103,
+   "fail": 77,
+   "unanswered": 0
+  },
+  "gemini-3.1-pro-preview::decoy::abstain_withheld": {
+   "pass": 117,
+   "fail": 63,
+   "unanswered": 0
+  },
+  "gemini-3.1-pro-preview::plain::abstain_offered": {
+   "needs_evidence": 155,
+   "pass": 19,
+   "fail": 6,
+   "unanswered": 0
+  },
+  "gemini-3.1-pro-preview::plain::abstain_removed_only": {
+   "unmonitored": 123,
+   "pass": 34,
+   "fail": 23,
+   "unanswered": 0
+  },
+  "gemini-3.1-pro-preview::plain::abstain_closed": {
+   "pass": 37,
+   "fail": 143,
+   "unanswered": 0
+  },
+  "gemini-3.1-pro-preview::plain::abstain_withheld": {
+   "pass": 53,
+   "fail": 127,
+   "unanswered": 0
+  },
+  "gemini-3.8-flash::decoy::abstain_offered": {
+   "pass": 65,
+   "fail": 19,
+   "needs_evidence": 90,
+   "unanswered": 6
+  },
+  "gemini-3.8-flash::decoy::abstain_removed_only": {
+   "pass": 78,
+   "fail": 28,
+   "unmonitored": 53,
+   "unanswered": 21
+  },
+  "gemini-3.8-flash::decoy::abstain_closed": {
+   "pass": 115,
+   "fail": 62,
+   "unanswered": 3
+  },
+  "gemini-3.8-flash::decoy::abstain_withheld": {
+   "pass": 140,
+   "fail": 40,
+   "unanswered": 0
+  },
+  "gemini-3.8-flash::plain::abstain_offered": {
+   "needs_evidence": 132,
+   "pass": 29,
+   "fail": 19,
+   "unanswered": 0
+  },
+  "gemini-3.8-flash::plain::abstain_removed_only": {
+   "pass": 39,
+   "fail": 47,
+   "unmonitored": 88,
+   "unanswered": 6
+  },
+  "gemini-3.8-flash::plain::abstain_closed": {
+   "pass": 63,
+   "fail": 117,
+   "unanswered": 0
+  },
+  "gemini-3.8-flash::plain::abstain_withheld": {
+   "pass": 65,
+   "fail": 115,
+   "unanswered": 0
+  },
+  "gemma-4-26b-a4b-it-maas::decoy::abstain_offered": {
+   "pass": 151,
+   "fail": 5,
+   "needs_evidence": 24,
+   "unanswered": 0
+  },
+  "gemma-4-26b-a4b-it-maas::decoy::abstain_removed_only": {
+   "pass": 160,
+   "fail": 6,
+   "unmonitored": 14,
+   "unanswered": 0
+  },
+  "gemma-4-26b-a4b-it-maas::decoy::abstain_closed": {
+   "pass": 172,
+   "fail": 8,
+   "unanswered": 0
+  },
+  "gemma-4-26b-a4b-it-maas::decoy::abstain_withheld": {
+   "pass": 161,
+   "fail": 9,
+   "unanswered": 10
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_offered": {
+   "pass": 61,
+   "fail": 2,
+   "needs_evidence": 108,
+   "unmonitored": 9,
+   "unanswered": 0
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_removed_only": {
+   "pass": 60,
+   "fail": 4,
+   "unmonitored": 116,
+   "unanswered": 0
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_closed": {
+   "pass": 73,
+   "fail": 107,
+   "unanswered": 0
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_withheld": {
+   "pass": 74,
+   "fail": 106,
+   "unanswered": 0
+  },
+  "gpt-oss-120b-maas::decoy::abstain_offered": {
+   "pass": 52,
+   "needs_evidence": 101,
+   "fail": 3,
+   "unanswered": 24
+  },
+  "gpt-oss-120b-maas::decoy::abstain_removed_only": {
+   "pass": 41,
+   "fail": 14,
+   "unmonitored": 101,
+   "unanswered": 24
+  },
+  "gpt-oss-120b-maas::decoy::abstain_closed": {
+   "pass": 49,
+   "fail": 113,
+   "unanswered": 18
+  },
+  "gpt-oss-120b-maas::decoy::abstain_withheld": {
+   "pass": 72,
+   "fail": 90,
+   "unanswered": 18
+  },
+  "gpt-oss-120b-maas::plain::abstain_offered": {
+   "pass": 24,
+   "needs_evidence": 123,
+   "fail": 9,
+   "unanswered": 24
+  },
+  "gpt-oss-120b-maas::plain::abstain_removed_only": {
+   "pass": 43,
+   "fail": 17,
+   "unmonitored": 114,
+   "unanswered": 6
+  },
+  "gpt-oss-120b-maas::plain::abstain_closed": {
+   "pass": 41,
+   "fail": 121,
+   "unanswered": 18
+  },
+  "gpt-oss-120b-maas::plain::abstain_withheld": {
+   "pass": 41,
+   "fail": 115,
+   "unanswered": 24
+  },
+  "deepseek-v3.2-maas::decoy::abstain_offered": {
+   "pass": 55,
+   "needs_evidence": 111,
+   "fail": 14,
+   "unanswered": 0
+  },
+  "deepseek-v3.2-maas::decoy::abstain_removed_only": {
+   "pass": 74,
+   "fail": 44,
+   "unmonitored": 62,
+   "unanswered": 0
+  },
+  "deepseek-v3.2-maas::decoy::abstain_closed": {
+   "pass": 138,
+   "fail": 42,
+   "unanswered": 0
+  },
+  "deepseek-v3.2-maas::decoy::abstain_withheld": {
+   "pass": 139,
+   "fail": 41,
+   "unanswered": 0
+  },
+  "deepseek-v3.2-maas::plain::abstain_offered": {
+   "needs_evidence": 144,
+   "fail": 16,
+   "pass": 20,
+   "unanswered": 0
+  },
+  "deepseek-v3.2-maas::plain::abstain_removed_only": {
+   "pass": 38,
+   "fail": 24,
+   "unmonitored": 118,
+   "unanswered": 0
+  },
+  "deepseek-v3.2-maas::plain::abstain_closed": {
+   "pass": 34,
+   "fail": 146,
+   "unanswered": 0
+  },
+  "deepseek-v3.2-maas::plain::abstain_withheld": {
+   "pass": 48,
+   "fail": 132,
+   "unanswered": 0
+  },
+  "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_offered": {
+   "pass": 113,
+   "needs_evidence": 62,
+   "fail": 5,
+   "unanswered": 0
+  },
+  "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_removed_only": {
+   "pass": 133,
+   "unmonitored": 37,
+   "fail": 10,
+   "unanswered": 0
+  },
+  "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_closed": {
+   "pass": 161,
+   "fail": 19,
+   "unanswered": 0
+  },
+  "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_withheld": {
+   "pass": 165,
+   "fail": 5,
+   "unanswered": 10
+  },
+  "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_offered": {
+   "pass": 57,
+   "needs_evidence": 123,
+   "unanswered": 0
+  },
+  "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_removed_only": {
+   "pass": 63,
+   "unmonitored": 117,
+   "unanswered": 0
+  },
+  "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_closed": {
+   "pass": 66,
+   "fail": 111,
+   "unanswered": 3
+  },
+  "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_withheld": {
+   "pass": 71,
+   "fail": 106,
+   "unanswered": 3
+  },
+  "kimi-k2-thinking-maas::decoy::abstain_offered": {
+   "pass": 29,
+   "needs_evidence": 120,
+   "fail": 7,
+   "unanswered": 24
+  },
+  "kimi-k2-thinking-maas::decoy::abstain_removed_only": {
+   "pass": 61,
+   "fail": 13,
+   "unmonitored": 82,
+   "unanswered": 24
+  },
+  "kimi-k2-thinking-maas::decoy::abstain_closed": {
+   "pass": 88,
+   "fail": 80,
+   "unanswered": 12
+  },
+  "kimi-k2-thinking-maas::decoy::abstain_withheld": {
+   "pass": 105,
+   "fail": 51,
+   "unanswered": 24
+  },
+  "kimi-k2-thinking-maas::plain::abstain_offered": {
+   "pass": 28,
+   "needs_evidence": 135,
+   "fail": 11,
+   "unanswered": 6
+  },
+  "kimi-k2-thinking-maas::plain::abstain_removed_only": {
+   "pass": 29,
+   "unmonitored": 126,
+   "fail": 7,
+   "unanswered": 18
+  },
+  "kimi-k2-thinking-maas::plain::abstain_closed": {
+   "pass": 47,
+   "fail": 127,
+   "unanswered": 6
+  },
+  "kimi-k2-thinking-maas::plain::abstain_withheld": {
+   "pass": 42,
+   "fail": 120,
+   "unanswered": 18
+  }
+ }
+}

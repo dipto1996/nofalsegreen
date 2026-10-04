@@ -135,17 +135,17 @@ print("\nstructural-skeleton claims")
 import re as _re
 _heads = [l for l in paper.splitlines() if l.startswith(("## ", "### "))]
 _nums = [h for h in _heads if _re.match(r"^## \d+\.", h)]
-claim(len(_nums) == 12, f"12 numbered sections, contiguous (got {len(_nums)})")
-claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(1, 13)),
-      "section numbers run 1..12 with no gaps or repeats")
+claim(len(_nums) == 10, f"10 numbered sections, contiguous (got {len(_nums)})")
+claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(1, 11)),
+      "section numbers run 1..10 with no gaps or repeats")
 claim("## 2. Related work" in paper, "Related work is a real section, not an appendix stub")
 claim("Appendix B: Related work to engage" not in paper, "the old related-work stub is gone")
-for t in ("Table 1", "Table 2", "Table 3", "Table 4", "Table 7", "Table 8", "Figure 1"):
+for t in ["Table %d" % i for i in range(1, 18)] + ["Figure %d" % i for i in range(1, 10)]:
     claim(t in paper, f"{t} is named in the paper")
 claim("[\u2026]" not in paper and "[…]" not in paper, "no empty result cell remains")
 _bad = _re.findall(r"Section \d+", paper)
 _maxsec = max(int(x.split()[1]) for x in _bad)
-claim(_maxsec <= 12, f"no cross-reference points past section 12 (max {_maxsec})")
+claim(_maxsec <= 10, f"no cross-reference points past section 10 (max {_maxsec})")
 
 print("\nfree-model screening claims")
 _screen = json.loads((ROOT / "docs" / "free_model_live_probe_2026-09-21b.json").read_text())
@@ -338,8 +338,9 @@ for _k, _lab in zip(_pk, ("abstention", "definition", "dashboard", "recommended"
     _v = _pr[_k]
     claim(f"{_v['delta']:+.3f} [{_v['ci95'][0]:.2f}, {_v['ci95'][1]:.2f}]" in _P,
           f"primary {_lab}: {_v['delta']:+.3f} with its interval in the text")
-claim(f"by {_pr[_pk[0]]['delta']:.3f};" in _P and f"by a further {_pr[_pk[1]]['delta']:.3f}" in _P and
-      f"by {_pr[_pk[2]]['delta']:.3f} under the dashboard" in _P and f"by {_pr[_pk[3]]['delta']:.3f} even under" in _P,
+_AB = re.sub(r"\s+", " ", paper[paper.index("## Abstract"):paper.index("## 1. Introduction")])
+claim(f"by {_pr[_pk[0]]['delta']:.3f}," in _AB and f"by a further {_pr[_pk[1]]['delta']:.3f}" in _AB and
+      f"by {_pr[_pk[2]]['delta']:.3f} under a pass/fail dashboard" in _AB and f"by {_pr[_pk[3]]['delta']:.3f} even under" in _AB,
       "abstract effect sizes match the primary estimates")
 _s4 = _S3["S4_by_developer_group"]
 claim(all(v["p_holm"] < 0.05 and v["delta"] > 0 for v in _s4.values()),
@@ -349,7 +350,7 @@ _nsig = {k: sum(1 for kk, v in _s1.items() if kk.startswith(k + " |") and v.get(
 claim([_nsig[k] for k in _pk] == [5, 1, 7, 5], f"per-model significant counts P1-P4 {[_nsig[k] for k in _pk]} match the text")
 _fam = _S3["exploratory_by_rule_family"]
 _i9p = [_fam[f"i9::plain::{c}"] for c in ("abstain_offered", "abstain_removed_only", "abstain_closed", "abstain_withheld")]
-claim(f"{min(_i9p):.3f} to {max(_i9p):.3f}" in _P and f"{_fam['i9::decoy::abstain_offered']:.3f} under the recommended" in _P
+claim(f"{min(_i9p):.3f} to {max(_i9p):.3f}" in _P and f"{_fam['i9::decoy::abstain_offered']:.3f} under the offered" in _P
       and f"{_fam['i9::decoy::abstain_withheld']:.3f} under the dashboard" in _P
       and f"compliant with abstention offered" in _P and f"{_fam['wage::plain::abstain_offered']:.3f}" in _P,
       "I-9 and wage rule-family figures match")
@@ -358,10 +359,9 @@ _ms = ["gemini-3.1-pro-preview", "gemini-3.8-flash", "gemma-4-26b-a4b-it-maas", 
        "deepseek-v3.2-maas", "qwen3-235b-a22b-instruct-2507-maas", "kimi-k2-thinking-maas"]
 claim(min(v["answered"] for v in _c.values()) == 456 and "at least 456 of 504" in _P, "Study 3 minimum coverage 456/504")
 _dof = [_c[f"{m}::decoy::abstain_offered"]["false_green_rate"] for m in _ms]
-claim(f"{min(_dof):.2f} to {max(_dof):.2f} on firms with adjacent columns" in _P
-      and f"from {min(_dof):.3f} (Kimi K2) to {max(_dof):.3f} (Gemma 4)" in _P, "decoy offered FGR range")
+claim(f"{min(_dof):.2f} to {max(_dof):.2f} on firms with proxy columns" in _P, "proxy-arm offered FGR range")
 _hi = [m for m in _ms if _c[f"{m}::plain::abstain_offered"]["violation_recall"] >= 0.92]
-claim(len(_hi) == 4 and "{:.3f} to {:.3f} of withheld pairs".format(
+claim(len(_hi) == 4 and "{:.3f} to {:.3f} of unassessable pairs".format(
       min(_c[f"{m}::decoy::abstain_offered"]["false_green_rate"] for m in _hi),
       max(_c[f"{m}::decoy::abstain_offered"]["false_green_rate"] for m in _hi)) in _P,
       "high-recall models' decoy FGR range")
@@ -378,12 +378,23 @@ claim(_s3["p_two_sided"] >= 0.05 and f"{_s3['delta']:+.3f} [{_s3['ci95'][0]:.2f}
       "interaction not significant, figures as stated")
 _e1 = _S3["E1_anchor"]
 _e = lambda cond, k: [v[k] for kk, v in _e1.items() if kk.endswith("::" + cond)]  # noqa: E731
-claim(f"report {min(_e('abstain_offered','false_green_rate')):.3f} to {max(_e('abstain_offered','false_green_rate')):.3f}" in _P
-      and f"detect {min(_e('abstain_offered','violation_recall')):.3f} to {max(_e('abstain_offered','violation_recall')):.3f}" in _P
-      and f"{min(_e('abstain_withheld','false_green_rate')):.3f} to {max(_e('abstain_withheld','false_green_rate')):.3f}" in _P,
-      "E1 ranges as stated")
+_vx = json.loads((ROOT / "docs" / "studies_results.json").read_text())["vertex"]
+_vm13 = lambda cond, metric: [_vx[k]["summary"][metric]["mean"] for k in _vx if f"study1::{cond}" in k]  # noqa: E731
+_vw13 = json.loads((ROOT / "docs" / "views_results.json").read_text())["runs"]
+_fin13 = {k for k, v in json.loads((ROOT / "docs" / "llm_results.json").read_text())["runs"].items() if v.get("per_firm")}
+_free = lambda var, metric: [v["engine"][metric] for k, v in _vw13.items() if k in _fin13 and v["variant"] == var]  # noqa: E731
+_o13 = _free("abstain_offered", "false_green_rate") + _vm13("abstain_offered", "false_green_rate") + _e("abstain_offered", "false_green_rate")
+_w13 = _free("abstain_withheld", "false_green_rate") + _vm13("abstain_withheld", "false_green_rate") + _e("abstain_withheld", "false_green_rate")
+_r13 = _free("abstain_offered", "violation_recall") + _vm13("abstain_offered", "violation_recall") + _e("abstain_offered", "violation_recall")
+claim(len(_o13) == len(_w13) == len(_r13) == 13
+      and f"thirteen models report {min(_o13):.3f} to {max(_o13):.3f}" in _P
+      and f"{min(_w13):.3f} to {max(_w13):.3f} under the dashboard schema" in _P
+      and f"({min(_r13):.3f} to {max(_r13):.3f} against the engine's labels)" in _P,
+      "Section 7 ranges over all thirteen models")
 _lc = json.loads((ROOT / "docs" / "labelcheck_results.json").read_text())
-claim(_lc["n_pairs"] == _lc["n_agree"] == 1680 and "agree on all 1,680 labels" in _P, "reference checker agrees on all 1,680")
+_dup = _lc["by_group"]["study3_decoy"]["n"]
+claim(_lc["n_pairs"] == _lc["n_agree"] == 1680 and f"agree on all {_lc['n_pairs'] - _dup:,} distinct labels (1,680 counting" in _P,
+      "reference checker agrees on all distinct labels; the duplicated proxy twins are named")
 _a2 = json.loads((ROOT / "docs" / "label_audit_second.json").read_text())["summary"]
 claim(_a2["agreement"] == 113 and _a2["overturned_first"] == 2 and _a2["overturned_second"] == 5
       and not _a2["overturned_both"] and "keep the label on 113 of 120" in _P, "second audit agreement figures")
@@ -403,6 +414,43 @@ claim(all(_st[f"vertex/{m}::study2::{c}"]["summary"]["false_alarm_rate"]["max"] 
           for c in ("abstain_offered", "abstain_closed", "abstain_withheld")),
       "corrected Study 2: Pro and Flash perfect recall, no false alarm in three schemas")
 
+
+print("\nround-3 exploratory and label claims (recomputed)")
+_EX = json.loads((ROOT / "docs" / "study3" / "exploratory.json").read_text())
+_px = _EX["proxy_arm_false_greens_citing_a_proxy_column"]
+claim(f"{_px['citing_proxy']:,} of the {_px['n']:,} false greens ({_px['share']:.0%})" in _P,
+      "share of proxy-firm false greens citing a planted column")
+_ci = _EX["cited_evidence_on_false_greens"]["i9::decoy::abstain_offered"]
+_cp = sum(v for k, v in _ci["by_field"].items() if k != "other" and not k.startswith("WAGE_RATE"))
+claim(f"{_cp} of {_ci['total']} ({_cp / _ci['total']:.0%})" in _P, "I-9 offered false greens citing a proxy")
+claim(all("i9Status" not in x["by_field"] for x in _EX["cited_evidence_on_false_greens"].values())
+      and "was never cited" in _P, "the I-9 status column is never cited, as stated")
+_ac = _EX["schema_contrasts_by_arm"]
+claim(f"+{_ac['abstention (offered -> closed) | plain']['delta']:.3f} for abstention" in _P
+      and f"+{_ac['definition and warning (closed -> dashboard) | plain']['delta']:.3f} for definition and warning" in _P,
+      "plain-firm schema contrasts as stated")
+_sg = _EX["proxy_effect_cluster_signs"]
+claim(f"positive in {_sg['abstain_withheld']['positive']} of the\n18 clusters".replace("\n", " ") in _P
+      and f"in {_sg['abstain_offered']['positive']} under the offered" in _P
+      and _EX["firms_per_family"] == {"i9": 3, "wage": 9}, "cluster sign counts and composition")
+claim(f"positive in 15 of the 18 firm-by-rule clusters" in _P and _sg["abstain_withheld"]["positive"] == 15,
+      "introduction's cluster count")
+_c3 = _S3["cells"]
+_rec = {m: _c3[f"{m}::plain::abstain_offered"]["violation_recall"] for m in _ms}
+_hi4 = [m for m in _ms if _rec[m] >= 0.95]
+claim(len(_hi4) == 4 and f"at least {min(_rec[m] for m in _hi4):.3f} of violations on plain firms" in _P
+      and "at least 95% of violations" in _P, "high-recall group and its threshold")
+_A2 = json.loads((ROOT / "docs" / "label_audit_second.json").read_text())
+_k = _A2["summary"]["cohen_kappa"]
+claim(f"$\\kappa$ = {_k:.3f}".replace("-", "−") in paper.replace("\n", " "), f"kappa {_k} reported")
+claim(_A2["summary"]["violation_decisions"].get("violation_shown") == 7 and "found 7 of 20 shown by the exports" in _P,
+      "second auditor supports 7 of 20 violations")
+_rules = {p.pair_id.split("::")[0] for p in firm.pairs}
+_sub2 = {p.pair_id.split("::")[0] for p in _sub.pairs}
+claim(f"| Anchor firm | {len(_rules)} | {len({regimes.get(r) for r in _rules})} | 221 |" in paper
+      and f"| Anchor subset (Section 7) | {len(_sub2)} | {len({regimes.get(r) for r in _sub2})} | 140 |" in paper,
+      "rulebook coverage table")
+
 print("\nhonesty checks")
 claim("[TO RUN]" not in paper and "`[…]`" not in paper, "no unfilled placeholder remains")
 claim("have not yet been run" not in paper and "has not been run" not in paper,
@@ -412,12 +460,7 @@ claim(all(f"`{k.split('/')[-1].split('::')[0].replace(':free', '')}`" in _t2
           for k in _fin if k.endswith("offered")), "Table 2 has a row for every finished offered run")
 _V = json.loads((ROOT / "docs" / "studies_results.json").read_text())["vertex"]
 _vm = lambda cond, metric: [_V[k]["summary"][metric]["mean"] for k in _V if f"study1::{cond}" in k]  # noqa: E731
-_ab = paper[paper.index("## Abstract"):paper.index("## 1. Introduction")].replace("\n", " ")
-_o = [v["engine"]["false_green_rate"] for v in _off.values()] + _vm("abstain_offered", "false_green_rate")
-_r = [v["engine"]["violation_recall"] for v in _off.values()] + _vm("abstain_offered", "violation_recall")
-_w = [v["engine"]["false_green_rate"] for v in _wit.values()] + _vm("abstain_withheld", "false_green_rate")
-for _lab, _xs in (("offered FGR", _o), ("offered recall", _r), ("dashboard FGR", _w)):
-    claim(f"{min(_xs):.3f} to {max(_xs):.3f}" in _ab, f"abstract {_lab} range {min(_xs):.3f}-{max(_xs):.3f} (9 models)")
+claim("0.042" not in _AB and "0.589" not in _AB, "abstract leads with the declared study, not anchor ranges")
 claim(len(_V) == 24 and all(v["n_repeats"] == 3 for v in _V.values()),
       "Vertex block: 24 cells, three repeats each")
 _sp = [v["summary"]["false_green_rate"]["max"] - v["summary"]["false_green_rate"]["min"] for v in _V.values()]

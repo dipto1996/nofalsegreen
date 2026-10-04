@@ -179,6 +179,8 @@ expert; `docs/expert_labelling/` is a blind kit for anyone who wants to.
 | `nofalsegreen/generator.py` | seeded firm generator (v2; v3 adds decoy columns) |
 | `nofalsegreen/study3.py`, `docs/STUDY3_PREREGISTRATION.md` | Study 3 firms, models and declaration |
 | `labelcheck/` | independent reference checker and its interpretive choices |
+| `paper/` | LaTeX paper (`main.tex`, figures, TikZ diagrams); `python3 scripts/build_latex.py` rebuilds `paper/main.pdf` from `docs/PAPER.md` (needs Tectonic) |
+| `scripts/make_figures.py` | every chart in the paper, from the results files |
 | `nofalsegreen/rulebook.py` | rulebook loader |
 | `nofalsegreen/northwind.py` | anchor-firm loader |
 | `rulebook/rulebook.json` | 194 manifest obligations + 17 engine aliases/roll-ups, every one cited |

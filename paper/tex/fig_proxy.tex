@@ -1,0 +1,22 @@
+{\scriptsize\ttfamily\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.15}%
+\begin{tabular}{@{}l@{\hspace{10pt}}l@{}}
+\multicolumn{2}{@{}l}{\normalfont\footnotesize\textbf{hris\_roster\_export.csv} \normalfont\footnotesize(first two workers; seed 1018, which withholds \texttt{i9\_record\_export})}\\[2pt]
+\textnormal{\footnotesize\textit{Plain}} &
+\begin{tabular}{llllll}
+\toprule
+employeeNumber & visaType & jobTitle & hireDate & employmentStatus & \ldots\\
+\midrule
+SYN-1001 & H-1B & Computer Systems Analysts & 2024-11-05 & Active & \\
+SYN-1002 & H-1B & Computer Systems Analysts & 2022-02-03 & Active & \\
+\bottomrule
+\end{tabular}\\[16pt]
+\textnormal{\footnotesize\textit{Proxy}} &
+\begin{tabular}{llll>{\columncolor{fgorange!14}}l>{\columncolor{fgorange!14}}l>{\columncolor{fgorange!14}}l>{\columncolor{fgorange!14}}l>{\columncolor{fgorange!14}}l}
+\toprule
+employeeNumber & visaType & hireDate & \ldots & i9Status & onboardingCompletedDate & workAuthValidThrough & annualBaseSalary & payBandMidpoint\\
+\midrule
+SYN-1001 & H-1B & 2024-11-05 & & Complete & 2024-11-02 & 2027-04-29 & 118800 & 106800\\
+SYN-1002 & H-1B & 2022-02-03 & & Complete & 2022-01-30 & 2028-11-05 & 118800 & 108000\\
+\bottomrule
+\end{tabular}
+\end{tabular}}

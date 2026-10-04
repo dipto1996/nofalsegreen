@@ -1173,7 +1173,7 @@
         0.2621,
         0.5887
       ],
-      "p_boot_one_sided": 0.0005,
+      "p_boot_two_sided": 0.0005,
       "p_holm": 0.003,
       "holm_reject_0.05": true
     },
@@ -1184,8 +1184,8 @@
         0.0303,
         0.2444
       ],
-      "p_boot_one_sided": 0.004,
-      "p_holm": 0.006,
+      "p_boot_two_sided": 0.008,
+      "p_holm": 0.012,
       "holm_reject_0.05": true
     },
     "nvidia/nemotron-3-ultra-550b-a55b:free": {
@@ -1195,7 +1195,7 @@
         0.0684,
         0.268
       ],
-      "p_boot_one_sided": 0.0005,
+      "p_boot_two_sided": 0.0005,
       "p_holm": 0.003,
       "holm_reject_0.05": true
     },
@@ -1206,8 +1206,8 @@
         0.1154,
         0.7308
       ],
-      "p_boot_one_sided": 0.003,
-      "p_holm": 0.006,
+      "p_boot_two_sided": 0.006,
+      "p_holm": 0.012,
       "holm_reject_0.05": true
     },
     "poolside/laguna-xs-2.1:free": {
@@ -1217,7 +1217,7 @@
         0.1633,
         0.514
       ],
-      "p_boot_one_sided": 0.0005,
+      "p_boot_two_sided": 0.0005,
       "p_holm": 0.003,
       "holm_reject_0.05": true
     },
@@ -1228,7 +1228,7 @@
         0.1328,
         0.4286
       ],
-      "p_boot_one_sided": 0.0005,
+      "p_boot_two_sided": 0.0005,
       "p_holm": 0.003,
       "holm_reject_0.05": true
     }

@@ -1,0 +1,35 @@
+\begin{tikzpicture}[
+  font=\footnotesize,
+  >={Stealth[length=2.2mm]},
+  ex/.style={draw=fggray!80, fill=black!3, rounded corners=1pt, inner sep=2.5pt, font=\scriptsize\ttfamily, anchor=west},
+  miss/.style={draw=fggray!70, dashed, rounded corners=1pt, inner sep=2.5pt, font=\scriptsize\ttfamily, text=fggray, anchor=west},
+  prox/.style={draw=fgorange, fill=fgorange!12, rounded corners=1pt, inner sep=2.5pt, font=\scriptsize\ttfamily, anchor=west},
+  verdict/.style={rounded corners=2pt, inner sep=3pt, font=\footnotesize\bfseries, minimum width=2.3cm, minimum height=0.55cm},
+  cons/.style={font=\scriptsize, align=left, anchor=west},
+  lab/.style={font=\footnotesize\bfseries, anchor=west},
+]
+\node[anchor=west, font=\footnotesize] at (-0.3,2.35) {\textbf{Obligation:} I-9 Section 2 completed within 3 business days of hire\qquad \textbf{Entity:} one worker};
+\node[anchor=west, font=\scriptsize\itshape, text=fggray!70!black] at (0.25,2.02) {exports the system is shown};
+% (a)
+\node[lab] at (-0.3,1.38) {(a)};
+\node[ex] at (0.25,1.62) {hris\_roster: hireDate = 2024-08-29};
+\node[ex] at (0.25,1.14) {i9\_record: section2SignDate = 2024-09-03};
+\node[verdict, fill=fgblue!12, draw=fgblue, text=fgblue!70!black] (va) at (10.5,1.38) {pass or fail};
+\draw[->, fggray] (7.4,1.38) -- node[above, font=\scriptsize, text=fggray!70!black]{the record decides} (va.west);
+\node[cons, text=fggray!70!black] at (11.85,1.38) {decided from\\the record};
+% (b)
+\node[lab] at (-0.3,0.25) {(b)};
+\node[ex] at (0.25,0.49) {hris\_roster: hireDate = 2024-08-29};
+\node[miss] at (0.25,0.01) {i9\_record: not provided};
+\node[verdict, fill=fgaqua!12, draw=fgaqua, text=fgaqua!50!black] (vb) at (10.5,0.25) {needs\_evidence};
+\draw[->, fggray] (7.4,0.25) -- node[above, font=\scriptsize, text=fggray!70!black]{correct answer} (vb.west);
+\node[cons, text=fggray!70!black] at (11.85,0.25) {firm is asked\\for the record};
+% (c)
+\node[lab] at (-0.3,-1.08) {(c)};
+\node[ex] at (0.25,-0.6) {hris\_roster: hireDate = 2024-08-29};
+\node[prox] at (0.25,-1.08) {hris\_roster: onboardingCompletedDate = 2024-08-27};
+\node[miss] at (0.25,-1.56) {i9\_record: not provided};
+\node[verdict, fill=fgorange!15, draw=fgorange, text=fgorange!70!black] (vc) at (10.5,-1.08) {pass};
+\draw[->, fgorange] (7.4,-1.08) -- node[above, font=\scriptsize, text=fgorange!70!black]{\textbf{false green}} (vc.west);
+\node[cons, text=fgorange!70!black] at (11.85,-1.08) {\textbf{no review:}\\the gap stays hidden};
+\end{tikzpicture}
