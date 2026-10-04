@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	section1SignDate
+i9.section2.timeliness::SYN-1001	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1001	pass	supplementBReverificationDate
+i9.section1.timeliness::SYN-1002	fail	section1SignDate
+i9.section2.timeliness::SYN-1002	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1002	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1003	pass	section1SignDate
+i9.section2.timeliness::SYN-1003	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1003	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1004	pass	section1SignDate
+i9.section2.timeliness::SYN-1004	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1004	fail	supplementBReverificationDate
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	section1SignDate=2023-09-21, firstDayOfEmployment=2023-09-25, offerAcceptedDate=2023-08-18
+i9.section2.timeliness::SYN-1005	pass	firstDayOfEmployment=2023-09-25, section2EmployerSignDate=2023-09-28
+i9.reverification.deadline::SYN-1005	pass	workAuthorizationExpiry=2024-10-29, supplementBReverificationDate=2024-09-13
+i9.section1.timeliness::SYN-1006	pass	section1SignDate=2022-11-21, firstDayOfEmployment=2022-11-21, offerAcceptedDate=2022-10-10
+i9.section2.timeliness::SYN-1006	pass	firstDayOfEmployment=2022-11-21, section2EmployerSignDate=2022-11-25
+i9.reverification.deadline::SYN-1006	pass	workAuthorizationExpiry=2023-11-20, supplementBReverificationDate=2023-09-29
+i9.section1.timeliness::SYN-1007	pass	section1SignDate=2023-05-02, firstDayOfEmployment=2023-05-02, offerAcceptedDate=2023-03-25
+i9.section2.timeliness::SYN-1007	fail	firstDayOfEmployment=2023-05-02, section2EmployerSignDate=2023-05-15, due by 2023-05-05
+i9.reverification.deadline::SYN-1007	pass	workAuthorizationExpiry=2025-06-12, supplementBReverificationDate=2025-04-14
+i9.section1.timeliness::SYN-1008	pass	section1SignDate=2023-02-07, firstDayOfEmployment=2023-02-10, offerAcceptedDate=2023-01-18
+i9.section2.timeliness::SYN-1008	fail	firstDayOfEmployment=2023-02-10, section2EmployerSignDate=2023-03-01, due by 2023-02-15
+i9.reverification.deadline::SYN-1008	pass	workAuthorizationExpiry=2025-11-07, supplementBReverificationDate=2025-11-07
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	section1SignDate=2025-10-23,firstDayOfEmployment=2025-10-27,offerAcceptedDate=2025-09-23
+i9.section2.timeliness::SYN-1009	pass	section2EmployerSignDate=2025-10-30,firstDayOfEmployment=2025-10-27
+i9.reverification.deadline::SYN-1009	pass	supplementBReverificationDate=2025-11-24,workAuthorizationExpiry=2026-01-08
+i9.section1.timeliness::SYN-1010	fail	section1SignDate=2023-04-11,firstDayOfEmployment=2023-04-10,offerAcceptedDate=2023-03-24
+i9.section2.timeliness::SYN-1010	pass	section2EmployerSignDate=2023-04-12,firstDayOfEmployment=2023-04-10
+i9.section1.timeliness::SYN-1011	pass	section1SignDate=2024-10-04,firstDayOfEmployment=2024-10-07,offerAcceptedDate=2024-08-29
+i9.section2.timeliness::SYN-1011	pass	section2EmployerSignDate=2024-10-07,firstDayOfEmployment=2024-10-07
+i9.section1.timeliness::SYN-1012	pass	section1SignDate=2023-05-31,firstDayOfEmployment=2023-05-31,offerAcceptedDate=2023-04-27
+i9.section2.timeliness::SYN-1012	pass	section2EmployerSignDate=2023-06-05,firstDayOfEmployment=2023-05-31
+lca.wage.required_wage_greater_of::I-200-25000-100001	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25001-100002	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25002-100003	needs_evidence	-
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25004-100005	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25005-100006	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25006-100007	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25007-100008	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25008-100009	needs_evidence	-

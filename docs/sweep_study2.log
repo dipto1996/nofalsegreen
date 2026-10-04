@@ -63,3 +63,73 @@ done: 0/10   remaining: 10
 at 50 calls/day: ~5 more day(s)
 
   quota spent; resets 2026-10-03 17:00 local (3.9h). Sleeping.
+  nemotron-3-ultra-550b-a55b:free / abstain_offered
+    Study 2: 6 generated firms x 42 pairs
+    nvidia/nemotron-3-ultra-550b-a55b:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 6  variants ['abstain_offered']
+    
+      synthetic-000001-v2-study2 skip (done)
+      synthetic-000002-v2-study2 skip (done)
+      synthetic-000009-v2-study2 skip (done)
+      synthetic-000013-v2-study2 skip (done)
+          batch 1/4 (0 parsed so far)
+            attempt 1: 835 output tokens, 26s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 1103 output tokens, 19s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 3568 output tokens, 95s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 8962 output tokens, 133s, finish=stop, ok
+      synthetic-000014-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+          batch 1/4 (0 parsed so far)
+            attempt 1: 4344 output tokens, 66s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 5590 output tokens, 127s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 6696 output tokens, 117s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 972 output tokens, 13s, finish=stop, ok
+      synthetic-000015-v2-study2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+    
+      nvidia/nemotron-3-ultra-550b-a55b:free::abstain_offered: FGR 0.148 (sd 0.363)  recall 1.000  over 6 firm(s)
+    
+    wrote /Users/roydi/Desktop/nofalsegreen/docs/study2/llm_results.json
+  nemotron-3-ultra-550b-a55b:free / abstain_withheld
+    Study 2: 6 generated firms x 42 pairs
+    nvidia/nemotron-3-ultra-550b-a55b:free via openrouter  quota {'rpm': 10, 'rpd': 50, 'tpm': None, 'label': 'nvidia/nemotron-3-ultra-550b-a55b:free (assumed) (overridden)'}
+    batch 12  scoped_sources True  firms 6  variants ['abstain_withheld']
+    
+          batch 1/4 (0 parsed so far)
+            attempt 1: 2229 output tokens, 40s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 1925 output tokens, 43s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 6337 output tokens, 80s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 7239 output tokens, 90s, finish=stop, ok
+      synthetic-000001-v2-study2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+          batch 1/4 (0 parsed so far)
+            attempt 1: 5790 output tokens, 119s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 6563 output tokens, 145s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 7792 output tokens, 110s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 14493 output tokens, 207s, finish=stop, ok
+      synthetic-000002-v2-study2 FGR 0.556  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+          batch 1/4 (0 parsed so far)
+            attempt 1: 2885 output tokens, 40s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 6572 output tokens, 123s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 7388 output tokens, 118s, finish=stop, ok
+          batch 4/4 (36 parsed so far)
+            attempt 1: 3005 output tokens, 59s, finish=stop, ok
+      synthetic-000009-v2-study2 FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+          batch 1/4 (0 parsed so far)
+            attempt 1: 1228 output tokens, 27s, finish=stop, ok
+          batch 2/4 (12 parsed so far)
+            attempt 1: 1372 output tokens, 19s, finish=stop, ok
+          batch 3/4 (24 parsed so far)
+            attempt 1: 5547 output tokens, 129s, finish=stop, ok
+          batch 4/4 (36 parsed so far)

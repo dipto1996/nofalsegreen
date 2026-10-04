@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	needs_evidence	-
+i9.section2.timeliness::SYN-1001	needs_evidence	-
+i9.reverification.deadline::SYN-1001	needs_evidence	-
+i9.section1.timeliness::SYN-1002	needs_evidence	-
+i9.section2.timeliness::SYN-1002	needs_evidence	-
+i9.reverification.deadline::SYN-1002	needs_evidence	-
+i9.section1.timeliness::SYN-1003	needs_evidence	-
+i9.section2.timeliness::SYN-1003	needs_evidence	-
+i9.reverification.deadline::SYN-1003	needs_evidence	-
+i9.section1.timeliness::SYN-1004	needs_evidence	-
+i9.section2.timeliness::SYN-1004	needs_evidence	-
+i9.reverification.deadline::SYN-1004	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1005	needs_evidence	-
+i9.section2.timeliness::SYN-1005	needs_evidence	-
+i9.reverification.deadline::SYN-1005	needs_evidence	-
+i9.section1.timeliness::SYN-1006	needs_evidence	-
+i9.section2.timeliness::SYN-1006	needs_evidence	-
+i9.reverification.deadline::SYN-1006	needs_evidence	-
+i9.section1.timeliness::SYN-1007	needs_evidence	-
+i9.section2.timeliness::SYN-1007	needs_evidence	-
+i9.reverification.deadline::SYN-1007	needs_evidence	-
+i9.section1.timeliness::SYN-1008	needs_evidence	-
+i9.section2.timeliness::SYN-1008	needs_evidence	-
+i9.reverification.deadline::SYN-1008	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1009	needs_evidence	-
+i9.section2.timeliness::SYN-1009	needs_evidence	-
+i9.reverification.deadline::SYN-1009	needs_evidence	-
+i9.section1.timeliness::SYN-1010	needs_evidence	-
+i9.section2.timeliness::SYN-1010	needs_evidence	-
+i9.section1.timeliness::SYN-1011	needs_evidence	-
+i9.section2.timeliness::SYN-1011	needs_evidence	-
+i9.section1.timeliness::SYN-1012	needs_evidence	-
+i9.section2.timeliness::SYN-1012	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	payroll_register.grossPay (SYN-1001: 5600×24=134400/yr) ≥ max(similarly-employed 106800, prevailing 118800)
+lca.wage.required_wage_greater_of::I-200-25001-100002	fail	payroll_register.grossPay (SYN-1002: 7550×24=181200/yr) < max(similarly-employed SYN-1007 186000, prevailing 178800)
+lca.wage.required_wage_greater_of::I-200-25002-100003	fail	payroll_register.grossPay (SYN-1003: 5750×24=138000/yr) < max(similarly-employed SYN-1006 145200/SYN-1012 141600, prevailing 132000)
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	payroll_register.grossPay (annualized 153,600) < similarly-employed cohort actual wage (157,200 for SYN-1008)
+lca.wage.required_wage_greater_of::I-200-25004-100005	fail	payroll_register.grossPay (annualized 106,800) < lca_export.PREVAILING_WAGE (118,800)
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	payroll_register.grossPay (annualized 145,200) ≥ max(similarly-employed 141,600, prevailing 132,000)
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	payroll_register.grossPay (annualized 186,000) ≥ lca_export.PREVAILING_WAGE (178,800)
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	payroll_register.grossPay (annualized 157,200) ≥ similarly-employed cohort actual wage (153,600 for SYN-1004)
+lca.wage.required_wage_greater_of::I-200-25008-100009	fail	payroll_register.grossPay (annualized 106,800) < similarly-employed cohort actual wage (134,400 for SYN-1001)

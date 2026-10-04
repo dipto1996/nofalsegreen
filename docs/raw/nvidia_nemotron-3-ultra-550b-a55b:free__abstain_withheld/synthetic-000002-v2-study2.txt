@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	section1SignDate=2025-02-11
+i9.section2.timeliness::SYN-1001	pass	section2EmployerSignDate=2025-02-20
+i9.reverification.deadline::SYN-1001	fail	supplementBReverificationDate=2026-01-06
+i9.section1.timeliness::SYN-1002	pass	section1SignDate=2022-09-05
+i9.section2.timeliness::SYN-1002	pass	section2EmployerSignDate=2022-09-06
+i9.reverification.deadline::SYN-1002	pass	supplementBReverificationDate=2025-07-10
+i9.section1.timeliness::SYN-1003	fail	section1SignDate=2021-08-08
+i9.section2.timeliness::SYN-1003	fail	section2EmployerSignDate=2021-08-11
+i9.reverification.deadline::SYN-1003	fail	supplementBReverificationDate=2022-05-26
+i9.section1.timeliness::SYN-1004	pass	section1SignDate=2025-11-14
+i9.section2.timeliness::SYN-1004	pass	section2EmployerSignDate=2025-11-18
+i9.reverification.deadline::SYN-1004	fail	supplementBReverificationDate=2026-04-03
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	section1SignDate
+i9.section2.timeliness::SYN-1005	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1005	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1006	pass	section1SignDate
+i9.section2.timeliness::SYN-1006	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1006	pass	supplementBReverificationDate
+i9.section1.timeliness::SYN-1007	pass	section1SignDate
+i9.section2.timeliness::SYN-1007	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1007	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1008	fail	section1SignDate
+i9.section2.timeliness::SYN-1008	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1008	pass	supplementBReverificationDate
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	section1SignDate=2023-04-30, firstDayOfEmployment=2023-05-03, offerAcceptedDate=2023-04-17
+i9.section2.timeliness::SYN-1009	pass	firstDayOfEmployment=2023-05-03, section2EmployerSignDate=2023-05-05
+i9.reverification.deadline::SYN-1009	pass	workAuthorizationExpiry=2023-07-10, supplementBReverificationDate=2023-06-09
+i9.section1.timeliness::SYN-1010	pass	section1SignDate=2023-06-27, firstDayOfEmployment=2023-07-03, offerAcceptedDate=2023-06-14
+i9.section2.timeliness::SYN-1010	pass	firstDayOfEmployment=2023-07-03, section2EmployerSignDate=2023-07-03
+i9.section1.timeliness::SYN-1011	fail	section1SignDate=2022-05-24, firstDayOfEmployment=2022-05-23
+i9.section2.timeliness::SYN-1011	pass	firstDayOfEmployment=2022-05-23, section2EmployerSignDate=2022-05-24
+i9.section1.timeliness::SYN-1012	pass	section1SignDate=2021-09-23, firstDayOfEmployment=2021-09-30, offerAcceptedDate=2021-09-07
+i9.section2.timeliness::SYN-1012	pass	firstDayOfEmployment=2021-09-30, section2EmployerSignDate=2021-10-01
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	actualWage=144000, prevailingWage=132000, lcaOfferedWage=138000
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	actualWage=162000, prevailingWage=142800, cohortMaxActualWage=160800
+lca.wage.required_wage_greater_of::I-200-25002-100003	fail	actualWage=194400, prevailingWage=178800, cohortMaxActualWage=202800
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	actual_wage=199200 >= required_wage=187200 (max of cohort_min=187200, prevailing=178800)
+lca.wage.required_wage_greater_of::I-200-25004-100005	fail	actual_wage=187200 < required_wage=194400 (max of cohort_min=194400, prevailing=178800)
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	actual_wage=133200 >= prevailing_wage=118800 (no similarly-employed cohort in area)
+lca.wage.required_wage_greater_of::I-200-25006-100007	fail	actual_wage=160800 < required_wage=162000 (max of cohort_wage=162000, prevailing=142800)
+lca.wage.required_wage_greater_of::I-200-25007-100008	fail	actual_wage=153600 < required_wage=164400 (max of cohort_wage=164400, prevailing=142800)
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	actual_wage=199200 >= prevailing_wage=178800 (no similarly-employed cohort in area)

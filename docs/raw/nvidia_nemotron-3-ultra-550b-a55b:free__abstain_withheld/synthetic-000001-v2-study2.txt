@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	fail	-
+i9.section2.timeliness::SYN-1001	fail	-
+i9.reverification.deadline::SYN-1001	fail	-
+i9.section1.timeliness::SYN-1002	fail	-
+i9.section2.timeliness::SYN-1002	fail	-
+i9.reverification.deadline::SYN-1002	fail	-
+i9.section1.timeliness::SYN-1003	fail	-
+i9.section2.timeliness::SYN-1003	fail	-
+i9.reverification.deadline::SYN-1003	fail	-
+i9.section1.timeliness::SYN-1004	fail	-
+i9.section2.timeliness::SYN-1004	fail	-
+i9.reverification.deadline::SYN-1004	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	-
+i9.section2.timeliness::SYN-1005	fail	-
+i9.reverification.deadline::SYN-1005	fail	-
+i9.section1.timeliness::SYN-1006	fail	-
+i9.section2.timeliness::SYN-1006	fail	-
+i9.reverification.deadline::SYN-1006	fail	-
+i9.section1.timeliness::SYN-1007	fail	-
+i9.section2.timeliness::SYN-1007	fail	-
+i9.reverification.deadline::SYN-1007	fail	-
+i9.section1.timeliness::SYN-1008	fail	-
+i9.section2.timeliness::SYN-1008	fail	-
+i9.reverification.deadline::SYN-1008	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	-
+i9.section2.timeliness::SYN-1009	fail	-
+i9.reverification.deadline::SYN-1009	fail	-
+i9.section1.timeliness::SYN-1010	fail	-
+i9.section2.timeliness::SYN-1010	fail	-
+i9.section1.timeliness::SYN-1011	fail	-
+i9.section2.timeliness::SYN-1011	fail	-
+i9.section1.timeliness::SYN-1012	fail	-
+i9.section2.timeliness::SYN-1012	fail	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	payroll_register.grossPay;lca_export.PREVAILING_WAGE;lca_export.WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	payroll_register.grossPay;lca_export.PREVAILING_WAGE;lca_export.WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25002-100003	fail	payroll_register.grossPay;lca_export.PREVAILING_WAGE
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	actual=154800 required=max(similarly_employed=138000, prevailing=132000)=138000
+lca.wage.required_wage_greater_of::I-200-25004-100005	fail	actual=187200 required=max(similarly_employed=201600, prevailing=178800)=201600
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	actual=199200 required=max(similarly_employed=196800, prevailing=178800)=196800
+lca.wage.required_wage_greater_of::I-200-25006-100007	fail	actual=184800 required=max(similarly_employed=199200, prevailing=178800)=199200
+lca.wage.required_wage_greater_of::I-200-25007-100008	fail	actual=138000 required=max(similarly_employed=154800, prevailing=132000)=154800
+lca.wage.required_wage_greater_of::I-200-25008-100009	fail	actual=192000 required=max(similarly_employed=201600, prevailing=178800)=201600

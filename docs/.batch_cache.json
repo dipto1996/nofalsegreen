@@ -766,5 +766,143 @@
   "output_tokens": 8065,
   "max_tokens": 32000,
   "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_offered|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1001\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1001\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1002\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1002\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1002\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1003\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1003\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1003\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1004\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1004\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1004\tneeds_evidence\t-",
+  "output_tokens": 835,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_offered|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1005\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1005\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1006\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1006\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1006\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1007\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1007\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1007\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1008\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1008\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1008\tneeds_evidence\t-",
+  "output_tokens": 1103,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_offered|synthetic-000014-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1009\tneeds_evidence\t-\ni9.reverification.deadline::SYN-1009\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1010\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1010\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1011\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1011\tneeds_evidence\t-\ni9.section1.timeliness::SYN-1012\tneeds_evidence\t-\ni9.section2.timeliness::SYN-1012\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tpayroll_register.grossPay (SYN-1001: 5600\u00d724=134400/yr) \u2265 max(similarly-employed 106800, prevailing 118800)\nlca.wage.required_wage_greater_of::I-200-25001-100002\tfail\tpayroll_register.grossPay (SYN-1002: 7550\u00d724=181200/yr) < max(similarly-employed SYN-1007 186000, prevailing 178800)\nlca.wage.required_wage_greater_of::I-200-25002-100003\tfail\tpayroll_register.grossPay (SYN-1003: 5750\u00d724=138000/yr) < max(similarly-employed SYN-1006 145200/SYN-1012 141600, prevailing 132000)",
+  "output_tokens": 3568,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_offered|synthetic-000014-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\tpayroll_register.grossPay (annualized 153,600) < similarly-employed cohort actual wage (157,200 for SYN-1008)\nlca.wage.required_wage_greater_of::I-200-25004-100005\tfail\tpayroll_register.grossPay (annualized 106,800) < lca_export.PREVAILING_WAGE (118,800)\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tpayroll_register.grossPay (annualized 145,200) \u2265 max(similarly-employed 141,600, prevailing 132,000)\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tpayroll_register.grossPay (annualized 186,000) \u2265 lca_export.PREVAILING_WAGE (178,800)\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tpayroll_register.grossPay (annualized 157,200) \u2265 similarly-employed cohort actual wage (153,600 for SYN-1004)\nlca.wage.required_wage_greater_of::I-200-25008-100009\tfail\tpayroll_register.grossPay (annualized 106,800) < similarly-employed cohort actual wage (134,400 for SYN-1001)",
+  "output_tokens": 8962,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_offered|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tfail\tsupplementBReverificationDate",
+  "output_tokens": 4344,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_offered|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate=2023-09-21, firstDayOfEmployment=2023-09-25, offerAcceptedDate=2023-08-18\ni9.section2.timeliness::SYN-1005\tpass\tfirstDayOfEmployment=2023-09-25, section2EmployerSignDate=2023-09-28\ni9.reverification.deadline::SYN-1005\tpass\tworkAuthorizationExpiry=2024-10-29, supplementBReverificationDate=2024-09-13\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate=2022-11-21, firstDayOfEmployment=2022-11-21, offerAcceptedDate=2022-10-10\ni9.section2.timeliness::SYN-1006\tpass\tfirstDayOfEmployment=2022-11-21, section2EmployerSignDate=2022-11-25\ni9.reverification.deadline::SYN-1006\tpass\tworkAuthorizationExpiry=2023-11-20, supplementBReverificationDate=2023-09-29\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate=2023-05-02, firstDayOfEmployment=2023-05-02, offerAcceptedDate=2023-03-25\ni9.section2.timeliness::SYN-1007\tfail\tfirstDayOfEmployment=2023-05-02, section2EmployerSignDate=2023-05-15, due by 2023-05-05\ni9.reverification.deadline::SYN-1007\tpass\tworkAuthorizationExpiry=2025-06-12, supplementBReverificationDate=2025-04-14\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate=2023-02-07, firstDayOfEmployment=2023-02-10, offerAcceptedDate=2023-01-18\ni9.section2.timeliness::SYN-1008\tfail\tfirstDayOfEmployment=2023-02-10, section2EmployerSignDate=2023-03-01, due by 2023-02-15\ni9.reverification.deadline::SYN-1008\tpass\tworkAuthorizationExpiry=2025-11-07, supplementBReverificationDate=2025-11-07",
+  "output_tokens": 5590,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_offered|synthetic-000015-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate=2025-10-23,firstDayOfEmployment=2025-10-27,offerAcceptedDate=2025-09-23\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate=2025-10-30,firstDayOfEmployment=2025-10-27\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate=2025-11-24,workAuthorizationExpiry=2026-01-08\ni9.section1.timeliness::SYN-1010\tfail\tsection1SignDate=2023-04-11,firstDayOfEmployment=2023-04-10,offerAcceptedDate=2023-03-24\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate=2023-04-12,firstDayOfEmployment=2023-04-10\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate=2024-10-04,firstDayOfEmployment=2024-10-07,offerAcceptedDate=2024-08-29\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate=2024-10-07,firstDayOfEmployment=2024-10-07\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate=2023-05-31,firstDayOfEmployment=2023-05-31,offerAcceptedDate=2023-04-27\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate=2023-06-05,firstDayOfEmployment=2023-05-31\nlca.wage.required_wage_greater_of::I-200-25000-100001\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25001-100002\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25002-100003\tneeds_evidence\t-",
+  "output_tokens": 6696,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_offered|synthetic-000015-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25006-100007\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25008-100009\tneeds_evidence\t-",
+  "output_tokens": 972,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 2229,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\t-\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\t-\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\t-\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\t-\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 1925,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000001-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tfail\t-\ni9.reverification.deadline::SYN-1009\tfail\t-\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tfail\t-\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tfail\t-\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tpayroll_register.grossPay;lca_export.PREVAILING_WAGE;lca_export.WAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tpayroll_register.grossPay;lca_export.PREVAILING_WAGE;lca_export.WAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25002-100003\tfail\tpayroll_register.grossPay;lca_export.PREVAILING_WAGE",
+  "output_tokens": 6337,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000001-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tactual=154800 required=max(similarly_employed=138000, prevailing=132000)=138000\nlca.wage.required_wage_greater_of::I-200-25004-100005\tfail\tactual=187200 required=max(similarly_employed=201600, prevailing=178800)=201600\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tactual=199200 required=max(similarly_employed=196800, prevailing=178800)=196800\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\tactual=184800 required=max(similarly_employed=199200, prevailing=178800)=199200\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tactual=138000 required=max(similarly_employed=154800, prevailing=132000)=154800\nlca.wage.required_wage_greater_of::I-200-25008-100009\tfail\tactual=192000 required=max(similarly_employed=201600, prevailing=178800)=201600",
+  "output_tokens": 7239,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate=2025-02-11\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate=2025-02-20\ni9.reverification.deadline::SYN-1001\tfail\tsupplementBReverificationDate=2026-01-06\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate=2022-09-05\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate=2022-09-06\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate=2025-07-10\ni9.section1.timeliness::SYN-1003\tfail\tsection1SignDate=2021-08-08\ni9.section2.timeliness::SYN-1003\tfail\tsection2EmployerSignDate=2021-08-11\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate=2022-05-26\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate=2025-11-14\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate=2025-11-18\ni9.reverification.deadline::SYN-1004\tfail\tsupplementBReverificationDate=2026-04-03",
+  "output_tokens": 5790,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 6563,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000002-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate=2023-04-30, firstDayOfEmployment=2023-05-03, offerAcceptedDate=2023-04-17\ni9.section2.timeliness::SYN-1009\tpass\tfirstDayOfEmployment=2023-05-03, section2EmployerSignDate=2023-05-05\ni9.reverification.deadline::SYN-1009\tpass\tworkAuthorizationExpiry=2023-07-10, supplementBReverificationDate=2023-06-09\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate=2023-06-27, firstDayOfEmployment=2023-07-03, offerAcceptedDate=2023-06-14\ni9.section2.timeliness::SYN-1010\tpass\tfirstDayOfEmployment=2023-07-03, section2EmployerSignDate=2023-07-03\ni9.section1.timeliness::SYN-1011\tfail\tsection1SignDate=2022-05-24, firstDayOfEmployment=2022-05-23\ni9.section2.timeliness::SYN-1011\tpass\tfirstDayOfEmployment=2022-05-23, section2EmployerSignDate=2022-05-24\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate=2021-09-23, firstDayOfEmployment=2021-09-30, offerAcceptedDate=2021-09-07\ni9.section2.timeliness::SYN-1012\tpass\tfirstDayOfEmployment=2021-09-30, section2EmployerSignDate=2021-10-01\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tactualWage=144000, prevailingWage=132000, lcaOfferedWage=138000\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tactualWage=162000, prevailingWage=142800, cohortMaxActualWage=160800\nlca.wage.required_wage_greater_of::I-200-25002-100003\tfail\tactualWage=194400, prevailingWage=178800, cohortMaxActualWage=202800",
+  "output_tokens": 7792,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000002-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tactual_wage=199200 >= required_wage=187200 (max of cohort_min=187200, prevailing=178800)\nlca.wage.required_wage_greater_of::I-200-25004-100005\tfail\tactual_wage=187200 < required_wage=194400 (max of cohort_min=194400, prevailing=178800)\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tactual_wage=133200 >= prevailing_wage=118800 (no similarly-employed cohort in area)\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\tactual_wage=160800 < required_wage=162000 (max of cohort_wage=162000, prevailing=142800)\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tactual_wage=153600 < required_wage=164400 (max of cohort_wage=164400, prevailing=142800)\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tactual_wage=199200 >= prevailing_wage=178800 (no similarly-employed cohort in area)",
+  "output_tokens": 14493,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate=2023-04-05\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate=2023-04-07\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate=2024-05-21\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate=2025-02-11\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate=2025-02-21\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate=2025-09-18\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate=2024-09-30\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate=2024-10-03\ni9.reverification.deadline::SYN-1003\tpass\tsupplementBReverificationDate=2024-11-21\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate=2021-08-20\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate=2021-08-27\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate=2023-11-09",
+  "output_tokens": 2885,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 6572,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000009-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate=2024-03-19,firstDayOfEmployment=2024-03-25,offerAcceptedDate=2024-03-01\ni9.section2.timeliness::SYN-1009\tpass\tfirstDayOfEmployment=2024-03-25,section2EmployerSignDate=2024-03-26\ni9.reverification.deadline::SYN-1009\tfail\tworkAuthorizationExpiry=2024-11-24,supplementBReverificationDate=2024-12-06\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate=2022-11-14,firstDayOfEmployment=2022-11-14,offerAcceptedDate=2022-10-21\ni9.section2.timeliness::SYN-1010\tpass\tfirstDayOfEmployment=2022-11-14,section2EmployerSignDate=2022-11-16\ni9.section1.timeliness::SYN-1011\tfail\tsection1SignDate=2025-09-13,firstDayOfEmployment=2025-09-12\ni9.section2.timeliness::SYN-1011\tpass\tfirstDayOfEmployment=2025-09-12,section2EmployerSignDate=2025-09-17\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate=2025-02-06,firstDayOfEmployment=2025-02-11,offerAcceptedDate=2025-01-10\ni9.section2.timeliness::SYN-1012\tfail\tfirstDayOfEmployment=2025-02-11,section2EmployerSignDate=2025-02-25\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tPREVAILING_WAGE=132000,WAGE_RATE_OF_PAY_FROM=138000\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tPREVAILING_WAGE=132000,WAGE_RATE_OF_PAY_FROM=138000\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tPREVAILING_WAGE=118800,WAGE_RATE_OF_PAY_FROM=118800",
+  "output_tokens": 7388,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000009-v2-study2|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25008-100009\tfail\t-",
+  "output_tokens": 3005,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 1228,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\t-\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\t-\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\t-\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\t-\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 1372,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|nvidia/nemotron-3-ultra-550b-a55b:free|abstain_withheld|synthetic-000013-v2-study2|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\tsection1CompletedDate\ni9.section2.timeliness::SYN-1009\tfail\tsection2CompletionDate\ni9.reverification.deadline::SYN-1009\tfail\treverificationDate\ni9.section1.timeliness::SYN-1010\tfail\tsection1CompletedDate\ni9.section2.timeliness::SYN-1010\tfail\tsection2CompletionDate\ni9.section1.timeliness::SYN-1011\tfail\tsection1CompletedDate\ni9.section2.timeliness::SYN-1011\tfail\tsection2CompletionDate\ni9.section1.timeliness::SYN-1012\tfail\tsection1CompletedDate\ni9.section2.timeliness::SYN-1012\tfail\tsection2CompletionDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 5547,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
  }
 }
