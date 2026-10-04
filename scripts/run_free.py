@@ -75,6 +75,8 @@ def main() -> int:
     ap.add_argument("--study3", choices=["decoy", "plain"], default=None,
                     help="evaluate one arm of the declared Study 3 firms "
                          "(nofalsegreen/study3.py, docs/STUDY3_PREREGISTRATION.md)")
+    ap.add_argument("--study3c", default=None,
+                    help="evaluate one arm of the declared Study 3c firms (nofalsegreen/study3c.py)")
     ap.add_argument("--shard", default=None,
                     help="k/n: evaluate only firms k, k+n, ... (throughput only; each shard "
                          "needs its own cache, results and checkpoint files)")
@@ -115,6 +117,10 @@ def main() -> int:
         from nofalsegreen import study3
         firms = study3.load_firms(rb, args.study3)
         print(f"Study 3 ({args.study3}): {len(firms)} generated firms x {len(firms[0].pairs)} pairs")
+    if args.study3c:
+        from nofalsegreen import study3c
+        firms = study3c.load_firms(rb, args.study3c)
+        print(f"Study 3c ({args.study3c}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
     if args.shard:
         k, n = map(int, args.shard.split("/"))
         firms = firms[k::n]

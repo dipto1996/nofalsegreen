@@ -162,6 +162,7 @@ class GeneratorConfig:
     withhold_export: float = 0.4    # chance each of i9 / payroll / actual-wage export is withheld
     as_of: date = date(2026, 6, 29)
     decoys: bool = False            # v3: adjacent-but-insufficient roster columns (see docstring)
+    decoy_columns: tuple = ()       # Study 3c: render only these proxy columns (empty = all five)
 
 
 class FirmGenerator:
@@ -284,6 +285,7 @@ class FirmGenerator:
                     "near_miss_share": cfg.near_miss_share,
                     "withhold_export": cfg.withhold_export, "as_of": cfg.as_of.isoformat(),
                     **({"decoys": True} if cfg.decoys else {}),
+                    **({"decoy_columns": list(cfg.decoy_columns)} if cfg.decoy_columns else {}),
                 },
                 "rulebook_version": self.rb.version,
                 "synthetic": True,
@@ -352,6 +354,8 @@ class FirmGenerator:
         with p.open("w", newline="") as f:
             wr = csv.writer(f)
             decoy_cols = list(workers[0]["decoy"]) if "decoy" in workers[0] else []
+            if self.cfg.decoy_columns:
+                decoy_cols = [c for c in decoy_cols if c in self.cfg.decoy_columns]
             wr.writerow(["employeeNumber", "firstName", "lastName", "visaType", "jobTitle",
                          "city", "state", "hireDate", "employmentStatus", "terminationDate",
                          *decoy_cols])
