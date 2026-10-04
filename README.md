@@ -145,7 +145,12 @@ unassessable obligations as satisfied; a dashboard schema raises that to 0.175 t
 schema decomposition and adjacent-field substitution on twelve fresh firms rendered with and
 without five misleading roster columns, across seven models from five developers. All four
 declared hypotheses were confirmed (`docs/study3/results.json`; rerun with
-`python3 scripts/score_study3.py`).
+`python3 scripts/score_study3.py`). Two declared follow-ups test the result: **Study 3b**
+rewords the prompts (`docs/STUDY3B_PARAPHRASE.md`, `scripts/score_paraphrase.py`) and
+**Study 3c** adds ten firms that withhold the I-9 export and adds proxy columns one at a time
+(`docs/STUDY3C_DECLARATION.md`, `scripts/score_study3c.py`); every declared test in both was
+confirmed. `scripts/study3_robustness.py` adds exact permutation tests, firm-weighted
+estimates and leave-one-out checks.
 
 ## Where the labels come from
 

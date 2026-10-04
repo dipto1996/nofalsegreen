@@ -1,0 +1,38 @@
+Study 3 (plain): 12 generated firms x 42 pairs
+shard 0/3: ['synthetic-001001-study3-plain', 'synthetic-001008-study3-plain', 'synthetic-001017-study3-plain', 'synthetic-001021-study3-plain']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered_para']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001001-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+        attempt 1: 10132 output tokens, 62s, finish=stop, ok
+  synthetic-001008-study3-plain FGR 0.444  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2495 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2776 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10959 output tokens, 71s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 14101 output tokens, 95s, finish=stop, ok
+  synthetic-001017-study3-plain FGR 0.556  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1923 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2855 output tokens, 26s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3095 output tokens, 19s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1206 output tokens, 9s, finish=stop, ok
+  synthetic-001021-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_offered_para: FGR 0.250 (sd 0.292)  recall 1.000  over 4 firm(s)
+
+wrote docs/study3b/runs/gemini-3.8-flash__plain__abstain_offered_para__shard0of3.json

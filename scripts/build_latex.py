@@ -24,53 +24,54 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "docs" / "PAPER.md"
 OUT = ROOT / "paper"
 
-PREAMBLE = r"""\documentclass[11pt]{article}
-\usepackage[letterpaper,margin=1in]{geometry}
+PREAMBLE = r"""\documentclass[10pt,twocolumn]{article}
+\usepackage[letterpaper,top=0.9in,bottom=0.9in,left=0.75in,right=0.75in,columnsep=0.27in]{geometry}
 \usepackage{fontspec}
-\setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
-\setmonofont{lmmonolt10}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-oblique,BoldItalicFont=*-boldoblique,Scale=0.92]
-\usepackage{amsmath,amssymb}
+\usepackage{unicode-math}
+\setmainfont{LibertinusSerif}[Path=fonts/,Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\setsansfont{LibertinusSans}[Path=fonts/,Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic]
+\setmathfont{LibertinusMath-Regular.otf}
+\setmonofont{lmmonolt10}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-oblique,BoldItalicFont=*-boldoblique,Scale=0.9]
 \usepackage{microtype}
 \usepackage{booktabs,array,adjustbox,tabularx}
 \usepackage{rotating}
+\usepackage{placeins}
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.misc}
 \usepackage{enumitem}
-\setlist{itemsep=1pt,topsep=3pt,parsep=0pt,leftmargin=1.4em}
-\usepackage[font=small,labelfont=bf,labelsep=period,skip=4pt]{caption}
+\setlist{itemsep=1pt,topsep=2pt,parsep=0pt,leftmargin=1.2em}
+\usepackage[font=small,labelfont={bf,sf},labelsep=period,skip=4pt,justification=justified,singlelinecheck=false]{caption}
 \usepackage{fvextra}
-\usepackage{newunicodechar}
-\newunicodechar{≥}{\ensuremath{\geq}}
-\newunicodechar{≤}{\ensuremath{\leq}}
-\newunicodechar{→}{\ensuremath{\rightarrow}}
-\newunicodechar{−}{\ensuremath{-}}
-\newunicodechar{×}{\ensuremath{\times}}
-\newunicodechar{≈}{\ensuremath{\approx}}
 \usepackage{url}
 \def\UrlBreaks{\do\/\do\.\do\_\do\-\do\:}
-\usepackage[colorlinks=true,linkcolor={blue!55!black},citecolor={blue!55!black},urlcolor={blue!55!black}]{hyperref}
+\definecolor{linkblue}{HTML}{1D5C9E}
+\usepackage[colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue]{hyperref}
 \usepackage{titlesec}
-\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
-\titlespacing*{\section}{0pt}{12pt}{5pt}
-\titlespacing*{\subsection}{0pt}{9pt}{3pt}
-\setlength{\parskip}{3pt}
+\titleformat{\section}{\sffamily\large\bfseries}{\thesection}{0.55em}{}
+\titleformat{\subsection}{\sffamily\normalsize\bfseries}{\thesubsection}{0.55em}{}
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+\titlespacing*{\subsection}{0pt}{7pt}{3pt}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
 \renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}
 \renewcommand{\textfraction}{0.07}\renewcommand{\floatpagefraction}{0.85}
-\setcounter{topnumber}{3}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{5}
-\setlength{\parindent}{0pt}
-\renewcommand{\arraystretch}{1.12}
+\renewcommand{\dbltopfraction}{0.9}\renewcommand{\dblfloatpagefraction}{0.85}
+\setcounter{topnumber}{3}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{5}\setcounter{dbltopnumber}{2}
+\renewcommand{\arraystretch}{1.1}
 \newcommand{\code}[1]{\path{#1}}
-\definecolor{fgorange}{HTML}{EB6834}
-\definecolor{fgblue}{HTML}{2A78D6}
+\definecolor{fgorange}{HTML}{C8553D}
+\definecolor{fgblue}{HTML}{1D5C9E}
 \definecolor{fggray}{HTML}{8A8984}
-\definecolor{fgaqua}{HTML}{1BAF7A}
-\usepackage{fancyhdr}
-\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[C]{\small\thepage}
-\fancyhead[R]{\footnotesize\itshape No False Green}
+\definecolor{fgaqua}{HTML}{2A9D8F}
+\pagestyle{plain}
+\makeatletter
+\renewcommand\maketitle{\twocolumn[{\centering
+  {\sffamily\LARGE\bfseries\@title\par}\vskip 10pt
+  {\large\@author\par}\vskip 14pt}]}
+\makeatother
+\renewenvironment{abstract}{\noindent{\sffamily\bfseries Abstract.}\ \small}{\par\vskip 6pt}
 """
 
 SPECIALS = {"\\": r"\textbackslash{}", "&": r"\&", "%": r"\%", "$": r"\$", "#": r"\#",
@@ -152,10 +153,13 @@ def table(rows: list[str], caption: str | None, label: str | None, notes: str | 
         vals = [r[j] for r in body if j < len(r)]
         return sum(bool(re.match(r"^[-+—]?[\d.]", v.replace("**", "").strip())) for v in vals) > len(vals) / 2
     longest = [max(len(r[j]) if j < len(r) else 0 for r in body) for j in range(ncol)]
-    wide_text = max(longest) > 48
+    natural = sum(max(len(r[j]) if j < len(r) else 0 for r in cells) for j in range(ncol))
+    span = APPENDIX or ncol > 4 or natural > 70        # body tables: full width or one column
+    W = r"\textwidth" if span else r"\columnwidth"
+    wide_text = max(longest) > (48 if span else 30)
     if wide_text:
         spec = "".join(r">{\raggedright\arraybackslash}X" if longest[j] > 24 else "l" for j in range(ncol))
-        env_open, env_close = r"\begin{tabularx}{\textwidth}{" + spec + "}", r"\end{tabularx}"
+        env_open, env_close = r"\begin{tabularx}{" + W + "}{" + spec + "}", r"\end{tabularx}"
     else:
         spec = "".join("r" if j and numeric(j) else "l" for j in range(ncol))
         env_open, env_close = r"\begin{tabular}{" + spec + "}", r"\end{tabular}"
@@ -166,19 +170,18 @@ def table(rows: list[str], caption: str | None, label: str | None, notes: str | 
         lines.append(" & ".join(cap(c) for c in r) + r" \\")
     lines += [r"\bottomrule", env_close]
     tab = "\n".join(lines)
-    natural = sum(max(len(r[j]) if j < len(r) else 0 for r in cells) for j in range(ncol))
     rotate = APPENDIX and not wide_text and natural > 150
-    env = "sidewaystable" if rotate else "table"
-    out = [r"\begin{" + env + "}" + ("" if rotate else "[" + placement + "]"),
+    env = "sidewaystable" if rotate else ("table*" if span and not APPENDIX else "table")
+    out = [r"\begin{" + env + "}" + ("" if rotate else "[t]"),
            r"\centering\footnotesize\setlength{\tabcolsep}{4pt}"]
     if caption:
         out.append(r"\caption{" + caption + "}")
     if label:
         out.append(r"\label{" + label + "}")
-    mw = r"\textheight" if rotate else r"\textwidth"
+    mw = r"\textheight" if rotate else W
     out.append(tab if wide_text else r"\begin{adjustbox}{max width=" + mw + "}" + "\n" + tab + "\n" + r"\end{adjustbox}")
     if notes:
-        out.append(r"\par\vspace{3pt}\begin{minipage}{" + (r"\textheight" if rotate else r"\textwidth")
+        out.append(r"\par\vspace{3pt}\begin{minipage}{" + (r"\textheight" if rotate else W)
                    + r"}\scriptsize " + notes + r"\end{minipage}")
     out.append(r"\end{" + env + "}")
     return "\n".join(out)
@@ -217,19 +220,19 @@ def convert(md: str) -> str:
         if m:
             flush()
             name, width, capt = m.group(1), m.group(2).strip(), m.group(3).strip()
-            star = "*" if width.startswith("wide") else ""
-            w = r"\textwidth" if width.startswith("wide") else width
-            out.append(r"\begin{figure}[tbp]\centering" + "\n"
+            star = "*" if width.startswith("wide") and not appendix else ""
+            w = r"\textwidth" if width.startswith("wide") else (width if appendix else r"\columnwidth")
+            out.append(r"\begin{figure" + star + "}[t]\\centering" + "\n"
                        + r"\includegraphics[width=" + w + "]{figures/" + name + ".pdf}\n"
-                       + r"\caption{" + cap(capt) + "}\\label{fig:" + name + "}\n" + r"\end{figure}" + "\n")
+                       + r"\caption{" + cap(capt) + "}\\label{fig:" + name + "}\n" + r"\end{figure" + star + "}" + "\n")
             i += 1
             continue
         m = re.match(r"<!--\s*TEXFIGURE:\s*(\S+)\s*\|\s*(.*?)-->\s*$", s)
         if m:
             flush()
-            out.append(r"\begin{figure}[tbp]\centering" + "\n" + r"\begin{adjustbox}{max width=\textwidth}\input{tex/" + m.group(1) + r"}\end{adjustbox}" + "\n"
+            out.append(r"\begin{figure*}[t]\centering" + "\n" + r"\begin{adjustbox}{max width=\textwidth}\input{tex/" + m.group(1) + r"}\end{adjustbox}" + "\n"
                        + r"\caption{" + cap(m.group(2)) + "}\\label{fig:" + m.group(1) + "}\n"
-                       + r"\end{figure}" + "\n")
+                       + r"\end{figure*}" + "\n")
             i += 1
             continue
         if s.startswith("<!--"):
@@ -257,7 +260,7 @@ def convert(md: str) -> str:
                 out.append(r"\begin{abstract}")
                 in_abstract = True
             elif h == "References":
-                out.append(r"\section*{References}\label{sec:refs}" + "\n" + r"\begingroup\small"
+                out.append(r"\FloatBarrier" + "\n" + r"\section*{References}\label{sec:refs}" + "\n" + r"\begingroup\small"
                            + r"\raggedright\setlength{\parindent}{-1.2em}\setlength{\leftskip}{1.2em}\setlength{\parskip}{2pt}")
                 refs = []
                 i += 1
@@ -270,7 +273,7 @@ def convert(md: str) -> str:
                 continue
             elif h.startswith("Appendix"):
                 if not appendix:
-                    out.append(r"\clearpage" + "\n" + r"\appendix")
+                    out.append(r"\clearpage" + "\n" + r"\onecolumn" + "\n" + r"\appendix")
                     appendix = True
                     global APPENDIX
                     APPENDIX = True
@@ -278,7 +281,7 @@ def convert(md: str) -> str:
                 out.append(r"\section{" + inline(ht) + "}\\label{app:" + h.split()[1].rstrip(":") + "}")
             else:
                 num = re.match(r"(\d+)\.\s+(.*)", h)
-                out.append(r"\section{" + inline(num.group(2) if num else h) + "}"
+                out.append((r"\section{" if (num or appendix) else r"\section*{") + inline(num.group(2) if num else h) + "}"
                            + (r"\label{sec:" + num.group(1) + "}" if num else ""))
             i += 1
             continue

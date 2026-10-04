@@ -1,0 +1,127 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertex/gemini-3.1-pro-preview#r0::abstain_withheld": {
+      "model": "vertex/gemini-3.1-pro-preview#r0",
+      "provider": "vertex",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "synthetic-002003-study3c-only_workAuthValidThrough",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.24242424242424243,
+          "n_false_green": 8,
+          "n_withheld": 33,
+          "violation_recall": 1.0,
+          "violation_precision": 0.038461538461538464,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.24242424242424243,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 1
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-002007-study3c-only_workAuthValidThrough",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.2727272727272727,
+          "n_false_green": 9,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.2727272727272727,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 0
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-002009-study3c-only_workAuthValidThrough",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.2727272727272727,
+          "n_false_green": 9,
+          "n_withheld": 33,
+          "violation_recall": 1.0,
+          "violation_precision": 0.14285714285714285,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.2727272727272727,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 51242,
+        "output_tokens": 42743,
+        "calls": 12,
+        "wall_seconds": 304.5
+      }
+    }
+  }
+}

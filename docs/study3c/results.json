@@ -1,0 +1,235 @@
+{
+ "declared": "docs/STUDY3C_DECLARATION.md",
+ "rates": {
+  "gemini-3.1-pro-preview::only_i9Status::abstain_withheld::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.1-pro-preview::only_i9Status::abstain_withheld::reverification": {
+   "fgr": 0.0,
+   "n": 90
+  },
+  "gemini-3.1-pro-preview::only_onboardingCompletedDate::abstain_withheld::S1+S2": {
+   "fgr": 0.1667,
+   "n": 240
+  },
+  "gemini-3.1-pro-preview::only_onboardingCompletedDate::abstain_withheld::reverification": {
+   "fgr": 0.0444,
+   "n": 90
+  },
+  "gemini-3.1-pro-preview::only_workAuthValidThrough::abstain_withheld::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.1-pro-preview::only_workAuthValidThrough::abstain_withheld::reverification": {
+   "fgr": 0.9778,
+   "n": 90
+  },
+  "gemini-3.1-pro-preview::plain::abstain_offered::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.1-pro-preview::plain::abstain_offered::reverification": {
+   "fgr": 0.0,
+   "n": 90
+  },
+  "gemini-3.1-pro-preview::plain::abstain_withheld::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.1-pro-preview::plain::abstain_withheld::reverification": {
+   "fgr": 0.0,
+   "n": 90
+  },
+  "gemini-3.1-pro-preview::proxy::abstain_offered::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.1-pro-preview::proxy::abstain_offered::reverification": {
+   "fgr": 0.0778,
+   "n": 90
+  },
+  "gemini-3.1-pro-preview::proxy::abstain_withheld::S1+S2": {
+   "fgr": 0.55,
+   "n": 240
+  },
+  "gemini-3.1-pro-preview::proxy::abstain_withheld::reverification": {
+   "fgr": 0.9556,
+   "n": 90
+  },
+  "gemini-3.8-flash::only_i9Status::abstain_withheld::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.8-flash::only_i9Status::abstain_withheld::reverification": {
+   "fgr": 0.0444,
+   "n": 90
+  },
+  "gemini-3.8-flash::only_onboardingCompletedDate::abstain_withheld::S1+S2": {
+   "fgr": 0.4978,
+   "n": 231
+  },
+  "gemini-3.8-flash::only_onboardingCompletedDate::abstain_withheld::reverification": {
+   "fgr": 0.0787,
+   "n": 89
+  },
+  "gemini-3.8-flash::only_workAuthValidThrough::abstain_withheld::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.8-flash::only_workAuthValidThrough::abstain_withheld::reverification": {
+   "fgr": 1.0,
+   "n": 90
+  },
+  "gemini-3.8-flash::plain::abstain_offered::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.8-flash::plain::abstain_offered::reverification": {
+   "fgr": 0.0,
+   "n": 90
+  },
+  "gemini-3.8-flash::plain::abstain_withheld::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemini-3.8-flash::plain::abstain_withheld::reverification": {
+   "fgr": 0.0111,
+   "n": 90
+  },
+  "gemini-3.8-flash::proxy::abstain_offered::S1+S2": {
+   "fgr": 0.0167,
+   "n": 240
+  },
+  "gemini-3.8-flash::proxy::abstain_offered::reverification": {
+   "fgr": 0.3778,
+   "n": 90
+  },
+  "gemini-3.8-flash::proxy::abstain_withheld::S1+S2": {
+   "fgr": 0.8193,
+   "n": 238
+  },
+  "gemini-3.8-flash::proxy::abstain_withheld::reverification": {
+   "fgr": 1.0,
+   "n": 90
+  },
+  "gemma-4-26b-a4b-it-maas::only_i9Status::abstain_withheld::S1+S2": {
+   "fgr": 0.2917,
+   "n": 240
+  },
+  "gemma-4-26b-a4b-it-maas::only_i9Status::abstain_withheld::reverification": {
+   "fgr": 0.1111,
+   "n": 90
+  },
+  "gemma-4-26b-a4b-it-maas::only_onboardingCompletedDate::abstain_withheld::S1+S2": {
+   "fgr": 0.8625,
+   "n": 240
+  },
+  "gemma-4-26b-a4b-it-maas::only_onboardingCompletedDate::abstain_withheld::reverification": {
+   "fgr": 0.1333,
+   "n": 45
+  },
+  "gemma-4-26b-a4b-it-maas::only_workAuthValidThrough::abstain_withheld::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemma-4-26b-a4b-it-maas::only_workAuthValidThrough::abstain_withheld::reverification": {
+   "fgr": 0.3889,
+   "n": 90
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_offered::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_offered::reverification": {
+   "fgr": 0.0,
+   "n": 90
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_withheld::S1+S2": {
+   "fgr": 0.0,
+   "n": 240
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_withheld::reverification": {
+   "fgr": 0.0778,
+   "n": 90
+  },
+  "gemma-4-26b-a4b-it-maas::proxy::abstain_offered::S1+S2": {
+   "fgr": 0.9708,
+   "n": 240
+  },
+  "gemma-4-26b-a4b-it-maas::proxy::abstain_offered::reverification": {
+   "fgr": 0.2333,
+   "n": 90
+  },
+  "gemma-4-26b-a4b-it-maas::proxy::abstain_withheld::S1+S2": {
+   "fgr": 0.9708,
+   "n": 240
+  },
+  "gemma-4-26b-a4b-it-maas::proxy::abstain_withheld::reverification": {
+   "fgr": 0.931,
+   "n": 87
+  }
+ },
+ "tests": {
+  "C1 all proxy columns, dashboard": {
+   "n_firms": 10,
+   "delta": 0.8216,
+   "ci95_firm_bootstrap": [
+    0.7794,
+    0.8652
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  },
+  "C2 all proxy columns, offered": {
+   "n_firms": 10,
+   "delta": 0.302,
+   "ci95_firm_bootstrap": [
+    0.2707,
+    0.3323
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  },
+  "C3 i9Status alone, dashboard": {
+   "n_firms": 10,
+   "delta": 0.0972,
+   "ci95_firm_bootstrap": [
+    0.075,
+    0.1111
+   ],
+   "p_exact_two_sided": 0.00390625,
+   "firms_positive": 9,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  },
+  "C4 onboardingCompletedDate alone, dashboard": {
+   "n_firms": 10,
+   "delta": 0.509,
+   "ci95_firm_bootstrap": [
+    0.4722,
+    0.545
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  },
+  "C5 workAuthValidThrough alone, dashboard": {
+   "n_firms": 10,
+   "delta": 0.7593,
+   "ci95_firm_bootstrap": [
+    0.7,
+    0.8259
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  }
+ }
+}

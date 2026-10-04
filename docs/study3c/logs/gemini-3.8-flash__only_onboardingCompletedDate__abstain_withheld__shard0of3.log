@@ -1,0 +1,47 @@
+Study 3c (only_onboardingCompletedDate): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study3c-only_onboardingCompletedDate', 'synthetic-002023-study3c-only_onboardingCompletedDate', 'synthetic-002040-study3c-only_onboardingCompletedDate', 'synthetic-002069-study3c-only_onboardingCompletedDate']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31996 output tokens, 228s, finish=length, CAP
+        attempt 2: 47791 output tokens, 245s, finish=length, CAP
+        attempt 3: 37923 output tokens, 181s, finish=length, CAP
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3696 output tokens, 26s, finish=stop, ok
+  synthetic-002003-study3c-only_onboardingCompletedDate FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)  TRUNCATED 3
+      batch 1/4 (0 parsed so far)
+        attempt 1: 26160 output tokens, 186s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 18651 output tokens, 124s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31019 output tokens, 184s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 26572 output tokens, 150s, finish=stop, ok
+  synthetic-002023-study3c-only_onboardingCompletedDate FGR 0.485  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9951 output tokens, 63s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 26695 output tokens, 159s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 26140 output tokens, 159s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2588 output tokens, 14s, finish=stop, ok
+  synthetic-002040-study3c-only_onboardingCompletedDate FGR 0.394  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 29902 output tokens, 186s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 22498 output tokens, 131s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31996 output tokens, 186s, finish=length, CAP
+        attempt 2: 31996 output tokens, 189s, finish=length, CAP
+        attempt 3: 30996 output tokens, 185s, finish=stop, ok
+      batch 4/4 (35 parsed so far)
+        attempt 1: 6091 output tokens, 33s, finish=stop, ok
+  synthetic-002069-study3c-only_onboardingCompletedDate FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (6 calls)  TRUNCATED 2
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.432 (sd 0.083)  recall 1.000  over 4 firm(s)
+
+wrote docs/study3c/runs/gemini-3.8-flash__only_onboardingCompletedDate__abstain_withheld__shard0of3.json

@@ -1,0 +1,215 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertex/gemini-3.8-flash#r0::abstain_withheld_para": {
+      "model": "vertex/gemini-3.8-flash#r0",
+      "provider": "vertex",
+      "variant": "abstain_withheld_para",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertex/gemini-3.8-flash#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "synthetic-001002-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.6666666666666666,
+          "n_false_green": 6,
+          "n_withheld": 9,
+          "violation_recall": 1.0,
+          "violation_precision": 0.7692307692307693,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.6666666666666666,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001010-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 1,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 1,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.7777777777777778,
+          "n_false_green": 7,
+          "n_withheld": 9,
+          "violation_recall": 1.0,
+          "violation_precision": 0.75,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.7777777777777778,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001018-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.6363636363636364,
+          "n_false_green": 21,
+          "n_withheld": 33,
+          "violation_recall": 1.0,
+          "violation_precision": 0.14285714285714285,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.6363636363636364,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 2
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001024-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 1,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 1,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.5555555555555556,
+          "n_false_green": 5,
+          "n_withheld": 9,
+          "violation_recall": 1.0,
+          "violation_precision": 0.7142857142857143,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.5555555555555556,
+              "n_pairs": 9
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 75228,
+        "output_tokens": 205424,
+        "calls": 14,
+        "wall_seconds": 1271.8
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.6591,
+          "stdev": 0.092,
+          "min": 0.5556,
+          "max": 0.7778,
+          "n_firms": 4
+        },
+        "violation_recall": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 4
+        },
+        "violation_precision": {
+          "mean": 0.5941,
+          "stdev": 0.3017,
+          "min": 0.1429,
+          "max": 0.7692,
+          "n_firms": 4
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        }
+      },
+      "n_pairs": 168,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 2
+    }
+  }
+}

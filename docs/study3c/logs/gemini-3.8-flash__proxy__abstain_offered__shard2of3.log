@@ -1,0 +1,37 @@
+Study 3c (proxy): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-proxy', 'synthetic-002037-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 10753 output tokens, 76s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6359 output tokens, 38s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 15871 output tokens, 107s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5287 output tokens, 36s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5242 output tokens, 38s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 9930 output tokens, 46s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31996 output tokens, 231s, finish=length, CAP
+        attempt 2: 27308 output tokens, 190s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3309 output tokens, 23s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.242  recall 1.000  absF1 0.862  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5965 output tokens, 42s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30982 output tokens, 206s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 29112 output tokens, 167s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3053 output tokens, 17s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 0.273  recall 1.000  absF1 0.842  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_offered: FGR 0.172 (sd 0.149)  recall 1.000  over 3 firm(s)
+
+wrote docs/study3c/runs/gemini-3.8-flash__proxy__abstain_offered__shard2of3.json

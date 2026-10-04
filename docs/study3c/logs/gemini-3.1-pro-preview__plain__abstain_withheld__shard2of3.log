@@ -1,0 +1,46 @@
+Study 3c (plain): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-plain', 'synthetic-002037-study3c-plain', 'synthetic-002048-study3c-plain']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 10s
+        attempt 1: 3792 output tokens, 30s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3112 output tokens, 21s, finish=stop, ok
+  synthetic-002009-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1788 output tokens, 17s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2121 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2857 output tokens, 22s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 14s
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 6s
+        attempt 1: 2570 output tokens, 18s, finish=stop, ok
+  synthetic-002037-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2200 output tokens, 16s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2107 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4020 output tokens, 44s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2650 output tokens, 18s, finish=stop, ok
+  synthetic-002048-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote docs/study3c/runs/gemini-3.1-pro-preview__plain__abstain_withheld__shard2of3.json

@@ -1,0 +1,36 @@
+Study 3c (proxy): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-proxy', 'synthetic-002037-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002009-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3481 output tokens, 32s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1900 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6458 output tokens, 53s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2968 output tokens, 21s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.121  recall 1.000  absF1 0.935  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2035 output tokens, 17s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 9s
+        attempt 1: 3202 output tokens, 25s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4127 output tokens, 29s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2637 output tokens, 18s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_offered: FGR 0.040 (sd 0.070)  recall 1.000  over 3 firm(s)
+
+wrote docs/study3c/runs/gemini-3.1-pro-preview__proxy__abstain_offered__shard2of3.json

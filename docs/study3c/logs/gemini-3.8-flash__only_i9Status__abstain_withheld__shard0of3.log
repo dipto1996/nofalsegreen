@@ -1,0 +1,42 @@
+Study 3c (only_i9Status): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study3c-only_i9Status', 'synthetic-002023-study3c-only_i9Status', 'synthetic-002040-study3c-only_i9Status', 'synthetic-002069-study3c-only_i9Status']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study3c-only_i9Status FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2732 output tokens, 22s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2185 output tokens, 19s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 21668 output tokens, 139s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 10069 output tokens, 51s, finish=stop, ok
+  synthetic-002023-study3c-only_i9Status FGR 0.030  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3991 output tokens, 29s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2780 output tokens, 28s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31996 output tokens, 224s, finish=length, CAP
+        attempt 2: 31009 output tokens, 228s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2228 output tokens, 14s, finish=stop, ok
+  synthetic-002040-study3c-only_i9Status FGR 0.030  recall 1.000  absF1 0.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3638 output tokens, 27s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 12547 output tokens, 88s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 27580 output tokens, 195s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3277 output tokens, 20s, finish=stop, ok
+  synthetic-002069-study3c-only_i9Status FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.015 (sd 0.018)  recall 1.000  over 4 firm(s)
+
+wrote docs/study3c/runs/gemini-3.8-flash__only_i9Status__abstain_withheld__shard0of3.json

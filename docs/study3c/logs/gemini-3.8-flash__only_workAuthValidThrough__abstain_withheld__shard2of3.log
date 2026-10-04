@@ -1,0 +1,36 @@
+Study 3c (only_workAuthValidThrough): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-only_workAuthValidThrough', 'synthetic-002037-study3c-only_workAuthValidThrough', 'synthetic-002048-study3c-only_workAuthValidThrough']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5528 output tokens, 41s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 24341 output tokens, 175s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5874 output tokens, 43s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1808 output tokens, 12s, finish=stop, ok
+  synthetic-002009-study3c-only_workAuthValidThrough FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 16128 output tokens, 125s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2804 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 21353 output tokens, 160s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2199 output tokens, 15s, finish=stop, ok
+  synthetic-002037-study3c-only_workAuthValidThrough FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5031 output tokens, 37s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30963 output tokens, 220s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 13315 output tokens, 95s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2744 output tokens, 17s, finish=stop, ok
+  synthetic-002048-study3c-only_workAuthValidThrough FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.273 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote docs/study3c/runs/gemini-3.8-flash__only_workAuthValidThrough__abstain_withheld__shard2of3.json

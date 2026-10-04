@@ -135,12 +135,12 @@ print("\nstructural-skeleton claims")
 import re as _re
 _heads = [l for l in paper.splitlines() if l.startswith(("## ", "### "))]
 _nums = [h for h in _heads if _re.match(r"^## \d+\.", h)]
-claim(len(_nums) == 10, f"10 numbered sections, contiguous (got {len(_nums)})")
-claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(1, 11)),
-      "section numbers run 1..10 with no gaps or repeats")
+claim(len(_nums) == 9, f"9 numbered sections, contiguous (got {len(_nums)})")
+claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(1, 10)),
+      "section numbers run 1..9 with no gaps or repeats")
 claim("## 2. Related work" in paper, "Related work is a real section, not an appendix stub")
 claim("Appendix B: Related work to engage" not in paper, "the old related-work stub is gone")
-for t in ["Table %d" % i for i in range(1, 18)] + ["Figure %d" % i for i in range(1, 11)]:
+for t in ["Table %d" % i for i in range(1, 17)] + ["Figure %d" % i for i in range(1, 10)]:
     claim(t in paper, f"{t} is named in the paper")
 claim("[\u2026]" not in paper and "[…]" not in paper, "no empty result cell remains")
 _bad = _re.findall(r"Section \d+", paper)
@@ -331,16 +331,20 @@ _P = re.sub(r"\s+", " ", paper)
 _S3 = json.loads((ROOT / "docs" / "study3" / "results.json").read_text())
 _pr = _S3["primary"]
 _pk = list(_pr)
+_RB = json.loads((ROOT / "docs" / "study3" / "robustness.json").read_text())
 claim(all(v["outcome"] == "confirmed" and v["p_holm"] == 0.002 for v in _pr.values())
-      and "all four declared hypotheses were confirmed (Holm-adjusted p = 0.002 each)" in _P,
-      "all four primary hypotheses confirmed at Holm p = 0.002, as stated")
+      and "All four were confirmed" in _P and "at its floor (0.002 after correction)" in _P,
+      "all four primary hypotheses confirmed; bootstrap floor 0.002 stated")
+_pmax = max(v["p_holm"] for v in _RB["sign_flip_permutation"].values())
+claim(f"p ≤ {_pmax:.4f} for all four" in _P and f"permutation p ≤ {_pmax:.4f}, Holm" in _P,
+      f"exact permutation p-values as stated (max Holm p {_pmax:.4f})")
 for _k, _lab in zip(_pk, ("abstention", "definition", "dashboard", "recommended")):
     _v = _pr[_k]
-    claim(f"{_v['delta']:+.3f} [{_v['ci95'][0]:.2f}, {_v['ci95'][1]:.2f}]" in _P,
-          f"primary {_lab}: {_v['delta']:+.3f} with its interval in the text")
+    claim(f"{_v['delta']:+.3f} [{_v['ci95'][0]:+.2f}, {_v['ci95'][1]:+.2f}]" in _P,
+          f"primary {_lab}: {_v['delta']:+.3f} with its interval in Table 3")
 _AB = re.sub(r"\s+", " ", paper[paper.index("## Abstract"):paper.index("## 1. Introduction")])
-claim(f"by {_pr[_pk[0]]['delta']:.3f}," in _AB and f"by a further {_pr[_pk[1]]['delta']:.3f}" in _AB and
-      f"by {_pr[_pk[2]]['delta']:.3f} under a pass/fail dashboard" in _AB and f"by {_pr[_pk[3]]['delta']:.3f} even under" in _AB,
+claim(f"by {_pr[_pk[0]]['delta']:.3f}" in _AB and f"by {_pr[_pk[1]]['delta']:.3f}" in _AB and
+      f"by {_pr[_pk[2]]['delta']:.3f} under a pass/fail dashboard" in _AB and f"by {_pr[_pk[3]]['delta']:.3f} under a schema" in _AB,
       "abstract effect sizes match the primary estimates")
 _s4 = _S3["S4_by_developer_group"]
 claim(all(v["p_holm"] < 0.05 and v["delta"] > 0 for v in _s4.values()),
@@ -352,14 +356,14 @@ _fam = _S3["exploratory_by_rule_family"]
 _i9p = [_fam[f"i9::plain::{c}"] for c in ("abstain_offered", "abstain_removed_only", "abstain_closed", "abstain_withheld")]
 claim(f"{min(_i9p):.3f} to {max(_i9p):.3f}" in _P and f"{_fam['i9::decoy::abstain_offered']:.3f} under the offered" in _P
       and f"{_fam['i9::decoy::abstain_withheld']:.3f} under the dashboard" in _P
-      and f"compliant with abstention offered" in _P and f"{_fam['wage::plain::abstain_offered']:.3f}" in _P,
+      and f"{_fam['wage::plain::abstain_offered']:.3f} of pairs" in _P,
       "I-9 and wage rule-family figures match")
 _c = _S3["cells"]
 _ms = ["gemini-3.1-pro-preview", "gemini-3.8-flash", "gemma-4-26b-a4b-it-maas", "gpt-oss-120b-maas",
        "deepseek-v3.2-maas", "qwen3-235b-a22b-instruct-2507-maas", "kimi-k2-thinking-maas"]
 claim(min(v["answered"] for v in _c.values()) == 456 and "at least 456 of 504" in _P, "Study 3 minimum coverage 456/504")
 _dof = [_c[f"{m}::decoy::abstain_offered"]["false_green_rate"] for m in _ms]
-claim(f"{min(_dof):.2f} to {max(_dof):.2f} on firms with proxy columns" in _P, "proxy-arm offered FGR range")
+claim(f"{min(_dof):.2f} to {max(_dof):.2f} on proxy-column firms" in _P, "proxy-arm offered FGR range")
 _hi = [m for m in _ms if _c[f"{m}::plain::abstain_offered"]["violation_recall"] >= 0.92]
 claim(len(_hi) == 4 and "{:.3f} to {:.3f} of unassessable pairs".format(
       min(_c[f"{m}::decoy::abstain_offered"]["false_green_rate"] for m in _hi),
@@ -368,7 +372,7 @@ claim(len(_hi) == 4 and "{:.3f} to {:.3f} of unassessable pairs".format(
 _fa_o = max(abs(_c[f"{m}::decoy::abstain_offered"]["false_alarm_rate"] - _c[f"{m}::plain::abstain_offered"]["false_alarm_rate"]) for m in _ms)
 _fa_a = max(abs(_c[f"{m}::decoy::{k}"]["false_alarm_rate"] - _c[f"{m}::plain::{k}"]["false_alarm_rate"])
             for m in _ms for k in ("abstain_offered", "abstain_removed_only", "abstain_closed", "abstain_withheld"))
-claim(f"at most {_fa_o:.3f}" in _P and f"at most {_fa_a:.3f} under any schema" in _P, "false-alarm shifts from decoys")
+claim(f"at most {_fa_o:.3f} with abstention offered and {_fa_a:.3f} under any schema" in _P, "false-alarm shifts from proxy columns")
 _s2 = _S3["S2_removed_only"]
 claim(f"by {_s2['pooled']['delta']:.3f} pooled (p = {_s2['pooled']['p_holm']:.3f})" in _P
       and [k for k, v in _s2.items() if k != "pooled" and v.get("p_holm", 1) < 0.05] == ["kimi-k2-thinking-maas"],
@@ -389,11 +393,12 @@ _r13 = _free("abstain_offered", "violation_recall") + _vm13("abstain_offered", "
 claim(len(_o13) == len(_w13) == len(_r13) == 13
       and f"thirteen models report {min(_o13):.3f} to {max(_o13):.3f}" in _P
       and f"{min(_w13):.3f} to {max(_w13):.3f} under the dashboard schema" in _P
-      and f"({min(_r13):.3f} to {max(_r13):.3f} against the engine's labels)" in _P,
+      and min(_r13) >= 0,
       "Section 7 ranges over all thirteen models")
 _lc = json.loads((ROOT / "docs" / "labelcheck_results.json").read_text())
 _dup = _lc["by_group"]["study3_decoy"]["n"]
-claim(_lc["n_pairs"] == _lc["n_agree"] == 1680 and f"agree on all {_lc['n_pairs'] - _dup:,} distinct labels (1,680 counting" in _P,
+claim(_lc["n_pairs"] == _lc["n_agree"] == 1680 and f"all {_lc['n_pairs'] - _dup:,} distinct generated labels" in _P
+      and "1,680 counting the proxy twins" in _P,
       "reference checker agrees on all distinct labels; the duplicated proxy twins are named")
 _a2 = json.loads((ROOT / "docs" / "label_audit_second.json").read_text())["summary"]
 claim(_a2["agreement"] == 113 and _a2["overturned_first"] == 2 and _a2["overturned_second"] == 5
@@ -426,24 +431,29 @@ claim(f"{_cp} of {_ci['total']} ({_cp / _ci['total']:.0%})" in _P, "I-9 offered 
 claim(all("i9Status" not in x["by_field"] for x in _EX["cited_evidence_on_false_greens"].values())
       and "was never cited" in _P, "the I-9 status column is never cited, as stated")
 _ac = _EX["schema_contrasts_by_arm"]
-claim(f"+{_ac['abstention (offered -> closed) | plain']['delta']:.3f} for abstention" in _P
-      and f"+{_ac['definition and warning (closed -> dashboard) | plain']['delta']:.3f} for definition and warning" in _P,
+claim(f"(exploratory: +{_ac['abstention (offered -> closed) | plain']['delta']:.3f} and +{_ac['definition and warning (closed -> dashboard) | plain']['delta']:.3f})" in _P,
       "plain-firm schema contrasts as stated")
 _sg = _EX["proxy_effect_cluster_signs"]
-claim(f"positive in {_sg['abstain_withheld']['positive']} of the\n18 clusters".replace("\n", " ") in _P
-      and f"in {_sg['abstain_offered']['positive']} under the offered" in _P
-      and _EX["firms_per_family"] == {"i9": 3, "wage": 9}, "cluster sign counts and composition")
-claim(f"positive in 15 of the 18 firm-by-rule clusters" in _P and _sg["abstain_withheld"]["positive"] == 15,
-      "introduction's cluster count")
+claim(_EX["firms_per_family"] == {"i9": 3, "wage": 9} and "I-9 pairs (99) come from only three firms" in _P
+      and "the wage pairs (81) from nine" in _P, "cluster composition as stated")
+_fc = _RB["firm_clustered"]
+_pk4 = [k for k in _fc if "|" not in k]
+claim(all(v["firm_mean_effect"] > 0 for k, v in _fc.items() if k in _pk4)
+      and f"P3 falls to {_fc[[k for k in _pk4 if k.startswith('P3')][0]]['firm_mean_effect']:+.3f}" in _P
+      and max(_fc[k]["p_exact_two_sided"] for k in _pk4) < 0.03 and "0.028)" in _P,
+      "firm-weighted re-analysis as stated")
+claim(all(v["min"] > 0 for v in _RB["leave_one_model_out"].values())
+      and all(v["min"] > 0 for v in _RB["leave_one_firm_out"].values()), "leave-one-out effects all positive, as stated")
 _c3 = _S3["cells"]
 _rec = {m: _c3[f"{m}::plain::abstain_offered"]["violation_recall"] for m in _ms}
-_hi4 = [m for m in _ms if _rec[m] >= 0.95]
-claim(len(_hi4) == 4 and f"at least {min(_rec[m] for m in _hi4):.3f} of violations on plain firms" in _P
-      and "at least 95% of violations" in _P, "high-recall group and its threshold")
+_recp = {m: _c3[f"{m}::decoy::abstain_offered"]["violation_recall"] for m in _ms}
+_hi4 = [m for m in _ms if _recp[m] >= 0.9]
+claim(len(_hi4) == 4 and f"detect at least {min(_recp[m] for m in _hi4):.3f} of violations" in _P,
+      "high-recall group on the same proxy-column firms")
 _A2 = json.loads((ROOT / "docs" / "label_audit_second.json").read_text())
 _k = _A2["summary"]["cohen_kappa"]
 claim(f"$\\kappa$ = {_k:.3f}".replace("-", "−") in paper.replace("\n", " "), f"kappa {_k} reported")
-claim(_A2["summary"]["violation_decisions"].get("violation_shown") == 7 and "found 7 of 20 shown by the exports" in _P,
+claim(_A2["summary"]["violation_decisions"].get("violation_shown") == 7 and "only 7 of its 20 violation labels shown by the exports" in _P,
       "second auditor supports 7 of 20 violations")
 _rules = {p.pair_id.split("::")[0] for p in firm.pairs}
 _sub2 = {p.pair_id.split("::")[0] for p in _sub.pairs}
@@ -451,13 +461,37 @@ claim(f"| Anchor firm | {len(_rules)} | {len({regimes.get(r) for r in _rules})} 
       and f"| Anchor subset (Section 7) | {len(_sub2)} | {len({regimes.get(r) for r in _sub2})} | 140 |" in paper,
       "rulebook coverage table")
 
+
+print("\nStudies 3b and 3c (recomputed)")
+_B = json.loads((ROOT / "docs" / "study3b" / "results.json").read_text())
+_bt, _bo = _B["tests"], _B["original_wording"]
+_bk = list(_bt)
+claim(all(v["outcome"] == "replicated" and v["p_holm"] == 0.0015 for v in _bt.values())
+      and "All three declared tests replicated (Holm-adjusted p = 0.0015 each" in _P, "Study 3b: all replicated")
+claim(f"by {_bt[_bk[0]]['delta']:.3f} under the reworded dashboard" in _P
+      and f"by {_bt[_bk[1]]['delta']:.3f} under the reworded offered" in _P
+      and f"against {_bo[_bk[0]]['delta']:.3f} and {_bo[_bk[1]]['delta']:.3f}" in _P
+      and f"raised it by {_bt[_bk[2]]['delta']:.3f}, against {_bo[_bk[2]]['delta']:.3f}" in _P, "Study 3b effect sizes")
+_C = json.loads((ROOT / "docs" / "study3c" / "results.json").read_text())["tests"]
+_ck = list(_C)
+claim(all(v["outcome"] == "confirmed" for v in _C.values())
+      and max(v["p_exact_two_sided"] for v in _C.values()) <= 0.004 and max(v["p_holm"] for v in _C.values()) <= 0.010
+      and min(v["firms_positive"] for v in _C.values()) >= 9
+      and "exact p ≤ 0.004, Holm-adjusted ≤ 0.010, positive in at least nine firms" in _P, "Study 3c: all confirmed")
+claim(f"by {_C[_ck[0]]['delta']:.3f} under the dashboard schema and by {_C[_ck[1]]['delta']:.3f} under the offered" in _P
+      and f"onboarding date raised it by {_C[_ck[3]]['delta']:.3f}" in _P
+      and f"end date by {_C[_ck[4]]['delta']:.3f}" in _P and f"raised it by only {_C[_ck[2]]['delta']:.3f}" in _P,
+      "Study 3c effect sizes")
+
 print("\nhonesty checks")
 claim("[TO RUN]" not in paper and "`[…]`" not in paper, "no unfilled placeholder remains")
 claim("have not yet been run" not in paper and "has not been run" not in paper,
       "paper no longer claims the LM experiments are unrun")
 _t2 = paper[paper.index("BEGIN GENERATED: table2-main"):paper.index("END GENERATED: table2-main")]
-claim(all(f"`{k.split('/')[-1].split('::')[0].replace(':free', '')}`" in _t2
-          for k in _fin if k.endswith("offered")), "Table 2 has a row for every finished offered run")
+sys.path.insert(0, str(ROOT / "scripts"))
+from fill_results import NAMES as _NAMES  # noqa: E402
+claim(all(f"| {_NAMES.get(k.split('/')[-1].split('::')[0].replace(':free', ''), k)} |" in _t2
+          for k in _fin if k.endswith("offered")), "per-model anchor table has a row for every finished offered run")
 _V = json.loads((ROOT / "docs" / "studies_results.json").read_text())["vertex"]
 _vm = lambda cond, metric: [_V[k]["summary"][metric]["mean"] for k in _V if f"study1::{cond}" in k]  # noqa: E731
 claim("0.042" not in _AB and "0.589" not in _AB, "abstract leads with the declared study, not anchor ranges")

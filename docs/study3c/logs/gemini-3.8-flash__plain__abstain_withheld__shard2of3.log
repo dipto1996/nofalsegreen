@@ -1,0 +1,36 @@
+Study 3c (plain): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-plain', 'synthetic-002037-study3c-plain', 'synthetic-002048-study3c-plain']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1786 output tokens, 17s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 4325 output tokens, 31s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 16637 output tokens, 101s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1928 output tokens, 11s, finish=stop, ok
+  synthetic-002009-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1719 output tokens, 12s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1464 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 17706 output tokens, 122s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4082 output tokens, 28s, finish=stop, ok
+  synthetic-002037-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9619 output tokens, 71s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 14302 output tokens, 121s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 18042 output tokens, 134s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2350 output tokens, 21s, finish=stop, ok
+  synthetic-002048-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote docs/study3c/runs/gemini-3.8-flash__plain__abstain_withheld__shard2of3.json

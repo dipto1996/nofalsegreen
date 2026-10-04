@@ -1,0 +1,42 @@
+Study 3 (plain): 12 generated firms x 42 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 12  variants ['abstain_offered_para']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2754 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2467 output tokens, 13s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2609 output tokens, 14s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3861 output tokens, 21s, finish=stop, ok
+  synthetic-001001-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2586 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2927 output tokens, 15s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11028 output tokens, 59s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+      retry vertex/gemini-3.8-flash#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 161s
+        attempt 1: 12799 output tokens, 81s, finish=stop, ok
+  synthetic-001002-study3-plain FGR 0.667  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2672 output tokens, 15s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2114 output tokens, 13s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3750 output tokens, 29s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 13656 output tokens, 82s, finish=stop, ok
+  synthetic-001003-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2067 output tokens, 13s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2472 output tokens, 14s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 17835 output tokens, 103s, finish=stop, ok
+      batch 4/4 (36 parsed so far)

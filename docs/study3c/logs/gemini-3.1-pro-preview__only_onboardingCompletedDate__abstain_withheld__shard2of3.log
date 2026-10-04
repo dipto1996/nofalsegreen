@@ -1,0 +1,37 @@
+Study 3c (only_onboardingCompletedDate): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-only_onboardingCompletedDate', 'synthetic-002037-study3c-only_onboardingCompletedDate', 'synthetic-002048-study3c-only_onboardingCompletedDate']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3044 output tokens, 25s, finish=stop, ok
+  synthetic-002009-study3c-only_onboardingCompletedDate FGR 0.152  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2443 output tokens, 18s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 15s
+        attempt 1: 2202 output tokens, 17s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6336 output tokens, 46s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2554 output tokens, 17s, finish=stop, ok
+  synthetic-002037-study3c-only_onboardingCompletedDate FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3373 output tokens, 25s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3546 output tokens, 28s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6819 output tokens, 50s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2912 output tokens, 20s, finish=stop, ok
+  synthetic-002048-study3c-only_onboardingCompletedDate FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld: FGR 0.141 (sd 0.137)  recall 1.000  over 3 firm(s)
+
+wrote docs/study3c/runs/gemini-3.1-pro-preview__only_onboardingCompletedDate__abstain_withheld__shard2of3.json

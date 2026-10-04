@@ -1,0 +1,37 @@
+Study 3 (plain): 12 generated firms x 42 pairs
+shard 0/3: ['synthetic-001001-study3-plain', 'synthetic-001008-study3-plain', 'synthetic-001017-study3-plain', 'synthetic-001021-study3-plain']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered_para']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001001-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001008-study3-plain FGR 0.444  recall 1.000  absF1 0.200  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3936 output tokens, 31s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3039 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 8489 output tokens, 59s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 24269 output tokens, 167s, finish=stop, ok
+  synthetic-001017-study3-plain FGR 0.778  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3670 output tokens, 24s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3091 output tokens, 21s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3251 output tokens, 22s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1002 output tokens, 10s, finish=stop, ok
+  synthetic-001021-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_offered_para: FGR 0.306 (sd 0.378)  recall 1.000  over 4 firm(s)
+
+wrote docs/study3b/runs/gemini-3.1-pro-preview__plain__abstain_offered_para__shard0of3.json

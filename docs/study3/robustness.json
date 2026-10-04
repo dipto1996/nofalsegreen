@@ -1,0 +1,239 @@
+{
+ "note": "EXPLORATORY: robustness checks added after the results.",
+ "sign_flip_permutation": {
+  "P1 abstention effect": {
+   "observed": 0.2594,
+   "p_exact_two_sided": 7.62939453125e-06,
+   "n_patterns": 262144,
+   "p_holm": 3.0517578125e-05
+  },
+  "P2 definition effect": {
+   "observed": 0.0841,
+   "p_exact_two_sided": 0.00130462646484375,
+   "n_patterns": 262144,
+   "p_holm": 0.00130462646484375
+  },
+  "P3 adjacent columns, dashboard schema": {
+   "observed": 0.4268,
+   "p_exact_two_sided": 7.62939453125e-05,
+   "n_patterns": 262144,
+   "p_holm": 0.000152587890625
+  },
+  "P4 adjacent columns, recommended schema": {
+   "observed": 0.217,
+   "p_exact_two_sided": 4.57763671875e-05,
+   "n_patterns": 262144,
+   "p_holm": 0.0001373291015625
+  }
+ },
+ "leave_one_model_out": {
+  "P1 abstention effect": {
+   "min": 0.2258,
+   "max": 0.3059,
+   "by_dropped_model": {
+    "gemini-3.1-pro-preview": 0.2378,
+    "gemini-3.8-flash": 0.2578,
+    "gemma-4-26b-a4b-it-maas": 0.2832,
+    "gpt-oss-120b-maas": 0.3059,
+    "deepseek-v3.2-maas": 0.2258,
+    "qwen3-235b-a22b-instruct-2507-maas": 0.2582,
+    "kimi-k2-thinking-maas": 0.2471
+   }
+  },
+  "P2 definition effect": {
+   "min": 0.067,
+   "max": 0.0991,
+   "by_dropped_model": {
+    "gemini-3.1-pro-preview": 0.0852,
+    "gemini-3.8-flash": 0.0755,
+    "gemma-4-26b-a4b-it-maas": 0.0991,
+    "gpt-oss-120b-maas": 0.0725,
+    "deepseek-v3.2-maas": 0.0972,
+    "qwen3-235b-a22b-instruct-2507-maas": 0.0923,
+    "kimi-k2-thinking-maas": 0.067
+   }
+  },
+  "P3 adjacent columns, dashboard schema": {
+   "min": 0.4068,
+   "max": 0.469,
+   "by_dropped_model": {
+    "gemini-3.1-pro-preview": 0.4387,
+    "gemini-3.8-flash": 0.4285,
+    "gemma-4-26b-a4b-it-maas": 0.4068,
+    "gpt-oss-120b-maas": 0.469,
+    "deepseek-v3.2-maas": 0.4137,
+    "qwen3-235b-a22b-instruct-2507-maas": 0.4071,
+    "kimi-k2-thinking-maas": 0.4239
+   }
+  },
+  "P4 adjacent columns, recommended schema": {
+   "min": 0.1699,
+   "max": 0.2436,
+   "by_dropped_model": {
+    "gemini-3.1-pro-preview": 0.2402,
+    "gemini-3.8-flash": 0.2168,
+    "gemma-4-26b-a4b-it-maas": 0.1699,
+    "gpt-oss-120b-maas": 0.2266,
+    "deepseek-v3.2-maas": 0.2208,
+    "qwen3-235b-a22b-instruct-2507-maas": 0.2013,
+    "kimi-k2-thinking-maas": 0.2436
+   }
+  }
+ },
+ "leave_one_firm_out": {
+  "P1 abstention effect": {
+   "min": 0.2266,
+   "max": 0.2714,
+   "by_dropped_firm": {
+    "1001": 0.2685,
+    "1002": 0.2714,
+    "1003": 0.2685,
+    "1008": 0.2647,
+    "1010": 0.2649,
+    "1014": 0.2618,
+    "1017": 0.266,
+    "1018": 0.2615,
+    "1020": 0.2298,
+    "1021": 0.2556,
+    "1024": 0.2648,
+    "1027": 0.2266
+   }
+  },
+  "P2 definition effect": {
+   "min": 0.0653,
+   "max": 0.0907,
+   "by_dropped_firm": {
+    "1001": 0.0887,
+    "1002": 0.0887,
+    "1003": 0.0907,
+    "1008": 0.0877,
+    "1010": 0.0889,
+    "1014": 0.086,
+    "1017": 0.0853,
+    "1018": 0.0669,
+    "1020": 0.0839,
+    "1021": 0.0872,
+    "1024": 0.0847,
+    "1027": 0.0653
+   }
+  },
+  "P3 adjacent columns, dashboard schema": {
+   "min": 0.3533,
+   "max": 0.449,
+   "by_dropped_firm": {
+    "1001": 0.4465,
+    "1002": 0.4446,
+    "1003": 0.4482,
+    "1008": 0.449,
+    "1010": 0.4461,
+    "1014": 0.4267,
+    "1017": 0.4431,
+    "1018": 0.3849,
+    "1020": 0.3791,
+    "1021": 0.4282,
+    "1024": 0.4481,
+    "1027": 0.3533
+   }
+  },
+  "P4 adjacent columns, recommended schema": {
+   "min": 0.1996,
+   "max": 0.2295,
+   "by_dropped_firm": {
+    "1001": 0.2044,
+    "1002": 0.2194,
+    "1003": 0.2048,
+    "1008": 0.2263,
+    "1010": 0.2295,
+    "1014": 0.1996,
+    "1017": 0.2242,
+    "1018": 0.2176,
+    "1020": 0.2243,
+    "1021": 0.2009,
+    "1024": 0.2277,
+    "1027": 0.229
+   }
+  }
+ },
+ "firm_clustered": {
+  "P1 abstention effect": {
+   "n_firms": 12,
+   "firm_mean_effect": 0.2033,
+   "ci95_firm_bootstrap": [
+    0.1406,
+    0.2744
+   ],
+   "p_exact_two_sided": 0.00048828125,
+   "firms_positive": 12
+  },
+  "P2 definition effect": {
+   "n_firms": 12,
+   "firm_mean_effect": 0.0509,
+   "ci95_firm_bootstrap": [
+    0.0146,
+    0.0886
+   ],
+   "p_exact_two_sided": 0.0283203125,
+   "firms_positive": 8
+  },
+  "P3 adjacent columns, dashboard schema": {
+   "n_firms": 12,
+   "firm_mean_effect": 0.2445,
+   "ci95_firm_bootstrap": [
+    0.0968,
+    0.4234
+   ],
+   "p_exact_two_sided": 0.0205078125,
+   "firms_positive": 9
+  },
+  "P3 adjacent columns, dashboard schema | i9": {
+   "n_firms": 3,
+   "firm_mean_effect": 0.6604,
+   "ci95_firm_bootstrap": [
+    0.6043,
+    0.7316
+   ],
+   "p_exact_two_sided": 0.25,
+   "firms_positive": 3
+  },
+  "P3 adjacent columns, dashboard schema | wage": {
+   "n_firms": 9,
+   "firm_mean_effect": 0.1058,
+   "ci95_firm_bootstrap": [
+    0.0018,
+    0.2293
+   ],
+   "p_exact_two_sided": 0.1640625,
+   "firms_positive": 6
+  },
+  "P4 adjacent columns, recommended schema": {
+   "n_firms": 12,
+   "firm_mean_effect": 0.2375,
+   "ci95_firm_bootstrap": [
+    0.1289,
+    0.3428
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10
+  },
+  "P4 adjacent columns, recommended schema | i9": {
+   "n_firms": 3,
+   "firm_mean_effect": 0.1934,
+   "ci95_firm_bootstrap": [
+    0.1732,
+    0.2121
+   ],
+   "p_exact_two_sided": 0.25,
+   "firms_positive": 3
+  },
+  "P4 adjacent columns, recommended schema | wage": {
+   "n_firms": 9,
+   "firm_mean_effect": 0.2522,
+   "ci95_firm_bootstrap": [
+    0.1093,
+    0.3915
+   ],
+   "p_exact_two_sided": 0.015625,
+   "firms_positive": 7
+  }
+ }
+}

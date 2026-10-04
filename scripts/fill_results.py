@@ -32,6 +32,11 @@ BEGIN = "<!-- BEGIN GENERATED: {name} -->"
 END = "<!-- END GENERATED: {name} -->"
 
 
+def disp(name: str) -> str:
+    """Display name for a model id (tables use the names the figures use)."""
+    return NAMES.get(name, name)
+
+
 def short(model: str) -> str:
     return model.split("/")[-1].replace(":free", "")
 
@@ -91,7 +96,7 @@ def table_main(runs: dict) -> str:
         fga_s = "—" if fga is None else f"{fga:.3f}"
         ci = lambda c: f" [{c[0]:.2f}, {c[1]:.2f}]" if c else ""  # noqa: E731
         rows.append(
-            f"| `{short(r['model'])}` | **{cell(a,'false_green_rate')}**{ci(ev.get('fgr_ci95'))} | {fga_s} "
+            f"| {disp(short(r['model']))} | **{cell(a,'false_green_rate')}**{ci(ev.get('fgr_ci95'))} | {fga_s} "
             f"| {cell(a,'violation_recall')}{ci(ev.get('recall_ci95'))} "
             f"| {cell(a,'violation_precision')} | {cell(a,'false_alarm_rate')} "
             f"| {cell(a,'abstention_precision')} | {cell(a,'abstention_recall')} "
@@ -140,7 +145,7 @@ def table_ablation(runs: dict) -> str:
         n, d, c = a["n_pairs_answered_both"], a["delta_fgr"], a["ci95"]
         # rates on the same restricted pair set
         fo = views[f"{m}::abstain_offered"]["engine"]
-        rows.append(f"| `{short(m)}` | {n} of 120 | {views[f'{m}::abstain_offered']['engine']['false_green_rate']:.3f} "
+        rows.append(f"| {disp(short(m))} | {n} of 120 | {views[f'{m}::abstain_offered']['engine']['false_green_rate']:.3f} "
                     f"| {views[f'{m}::abstain_withheld']['engine']['false_green_rate']:.3f} "
                     f"| {d:+.3f} [{c[0]:+.2f}, {c[1]:+.2f}] | {a['p_holm']:.3f} | {offs} of {ans} answered |")
     rows.append("")
@@ -165,7 +170,7 @@ def table_regime(runs: dict) -> str:
             regimes |= set(f.get("per_regime", {}))
     regimes.discard("unknown")
 
-    header = "| Regime | " + " | ".join(f"`{short(r['model'])}`" for r in offered) + " |"
+    header = "| Regime | " + " | ".join(disp(short(r['model'])) for r in offered) + " |"
     rows = [header, "|---" * (len(offered) + 1) + "|"]
     for regime in sorted(regimes):
         cells = []
@@ -205,7 +210,7 @@ def table_views() -> str:
         other = sum(n for k, n in v.items() if k not in ("fail", "pass"))
         cond = "offered" if r["variant"].endswith("offered") else "dashboard"
         rows.append(
-            f"| `{short(r['model'])}` | {cond} | {e['false_green_rate']:.3f} | {st['false_green_rate']:.3f} "
+            f"| {disp(short(r['model']))} | {cond} | {e['false_green_rate']:.3f} | {st['false_green_rate']:.3f} "
             f"| {e['violation_recall']:.2f} | {st['violation_recall']:.2f} "
             f"| {v.get('fail', 0)} / {v.get('pass', 0)} / {other} |"
         )
@@ -231,7 +236,7 @@ def table_audited() -> str:
         fga = au.get("false_green_rate_answered")
         cond = "offered" if r["variant"].endswith("offered") else "dashboard"
         rows.append(
-            f"| `{short(r['model'])}` | {cond} | {au['n_withheld']} of {e['n_withheld']} "
+            f"| {disp(short(r['model']))} | {cond} | {au['n_withheld']} of {e['n_withheld']} "
             f"| {e['false_green_rate']:.3f} | {au['false_green_rate']:.3f} "
             f"| {'—' if fga is None else f'{fga:.3f}'} |")
     if len(rows) == 1:
@@ -259,7 +264,7 @@ def table_study2() -> str:
         ms = lambda k: (f"{m[k]['mean']:.3f} ± {m[k]['sd']:.3f}" if m[k]["sd"] is not None  # noqa: E731
                         else _f(m[k]["mean"]))
         cond = "offered" if variant.endswith("offered") else "dashboard"
-        rows.append(f"| `{short(model)}` | {cond} | {ms('false_green_rate')} | {ms('violation_recall')} "
+        rows.append(f"| {disp(short(model))} | {cond} | {ms('false_green_rate')} | {ms('violation_recall')} "
                     f"| {ms('false_alarm_rate')} | {ms('false_alarm_near_miss')} | {ms('abstention_f1')} "
                     f"| {r['pooled']['answered']}/{r['pooled']['n']} |")
     return "\n".join(rows)
@@ -292,7 +297,7 @@ def table_vertex() -> str:
         dist = " / ".join(
             f"{sum(x['counts'].get('withheld_as_' + v, 0) for x in reps) / len(reps):.0f}"
             for v in ("pass", "fail", "needs_evidence", "unmonitored"))
-        rows.append(f"| `{model.replace('vertex/', '')}` | {study[-1]} | {COND[variant]} "
+        rows.append(f"| {disp(model.replace('vertex/', ''))} | {study[-1]} | {COND[variant]} "
                     f"| {cell('false_green_rate')} | {_f((a.get('false_green_rate_answered') or {}).get('mean'))} "
                     f"| {cell('violation_recall')} "
                     f"| {cell('false_alarm_near_miss')} | {dist} | {a['answered_min']}/{n} |")
@@ -324,7 +329,7 @@ def table_contrasts() -> str:
         m, st, c = k.split("::")
         v = cs[k]
         mark = " **" if v["p_holm"] < 0.05 else ""
-        rows.append(f"| `{m.replace('vertex/', '')}` | {st[-1]} | {lab[c]} | {v['n_pairs']} "
+        rows.append(f"| {disp(m.replace('vertex/', ''))} | {st[-1]} | {lab[c]} | {v['n_pairs']} "
                     f"| {v['delta']:+.3f} [{v['ci95'][0]:+.2f}, {v['ci95'][1]:+.2f}] "
                     f"| {v['p_holm']:.3f}{mark} |")
     rows.append("")
@@ -401,31 +406,31 @@ def table_anchor_all() -> str:
 
 
 def table_cited() -> str:
-    """Exploratory: which column the reply cites on each false green, Study 3."""
+    """Exploratory: the column cited as evidence on each false green, proxy-column firms."""
     ex = ROOT / "docs" / "study3" / "exploratory.json"
-    head = ("| Rule family | Firms | Schema | False greens | Cite a planted proxy column | Cite the LCA offered wage "
-            "| Other |\n|---|---|---|---|---|---|---|")
+    head = ("| Rule family | Schema | False greens | Citing a planted proxy column | Per model | Citing the LCA offered wage |"
+            "\n|---|---|---|---|---|---|")
     if not ex.exists():
         return head
     c = json.loads(ex.read_text())["cited_evidence_on_false_greens"]
     rows = [head]
-    for fam, flab in (("i9", "I-9 (3 rules)"), ("wage", "LCA required wage")):
-        for arm in ("plain", "decoy"):
-            for cond in ("abstain_offered", "abstain_withheld"):
-                x = c[f"{fam}::{arm}::{cond}"]
-                n = x["total"]
-                bf = x["by_field"]
-                lca = sum(v for k, v in bf.items() if k.startswith("WAGE_RATE"))
-                oth = bf.get("other", 0)
-                prox = n - lca - oth
-                pct = lambda v: f"{v} ({v / n:.0%})" if n else "0"  # noqa: E731
-                rows.append(f"| {flab} | {'proxy' if arm == 'decoy' else 'plain'} | {COND[cond]} | {n} "
-                            f"| {pct(prox)} | {pct(lca)} | {pct(oth)} |")
+    for fam, flab in (("i9", "I-9 (three rules)"), ("wage", "LCA required wage")):
+        for cond in ("abstain_offered", "abstain_withheld"):
+            x = c[f"{fam}::decoy::{cond}"]
+            n = x["total"]
+            lca = sum(v for k, v in x["by_field"].items() if k.startswith("WAGE_RATE"))
+            prox = n - lca - x["by_field"].get("other", 0)
+            shares = []
+            for m, bf in x["by_model"].items():
+                t = sum(bf.values())
+                if t >= 5:
+                    shares.append(sum(v for k, v in bf.items() if k != "other" and not k.startswith("WAGE_RATE")) / t)
+            rng = f"{min(shares):.0%}–{max(shares):.0%}" if shares else "—"
+            rows.append(f"| {flab} | {COND[cond]} | {n} | {prox} ({prox / n:.0%}) | {rng} | {lca} ({lca / n:.0%}) |")
     rows.append("")
-    rows.append("Pooled over the seven models. A false green is a `pass` on an unassessable pair; the column is the "
-                "evidence field the reply line names. Planted proxy columns: `onboardingCompletedDate`, "
-                "`workAuthValidThrough`, `annualBaseSalary`, `payBandMidpoint`, `i9Status` (never cited). "
-                "Exploratory: added after the results.")
+    rows.append("Study 3 proxy-column firms, pooled over the seven models; per model: range of the share citing a "
+                "planted column among models with at least five false greens. The column is the evidence field the "
+                "reply line names, a self-report. The I-9 status column was never cited. Exploratory.")
     return "\n".join(rows)
 
 
@@ -455,6 +460,37 @@ def table_arm_contrasts() -> str:
     return "\n".join(rows)
 
 
+def table_robust() -> str:
+    """Study 3 declared tests with every robustness check (body table)."""
+    rb = ROOT / "docs" / "study3" / "robustness.json"
+    head = ("| Test | Effect [95% CI] | Exact p (Holm) | Firm-weighted effect, exact p | Drop one model | Drop one firm |"
+            "\n|---|---|---|---|---|---|")
+    if not (rb.exists() and STUDY3.exists()):
+        return head
+    pr = json.loads(STUDY3.read_text())["primary"]
+    r = json.loads(rb.read_text())
+    lab = {"P1": "P1 Abstention (proxy firms)", "P2": "P2 Definition and warning (proxy firms)",
+           "P3": "P3 Proxy columns, dashboard", "P4": "P4 Proxy columns, offered"}
+    fmtp = lambda x: "<0.001" if x < 0.001 else f"{x:.3f}"  # noqa: E731
+    rows = [head]
+    for k, v in pr.items():
+        sp = r["sign_flip_permutation"][k]
+        fl = r["firm_clustered"][k]
+        lm = r["leave_one_model_out"][k]
+        lf = r["leave_one_firm_out"][k]
+        rows.append(f"| {lab[k[:2]]} | {v['delta']:+.3f} [{v['ci95'][0]:+.2f}, {v['ci95'][1]:+.2f}] "
+                    f"| {fmtp(sp['p_holm'])} | {fl['firm_mean_effect']:+.3f} (p {'< 0.001' if fl['p_exact_two_sided'] < 0.001 else '= ' + format(fl['p_exact_two_sided'], '.3f')}) "
+                    f"| {lm['min']:+.3f} to {lm['max']:+.3f} | {lf['min']:+.3f} to {lf['max']:+.3f} |")
+    rows.append("")
+    rows.append("Effect: change in false-green rate, pooled over seven models with equal weight, paired on "
+                "unassessable pairs answered in both cells; interval from the declared bootstrap over 18 firm-by-rule "
+                "clusters. Exact p: sign-flip permutation over those 18 clusters (all 262,144 patterns), Holm across the "
+                "four tests. Firm-weighted: each of the 12 firms weighted equally, exact sign-flip over firms (4,096 "
+                "patterns). Drop one: range of the pooled effect with any one model, or any one firm, left out. All "
+                "columns after the first were computed after the results.")
+    return "\n".join(rows)
+
+
 def table_study3() -> str:
     """Table 9: Study 3, false-green rate by model, arm and schema; coverage; detection."""
     head = ("| Model | Arm | FGR offered | removed-only | closed | dashboard | Recall, offered "
@@ -467,7 +503,7 @@ def table_study3() -> str:
         for arm in ("plain", "decoy"):
             g = lambda cond, k: c.get(f"{m}::{arm}::{cond}", {}).get(k)  # noqa: E731
             ans = [g(cond, "answered") for cond in COND if g(cond, "answered") is not None]
-            rows.append(f"| `{m}` | {'proxy' if arm == 'decoy' else arm} | " + " | ".join(_f(g(cond, "false_green_rate")) for cond in COND)
+            rows.append(f"| {disp(m)} | {'proxy' if arm == 'decoy' else arm} | " + " | ".join(_f(g(cond, "false_green_rate")) for cond in COND)
                         + f" | {_f(g('abstain_offered', 'violation_recall'))} "
                           f"| {_f(g('abstain_offered', 'false_alarm_rate'))} | {min(ans) if ans else '—'}/504 |")
     rows.append("")
@@ -495,7 +531,7 @@ def table_study3_tests() -> str:
     for grp, lab in (("google", "Google, 3 models"), ("other_developers", "Other developers, 4 models")):
         rows.append(f"| {lab} | " + " | ".join(fmt(d["S4_by_developer_group"].get(f"{n} | {grp}")) for n in names) + " |")
     for m in S3_ORDER:
-        rows.append(f"| `{m}` | " + " | ".join(fmt(d["S1_per_model"].get(f"{n} | {m}")) for n in names) + " |")
+        rows.append(f"| {disp(m)} | " + " | ".join(fmt(d["S1_per_model"].get(f"{n} | {m}")) for n in names) + " |")
     rows.append("")
     rows.append("Difference in false-green rate on unassessable pairs answered in both cells, [95% CI] from an "
                 "obligation-cluster bootstrap (18 firm-by-rule clusters, 2,000 draws), Holm-adjusted p. "
@@ -514,7 +550,7 @@ def table_e1() -> str:
     rows = [head]
     for m in S3_ORDER[3:]:
         g = lambda cond, k: e.get(f"{m}::{cond}", {}).get(k)  # noqa: E731
-        rows.append(f"| `{m}` | " + " | ".join(_f(g(cond, "false_green_rate")) for cond in COND)
+        rows.append(f"| {disp(m)} | " + " | ".join(_f(g(cond, "false_green_rate")) for cond in COND)
                     + f" | {_f(g('abstain_offered', 'false_green_rate_answered'))} "
                       f"| {_f(g('abstain_offered', 'violation_recall'))} | {g('abstain_offered', 'answered')}/140 |")
     return "\n".join(rows)
@@ -553,6 +589,7 @@ def main() -> int:
         "table-anchor-all": table_anchor_all(),
         "table-cited": table_cited(),
         "table-arm-contrasts": table_arm_contrasts(),
+        "table-robust": table_robust(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

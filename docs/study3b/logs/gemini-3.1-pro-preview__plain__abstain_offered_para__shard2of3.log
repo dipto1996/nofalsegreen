@@ -1,0 +1,41 @@
+Study 3 (plain): 12 generated firms x 42 pairs
+shard 2/3: ['synthetic-001003-study3-plain', 'synthetic-001014-study3-plain', 'synthetic-001020-study3-plain', 'synthetic-001027-study3-plain']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered_para']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001003-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3163 output tokens, 26s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3549 output tokens, 23s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4494 output tokens, 32s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1034 output tokens, 9s, finish=stop, ok
+  synthetic-001014-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1025 output tokens, 11s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1124 output tokens, 9s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2773 output tokens, 19s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2666 output tokens, 21s, finish=stop, ok
+  synthetic-001020-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1448 output tokens, 13s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1460 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2279 output tokens, 16s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3023 output tokens, 19s, finish=stop, ok
+  synthetic-001027-study3-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_offered_para: FGR 0.000 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote docs/study3b/runs/gemini-3.1-pro-preview__plain__abstain_offered_para__shard2of3.json

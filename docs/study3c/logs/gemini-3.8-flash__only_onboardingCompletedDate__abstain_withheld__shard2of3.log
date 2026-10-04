@@ -1,0 +1,36 @@
+Study 3c (only_onboardingCompletedDate): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-only_onboardingCompletedDate', 'synthetic-002037-study3c-only_onboardingCompletedDate', 'synthetic-002048-study3c-only_onboardingCompletedDate']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4600 output tokens, 35s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 4849 output tokens, 34s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31022 output tokens, 256s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2658 output tokens, 17s, finish=stop, ok
+  synthetic-002009-study3c-only_onboardingCompletedDate FGR 0.121  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9557 output tokens, 79s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 17559 output tokens, 130s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31018 output tokens, 211s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3139 output tokens, 21s, finish=stop, ok
+  synthetic-002037-study3c-only_onboardingCompletedDate FGR 0.364  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 18662 output tokens, 135s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 18008 output tokens, 117s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31007 output tokens, 188s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2342 output tokens, 14s, finish=stop, ok
+  synthetic-002048-study3c-only_onboardingCompletedDate FGR 0.364  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.283 (sd 0.140)  recall 1.000  over 3 firm(s)
+
+wrote docs/study3c/runs/gemini-3.8-flash__only_onboardingCompletedDate__abstain_withheld__shard2of3.json

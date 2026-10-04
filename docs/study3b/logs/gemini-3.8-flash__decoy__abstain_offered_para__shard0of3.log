@@ -1,0 +1,39 @@
+Study 3 (decoy): 12 generated firms x 42 pairs
+shard 0/3: ['synthetic-001001-study3-decoy', 'synthetic-001008-study3-decoy', 'synthetic-001017-study3-decoy', 'synthetic-001021-study3-decoy']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered_para']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001001-study3-decoy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+        attempt 1: 21077 output tokens, 131s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 30117 output tokens, 133s, finish=stop, ok
+  synthetic-001008-study3-decoy FGR 0.444  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2606 output tokens, 17s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2832 output tokens, 21s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 17380 output tokens, 114s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 10341 output tokens, 75s, finish=stop, ok
+  synthetic-001017-study3-decoy FGR 0.556  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2493 output tokens, 19s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2504 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10265 output tokens, 71s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 10611 output tokens, 77s, finish=stop, ok
+  synthetic-001021-study3-decoy FGR 0.889  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_offered_para: FGR 0.722 (sd 0.265)  recall 1.000  over 4 firm(s)
+
+wrote docs/study3b/runs/gemini-3.8-flash__decoy__abstain_offered_para__shard0of3.json

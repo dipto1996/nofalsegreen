@@ -1,0 +1,41 @@
+Study 3c (only_workAuthValidThrough): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study3c-only_workAuthValidThrough', 'synthetic-002023-study3c-only_workAuthValidThrough', 'synthetic-002040-study3c-only_workAuthValidThrough', 'synthetic-002069-study3c-only_workAuthValidThrough']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study3c-only_workAuthValidThrough FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2584 output tokens, 21s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 4285 output tokens, 30s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 13494 output tokens, 92s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5141 output tokens, 72s, finish=stop, ok
+  synthetic-002023-study3c-only_workAuthValidThrough FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 10023 output tokens, 73s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 18410 output tokens, 136s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 7817 output tokens, 60s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5137 output tokens, 39s, finish=stop, ok
+  synthetic-002040-study3c-only_workAuthValidThrough FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 22511 output tokens, 173s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 17602 output tokens, 127s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 17457 output tokens, 125s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3715 output tokens, 23s, finish=stop, ok
+  synthetic-002069-study3c-only_workAuthValidThrough FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.273 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote docs/study3c/runs/gemini-3.8-flash__only_workAuthValidThrough__abstain_withheld__shard0of3.json

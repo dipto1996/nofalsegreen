@@ -1,0 +1,37 @@
+Study 3 (decoy): 12 generated firms x 42 pairs
+shard 0/3: ['synthetic-001001-study3-decoy', 'synthetic-001008-study3-decoy', 'synthetic-001017-study3-decoy', 'synthetic-001021-study3-decoy']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld_para']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001001-study3-decoy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001008-study3-decoy FGR 0.556  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2881 output tokens, 23s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3151 output tokens, 21s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6406 output tokens, 43s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 29497 output tokens, 199s, finish=stop, ok
+  synthetic-001017-study3-decoy FGR 0.778  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2966 output tokens, 23s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3461 output tokens, 23s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5232 output tokens, 34s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6399 output tokens, 41s, finish=stop, ok
+  synthetic-001021-study3-decoy FGR 0.889  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld_para: FGR 0.806 (sd 0.190)  recall 1.000  over 4 firm(s)
+
+wrote docs/study3b/runs/gemini-3.1-pro-preview__decoy__abstain_withheld_para__shard0of3.json
