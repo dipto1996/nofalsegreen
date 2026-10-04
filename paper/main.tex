@@ -31,6 +31,9 @@
 \titlespacing*{\section}{0pt}{12pt}{5pt}
 \titlespacing*{\subsection}{0pt}{9pt}{3pt}
 \setlength{\parskip}{3pt}
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{5}
 \setlength{\parindent}{0pt}
 \renewcommand{\arraystretch}{1.12}
 \newcommand{\code}[1]{\path{#1}}
@@ -318,7 +321,7 @@ LCA required wage & proxy & dashboard & 437 & 124 (28\%) & 45 (10\%) & 268 (61\%
 \end{table}
 
 \begin{figure}[tbp]\centering
-\includegraphics[width=0.48\textwidth]{figures/fig_detection_vs_safety.pdf}
+\includegraphics[width=0.66\textwidth]{figures/fig_detection_vs_safety.pdf}
 \caption{Violation recall on plain firms against the false-green rate on proxy-column firms, offered schema, one point per model. The four models that detect nearly every violation still report between 16\% and 36\% of unassessable pairs as compliant.}\label{fig:fig_detection_vs_safety}
 \end{figure}
 
@@ -355,16 +358,21 @@ Kimi K2 Thinking & Moonshot & 1 & 140/140 & 0.042 & 0.042 & 0.350 & 0.267 & not 
 \par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize FGR over the 120 unassessable pairs of the 140-pair anchor subset; unanswered pairs cannot be false greens, so the answered-only column guards against coverage effects. Change: offered to dashboard, paired on pairs answered in both; Holm across the six single-run models, and across 24 contrasts for the three repeated-run models. The last four models were added with Study 3 and run once, descriptively. Recall is against the source engine's violation labels (Section 4.4).\end{minipage}
 \end{table}
 
-\textbf{False greens persist when abstention is offered.} The thirteen models report 0.042 to 0.153 of the anchor firm's unassessable pairs as satisfied with abstention offered, and 0.131 to 0.589 under the dashboard schema (Table 8). The dashboard schema raised the rate significantly for all six single-run models (Holm across six) and for two of the three repeated-run models (Holm across 24 contrasts; not Gemini 3.1 Pro), so eight of the nine models we tested for it; the four further models were run descriptively. Violation recall is low (0.050 to 0.500 against the engine's labels): models answer \texttt{\path|needs_evidence|} on violations whose evidence is present. The strict and audited label views change false-green rates by at most 0.021 and change no condition effect (Appendix D).
+\begin{figure}[tbp]\centering
+\includegraphics[width=\textwidth]{figures/fig_separation.pdf}
+\caption{Each of the thirteen models on the anchor subset under the two schemas they all ran. A filled point is the offered schema, an open point the dashboard schema, and a line joins a model's two runs; numbers refer to the key. Without the abstention every model moves up and to the right together, buying violation recall with false greens, and none reaches the target corner. Grey squares are the trivial baselines; always\_fail shares the oracle's point because neither axis penalises calling an unassessable pair a violation, the error that Figure 8 counts.}\label{fig:fig_separation}
+\end{figure}
+
+\textbf{False greens persist when abstention is offered.} The thirteen models report 0.042 to 0.153 of the anchor firm's unassessable pairs as satisfied with abstention offered, and 0.131 to 0.589 under the dashboard schema (Table 8, Figure 7). The dashboard schema raised the rate significantly for all six single-run models (Holm across six) and for two of the three repeated-run models (Holm across 24 contrasts; not Gemini 3.1 Pro), so eight of the nine models we tested for it; the four further models were run descriptively. Violation recall is low (0.050 to 0.500 against the engine's labels): models answer \texttt{\path|needs_evidence|} on violations whose evidence is present. The strict and audited label views change false-green rates by at most 0.021 and change no condition effect (Appendix D).
 
 \begin{figure}[tbp]\centering
 \includegraphics[width=\textwidth]{figures/fig_verdict_routes.pdf}
 \caption{Where the anchor subset's 120 unassessable pairs go under each schema, for the three repeated-run models (mean of three runs). Removing needs\_evidence alone sends most of them to unmonitored, not to pass; removing every non-committal verdict sends Gemini 3.1 Pro's to fail and Gemma 4's to pass.}\label{fig:fig_verdict_routes}
 \end{figure}
 
-\textbf{Models fail through different routes.} Decomposed for the three repeated-run models (Figure 7), removing only \texttt{\path|needs_evidence|} significantly raised false greens for Gemma 4 alone (+0.086); Gemini 3.1 Pro sent 109 of 120 unassessable pairs to \texttt{\path|unmonitored|} instead. Removing every non-committal verdict raised false greens for Gemma 4 (+0.542) and Gemini 3.8 Flash (+0.136); Gemini 3.1 Pro instead called 114 of 120 pairs violations, which is also wrong but sends every one to review. Redefining \texttt{\path|pass|} and dropping the warning raised false greens for Gemini 3.1 Pro (+0.081) and Flash (+0.168), and not for Gemma 4, whose rate under \emph{closed} was already 0.600. On the six Study 2 generated firms, which have no proxy columns, no contrast survives correction (Appendix E). These observations are what Study 3 was designed to test.
+\textbf{Models fail through different routes.} Decomposed for the three repeated-run models (Figure 8), removing only \texttt{\path|needs_evidence|} significantly raised false greens for Gemma 4 alone (+0.086); Gemini 3.1 Pro sent 109 of 120 unassessable pairs to \texttt{\path|unmonitored|} instead. Removing every non-committal verdict raised false greens for Gemma 4 (+0.542) and Gemini 3.8 Flash (+0.136); Gemini 3.1 Pro instead called 114 of 120 pairs violations, which is also wrong but sends every one to review. Redefining \texttt{\path|pass|} and dropping the warning raised false greens for Gemini 3.1 Pro (+0.081) and Flash (+0.168), and not for Gemma 4, whose rate under \emph{closed} was already 0.600. On the six Study 2 generated firms, which have no proxy columns, no contrast survives correction (Appendix E). These observations are what Study 3 was designed to test.
 
-\textbf{Where the false greens fell.} Under the offered schema, three regimes (I-9 and E-Verify, prevailing wage, and the LCA rules) hold almost every false green on the anchor firm (Appendix Figure 9). A declared comparison found more false greens on obligations whose evidence is a document than on those whose evidence is a field, in 11 of the 12 single-run model and schema combinations; but the false greens cluster on items whose required evidence sits next to a populated column. Where nothing adjacent is exported, as for the public access file's assembly obligations, the six-year maximum stay or site-visit records, no model produced a false green with abstention offered. A rule fixed in code before any reply was read selected one false green per model:
+\textbf{Where the false greens fell.} Under the offered schema, three regimes (I-9 and E-Verify, prevailing wage, and the LCA rules) hold almost every false green on the anchor firm (Appendix Figure 10). A declared comparison found more false greens on obligations whose evidence is a document than on those whose evidence is a field, in 11 of the 12 single-run model and schema combinations; but the false greens cluster on items whose required evidence sits next to a populated column. Where nothing adjacent is exported, as for the public access file's assembly obligations, the six-year maximum stay or site-visit records, no model produced a false green with abstention offered. A rule fixed in code before any reply was read selected one false green per model:
 
 \begin{itemize}
 \item Qwen 3.8 27B and dots.3 Note Preview, independently: \texttt{\path|h1b.wage.deductions.prohibited.business-expense … pass … pretax_deductions|}. The payroll export carries only an unitemized deduction total, so no prohibited fee can be identified either way; both cite the total as evidence that none was taken.
@@ -398,7 +406,7 @@ Each is a populated column standing in for the record beside it. Study 3 planted
 
 \textbf{Not legal advice, not a training set.} The rulebook is a research artifact, and a high score does not establish that a system may be relied upon by an employer; the plausible misuse of this benchmark is a vendor citing a score as evidence of fitness. Fitting a model to these labels measures nothing, since they are the generator's specification.
 
-\textbf{Competing interests.} The author is affiliated with Settle AI Inc., which develops commercial compliance software for US employment-based immigration. The anchor firm's labels were written as that company's engine's acceptance gate, and the rulebook derives from its rule registry. The engine is excluded as a baseline, the generated firms take their labels from the generator, and the anchor labels were audited blind twice, with the results that weaken them reported in full (Figure 8). No model provider was consulted, and no result was shared with one before publication.
+\textbf{Competing interests.} The author is affiliated with Settle AI Inc., which develops commercial compliance software for US employment-based immigration. The anchor firm's labels were written as that company's engine's acceptance gate, and the rulebook derives from its rule registry. The engine is excluded as a baseline, the generated firms take their labels from the generator, and the anchor labels were audited blind twice, with the results that weaken them reported in full (Figure 9). No model provider was consulted, and no result was shared with one before publication.
 
 \textbf{Use of AI assistance.} An AI coding assistant (Anthropic's Claude) wrote the benchmark code, ran the experiments and drafted the text. Separate Claude agents performed the first label audit and wrote the reference checker without access to the generator or the labels; Gemini 3.1 Pro performed the second audit. All are reported as AI checks, not expert review. Every quantitative claim is recomputed from released artifacts by \texttt{\path|scripts/verify_paper.py|}; the author is responsible for all content.
 
@@ -887,7 +895,7 @@ Removing the two I-9 signature pairs lowers the false-green rate by 0.008 to 0.0
 \par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Cells are the false-green rate over the regime's unassessable pairs; in parentheses, the regime's scored pairs of any label.\end{minipage}
 \end{table}
 
-Three regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost every false green; H-1B status and FDNS site visits have none. Figure 9 shows the same data as a heatmap.
+Three regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost every false green; H-1B status and FDNS site visits have none. Figure 10 shows the same data as a heatmap.
 
 \begin{figure}[tbp]\centering
 \includegraphics[width=\textwidth]{figures/fig_regime_heatmap.pdf}

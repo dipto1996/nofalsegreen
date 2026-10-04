@@ -507,7 +507,7 @@ only whether the obligation is satisfied.
 Pooled over the seven models. A false green is a `pass` on an unassessable pair; the column is the evidence field the reply line names. Planted proxy columns: `onboardingCompletedDate`, `workAuthValidThrough`, `annualBaseSalary`, `payBandMidpoint`, `i9Status` (never cited). Exploratory: added after the results.
 <!-- END GENERATED: table-cited -->
 
-<!-- FIGURE: fig_detection_vs_safety | 0.48\textwidth | Violation recall on plain firms against the false-green rate on proxy-column firms, offered schema, one point per model. The four models that detect nearly every violation still report between 16% and 36% of unassessable pairs as compliant. -->
+<!-- FIGURE: fig_detection_vs_safety | 0.66\textwidth | Violation recall on plain firms against the false-green rate on proxy-column firms, offered schema, one point per model. The four models that detect nearly every violation still report between 16% and 36% of unassessable pairs as compliant. -->
 
 **Detection does not imply safety.** Gemini 3.1 Pro, Gemini 3.8 Flash, gpt-oss-120b and Kimi
 K2 detect at least 0.954 of violations on plain firms with abstention offered, yet on
@@ -553,9 +553,11 @@ results, which is why this study is exploratory.
 FGR over the 120 unassessable pairs of the 140-pair anchor subset; unanswered pairs cannot be false greens, so the answered-only column guards against coverage effects. Change: offered to dashboard, paired on pairs answered in both; Holm across the six single-run models, and across 24 contrasts for the three repeated-run models. The last four models were added with Study 3 and run once, descriptively. Recall is against the source engine's violation labels (Section 4.4).
 <!-- END GENERATED: table-anchor-all -->
 
+<!-- FIGURE: fig_separation | wide | Each of the thirteen models on the anchor subset under the two schemas they all ran. A filled point is the offered schema, an open point the dashboard schema, and a line joins a model's two runs; numbers refer to the key. Without the abstention every model moves up and to the right together, buying violation recall with false greens, and none reaches the target corner. Grey squares are the trivial baselines; always_fail shares the oracle's point because neither axis penalises calling an unassessable pair a violation, the error that Figure 8 counts. -->
+
 **False greens persist when abstention is offered.** The thirteen models report 0.042 to
 0.153 of the anchor firm's unassessable pairs as satisfied with abstention offered, and 0.131
-to 0.589 under the dashboard schema (Table 8). The dashboard schema raised the rate
+to 0.589 under the dashboard schema (Table 8, Figure 7). The dashboard schema raised the rate
 significantly for all six single-run models (Holm across six) and for two of the three
 repeated-run models (Holm across 24 contrasts; not Gemini 3.1 Pro), so eight of the nine
 models we tested for it; the four further models were run descriptively. Violation recall is
@@ -566,7 +568,7 @@ most 0.021 and change no condition effect (Appendix D).
 <!-- FIGURE: fig_verdict_routes | wide | Where the anchor subset's 120 unassessable pairs go under each schema, for the three repeated-run models (mean of three runs). Removing needs_evidence alone sends most of them to unmonitored, not to pass; removing every non-committal verdict sends Gemini 3.1 Pro's to fail and Gemma 4's to pass. -->
 
 **Models fail through different routes.** Decomposed for the three repeated-run models
-(Figure 7), removing only `needs_evidence` significantly raised false greens for Gemma 4 alone
+(Figure 8), removing only `needs_evidence` significantly raised false greens for Gemma 4 alone
 (+0.086); Gemini 3.1 Pro sent 109 of 120 unassessable pairs to `unmonitored` instead.
 Removing every non-committal verdict raised false greens for Gemma 4 (+0.542) and Gemini 3.8
 Flash (+0.136); Gemini 3.1 Pro instead called 114 of 120 pairs violations, which is also wrong
@@ -578,7 +580,7 @@ designed to test.
 
 **Where the false greens fell.** Under the offered schema, three regimes (I-9 and E-Verify,
 prevailing wage, and the LCA rules) hold almost every false green on the anchor firm (Appendix
-Figure 9). A declared comparison found more false greens on obligations whose evidence is a
+Figure 10). A declared comparison found more false greens on obligations whose evidence is a
 document than on those whose evidence is a field, in 11 of the 12 single-run model and schema
 combinations; but the false greens cluster on items whose required evidence sits next to a
 populated column. Where nothing adjacent is exported, as for the public access file's assembly
@@ -681,7 +683,7 @@ commercial compliance software for US employment-based immigration. The anchor f
 were written as that company's engine's acceptance gate, and the rulebook derives from its
 rule registry. The engine is excluded as a baseline, the generated firms take their labels
 from the generator, and the anchor labels were audited blind twice, with the results that
-weaken them reported in full (Figure 8). No model provider was consulted, and no result was shared with
+weaken them reported in full (Figure 9). No model provider was consulted, and no result was shared with
 one before publication.
 
 **Use of AI assistance.** An AI coding assistant (Anthropic's Claude) wrote the benchmark
@@ -1362,7 +1364,7 @@ Cells are the false-green rate over the regime's unassessable pairs; in parenthe
 <!-- END GENERATED: table4-regime -->
 
 Three regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost every false
-green; H-1B status and FDNS site visits have none. Figure 9 shows the same data as a heatmap.
+green; H-1B status and FDNS site visits have none. Figure 10 shows the same data as a heatmap.
 
 <!-- FIGURE: fig_regime_heatmap | wide | False-green rate by regime and model on the anchor subset, offered schema (the data of Table 13). False greens concentrate in the regimes whose exports carry a populated column next to the missing evidence. -->
 

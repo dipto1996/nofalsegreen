@@ -140,7 +140,7 @@ claim([int(_re.match(r"^## (\d+)\.", h).group(1)) for h in _nums] == list(range(
       "section numbers run 1..10 with no gaps or repeats")
 claim("## 2. Related work" in paper, "Related work is a real section, not an appendix stub")
 claim("Appendix B: Related work to engage" not in paper, "the old related-work stub is gone")
-for t in ["Table %d" % i for i in range(1, 18)] + ["Figure %d" % i for i in range(1, 10)]:
+for t in ["Table %d" % i for i in range(1, 18)] + ["Figure %d" % i for i in range(1, 11)]:
     claim(t in paper, f"{t} is named in the paper")
 claim("[\u2026]" not in paper and "[…]" not in paper, "no empty result cell remains")
 _bad = _re.findall(r"Section \d+", paper)

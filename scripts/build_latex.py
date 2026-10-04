@@ -57,6 +57,9 @@ PREAMBLE = r"""\documentclass[11pt]{article}
 \titlespacing*{\section}{0pt}{12pt}{5pt}
 \titlespacing*{\subsection}{0pt}{9pt}{3pt}
 \setlength{\parskip}{3pt}
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{5}
 \setlength{\parindent}{0pt}
 \renewcommand{\arraystretch}{1.12}
 \newcommand{\code}[1]{\path{#1}}
