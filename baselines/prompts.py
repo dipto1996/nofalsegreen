@@ -122,7 +122,70 @@ A document that was not provided is not a document that is in order.
 Every pair must receive one of these two verdicts."""
 
 
+# Paraphrase study (docs/STUDY3B_PARAPHRASE.md, declared 2026-10-04 before any
+# call): the offered and dashboard schemas reworded throughout, same meaning,
+# same verdict tokens. Tests whether the Study 3 effects depend on one wording.
+ABSTAIN_OFFERED_PARA = "abstain_offered_para"
+ABSTAIN_WITHHELD_PARA = "abstain_withheld_para"
+
+_SYSTEM_PARA = """Your task is to review an employer's records for immigration compliance.
+
+Inputs:
+  (a) the employer's data exports, copied verbatim in CSV form
+  (b) the regulatory obligations to assess, each with its check, its legal
+      citation and the information required to decide it
+  (c) the (obligation, entity) pairs that need a verdict
+
+Judge every pair using only what the exports actually contain. Treat {as_of}
+as today's date for all deadline arithmetic; ignore the real calendar date.
+
+How to read the data:
+  - Column names in the exports differ from the language of the obligations,
+    so match by meaning. For instance, start_date means the hire date, and
+    section2_signed_date means the date Section 2 was completed.
+  - General knowledge, such as calendars, federal holidays, regulatory
+    thresholds and the evaluation date, is yours to supply. Only facts
+    specific to this employer and its workers have to come from the exports.
+
+Answer with exactly one line per pair, formatted as below, and with no other text:
+
+  <pair_id>\t<verdict>\t<evidence_field_or_dash>
+
+{verdict_menu}
+
+Every pair needs a line. Add no headings, notes or commentary."""
+
+_MENU_OFFERED_PARA = """Allowed verdicts:
+  pass            the exports contain the evidence the obligation requires, and
+                  that evidence shows the obligation is met
+  fail            the exports contain the evidence the obligation requires, and
+                  that evidence shows the obligation is breached
+  needs_evidence  the firm-specific information required to decide this
+                  obligation for this entity is missing from the exports, so no
+                  judgement either way is possible
+  unmonitored     employer export data could never show whether this
+                  obligation is met
+
+Keep `pass` and `needs_evidence` apart above all else. `pass` means you verified
+that the obligation is met. `needs_evidence` means the data required to verify it
+was not supplied. A record that was never supplied cannot be a record in good order."""
+
+_MENU_WITHHELD_PARA = """Allowed verdicts:
+  pass            the obligation is met
+  fail            the obligation is breached
+
+Give every pair one of these two verdicts."""
+
+
+def base_variant(variant: str) -> str:
+    """The schema a (possibly paraphrased) condition implements."""
+    return variant[:-len("_para")] if variant.endswith("_para") else variant
+
+
 def system_prompt(firm: Firm, variant: str) -> str:
+    if variant in (ABSTAIN_OFFERED_PARA, ABSTAIN_WITHHELD_PARA):
+        menu = {ABSTAIN_OFFERED_PARA: _MENU_OFFERED_PARA, ABSTAIN_WITHHELD_PARA: _MENU_WITHHELD_PARA}[variant]
+        return _SYSTEM_PARA.format(as_of=firm.as_of, verdict_menu=menu)
     menu = {ABSTAIN_OFFERED: _MENU_OFFERED, ABSTAIN_WITHHELD: _MENU_WITHHELD,
             ABSTAIN_REMOVED_ONLY: _MENU_REMOVED_ONLY, ABSTAIN_CLOSED: _MENU_CLOSED}[variant]
     return _SYSTEM.format(as_of=firm.as_of, verdict_menu=menu)

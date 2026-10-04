@@ -215,6 +215,7 @@ def parse_response(text: str, expected_pair_ids: list[str], variant: str):
     # The LAST verdict line for a pair wins: the final answer follows the trace.
     unparseable = len(mentioned_without_verdict - set(seen))
     off_schema = 0
+    variant = variant[:-len("_para")] if variant.endswith("_para") else variant
     if variant in (ABSTAIN_WITHHELD, ABSTAIN_CLOSED):
         off_schema = sum(1 for pr in seen.values()
                          if pr.verdict in (Verdict.NEEDS_EVIDENCE, Verdict.UNMONITORED))
