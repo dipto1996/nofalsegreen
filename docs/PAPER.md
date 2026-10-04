@@ -928,27 +928,29 @@ violations; the false-green axis shows what that preference costs.
 
 Study 2 runs the same protocol on all 252 pairs of six generated firms (Section 5.3), which
 carry what the anchor firm lacks: conforming controls, a third of them near-miss cases on
-the legal boundary. Firms were fixed in `nofalsegreen/study2.py` before any call. The
-declared free-tier models are still running on the free quota and are not reported here;
-Study 2 results come from the three Vertex models, three runs each, shown in the Study 2
-rows of Table 7 (Section 8.4).
+the legal boundary. Firms were fixed in `nofalsegreen/study2.py` before any call. Results
+come from the three Vertex models, three runs each, in the Study 2 rows of Table 7 (Section
+8.4). The declared free-tier sweep was stopped after one model, superseded by Study 3
+(Section 8.5), which runs four models from other developers on fresh firms.
 
-**Generated firms are easier, and show the other side of the trade-off.** With abstention
-offered, the three models report 0.021 to 0.071 of withheld pairs as compliant, below their
-Study 1 rates. Gemini 3.1 Pro and 3.8 Flash detect 0.960 to 0.980 of violations; Gemma 4
-detects 0.283. The generated exports are clean, with no populated column next to a missing
-one, which is consistent with the adjacent-field account of Section 9. The conforming
-controls expose a cost that Study 1 could not show. With abstention offered, Gemini 3.1 Pro
-returns something other than `pass` on 0.190 of conforming controls and 0.162 of near-miss
-controls, mostly by asking for evidence that is present. In the *closed* condition, with no
-abstention verdict, its false-alarm rate on all controls falls to 0.032 while its false-green
-rate rises from 0.021 to 0.061 (not significant after correction; Table 8). The abstention
-option buys fewer false greens with more review of compliant items.
+**A scoping defect, and what it touches.** While preparing Study 3 we found that the scoped
+prompt for the wage rule never carried a generated firm's `actual_wage_system` export, which
+the rule needs. In Study 2 every wage pair was therefore sent without it. The 27 withheld
+wage pairs are unaffected, since their evidence was missing either way. The 27 decidable wage
+pairs (three firms, labelled `pass` or `fail`) were not decidable from what the models saw,
+and are excluded from every Study 2 metric. False-green rates and the Table 8 contrasts do
+not change. Detection and false-alarm figures do, and one reading in an earlier version of
+this paper was wrong: we attributed Gemini 3.1 Pro's near-miss false alarms (0.162) to
+caution about evidence that was present. They were requests for the missing actual-wage
+export, which was correct. The defect is fixed for Study 3.
 
-Excluding the reverification pairs, whose violation labels assume no extension was filed
-(Section 11), changes no conclusion. No false green fell on those pairs, so false-green rates
-rise slightly with the smaller denominator; Gemini 3.1 Pro's violation recall falls from
-0.960 to between 0.913 and 0.957, since the excluded pairs include violations it caught.
+**Generated firms are easier.** With abstention offered, the three models report 0.021 to
+0.071 of withheld pairs as compliant, below their Study 1 rates. Gemini 3.1 Pro and 3.8
+Flash detect every violation and raise no false alarm on a conforming control, near-miss
+controls included, in three of the four schemas. Gemma 4 detects 0.346 of violations. The
+generated exports are clean, with no populated column next to a missing one, which is the
+gap Study 3 fills. Excluding the reverification pairs, whose violation labels assume no
+extension was filed (Section 11), changes no conclusion; no false green fell on them.
 
 ### 8.4 The Vertex block: a frontier model, and repeated runs
 
@@ -1142,10 +1144,9 @@ required.
 
 **Near-miss controls.** Distinguishes rule application from proximity heuristics. The anchor
 subset has no conforming pair, so its false-alarm rate is 0.000 by construction and carries
-no information. On the generated firms (Table 7) the near-miss false-alarm rate with
-abstention offered is 0.061 for Gemma 4, 0.071 for Gemini 3.8 Flash and 0.162 for Gemini 3.1
-Pro. Pro's rate is more than twice the others', and comes almost entirely from asking for
-evidence that is present on a boundary case: the price of its caution.
+no information. On the Study 2 firms (Table 7), with abstention offered, Gemini 3.1 Pro and
+3.8 Flash raise no near-miss false alarm and Gemma 4 raises 0.074: boundary cases are not
+where these models fail.
 
 **The schema ablation.** From Tables 3 and 8. A large effect of the schema locates the
 problem in interface design, which is actionable for anyone shipping a compliance
