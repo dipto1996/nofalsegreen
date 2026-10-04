@@ -71,6 +71,9 @@ def main() -> int:
     ap.add_argument("--study2", action="store_true",
                     help="evaluate the five declared Study 2 generated firms "
                          "(nofalsegreen/study2.py) instead of the anchor firm")
+    ap.add_argument("--study3", choices=["decoy", "plain"], default=None,
+                    help="evaluate one arm of the declared Study 3 firms "
+                         "(nofalsegreen/study3.py, docs/STUDY3_PREREGISTRATION.md)")
     ap.add_argument("--finalize", action="store_true",
                     help="record a run whose host kept failing with the pairs it has, "
                          "flagged finalized_incomplete. Cut-off rule declared 2026-10-01: "
@@ -104,6 +107,10 @@ def main() -> int:
     if args.study2:
         firms = study2.load_firms(rb)
         print(f"Study 2: {len(firms)} generated firms x {len(firms[0].pairs)} pairs")
+    if args.study3:
+        from nofalsegreen import study3
+        firms = study3.load_firms(rb, args.study3)
+        print(f"Study 3 ({args.study3}): {len(firms)} generated firms x {len(firms[0].pairs)} pairs")
     for seed in range(1, args.firms + 1):
         firms.append(gen.generate(seed, ROOT / ".llm-tmp" / f"s{seed}"))
 

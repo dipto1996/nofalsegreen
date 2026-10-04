@@ -37,6 +37,32 @@ Rule families rendered (rule ids as in the rulebook):
 Near-miss controls sit exactly on the boundary: Section 1 on the first day,
 Section 2 on business day 3, Supplement B on the expiry date, pay exactly equal
 to the required wage. Every firm is reproducible from (seed, config).
+
+DECOYS (v3, `GeneratorConfig.decoys`, declared for Study 3 before any call).
+v2 firms withhold whole exports, so abstention reduces to noticing a missing
+file, and the adjacent-field substitution seen on the anchor firm cannot occur.
+With `decoys=True` the HRIS roster carries five columns that sit beside the
+evidence each rule needs without being it:
+
+  i9Status                 "Complete": says a form exists, not when either
+                           section was completed (S1, S2 timeliness)
+  onboardingCompletedDate  an HR onboarding date near the start date, not a
+                           Section 1 or Section 2 date (S1, S2 timeliness)
+  workAuthValidThrough     the CURRENT authorization's end date (after the
+                           evaluation date), which says nothing about when
+                           Supplement B was completed (RV)
+  annualBaseSalary         the salary of record, set at the LCA offered wage;
+                           not wages actually paid (wage rule, 20 CFR
+                           655.731(c))
+  payBandMidpoint          an internal pay-band midpoint, not the employer's
+                           actual wage for similarly employed workers
+
+The columns appear in EVERY decoy firm, whether or not the export they imitate
+is withheld, so their presence reveals nothing. They are drawn from a separate
+random stream: a decoy firm and the plain firm of the same seed have identical
+workers, labels and other exports, which makes the two arms paired. No label
+changes, because none of the five columns is an item the rulebook lists as
+evidence for the rule it imitates.
 """
 
 from __future__ import annotations
@@ -132,6 +158,7 @@ class GeneratorConfig:
     near_miss_share: float = 0.25   # of decidable pairs
     withhold_export: float = 0.4    # chance each of i9 / payroll / actual-wage export is withheld
     as_of: date = date(2026, 6, 29)
+    decoys: bool = False            # v3: adjacent-but-insufficient roster columns (see docstring)
 
 
 class FirmGenerator:
@@ -234,6 +261,8 @@ class FirmGenerator:
             by_worker[l["worker"]]["annual"] = pay
             emit(R_WG, l["case"], v, b, near)
 
+        if cfg.decoys:
+            self._add_decoys(random.Random(f"decoy-{seed}"), workers)
         sources = self._write_sources(out_dir, workers, lcas, withheld)
         return Firm(
             firm_id=f"synthetic-{seed:06d}",
@@ -245,12 +274,13 @@ class FirmGenerator:
             labels=labels,
             provenance={
                 "seed": seed,
-                "generator": "v2",
+                "generator": "v3-decoys" if cfg.decoys else "v2",
                 "withheld_exports": sorted(withheld),
                 "config": {
                     "n_workers": cfg.n_workers, "violation_rate": cfg.violation_rate,
                     "near_miss_share": cfg.near_miss_share,
                     "withhold_export": cfg.withhold_export, "as_of": cfg.as_of.isoformat(),
+                    **({"decoys": True} if cfg.decoys else {}),
                 },
                 "rulebook_version": self.rb.version,
                 "synthetic": True,
@@ -287,6 +317,17 @@ class FirmGenerator:
             out.append(w)
         return out
 
+    def _add_decoys(self, rng: random.Random, workers: list[dict]) -> None:
+        for w in workers:
+            w["decoy"] = {
+                "i9Status": "Complete",
+                "onboardingCompletedDate": (w["start"] - timedelta(days=rng.randint(0, 6))).isoformat(),
+                "workAuthValidThrough": ((self.cfg.as_of + timedelta(days=rng.randint(90, 1000))).isoformat()
+                                         if w["auth_expiry"] else ""),
+                "annualBaseSalary": max(w["pw"], w["actual"]) if w["visa"] == "H-1B" else w["annual"],
+                "payBandMidpoint": w["actual"] - 1_200 * rng.randint(3, 8),
+            }
+
     def _make_lcas(self, rng: random.Random, workers: list[dict]) -> list[dict]:
         out = []
         for i, w in enumerate(x for x in workers if x["visa"] == "H-1B"):
@@ -307,11 +348,14 @@ class FirmGenerator:
         p = out_dir / "hris_roster_export.csv"
         with p.open("w", newline="") as f:
             wr = csv.writer(f)
+            decoy_cols = list(workers[0]["decoy"]) if "decoy" in workers[0] else []
             wr.writerow(["employeeNumber", "firstName", "lastName", "visaType", "jobTitle",
-                         "city", "state", "hireDate", "employmentStatus", "terminationDate"])
+                         "city", "state", "hireDate", "employmentStatus", "terminationDate",
+                         *decoy_cols])
             for w in workers:
                 wr.writerow([w["id"], w["first"], w["last"], w["visa"], w["title"], w["city"],
-                             w["state"], w["start"].isoformat(), "Active", ""])
+                             w["state"], w["start"].isoformat(), "Active", "",
+                             *(w["decoy"][c] for c in decoy_cols)])
         files["hris_roster_export"] = Path(p.name)
 
         p = out_dir / "lca_export.csv"

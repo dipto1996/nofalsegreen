@@ -434,6 +434,80 @@ class VertexProvider:
         raise RuntimeError(f"{self.name}: gave up after {self.max_retries} attempts: {last_err}")
 
 
+class VertexOpenProvider(VertexProvider):
+    """Open-weights models from other developers, served by Google on Vertex AI
+    (Model Garden "model as a service") through its OpenAI-compatible endpoint.
+    Billed as Vertex AI usage, so paid from the same cloud credits.
+
+    `model` is "vertexopen/<publisher>/<model>#r<k>". The served location is
+    per model (nofalsegreen/study3.py, OPEN_MODELS). A reasoning trace, when
+    the model returns one, is counted toward output but never parsed.
+    """
+
+    def __init__(self, model: str, quota: Quota, *, max_retries: int = 6):
+        from nofalsegreen.study3 import OPEN_MODELS, OUTPUT_LIMITS
+
+        super().__init__(model, quota, max_retries=max_retries)
+        self.location = OPEN_MODELS[self.model_id]
+        self.output_limit = OUTPUT_LIMITS.get(self.model_id)
+
+    def complete(self, system: str, user: str, max_tokens: int) -> tuple[str, Usage]:
+        host = ("aiplatform.googleapis.com" if self.location == "global"
+                else f"{self.location}-aiplatform.googleapis.com")
+        url = (f"https://{host}/v1/projects/{self.project}/locations/{self.location}"
+               f"/endpoints/openapi/chat/completions")
+        body = json.dumps({
+            "model": self.model_id,
+            "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+            "temperature": 0, "max_tokens": min(max_tokens, self.output_limit or max_tokens),
+        }).encode()
+        delay, last_err = 10.0, None
+        for _ in range(self.max_retries):
+            self.limiter.acquire()
+            t0 = time.time()
+            req = urllib.request.Request(url, data=body, headers={
+                "Content-Type": "application/json", "Authorization": f"Bearer {self._auth()}",
+                "x-goog-user-project": self.project})
+            try:
+                with urllib.request.urlopen(req, timeout=900) as resp:
+                    raw = resp.read()
+                payload = json.loads(raw) if raw.strip() else {}
+            except urllib.error.HTTPError as e:
+                detail = e.read().decode("utf-8", "replace")[:300]
+                last_err = RuntimeError(f"HTTP {e.code}: {detail}")
+                _log_retry(self.name, last_err, t0)
+                if e.code == 401:
+                    self._token = ""
+                if e.code in (401, 429) or e.code >= 500:
+                    time.sleep(delay)
+                    delay = min(delay * 2, 240.0)
+                    continue
+                raise last_err from e
+            except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+                last_err = e
+                _log_retry(self.name, e, t0)
+                time.sleep(delay)
+                delay = min(delay * 2, 240.0)
+                continue
+            if isinstance(payload, list):
+                payload = payload[0] if payload else {}
+            if "choices" not in payload:
+                # An empty or error body is a delivery failure, retried like a 5xx.
+                last_err = RuntimeError(f"no choices: {str(payload)[:200]}")
+                _log_retry(self.name, last_err, t0)
+                time.sleep(delay)
+                delay = min(delay * 2, 240.0)
+                continue
+            ch = payload["choices"][0]
+            text = (ch.get("message") or {}).get("content") or ""
+            u = payload.get("usage") or {}
+            return text, Usage(
+                input_tokens=u.get("prompt_tokens", 0), output_tokens=u.get("completion_tokens", 0),
+                calls=1, seconds=time.time() - t0, finish_reason=ch.get("finish_reason") or "",
+            )
+        raise RuntimeError(f"{self.name}: gave up after {self.max_retries} attempts: {last_err}")
+
+
 # Quotas as published in vendor docs, September 2026. Verify before a run; the
 # value actually used is recorded in the results file.
 FREE_QUOTAS = {
@@ -452,6 +526,7 @@ FREE_PROVIDERS = {
     "groq": GroqFreeProvider,
     "openrouter": OpenRouterFreeProvider,
     "vertex": VertexProvider,
+    "vertexopen": VertexOpenProvider,
 }
 
 

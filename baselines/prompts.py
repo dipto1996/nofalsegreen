@@ -141,9 +141,15 @@ REGIME_SOURCES: dict[str, tuple[str, ...]] = {
     "i9-everify": ("hris_roster_export", "i9_record_export", "everify_case_export"),
     # payroll added in v1.1: lca.wage.required_wage_greater_of is an lca-dol
     # rule whose planted violation is measured on the payroll-register basis.
-    "lca-dol": ("hris_roster_export", "lca_export", "cms_case_export", "payroll_register"),
+    # actual_wage_system added 2026-10-03, before Study 3: the same rule needs the
+    # employer's actual wage, which only generated firms export. Without it a
+    # generated firm's wage pairs were sent without their deciding export
+    # (paper, Section 11). The anchor firm has no such export, so its prompts
+    # are unchanged.
+    "lca-dol": ("hris_roster_export", "lca_export", "cms_case_export", "payroll_register",
+                "actual_wage_system"),
     "paf": ("hris_roster_export", "lca_export"),
-    "wage-prevailing": ("hris_roster_export", "lca_export", "payroll_register"),
+    "wage-prevailing": ("hris_roster_export", "lca_export", "payroll_register", "actual_wage_system"),
     "h1b-status": ("hris_roster_export", "cms_case_export", "lca_export"),
     "i129-supplement": ("hris_roster_export", "cms_case_export", "lca_export"),
     "l1-visa": ("hris_roster_export", "cms_case_export"),

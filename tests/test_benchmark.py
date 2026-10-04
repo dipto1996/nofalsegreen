@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from baselines.prompts import user_prompt
 from baselines.trivial import REGISTRY
 from nofalsegreen import northwind
 from nofalsegreen.generator import FirmGenerator, GeneratorConfig
@@ -262,5 +263,33 @@ _ss = score(_sub_st, [x for x in _abst if x.pair_id in {l.pair_id for l in _sub_
 check(_se.violation_recall == 0.75 and _ss.violation_recall == 1.0,
       "abstaining on unevidenced memos costs recall under engine (0.75) and none under strict (1.0)")
 
+print("\nStudy 3: decoy arm is paired with the plain arm")
+import csv as _csv  # noqa: E402
+import tempfile as _tf  # noqa: E402
+_t = Path(_tf.mkdtemp())
+_a = FirmGenerator(rb).generate(1001, _t / "plain")
+_b = FirmGenerator(rb, GeneratorConfig(decoys=True)).generate(1001, _t / "decoy")
+check([(l.pair_id, l.verdict) for l in _a.labels] == [(l.pair_id, l.verdict) for l in _b.labels],
+      "same seed gives identical labels with and without decoys")
+check(all((_t / "plain" / _a.sources[k]).read_bytes() == (_t / "decoy" / _b.sources[k]).read_bytes()
+          for k in _a.sources if k != "hris_roster_export"),
+      "every export except the roster is byte-identical")
+_ra = list(_csv.DictReader((_t / "plain" / _a.sources["hris_roster_export"]).open()))
+_rb = list(_csv.DictReader((_t / "decoy" / _b.sources["hris_roster_export"]).open()))
+check(set(_rb[0]) - set(_ra[0]) == {"i9Status", "onboardingCompletedDate", "workAuthValidThrough",
+                                     "annualBaseSalary", "payBandMidpoint"},
+      "the decoy roster adds exactly the five declared columns")
+check(all({k: y[k] for k in x} == x for x, y in zip(_ra, _rb)),
+      "the decoy roster keeps every plain column unchanged")
+check(all(r["workAuthValidThrough"] > "2026-06-29" for r in _rb if r["workAuthValidThrough"]),
+      "the current authorization decoy always ends after the evaluation date")
+
+from dataclasses import replace as _rp  # noqa: E402
+_b = _rp(_b, sources={k: _t / "decoy" / v for k, v in _b.sources.items()})
+check("actual_wage_system" in user_prompt(_b, rb.all_rules(),
+      [x.pair_id for x in _b.pairs if x.pair_id.startswith("lca.wage")][:3], scope_sources=True),
+      "a scoped wage-rule prompt carries the actual-wage export when the firm has one")
+
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)
+
