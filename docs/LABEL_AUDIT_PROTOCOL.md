@@ -63,3 +63,26 @@ view states how many pairs it scores. The engine view remains the headline.
 The auditor is an AI agent, not immigration counsel, and the audit was
 commissioned after results were partly known. Its per-pair reasoning is
 published (`docs/label_audit.json`) so any reader can check each call.
+
+## Second auditor and violation audit (declared 2026-10-03, before either ran)
+
+**Why.** The first audit had one auditor, so its calls cannot be checked for agreement,
+and the 20 `fail` labels were never audited.
+
+**Second auditor.** Gemini 3.1 Pro (Vertex AI, temperature 0), a model from a different
+developer than the first auditor. It audits each of the 120 withheld pairs alone, using the
+same packet and the Criterion section above verbatim. It sees no model reply, no label note
+and no result of the first audit. Agreement with the first audit is reported as raw
+agreement and Cohen's kappa.
+
+**Violation audit.** For each of the 20 `fail` pairs, the same model receives the same
+packet fields and is asked for a three-way judgment: `violation_shown` (the exports show the
+obligation is not met), `compliance_shown`, or `cannot_tell`, item by item. It is not told
+the label. A violation label is *supported* only on `violation_shown`.
+
+**Use.** Neither audit changes the headline (engine) view. Pairs overturned by **both**
+auditors define a further sensitivity view, and the paper reports how many withheld pairs
+each auditor would overturn. A `fail` label not supported is reported pair by pair.
+`scripts/second_audit.py` does both and writes `docs/label_audit_second.json`.
+Gemini 3.1 Pro is also a model under test. It never sees its own benchmark replies, but the
+overlap is stated.
