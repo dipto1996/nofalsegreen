@@ -1,0 +1,51 @@
+1	pass	section1SignDate
+2	pass	section2EmployerSignDate
+3	fail	supplementBReverificationDate
+4	pass	section1SignDate
+5	pass	section2EmployerSignDate
+6	fail	supplementBReverificationDate
+7	fail	section1SignDate
+8	pass	section2EmployerSignDate
+9	fail	supplementBReverificationDate
+10	pass	section1SignDate
+11	pass	section2EmployerSignDate
+12	pass	supplementBReverificationDate
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	2023-04-11
+i9.section2.timeliness::SYN-1005	pass	2023-04-18
+i9.reverification.deadline::SYN-1005	pass	2026-03-11
+i9.section1.timeliness::SYN-1006	pass	2025-06-23
+i9.section2.timeliness::SYN-1006	pass	2025-06-27
+i9.reverification.deadline::SYN-1006	pass	2026-05-07
+i9.section1.timeliness::SYN-1007	pass	2022-09-10
+i9.section2.timeliness::SYN-1007	pass	2022-09-14
+i9.reverification.deadline::SYN-1007	fail	2026-02-28
+i9.section1.timeliness::SYN-1008	pass	2024-10-18
+i9.section2.timeliness::SYN-1008	pass	2024-10-23
+i9.reverification.deadline::SYN-1008	pass	2025-08-10
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	section1SignDate
+i9.section2.timeliness::SYN-1009	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1009	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1010	pass	section1SignDate
+i9.section2.timeliness::SYN-1010	pass	section2EmployerSignDate
+i9.section1.timeliness::SYN-1011	pass	section1SignDate
+i9.section2.timeliness::SYN-1011	pass	section2EmployerSignDate
+i9.section1.timeliness::SYN-1012	pass	section1SignDate
+i9.section2.timeliness::SYN-1012	pass	section2EmployerSignDate
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	WAGE_RATE_OF_PAY_FROM
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	grossPay

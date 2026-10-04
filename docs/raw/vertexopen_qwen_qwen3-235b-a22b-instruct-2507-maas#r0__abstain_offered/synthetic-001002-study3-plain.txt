@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	2023-05-16
+i9.section2.timeliness::SYN-1001	pass	2023-05-17
+i9.reverification.deadline::SYN-1001	fail	2025-12-24
+i9.section1.timeliness::SYN-1002	pass	2024-09-19
+i9.section2.timeliness::SYN-1002	fail	2024-09-30
+i9.reverification.deadline::SYN-1002	needs_evidence	-
+i9.section1.timeliness::SYN-1003	pass	2021-11-02
+i9.section2.timeliness::SYN-1003	fail	2021-11-18
+i9.reverification.deadline::SYN-1003	needs_evidence	-
+i9.section1.timeliness::SYN-1004	pass	2023-02-15
+i9.section2.timeliness::SYN-1004	pass	2023-02-23
+i9.reverification.deadline::SYN-1004	fail	2023-10-24
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	2025-07-08
+i9.section2.timeliness::SYN-1005	pass	2025-07-08
+i9.reverification.deadline::SYN-1005	pass	2026-04-08
+i9.section1.timeliness::SYN-1006	pass	2022-09-07
+i9.section2.timeliness::SYN-1006	pass	2022-09-07
+i9.reverification.deadline::SYN-1006	pass	2025-12-01
+i9.section1.timeliness::SYN-1007	pass	2023-02-23
+i9.section2.timeliness::SYN-1007	pass	2023-02-27
+i9.reverification.deadline::SYN-1007	pass	2026-03-04
+i9.section1.timeliness::SYN-1008	pass	2021-10-16
+i9.section2.timeliness::SYN-1008	pass	2021-10-20
+i9.reverification.deadline::SYN-1008	pass	2025-05-01
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	section1SignDate
+i9.section2.timeliness::SYN-1009	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1009	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1010	pass	section1SignDate
+i9.section2.timeliness::SYN-1010	pass	section2EmployerSignDate
+i9.section1.timeliness::SYN-1011	pass	section1SignDate
+i9.section2.timeliness::SYN-1011	pass	section2EmployerSignDate
+i9.section1.timeliness::SYN-1012	pass	section1SignDate
+i9.section2.timeliness::SYN-1012	pass	section2EmployerSignDate
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	WAGE_RATE_OF_PAY_FROM
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	WAGE_RATE_OF_PAY_FROM

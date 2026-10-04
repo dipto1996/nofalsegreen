@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	section1SignDate
+i9.section2.timeliness::SYN-1001	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1001	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1002	pass	section1SignDate
+i9.section2.timeliness::SYN-1002	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1002	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1003	fail	section1SignDate
+i9.section2.timeliness::SYN-1003	pass	section2EmployerSignDate
+i9.reverification.deadline::SYN-1003	fail	supplementBReverificationDate
+i9.section1.timeliness::SYN-1004	pass	section1SignDate
+i9.section2.timeliness::SYN-1004	fail	section2EmployerSignDate
+i9.reverification.deadline::SYN-1004	fail	supplementBReverificationDate
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	2023-11-15
+i9.section2.timeliness::SYN-1005	pass	2023-11-16
+i9.reverification.deadline::SYN-1005	unmonitored	-
+i9.section1.timeliness::SYN-1006	pass	2025-10-26
+i9.section2.timeliness::SYN-1006	fail	2025-10-28
+i9.reverification.deadline::SYN-1006	fail	2026-03-05
+i9.section1.timeliness::SYN-1007	pass	2022-07-19
+i9.section2.timeliness::SYN-1007	pass	2022-07-22
+i9.reverification.deadline::SYN-1007	fail	2026-04-10
+i9.section1.timeliness::SYN-1008	pass	2023-01-24
+i9.section2.timeliness::SYN-1008	fail	2023-02-02
+i9.reverification.deadline::SYN-1008	fail	2024-07-28
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	2025-09-08
+i9.section2.timeliness::SYN-1009	fail	2025-09-15
+i9.reverification.deadline::SYN-1009	fail	2026-03-22
+i9.section1.timeliness::SYN-1010	pass	2024-07-05
+i9.section2.timeliness::SYN-1010	pass	2024-07-05
+i9.section1.timeliness::SYN-1011	pass	2022-08-28
+i9.section2.timeliness::SYN-1011	pass	2022-08-30
+i9.section1.timeliness::SYN-1012	pass	2025-03-05
+i9.section2.timeliness::SYN-1012	pass	2025-03-06
+lca.wage.required_wage_greater_of::I-200-25000-100001	unmonitored	-
+lca.wage.required_wage_greater_of::I-200-25001-100002	unmonitored	-
+lca.wage.required_wage_greater_of::I-200-25002-100003	unmonitored	-
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	unmonitored	-
+lca.wage.required_wage_greater_of::I-200-25004-100005	unmonitored	-
+lca.wage.required_wage_greater_of::I-200-25005-100006	unmonitored	-
+lca.wage.required_wage_greater_of::I-200-25006-100007	unmonitored	-
+lca.wage.required_wage_greater_of::I-200-25007-100008	unmonitored	-
+lca.wage.required_wage_greater_of::I-200-25008-100009	unmonitored	-

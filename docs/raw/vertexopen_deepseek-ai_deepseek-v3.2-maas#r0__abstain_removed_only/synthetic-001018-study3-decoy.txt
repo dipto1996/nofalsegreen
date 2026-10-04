@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1001	unmonitored	-
+i9.reverification.deadline::SYN-1001	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1002	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1002	unmonitored	-
+i9.reverification.deadline::SYN-1002	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1003	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1003	unmonitored	-
+i9.reverification.deadline::SYN-1003	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1004	unmonitored	-
+i9.reverification.deadline::SYN-1004	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1005	unmonitored	-
+i9.section2.timeliness::SYN-1005	unmonitored	-
+i9.reverification.deadline::SYN-1005	unmonitored	-
+i9.section1.timeliness::SYN-1006	unmonitored	-
+i9.section2.timeliness::SYN-1006	unmonitored	-
+i9.reverification.deadline::SYN-1006	unmonitored	-
+i9.section1.timeliness::SYN-1007	unmonitored	-
+i9.section2.timeliness::SYN-1007	unmonitored	-
+i9.reverification.deadline::SYN-1007	unmonitored	-
+i9.section1.timeliness::SYN-1008	unmonitored	-
+i9.section2.timeliness::SYN-1008	unmonitored	-
+i9.reverification.deadline::SYN-1008	unmonitored	-
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	hireDate
+i9.section2.timeliness::SYN-1009	fail	hireDate
+i9.reverification.deadline::SYN-1009	unmonitored	-
+i9.section1.timeliness::SYN-1010	unmonitored	-
+i9.section2.timeliness::SYN-1010	unmonitored	-
+i9.section1.timeliness::SYN-1011	unmonitored	-
+i9.section2.timeliness::SYN-1011	unmonitored	-
+i9.section1.timeliness::SYN-1012	unmonitored	-
+i9.section2.timeliness::SYN-1012	unmonitored	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	-
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	-
+lca.wage.required_wage_greater_of::I-200-25002-100003	fail	-
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	annualBaseSalary
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	-
+lca.wage.required_wage_greater_of::I-200-25005-100006	fail	annualBaseSalary
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	-
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	-
+lca.wage.required_wage_greater_of::I-200-25008-100009	fail	annualBaseSalary

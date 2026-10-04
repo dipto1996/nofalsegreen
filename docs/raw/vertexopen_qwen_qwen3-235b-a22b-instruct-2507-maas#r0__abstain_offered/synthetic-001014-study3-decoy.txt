@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	2023-06-19
+i9.section2.timeliness::SYN-1001	pass	2023-06-23
+i9.reverification.deadline::SYN-1001	fail	2024-01-08
+i9.section1.timeliness::SYN-1002	pass	2025-07-07
+i9.section2.timeliness::SYN-1002	pass	2025-07-10
+i9.reverification.deadline::SYN-1002	fail	2026-04-12
+i9.section1.timeliness::SYN-1003	pass	2024-01-07
+i9.section2.timeliness::SYN-1003	pass	2024-01-10
+i9.reverification.deadline::SYN-1003	fail	2024-03-26
+i9.section1.timeliness::SYN-1004	pass	2024-09-12
+i9.section2.timeliness::SYN-1004	pass	2024-09-16
+i9.reverification.deadline::SYN-1004	fail	2025-02-11
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	2023-03-27
+i9.section2.timeliness::SYN-1005	pass	2023-03-28
+i9.reverification.deadline::SYN-1005	needs_evidence	supplementBReverificationDate
+i9.section1.timeliness::SYN-1006	pass	2023-07-10
+i9.section2.timeliness::SYN-1006	pass	2023-07-13
+i9.reverification.deadline::SYN-1006	pass	2025-10-24
+i9.section1.timeliness::SYN-1007	pass	2025-09-08
+i9.section2.timeliness::SYN-1007	pass	2025-09-15
+i9.reverification.deadline::SYN-1007	fail	2025-12-20
+i9.section1.timeliness::SYN-1008	pass	2023-05-07
+i9.section2.timeliness::SYN-1008	fail	2023-05-17
+i9.reverification.deadline::SYN-1008	needs_evidence	supplementBReverificationDate
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	2022-01-05
+i9.section2.timeliness::SYN-1009	pass	2022-01-07
+i9.reverification.deadline::SYN-1009	fail	2022-07-13
+i9.section1.timeliness::SYN-1010	pass	2025-09-26
+i9.section2.timeliness::SYN-1010	pass	2025-10-06
+i9.section1.timeliness::SYN-1011	pass	2023-01-02
+i9.section2.timeliness::SYN-1011	pass	2023-01-09
+i9.section1.timeliness::SYN-1012	pass	2025-02-10
+i9.section2.timeliness::SYN-1012	pass	2025-02-19
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	186000
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	186000
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	118800
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	annualBaseSalary
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	annualBaseSalary
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	annualBaseSalary
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	annualBaseSalary
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	annualBaseSalary
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	annualBaseSalary
