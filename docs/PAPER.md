@@ -136,194 +136,99 @@ visits. *AAO*: the USCIS Administrative Appeals Office.
 
 ## 2. Related work
 
-Several literatures touch this problem. None occupies quite the position this benchmark
-takes, but three recent benchmarks come closer than a reader of the introduction might
-expect, and we say where. In each case the difference lies in what the system is given,
-what it must return, and how the label is established.
+Three recent benchmarks come closer to this one than its framing might suggest; we say
+where. In each case the difference lies in what the system is given, what it must return,
+and how the label is established.
 
-**Legal and regulatory NLP benchmarks.** Work in this area evaluates reasoning and
-classification over *legal text*. LegalBench assembles 162 tasks spanning six types of
-legal reasoning, designed and hand-crafted by legal professionals (Guha et al., 2023).
-LexGLUE standardises a collection of legal language-understanding datasets (Chalkidis et
-al., 2022); CaseHOLD poses over 53,000 multiple-choice questions identifying the holding
-of a cited case (Zheng et al., 2021); CUAD asks models to highlight salient portions
-of contracts, with over 13,000 annotations from legal experts (Hendrycks et al., 2021); and
-LawBench tests legal knowledge at the levels of memorisation, understanding and
-application (Fei et al., 2024). A system is given a legal question or a document and
-asked to answer, classify, or retrieve. Our input is an organisation's structured
-operational records, and our output is a verdict per obligation about that organisation.
-A model that scores well on legal reasoning has demonstrated nothing about whether it
-will report an unassessable duty as satisfied, because these tasks do not ask it to
-decide whether its evidence base is sufficient.
+**Legal NLP and legal hallucination.** LegalBench (Guha et al., 2023), LexGLUE (Chalkidis
+et al., 2022), CaseHOLD (Zheng et al., 2021), CUAD (Hendrycks et al., 2021) and LawBench
+(Fei et al., 2024) evaluate reasoning over *legal text*: a system is given a question or a
+document and answers, classifies or retrieves. None asks whether the evidence base is
+sufficient for a verdict, so a strong score says nothing about whether a model will report
+an unassessable duty as satisfied. The legal hallucination literature is closer in
+motivation: Dahl et al. (2024) find hallucination rates of 58% to 88% on verifiable
+questions about federal cases, and Magesh et al. (2025), in a preregistered study, find
+commercial legal research tools hallucinate more than their vendors claim. Both measure
+unsupported output about the law; we measure unsupported output about a regulated party,
+where the missing support is a record rather than a precedent.
 
-The legal hallucination literature is closer in motivation. Dahl et al. (2024) find
-hallucination rates between 58% and 88% when models are asked verifiable questions about
-federal court cases, and report that models cannot always predict when they are
-hallucinating. Magesh et al. (2025), in a preregistered evaluation, find that commercial
-legal research tools hallucinate less than a general-purpose chatbot but substantially
-more than their vendors claim. Both measure unsupported output about the law. We measure
-unsupported output about a regulated party, where the support that is missing is a record
-rather than a precedent.
+**Immigration datasets.** ImmigrationQA has 17,058 question-answer pairs from USCIS and
+8 CFR sources (Shportun, 2026). ImmigrationReason structures 12,375 Administrative Appeals
+Office decisions with per-criterion evidence-sufficiency findings (Afsharrad and Mousavi,
+2026); its sufficiency labels are the adjudicator's, about a petition record the dataset
+does not contain. Both are text-side and petitioner-side. We know of no public dataset of
+employer immigration-compliance records with labelled outcomes, because real ones cannot be
+published.
 
-**Immigration-specific datasets.** ImmigrationQA provides 17,058 question-answer pairs
-generated from United States immigration sources including the USCIS Policy Manual and
-8 CFR (Shportun, 2026). ImmigrationReason structures 12,375 non-precedent decisions of the
-USCIS Administrative Appeals Office, recording for each the applicable legal framework,
-per-criterion evidence-sufficiency findings under a five-category label, and verbatim
-adjudicator criticism, including nearly 9,000 instances of legal error identified by the
-Office (Afsharrad and Mousavi, 2026). ImmigrationReason is nearer to our task than a
-policy-QA dataset, since it labels whether evidence sufficed for a criterion. Its labels,
-however, are extracted from the text of adjudications: the sufficiency judgement is the
-adjudicator's, made about a petition record that the dataset does not contain. Both
-datasets are text-side. Employer-side obligations, where the per-worker civil penalties and
-the audit exposure sit, are absent. We are not aware of a public dataset of employer
-immigration-compliance records with labelled obligation outcomes, and the reason is
-straightforward: real ones cannot be published.
+**Compliance checking.** Automated checking predates language models, in construction
+(Zhang and El-Gohary, 2016) and data protection (Amaral et al., 2022; Ravichander et al.,
+2019). Among LLM benchmarks, COMPL-AI makes the AI system the regulated subject (Guldimann
+et al., 2024), while HSE-Bench (Wang et al., 2025), Principle-Bench (Sarkar, 2026) and
+ReguSim (Luo et al., 2026) make it the assessor, as here; ReguSim also takes records as
+input. None gives insufficiency of the record its own correct label.
 
-**Compliance benchmarks for AI systems.** Automated compliance checking predates language
-models. In construction, regulatory text is converted into machine-checkable rules by
-semantic information extraction (Zhang and El-Gohary, 2016); in data protection, privacy
-policies are checked for completeness against GDPR provisions (Amaral et al., 2022) and
-questioned directly, with expert analysis of which questions a policy can answer at all
-(Ravichander et al., 2019). Recent LLM work divides into two directions. In the first, the
-AI system is the regulated subject: COMPL-AI translates the EU AI Act into technical
-requirements and benchmarks twelve LLMs against them (Guldimann et al., 2024). The
-direction of assessment is inverted relative to ours. In the second, the AI system is an
-assessor of someone else. HSE-Bench poses over 1,000 IRAC-structured health, safety and
-environment compliance questions (Wang et al., 2025). Principle-Bench evaluates LLM judges
-of financial promotions against two regulatory principles under a pre-registered rubric
-(Sarkar, 2026). ReguSim's monitoring benchmark asks a model to judge a marked record within
-a window of trading records, and finds that simple structured baselines match or exceed
-prompt-only LLMs (Luo et al., 2026). These share our assessor-side orientation, and the
-last shares our record-level input. None of them gives insufficiency of the record its
-own correct label.
+**The nearest neighbours.** Two recent benchmarks do. DEMM-Bench asks whether
+agent-runtime records suffice to reconstruct a decision, labels by construction, and
+reports an overclaim rate (Solozobov, 2026); its "container fallacy", treating the presence
+of an evidence container as sufficiency, is close to our adjacent-field substitution.
+Partial Evidence Bench places material evidence outside an agent's authorisation boundary
+and scores *unsafe completeness*, finding that explicit fail-and-report behaviour removes it
+without collapsing into trivial abstention (Tallam, 2026), which is our argument that the
+false-green and abstention rates must be read together. We differ in three respects: the
+subject is a third-party employer and the output a regulatory verdict per (obligation,
+entity) pair; insufficiency is a property of what the employer's exports contain, not of
+an agent's permissions; and the assessment is against cited regulations. We do not claim
+the directional, construction-labelled framing as new.
 
-Two recent benchmarks do, and they are the nearest neighbours of this work. DEMM-Bench
-asks whether agent-runtime records (traces, ledgers, policy logs and the like) are
-sufficient to reconstruct properties of a specific decision, labels cases with a
-construction oracle, and reports an overclaim rate as its primary diagnostic (Solozobov,
-2026). Its "container fallacy", treating the presence of an evidence container as
-sufficiency, is close to what we call adjacent-field substitution, where a populated column
-beside the missing evidence is read as the evidence. Partial Evidence Bench constructs
-deterministic synthetic scenarios, including a compliance-audit family, in which material
-evidence lies outside an agent's authorisation boundary, and scores *unsafe completeness*:
-an answer that appears complete when it is not (Tallam, 2026). It reports that explicit
-fail-and-report behaviour removes unsafe completeness without collapsing into trivial
-abstention. That is, in substance, our argument that the false-green rate and the
-abstention rate must be read together. We differ in three respects. Our subject is a
-third-party employer and our output a regulatory verdict per (obligation, entity) pair,
-not a governance reconstruction or a retrieval answer; our insufficiency is a property of
-what the employer's exports contain, not of what an agent is permitted to see; and the
-assessment is legal, against cited regulatory obligations. We do not claim the
-directional, construction-labelled framing as new; both works reach it independently.
+**Abstention and selective prediction.** From the reject option (Chow, 1970) through
+selective classification (El-Yaniv and Wiener, 2010; Geifman and El-Yaniv, 2017),
+abstention is a *cost* traded against coverage. For language models it is evaluated mostly
+on questions: SQuAD 2.0 (Rajpurkar et al., 2018), SelfAware (Yin et al., 2023) and
+AbstentionBench, which finds that scaling helps little and reasoning fine-tuning degrades
+abstention (Kirichenko et al., 2025); Wen et al. (2025) survey the area, and Kadavath et
+al. (2022) show models can learn to predict whether they know an answer. Joren et al.
+(2024) come nearest: they define whether a retrieved context is *sufficient* and find that
+strong models often answer wrongly rather than abstain when it is not. Hallucination
+benchmarks against world knowledge (Lin et al., 2022) or a knowledge source (Min et al.,
+2023) have no abstention label. Three things differ here. Abstention is the *correct,
+actionable output* for 48.8% of released pairs, not a cost: `needs_evidence` names a record
+the firm must produce. Insufficiency belongs to the evidence base, so it is fixed **by
+construction** rather than annotated, which is the judgement call that makes legal
+sufficiency datasets small and contestable. And the error is directional: `fail` on an
+undecidable pair triggers review, `pass` suppresses it, so we report the false-green rate
+on its own rather than merging it into one risk term.
 
-**Abstention and selective prediction.** This is the closest established literature and
-deserves the most precision, because a reviewer will reasonably ask what is new.
+**Structured data.** Table fact verification (Chen et al., 2020) and text-to-SQL (Yu et
+al., 2018) originally assumed every item decidable. FEVER's Supported / Refuted /
+NotEnoughInfo (Thorne et al., 2018), extended to table cells by FEVEROUS (Aly et al., 2021),
+is the nearest label structure to ours. EHRSQL (Lee et al., 2022), work on ambiguous and
+unanswerable text-to-SQL questions (Wang et al., 2023) and TrustSQL (Lee et al., 2024) add
+infeasible questions; ClaimDB verifies claims against multi-table databases with a
+not-enough-info class and finds models struggle to abstain (Theologitis et al., 2026). Here
+the item is a regulatory obligation attached to an entity, labels come from a generator,
+and the two wrong answers on an undecidable item are scored asymmetrically.
 
-The reject option goes back to Chow (1970), who characterised the optimal tradeoff between
-recognition error and rejection. Selective classification formalises it as a risk-coverage
-trade-off (El-Yaniv and Wiener, 2010), and Geifman and El-Yaniv (2017) construct selective
-deep classifiers that reject as needed to meet a user-set risk level. In this framing
-coverage is a good to be maximised subject to a risk budget, and abstention is a *cost*
-incurred to avoid error.
+**Output format.** Constraining output changes answers: structured formats degrade
+reasoning (Tam et al., 2024), forced multiple choice changes substantive answers (Röttger
+et al., 2024), and meaning-preserving format changes can swing accuracy by up to 76 points
+(Sclar et al., 2024), which is why our prompt is frozen across conditions. Kalai et al.
+(2025) attribute persistent hallucination partly to grading that gives no credit for
+uncertainty. Our schema ablation is the same incentive located in a product interface, and
+we know of no prior work that measures it on a directional error rate.
 
-For language models, abstention is evaluated mostly on questions. SQuAD 2.0 adds
-unanswerable questions to reading comprehension (Rajpurkar et al., 2018); SelfAware pairs
-unanswerable questions with answerable counterparts to measure self-knowledge (Yin et al.,
-2023); AbstentionBench aggregates 20 datasets of unknown-answer, underspecified,
-false-premise and similar questions, and finds that scaling helps little and that
-reasoning fine-tuning degrades abstention by 24% on average (Kirichenko et al., 2025). Wen
-et al. (2025) survey the area and organise it by query, model and human values. On the
-model side, Kadavath et al. (2022) show that models can be trained to predict whether they
-know an answer. The work nearest ours in this line is Joren et al. (2024), who define
-whether a retrieved context is *sufficient* to answer a query and find that strong models
-often answer incorrectly rather than abstain when it is not. That is a statement about the
-evidence base rather than the query, as ours is, though in open-domain retrieval rather
-than over an organisation's records. Hallucination benchmarks that measure falsehood
-against world knowledge (Lin et al., 2022) or the share of atomic claims supported by a
-knowledge source (Min et al., 2023) address a related failure without an abstention
-label.
-
-Three things differ here.
-
-First, abstention is not a cost. For 48.8% of pairs in our released set it is the
-*correct output*, and it is actionable: `needs_evidence` names a document the firm must
-produce. A system that trades abstention for coverage is not moving along a tradeoff
-curve, it is producing wrong answers that happen to look like answers.
-
-Second, insufficiency is a property of the evidence base rather than the query, so it is
-determinable **by construction**. The generator withholds a required export and the label
-follows mechanically. Most abstention benchmarks annotate insufficiency, and annotation of
-legal sufficiency is exactly the judgement call that makes such datasets small and
-contestable. Joren et al. (2024) and the two benchmarks above are partial exceptions: the
-first classifies sufficiency with an autorater, the latter two fix it by construction.
-
-Third, the error is directional in a way the risk-coverage framing does not capture.
-Answering `fail` on an undecidable pair is wrong but triggers review. Answering `pass` is
-wrong and *suppresses* review. Aggregating both into a single risk term hides the only
-distinction that matters operationally, which is why we report the false-green rate as a
-separate quantity rather than as one minus abstention recall.
-
-**Reasoning over structured and tabular data.** Table-based fact verification asks whether
-a statement is entailed or refuted by a table (Chen et al., 2020), and text-to-SQL asks a
-system to answer questions over relational databases (Yu et al., 2018). Both originally
-assumed that every item could be decided. The three-way label of FEVER, with Supported,
-Refuted and NotEnoughInfo assigned by annotators (Thorne et al., 2018), is the nearest
-label structure to `pass`, `fail` and `needs_evidence`; FEVEROUS extends it to evidence in
-table cells (Aly et al., 2021). Unanswerable questions over structured data appear in
-EHRSQL, a text-to-SQL benchmark over electronic health records (Lee et al., 2022), in work
-categorising ambiguous and unanswerable text-to-SQL questions (Wang et al., 2023), and in
-TrustSQL, which scores abstention on infeasible questions with penalties for incorrect
-output (Lee et al., 2024). ClaimDB is the closest: claims verified against real
-multi-table databases, with a not-enough-info class, and a finding that both open and
-closed models struggle to abstain when there is no evidence to decide (Theologitis et al.,
-2026). Our setting shares the structured input and the insufficiency class. It differs in
-that the item to be decided is a regulatory obligation attached to an entity rather than a
-natural-language claim or question, in that labels are fixed by a generator rather than
-annotated or derived from real databases, and in that the two wrong answers on an
-undecidable item are scored asymmetrically.
-
-**Output format and schema constraints.** Our schema ablation removes the abstention
-verdict from the output format. We run it in three forms (Sections 7 and 8.4): a dashboard
-schema that also rewrites the verdict definitions, a condition that removes only
-`needs_evidence`, and a condition that removes every non-committal verdict while keeping the
-evidence-anchored definitions. Related work shows that output constraints
-change model answers. Tam et al. (2024) find that restricting generation to structured
-formats degrades reasoning, more so as constraints tighten. Röttger et al. (2024) show that
-models forced into a multiple-choice format give substantively different answers from those
-they give unforced, and that the answers depend on how they are forced. Sclar et al. (2024)
-report swings of up to 76 accuracy points from meaning-preserving changes to prompt format,
-which is one reason our prompt is frozen and identical across conditions. Closest in
-argument is Kalai et al. (2025), who attribute persistent hallucination partly to grading
-that gives no credit for expressing uncertainty, so that guessing improves scores, and
-propose changing how existing benchmarks are scored. Our ablation is an instance of the
-same incentive located in a product interface rather than a leaderboard: a schema with no
-state for "could not tell" forces a guess, and some guesses are green. We are not aware of
-prior work that measures the effect of removing the abstention label, holding the rest of
-the prompt fixed, on a directional error rate.
-
-**Aggregate consistency.** We searched for prior work measuring whether a system's reported
-headline counts agree with its own per-item outputs and did not find any. We include it as
-a metric because we have observed the failure in deployed compliance dashboards, where a
-card and its drilldown disagree; we flag it as the least-established axis in the suite.
-
-**Positioning, stated plainly.** The contribution is not a new abstention algorithm and
-not a theoretical result. Nor is it the first benchmark to fix evidence insufficiency by
-construction or to score the overclaiming direction separately: DEMM-Bench and Partial
-Evidence Bench do both, in agent governance and authorisation-limited retrieval. What this
-benchmark adds is a task in which correct abstention is a large share of the pairs by
-design and the assessed party is a third-party employer described by structured exports; an instrument
-for the directional error in that setting, together with an ablation that isolates how
-much of it is produced by the output schema; and a releasable artifact in a domain where
-releasability is the binding constraint. Ground truth by construction has precedent in
-synthetic task suites such as bAbI (Weston et al., 2015); here it also means fresh firms
-can be drawn at any seed, which addresses the per-benchmark contamination concern raised
-by Sainz et al. (2023). Constructed labels are not error-free, and test-set label errors
-can change model rankings (Northcutt et al., 2021), which is why we audit the withheld
-labels (Section 6). The release follows datasheet practice (Gebru et al., 2021), and our
-reporting requirement, that the false-green rate always appear beside violation recall, is
-in the spirit of model cards (Mitchell et al., 2019). Section 11 states what this does not
-establish.
+**Positioning.** The contribution is not an abstention algorithm, and not the first
+construction-labelled overclaiming benchmark. It is a task in which correct abstention is a
+large share of pairs and the assessed party is a third-party employer described by
+structured exports; a directional measure for that setting with an ablation that separates
+the schema's parts; a preregistered test of the mechanism on fresh data; and a releasable
+artifact in a domain where releasability is the binding constraint. Generated ground truth
+has precedent in bAbI (Weston et al., 2015) and lets fresh firms be drawn at any seed,
+addressing contamination (Sainz et al., 2023). Constructed labels are not error-free, and
+label errors can change rankings (Northcutt et al., 2021), which is why we audit them
+(Section 6). The release follows datasheet practice (Gebru et al., 2021) and, in requiring
+the false-green rate beside violation recall, the spirit of model cards (Mitchell et al.,
+2019). We found no prior work measuring whether a system's headline counts agree with its
+own per-item outputs; that metric is the least-established in the suite.
 
 ---
 
@@ -1069,26 +974,26 @@ after the first *removed-only* results were seen, and is reported as such.
 | `gemini-3.1-pro-preview` | 1 | removed-only | 0.050 [0.025, 0.067] | 0.050 | 0.550 [0.500, 0.600] | — | 6 / 5 / 0 / 109 | 140/140 |
 | `gemini-3.1-pro-preview` | 1 | closed | 0.050 [0.033, 0.067] | 0.050 | 0.950 [0.950, 0.950] | — | 6 / 114 / 0 / 0 | 140/140 |
 | `gemini-3.1-pro-preview` | 1 | dashboard | 0.131 [0.125, 0.142] | 0.131 | 0.917 [0.850, 0.950] | — | 16 / 104 / 0 / 0 | 140/140 |
-| `gemini-3.1-pro-preview` | 2 | offered | 0.021 [0.016, 0.032] | 0.021 | 0.960 [0.939, 0.970] | 0.162 [0.151, 0.182] | 3 / 0 / 123 / 0 | 252/252 |
-| `gemini-3.1-pro-preview` | 2 | removed-only | 0.056 [0.024, 0.071] | 0.056 | 1.000 [1.000, 1.000] | 0.131 [0.091, 0.151] | 7 / 26 / 0 / 93 | 252/252 |
-| `gemini-3.1-pro-preview` | 2 | closed | 0.061 [0.056, 0.064] | 0.061 | 0.980 [0.970, 1.000] | 0.030 [0.030, 0.030] | 8 / 118 / 0 / 0 | 252/252 |
-| `gemini-3.1-pro-preview` | 2 | dashboard | 0.061 [0.056, 0.064] | 0.061 | 0.970 [0.970, 0.970] | 0.061 [0.061, 0.061] | 8 / 118 / 0 / 0 | 252/252 |
+| `gemini-3.1-pro-preview` | 2 | offered | 0.021 [0.016, 0.032] | 0.021 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 3 / 0 / 123 / 0 | 225/252 |
+| `gemini-3.1-pro-preview` | 2 | removed-only | 0.056 [0.024, 0.071] | 0.056 | 1.000 [1.000, 1.000] | 0.025 [0.000, 0.037] | 7 / 26 / 0 / 93 | 225/252 |
+| `gemini-3.1-pro-preview` | 2 | closed | 0.061 [0.056, 0.064] | 0.061 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 8 / 118 / 0 / 0 | 225/252 |
+| `gemini-3.1-pro-preview` | 2 | dashboard | 0.061 [0.056, 0.064] | 0.061 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 8 / 118 / 0 / 0 | 225/252 |
 | `gemini-3.8-flash` | 1 | offered | 0.094 [0.092, 0.100] | 0.094 | 0.500 [0.500, 0.500] | — | 11 / 0 / 96 / 12 | 140/140 |
 | `gemini-3.8-flash` | 1 | removed-only | 0.156 [0.125, 0.183] | 0.160 | 0.783 [0.750, 0.850] | — | 19 / 18 / 0 / 79 | 128/140 |
 | `gemini-3.8-flash` | 1 | closed | 0.242 [0.208, 0.283] | 0.245 | 0.767 [0.600, 0.850] | — | 29 / 89 / 0 / 0 | 127/140 |
 | `gemini-3.8-flash` | 1 | dashboard | 0.419 [0.375, 0.458] | 0.433 | 0.833 [0.800, 0.850] | — | 50 / 66 / 0 / 0 | 127/140 |
-| `gemini-3.8-flash` | 2 | offered | 0.026 [0.016, 0.032] | 0.027 | 0.980 [0.970, 1.000] | 0.071 [0.030, 0.121] | 3 / 4 / 117 / 0 | 246/252 |
-| `gemini-3.8-flash` | 2 | removed-only | 0.037 [0.032, 0.048] | 0.037 | 0.990 [0.970, 1.000] | 0.061 [0.061, 0.061] | 5 / 62 / 0 / 59 | 246/252 |
-| `gemini-3.8-flash` | 2 | closed | 0.156 [0.127, 0.182] | 0.156 | 0.980 [0.939, 1.000] | 0.051 [0.030, 0.061] | 20 / 106 / 0 / 0 | 246/252 |
-| `gemini-3.8-flash` | 2 | dashboard | 0.167 [0.167, 0.167] | 0.167 | 1.000 [1.000, 1.000] | 0.061 [0.030, 0.091] | 21 / 105 / 0 / 0 | 252/252 |
+| `gemini-3.8-flash` | 2 | offered | 0.026 [0.016, 0.032] | 0.027 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 3 / 4 / 117 / 0 | 219/252 |
+| `gemini-3.8-flash` | 2 | removed-only | 0.037 [0.032, 0.048] | 0.037 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 5 / 62 / 0 / 59 | 225/252 |
+| `gemini-3.8-flash` | 2 | closed | 0.156 [0.127, 0.182] | 0.156 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 20 / 106 / 0 / 0 | 225/252 |
+| `gemini-3.8-flash` | 2 | dashboard | 0.167 [0.167, 0.167] | 0.167 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 21 / 105 / 0 / 0 | 225/252 |
 | `gemma-4-26b-a4b-it-maas` | 1 | offered | 0.153 [0.150, 0.158] | 0.153 | 0.067 [0.050, 0.100] | — | 18 / 0 / 76 / 26 | 140/140 |
 | `gemma-4-26b-a4b-it-maas` | 1 | removed-only | 0.183 [0.175, 0.200] | 0.220 | 0.067 [0.050, 0.100] | — | 22 / 0 / 0 / 79 | 116/140 |
 | `gemma-4-26b-a4b-it-maas` | 1 | closed | 0.600 [0.525, 0.667] | 0.682 | 0.400 [0.400, 0.400] | — | 72 / 33 / 0 / 0 | 122/140 |
 | `gemma-4-26b-a4b-it-maas` | 1 | dashboard | 0.589 [0.567, 0.617] | 0.635 | 0.400 [0.400, 0.400] | — | 71 / 41 / 0 / 0 | 128/140 |
-| `gemma-4-26b-a4b-it-maas` | 2 | offered | 0.071 [0.071, 0.071] | 0.071 | 0.283 [0.242, 0.303] | 0.061 [0.061, 0.061] | 9 / 0 / 116 / 1 | 252/252 |
-| `gemma-4-26b-a4b-it-maas` | 2 | removed-only | 0.071 [0.071, 0.071] | 0.071 | 0.313 [0.303, 0.333] | 0.091 [0.091, 0.091] | 9 / 0 / 0 / 117 | 252/252 |
-| `gemma-4-26b-a4b-it-maas` | 2 | closed | 0.172 [0.167, 0.175] | 0.189 | 0.384 [0.303, 0.455] | 0.040 [0.030, 0.061] | 22 / 93 / 0 / 0 | 235/252 |
-| `gemma-4-26b-a4b-it-maas` | 2 | dashboard | 0.175 [0.175, 0.175] | 0.175 | 0.303 [0.303, 0.303] | 0.030 [0.030, 0.030] | 22 / 104 / 0 / 0 | 252/252 |
+| `gemma-4-26b-a4b-it-maas` | 2 | offered | 0.071 [0.071, 0.071] | 0.071 | 0.346 [0.296, 0.370] | 0.074 [0.074, 0.074] | 9 / 0 / 116 / 1 | 225/252 |
+| `gemma-4-26b-a4b-it-maas` | 2 | removed-only | 0.071 [0.071, 0.071] | 0.071 | 0.370 [0.333, 0.407] | 0.111 [0.111, 0.111] | 9 / 0 / 0 / 117 | 225/252 |
+| `gemma-4-26b-a4b-it-maas` | 2 | closed | 0.172 [0.167, 0.175] | 0.189 | 0.444 [0.370, 0.518] | 0.049 [0.037, 0.074] | 22 / 93 / 0 / 0 | 208/252 |
+| `gemma-4-26b-a4b-it-maas` | 2 | dashboard | 0.175 [0.175, 0.175] | 0.175 | 0.370 [0.370, 0.370] | 0.037 [0.037, 0.037] | 22 / 104 / 0 / 0 | 225/252 |
 
 Schemas: *offered* (four verdicts, evidence-anchored definitions); *removed-only* (offered minus `needs_evidence`); *closed* (`pass`/`fail` only, evidence-anchored definitions kept); *dashboard* (`pass`/`fail` only, `pass` redefined as "the obligation is satisfied", warning dropped; the `abstain_withheld` condition of Study 1). Study 1 has 120 withheld pairs and no conforming controls; Study 2 rates are pooled over its six firms (126 withheld pairs). The verdict columns show every off-schema answer: none occurred on a withheld pair in any cell.
 <!-- END GENERATED: table7-vertex -->

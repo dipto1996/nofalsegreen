@@ -139,7 +139,10 @@ def federal_holidays(y: int) -> set[date]:
 
 
 def is_business_day(d: date) -> bool:
-    return d.weekday() < 5 and d not in federal_holidays(d.year)
+    # A January 1 that falls on a Saturday is observed on the previous December
+    # 31, so the next year's holidays are checked too (found by the independent
+    # reference checker, labelcheck/).
+    return d.weekday() < 5 and d not in federal_holidays(d.year) | federal_holidays(d.year + 1)
 
 
 def add_business_days(d: date, n: int) -> date:

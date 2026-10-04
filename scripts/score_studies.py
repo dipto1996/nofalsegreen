@@ -89,6 +89,19 @@ def metrics(labels, pred: dict[str, str]) -> dict:
     }
 
 
+WAGE = "lca.wage.required_wage_greater_of"
+
+
+def study2_scored(firm):
+    """Study 2 sent no generated firm's actual-wage export with the wage rule
+    (fixed before Study 3; paper, Section 11), so its decidable wage pairs were
+    not decidable from what the models saw. They are left out of every Study 2
+    metric. Withheld wage pairs are kept: their evidence was missing either way."""
+    from dataclasses import replace as _r
+    return _r(firm, labels=[l for l in firm.labels
+                            if not (l.pair_id.startswith(WAGE + "::") and l.verdict.value != "needs_evidence")])
+
+
 def pool(firms, cache, model, variant, exclude_rule: str | None = None) -> dict:
     """Pooled over firms. Pair ids repeat across generated firms (every firm
     has SYN-1001), so each pair is keyed by firm as well."""
@@ -121,7 +134,7 @@ def main() -> int:
     rb = Rulebook.load(ROOT / "rulebook" / "rulebook.json")
     anchor_dir = ROOT / "data" / "firms" / "northwind-robotics"
     anchor = subset_firm(northwind.load(anchor_dir, anchor_dir / "expectations.json"), rb.rule_regimes())
-    firms2 = study2.load_firms(rb)
+    firms2 = [study2_scored(f) for f in study2.load_firms(rb)]
     cache = json.loads(CACHE.read_text())
     # Vertex runs keep one cache per (model, repeat); merge them read-only.
     for vc in sorted((ROOT / "docs" / "vertex" / "cache").glob("*.json")):

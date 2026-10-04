@@ -30,27 +30,33 @@ def models() -> list[tuple[str, str]]:
             + [("vertexopen", m) for m in study3.OPEN_MODELS])
 
 
-def tag(model: str, part: str) -> str:
-    return f"{model.split('/')[-1]}__{part}"
+def tag(model: str, part: str, cond: str = "") -> str:
+    # The first condition keeps the (model, part) files it was started with.
+    suffix = f"__{cond}" if cond and cond != study3.CONDITIONS[0] else ""
+    return f"{model.split('/')[-1]}__{part}{suffix}"
 
 
-def jobs(provider: str, model: str, part: str) -> list[list[str]]:
-    t = tag(model, part)
+def jobs(provider: str, model: str, part: str, conds=study3.CONDITIONS, split=False) -> list[list[str]]:
     where = ["--subset", "140"] if part == "e1" else ["--study3", part]
-    return [[sys.executable, "-u", str(ROOT / "scripts" / "run_free.py"),
+    out = []
+    for cond in conds:
+        t = tag(model, part, cond if split else "")
+        out.append([sys.executable, "-u", str(ROOT / "scripts" / "run_free.py"),
              "--provider", provider, "--model", f"{provider}/{model}#r0",
              "--firms", "0", "--variant", cond, "--batch", "12",
              "--rpm", "10", "--rpd", "100000",
              "--cache", str(OUT / "cache" / f"{t}.json"),
              "--out", str(OUT / "runs" / f"{t}.json"),
              "--checkpoint", str(OUT / "runs" / f".ckpt_{t}.json"),
-             *where] for cond in study3.CONDITIONS]
+             *where])
+    return out
 
 
-def run(work: tuple[str, str, str]) -> str:
-    provider, model, part = work
-    with (OUT / "logs" / f"{tag(model, part)}.log").open("a") as fh:
-        for cmd in jobs(provider, model, part):
+def run(work: tuple) -> str:
+    provider, model, part, conds = work
+    split = len(conds) == 1
+    with (OUT / "logs" / f"{tag(model, part, conds[0] if split else '')}.log").open("a") as fh:
+        for cmd in jobs(provider, model, part, conds, split):
             fh.write(f"\n=== {' '.join(cmd[4:12])}\n")
             fh.flush()
             subprocess.run(cmd, cwd=ROOT, stdout=fh, stderr=subprocess.STDOUT)
@@ -61,14 +67,24 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--plan", action="store_true")
     ap.add_argument("--parts", nargs="*", default=["decoy", "plain", "e1"])
+    ap.add_argument("--split", nargs="*", default=[],
+                    help="models (last path part) to run one process per condition, "
+                         "for slow models; each condition then has its own files")
     args = ap.parse_args()
     for d in ("cache", "runs", "logs"):
         (OUT / d).mkdir(parents=True, exist_ok=True)
-    work = [(p, m, part) for part in args.parts for p, m in models()
-            if not (part == "e1" and p == "vertex")]
+    work = []
+    for part in args.parts:
+        for p, m in models():
+            if part == "e1" and p == "vertex":
+                continue
+            if m.split("/")[-1] in args.split:
+                work += [(p, m, part, (c,)) for c in study3.CONDITIONS]
+            else:
+                work.append((p, m, part, study3.CONDITIONS))
     if args.plan:
         for w in work:
-            print(*w, len(jobs(*w)), "runs")
+            print(*w[:3], w[3] if len(w[3]) == 1 else "all", len(jobs(*w[:3], w[3], len(w[3]) == 1)), "runs")
         return 0
     with ThreadPoolExecutor(max_workers=len(work)) as ex:
         for done in ex.map(run, work):
