@@ -1,0 +1,38 @@
+Study 3 (plain): 12 generated firms x 42 pairs
+shard 3/4: ['synthetic-001008-study3-plain', 'synthetic-001018-study3-plain', 'synthetic-001027-study3-plain']
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001008-study3-plain FGR 0.444  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 547 output tokens, 196s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 417 output tokens, 108s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 1584 output tokens, 105s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1181 output tokens, 116s, finish=stop, ok
+  synthetic-001018-study3-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 779 output tokens, 115s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+        attempt 1: 591 output tokens, 127s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 1697 output tokens, 77s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1378 output tokens, 118s, finish=stop, ok
+  synthetic-001027-study3-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/openai/gpt-oss-120b-maas#r0::abstain_withheld: FGR 0.148 (sd 0.257)  recall 1.000  over 3 firm(s)
+
+wrote runs/gpt-oss-120b-maas__plain__abstain_withheld__shard3of4.json

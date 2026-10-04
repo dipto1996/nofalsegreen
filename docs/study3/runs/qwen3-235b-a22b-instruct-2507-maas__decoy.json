@@ -1,0 +1,1901 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_offered": {
+      "model": "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0",
+      "provider": "vertexopen",
+      "variant": "abstain_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "synthetic-001001-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.4444444444444444,
+          "false_alarm_rate": 0.2,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001002-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.6,
+          "violation_precision": 0.42857142857142855,
+          "false_alarm_rate": 0.34782608695652173,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.6,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001003-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.46153846153846156,
+          "violation_precision": 0.6666666666666666,
+          "false_alarm_rate": 0.2,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.46153846153846156,
+              "false_green_rate": 0.0,
+              "n_pairs": 13
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001008-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.3,
+          "violation_precision": 0.5,
+          "false_alarm_rate": 0.13043478260869565,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.3,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001010-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.3333333333333333,
+          "violation_precision": 0.2222222222222222,
+          "false_alarm_rate": 0.25925925925925924,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.3333333333333333,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001014-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.3333333333333333,
+          "violation_precision": 0.2857142857142857,
+          "false_alarm_rate": 0.18518518518518517,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.3333333333333333,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001017-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.2,
+          "violation_precision": 0.2222222222222222,
+          "false_alarm_rate": 0.30434782608695654,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.2,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001018-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.36363636363636365,
+          "n_false_green": 12,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 0.6060606060606061,
+          "abstention_f1": 0.7547169811320755,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.36363636363636365,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 2
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001020-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.36363636363636365,
+          "n_false_green": 12,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 0.6363636363636364,
+          "abstention_f1": 0.7777777777777778,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.36363636363636365,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 3
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001021-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.4,
+          "violation_precision": 0.2,
+          "false_alarm_rate": 0.2857142857142857,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.4,
+              "false_green_rate": 0.0,
+              "n_pairs": 5
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001024-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.38461538461538464,
+          "false_alarm_rate": 0.34782608695652173,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001027-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.24242424242424243,
+          "n_false_green": 8,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 0.6363636363636364,
+          "abstention_f1": 0.7777777777777778,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.24242424242424243,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 223094,
+        "output_tokens": 13047,
+        "calls": 48,
+        "wall_seconds": 276.2
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.8308,
+          "stdev": 0.3075,
+          "min": 0.2424,
+          "max": 1.0,
+          "n_firms": 12
+        },
+        "violation_recall": {
+          "mean": 0.3024,
+          "stdev": 0.2107,
+          "min": 0.0,
+          "max": 0.6,
+          "n_firms": 12
+        },
+        "violation_precision": {
+          "mean": 0.2795,
+          "stdev": 0.2145,
+          "min": 0.0,
+          "max": 0.6667,
+          "n_firms": 12
+        },
+        "false_alarm_rate": {
+          "mean": 0.1884,
+          "stdev": 0.131,
+          "min": 0.0,
+          "max": 0.3478,
+          "n_firms": 12
+        },
+        "abstention_precision": {
+          "mean": 0.25,
+          "stdev": 0.4523,
+          "min": 0.0,
+          "max": 1.0,
+          "n_firms": 12
+        },
+        "abstention_recall": {
+          "mean": 0.1566,
+          "stdev": 0.2833,
+          "min": 0.0,
+          "max": 0.6364,
+          "n_firms": 12
+        },
+        "abstention_f1": {
+          "mean": 0.1925,
+          "stdev": 0.3483,
+          "min": 0.0,
+          "max": 0.7778,
+          "n_firms": 12
+        }
+      },
+      "n_pairs": 504,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_removed_only": {
+      "model": "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0",
+      "provider": "vertexopen",
+      "variant": "abstain_removed_only",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "synthetic-001001-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.375,
+          "violation_precision": 0.3333333333333333,
+          "false_alarm_rate": 0.24,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.375,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001002-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.8,
+          "violation_precision": 0.4444444444444444,
+          "false_alarm_rate": 0.43478260869565216,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001003-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5384615384615384,
+          "violation_precision": 0.5833333333333334,
+          "false_alarm_rate": 0.25,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5384615384615384,
+              "false_green_rate": 0.0,
+              "n_pairs": 13
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001008-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.45454545454545453,
+          "false_alarm_rate": 0.2608695652173913,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001010-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.6666666666666666,
+          "violation_precision": 0.36363636363636365,
+          "false_alarm_rate": 0.25925925925925924,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.6666666666666666,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001014-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.375,
+          "false_alarm_rate": 0.18518518518518517,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001017-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.2,
+          "violation_precision": 0.25,
+          "false_alarm_rate": 0.2608695652173913,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.2,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001018-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.48484848484848486,
+          "n_false_green": 16,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.48484848484848486,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 2
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001020-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.24242424242424243,
+          "n_false_green": 8,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.24242424242424243,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 3
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001021-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 1.0,
+          "violation_precision": 0.22727272727272727,
+          "false_alarm_rate": 0.6071428571428571,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 5
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001024-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.4166666666666667,
+          "false_alarm_rate": 0.30434782608695654,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001027-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.8484848484848485,
+          "n_false_green": 28,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.8484848484848485,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 212471,
+        "output_tokens": 12190,
+        "calls": 46,
+        "wall_seconds": 222.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.8813,
+          "stdev": 0.251,
+          "min": 0.2424,
+          "max": 1.0,
+          "n_firms": 12
+        },
+        "violation_recall": {
+          "mean": 0.4233,
+          "stdev": 0.3239,
+          "min": 0.0,
+          "max": 1.0,
+          "n_firms": 12
+        },
+        "violation_precision": {
+          "mean": 0.2874,
+          "stdev": 0.1966,
+          "min": 0.0,
+          "max": 0.5833,
+          "n_firms": 12
+        },
+        "false_alarm_rate": {
+          "mean": 0.2335,
+          "stdev": 0.1793,
+          "min": 0.0,
+          "max": 0.6071,
+          "n_firms": 12
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        }
+      },
+      "n_pairs": 504,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_closed": {
+      "model": "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0",
+      "provider": "vertexopen",
+      "variant": "abstain_closed",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "synthetic-001001-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.5,
+          "false_alarm_rate": 0.16,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001002-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.6,
+          "violation_precision": 0.5454545454545454,
+          "false_alarm_rate": 0.21739130434782608,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.6,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001003-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.46153846153846156,
+          "violation_precision": 0.6,
+          "false_alarm_rate": 0.2,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.46153846153846156,
+              "false_green_rate": 0.0,
+              "n_pairs": 13
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001008-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.3,
+          "violation_precision": 0.42857142857142855,
+          "false_alarm_rate": 0.17391304347826086,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.3,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001010-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.375,
+          "false_alarm_rate": 0.18518518518518517,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001014-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.375,
+          "false_alarm_rate": 0.18518518518518517,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001017-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.3,
+          "violation_precision": 0.3333333333333333,
+          "false_alarm_rate": 0.2608695652173913,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.3,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001018-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.6363636363636364,
+          "n_false_green": 21,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.6363636363636364,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 2
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001020-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.8484848484848485,
+          "n_false_green": 28,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.8484848484848485,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 3
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001021-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.8,
+          "violation_precision": 0.3333333333333333,
+          "false_alarm_rate": 0.2857142857142857,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.0,
+              "n_pairs": 5
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001024-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.4166666666666667,
+          "false_alarm_rate": 0.30434782608695654,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001027-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.9393939393939394,
+          "n_false_green": 31,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.9393939393939394,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 218822,
+        "output_tokens": 13139,
+        "calls": 48,
+        "wall_seconds": 263.4
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.952,
+          "stdev": 0.1092,
+          "min": 0.6364,
+          "max": 1.0,
+          "n_firms": 12
+        },
+        "violation_recall": {
+          "mean": 0.3718,
+          "stdev": 0.2584,
+          "min": 0.0,
+          "max": 0.8,
+          "n_firms": 12
+        },
+        "violation_precision": {
+          "mean": 0.3256,
+          "stdev": 0.2123,
+          "min": 0.0,
+          "max": 0.6,
+          "n_firms": 12
+        },
+        "false_alarm_rate": {
+          "mean": 0.1644,
+          "stdev": 0.1086,
+          "min": 0.0,
+          "max": 0.3043,
+          "n_firms": 12
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        }
+      },
+      "n_pairs": 504,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    },
+    "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_withheld": {
+      "model": "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0",
+      "provider": "vertexopen",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "synthetic-001001-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.5,
+          "false_alarm_rate": 0.16,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 8
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001002-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.7,
+          "violation_precision": 0.4375,
+          "false_alarm_rate": 0.391304347826087,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.7,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001003-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.46153846153846156,
+          "violation_precision": 0.6666666666666666,
+          "false_alarm_rate": 0.15,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.46153846153846156,
+              "false_green_rate": 0.0,
+              "n_pairs": 13
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001008-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.5555555555555556,
+          "false_alarm_rate": 0.17391304347826086,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001010-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.3333333333333333,
+          "violation_precision": 0.2222222222222222,
+          "false_alarm_rate": 0.25925925925925924,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.3333333333333333,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001014-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.5,
+          "false_alarm_rate": 0.1111111111111111,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 6
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001017-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.3,
+          "violation_precision": 0.25,
+          "false_alarm_rate": 0.391304347826087,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.3,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001018-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 38,
+          "n_unparseable": 4,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.7878787878787878,
+          "n_false_green": 26,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 4,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.7878787878787878,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 2
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001020-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 36,
+          "n_unparseable": 6,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.7575757575757576,
+          "n_false_green": 25,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 6,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.7575757575757576,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 3
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001021-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.8,
+          "violation_precision": 0.2857142857142857,
+          "false_alarm_rate": 0.35714285714285715,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.0,
+              "n_pairs": 5
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001024-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 9,
+          "n_withheld": 9,
+          "violation_recall": 0.5,
+          "violation_precision": 0.45454545454545453,
+          "false_alarm_rate": 0.2608695652173913,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.5,
+              "false_green_rate": 0.0,
+              "n_pairs": 10
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 9
+            }
+          }
+        },
+        {
+          "firm_id": "synthetic-001027-study3-decoy",
+          "n_pairs": 42,
+          "n_parsed": 42,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 1.0,
+          "n_false_green": 33,
+          "n_withheld": 33,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "i9-everify": {
+              "violation_recall": 0.0,
+              "false_green_rate": 1.0,
+              "n_pairs": 33
+            },
+            "lca-dol": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 4
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 217334,
+        "output_tokens": 13193,
+        "calls": 48,
+        "wall_seconds": 262.5
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.9621,
+          "stdev": 0.0887,
+          "min": 0.7576,
+          "max": 1.0,
+          "n_firms": 12
+        },
+        "violation_recall": {
+          "mean": 0.3829,
+          "stdev": 0.2671,
+          "min": 0.0,
+          "max": 0.8,
+          "n_firms": 12
+        },
+        "violation_precision": {
+          "mean": 0.3227,
+          "stdev": 0.2326,
+          "min": 0.0,
+          "max": 0.6667,
+          "n_firms": 12
+        },
+        "false_alarm_rate": {
+          "mean": 0.1879,
+          "stdev": 0.1465,
+          "min": 0.0,
+          "max": 0.3913,
+          "n_firms": 12
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 12
+        }
+      },
+      "n_pairs": 504,
+      "n_unparseable": 10,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    }
+  }
+}

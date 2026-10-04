@@ -1,0 +1,48 @@
+Study 3 (decoy): 12 generated firms x 42 pairs
+shard 1/4: ['synthetic-001002-study3-decoy', 'synthetic-001014-study3-decoy', 'synthetic-001021-study3-decoy']
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_removed_only']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001002-study3-decoy FGR 0.889  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1971 output tokens, 120s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2479 output tokens, 111s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2619 output tokens, 114s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1965 output tokens, 112s, finish=stop, ok
+  synthetic-001014-study3-decoy FGR 0.778  recall 0.833  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1824 output tokens, 110s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2119 output tokens, 67s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request iazBaordHPXm88APyebsgA8 is throttled due to too many requests. Please try again later. Pl after 2s
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+        attempt 1: 3170 output tokens, 273s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1339 output tokens, 117s, finish=stop, ok
+  synthetic-001021-study3-decoy FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/openai/gpt-oss-120b-maas#r0::abstain_removed_only: FGR 0.556 (sd 0.484)  recall 0.944  over 3 firm(s)
+
+wrote runs/gpt-oss-120b-maas__decoy__abstain_removed_only__shard1of4.json

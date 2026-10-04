@@ -1,0 +1,121 @@
+
+=== vertexopen --model vertexopen/moonshotai/kimi-k2-thinking-maas#r0 --firms 0 --variant abstain_withheld --batch
+Study 3 (plain): 12 generated firms x 42 pairs
+vertexopen/moonshotai/kimi-k2-thinking-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/moonshotai/kimi-k2-thinking-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 12  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 8960 output tokens, 47s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8273 output tokens, 32s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 9675 output tokens, 45s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4230 output tokens, 19s, finish=stop, ok
+  synthetic-001001-study3-plain FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5673 output tokens, 21s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5515 output tokens, 27s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 8750 output tokens, 42s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6400 output tokens, 31s, finish=stop, ok
+  synthetic-001002-study3-plain FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9727 output tokens, 33s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 105s, finish=length, CAP
+        attempt 2: 11726 output tokens, 47s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 14171 output tokens, 55s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4146 output tokens, 20s, finish=stop, ok
+  synthetic-001003-study3-plain FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 12454 output tokens, 52s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8497 output tokens, 28s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10250 output tokens, 35s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6881 output tokens, 27s, finish=stop, ok
+  synthetic-001008-study3-plain FGR 0.667  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4632 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8762 output tokens, 30s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11449 output tokens, 43s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 10223 output tokens, 36s, finish=stop, ok
+  synthetic-001010-study3-plain FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6084 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8459 output tokens, 29s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 13584 output tokens, 61s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3045 output tokens, 15s, finish=stop, ok
+  synthetic-001014-study3-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 14569 output tokens, 57s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6425 output tokens, 30s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 12804 output tokens, 57s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 10640 output tokens, 35s, finish=stop, ok
+  synthetic-001017-study3-plain FGR 0.667  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2423 output tokens, 9s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1613 output tokens, 6s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 102s, finish=length, CAP
+        attempt 2: 32000 output tokens, 124s, finish=length, CAP
+        attempt 3: 4519 output tokens, 20s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4949 output tokens, 16s, finish=stop, ok
+  synthetic-001018-study3-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (6 calls)  TRUNCATED 2
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3341 output tokens, 15s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1998 output tokens, 11s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 8223 output tokens, 32s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5455 output tokens, 21s, finish=stop, ok
+  synthetic-001020-study3-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 12801 output tokens, 43s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 10229 output tokens, 41s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11419 output tokens, 42s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3805 output tokens, 15s, finish=stop, ok
+  synthetic-001021-study3-plain FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5543 output tokens, 17s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 9957 output tokens, 33s, finish=stop, ok
+      batch 3/4 (12 parsed so far)
+        attempt 1: 12565 output tokens, 46s, finish=stop, ok
+      batch 4/4 (24 parsed so far)
+        attempt 1: 8131 output tokens, 34s, finish=stop, ok
+  synthetic-001024-study3-plain FGR 0.333  recall 0.500  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2399 output tokens, 13s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2794 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 9176 output tokens, 43s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5450 output tokens, 18s, finish=stop, ok
+  synthetic-001027-study3-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/moonshotai/kimi-k2-thinking-maas#r0::abstain_withheld: FGR 0.389 (sd 0.371)  recall 0.958  over 12 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/kimi-k2-thinking-maas__plain__abstain_withheld.json

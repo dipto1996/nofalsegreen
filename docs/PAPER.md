@@ -27,20 +27,25 @@ that no single metric suffices. Answering `pass` everywhere raises no false alar
 calling every unassessable obligation satisfied, and abstaining everywhere scores well on
 abstention while detecting nothing.
 
-We evaluate nine language models on 140 pairs from the anchor firm, and three of them,
-Google's Gemini 3.1 Pro, Gemini 3.8 Flash and Gemma 4, also on 252 pairs from six generated
-firms, with three runs each. Offered an abstention, models report 0.042 to 0.153 of the
-anchor firm's unassessable obligations as satisfied while detecting 0.050 to 0.500 of its
-violations (these ranges combine single free-tier runs with three-run means). A
-dashboard-style schema permitting only `pass` and `fail` raises that rate to 0.131 to 0.589, significantly for eight of the nine models after correction for multiple
-comparisons. Two further conditions, the second added after the first was seen, show that
-models fail through different routes. Removing only the abstention verdict matters for one
-model; the others move to another non-committal verdict. Removing every non-committal verdict
-sharply raises false greens for two models. Redefining `pass` from "the required evidence is
-present and satisfies the obligation" to "the obligation is satisfied" raises them for both
-Gemini models, including the frontier one. These differences appear on the anchor
-firm, whose exports carry populated columns next to the missing evidence; on the clean
-generated exports no schema contrast survives correction.
+We evaluate thirteen language models from eight developers. On 140 pairs of the anchor firm,
+offered an abstention, models report 0.042 to 0.153 of unassessable obligations as satisfied
+while detecting 0.050 to 0.500 of its violations. A dashboard-style schema permitting only
+`pass` and `fail` raises that rate to 0.131 to 0.589, significantly for eight of the nine
+models we tested for it after correction for multiple comparisons.
+
+Two explanations of that effect were formed after seeing results, so we tested them in a
+preregistered study on twelve fresh generated firms, each rendered with and without
+**adjacent columns**: populated fields that sit beside the missing evidence without being it,
+such as an I-9 status of "Complete". Pooled over seven models from five developers, all four
+declared hypotheses were confirmed (Holm-adjusted p = 0.002 each). Removing every
+non-committal verdict raises the false-green rate by 0.259; redefining `pass` from "the
+required evidence is present and satisfies the obligation" to "the obligation is satisfied"
+raises it by a further 0.084; and adjacent columns raise it by 0.427 under the dashboard
+schema and by 0.217 even under the recommended one. On I-9 obligations, models almost never
+call a missing record compliant (0.000 to 0.023 across schemas) until an adjacent column is
+present. The labels of every generated firm agree with an independent checker written from
+the regulations; the anchor firm's labels were audited by two blind AI auditors, and no
+attorney has validated them.
 
 Every instance is synthetic, so the benchmark is released without the confidentiality
 constraints that keep comparable compliance data unpublishable.
@@ -95,7 +100,7 @@ system reading a third-party employer's structured records and deciding, per leg
 obligation, whether the records support a verdict at all, in a domain where correct
 abstention is a large share of the task by design. Section 2 sets out how close each comes.
 
-We make four contributions.
+We make five contributions.
 
 1. **A task.** Verdicts over (obligation, entity) pairs with four states, where
    `needs_evidence` is a first-class output with its own correctness condition rather than
@@ -107,10 +112,14 @@ We make four contributions.
    (Section 5).
 3. **A metric suite** centred on the false-green rate, with baselines demonstrating that
    no single metric in the suite is sufficient alone (Sections 6 and 8).
-4. **An empirical study** of nine language models on the anchor firm, three of them, including
-   a current frontier model, also on the generated firms with repeated runs. It decomposes the
-   effect of a dashboard-style output schema into separately tested changes (Sections 8
-   and 9).
+4. **An empirical study** of thirteen language models, including a preregistered
+   confirmatory study on fresh firms. It separates the effect of a dashboard-style output
+   schema into an abstention effect and a definition effect, and shows that adjacent-field
+   substitution, a populated column read as the missing evidence beside it, is a
+   mechanism of false greens rather than an interpretation (Sections 8 and 9).
+5. **Label validation without an annotator pool.** Every generated label is reproduced by a
+   checker written independently from the regulations, and the anchor firm's labels by two
+   blind audits, whose disagreements are published pair by pair (Sections 5.3 and 6.1).
 
 The benchmark is fully synthetic, which is the reason it can exist. Compliance data
 describing real employers is subject to attorney-client privilege and employee privacy
@@ -391,54 +400,60 @@ large abstention share as a design choice that mirrors that engine's coverage.
 
 ### 5.3 The generator
 
-The anchor firm is one employer, too small to support an interval on any system's error
-rate and lacking conforming controls. The generator addresses both, over a deliberately
-narrow set of rules.
-
-Its central property is that **labels precede data**. For each applicable (obligation,
-entity) pair the generator first draws a disposition and then writes records that decide
-it:
+The anchor firm is one employer, too small to support an interval on any error rate and
+lacking conforming controls. The generator addresses both over a deliberately narrow set of
+rules. Its central property is that **labels precede data**: for each applicable
+(obligation, entity) pair it first draws a disposition, then writes records that decide it.
 
 - `planted_violation`: the records show the breach;
 - `planted_control`: the records show conformity, with a configured share placed exactly on
   the legal boundary (near-miss controls) to test whether a system flags on proximity rather
   than on the rule;
-- `withheld_evidence`: the export that would carry the required information is not provided
-  to the firm at all.
+- `withheld_evidence`: the export that would carry the required information is not provided.
 
-The generator emits a pair only for the four rule families whose every listed input it
-renders: I-9 Section 1 timeliness (signed on or before the first day of employment, not
-before offer acceptance), I-9 Section 2 timeliness (within three business days, weekends and
-federal holidays with their observed dates excluded), reverification on or before the
-expiry of temporary work authorisation, and the LCA required wage (wages paid at least the
-greater of the prevailing wage and the employer's actual wage for similar workers, from a
-semimonthly payroll register and an actual-wage table). Each rule is applied only to
-entities it governs. Near-miss controls sit on the boundary: Section 1 on the first day,
-Section 2 on business day three, Supplement B on the expiry date, pay exactly equal to the
-required wage.
-
-Evidence is withheld a whole export at a time, never by blanking one worker's cell. A blank
-date for a past deadline reads to a practitioner as "not done", which is a violation, not
-missing evidence. A firm either provides its I-9 export, and every I-9 pair is decidable, or
-does not, and every I-9 pair is `needs_evidence`.
+It emits pairs only for four rule families whose every listed input it renders: I-9 Section 1
+timeliness (signed on or before the first day of employment, not before offer acceptance),
+Section 2 timeliness (within three business days, excluding weekends and federal holidays
+with their observed dates), reverification by the expiry of temporary authorisation, and the
+LCA required wage (wages paid at least the greater of the prevailing wage and the employer's
+actual wage, from a semimonthly payroll register and an actual-wage table). Near-miss
+controls sit on the boundary: Section 1 on the first day, Section 2 on business day three,
+Supplement B on the expiry date, pay exactly equal to the required wage. Evidence is withheld
+a whole export at a time, never by blanking one worker's cell, because a blank date for a
+past deadline reads to a practitioner as "not done", which is a violation.
 
 **An earlier generator failed this standard, and we replaced it.** A first version emitted a
-label for every (obligation, entity) pair in the 194-obligation rulebook but rendered
-deciding data for only four rule families, and applied rules to entities they cannot govern
-(L-1 and OPT rules to H-1B workers). A blind consistency check caught this before any
-language-model result on generated firms was reported. An AI agent (Claude) given only the
-records and the rule text for 60 stratified pairs, and not the labels, agreed with its
-labels on 8. Every
-figure from that version, including a released-set size of 58,961 pairs and the trivial
-baselines computed on it in an earlier draft, is withdrawn; the artifacts are archived in
-`docs/study2_v1_invalid/`. The same check on the current generator, on 60 pairs from seeds
-not otherwise used, agreed on all 60 (15 per stratum). The test suite now checks every
-rendered record against its label across 40 seeds.
+label for every pair in the 194-obligation rulebook but rendered deciding data for only four
+rule families, and applied rules to entities they cannot govern. A blind check caught this
+before any result on generated firms was reported: an AI agent given only the records and
+rule text for 60 stratified pairs agreed with its labels on 8. Every figure from that
+version, including a released-set size of 58,961 pairs, is withdrawn
+(`docs/study2_v1_invalid/`). The same check on the current generator agreed on all 60.
 
-The cost of this design is breadth. The generated firms test four rule families thoroughly,
-including the boundary cases, while the anchor firm's breadth (221 pairs across eight regimes)
-comes from hand authoring. Generation is deterministic in the seed, which the test suite
-asserts.
+**An independent derivation of every generated label.** A sample check by a model is weak
+evidence, so a separate agent wrote a deterministic checker for the four rules from the
+regulations (8 C.F.R. 274a.1–274a.2, the M-274 handbook, 20 C.F.R. 655.731), with no access
+to the generator's code or any label, recording each interpretive choice with its source
+(`labelcheck/INTERPRETATIONS.md`). Run on every generated firm used or audited here, it
+first disagreed on one pair of 1,680, exposing a generator bug: a New Year's Day falling on
+a Saturday is observed on the preceding Friday, which the generator's calendar missed. The
+bug touched one pair on an audit seed and no study firm. After the fix the two derivations
+agree on all 1,680 labels (`docs/labelcheck_results.json`). Where the law is not explicit
+(that signing Section 1 on the first day is timely, that "business day" excludes federal
+holidays, that wages are compared per pay period) the choices are stated, so a reader who
+would choose otherwise can rerun the checker.
+
+**Adjacent columns (generator v3).** For Study 3 the generator can add five roster columns
+that sit beside the evidence a rule needs without being it: an I-9 status of "Complete", an
+onboarding completion date, the current authorisation's end date, a salary of record set at
+the LCA offered wage, and an internal pay-band midpoint. They appear in every such firm,
+whether or not the export they imitate is withheld, and come from a separate random stream,
+so the firm with them and the same seed without them are identical in every label and every
+other export. None is an item the rulebook lists as evidence for the rule it imitates, and
+the reference checker ignores them.
+
+The cost of this design is breadth: four rule families, tested thoroughly, against the
+anchor firm's 221 pairs across eight regimes. Generation is deterministic in the seed.
 
 ### 5.4 Released scale
 
@@ -492,56 +507,58 @@ recall. Neither is meaningful alone, and Section 8 shows why.
 
 ### 6.1 Label views of the anchor firm
 
-**Two label views, fixed before per-pair results were read.** The anchor firm's
-labels were written as the acceptance gate for a compliance engine, where `fail` means
-"requires action". This benchmark's `fail` means "the records show a violation". Ten of
-the 20 planted violations sit between those meanings, so we score under two views, fixed
-in `nofalsegreen/labelviews.py` on 2026-09-24 with each affected pair named by identifier.
-The commit came six minutes after a first, later-discarded attempt at the main run had
-printed preliminary aggregate rates to its log. No per-pair result had been read, but we
-cannot exclude that those printed aggregates influenced the decision, and say so.
+**Two label views, fixed before per-pair results were read.** The anchor firm's labels were
+written as the acceptance gate for a compliance engine, where `fail` means "requires
+action"; here `fail` means "the records show a violation". Ten of the 20 planted violations
+sit between those meanings, so we score under two views, fixed in
+`nofalsegreen/labelviews.py` on 2026-09-24 with each affected pair named. The commit came
+six minutes after a first, later-discarded attempt at the main run had printed preliminary
+aggregate rates to its log; no per-pair result had been read, but we cannot exclude that
+those aggregates influenced the decision.
 
-- **Engine view, the headline.** The labels as authored. It is the headline because it
-  existed before this benchmark did, so nothing decided here can have tuned it.
-- **Strict view.** Five "actual-wage memo missing" violations become `needs_evidence`: no
-  export records the memo as absent, the evidence is simply not there, which is this
-  benchmark's own definition of an evidence request. Five deadlines that had not yet
-  passed on the evaluation date, an LCA and a petition near expiry, an open extension
-  window, and an RFE and a NOID not yet due, are removed from scoring and reported
-  separately as deadline alerts, listing the verdict each model gave. The remaining ten
-  violations are breaches that had already occurred.
+- **Engine view, the headline.** The labels as authored, which existed before this
+  benchmark did, so nothing decided here can have tuned them.
+- **Strict view.** Five "actual-wage memo missing" violations become `needs_evidence`, since
+  no export records the memo as absent. Five deadlines not yet passed on the evaluation date
+  (an LCA and a petition near expiry, an open extension window, an RFE and a NOID not yet
+  due) are removed from scoring and reported as deadline alerts. The remaining ten are
+  breaches that had already occurred.
 
-The strict view's ten violations still include three duplicated facts (Mei Tanaka's wage,
-Sofia Reyes's worksite and Daniel Cho's E-Verify case each appear twice; Section 5.2), so they
-describe seven distinct facts, one of which (Helena Voss's reverification) has no
-reverification data in the exports. The strict view's violation recall has a denominator of ten,
-so a single pair moves it by
-0.1. It is always reported beside the engine view, never alone. A model that answers
-`needs_evidence` on the unevidenced memos loses recall under the engine view and none
-under the strict view; the test suite asserts exactly that, so the difference between the
-two views on those pairs is a direct measure of how often a model declined to call a
-missing document a violation.
+The strict view's ten violations include three duplicated facts (Section 5.2), so they
+describe seven distinct facts. Its recall has a denominator of ten, so one pair moves it by
+0.1, and it is always reported beside the engine view.
 
-**A third view, from a blind audit of the withheld labels.** While reading early results
-we found a withheld label the exports contradict. `i9.section2.employer_signature` is
-labelled `needs_evidence` because the source engine never maps the column, yet
-`section2_signed_date` and `section2_examiner_name` are populated for every employee, and
-the prompt tells models to match columns by meaning. Because this was noticed in model
-output, the correction is constrained so that it cannot be steered by that output. The
-protocol (`docs/LABEL_AUDIT_PROTOCOL.md`) was committed before the audit ran. It covers
-all 120 withheld pairs, not the ones models got wrong. The auditor is a separate agent
-given only each pair's obligation text and the exports its batch was shown, with no
-model reply, score, or engine note. A label is overturned only if every required item of
-"information needed" is present for that entity; ambiguity keeps the label.
+**A third view, from a blind audit of the withheld labels.** While reading early results we
+found a withheld label the exports contradict: `i9.section2.employer_signature` is labelled
+`needs_evidence` because the source engine never maps the column, yet
+`section2_signed_date` and `section2_examiner_name` are populated for every employee.
+Because this was noticed in model output, the correction was constrained so that output
+could not steer it. The protocol (`docs/LABEL_AUDIT_PROTOCOL.md`) was committed before the
+audit ran; it covers all 120 withheld pairs; the auditor, a separate agent, saw only each
+pair's obligation text and exports; and a label is overturned only if every required item is
+present for that entity. The audit overturned 2 of 120, the Section 1 and Section 2 I-9
+signatures, both on signed-date columns (the Section 1 call is the weaker: a date is not
+obviously a signature). In the **audited view** those pairs are removed from scoring, not
+relabelled. Removing pairs can only remove false greens, so every table in this view states
+its denominator, and the engine view remains the headline.
 
-The audit overturned 2 of 120 labels, the Section 1 and Section 2 I-9 signatures, both on
-signed-date columns populated for all twelve employees. The auditor flagged the Section 1
-call as the weaker: there is no separate signature flag, and a stricter reader could hold
-that a date is not a signature. In the **audited view** those pairs are removed from
-scoring, not relabelled, since an auditor's verdict is not a label fixed by construction.
-Removing pairs can only remove false greens, so every table reporting this view states
-how many pairs it scores, and the engine view remains the headline. Every audit decision
-is published with its reasoning (`docs/label_audit.json`).
+**A second auditor, and an audit of the violations.** Under a protocol addendum committed
+before it ran, a second auditor from a different developer (Gemini 3.1 Pro, also a model
+under test, which never saw its own replies) repeated the withheld audit and, blind to the
+label, judged each violation pair as `violation_shown`, `compliance_shown` or `cannot_tell`
+(`docs/label_audit_second.json`). On the withheld pairs the two auditors keep the label on
+113 of 120. The first overturns 2 and the second 5, with no pair in common; the second's five
+are three LCA wage pairs, the FDNS itinerary item and the I-9 physical-examination item. On
+the violations, the second auditor supports neither the five memo absences nor the five
+future deadlines on the labelled ground, reaching the strict view's correction independently.
+Of the strict view's ten violations it supports five, covering four distinct facts: a late
+Section 2, a missed reverification, pay below the required wage, and a lapsed E-Verify action
+window. It judges four undecidable from the exports (a title change with no occupation code,
+a worksite move and an LCA area breach with no effective date, an E-Verify referral with no
+referral date) and one compliant (a U.S. passport holder with no reverification recorded).
+The false-green rate does not depend on any violation label. Violation recall on the anchor
+firm does, and should be read as recall against an engine's view of what is actionable, of
+which roughly half is a breach evident from the exports.
 
 ## 7. Baselines
 
@@ -551,87 +568,52 @@ unsafe. `always_abstain` answers `needs_evidence` everywhere: safe but useless.
 evidence is present; it is not a competitive system but an upper bound establishing that
 the task is solvable.
 
-**Language-model baselines.** The harness was tested against mock models with known
-failure signatures before any real call was made. The protocol is frozen in code (`baselines/prompts.py`, `PROMPT_VERSION` 1.1.0)
-so that the reported result cannot be a post-hoc selection of prompt:
+**Language-model baselines.** The harness was tested against mock models with known failure
+signatures before any real call. The protocol is frozen in code (`baselines/prompts.py`,
+`PROMPT_VERSION` 1.1.0), so the reported result cannot be a post-hoc choice of prompt:
 
-- *Prompt.* Per firm, the source exports verbatim as CSV, the obligations needed by the
-  batch with their check, threshold, citation and the information needed to decide them,
-  and the pairs to decide. Two reading rules apply identically in both conditions: export
-  columns are matched to obligations by meaning, and reference knowledge such as federal
-  holidays and regulatory thresholds is supplied by the model rather than required from
-  the exports.
-  Verdicts are returned one per line as `pair_id`, verdict, evidence field. The
-  evaluation date is pinned in the prompt with an explicit instruction not to use the
-  real current date, since every deadline rule depends on it.
-- *Output schema ablation.* `abstain_offered` permits four verdicts, defines `pass` as "the
-  required evidence is present in the exports and satisfies the obligation", and adds a
-  paragraph stressing the `pass`-versus-`needs_evidence` distinction. `abstain_withheld`
-  permits only `pass` and `fail` and is a dashboard-style schema in which every cell must
-  resolve. It changes four things at once: it removes `needs_evidence`, removes
-  `unmonitored`, redefines `pass` as "the obligation is satisfied", and drops the
-  paragraph. The comparison therefore measures the effect of moving from an
-  evidence-aware schema to a dashboard schema, not of one label. To isolate the label, the
-  Vertex block (Section 8.4) adds `abstain_removed_only` (the offered prompt word for word,
-  minus the `needs_evidence` verdict and the paragraph contrasting it with `pass`, whose
-  closing sentence is kept) and `abstain_closed`
-  (only `pass` and `fail`, with their evidence-anchored definitions and the warning kept). We count
-  **off-schema** replies, where a model returns a verdict the schema does not permit.
-- *Decoding.* Every request sets temperature 0 and an output cap of 32,000 tokens; for
-  models that reason before answering, the reasoning tokens count toward the cap. Some
-  free-tier hosts may not honour temperature 0 for reasoning models, which is one reason
-  the Vertex block repeats every run three times.
-- *Models.* Study 1 ran six free API models from four providers (Section 7.2). The Vertex
-  block adds three Google models: Gemini 3.1 Pro, Gemini 3.8 Flash and Gemma 4 26B.
-  Results speak to these nine models only.
-- *Aggregation.* Scored per firm, then averaged across firms with standard deviation.
-  Pairs within a firm share source records and are not independent.
+- *Prompt.* The source exports verbatim as CSV, the batch's obligations with check,
+  threshold, citation and the information needed, and the pairs to decide. Columns are
+  matched to obligations by meaning, and reference knowledge such as federal holidays is
+  supplied by the model. The evaluation date is pinned, with an instruction not to use the
+  real date. Verdicts come back one per line as `pair_id`, verdict, evidence field.
+- *Output schemas.* `abstain_offered` permits four verdicts, defines `pass` as "the required
+  evidence is present in the exports and satisfies the obligation", and stresses the
+  `pass`-versus-`needs_evidence` distinction. `abstain_withheld` is a dashboard schema with
+  only `pass` and `fail`; it changes four things at once (it removes `needs_evidence` and
+  `unmonitored`, redefines `pass` as "the obligation is satisfied", and drops the warning).
+  Two conditions separate those changes: `abstain_removed_only` (the offered prompt minus
+  `needs_evidence` and its definition) and `abstain_closed` (only `pass` and `fail`, with the
+  evidence-anchored definitions and warning kept). We count **off-schema** replies, verdicts
+  a schema does not permit. Appendix B gives all four menus verbatim.
+- *Decoding.* Temperature 0 and an output cap of 32,000 tokens, reasoning tokens included.
+- *Models.* Study 1 ran six free API models from four developers (Section 7.2). The Vertex
+  block adds three Google models: Gemini 3.1 Pro, Gemini 3.8 Flash and Gemma 4 26B. Study 3
+  and its extension add four open-weights models from other developers, served on Vertex AI:
+  OpenAI gpt-oss-120b, DeepSeek V3.2, Qwen3 235B A22B Instruct and Moonshot Kimi K2 Thinking
+  (Qwen3 235B's served output limit is 16,384 tokens, below our cap). Results speak to these
+  thirteen models only.
 
-**Parsing policy, which is a scoring decision.** A reply line naming a pair but none of
-the four verdict words yields **no prediction**, and the metric module counts the pair as an
-error. It is never coerced. Coercing to `needs_evidence` would convert a model's
-formatting failures into abstentions and flatter its false-green rate; coercing to `pass`
-would do the reverse. Either would make the headline number a function of our parser. We
-report the unparseable rate separately so a reader can see how much of a score is
-formatting. A line carrying a recognised verdict that the schema did not permit (for
-example `needs_evidence` under `abstain_withheld`) is parsed as given and counted as
-off-schema.
+**Parsing and coverage are scoring decisions.** A reply line naming a pair without a
+recognised verdict yields no prediction and is never coerced: coercing to `needs_evidence`
+would turn formatting failures into abstentions and flatter the false-green rate, and
+coercing to `pass` the reverse. We report the unparseable rate separately. An unanswered pair
+counts as a miss for violation recall, but on the false-green rate it can never be a `pass`,
+so a model that answers less looks safer and one that answers nothing scores 0.000. Every
+results table therefore reports how many pairs were answered and the false-green rate among
+withheld pairs actually answered.
 
-**Coverage, because an unanswered pair cannot be a false green.** A pair with no
-prediction scores as a miss on violation recall, which is conservative. On the
-false-green rate it is the opposite: the pair stays in the denominator and can never be
-counted as `pass`, so a model that answers less looks safer, and one that answers nothing
-scores a perfect 0.000. The headline rate keeps the declared definition, but every
-results table also reports how many pairs each model answered and the false-green rate
-among withheld pairs it actually answered. A gap between the two columns is a coverage
-effect, not safety.
+**Delivery failures are not answers.** An empty reply, one ending in an upstream error, or
+one cut off by the host below our cap is re-requested, up to three attempts. Three such
+failures in a row means the host is failing: the run stops and resumes later, and is never
+recorded as finished with a batch missing for this reason. A reply that ends normally with
+no usable lines, or runs to our 32,000-token cap on all three attempts, is the model's own
+outcome and counts as unanswered. Two departures from this rule occurred; both are in
+Appendix C.4.
 
-**Delivery failures are not answers.** Free endpoints sometimes return an empty reply,
-end a reply with an upstream error, or cut it off below our output cap. None of these is
-the model's answer, so the batch is re-requested, at most three attempts in all. Three
-such failures in a row, across batches, means the host is failing rather than the batch:
-the run stops, keeps its complete batches, and resumes after the next quota reset. A run
-is never recorded as finished while a batch is missing for this reason, because its
-missing pairs would score as model errors when the cause was delivery. Two outcomes are
-the model's own and are kept as given: a reply that ends normally but contains no usable
-verdict lines (counted as unanswered), and a reply that runs to our 32,000-token cap on
-all three attempts (the cap is close to, and below, the free models' own output ceilings,
-so the model is generating without end; the batch is recorded as unanswered). Every attempt, with its
-token count and the provider's stop reason, is in the sweep log.
-
-Two departures from this rule occurred, and both are disclosed here. First, Nemotron 3.5
-Lightning's
-second run never finished normally: its host repeatedly cut replies off at a ten-minute
-limit. Under a cut-off rule committed before the final quota window, once every other run
-had finished, the run was given one pass that tried each remaining batch up to three times
-and was then recorded with what it had answered: 68 of 140 pairs. Second, during that pass
-one reply ended with an upstream error *after* delivering all twelve verdict lines. The
-harness accepted it because the reply was not empty, contrary to the rule above. We keep
-it, since its answer is complete, and the harness has since been corrected to re-request
-such replies. It is the only reply in the study that ended without a normal stop.
-
-**Cost.** Study 1 and Study 2 used free API tiers only. The Vertex block was paid from the
-author's startup cloud credits; token counts per run are in `docs/vertex/runs/`.
+**Cost.** Study 1 used free API tiers only. The Vertex block, Study 2 and Study 3 were paid
+from the author's startup cloud credits; token counts per run are in `docs/vertex/runs/` and
+`docs/study3/runs/`.
 
 ### 7.1 Protocol revision after a pilot
 
@@ -643,45 +625,25 @@ main runs then exposed an output cap that cut off reasoning models mid-reply; in
 replies were purged and re-requested under a larger cap. Both revisions, with the numbers
 that motivated them, are in Appendix C.
 
-### 7.2 Running on free API tiers
+### 7.2 Source scoping, model set and subset
 
-We report results obtained entirely on providers' free tiers, which constrains the
-experiment in two ways that must be stated because both affect the measurement.
+**Source scoping.** Free tiers cap tokens per minute, so each call carries only the exports
+whose regime the batch's obligations can be evaluated against, with the HR roster always
+included; every run uses batches of 12 pairs. Scoping changes the prompt, so it is part of the protocol.
+The prompt names the exports not sent and tells the model not to infer that an absent field
+exists in one of them, and an obligation of an unclassified regime falls back to all sources. Scoping is identical across conditions, so it cannot bias a contrast between them;
+we did not run without it. One scoping defect was found and fixed before Study 3: the
+generated firms' actual-wage export was never sent with the wage rule (Section 8.3).
 
-**Source scoping.** Free tiers cap tokens per minute, and the cap is checked against the
-largest single call, not the average. Sending all eleven exports on every call
-exceeds several free per-minute token quotas, so we send only the exports whose regime an
-obligation can be evaluated against, with the HR roster always included because every
-other source joins to it. Every run in this paper uses batches of 12 pairs.
+**Model set.** Six free models were declared; two were withdrawn from the free tier
+mid-study and replaced under rules committed before any replacement answered a batch
+(Appendix C.2).
 
-Scoping is a change to the prompt, so we treat it as part of the protocol rather than an
-implementation detail. Two safeguards keep it from manufacturing abstentions. First, the
-prompt names the exports that were withheld and instructs the model not to infer that an
-absent field exists in an export it cannot see; a model that abstained merely because it
-suspected hidden data would otherwise inflate the apparent abstention rate. Second, an
-obligation whose regime is unclassified falls back to all sources, so the mapping can only
-narrow prompts for regimes it knows about and can never hide data from an obligation it
-has not classified. We did not run models with scoping off, so we cannot rule out that
-scoping changes model behaviour; it is applied identically in every condition, so it does
-not bias the comparison between them.
-
-**Model coverage.** Free tiers offer a narrower and generally smaller set of models than a
-funded study would use. The Vertex block adds one frontier model, but no model from other
-frontier providers was evaluated (Section 11).
-
-**Model set.** Six free models were declared. Two (the Nex models) were withdrawn from
-the free tier mid-study; they were replaced by Qwen 3.8 27B and, after Gemma 4 31B never
-passed a screening call, dots.3 Note Preview, under rules committed before any
-replacement had answered a batch. Appendix C gives the full sequence and its commit record.
-
-**The declared evaluation subset.** The reason for a subset is the free-tier call budget:
-the full anchor firm at batch 12 costs 19 calls per model per condition against a ceiling
-of 50 calls a day. We evaluate a **declared stratified subset** of 140 pairs, fixed by a
-seed in `nofalsegreen/subset.py` and frozen to a file before any model was scored. It
-contains **every planted violation** (so violation recall is over the complete violation
-set) and 120 of the 201 withheld pairs, sampled in proportion to each regime with at least
-one pair per regime present. The subset's smaller denominator widens every interval; we
-report its size beside every result and never present a subset rate as a full-firm rate.
+**The declared evaluation subset.** The free-tier budget (50 calls a day) does not cover the
+full anchor firm, so Study 1 evaluates a **declared stratified subset** of 140 pairs, fixed
+by a seed and frozen before any model was scored: **every planted violation** and 120 of the
+201 withheld pairs, sampled in proportion to regime. We never present a subset rate as a
+full-firm rate.
 
 **A baseline we deliberately exclude.** The anchor firm's expectation set originated as
 the acceptance gate for a commercial compliance engine developed by the author's company
@@ -736,27 +698,21 @@ is exhibiting a property of itself, not of an ill-posed benchmark.
 Six free models were evaluated on the declared 140-pair subset of the anchor firm under
 prompt v1.1.0, each under both output schemas: Nemotron 3 Ultra 550B, Nemotron 3 Super
 120B and Nemotron 3.5 Lightning (NVIDIA), Laguna XS 2.1 (Poolside), Qwen 3.8 27B (Alibaba),
-and dots.3 Note Preview (dots-studio), the last two replacing the withdrawn Nex models
-under the rule in Section 7.2. Gemma 4 31B, the other declared replacement, never passed
-the screen and yielded its slot to the fallback. The tables are generated from the
-retained replies (`scripts/fill_results.py`); the coverage and answered-only columns were
-added after the first results, when the coverage effect described in Section 7 was found.
+and dots.3 Note Preview (dots-studio), the last two replacing withdrawn models (Section
+7.2). Tables are generated from the retained replies (`scripts/fill_results.py`); the
+coverage and answered-only columns were added after the first results, when the coverage
+effect of Section 7 was found.
 
-**Uncertainty, and what it does and does not allow.** Bracketed figures are 95% percentile
-intervals from a bootstrap that resamples *obligations* (2,000 draws, fixed seed): the
-pairs under one obligation share a rule text and records, so resampling pairs would
-understate the interval. The intervals are wide. At 140 pairs most differences *between
-models* within a condition are not resolved, so we do not rank the models, and tables list
-them alphabetically. The comparison the study is built for is *within* a model across the
-two schemas. We bootstrap the paired difference on the withheld pairs both runs answered,
-and correct the six per-model tests for multiplicity (Holm). All six remain significant at
-0.05 (Table 3). Every Study 1 run was made once; the Vertex block (Section 8.4) measures
-run-to-run variation, and Study 2 (Section 8.3) adds six generated firms.
+**Uncertainty.** Bracketed figures are 95% percentile intervals from a bootstrap that
+resamples *obligations* (2,000 draws, fixed seed), since pairs under one obligation share a
+rule text and records. At 140 pairs most differences *between* models are not resolved, so
+we do not rank models and list them alphabetically. The comparison the study is built for is
+*within* a model across schemas: the paired difference on withheld pairs both runs answered,
+Holm-corrected across the six models. All six remain significant at 0.05 (Table 3).
 
-**Table 2 — main result, `abstain_offered`.** One row per model, scored on the declared
-140-pair subset of the anchor firm. The protocol averages across firms with a standard
-deviation; with one firm evaluated, each cell is that firm's value. The unparseable and
-answered columns guard the rest.
+**Table 2 — main result, `abstain_offered`.** One row per model on the 140-pair subset, with
+the trivial baselines as reference rows. The false-alarm column is 0.000 by construction,
+since the subset has no conforming pair.
 
 <!-- BEGIN GENERATED: table2-main -->
 | Model | False green | FG, answered only | Recall | Precision | False alarm | Abst. P | Abst. R | Abst. F1 | Unparse. | Answered |
@@ -771,23 +727,14 @@ answered columns guard the rest.
 | `oracle` (ref) | 0.000 | 0.000 | 1.000 | 1.000 | 0.000 | 1.000 | 1.000 | 1.000 | 0.000 | 140/140 |
 <!-- END GENERATED: table2-main -->
 
-The trivial baselines are repeated in-table as reference rows, so a reader sees
-immediately where each model sits between the unsafe floor and the attainable ceiling.
-The false-alarm column is 0.000 for every row by construction, since the evaluated subset
-has no conforming pair (Section 9); it is kept so the table matches its declared shape.
-
 **Offered an abstention, models abstain readily and detect little.** False-green rates
 run from 0.042 to 0.142. The lowest belongs to Lightning, which answered only 92 of 140
-pairs; among the withheld pairs it actually answered its rate is 0.059. No model is close
-to `always_pass`, and every model is far from the oracle on violation recall, which runs
-from 0.050 to 0.450: each model misses between 11 and 19 of the 20 violation labels,
-counting unanswered pairs as misses. As a rate this is the larger failure, against at most
-0.142 of withheld pairs reported as compliant. Models answer `needs_evidence` on violations
-whose evidence is in the exports. Abstention F1 is between 0.766 and 0.918, so the
-abstentions mostly land on the right pairs; there are too many of them.
+pairs; among the withheld pairs it actually answered its rate is 0.059. Violation recall
+runs from 0.050 to 0.450: models answer `needs_evidence` on violations whose evidence is in
+the exports. Abstention F1 is between 0.766 and 0.918, so the abstentions mostly land on the
+right pairs; there are too many of them.
 
-**Table 2b — strict label view.** Same runs, scored under the strict view (Section 6),
-with the deadline alerts beside them. Generated from `docs/views_results.json`.
+**Table 2b — strict label view** (Section 6.1), with the deadline alerts.
 
 <!-- BEGIN GENERATED: table2b-strict -->
 | Model | Condition | FGR, engine | FGR, strict | Recall, engine (of 20) | Recall, strict (of 10) | Alerts: fail / pass / other |
@@ -807,14 +754,13 @@ with the deadline alerts beside them. Generated from `docs/views_results.json`.
 <!-- END GENERATED: table2b-strict -->
 
 The strict view moves false-green rates by at most 0.021 and raises recall for every model
-under `abstain_offered`, because the five memo pairs that most models answered
-`needs_evidence` stop counting as missed violations. A `pass` on a deadline days away is
-the one deadline-alert outcome a reviewer would never see. Offered an abstention, models
-gave it on 2 of 30 alerts. Without the abstention it rose to 7 of 30, three of them from
-Nemotron Ultra, which answered `pass` on an LCA expiring in four days.
+under `abstain_offered`, because the five memo pairs most models answered `needs_evidence`
+stop counting as misses. A `pass` on a deadline days away is the one alert outcome a
+reviewer would never see: offered an abstention, models gave it on 2 of 30 alerts; without
+it, on 7 of 30, three of them Nemotron Ultra's.
 
-**Table 2c — audited label view.** Same runs, with the two withheld pairs the blind audit
-overturned removed from scoring (Section 6). The scored denominator is stated in every row.
+**Table 2c — audited label view.** The two withheld pairs the first audit overturned are
+removed; the scored denominator is in every row.
 
 <!-- BEGIN GENERATED: table2c-audited -->
 | Model | Condition | Withheld pairs scored | FGR, engine | FGR, audited | FG, audited, answered only |
@@ -834,12 +780,10 @@ overturned removed from scoring (Section 6). The scored denominator is stated in
 <!-- END GENERATED: table2c-audited -->
 
 Removing the two I-9 signature pairs lowers the false-green rate by 0.008 to 0.016 in 11
-of the 12 runs. In the twelfth, Lightning without the abstention, it rises by 0.004,
-because neither removed pair was one of that run's false greens. It changes neither the
-ordering of models nor the direction of any condition effect. The label error the audit found is real but too small to account for the result.
+of the 12 runs; in the twelfth, Lightning without the abstention, it rises by 0.004. It
+changes neither the ordering of models nor the direction of any condition effect.
 
-**Table 3 — the schema ablation.** The paper's most informative experiment. Same models,
-both conditions, difference reported per model.
+**Table 3 — the schema ablation.** Same models, both conditions.
 
 <!-- BEGIN GENERATED: table3-ablation -->
 | Model | Withheld pairs answered in both | FGR offered | FGR withheld | Change [95% CI] | Holm-adjusted p | Off-schema replies (withheld) |
@@ -854,34 +798,16 @@ both conditions, difference reported per model.
 FGR columns are over all 120 withheld pairs, as in Table 2. The change, its interval (obligation-cluster bootstrap, 2,000 draws) and the one-sided p-value are computed on the withheld pairs both runs answered; the bootstrap p-value has a floor of 1/2,000.
 <!-- END GENERATED: table3-ablation -->
 
-The off-schema column counts answered pairs where a model returned `needs_evidence` or
-`unmonitored` although the schema permitted only `pass` and `fail`.
-
 **Removing the abstention from a dashboard schema raises false greens in every model.** The
-direction of this effect is close to built in. A schema with only `pass` and `fail` forces
-every unassessable pair into one of the two, so some false greens are guaranteed, and the
-withheld-condition false-green rate is the share of forced decisions that went to `pass`.
-Three things are not determined by the design, and they are the result.
+direction is close to built in: a schema with only `pass` and `fail` forces every
+unassessable pair into one of them. What the design does not fix is the size: it rises by between 0.125
+ (Nemotron Super) and 0.425 (dots.3), and the lean: five of the six models sent most
+unassessable pairs to `fail`, while dots.3 sent more to `pass` (63) than to `fail` (57). No
+model returned an off-schema verdict among the pairs it answered. This condition also
+redefines `pass` and drops a warning paragraph, so its effect is that of moving to a
+dashboard schema; Sections 8.4 and 8.5 take it apart.
 
-*The size of the shift varies widely.* The false-green rate rises by between 0.125 (Nemotron
-Super) and 0.425 (dots.3) over all withheld pairs (Table 3). Five of the six models sent
-most unassessable pairs to `fail`, an unsupported violation (32 to 99 of 120); dots.3 sent
-more to `pass` (63) than to `fail` (57). Nothing in the schema says an unassessable pair
-should be called compliant rather than violated, and models differ in which way they lean.
-
-*No model returned an off-schema verdict among the pairs it answered.* Lightning's host
-returned 72 empty or cut-off replies in this condition. Those are delivery failures, not
-refusals of the schema, and we cannot tell what the model would have answered.
-
-*False greens persist when abstention is offered* (Table 2).
-
-This condition changes more than the label (Section 7): it also redefines `pass` and
-drops a warning paragraph. Its effect is therefore the effect of moving to a dashboard
-schema. The one-variable condition in Section 8.4 isolates the label.
-
-**Table 4 — false-green rate by regime, `abstain_offered`.** One row per regulatory regime,
-one column per model. Each cell is the false-green rate over the regime's withheld pairs,
-with unanswered pairs counted as not-`pass`, and in parentheses the number of the regime's
+**Table 4 — false-green rate by regime, `abstain_offered`.** In parentheses, the regime's
 scored pairs of any label.
 
 <!-- BEGIN GENERATED: table4-regime -->
@@ -899,30 +825,20 @@ scored pairs of any label.
 Cells are the false-green rate over the regime's withheld pairs; in parentheses, the regime's scored pairs of any label.
 <!-- END GENERATED: table4-regime -->
 
-The anchor subset has no conforming pairs, so near-miss controls are measured in Study 2
-(Tables 7 and 8), not here.
+Three regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost every false
+green; H-1B status and FDNS site visits have none. Section 9 traces this to populated columns
+beside the missing evidence.
 
-**False greens are concentrated in a few regimes.** Under `abstain_offered`, three
-regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost every false
-green; H-1B status and FDNS site visits have none for any model. The regimes with false
-greens are, on inspection, ones whose exports carry a populated column *next to* the
-missing evidence: a document title beside a physical examination, an unitemized deduction
-total beside an itemised fee check. Section 9 examines this; it is an interpretation formed
-after the results.
-
-**Figure 1 — recall against false-green rate, Study 1.** One point per model and condition;
-filled circles offered the abstention, open circles did not, and a line joins each model's
-two conditions. Grey squares are the trivial baselines.
+**Figure 1 — recall against false-green rate, Study 1.** Filled circles offered the
+abstention, open circles did not; grey squares are the trivial baselines.
 
 ![Figure 1](figure1_separation.svg)
 
-Offered an abstention, the models sit low and left: few false greens, low recall. Without
-it they move up and right together, gaining recall at the cost of false greens. No model
-reaches the oracle's corner. The figure has a limitation a reader should know: `always_fail`
-sits at the same point as the oracle, because neither axis penalises calling an
-unassessable pair a violation. That error is counted in the decomposition of Section 9. A
-recall-only evaluation would prefer the withheld condition, since it detects more
-violations; the false-green axis shows what that preference costs.
+Without the abstention the models move up and right together, gaining recall at the cost of
+false greens; none reaches the oracle's corner. `always_fail` sits on the oracle's point
+because neither axis penalises calling an unassessable pair a violation, which is why the
+decomposition of Section 9 counts that error. A recall-only evaluation would prefer the
+dashboard schema; the false-green axis shows what that preference costs.
 
 ### 8.3 Study 2: generated firms
 
@@ -1062,170 +978,229 @@ Each model fails through a different route, so neither safeguard is redundant: a
 abstention verdict mattered for two of the three models, and an evidence-anchored definition
 of `pass` for two of the three. On Study 2's generated firms no contrast survives correction.
 Gemini 3.1 Pro's rise from 0.021 to 0.061 when abstention is removed is not significant
-there. A plausible reading, formed after the results, is that the definition of `pass`
-matters on exports that carry a populated column next to the missing evidence, as the anchor
-firm's do and the generated firms' do not. The two studies also differ in other ways (hand
-authoring, rule coverage, number of firms), so this is a hypothesis for a generator that
-plants such columns to test, not a finding.
+there. Our reading at this point, formed after the results, was that the schema matters most
+on exports that carry a populated column next to the missing evidence, as the anchor firm's
+do and the Study 2 firms' do not. Study 3 tested it.
+
+### 8.5 Study 3: a preregistered test on fresh firms
+
+Everything in Sections 8.2 to 8.4 that decomposes the schema was formed or extended after
+results were seen. Study 3 tests it on data no model had seen, under a declaration committed
+before any call (`docs/STUDY3_PREREGISTRATION.md`, with its analysis script): twelve fresh
+generated firms (seeds from 1001, 504 pairs each time, 180 withheld), each rendered twice,
+*plain* (as in Study 2) and *decoy* (the same firm plus the five adjacent columns of Section
+5.3); the four schemas; and seven models from five developers. Three are the Google models
+of the Vertex block. Four are open-weights models from other developers served on Vertex AI:
+OpenAI's gpt-oss-120b, DeepSeek V3.2, Qwen3 235B and Moonshot's Kimi K2 Thinking. Each cell
+was run once. Every cell answered at least 456 of 504 pairs.
+
+The four declared hypotheses, each a positive difference in false-green rate pooled over the
+seven models with equal weight, were **all confirmed** (Table 10):
+
+- **P1, abstention effect** (*offered* to *closed*, decoy firms): +0.259 [0.20, 0.33].
+- **P2, definition effect** (*closed* to *dashboard*, decoy firms): +0.084 [0.04, 0.12].
+- **P3, adjacent columns under the dashboard schema** (plain to decoy): +0.427 [0.29, 0.56].
+- **P4, adjacent columns under the recommended schema** (plain to decoy, *offered*): +0.217
+  [0.15, 0.29].
+
+Each Holm-adjusted p is 0.002, the smallest the 2,000-draw bootstrap can give after
+correction. Each effect is also significant within the Google models and within the other
+four developers' models taken separately.
+
+**Table 9 — Study 3, false-green rate by model, arm and schema.**
+
+<!-- BEGIN GENERATED: table9-study3 -->
+| Model | Arm | FGR offered | removed-only | closed | dashboard | Recall, offered | False alarm, offered | Min answered |
+|---|---|---|---|---|---|---|---|---|
+| `gemini-3.1-pro-preview` | plain | 0.106 | 0.189 | 0.206 | 0.294 | 1.000 | 0.000 | 504/504 |
+| `gemini-3.1-pro-preview` | decoy | 0.183 | 0.206 | 0.572 | 0.650 | 1.000 | 0.000 | 504/504 |
+| `gemini-3.8-flash` | plain | 0.161 | 0.217 | 0.350 | 0.361 | 1.000 | 0.000 | 498/504 |
+| `gemini-3.8-flash` | decoy | 0.361 | 0.433 | 0.639 | 0.778 | 1.000 | 0.000 | 471/504 |
+| `gemma-4-26b-a4b-it-maas` | plain | 0.339 | 0.333 | 0.406 | 0.411 | 0.230 | 0.084 | 498/504 |
+| `gemma-4-26b-a4b-it-maas` | decoy | 0.839 | 0.889 | 0.956 | 0.894 | 0.218 | 0.093 | 494/504 |
+| `gpt-oss-120b-maas` | plain | 0.133 | 0.239 | 0.228 | 0.228 | 0.954 | 0.017 | 474/504 |
+| `gpt-oss-120b-maas` | decoy | 0.289 | 0.228 | 0.272 | 0.400 | 0.920 | 0.030 | 468/504 |
+| `deepseek-v3.2-maas` | plain | 0.111 | 0.211 | 0.189 | 0.267 | 0.529 | 0.131 | 504/504 |
+| `deepseek-v3.2-maas` | decoy | 0.306 | 0.411 | 0.767 | 0.772 | 0.655 | 0.127 | 504/504 |
+| `qwen3-235b-a22b-instruct-2507-maas` | plain | 0.317 | 0.350 | 0.367 | 0.394 | 0.345 | 0.194 | 489/504 |
+| `qwen3-235b-a22b-instruct-2507-maas` | decoy | 0.628 | 0.739 | 0.894 | 0.917 | 0.368 | 0.232 | 494/504 |
+| `kimi-k2-thinking-maas` | plain | 0.156 | 0.161 | 0.261 | 0.233 | 0.966 | 0.000 | 474/504 |
+| `kimi-k2-thinking-maas` | decoy | 0.161 | 0.339 | 0.489 | 0.583 | 0.977 | 0.034 | 456/504 |
+
+Twelve fresh firms (504 pairs, 180 withheld) per arm, one run per cell. *plain*: generator v2; *decoy*: the same firms with five adjacent-but-insufficient roster columns. False alarm is any non-`pass` verdict on one of the 237 conforming controls.
+<!-- END GENERATED: table9-study3 -->
+
+**Table 10 — Study 3, declared tests.**
+
+<!-- BEGIN GENERATED: table10-study3-tests -->
+| Estimate | P1 abstention | P2 definition | P3 adjacent cols, dashboard | P4 adjacent cols, offered |
+|---|---|---|---|---|
+| **Pooled, 7 models (primary)** | +0.259 [+0.20, +0.33] p=0.002 ** | +0.084 [+0.04, +0.12] p=0.002 ** | +0.427 [+0.29, +0.56] p=0.002 ** | +0.217 [+0.15, +0.29] p=0.002 ** |
+| Google, 3 models | +0.258 [+0.16, +0.36] p=0.004 ** | +0.069 [+0.01, +0.13] p=0.021 ** | +0.440 [+0.27, +0.61] p=0.004 ** | +0.265 [+0.18, +0.35] p=0.004 ** |
+| Other developers, 4 models | +0.260 [+0.18, +0.34] p=0.004 ** | +0.095 [+0.04, +0.14] p=0.004 ** | +0.417 [+0.29, +0.53] p=0.004 ** | +0.181 [+0.12, +0.26] p=0.004 ** |
+| `gemini-3.1-pro-preview` | +0.389 [+0.24, +0.55] p=0.014 ** | +0.078 [+0.00, +0.17] p=0.432 | +0.356 [+0.22, +0.50] p=0.014 ** | +0.078 [+0.01, +0.17] p=0.432 |
+| `gemini-3.8-flash` | +0.269 [+0.10, +0.46] p=0.014 ** | +0.136 [+0.00, +0.27] p=0.432 | +0.417 [+0.18, +0.64] p=0.015 ** | +0.218 [+0.07, +0.40] p=0.033 ** |
+| `gemma-4-26b-a4b-it-maas` | +0.117 [+0.00, +0.25] p=0.432 | -0.006 [-0.02, +0.00] p=1.000 | +0.547 [+0.34, +0.72] p=0.014 ** | +0.500 [+0.29, +0.69] p=0.014 ** |
+| `gpt-oss-120b-maas` | -0.020 [-0.12, +0.07] p=1.000 | +0.154 [+0.07, +0.23] p=0.014 ** | +0.174 [+0.08, +0.25] p=0.014 ** | +0.160 [+0.05, +0.30] p=0.015 ** |
+| `deepseek-v3.2-maas` | +0.461 [+0.28, +0.62] p=0.014 ** | +0.006 [-0.06, +0.07] p=1.000 | +0.506 [+0.35, +0.66] p=0.014 ** | +0.194 [+0.06, +0.36] p=0.015 ** |
+| `qwen3-235b-a22b-instruct-2507-maas` | +0.267 [+0.12, +0.40] p=0.014 ** | +0.035 [-0.04, +0.11] p=1.000 | +0.545 [+0.32, +0.74] p=0.014 ** | +0.311 [+0.19, +0.45] p=0.014 ** |
+| `kimi-k2-thinking-maas` | +0.333 [+0.20, +0.49] p=0.014 ** | +0.187 [+0.06, +0.31] p=0.070 | +0.444 [+0.25, +0.63] p=0.015 ** | +0.058 [-0.03, +0.17] p=1.000 |
+
+Difference in false-green rate on withheld pairs answered in both cells, [95% CI] from an obligation-cluster bootstrap (18 firm-by-rule clusters, 2,000 draws), Holm-adjusted p. Holm families as declared: the four pooled tests; the 28 per-model tests; the eight group tests. ** marks adjusted p < 0.05. Pooled estimates weight each model equally.
+<!-- END GENERATED: table10-study3-tests -->
+
+**Adjacent columns are the strongest effect, and the most general.** P3 is significant for
+every one of the seven models, and P4 for five. The clearest case is the I-9 rules
+(exploratory breakdown, `docs/study3/`). When a firm's I-9 export is withheld and nothing
+stands beside it, the seven models almost never call a Section 1, Section 2 or
+reverification pair compliant: a mean of 0.000 to 0.023 across the four schemas. When the
+roster also carries an I-9 status of "Complete" and an onboarding date, the mean rises to
+0.193 under the recommended schema and 0.686 under the dashboard. The wage rule is less
+clean: even plain firms put the LCA's own offered-wage column beside a missing actual-wage
+table, and models call 0.442 of those pairs compliant with abstention offered. Reading the
+LCA rate as the required wage is adjacent-field substitution too, though it is the case a
+practitioner might call a reasonable inference; we keep the label, which the reference
+checker of Section 5.3 shares.
+
+**The two schema effects replicate, but not model by model.** Pooled, removing every
+non-committal verdict and redefining `pass` both raise false greens, for Google's models and
+for the others alike. Per model, P1 is significant for five of the seven and P2 for one
+(gpt-oss-120b, +0.154), so the definition effect is real but smaller and less uniform than
+the abstention effect. Removing only `needs_evidence` (secondary analysis S2) raises false
+greens by 0.080 pooled (p = 0.004), significantly for Kimi K2 alone. The interaction we
+expected, a larger definition effect on decoy firms than on plain ones (S3), was not found:
++0.048 [−0.01, 0.10], p = 0.10. The earlier reading that adjacent columns are what make the
+definition of `pass` matter is therefore not supported. Adjacent columns raise false greens
+under every schema, and the definition of `pass` matters on both kinds of firm.
+
+**No schema protects fully.** Under the recommended schema, decoy firms still draw false
+greens from 0.161 (Kimi K2) to 0.839 (Gemma 4). Detection does not predict safety: Gemini 3.1
+Pro, Gemini 3.8 Flash, gpt-oss-120b and Kimi K2 detect at least 0.920 of violations with
+abstention offered, yet on decoy firms they call 0.161 to 0.361 of withheld pairs
+compliant. With abstention offered, adjacent columns change the false-alarm rate on
+conforming controls by at most 0.038 (Table 9), and by at most 0.080 under any schema (S5),
+so their cost falls mostly on the false-green side.
+
+**Extension E1.** The four new models were also run once on the Study 1 anchor subset
+(Table 11, descriptive). Offered abstention, they report 0.042 to 0.142 of withheld pairs as
+compliant and detect 0.200 to 0.400 of violations, inside the ranges of the first nine
+models; under the dashboard schema their rate rises to 0.258 to 0.542.
+
+**Table 11 — the four new models on the anchor subset (extension E1).**
+
+<!-- BEGIN GENERATED: table11-e1 -->
+| Model | FGR offered | removed-only | closed | dashboard | FG answered only, offered | Recall, offered (of 20) | Answered, offered |
+|---|---|---|---|---|---|---|---|
+| `gpt-oss-120b-maas` | 0.083 | 0.117 | 0.125 | 0.258 | 0.083 | 0.400 | 140/140 |
+| `deepseek-v3.2-maas` | 0.067 | 0.108 | 0.250 | 0.542 | 0.067 | 0.200 | 140/140 |
+| `qwen3-235b-a22b-instruct-2507-maas` | 0.142 | 0.167 | 0.258 | 0.308 | 0.155 | 0.250 | 128/140 |
+| `kimi-k2-thinking-maas` | 0.042 | 0.175 | 0.167 | 0.267 | 0.042 | 0.350 | 140/140 |
+<!-- END GENERATED: table11-e1 -->
 
 ---
 
 ## 9. Analysis
 
-Each analysis below was specified before any result existed and names the artifact that
-answers it, so none could be quietly dropped; the one exception, the decomposition of the
-schema effect using the *closed* condition, was added after results and is marked as such.
-Two analyses proved not measurable on the evaluated data; they are reported as such, with
-the reason. All numbers come from
-`docs/analysis_results.json` (`scripts/analysis.py`).
+Each analysis below was specified before any result existed; the exceptions are marked.
+Numbers come from `docs/analysis_results.json` (`scripts/analysis.py`) unless a table is
+named.
 
-**Which failure dominates, per model.** Error decomposed into missed violations, false
-greens, false alarms, and unparseable output, as a stacked proportion. A model whose error
-is mostly unparseable output is making a formatting claim, not a reasoning one, and must
-be discussed separately.
+**Which failure dominates.** Offered an abstention, each model misses between 11 and 19 of
+the 20 violation labels (counting unanswered pairs as misses) and reports 5 to 17 of the 120
+withheld pairs as compliant, so as a rate the missed violation is the larger failure for
+every model. No reply line named a pair without a verdict; formatting failures were whole
+replies with no usable lines, which appear as unanswered pairs (48 and 72 in Lightning's two
+runs, 16 and 12 in Laguna's). Without the abstention each model misses 1 to 10 violations,
+and most unassessable pairs become unsupported violations (32 to 99 of 120) or false greens
+(21 to 63): the withheld condition buys recall by calling unassessable pairs violations.
 
-*Result.* Offered an abstention, each model misses between 11 and 19 of the 20 violation
-labels (counting unanswered pairs as misses) and reports 5 to 17 of the 120 withheld pairs
-as compliant. As a rate the missed violation is the larger failure for every model. No
-reply line named a pair without a verdict, so the unparseable rate is zero throughout. The
-formatting failures that did occur are whole replies with no usable lines, which appear as
-unanswered pairs: 48 and 72 in Lightning's two runs, 16 and 12 in Laguna's. Without the
-abstention the picture changes. Each model misses 1 to 10 violations, and most unassessable
-pairs become either unsupported violations (32 to 99 of 120) or false greens (21 to 63). The
-withheld condition buys its recall by calling unassessable pairs violations; for every model
-except dots.3 that is the larger share.
+**Where abstention is hardest.** The declared hypothesis was that obligations whose evidence
+is a *document* (a posting notice, a public access file) show more false greens than those
+whose evidence is a *field* (an I-94 expiry), because a missing document is visible only as a
+record never expected to exist. Classes were assigned mechanically from each obligation's
+"information needed" text, committed before any rate was computed by class: 49 document and
+71 field pairs among the 120 withheld (`docs/evidence_class_assignment.txt`). *Result:* in
+11 of the 12 runs the document rate is higher. Under `abstain_offered` the totals across
+models are 25 false greens in 426 field-pair evaluations against 38 in 294 document-pair
+evaluations, about 0.06 against 0.13; the runs share pairs, so we report counts and
+direction, not a p-value. The one exception, Lightning without the abstention, holds even
+among pairs it answered (0.575 on field pairs against 0.118 on document pairs).
 
-**Where abstention is hardest.** From Table 4. The hypothesis, stated before the run:
-obligations whose required evidence is a *field* (an I-94 expiry, a first-pay date) will
-show a lower false-green rate than those whose required evidence is a *document* (a
-posting notice, a public access file). Absence of a field is visible as an empty column;
-absence of a document is visible only as the absence of a record that was never expected
-to exist, which is a harder inference. If the asymmetry holds it is the most actionable
-finding for system builders, because it says where to put human review. If it does not
-hold, we report that the failure is uniform across evidence classes, which is also useful
-and which we will not suppress.
+The mechanism, however, is narrower than "documents are harder". The false greens cluster on
+obligations whose required item sits *next to* a populated column: a signature flag beside a
+signed date, a fee itemisation beside an unitemized deduction total. Several count as
+document obligations only because their required item is a presence flag. Where nothing
+adjacent is exported, as with the public access file's assembly obligations, the six-year
+maximum stay or FDNS site-visit records, no model produced a false green with abstention
+offered. We called this *adjacent-field substitution*. It was read off the anchor firm after
+the results, and Study 3 then confirmed it under a prior declaration, for all seven models
+under the dashboard schema and for five under the recommended one (Section 8.5). It is the
+field-level form of what DEMM-Bench calls the container fallacy (Solozobov, 2026).
 
-The classes are assigned mechanically, not by judgment, from each obligation's verbatim
-"information needed" text (`nofalsegreen/evidence_class.py`, committed before any rate was
-computed by class). An obligation is a *document* obligation if the text names a document,
-notice, posting, memo, file, list, summary, copy or clause, or a presence flag for one;
-otherwise it is a *field* obligation. The rule leans toward *document*, so an obligation
-needing both kinds of evidence counts as a document obligation. Of the 120 withheld pairs,
-49 are document pairs and 71 are field pairs; the full assignment is in
-`docs/evidence_class_assignment.txt`.
+**Near-miss controls.** The anchor subset has no conforming pair, so its false-alarm rate is
+0.000 by construction and carries no information. On the Study 2 firms (Table 7), with
+abstention offered, Gemini 3.1 Pro and 3.8 Flash raise no near-miss false alarm and Gemma 4
+raises 0.074: boundary cases are not where these models fail.
 
-*Result: the declared test mostly holds, but the mechanism is not the one hypothesised.* In
-11 of the 12 runs the false-green rate on document pairs exceeds that on field pairs. The
-exception is Lightning without the abstention. It answered only 17 of the 49 document
-pairs, but the reversal holds even among pairs it answered: 0.575 on field pairs against
-0.118 on document pairs. Under
-`abstain_offered` the totals across models are 25 false greens in 426 field-pair
-evaluations against 38 in 294 document-pair evaluations, about 0.06 against 0.13. The runs are not
-independent (the same 120 pairs, and the same models in both conditions), so we report
-the counts and the consistency of direction, not a p-value.
-
-The regime breakdown (Table 4) and the excerpts below point to a narrower mechanism than
-"documents are harder". The false greens cluster on obligations whose required item sits
-*next to* a populated export column: a document-presence or signature flag beside a
-document title or signed date, a fee itemisation beside an unitemized deduction total.
-Under the mechanical rule several of these count as document obligations, because their
-required item is a presence flag. Where nothing adjacent is exported, as with the public
-access file's assembly and readiness obligations, the six-year maximum stay or FDNS
-site-visit records, no model produced a false green when abstention was offered. The only
-false green in the public-access-file regime was Lightning's, on the item requiring a
-wage-rate document, where the LCA's own wage column sits beside the missing document. The actionable reading for system builders is therefore *adjacent-field
-substitution*. Human review belongs where an export carries a column that looks like the
-evidence but is not it, more than where evidence is wholly absent. This reading was formed
-after the results and is offered as an interpretation, not a confirmed hypothesis. It is
-close to what DEMM-Bench calls the container fallacy, treating the presence of an evidence
-container as sufficiency (Solozobov, 2026). Our version is field-level: the container is
-a populated column whose meaning is adjacent to, but not the same as, the evidence
-required.
-
-**Near-miss controls.** Distinguishes rule application from proximity heuristics. The anchor
-subset has no conforming pair, so its false-alarm rate is 0.000 by construction and carries
-no information. On the Study 2 firms (Table 7), with abstention offered, Gemini 3.1 Pro and
-3.8 Flash raise no near-miss false alarm and Gemma 4 raises 0.074: boundary cases are not
-where these models fail.
-
-**The schema ablation.** From Tables 3 and 8. A large effect of the schema locates the
-problem in interface design, which is actionable for anyone shipping a compliance
-dashboard; a small one locates it in the models.
-
-*Result.* The interface matters, but not as a single switch. Moving to a dashboard schema
-significantly raises the false-green rate for eight of the nine models (Tables 3 and 8).
-Decomposing that move for the three Google models (Section 8.4) shows that each fails through
-a different route: one through losing the abstention label itself, two through losing every
-non-committal verdict, two through the redefinition of `pass`. This is an instance, in a
-product interface, of the mechanism Kalai et al. (2025) describe for benchmarks: formats that
-give no credit for expressing uncertainty reward guessing. The practical reading is two design
-rules, both cheap and neither redundant for the models tested. Keep a verdict for "could not
+**The schema ablation.** The interface matters, but not as a single switch. A dashboard
+schema significantly raises the false-green rate for eight of the nine models (Tables 3 and
+8). Decomposed for the three Google models on the anchor firm (Section 8.4, partly post hoc),
+each fails through a different route. Study 3 confirmed both parts on fresh firms and seven
+models from five developers: removing every non-committal verdict raises false greens by
+0.259 and redefining `pass` by a further 0.084, pooled, with the first effect significant for
+five models and the second for one. This is, in a product interface, the incentive Kalai et
+al. (2025) describe for benchmarks: formats that give no credit for uncertainty reward
+guessing. Two design rules follow, cheap and not redundant: keep a verdict for "could not
 tell", and define `pass` as "the required evidence is present and satisfies the obligation".
 Neither absolves the models: with both rules in place, false-green rates of 0.04 to 0.15
-remain on the anchor firm, and recall is too low for any model to serve as an unsupervised
-monitor.
+remain on the anchor firm and 0.16 to 0.84 on firms with adjacent columns, and recall on the
+anchor firm is too low for any model to serve as an unsupervised monitor. A third rule
+follows from Study 3: since no schema protects against adjacent columns, an export column
+that resembles required evidence should be excluded from what the model sees or flagged for
+human review.
 
-**Evidence-pointer quality.** Among pairs answered correctly, how often the cited evidence
-field is one ground truth records as relevant. A correct verdict reached by pointing at the
-wrong record is not a reliable verdict, and at scale it is indistinguishable from a guess.
-*Not measurable in the language-model study:* the anchor firm's labels record no
-ground-truth evidence fields. The cited fields are retained in every reply and are used
-qualitatively below.
+**Is this only prompt sensitivity?** That language models respond to wording is well known
+(Sclar et al., 2024). Three things argue that this is more. The definition of `pass` is not
+incidental wording: every compliance dashboard must decide whether green means "satisfied"
+or "shown to be satisfied", and that decision is the variable manipulated, with the prompt
+otherwise held word for word. The effects replicate on firms no model had seen and across
+five developers, in the direction declared before the runs. And the largest effect in the
+paper involves no change to the prompt at all: adding five columns to an export raises the
+false-green rate by 0.217 to 0.427. The benchmark measures the interaction between an output
+contract and the data, which is what a deployed system is.
 
-**Consistency drift.** Reported if a system under test exposes headline counts. Flagged in
-Section 6 as the least-established axis in the suite, and it will be reported as
-exploratory rather than as a headline. *Not applicable here:* no model under test exposes
-headline counts.
+**Two declared analyses that could not be run.** Evidence-pointer quality needs ground-truth
+evidence fields, which the anchor firm's labels do not record; consistency drift needs a
+system that reports headline counts, and no model under test does.
 
-**Qualitative failure cases.** Three to five verbatim excerpts from retained raw output
-showing a model asserting a verdict the records cannot support. These are the most
-persuasive evidence in the paper for a reader who does not care about aggregate rates, and
-they are available because every response is retained.
-
-To keep these from being the most damning lines picked out of thousands, the selection
-rule was fixed in code before any excerpt was read (`scripts/analysis.py`). For each model,
-under `abstain_offered` and in the frozen subset order, the excerpt is the first `pass` on
-a withheld pair whose reply line cites an evidence field. One excerpt per model, quoted
-verbatim beside the fixed label. Applied as declared, the rule selected the same pair
-for four of the six models: the Section 2 signature label that the audit later overturned. We report
-that outcome as it fell, since four models agreeing on a mislabelled pair is itself a
-finding about the labels. We then apply the same rule once more, skipping overturned
-pairs, and mark those excerpts as the second application. This second step was added after
-the first application's result was seen, and is labelled as such wherever it appears.
-
-*Result, first application.* For the four models whose first hit was an I-9 pair, the rule
-selected the same line from each: a `pass` on the Section 2 employer signature, citing
-`section2_signed_date`. The audit later overturned that label. Four models independently
-reading a populated signed-date column as evidence of a signature suggests the label, not
-the models, is at fault, which is how the audit ruled. The call is contestable: the rule
-lists a signature flag that no export carries (Section 6.1). The prompt itself also
-contributes, since its example of matching columns by meaning names `section2_signed_date`
-as the Section 2 completion date (Appendix B). The other two models' first
-hits stand after the audit and are given below.
-
-*Result, second application (added after the first was seen; see above).* One excerpt per
-model, verbatim, each on a pair whose withheld label the blind audit upheld:
+**Qualitative failure cases.** To keep excerpts from being the worst lines picked out of
+thousands, the rule was fixed in code before any was read: for each model, under
+`abstain_offered`, the first `pass` on a withheld pair whose reply cites an evidence field.
+Applied as declared, it selected the same line for four of the six free models: a `pass` on
+the Section 2 employer signature citing `section2_signed_date`, the label the audit later
+overturned. Four models independently reading a populated signed-date column as a signature
+suggests the label was at fault (Section 6.1), and the prompt's own example of matching
+columns by meaning names that column. Applying the rule again while skipping overturned
+pairs, a step added after the first result was seen, gives one excerpt per model on labels
+the audit upheld:
 
 - Qwen 3.8 27B and dots.3 Note Preview, independently:
-  `h1b.wage.deductions.prohibited.business-expense … pass … pretax_deductions` (Qwen; dots.3
-  cites `payroll_register`). The rule asks whether any H-1B worker was charged for LCA,
-  petition or attorney fees. The payroll export carries only an unitemized pretax deduction
-  total, so no fee can be identified either way. Both models cite the total as evidence
-  that no prohibited deduction was taken.
+  `h1b.wage.deductions.prohibited.business-expense … pass … pretax_deductions` (dots.3 cites
+  `payroll_register`). The payroll export carries only an unitemized deduction total, so no
+  prohibited fee can be identified either way; both cite the total as evidence that none was
+  taken.
 - Nemotron 3 Super 120B: `i9.remote.alternative_procedure … pass … alternative_procedure`.
-  The export has the alternative-procedure flag. It has nothing on E-Verify good standing,
-  copy retention or the live-video attestation the procedure requires.
+  The flag is exported; E-Verify good standing, copy retention and the live-video
+  attestation the procedure requires are not.
 - Nemotron 3 Ultra 550B: `i9.documents.acceptable_list … pass … list_a_doc_title`. A
-  document title is cited as evidence that the document was acceptable. Expiry dates are
-  blank for two of twelve forms, and the reverification documents due on 2026-06-15 are not
-  exported.
+  document title is cited as evidence that the document was acceptable, though two expiry
+  dates are blank and the reverification documents due on 2026-06-15 are not exported.
 - Nemotron 3.5 Lightning and Laguna XS 2.1, independently:
-  `i9.section2.physical_exam … pass … list_a_doc_title`. Physical examination of documents
-  is inferred from the presence of a document title.
+  `i9.section2.physical_exam … pass … list_a_doc_title`. Physical examination is inferred
+  from the presence of a document title.
 
-Every one is a populated column standing in for the missing evidence beside it, which is
-the adjacent-field substitution described above. The full reply lines are in
-`docs/analysis_results.json`.
+Every one is a populated column standing in for the missing evidence beside it. The full
+reply lines are in `docs/analysis_results.json`.
 
 ---
 
@@ -1233,14 +1208,21 @@ the adjacent-field substitution described above. The full reply lines are in
 
 A compliance dashboard that reports an obligation as satisfied when its evidence was never
 present makes the one error its user cannot see. This benchmark measures that error
-directly, and its two parts serve different purposes. An audited anchor firm carries the
-messiness of real exports; generated firms, labelled by construction, carry conforming and
-boundary cases. A dashboard-style schema significantly raises false greens for eight of nine
-models. For the three models in which we decomposed it, each failed through a different
-part of the schema. Two design rules follow, both cheap and neither redundant: keep a verdict
-for "could not tell", and define `pass` in terms of evidence. The most important missing
-check is independent labelling by practising counsel; the most important missing experiment
-is a generator that plants misleading adjacent columns.
+directly. An audited anchor firm carries the messiness of real exports; generated firms,
+whose every label an independent checker reproduces from the regulations, carry conforming
+and boundary cases and can be rendered with or without misleading columns.
+
+Three findings follow, the last two confirmed on fresh firms under a declaration made before
+the runs, pooled over seven models from five developers. A dashboard-style schema raises
+false greens, significantly for eight of the nine models tested on the anchor firm. Both of
+its parts contribute: removing a verdict for "could not tell", and defining `pass` as
+"satisfied" rather than "shown to be satisfied". And the largest effect comes from the data,
+not the schema: a populated column beside missing evidence is read as that evidence,
+significantly for all seven models under the dashboard schema and for five of the seven
+under the recommended one. Three design rules follow: keep a
+verdict for "could not tell", define `pass` in terms of evidence, and route any export
+column that resembles required evidence to human review. The most important missing check
+is labelling by practising counsel.
 
 ---
 
@@ -1250,18 +1232,19 @@ is a generator that plants misleading adjacent columns.
 false-green failure generalises to other regulated domains and claim nothing about whether
 performance does.
 
-**No label was validated by an independent human expert.** The anchor firm's labels come
-from the author's company's engine, its withheld labels were audited by an AI agent, and
-the generated labels were checked by an AI agent. The generated firms address scale and
-construction, not independence. Independent labelling by practising immigration counsel is
-the most important missing check; a blind labelling kit is released for it.
+**No label was validated by a human expert.** The generated labels are reproduced in full
+by a checker written independently from the regulations, but its author is an AI agent,
+and the checker and the generator could share a misreading of the law; its interpretive
+choices are published so that one can be found. The anchor firm's labels come from the
+author's company's engine. Two AI auditors audited its withheld labels, and the second found
+only half of the strict view's violations evident from the exports. Independent labelling by
+practising immigration counsel remains the most important missing check; a blind labelling
+kit is released for it.
 
-**The generated firms are narrow, and cannot test the paper's main mechanism.** The
-generator renders four rule families and withholds evidence a whole export at a time, so on
-generated firms abstention reduces to noticing that an export is missing. Adjacent-field
-substitution, the mechanism Section 9 identifies on the anchor firm, needs a populated
-column that resembles the missing evidence, which the generator never produces except
-where one export of two is withheld (the wage rule). Two of its rules also simplify the
+**The generated firms are narrow.** The generator renders four rule families and withholds
+evidence a whole export at a time. Its adjacent columns (Study 3) are five, chosen by us,
+and always present in decoy firms; real exports will carry others, and how often a given
+column misleads will vary. Two of its rules also simplify the
 law. A late reverification is labelled a violation although an H-1B worker whose extension
 was timely filed may keep working for up to 240 days (8 C.F.R. 274a.12(b)(20)); the exports
 do not show extension filings. And the business-day convention (weekdays, excluding
@@ -1284,33 +1267,37 @@ pairs.** Required by the free-tier call ceiling (Section 7.2). The subset keeps 
 planted violation and covers every regime, but its smaller denominator widens every
 interval.
 
-**Statistics.** Study 1 runs were made once each. Intervals resample obligations, not
-model runs, so they do not include run-to-run variation; the Vertex block measures that
-directly with three repeats. The six paired ablation tests are corrected for multiplicity
-(Holm); the per-regime and evidence-class comparisons are descriptive and not tested.
+**Statistics.** Study 1, Study 3 and extension E1 runs were made once each. Intervals
+resample obligations, not model runs, so they do not include run-to-run variation; the
+Vertex block measures that with three repeats. Study 3's pooled tests rest on 18 clusters
+(firm by rule) and weight each model equally. Every family of tests is Holm-corrected; the
+per-regime, evidence-class and rule-family breakdowns are descriptive. Only Study 3 was
+declared before its results existed; the schema decomposition on the anchor firm was not.
 
 **Model coverage is narrow.** Six models were reached on free tiers, where availability is
 decided by provider capacity. Of 15 free chat models screened, only 6 returned a usable
 answer to a two-pair request: 5 were rate-limited, 2 refused with a permissions error, 1
 returned an upstream failure and 1 an empty completion. Two declared models were withdrawn
-mid-study, and one host cut off most replies (coverage 92 and 68 of 140). The Vertex block adds three models from a
-single provider, including one frontier model. No model from OpenAI, Anthropic or other
-frontier providers was evaluated, so whether their models fail through the same routes is
-untested, and it is the most valuable extension of this work.
+mid-study, and one host cut off most replies (coverage 92 and 68 of 140). Vertex AI added
+seven more: three from Google, including one frontier model, and open-weights models from
+OpenAI, DeepSeek, Alibaba and Moonshot. No closed model from OpenAI or Anthropic was
+evaluated, because the study was run without funds beyond the author's cloud credits; whether
+those models fail through the same routes is untested.
 
 **Prompts send only regime-relevant exports.** Required by free per-minute token quotas
 (Section 7.2). Safeguarded by disclosing withheld exports in the prompt, forbidding
 inference about unseen data, falling back to all sources for unclassified regimes, and
 asserting in tests that a correct model scores identically either way. It remains a
-deviation from sending a firm's complete record.
+deviation from sending a firm's complete record, and it produced one defect: Study 2's wage
+pairs were sent without the actual-wage export (Section 8.3).
 
-**The label audit is an AI's, and came after results.** The blind audit (Section 6) was run
-by an AI agent, not by immigration counsel, and was commissioned after early results were
-read. Blindness to model output and coverage of every withheld pair limit how far it could
-be steered, and every decision is published with its reasoning, but it is not an expert
-review. It found 2 of 120 withheld labels contradicted by the exports. That is a lower
-bound on label error of that kind, not a measurement of label quality overall: the 20
-violation labels were not audited, and a counsel-led review remains the obvious next step.
+**The label audits are AI audits, and came after results.** Both audits (Section 6.1) were
+run by AI models, not by immigration counsel, and both were commissioned after early results
+were read. Blindness to model output and coverage of every audited pair limit how far they
+could be steered, and every decision is published with its reasoning, but neither is an
+expert review. The two auditors overturned 2 and 5 withheld labels with no overlap, which
+says the boundary between "present" and "absent" evidence is itself contestable on a few
+pairs. One of the auditors, Gemini 3.1 Pro, is also a model under test.
 
 **No human baseline.** We do not know what false-green rate a competent paralegal or
 attorney would attain on this task, which would be the most informative reference point of
@@ -1345,16 +1332,19 @@ commercial compliance software for US employment-based immigration. The anchor f
 expectations were written as the acceptance gate for that company's engine, and the
 rulebook is derived from the same company's rule registry. Three safeguards follow from
 this. The company's engine is excluded as a baseline (Section 7). The generated firms used
-in Study 2 take their labels from the generator, not from the engine. And the withheld
-labels were audited blind (Section 6). A blind labelling kit is released
+in Studies 2 and 3 take their labels from the generator, not from the engine, and an
+independent checker reproduces every one. And the anchor firm's labels were audited blind
+twice, including its violation labels (Section 6.1); the second audit's verdict on the
+violations is reported in full, although it weakens the engine's labels. A blind labelling kit is released
 (`docs/expert_labelling/`) so that anyone with no stake in the labels, including practising
 counsel, can check them independently. No such external labelling was done for this paper. No model provider evaluated here was consulted,
 and no result was shared with one before publication.
 
 **Use of AI assistance.** An AI coding assistant (Anthropic's Claude) was used to write the
-benchmark code, run the experiments, draft the text, and perform the blind label audit
-and the generated-label consistency check, both reported as AI checks, not expert
-review. Every quantitative claim is recomputed from released artifacts by
+benchmark code, run the experiments and draft the text. A separate Claude agent performed
+the first blind label audit and wrote the independent reference checker without access to
+the generator or the labels; Gemini 3.1 Pro performed the second audit. All of these are
+reported as AI checks, not expert review. Every quantitative claim is recomputed from released artifacts by
 `scripts/verify_paper.py`; the author is responsible for all content.
 
 **Release.** Code under Apache-2.0, data and rulebook under CC-BY-4.0, with a datasheet.
@@ -1718,6 +1708,20 @@ that ordering. The replacements run under the identical prompt, subset, batch si
 output cap.
 
 
+### C.4 Departures from the delivery-failure rule
+
+First, Nemotron 3.5
+Lightning's
+second run never finished normally: its host repeatedly cut replies off at a ten-minute
+limit. Under a cut-off rule committed before the final quota window, once every other run
+had finished, the run was given one pass that tried each remaining batch up to three times
+and was then recorded with what it had answered: 68 of 140 pairs. Second, during that pass
+one reply ended with an upstream error *after* delivering all twelve verdict lines. The
+harness accepted it because the reply was not empty, contrary to the rule above. We keep
+it, since its answer is complete, and the harness has since been corrected to re-request
+such replies. It is the only reply in the study that ended without a normal stop.
+
+
 ### C.3 Throughput on free tiers
 
 The OpenRouter free tier allowed 50 requests a day across all free models and 20 a
@@ -1728,3 +1732,14 @@ allowance), stops cleanly when the daily ceiling is reached, and resumes from a
 checkpoint. Every model response is retained so that any reported number can be traced
 back to output.
 
+### C.5 Study 3 operations
+
+Study 3 ran as one process per model and arm, then, for the four slowest models, one per
+condition and finally, for gpt-oss-120b, four firm shards per condition, to finish within a
+day. Each process kept its own cache file. A shard began from a copy of its condition's
+cache, so batches already answered were reused, not requested again, and no request was sent
+twice with different results kept. No run ended incomplete. Qwen3 235B's requests were
+capped at its served limit of 16,384 tokens, as declared. Before the declaration, the four
+open models were sent only a one-word availability probe. The free-tier Study 2 sweep was
+stopped once Study 3 was declared; its one completed model's replies are retained in
+`docs/study2/` and not reported.

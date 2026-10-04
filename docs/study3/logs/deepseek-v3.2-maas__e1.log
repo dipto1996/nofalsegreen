@@ -1,0 +1,348 @@
+
+=== vertexopen --model vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 --firms 0 --variant abstain_offered --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 297 output tokens, 14s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 280 output tokens, 9s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request gp_BapGCEv3wvfIP1eGl4AU is throttled due to too many requests. Please try again later. Pl after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request jZ_BasaYLbyWvfIPxrLY8AU is throttled due to too many requests. Please try again later. Pl after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 272 output tokens, 7s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 342 output tokens, 12s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request 3p_Bata0MvP1vfIPr6er0Ag is throttled due to too many requests. Please try again later. Pl after 4s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 371 output tokens, 14s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request gaDBasChB8-8vfIP1-v6mA0 is throttled due to too many requests. Please try again later. Pl after 11s
+
+=== vertexopen --model vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 --firms 0 --variant abstain_offered --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+      batch 1/12 (0 parsed so far)
+      batch 2/12 (12 parsed so far)
+      batch 3/12 (24 parsed so far)
+      batch 4/12 (36 parsed so far)
+      batch 5/12 (48 parsed so far)
+      batch 6/12 (60 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 4s
+        attempt 1: 284 output tokens, 10s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 337 output tokens, 12s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 369 output tokens, 17s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request 1KDBau64Ap-D3tMProXqmAg is throttled due to too many requests. Please try again later. Pl after 4s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request 9qDBasKGKryWvfIPxrLY8AU is throttled due to too many requests. Please try again later. Pl after 1s
+        attempt 1: 323 output tokens, 11s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 344 output tokens, 10s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request P6HBau7DMfP1vfIPr6er0Ag is throttled due to too many requests. Please try again later. Pl after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 346 output tokens, 9s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request hqHBauKuI8-8vfIP1-v6mA0 is throttled due to too many requests. Please try again later. Pl after 2s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request kqHBauWEM_3wvfIP1eGl4AU is throttled due to too many requests. Please try again later. Pl after 1s
+        attempt 1: 260 output tokens, 10s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.067  recall 0.200  absF1 0.914  unparsed 0  (7 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::abstain_offered: FGR 0.067 (sd 0.000)  recall 0.200  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/deepseek-v3.2-maas__e1.json
+
+=== vertexopen --model vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 --firms 0 --variant abstain_removed_only --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_removed_only']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 294 output tokens, 18s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 292 output tokens, 10s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 266 output tokens, 11s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request 2aHBaqTtMryWvfIPxrLY8AU is throttled due to too many requests. Please try again later. Pl after 6s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request 6qHBauT1ENbvvfIP0ObsiAg is throttled due to too many requests. Please try again later. Pl after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 330 output tokens, 8s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request MKLBaqX2C_P1vfIPr6er0Ag is throttled due to too many requests. Please try again later. Pl after 8s
+        attempt 1: 346 output tokens, 12s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request TqLBaovlA_3wvfIP1eGl4AU is throttled due to too many requests. Please try again later. Pl after 2s
+        attempt 1: 273 output tokens, 11s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 319 output tokens, 9s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 357 output tokens, 12s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 320 output tokens, 10s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 327 output tokens, 9s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request jKLBaqrPBOGL3tMPmK2NqQo is throttled due to too many requests. Please try again later. Pl after 6s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 334 output tokens, 11s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request 5aLBaqOZGOaTvfIPgaC0oQw is throttled due to too many requests. Please try again later. Pl after 6s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 253 output tokens, 10s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.108  recall 0.450  absF1 0.000  unparsed 0  (12 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::abstain_removed_only: FGR 0.108 (sd 0.000)  recall 0.450  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/deepseek-v3.2-maas__e1.json
+
+=== vertexopen --model vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 --firms 0 --variant abstain_closed --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_closed']
+
+      batch 1/12 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request PqPBat2mCOaTvfIPgaC0oQw is throttled due to too many requests. Please try again later. Pl after 4s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 262 output tokens, 14s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request l6PBasXdJt3T67MP7L-viQU is throttled due to too many requests. Please try again later. Pl after 7s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 244 output tokens, 8s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 236 output tokens, 6s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 306 output tokens, 12s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request AaTBau6nJbyWvfIPxrLY8AU is throttled due to too many requests. Please try again later. Pl after 3s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 338 output tokens, 10s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 252 output tokens, 6s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 301 output tokens, 7s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 333 output tokens, 8s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 314 output tokens, 5s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 311 output tokens, 9s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+        attempt 1: 310 output tokens, 6s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+        attempt 1: 236 output tokens, 6s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.250  recall 0.750  absF1 0.000  unparsed 0  (12 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::abstain_closed: FGR 0.250 (sd 0.000)  recall 0.750  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/deepseek-v3.2-maas__e1.json
+
+=== vertexopen --model vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 --firms 0 --variant abstain_withheld --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 280 output tokens, 12s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request aaTBarXpOv3wvfIP1eGl4AU is throttled due to too many requests. Please try again later. Pl after 3s
+        attempt 1: 246 output tokens, 8s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 236 output tokens, 8s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 306 output tokens, 10s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 338 output tokens, 8s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 251 output tokens, 6s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 302 output tokens, 10s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 333 output tokens, 8s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 314 output tokens, 9s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 311 output tokens, 10s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 1s
+        attempt 1: 310 output tokens, 13s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+        attempt 1: 236 output tokens, 10s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.542  recall 0.800  absF1 0.000  unparsed 0  (12 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::abstain_withheld: FGR 0.542 (sd 0.000)  recall 0.800  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/deepseek-v3.2-maas__e1.json

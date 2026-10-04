@@ -1,0 +1,56 @@
+
+=== vertexopen --model vertexopen/openai/gpt-oss-120b-maas#r0 --firms 0 --variant abstain_offered --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 2035 output tokens, 103s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 1288 output tokens, 110s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+
+=== vertexopen --model vertexopen/openai/gpt-oss-120b-maas#r0 --firms 0 --variant abstain_offered --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+      batch 1/12 (0 parsed so far)
+      batch 2/12 (12 parsed so far)
+      batch 3/12 (24 parsed so far)
+        attempt 1: 2199 output tokens, 111s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 2839 output tokens, 211s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 2162 output tokens, 198s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 1729 output tokens, 70s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 2999 output tokens, 109s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+        attempt 1: 1360 output tokens, 111s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 3068 output tokens, 115s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 1501 output tokens, 113s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+        attempt 1: 1265 output tokens, 110s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+        attempt 1: 1899 output tokens, 34s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.083  recall 0.400  absF1 0.807  unparsed 0  (10 calls)
+
+  vertexopen/openai/gpt-oss-120b-maas#r0::abstain_offered: FGR 0.083 (sd 0.000)  recall 0.400  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/gpt-oss-120b-maas__e1.json

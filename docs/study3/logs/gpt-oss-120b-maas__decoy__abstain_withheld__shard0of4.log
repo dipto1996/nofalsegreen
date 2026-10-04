@@ -1,0 +1,29 @@
+Study 3 (decoy): 12 generated firms x 42 pairs
+shard 0/4: ['synthetic-001001-study3-decoy', 'synthetic-001010-study3-decoy', 'synthetic-001020-study3-decoy']
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001001-study3-decoy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2689 output tokens, 108s, finish=stop, ok
+  synthetic-001010-study3-decoy FGR 0.778  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1233 output tokens, 113s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 605 output tokens, 107s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 1722 output tokens, 119s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1438 output tokens, 119s, finish=stop, ok
+  synthetic-001020-study3-decoy FGR 0.121  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/openai/gpt-oss-120b-maas#r0::abstain_withheld: FGR 0.633 (sd 0.457)  recall 1.000  over 3 firm(s)
+
+wrote runs/gpt-oss-120b-maas__decoy__abstain_withheld__shard0of4.json

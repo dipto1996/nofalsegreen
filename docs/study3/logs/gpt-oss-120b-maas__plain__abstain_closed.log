@@ -1,0 +1,52 @@
+
+=== vertexopen --model vertexopen/openai/gpt-oss-120b-maas#r0 --firms 0 --variant abstain_closed --batch
+Study 3 (plain): 12 generated firms x 42 pairs
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 12  variants ['abstain_closed']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2029 output tokens, 107s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2323 output tokens, 109s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3187 output tokens, 108s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 986 output tokens, 102s, finish=stop, ok
+  synthetic-001001-study3-plain FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1757 output tokens, 100s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2385 output tokens, 100s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2931 output tokens, 117s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1963 output tokens, 113s, finish=stop, ok
+  synthetic-001002-study3-plain FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2181 output tokens, 113s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2392 output tokens, 118s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2512 output tokens, 119s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 844 output tokens, 28s, finish=stop, ok
+  synthetic-001003-study3-plain FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2099 output tokens, 106s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2952 output tokens, 216s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2506 output tokens, 128s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1469 output tokens, 182s, finish=stop, ok
+  synthetic-001008-study3-plain FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1832 output tokens, 103s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2959 output tokens, 107s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2680 output tokens, 112s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1737 output tokens, 196s, finish=stop, ok
+  synthetic-001010-study3-plain FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)

@@ -1,0 +1,2998 @@
+{
+  "declared": "docs/STUDY3_PREREGISTRATION.md",
+  "cells": {
+    "gemini-3.1-pro-preview::decoy::abstain_offered": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.18333333333333332,
+      "false_green_rate_answered": 0.18333333333333332,
+      "violation_recall": 1.0,
+      "violation_precision": 0.9560439560439561,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.8854489164086687,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 91,
+        "pred_abst": 143,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 33,
+        "abst": 143,
+        "withheld_as_pass": 33,
+        "withheld_as_needs_evidence": 143,
+        "withheld_as_fail": 4
+      }
+    },
+    "gemini-3.1-pro-preview::decoy::abstain_removed_only": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.20555555555555555,
+      "false_green_rate_answered": 0.20555555555555555,
+      "violation_recall": 1.0,
+      "violation_precision": 0.8877551020408163,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 98,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 37,
+        "abst": 0,
+        "withheld_as_unmonitored": 132,
+        "withheld_as_pass": 37,
+        "withheld_as_fail": 11
+      }
+    },
+    "gemini-3.1-pro-preview::decoy::abstain_closed": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.5722222222222222,
+      "false_green_rate_answered": 0.5722222222222222,
+      "violation_recall": 1.0,
+      "violation_precision": 0.5304878048780488,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 164,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 103,
+        "abst": 0,
+        "withheld_as_pass": 103,
+        "withheld_as_fail": 77
+      }
+    },
+    "gemini-3.1-pro-preview::decoy::abstain_withheld": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.65,
+      "false_green_rate_answered": 0.65,
+      "violation_recall": 1.0,
+      "violation_precision": 0.58,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 150,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 117,
+        "abst": 0,
+        "withheld_as_pass": 117,
+        "withheld_as_fail": 63
+      }
+    },
+    "gemini-3.1-pro-preview::plain::abstain_offered": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.10555555555555556,
+      "false_green_rate_answered": 0.10555555555555556,
+      "violation_recall": 1.0,
+      "violation_precision": 0.9354838709677419,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.9253731343283582,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 93,
+        "pred_abst": 155,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 19,
+        "abst": 155,
+        "withheld_as_needs_evidence": 155,
+        "withheld_as_pass": 19,
+        "withheld_as_fail": 6
+      }
+    },
+    "gemini-3.1-pro-preview::plain::abstain_removed_only": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.18888888888888888,
+      "false_green_rate_answered": 0.18888888888888888,
+      "violation_recall": 1.0,
+      "violation_precision": 0.7909090909090909,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 110,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 34,
+        "abst": 0,
+        "withheld_as_unmonitored": 123,
+        "withheld_as_pass": 34,
+        "withheld_as_fail": 23
+      }
+    },
+    "gemini-3.1-pro-preview::plain::abstain_closed": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.20555555555555555,
+      "false_green_rate_answered": 0.20555555555555555,
+      "violation_recall": 1.0,
+      "violation_precision": 0.3782608695652174,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 230,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 37,
+        "abst": 0,
+        "withheld_as_pass": 37,
+        "withheld_as_fail": 143
+      }
+    },
+    "gemini-3.1-pro-preview::plain::abstain_withheld": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.29444444444444445,
+      "false_green_rate_answered": 0.29444444444444445,
+      "violation_recall": 1.0,
+      "violation_precision": 0.40654205607476634,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 214,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 53,
+        "abst": 0,
+        "withheld_as_pass": 53,
+        "withheld_as_fail": 127
+      }
+    },
+    "gemini-3.8-flash::decoy::abstain_offered": {
+      "n": 504,
+      "answered": 498,
+      "false_green_rate": 0.3611111111111111,
+      "false_green_rate_answered": 0.3735632183908046,
+      "violation_recall": 1.0,
+      "violation_precision": 0.8207547169811321,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.6666666666666666,
+      "counts": {
+        "answered": 498,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 106,
+        "pred_abst": 90,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 65,
+        "abst": 90,
+        "withheld_as_pass": 65,
+        "withheld_as_fail": 19,
+        "withheld_as_needs_evidence": 90
+      }
+    },
+    "gemini-3.8-flash::decoy::abstain_removed_only": {
+      "n": 504,
+      "answered": 471,
+      "false_green_rate": 0.43333333333333335,
+      "false_green_rate_answered": 0.49056603773584906,
+      "violation_recall": 0.9425287356321839,
+      "violation_precision": 0.7454545454545455,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 471,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 110,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 82,
+        "withheld": 180,
+        "fg": 78,
+        "abst": 0,
+        "withheld_as_pass": 78,
+        "withheld_as_fail": 28,
+        "withheld_as_unmonitored": 53
+      }
+    },
+    "gemini-3.8-flash::decoy::abstain_closed": {
+      "n": 504,
+      "answered": 492,
+      "false_green_rate": 0.6388888888888888,
+      "false_green_rate_answered": 0.6497175141242938,
+      "violation_recall": 0.9655172413793104,
+      "violation_precision": 0.5753424657534246,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 492,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 146,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 84,
+        "withheld": 180,
+        "fg": 115,
+        "abst": 0,
+        "withheld_as_pass": 115,
+        "withheld_as_fail": 62
+      }
+    },
+    "gemini-3.8-flash::decoy::abstain_withheld": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.7777777777777778,
+      "false_green_rate_answered": 0.7777777777777778,
+      "violation_recall": 1.0,
+      "violation_precision": 0.6850393700787402,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 127,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 140,
+        "abst": 0,
+        "withheld_as_pass": 140,
+        "withheld_as_fail": 40
+      }
+    },
+    "gemini-3.8-flash::plain::abstain_offered": {
+      "n": 504,
+      "answered": 503,
+      "false_green_rate": 0.16111111111111112,
+      "false_green_rate_answered": 0.16111111111111112,
+      "violation_recall": 1.0,
+      "violation_precision": 0.8207547169811321,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.846153846153846,
+      "counts": {
+        "answered": 503,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 106,
+        "pred_abst": 132,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 29,
+        "abst": 132,
+        "withheld_as_needs_evidence": 132,
+        "withheld_as_pass": 29,
+        "withheld_as_fail": 19
+      }
+    },
+    "gemini-3.8-flash::plain::abstain_removed_only": {
+      "n": 504,
+      "answered": 498,
+      "false_green_rate": 0.21666666666666667,
+      "false_green_rate_answered": 0.22413793103448276,
+      "violation_recall": 1.0,
+      "violation_precision": 0.6492537313432836,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 498,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 134,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 39,
+        "abst": 0,
+        "withheld_as_pass": 39,
+        "withheld_as_fail": 47,
+        "withheld_as_unmonitored": 88
+      }
+    },
+    "gemini-3.8-flash::plain::abstain_closed": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.35,
+      "false_green_rate_answered": 0.35,
+      "violation_recall": 1.0,
+      "violation_precision": 0.4264705882352941,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 204,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 63,
+        "abst": 0,
+        "withheld_as_pass": 63,
+        "withheld_as_fail": 117
+      }
+    },
+    "gemini-3.8-flash::plain::abstain_withheld": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.3611111111111111,
+      "false_green_rate_answered": 0.3611111111111111,
+      "violation_recall": 1.0,
+      "violation_precision": 0.4306930693069307,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 202,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 65,
+        "abst": 0,
+        "withheld_as_pass": 65,
+        "withheld_as_fail": 115
+      }
+    },
+    "gemma-4-26b-a4b-it-maas::decoy::abstain_offered": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.8388888888888889,
+      "false_green_rate_answered": 0.8388888888888889,
+      "violation_recall": 0.21839080459770116,
+      "violation_precision": 0.4222222222222222,
+      "false_alarm_rate": 0.09282700421940929,
+      "false_alarm_near_miss": 0.05555555555555555,
+      "false_alarm_other_controls": 0.10909090909090909,
+      "abstention_f1": 0.23414634146341465,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 18,
+        "pred_fail": 45,
+        "pred_abst": 25,
+        "near": 72,
+        "near_alarm": 4,
+        "fail": 87,
+        "tp": 19,
+        "withheld": 180,
+        "fg": 151,
+        "abst": 24,
+        "withheld_as_pass": 151,
+        "withheld_as_fail": 5,
+        "withheld_as_needs_evidence": 24
+      }
+    },
+    "gemma-4-26b-a4b-it-maas::decoy::abstain_removed_only": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.8888888888888888,
+      "false_green_rate_answered": 0.8888888888888888,
+      "violation_recall": 0.3103448275862069,
+      "violation_precision": 0.4576271186440678,
+      "false_alarm_rate": 0.10970464135021098,
+      "false_alarm_near_miss": 0.09722222222222222,
+      "false_alarm_other_controls": 0.11515151515151516,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 19,
+        "pred_fail": 59,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 7,
+        "fail": 87,
+        "tp": 27,
+        "withheld": 180,
+        "fg": 160,
+        "abst": 0,
+        "withheld_as_pass": 160,
+        "withheld_as_fail": 6,
+        "withheld_as_unmonitored": 14
+      }
+    },
+    "gemma-4-26b-a4b-it-maas::decoy::abstain_closed": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.9555555555555556,
+      "false_green_rate_answered": 0.9555555555555556,
+      "violation_recall": 0.28735632183908044,
+      "violation_precision": 0.44642857142857145,
+      "false_alarm_rate": 0.0970464135021097,
+      "false_alarm_near_miss": 0.05555555555555555,
+      "false_alarm_other_controls": 0.11515151515151516,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 19,
+        "pred_fail": 56,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 4,
+        "fail": 87,
+        "tp": 25,
+        "withheld": 180,
+        "fg": 172,
+        "abst": 0,
+        "withheld_as_pass": 172,
+        "withheld_as_fail": 8
+      }
+    },
+    "gemma-4-26b-a4b-it-maas::decoy::abstain_withheld": {
+      "n": 504,
+      "answered": 494,
+      "false_green_rate": 0.8944444444444445,
+      "false_green_rate_answered": 0.9470588235294117,
+      "violation_recall": 0.2988505747126437,
+      "violation_precision": 0.41935483870967744,
+      "false_alarm_rate": 0.11392405063291139,
+      "false_alarm_near_miss": 0.1111111111111111,
+      "false_alarm_other_controls": 0.11515151515151516,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 494,
+        "ctrl": 165,
+        "ctrl_alarm": 19,
+        "pred_fail": 62,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 8,
+        "fail": 87,
+        "tp": 26,
+        "withheld": 180,
+        "fg": 161,
+        "abst": 0,
+        "withheld_as_pass": 161,
+        "withheld_as_fail": 9
+      }
+    },
+    "gemma-4-26b-a4b-it-maas::plain::abstain_offered": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.3388888888888889,
+      "false_green_rate_answered": 0.3388888888888889,
+      "violation_recall": 0.22988505747126436,
+      "violation_precision": 0.47619047619047616,
+      "false_alarm_rate": 0.08438818565400844,
+      "false_alarm_near_miss": 0.06944444444444445,
+      "false_alarm_other_controls": 0.09090909090909091,
+      "abstention_f1": 0.7499999999999999,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 15,
+        "pred_fail": 42,
+        "pred_abst": 108,
+        "near": 72,
+        "near_alarm": 5,
+        "fail": 87,
+        "tp": 20,
+        "withheld": 180,
+        "fg": 61,
+        "abst": 108,
+        "withheld_as_pass": 61,
+        "withheld_as_fail": 2,
+        "withheld_as_needs_evidence": 108,
+        "withheld_as_unmonitored": 9
+      }
+    },
+    "gemma-4-26b-a4b-it-maas::plain::abstain_removed_only": {
+      "n": 504,
+      "answered": 498,
+      "false_green_rate": 0.3333333333333333,
+      "false_green_rate_answered": 0.3333333333333333,
+      "violation_recall": 0.28735632183908044,
+      "violation_precision": 0.4807692307692308,
+      "false_alarm_rate": 0.0970464135021097,
+      "false_alarm_near_miss": 0.06944444444444445,
+      "false_alarm_other_controls": 0.10909090909090909,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 498,
+        "ctrl": 165,
+        "ctrl_alarm": 18,
+        "pred_fail": 52,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 5,
+        "fail": 87,
+        "tp": 25,
+        "withheld": 180,
+        "fg": 60,
+        "abst": 0,
+        "withheld_as_pass": 60,
+        "withheld_as_fail": 4,
+        "withheld_as_unmonitored": 116
+      }
+    },
+    "gemma-4-26b-a4b-it-maas::plain::abstain_closed": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.40555555555555556,
+      "false_green_rate_answered": 0.40555555555555556,
+      "violation_recall": 0.27586206896551724,
+      "violation_precision": 0.16326530612244897,
+      "false_alarm_rate": 0.06751054852320675,
+      "false_alarm_near_miss": 0.027777777777777776,
+      "false_alarm_other_controls": 0.08484848484848485,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 14,
+        "pred_fail": 147,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 2,
+        "fail": 87,
+        "tp": 24,
+        "withheld": 180,
+        "fg": 73,
+        "abst": 0,
+        "withheld_as_pass": 73,
+        "withheld_as_fail": 107
+      }
+    },
+    "gemma-4-26b-a4b-it-maas::plain::abstain_withheld": {
+      "n": 504,
+      "answered": 498,
+      "false_green_rate": 0.4111111111111111,
+      "false_green_rate_answered": 0.4111111111111111,
+      "violation_recall": 0.25287356321839083,
+      "violation_precision": 0.15492957746478872,
+      "false_alarm_rate": 0.05907172995780591,
+      "false_alarm_near_miss": 0.05555555555555555,
+      "false_alarm_other_controls": 0.06060606060606061,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 498,
+        "ctrl": 165,
+        "ctrl_alarm": 10,
+        "pred_fail": 142,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 4,
+        "fail": 87,
+        "tp": 22,
+        "withheld": 180,
+        "fg": 74,
+        "abst": 0,
+        "withheld_as_pass": 74,
+        "withheld_as_fail": 106
+      }
+    },
+    "gpt-oss-120b-maas::decoy::abstain_offered": {
+      "n": 504,
+      "answered": 468,
+      "false_green_rate": 0.28888888888888886,
+      "false_green_rate_answered": 0.3333333333333333,
+      "violation_recall": 0.9195402298850575,
+      "violation_precision": 0.9411764705882353,
+      "false_alarm_rate": 0.029535864978902954,
+      "false_alarm_near_miss": 0.041666666666666664,
+      "false_alarm_other_controls": 0.024242424242424242,
+      "abstention_f1": 0.7038327526132405,
+      "counts": {
+        "answered": 468,
+        "ctrl": 165,
+        "ctrl_alarm": 4,
+        "pred_fail": 85,
+        "pred_abst": 107,
+        "near": 72,
+        "near_alarm": 3,
+        "fail": 87,
+        "tp": 80,
+        "withheld": 180,
+        "fg": 52,
+        "abst": 101,
+        "withheld_as_pass": 52,
+        "withheld_as_needs_evidence": 101,
+        "withheld_as_fail": 3
+      }
+    },
+    "gpt-oss-120b-maas::decoy::abstain_removed_only": {
+      "n": 504,
+      "answered": 474,
+      "false_green_rate": 0.22777777777777777,
+      "false_green_rate_answered": 0.26282051282051283,
+      "violation_recall": 0.9195402298850575,
+      "violation_precision": 0.8333333333333334,
+      "false_alarm_rate": 0.012658227848101266,
+      "false_alarm_near_miss": 0.027777777777777776,
+      "false_alarm_other_controls": 0.006060606060606061,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 474,
+        "ctrl": 165,
+        "ctrl_alarm": 1,
+        "pred_fail": 96,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 2,
+        "fail": 87,
+        "tp": 80,
+        "withheld": 180,
+        "fg": 41,
+        "abst": 0,
+        "withheld_as_pass": 41,
+        "withheld_as_fail": 14,
+        "withheld_as_unmonitored": 101
+      }
+    },
+    "gpt-oss-120b-maas::decoy::abstain_closed": {
+      "n": 504,
+      "answered": 474,
+      "false_green_rate": 0.2722222222222222,
+      "false_green_rate_answered": 0.30246913580246915,
+      "violation_recall": 0.9425287356321839,
+      "violation_precision": 0.4079601990049751,
+      "false_alarm_rate": 0.02531645569620253,
+      "false_alarm_near_miss": 0.041666666666666664,
+      "false_alarm_other_controls": 0.01818181818181818,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 474,
+        "ctrl": 165,
+        "ctrl_alarm": 3,
+        "pred_fail": 201,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 3,
+        "fail": 87,
+        "tp": 82,
+        "withheld": 180,
+        "fg": 49,
+        "abst": 0,
+        "withheld_as_pass": 49,
+        "withheld_as_fail": 113
+      }
+    },
+    "gpt-oss-120b-maas::decoy::abstain_withheld": {
+      "n": 504,
+      "answered": 486,
+      "false_green_rate": 0.4,
+      "false_green_rate_answered": 0.4444444444444444,
+      "violation_recall": 0.9885057471264368,
+      "violation_precision": 0.4777777777777778,
+      "false_alarm_rate": 0.016877637130801686,
+      "false_alarm_near_miss": 0.027777777777777776,
+      "false_alarm_other_controls": 0.012121212121212121,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 486,
+        "ctrl": 165,
+        "ctrl_alarm": 2,
+        "pred_fail": 180,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 2,
+        "fail": 87,
+        "tp": 86,
+        "withheld": 180,
+        "fg": 72,
+        "abst": 0,
+        "withheld_as_pass": 72,
+        "withheld_as_fail": 90
+      }
+    },
+    "gpt-oss-120b-maas::plain::abstain_offered": {
+      "n": 504,
+      "answered": 474,
+      "false_green_rate": 0.13333333333333333,
+      "false_green_rate_answered": 0.15384615384615385,
+      "violation_recall": 0.9540229885057471,
+      "violation_precision": 0.8736842105263158,
+      "false_alarm_rate": 0.016877637130801686,
+      "false_alarm_near_miss": 0.041666666666666664,
+      "false_alarm_other_controls": 0.006060606060606061,
+      "abstention_f1": 0.8065573770491803,
+      "counts": {
+        "answered": 474,
+        "ctrl": 165,
+        "ctrl_alarm": 1,
+        "pred_fail": 95,
+        "pred_abst": 125,
+        "near": 72,
+        "near_alarm": 3,
+        "fail": 87,
+        "tp": 83,
+        "withheld": 180,
+        "fg": 24,
+        "abst": 123,
+        "withheld_as_pass": 24,
+        "withheld_as_needs_evidence": 123,
+        "withheld_as_fail": 9
+      }
+    },
+    "gpt-oss-120b-maas::plain::abstain_removed_only": {
+      "n": 504,
+      "answered": 492,
+      "false_green_rate": 0.2388888888888889,
+      "false_green_rate_answered": 0.2471264367816092,
+      "violation_recall": 0.9655172413793104,
+      "violation_precision": 0.7850467289719626,
+      "false_alarm_rate": 0.02531645569620253,
+      "false_alarm_near_miss": 0.027777777777777776,
+      "false_alarm_other_controls": 0.024242424242424242,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 492,
+        "ctrl": 165,
+        "ctrl_alarm": 4,
+        "pred_fail": 107,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 2,
+        "fail": 87,
+        "tp": 84,
+        "withheld": 180,
+        "fg": 43,
+        "abst": 0,
+        "withheld_as_pass": 43,
+        "withheld_as_fail": 17,
+        "withheld_as_unmonitored": 114
+      }
+    },
+    "gpt-oss-120b-maas::plain::abstain_closed": {
+      "n": 504,
+      "answered": 486,
+      "false_green_rate": 0.22777777777777777,
+      "false_green_rate_answered": 0.25308641975308643,
+      "violation_recall": 1.0,
+      "violation_precision": 0.41232227488151657,
+      "false_alarm_rate": 0.012658227848101266,
+      "false_alarm_near_miss": 0.027777777777777776,
+      "false_alarm_other_controls": 0.006060606060606061,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 486,
+        "ctrl": 165,
+        "ctrl_alarm": 1,
+        "pred_fail": 211,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 2,
+        "fail": 87,
+        "tp": 87,
+        "withheld": 180,
+        "fg": 41,
+        "abst": 0,
+        "withheld_as_pass": 41,
+        "withheld_as_fail": 121
+      }
+    },
+    "gpt-oss-120b-maas::plain::abstain_withheld": {
+      "n": 504,
+      "answered": 474,
+      "false_green_rate": 0.22777777777777777,
+      "false_green_rate_answered": 0.26282051282051283,
+      "violation_recall": 0.9885057471264368,
+      "violation_precision": 0.42574257425742573,
+      "false_alarm_rate": 0.004219409282700422,
+      "false_alarm_near_miss": 0.013888888888888888,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 474,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 202,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 1,
+        "fail": 87,
+        "tp": 86,
+        "withheld": 180,
+        "fg": 41,
+        "abst": 0,
+        "withheld_as_pass": 41,
+        "withheld_as_fail": 115
+      }
+    },
+    "deepseek-v3.2-maas::decoy::abstain_offered": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.3055555555555556,
+      "false_green_rate_answered": 0.3055555555555556,
+      "violation_recall": 0.6551724137931034,
+      "violation_precision": 0.59375,
+      "false_alarm_rate": 0.12658227848101267,
+      "false_alarm_near_miss": 0.08333333333333333,
+      "false_alarm_other_controls": 0.14545454545454545,
+      "abstention_f1": 0.7424749163879599,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 24,
+        "pred_fail": 96,
+        "pred_abst": 119,
+        "near": 72,
+        "near_alarm": 6,
+        "fail": 87,
+        "tp": 57,
+        "withheld": 180,
+        "fg": 55,
+        "abst": 111,
+        "withheld_as_pass": 55,
+        "withheld_as_needs_evidence": 111,
+        "withheld_as_fail": 14
+      }
+    },
+    "deepseek-v3.2-maas::decoy::abstain_removed_only": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.4111111111111111,
+      "false_green_rate_answered": 0.4111111111111111,
+      "violation_recall": 0.7241379310344828,
+      "violation_precision": 0.42857142857142855,
+      "false_alarm_rate": 0.18143459915611815,
+      "false_alarm_near_miss": 0.1111111111111111,
+      "false_alarm_other_controls": 0.21212121212121213,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 35,
+        "pred_fail": 147,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 8,
+        "fail": 87,
+        "tp": 63,
+        "withheld": 180,
+        "fg": 74,
+        "abst": 0,
+        "withheld_as_pass": 74,
+        "withheld_as_fail": 44,
+        "withheld_as_unmonitored": 62
+      }
+    },
+    "deepseek-v3.2-maas::decoy::abstain_closed": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.7666666666666667,
+      "false_green_rate_answered": 0.7666666666666667,
+      "violation_recall": 0.7701149425287356,
+      "violation_precision": 0.41875,
+      "false_alarm_rate": 0.21518987341772153,
+      "false_alarm_near_miss": 0.20833333333333334,
+      "false_alarm_other_controls": 0.21818181818181817,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 36,
+        "pred_fail": 160,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 15,
+        "fail": 87,
+        "tp": 67,
+        "withheld": 180,
+        "fg": 138,
+        "abst": 0,
+        "withheld_as_pass": 138,
+        "withheld_as_fail": 42
+      }
+    },
+    "deepseek-v3.2-maas::decoy::abstain_withheld": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.7722222222222223,
+      "false_green_rate_answered": 0.7722222222222223,
+      "violation_recall": 0.7126436781609196,
+      "violation_precision": 0.4246575342465753,
+      "false_alarm_rate": 0.18143459915611815,
+      "false_alarm_near_miss": 0.16666666666666666,
+      "false_alarm_other_controls": 0.18787878787878787,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 31,
+        "pred_fail": 146,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 12,
+        "fail": 87,
+        "tp": 62,
+        "withheld": 180,
+        "fg": 139,
+        "abst": 0,
+        "withheld_as_pass": 139,
+        "withheld_as_fail": 41
+      }
+    },
+    "deepseek-v3.2-maas::plain::abstain_offered": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.1111111111111111,
+      "false_green_rate_answered": 0.1111111111111111,
+      "violation_recall": 0.5287356321839081,
+      "violation_precision": 0.5227272727272727,
+      "false_alarm_rate": 0.1308016877637131,
+      "false_alarm_near_miss": 0.09722222222222222,
+      "false_alarm_other_controls": 0.14545454545454545,
+      "abstention_f1": 0.8648648648648648,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 24,
+        "pred_fail": 88,
+        "pred_abst": 153,
+        "near": 72,
+        "near_alarm": 7,
+        "fail": 87,
+        "tp": 46,
+        "withheld": 180,
+        "fg": 20,
+        "abst": 144,
+        "withheld_as_needs_evidence": 144,
+        "withheld_as_fail": 16,
+        "withheld_as_pass": 20
+      }
+    },
+    "deepseek-v3.2-maas::plain::abstain_removed_only": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.2111111111111111,
+      "false_green_rate_answered": 0.2111111111111111,
+      "violation_recall": 0.6551724137931034,
+      "violation_precision": 0.4830508474576271,
+      "false_alarm_rate": 0.15611814345991562,
+      "false_alarm_near_miss": 0.1388888888888889,
+      "false_alarm_other_controls": 0.16363636363636364,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 27,
+        "pred_fail": 118,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 10,
+        "fail": 87,
+        "tp": 57,
+        "withheld": 180,
+        "fg": 38,
+        "abst": 0,
+        "withheld_as_pass": 38,
+        "withheld_as_fail": 24,
+        "withheld_as_unmonitored": 118
+      }
+    },
+    "deepseek-v3.2-maas::plain::abstain_closed": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.18888888888888888,
+      "false_green_rate_answered": 0.18888888888888888,
+      "violation_recall": 0.7126436781609196,
+      "violation_precision": 0.248,
+      "false_alarm_rate": 0.17721518987341772,
+      "false_alarm_near_miss": 0.1527777777777778,
+      "false_alarm_other_controls": 0.18787878787878787,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 31,
+        "pred_fail": 250,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 11,
+        "fail": 87,
+        "tp": 62,
+        "withheld": 180,
+        "fg": 34,
+        "abst": 0,
+        "withheld_as_pass": 34,
+        "withheld_as_fail": 146
+      }
+    },
+    "deepseek-v3.2-maas::plain::abstain_withheld": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.26666666666666666,
+      "false_green_rate_answered": 0.26666666666666666,
+      "violation_recall": 0.6436781609195402,
+      "violation_precision": 0.2545454545454545,
+      "false_alarm_rate": 0.1350210970464135,
+      "false_alarm_near_miss": 0.06944444444444445,
+      "false_alarm_other_controls": 0.16363636363636364,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 27,
+        "pred_fail": 220,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 5,
+        "fail": 87,
+        "tp": 56,
+        "withheld": 180,
+        "fg": 48,
+        "abst": 0,
+        "withheld_as_pass": 48,
+        "withheld_as_fail": 132
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_offered": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.6277777777777778,
+      "false_green_rate_answered": 0.6277777777777778,
+      "violation_recall": 0.367816091954023,
+      "violation_precision": 0.3516483516483517,
+      "false_alarm_rate": 0.2320675105485232,
+      "false_alarm_near_miss": 0.20833333333333334,
+      "false_alarm_other_controls": 0.24242424242424243,
+      "abstention_f1": 0.5061224489795919,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 40,
+        "pred_fail": 91,
+        "pred_abst": 65,
+        "near": 72,
+        "near_alarm": 15,
+        "fail": 87,
+        "tp": 32,
+        "withheld": 180,
+        "fg": 113,
+        "abst": 62,
+        "withheld_as_pass": 113,
+        "withheld_as_needs_evidence": 62,
+        "withheld_as_fail": 5
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_removed_only": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.7388888888888889,
+      "false_green_rate_answered": 0.7388888888888889,
+      "violation_recall": 0.4827586206896552,
+      "violation_precision": 0.34710743801652894,
+      "false_alarm_rate": 0.29535864978902954,
+      "false_alarm_near_miss": 0.2916666666666667,
+      "false_alarm_other_controls": 0.296969696969697,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 49,
+        "pred_fail": 121,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 21,
+        "fail": 87,
+        "tp": 42,
+        "withheld": 180,
+        "fg": 133,
+        "abst": 0,
+        "withheld_as_pass": 133,
+        "withheld_as_unmonitored": 37,
+        "withheld_as_fail": 10
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_closed": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.8944444444444445,
+      "false_green_rate_answered": 0.8944444444444445,
+      "violation_recall": 0.42528735632183906,
+      "violation_precision": 0.3557692307692308,
+      "false_alarm_rate": 0.20253164556962025,
+      "false_alarm_near_miss": 0.19444444444444445,
+      "false_alarm_other_controls": 0.20606060606060606,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 34,
+        "pred_fail": 104,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 14,
+        "fail": 87,
+        "tp": 37,
+        "withheld": 180,
+        "fg": 161,
+        "abst": 0,
+        "withheld_as_pass": 161,
+        "withheld_as_fail": 19
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_withheld": {
+      "n": 504,
+      "answered": 494,
+      "false_green_rate": 0.9166666666666666,
+      "false_green_rate_answered": 0.9705882352941176,
+      "violation_recall": 0.4482758620689655,
+      "violation_precision": 0.3939393939393939,
+      "false_alarm_rate": 0.2320675105485232,
+      "false_alarm_near_miss": 0.20833333333333334,
+      "false_alarm_other_controls": 0.24242424242424243,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 494,
+        "ctrl": 165,
+        "ctrl_alarm": 40,
+        "pred_fail": 99,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 15,
+        "fail": 87,
+        "tp": 39,
+        "withheld": 180,
+        "fg": 165,
+        "abst": 0,
+        "withheld_as_pass": 165,
+        "withheld_as_fail": 5
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_offered": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.31666666666666665,
+      "false_green_rate_answered": 0.31666666666666665,
+      "violation_recall": 0.3448275862068966,
+      "violation_precision": 0.4166666666666667,
+      "false_alarm_rate": 0.1940928270042194,
+      "false_alarm_near_miss": 0.16666666666666666,
+      "false_alarm_other_controls": 0.20606060606060606,
+      "abstention_f1": 0.8013029315960912,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 34,
+        "pred_fail": 72,
+        "pred_abst": 127,
+        "near": 72,
+        "near_alarm": 12,
+        "fail": 87,
+        "tp": 30,
+        "withheld": 180,
+        "fg": 57,
+        "abst": 123,
+        "withheld_as_pass": 57,
+        "withheld_as_needs_evidence": 123
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_removed_only": {
+      "n": 504,
+      "answered": 504,
+      "false_green_rate": 0.35,
+      "false_green_rate_answered": 0.35,
+      "violation_recall": 0.4482758620689655,
+      "violation_precision": 0.39,
+      "false_alarm_rate": 0.2616033755274262,
+      "false_alarm_near_miss": 0.2361111111111111,
+      "false_alarm_other_controls": 0.2727272727272727,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 504,
+        "ctrl": 165,
+        "ctrl_alarm": 45,
+        "pred_fail": 100,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 17,
+        "fail": 87,
+        "tp": 39,
+        "withheld": 180,
+        "fg": 63,
+        "abst": 0,
+        "withheld_as_pass": 63,
+        "withheld_as_unmonitored": 117
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_closed": {
+      "n": 504,
+      "answered": 501,
+      "false_green_rate": 0.36666666666666664,
+      "false_green_rate_answered": 0.3728813559322034,
+      "violation_recall": 0.39080459770114945,
+      "violation_precision": 0.17616580310880828,
+      "false_alarm_rate": 0.20253164556962025,
+      "false_alarm_near_miss": 0.18055555555555555,
+      "false_alarm_other_controls": 0.21212121212121213,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 501,
+        "ctrl": 165,
+        "ctrl_alarm": 35,
+        "pred_fail": 193,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 13,
+        "fail": 87,
+        "tp": 34,
+        "withheld": 180,
+        "fg": 66,
+        "abst": 0,
+        "withheld_as_pass": 66,
+        "withheld_as_fail": 111
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_withheld": {
+      "n": 504,
+      "answered": 489,
+      "false_green_rate": 0.39444444444444443,
+      "false_green_rate_answered": 0.4011299435028249,
+      "violation_recall": 0.42528735632183906,
+      "violation_precision": 0.20670391061452514,
+      "false_alarm_rate": 0.1518987341772152,
+      "false_alarm_near_miss": 0.1527777777777778,
+      "false_alarm_other_controls": 0.15151515151515152,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 489,
+        "ctrl": 165,
+        "ctrl_alarm": 25,
+        "pred_fail": 179,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 11,
+        "fail": 87,
+        "tp": 37,
+        "withheld": 180,
+        "fg": 71,
+        "abst": 0,
+        "withheld_as_pass": 71,
+        "withheld_as_fail": 106
+      }
+    },
+    "kimi-k2-thinking-maas::decoy::abstain_offered": {
+      "n": 504,
+      "answered": 474,
+      "false_green_rate": 0.16111111111111112,
+      "false_green_rate_answered": 0.1858974358974359,
+      "violation_recall": 0.9770114942528736,
+      "violation_precision": 0.9139784946236559,
+      "false_alarm_rate": 0.03375527426160337,
+      "false_alarm_near_miss": 0.013888888888888888,
+      "false_alarm_other_controls": 0.04242424242424243,
+      "abstention_f1": 0.7792207792207793,
+      "counts": {
+        "answered": 474,
+        "ctrl": 165,
+        "ctrl_alarm": 7,
+        "pred_fail": 93,
+        "pred_abst": 128,
+        "near": 72,
+        "near_alarm": 1,
+        "fail": 87,
+        "tp": 85,
+        "withheld": 180,
+        "fg": 29,
+        "abst": 120,
+        "withheld_as_pass": 29,
+        "withheld_as_needs_evidence": 120,
+        "withheld_as_fail": 7
+      }
+    },
+    "kimi-k2-thinking-maas::decoy::abstain_removed_only": {
+      "n": 504,
+      "answered": 474,
+      "false_green_rate": 0.3388888888888889,
+      "false_green_rate_answered": 0.391025641025641,
+      "violation_recall": 0.9655172413793104,
+      "violation_precision": 0.865979381443299,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 474,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 97,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 84,
+        "withheld": 180,
+        "fg": 61,
+        "abst": 0,
+        "withheld_as_pass": 61,
+        "withheld_as_fail": 13,
+        "withheld_as_unmonitored": 82
+      }
+    },
+    "kimi-k2-thinking-maas::decoy::abstain_closed": {
+      "n": 504,
+      "answered": 480,
+      "false_green_rate": 0.4888888888888889,
+      "false_green_rate_answered": 0.5238095238095238,
+      "violation_recall": 0.9540229885057471,
+      "violation_precision": 0.50920245398773,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 480,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 163,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 83,
+        "withheld": 180,
+        "fg": 88,
+        "abst": 0,
+        "withheld_as_pass": 88,
+        "withheld_as_fail": 80
+      }
+    },
+    "kimi-k2-thinking-maas::decoy::abstain_withheld": {
+      "n": 504,
+      "answered": 456,
+      "false_green_rate": 0.5833333333333334,
+      "false_green_rate_answered": 0.6730769230769231,
+      "violation_recall": 0.896551724137931,
+      "violation_precision": 0.6046511627906976,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 456,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 129,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 78,
+        "withheld": 180,
+        "fg": 105,
+        "abst": 0,
+        "withheld_as_pass": 105,
+        "withheld_as_fail": 51
+      }
+    },
+    "kimi-k2-thinking-maas::plain::abstain_offered": {
+      "n": 504,
+      "answered": 486,
+      "false_green_rate": 0.15555555555555556,
+      "false_green_rate_answered": 0.16091954022988506,
+      "violation_recall": 0.9655172413793104,
+      "violation_precision": 0.8842105263157894,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.8544303797468354,
+      "counts": {
+        "answered": 486,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 95,
+        "pred_abst": 136,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 84,
+        "withheld": 180,
+        "fg": 28,
+        "abst": 135,
+        "withheld_as_pass": 28,
+        "withheld_as_needs_evidence": 135,
+        "withheld_as_fail": 11
+      }
+    },
+    "kimi-k2-thinking-maas::plain::abstain_removed_only": {
+      "n": 504,
+      "answered": 480,
+      "false_green_rate": 0.16111111111111112,
+      "false_green_rate_answered": 0.17901234567901234,
+      "violation_recall": 0.9885057471264368,
+      "violation_precision": 0.9247311827956989,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 480,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 93,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 86,
+        "withheld": 180,
+        "fg": 29,
+        "abst": 0,
+        "withheld_as_pass": 29,
+        "withheld_as_unmonitored": 126,
+        "withheld_as_fail": 7
+      }
+    },
+    "kimi-k2-thinking-maas::plain::abstain_closed": {
+      "n": 504,
+      "answered": 480,
+      "false_green_rate": 0.2611111111111111,
+      "false_green_rate_answered": 0.27011494252873564,
+      "violation_recall": 0.9195402298850575,
+      "violation_precision": 0.3864734299516908,
+      "false_alarm_rate": 0.0,
+      "false_alarm_near_miss": 0.0,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 480,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 207,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 0,
+        "fail": 87,
+        "tp": 80,
+        "withheld": 180,
+        "fg": 47,
+        "abst": 0,
+        "withheld_as_pass": 47,
+        "withheld_as_fail": 127
+      }
+    },
+    "kimi-k2-thinking-maas::plain::abstain_withheld": {
+      "n": 504,
+      "answered": 474,
+      "false_green_rate": 0.23333333333333334,
+      "false_green_rate_answered": 0.25925925925925924,
+      "violation_recall": 0.9425287356321839,
+      "violation_precision": 0.4019607843137255,
+      "false_alarm_rate": 0.008438818565400843,
+      "false_alarm_near_miss": 0.027777777777777776,
+      "false_alarm_other_controls": 0.0,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 474,
+        "ctrl": 165,
+        "ctrl_alarm": 0,
+        "pred_fail": 204,
+        "pred_abst": 0,
+        "near": 72,
+        "near_alarm": 2,
+        "fail": 87,
+        "tp": 82,
+        "withheld": 180,
+        "fg": 42,
+        "abst": 0,
+        "withheld_as_pass": 42,
+        "withheld_as_fail": 120
+      }
+    }
+  },
+  "primary": {
+    "P1 abstention effect": {
+      "n_models": 7,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 171,
+        "gemma-4-26b-a4b-it-maas": 180,
+        "gpt-oss-120b-maas": 150,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 180,
+        "kimi-k2-thinking-maas": 156
+      },
+      "delta": 0.2594,
+      "ci95": [
+        0.1976,
+        0.3252
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.002,
+      "outcome": "confirmed"
+    },
+    "P2 definition effect": {
+      "n_models": 7,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 177,
+        "gemma-4-26b-a4b-it-maas": 170,
+        "gpt-oss-120b-maas": 156,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 170,
+        "kimi-k2-thinking-maas": 150
+      },
+      "delta": 0.0841,
+      "ci95": [
+        0.0438,
+        0.1204
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.002,
+      "outcome": "confirmed"
+    },
+    "P3 adjacent columns, dashboard schema": {
+      "n_models": 7,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 180,
+        "gemma-4-26b-a4b-it-maas": 170,
+        "gpt-oss-120b-maas": 144,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 167,
+        "kimi-k2-thinking-maas": 144
+      },
+      "delta": 0.4268,
+      "ci95": [
+        0.2864,
+        0.5574
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.002,
+      "outcome": "confirmed"
+    },
+    "P4 adjacent columns, recommended schema": {
+      "n_models": 7,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 174,
+        "gemma-4-26b-a4b-it-maas": 180,
+        "gpt-oss-120b-maas": 144,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 180,
+        "kimi-k2-thinking-maas": 156
+      },
+      "delta": 0.217,
+      "ci95": [
+        0.1537,
+        0.2901
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.002,
+      "outcome": "confirmed"
+    }
+  },
+  "S1_per_model": {
+    "P1 abstention effect | gemini-3.1-pro-preview": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180
+      },
+      "delta": 0.3889,
+      "ci95": [
+        0.2404,
+        0.5484
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P1 abstention effect | gemini-3.8-flash": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.8-flash": 171
+      },
+      "delta": 0.269,
+      "ci95": [
+        0.097,
+        0.4556
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P1 abstention effect | gemma-4-26b-a4b-it-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemma-4-26b-a4b-it-maas": 180
+      },
+      "delta": 0.1167,
+      "ci95": [
+        0.0,
+        0.2529
+      ],
+      "p_two_sided": 0.052,
+      "p_holm": 0.432
+    },
+    "P1 abstention effect | gpt-oss-120b-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 150
+      },
+      "delta": -0.02,
+      "ci95": [
+        -0.12,
+        0.0654
+      ],
+      "p_two_sided": 0.799,
+      "p_holm": 1.0
+    },
+    "P1 abstention effect | deepseek-v3.2-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "deepseek-v3.2-maas": 180
+      },
+      "delta": 0.4611,
+      "ci95": [
+        0.2816,
+        0.6167
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P1 abstention effect | qwen3-235b-a22b-instruct-2507-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "qwen3-235b-a22b-instruct-2507-maas": 180
+      },
+      "delta": 0.2667,
+      "ci95": [
+        0.119,
+        0.4021
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P1 abstention effect | kimi-k2-thinking-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "kimi-k2-thinking-maas": 156
+      },
+      "delta": 0.3333,
+      "ci95": [
+        0.195,
+        0.4872
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P2 definition effect | gemini-3.1-pro-preview": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180
+      },
+      "delta": 0.0778,
+      "ci95": [
+        0.0,
+        0.1667
+      ],
+      "p_two_sided": 0.063,
+      "p_holm": 0.432
+    },
+    "P2 definition effect | gemini-3.8-flash": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.8-flash": 177
+      },
+      "delta": 0.1356,
+      "ci95": [
+        0.0,
+        0.2688
+      ],
+      "p_two_sided": 0.053,
+      "p_holm": 0.432
+    },
+    "P2 definition effect | gemma-4-26b-a4b-it-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemma-4-26b-a4b-it-maas": 170
+      },
+      "delta": -0.0059,
+      "ci95": [
+        -0.019,
+        0.0
+      ],
+      "p_two_sided": 0.694,
+      "p_holm": 1.0
+    },
+    "P2 definition effect | gpt-oss-120b-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 156
+      },
+      "delta": 0.1538,
+      "ci95": [
+        0.0725,
+        0.234
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P2 definition effect | deepseek-v3.2-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "deepseek-v3.2-maas": 180
+      },
+      "delta": 0.0056,
+      "ci95": [
+        -0.0575,
+        0.0656
+      ],
+      "p_two_sided": 0.923,
+      "p_holm": 1.0
+    },
+    "P2 definition effect | qwen3-235b-a22b-instruct-2507-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "qwen3-235b-a22b-instruct-2507-maas": 170
+      },
+      "delta": 0.0353,
+      "ci95": [
+        -0.0397,
+        0.1092
+      ],
+      "p_two_sided": 0.439,
+      "p_holm": 1.0
+    },
+    "P2 definition effect | kimi-k2-thinking-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "kimi-k2-thinking-maas": 150
+      },
+      "delta": 0.1867,
+      "ci95": [
+        0.0593,
+        0.3125
+      ],
+      "p_two_sided": 0.007,
+      "p_holm": 0.07
+    },
+    "P3 adjacent columns, dashboard schema | gemini-3.1-pro-preview": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180
+      },
+      "delta": 0.3556,
+      "ci95": [
+        0.224,
+        0.4974
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P3 adjacent columns, dashboard schema | gemini-3.8-flash": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.8-flash": 180
+      },
+      "delta": 0.4167,
+      "ci95": [
+        0.1808,
+        0.6402
+      ],
+      "p_two_sided": 0.001,
+      "p_holm": 0.015
+    },
+    "P3 adjacent columns, dashboard schema | gemma-4-26b-a4b-it-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemma-4-26b-a4b-it-maas": 170
+      },
+      "delta": 0.5471,
+      "ci95": [
+        0.3355,
+        0.7246
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P3 adjacent columns, dashboard schema | gpt-oss-120b-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 144
+      },
+      "delta": 0.1736,
+      "ci95": [
+        0.0813,
+        0.2467
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P3 adjacent columns, dashboard schema | deepseek-v3.2-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "deepseek-v3.2-maas": 180
+      },
+      "delta": 0.5056,
+      "ci95": [
+        0.3452,
+        0.6614
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P3 adjacent columns, dashboard schema | qwen3-235b-a22b-instruct-2507-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "qwen3-235b-a22b-instruct-2507-maas": 167
+      },
+      "delta": 0.5449,
+      "ci95": [
+        0.3232,
+        0.741
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P3 adjacent columns, dashboard schema | kimi-k2-thinking-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "kimi-k2-thinking-maas": 144
+      },
+      "delta": 0.4444,
+      "ci95": [
+        0.2481,
+        0.6333
+      ],
+      "p_two_sided": 0.001,
+      "p_holm": 0.015
+    },
+    "P4 adjacent columns, recommended schema | gemini-3.1-pro-preview": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180
+      },
+      "delta": 0.0778,
+      "ci95": [
+        0.0053,
+        0.1667
+      ],
+      "p_two_sided": 0.048,
+      "p_holm": 0.432
+    },
+    "P4 adjacent columns, recommended schema | gemini-3.8-flash": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.8-flash": 174
+      },
+      "delta": 0.2184,
+      "ci95": [
+        0.071,
+        0.4
+      ],
+      "p_two_sided": 0.003,
+      "p_holm": 0.033
+    },
+    "P4 adjacent columns, recommended schema | gemma-4-26b-a4b-it-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemma-4-26b-a4b-it-maas": 180
+      },
+      "delta": 0.5,
+      "ci95": [
+        0.2909,
+        0.6927
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P4 adjacent columns, recommended schema | gpt-oss-120b-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 144
+      },
+      "delta": 0.1597,
+      "ci95": [
+        0.0523,
+        0.2991
+      ],
+      "p_two_sided": 0.001,
+      "p_holm": 0.015
+    },
+    "P4 adjacent columns, recommended schema | deepseek-v3.2-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "deepseek-v3.2-maas": 180
+      },
+      "delta": 0.1944,
+      "ci95": [
+        0.0591,
+        0.3571
+      ],
+      "p_two_sided": 0.001,
+      "p_holm": 0.015
+    },
+    "P4 adjacent columns, recommended schema | qwen3-235b-a22b-instruct-2507-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "qwen3-235b-a22b-instruct-2507-maas": 180
+      },
+      "delta": 0.3111,
+      "ci95": [
+        0.1858,
+        0.4481
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.014
+    },
+    "P4 adjacent columns, recommended schema | kimi-k2-thinking-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "kimi-k2-thinking-maas": 156
+      },
+      "delta": 0.0577,
+      "ci95": [
+        -0.0314,
+        0.1667
+      ],
+      "p_two_sided": 0.295,
+      "p_holm": 1.0
+    }
+  },
+  "S2_removed_only": {
+    "pooled": {
+      "n_models": 7,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 153,
+        "gemma-4-26b-a4b-it-maas": 180,
+        "gpt-oss-120b-maas": 138,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 180,
+        "kimi-k2-thinking-maas": 156
+      },
+      "delta": 0.0803,
+      "ci95": [
+        0.0321,
+        0.1286
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.004
+    },
+    "gemini-3.1-pro-preview": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180
+      },
+      "delta": 0.0222,
+      "ci95": [
+        -0.1075,
+        0.1694
+      ],
+      "p_two_sided": 0.79,
+      "p_holm": 1.0
+    },
+    "gemini-3.8-flash": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemini-3.8-flash": 153
+      },
+      "delta": 0.1046,
+      "ci95": [
+        -0.0492,
+        0.2761
+      ],
+      "p_two_sided": 0.226,
+      "p_holm": 0.904
+    },
+    "gemma-4-26b-a4b-it-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gemma-4-26b-a4b-it-maas": 180
+      },
+      "delta": 0.05,
+      "ci95": [
+        -0.0323,
+        0.1379
+      ],
+      "p_two_sided": 0.266,
+      "p_holm": 0.904
+    },
+    "gpt-oss-120b-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 138
+      },
+      "delta": -0.0362,
+      "ci95": [
+        -0.16,
+        0.0833
+      ],
+      "p_two_sided": 0.605,
+      "p_holm": 1.0
+    },
+    "deepseek-v3.2-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "deepseek-v3.2-maas": 180
+      },
+      "delta": 0.1056,
+      "ci95": [
+        -0.0111,
+        0.209
+      ],
+      "p_two_sided": 0.084,
+      "p_holm": 0.504
+    },
+    "qwen3-235b-a22b-instruct-2507-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "qwen3-235b-a22b-instruct-2507-maas": 180
+      },
+      "delta": 0.1111,
+      "ci95": [
+        -0.0242,
+        0.254
+      ],
+      "p_two_sided": 0.167,
+      "p_holm": 0.835
+    },
+    "kimi-k2-thinking-maas": {
+      "n_models": 1,
+      "n_pairs": {
+        "kimi-k2-thinking-maas": 156
+      },
+      "delta": 0.2051,
+      "ci95": [
+        0.0851,
+        0.3673
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.004
+    }
+  },
+  "S3_interaction": {
+    "delta": 0.048,
+    "ci95": [
+      -0.0098,
+      0.0951
+    ],
+    "p_two_sided": 0.104
+  },
+  "S4_by_developer_group": {
+    "P1 abstention effect | google": {
+      "n_models": 3,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 171,
+        "gemma-4-26b-a4b-it-maas": 180
+      },
+      "delta": 0.2582,
+      "ci95": [
+        0.1641,
+        0.3569
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.004
+    },
+    "P2 definition effect | google": {
+      "n_models": 3,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 177,
+        "gemma-4-26b-a4b-it-maas": 170
+      },
+      "delta": 0.0692,
+      "ci95": [
+        0.009,
+        0.1283
+      ],
+      "p_two_sided": 0.021,
+      "p_holm": 0.021
+    },
+    "P3 adjacent columns, dashboard schema | google": {
+      "n_models": 3,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 180,
+        "gemma-4-26b-a4b-it-maas": 170
+      },
+      "delta": 0.4398,
+      "ci95": [
+        0.2689,
+        0.6058
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.004
+    },
+    "P4 adjacent columns, recommended schema | google": {
+      "n_models": 3,
+      "n_pairs": {
+        "gemini-3.1-pro-preview": 180,
+        "gemini-3.8-flash": 174,
+        "gemma-4-26b-a4b-it-maas": 180
+      },
+      "delta": 0.2654,
+      "ci95": [
+        0.1776,
+        0.3463
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.004
+    },
+    "P1 abstention effect | other_developers": {
+      "n_models": 4,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 150,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 180,
+        "kimi-k2-thinking-maas": 156
+      },
+      "delta": 0.2603,
+      "ci95": [
+        0.1804,
+        0.3364
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.004
+    },
+    "P2 definition effect | other_developers": {
+      "n_models": 4,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 156,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 170,
+        "kimi-k2-thinking-maas": 150
+      },
+      "delta": 0.0953,
+      "ci95": [
+        0.0395,
+        0.1413
+      ],
+      "p_two_sided": 0.001,
+      "p_holm": 0.004
+    },
+    "P3 adjacent columns, dashboard schema | other_developers": {
+      "n_models": 4,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 144,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 167,
+        "kimi-k2-thinking-maas": 144
+      },
+      "delta": 0.4171,
+      "ci95": [
+        0.2905,
+        0.5322
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.004
+    },
+    "P4 adjacent columns, recommended schema | other_developers": {
+      "n_models": 4,
+      "n_pairs": {
+        "gpt-oss-120b-maas": 144,
+        "deepseek-v3.2-maas": 180,
+        "qwen3-235b-a22b-instruct-2507-maas": 180,
+        "kimi-k2-thinking-maas": 156
+      },
+      "delta": 0.1807,
+      "ci95": [
+        0.1156,
+        0.263
+      ],
+      "p_two_sided": 0.0005,
+      "p_holm": 0.004
+    }
+  },
+  "S5_false_alarms": {
+    "gemini-3.1-pro-preview::decoy::abstain_offered": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.1-pro-preview::decoy::abstain_removed_only": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.1-pro-preview::decoy::abstain_closed": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.1-pro-preview::decoy::abstain_withheld": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.1-pro-preview::plain::abstain_offered": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.1-pro-preview::plain::abstain_removed_only": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.1-pro-preview::plain::abstain_closed": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.1-pro-preview::plain::abstain_withheld": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.8-flash::decoy::abstain_offered": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.8-flash::decoy::abstain_removed_only": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.8-flash::decoy::abstain_closed": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.8-flash::decoy::abstain_withheld": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.8-flash::plain::abstain_offered": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.8-flash::plain::abstain_removed_only": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.8-flash::plain::abstain_closed": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemini-3.8-flash::plain::abstain_withheld": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "gemma-4-26b-a4b-it-maas::decoy::abstain_offered": {
+      "all_controls": 0.09282700421940929,
+      "near_miss": 0.05555555555555555
+    },
+    "gemma-4-26b-a4b-it-maas::decoy::abstain_removed_only": {
+      "all_controls": 0.10970464135021098,
+      "near_miss": 0.09722222222222222
+    },
+    "gemma-4-26b-a4b-it-maas::decoy::abstain_closed": {
+      "all_controls": 0.0970464135021097,
+      "near_miss": 0.05555555555555555
+    },
+    "gemma-4-26b-a4b-it-maas::decoy::abstain_withheld": {
+      "all_controls": 0.11392405063291139,
+      "near_miss": 0.1111111111111111
+    },
+    "gemma-4-26b-a4b-it-maas::plain::abstain_offered": {
+      "all_controls": 0.08438818565400844,
+      "near_miss": 0.06944444444444445
+    },
+    "gemma-4-26b-a4b-it-maas::plain::abstain_removed_only": {
+      "all_controls": 0.0970464135021097,
+      "near_miss": 0.06944444444444445
+    },
+    "gemma-4-26b-a4b-it-maas::plain::abstain_closed": {
+      "all_controls": 0.06751054852320675,
+      "near_miss": 0.027777777777777776
+    },
+    "gemma-4-26b-a4b-it-maas::plain::abstain_withheld": {
+      "all_controls": 0.05907172995780591,
+      "near_miss": 0.05555555555555555
+    },
+    "gpt-oss-120b-maas::decoy::abstain_offered": {
+      "all_controls": 0.029535864978902954,
+      "near_miss": 0.041666666666666664
+    },
+    "gpt-oss-120b-maas::decoy::abstain_removed_only": {
+      "all_controls": 0.012658227848101266,
+      "near_miss": 0.027777777777777776
+    },
+    "gpt-oss-120b-maas::decoy::abstain_closed": {
+      "all_controls": 0.02531645569620253,
+      "near_miss": 0.041666666666666664
+    },
+    "gpt-oss-120b-maas::decoy::abstain_withheld": {
+      "all_controls": 0.016877637130801686,
+      "near_miss": 0.027777777777777776
+    },
+    "gpt-oss-120b-maas::plain::abstain_offered": {
+      "all_controls": 0.016877637130801686,
+      "near_miss": 0.041666666666666664
+    },
+    "gpt-oss-120b-maas::plain::abstain_removed_only": {
+      "all_controls": 0.02531645569620253,
+      "near_miss": 0.027777777777777776
+    },
+    "gpt-oss-120b-maas::plain::abstain_closed": {
+      "all_controls": 0.012658227848101266,
+      "near_miss": 0.027777777777777776
+    },
+    "gpt-oss-120b-maas::plain::abstain_withheld": {
+      "all_controls": 0.004219409282700422,
+      "near_miss": 0.013888888888888888
+    },
+    "deepseek-v3.2-maas::decoy::abstain_offered": {
+      "all_controls": 0.12658227848101267,
+      "near_miss": 0.08333333333333333
+    },
+    "deepseek-v3.2-maas::decoy::abstain_removed_only": {
+      "all_controls": 0.18143459915611815,
+      "near_miss": 0.1111111111111111
+    },
+    "deepseek-v3.2-maas::decoy::abstain_closed": {
+      "all_controls": 0.21518987341772153,
+      "near_miss": 0.20833333333333334
+    },
+    "deepseek-v3.2-maas::decoy::abstain_withheld": {
+      "all_controls": 0.18143459915611815,
+      "near_miss": 0.16666666666666666
+    },
+    "deepseek-v3.2-maas::plain::abstain_offered": {
+      "all_controls": 0.1308016877637131,
+      "near_miss": 0.09722222222222222
+    },
+    "deepseek-v3.2-maas::plain::abstain_removed_only": {
+      "all_controls": 0.15611814345991562,
+      "near_miss": 0.1388888888888889
+    },
+    "deepseek-v3.2-maas::plain::abstain_closed": {
+      "all_controls": 0.17721518987341772,
+      "near_miss": 0.1527777777777778
+    },
+    "deepseek-v3.2-maas::plain::abstain_withheld": {
+      "all_controls": 0.1350210970464135,
+      "near_miss": 0.06944444444444445
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_offered": {
+      "all_controls": 0.2320675105485232,
+      "near_miss": 0.20833333333333334
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_removed_only": {
+      "all_controls": 0.29535864978902954,
+      "near_miss": 0.2916666666666667
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_closed": {
+      "all_controls": 0.20253164556962025,
+      "near_miss": 0.19444444444444445
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::decoy::abstain_withheld": {
+      "all_controls": 0.2320675105485232,
+      "near_miss": 0.20833333333333334
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_offered": {
+      "all_controls": 0.1940928270042194,
+      "near_miss": 0.16666666666666666
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_removed_only": {
+      "all_controls": 0.2616033755274262,
+      "near_miss": 0.2361111111111111
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_closed": {
+      "all_controls": 0.20253164556962025,
+      "near_miss": 0.18055555555555555
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::plain::abstain_withheld": {
+      "all_controls": 0.1518987341772152,
+      "near_miss": 0.1527777777777778
+    },
+    "kimi-k2-thinking-maas::decoy::abstain_offered": {
+      "all_controls": 0.03375527426160337,
+      "near_miss": 0.013888888888888888
+    },
+    "kimi-k2-thinking-maas::decoy::abstain_removed_only": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "kimi-k2-thinking-maas::decoy::abstain_closed": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "kimi-k2-thinking-maas::decoy::abstain_withheld": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "kimi-k2-thinking-maas::plain::abstain_offered": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "kimi-k2-thinking-maas::plain::abstain_removed_only": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "kimi-k2-thinking-maas::plain::abstain_closed": {
+      "all_controls": 0.0,
+      "near_miss": 0.0
+    },
+    "kimi-k2-thinking-maas::plain::abstain_withheld": {
+      "all_controls": 0.008438818565400843,
+      "near_miss": 0.027777777777777776
+    }
+  },
+  "exploratory_by_rule_family": {
+    "i9::decoy::abstain_offered": 0.1934,
+    "wage::decoy::abstain_offered": 0.7037,
+    "i9::decoy::abstain_removed_only": 0.2812,
+    "wage::decoy::abstain_removed_only": 0.7725,
+    "i9::decoy::abstain_closed": 0.5411,
+    "wage::decoy::abstain_closed": 0.8387,
+    "i9::decoy::abstain_withheld": 0.6856,
+    "wage::decoy::abstain_withheld": 0.8415,
+    "i9::plain::abstain_offered": 0.0,
+    "wage::plain::abstain_offered": 0.4415,
+    "i9::plain::abstain_removed_only": 0.0,
+    "wage::plain::abstain_removed_only": 0.5659,
+    "i9::plain::abstain_closed": 0.0029,
+    "wage::plain::abstain_closed": 0.6649,
+    "i9::plain::abstain_withheld": 0.0231,
+    "wage::plain::abstain_withheld": 0.7227
+  },
+  "E1_anchor": {
+    "gpt-oss-120b-maas::abstain_offered": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.08333333333333333,
+      "false_green_rate_answered": 0.08333333333333333,
+      "violation_recall": 0.4,
+      "violation_precision": 1.0,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.8073394495412844,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 8,
+        "pred_fail": 8,
+        "pred_abst": 98,
+        "withheld": 120,
+        "fg": 10,
+        "abst": 88,
+        "withheld_as_needs_evidence": 88,
+        "withheld_as_unmonitored": 22,
+        "withheld_as_pass": 10,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "gpt-oss-120b-maas::abstain_removed_only": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.11666666666666667,
+      "false_green_rate_answered": 0.11666666666666667,
+      "violation_recall": 0.3,
+      "violation_precision": 0.75,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 6,
+        "pred_fail": 8,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 14,
+        "abst": 0,
+        "withheld_as_unmonitored": 104,
+        "withheld_as_fail": 2,
+        "withheld_as_pass": 14,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "gpt-oss-120b-maas::abstain_closed": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.125,
+      "false_green_rate_answered": 0.125,
+      "violation_recall": 0.85,
+      "violation_precision": 0.13934426229508196,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 17,
+        "pred_fail": 122,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 15,
+        "abst": 0,
+        "withheld_as_fail": 105,
+        "withheld_as_pass": 15,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "gpt-oss-120b-maas::abstain_withheld": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.25833333333333336,
+      "false_green_rate_answered": 0.25833333333333336,
+      "violation_recall": 0.9,
+      "violation_precision": 0.16822429906542055,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 18,
+        "pred_fail": 107,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 31,
+        "abst": 0,
+        "withheld_as_fail": 89,
+        "withheld_as_pass": 31,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "deepseek-v3.2-maas::abstain_offered": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.06666666666666667,
+      "false_green_rate_answered": 0.06666666666666667,
+      "violation_recall": 0.2,
+      "violation_precision": 0.8,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.9135802469135802,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 4,
+        "pred_fail": 5,
+        "pred_abst": 123,
+        "withheld": 120,
+        "fg": 8,
+        "abst": 111,
+        "withheld_as_needs_evidence": 111,
+        "withheld_as_pass": 8,
+        "withheld_as_fail": 1,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "deepseek-v3.2-maas::abstain_removed_only": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.10833333333333334,
+      "false_green_rate_answered": 0.10833333333333334,
+      "violation_recall": 0.45,
+      "violation_precision": 0.42857142857142855,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 9,
+        "pred_fail": 21,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 13,
+        "abst": 0,
+        "withheld_as_fail": 12,
+        "withheld_as_unmonitored": 95,
+        "withheld_as_pass": 13,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "deepseek-v3.2-maas::abstain_closed": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.25,
+      "false_green_rate_answered": 0.25,
+      "violation_recall": 0.75,
+      "violation_precision": 0.14285714285714285,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 15,
+        "pred_fail": 105,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 30,
+        "abst": 0,
+        "withheld_as_fail": 90,
+        "withheld_as_pass": 30,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "deepseek-v3.2-maas::abstain_withheld": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.5416666666666666,
+      "false_green_rate_answered": 0.5416666666666666,
+      "violation_recall": 0.8,
+      "violation_precision": 0.22535211267605634,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 16,
+        "pred_fail": 71,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 65,
+        "abst": 0,
+        "withheld_as_pass": 65,
+        "withheld_as_fail": 55,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::abstain_offered": {
+      "n": 140,
+      "answered": 128,
+      "false_green_rate": 0.14166666666666666,
+      "false_green_rate_answered": 0.15454545454545454,
+      "violation_recall": 0.25,
+      "violation_precision": 0.4166666666666667,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.7669902912621358,
+      "counts": {
+        "answered": 128,
+        "fail": 20,
+        "tp": 5,
+        "pred_fail": 12,
+        "pred_abst": 86,
+        "withheld": 120,
+        "fg": 17,
+        "abst": 79,
+        "withheld_as_fail": 7,
+        "withheld_as_pass": 17,
+        "withheld_as_needs_evidence": 79,
+        "withheld_as_unmonitored": 7,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::abstain_removed_only": {
+      "n": 140,
+      "answered": 128,
+      "false_green_rate": 0.16666666666666666,
+      "false_green_rate_answered": 0.18181818181818182,
+      "violation_recall": 0.35,
+      "violation_precision": 0.3684210526315789,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 128,
+        "fail": 20,
+        "tp": 7,
+        "pred_fail": 19,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 20,
+        "abst": 0,
+        "withheld_as_fail": 12,
+        "withheld_as_pass": 20,
+        "withheld_as_unmonitored": 78,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::abstain_closed": {
+      "n": 140,
+      "answered": 124,
+      "false_green_rate": 0.25833333333333336,
+      "false_green_rate_answered": 0.29245283018867924,
+      "violation_recall": 0.7,
+      "violation_precision": 0.15730337078651685,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 124,
+        "fail": 20,
+        "tp": 14,
+        "pred_fail": 89,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 31,
+        "abst": 0,
+        "withheld_as_fail": 75,
+        "withheld_as_pass": 31,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507-maas::abstain_withheld": {
+      "n": 140,
+      "answered": 130,
+      "false_green_rate": 0.30833333333333335,
+      "false_green_rate_answered": 0.33636363636363636,
+      "violation_recall": 0.9,
+      "violation_precision": 0.1978021978021978,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 130,
+        "fail": 20,
+        "tp": 18,
+        "pred_fail": 91,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 37,
+        "abst": 0,
+        "withheld_as_fail": 73,
+        "withheld_as_pass": 37,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "kimi-k2-thinking-maas::abstain_offered": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.041666666666666664,
+      "false_green_rate_answered": 0.041666666666666664,
+      "violation_recall": 0.35,
+      "violation_precision": 0.7777777777777778,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.8717948717948718,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 7,
+        "pred_fail": 9,
+        "pred_abst": 114,
+        "withheld": 120,
+        "fg": 5,
+        "abst": 102,
+        "withheld_as_needs_evidence": 102,
+        "withheld_as_unmonitored": 11,
+        "withheld_as_fail": 2,
+        "withheld_as_pass": 5,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "kimi-k2-thinking-maas::abstain_removed_only": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.175,
+      "false_green_rate_answered": 0.175,
+      "violation_recall": 0.55,
+      "violation_precision": 0.8461538461538461,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 11,
+        "pred_fail": 13,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 21,
+        "abst": 0,
+        "withheld_as_unmonitored": 97,
+        "withheld_as_pass": 21,
+        "withheld_as_fail": 2,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "kimi-k2-thinking-maas::abstain_closed": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.16666666666666666,
+      "false_green_rate_answered": 0.16666666666666666,
+      "violation_recall": 0.95,
+      "violation_precision": 0.15966386554621848,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 19,
+        "pred_fail": 119,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 20,
+        "abst": 0,
+        "withheld_as_fail": 100,
+        "withheld_as_pass": 20,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    },
+    "kimi-k2-thinking-maas::abstain_withheld": {
+      "n": 140,
+      "answered": 140,
+      "false_green_rate": 0.26666666666666666,
+      "false_green_rate_answered": 0.26666666666666666,
+      "violation_recall": 0.95,
+      "violation_precision": 0.17757009345794392,
+      "false_alarm_rate": null,
+      "false_alarm_near_miss": null,
+      "false_alarm_other_controls": null,
+      "abstention_f1": 0.0,
+      "counts": {
+        "answered": 140,
+        "fail": 20,
+        "tp": 19,
+        "pred_fail": 107,
+        "pred_abst": 0,
+        "withheld": 120,
+        "fg": 32,
+        "abst": 0,
+        "withheld_as_fail": 88,
+        "withheld_as_pass": 32,
+        "ctrl_alarm": 0,
+        "near_alarm": 0,
+        "ctrl": 0,
+        "near": 0
+      }
+    }
+  }
+}

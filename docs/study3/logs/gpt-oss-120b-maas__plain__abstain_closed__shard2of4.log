@@ -1,0 +1,32 @@
+Study 3 (plain): 12 generated firms x 42 pairs
+shard 2/4: ['synthetic-001003-study3-plain', 'synthetic-001017-study3-plain', 'synthetic-001024-study3-plain']
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_closed']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001003-study3-plain FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2559 output tokens, 56s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2045 output tokens, 38s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2695 output tokens, 120s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1384 output tokens, 111s, finish=stop, ok
+  synthetic-001017-study3-plain FGR 0.889  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1815 output tokens, 81s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3435 output tokens, 123s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2710 output tokens, 148s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1724 output tokens, 106s, finish=stop, ok
+  synthetic-001024-study3-plain FGR 0.667  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/openai/gpt-oss-120b-maas#r0::abstain_closed: FGR 0.630 (sd 0.280)  recall 1.000  over 3 firm(s)
+
+wrote runs/gpt-oss-120b-maas__plain__abstain_closed__shard2of4.json

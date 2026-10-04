@@ -48,11 +48,16 @@ aggregated per firm before averaging, which is what `scripts/sweep.py` does.
 **Recommended splits?** None. This is a diagnostic evaluation set, not a training set.
 Fitting a model to these labels would defeat the purpose.
 
-**Errors or noise?** Generated labels (generator v2) are fixed by construction and were
-checked blind against their records (60 of 60). An earlier generator (v1) failed that check
-(8 of 60) and is withdrawn. The anchor firm's expectations come from a compliance engine;
-a blind audit overturned 2 of 120 withheld labels, and the paper (Section 5.2) lists known
-problems with its 20 violation labels, including four duplicated facts.
+**Errors or noise?** Generated labels are fixed by construction, and an independent checker
+written from the regulations without access to the generator reproduces all 1,680 labels of
+the firms used in the paper (`labelcheck/`). It found one generator bug (a year-end observed
+holiday), fixed before release; it affected one audit-seed pair and no study firm. An earlier
+generator (v1) failed a blind check (8 of 60) and is withdrawn. The anchor firm's
+expectations come from a compliance engine. Two blind AI audits overturned 2 and 5 of its 120
+withheld labels, with none in common. The second audit supports five of the ten violations
+that remain in the strict view and finds the others undecidable from the exports, or in one
+case compliant. The paper (Sections 5.2 and 6.1) lists these problems, including the
+duplicated facts.
 
 **Self-contained?** Yes. No external downloads, no API keys, no network access.
 

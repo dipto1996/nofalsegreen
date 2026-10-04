@@ -1,0 +1,290 @@
+{
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001001-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\t-\ni9.section2.timeliness::SYN-1001\tpass\t-\ni9.reverification.deadline::SYN-1001\tpass\t-\ni9.section1.timeliness::SYN-1002\tpass\t-\ni9.section2.timeliness::SYN-1002\tpass\t-\ni9.reverification.deadline::SYN-1002\tpass\t-\ni9.section1.timeliness::SYN-1003\tpass\t-\ni9.section2.timeliness::SYN-1003\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\t-\ni9.section2.timeliness::SYN-1004\tpass\t-\ni9.reverification.deadline::SYN-1004\tfail\tsupplementBReverificationDate",
+  "output_tokens": 3504,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001001-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 3062,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001001-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\t-\ni9.section2.timeliness::SYN-1009\tpass\t-\ni9.reverification.deadline::SYN-1009\tpass\t-\ni9.section1.timeliness::SYN-1010\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\t-\ni9.section1.timeliness::SYN-1011\tpass\t-\ni9.section2.timeliness::SYN-1011\tpass\t-\ni9.section1.timeliness::SYN-1012\tpass\t-\ni9.section2.timeliness::SYN-1012\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t-",
+  "output_tokens": 6780,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001001-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t-",
+  "output_tokens": 8646,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001002-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\t-\ni9.reverification.deadline::SYN-1001\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\t-\ni9.section2.timeliness::SYN-1002\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\t-\ni9.section1.timeliness::SYN-1003\tpass\t-\ni9.section2.timeliness::SYN-1003\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\t-\ni9.section1.timeliness::SYN-1004\tpass\t-\ni9.section2.timeliness::SYN-1004\tpass\t-\ni9.reverification.deadline::SYN-1004\tpass\t-",
+  "output_tokens": 12465,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001002-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 2833,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001002-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tfail\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 5077,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001002-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t-",
+  "output_tokens": 20123,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001003-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tfail\tsupplementBReverificationDate",
+  "output_tokens": 2250,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001003-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 2984,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001003-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tfail\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 2487,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001003-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 7697,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001008-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 2148,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001008-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 2830,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001008-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tfail\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 14373,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001008-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t-",
+  "output_tokens": 24591,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001010-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 2728,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001010-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 2352,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001010-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 8076,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001010-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t-",
+  "output_tokens": 30936,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001014-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 2676,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001014-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tfail\tsupplementBReverificationDate",
+  "output_tokens": 2478,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001014-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tfail\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 7387,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001014-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 9150,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001017-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tfail\tsupplementBReverificationDate",
+  "output_tokens": 2756,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001017-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 2008,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001017-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tfail\tgrossPay",
+  "output_tokens": 12230,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001017-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tfail\tgrossPay",
+  "output_tokens": 8501,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001018-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 1170,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001018-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\t-\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\t-\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\t-\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\t-\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 1619,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001018-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tfail\t-\ni9.reverification.deadline::SYN-1009\tfail\t-\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tfail\t-\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tfail\t-\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25002-100003\tfail\tgrossPay",
+  "output_tokens": 11437,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001018-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25005-100006\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t-",
+  "output_tokens": 2530,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001020-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 1149,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001020-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\t-\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\t-\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\t-\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\t-\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 1580,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001020-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tfail\t-\ni9.reverification.deadline::SYN-1009\tfail\t-\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tfail\t-\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tfail\t-\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 2980,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001020-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tgrossPay",
+  "output_tokens": 1793,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001021-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\t-\ni9.reverification.deadline::SYN-1001\tpass\t-\ni9.section1.timeliness::SYN-1002\tpass\t-\ni9.section2.timeliness::SYN-1002\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\t-\ni9.section1.timeliness::SYN-1003\tpass\t-\ni9.section2.timeliness::SYN-1003\tpass\t-\ni9.reverification.deadline::SYN-1003\tpass\t-\ni9.section1.timeliness::SYN-1004\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\t-",
+  "output_tokens": 4038,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001021-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\t-\ni9.section2.timeliness::SYN-1005\tpass\t-\ni9.reverification.deadline::SYN-1005\tpass\t-\ni9.section1.timeliness::SYN-1006\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\t-\ni9.reverification.deadline::SYN-1006\tpass\t-\ni9.section1.timeliness::SYN-1007\tpass\t-\ni9.section2.timeliness::SYN-1007\tpass\t-\ni9.reverification.deadline::SYN-1007\tpass\t-\ni9.section1.timeliness::SYN-1008\tpass\t-\ni9.section2.timeliness::SYN-1008\tpass\t-\ni9.reverification.deadline::SYN-1008\tpass\t-",
+  "output_tokens": 2500,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001021-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 3649,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001021-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tWAGE_RATE_OF_PAY_FROM\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tWAGE_RATE_OF_PAY_FROM",
+  "output_tokens": 6569,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001024-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 28076,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001024-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 3340,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001024-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tfail\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 16479,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001024-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25004-100005\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25005-100006\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\t-",
+  "output_tokens": 6632,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001027-study3-plain|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 1014,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001027-study3-plain|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\t-\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\t-\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\t-\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\t-\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 973,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001027-study3-plain|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tfail\t-\ni9.reverification.deadline::SYN-1009\tfail\t-\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tfail\t-\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tfail\t-\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\t-",
+  "output_tokens": 18721,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|abstain_closed|synthetic-001027-study3-plain|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tgrossPay",
+  "output_tokens": 1705,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

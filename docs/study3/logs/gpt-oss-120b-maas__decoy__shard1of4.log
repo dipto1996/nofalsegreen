@@ -1,0 +1,52 @@
+Study 3 (decoy): 12 generated firms x 42 pairs
+shard 1/4: ['synthetic-001002-study3-decoy', 'synthetic-001014-study3-decoy', 'synthetic-001021-study3-decoy']
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001002-study3-decoy FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3330 output tokens, 108s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1985 output tokens, 196s, finish=stop, ok
+  synthetic-001014-study3-decoy FGR 0.889  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1973 output tokens, 113s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2313 output tokens, 140s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2978 output tokens, 76s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request iazBau7qG8eWqMgP9t3Q0QY is throttled due to too many requests. Please try again later. Pl after 2s
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+        attempt 1: 1714 output tokens, 110s, finish=stop, ok
+  synthetic-001021-study3-decoy FGR 0.556  recall 1.000  absF1 0.500  unparsed 0  (4 calls)
+
+  vertexopen/openai/gpt-oss-120b-maas#r0::abstain_offered: FGR 0.593 (sd 0.280)  recall 1.000  over 3 firm(s)
+
+wrote runs/gpt-oss-120b-maas__decoy__shard1of4.json

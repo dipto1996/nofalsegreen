@@ -1,0 +1,118 @@
+
+=== vertex --model vertex/gemini-3.1-pro-preview#r0 --firms 0 --variant abstain_withheld --batch
+Study 3 (decoy): 12 generated firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 12  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3562 output tokens, 25s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2897 output tokens, 18s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3983 output tokens, 35s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2564 output tokens, 16s, finish=stop, ok
+  synthetic-001001-study3-decoy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3404 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3032 output tokens, 18s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31037 output tokens, 163s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 12531 output tokens, 75s, finish=stop, ok
+  synthetic-001002-study3-decoy FGR 0.889  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3538 output tokens, 22s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3187 output tokens, 20s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4088 output tokens, 24s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3813 output tokens, 23s, finish=stop, ok
+  synthetic-001003-study3-decoy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2932 output tokens, 30s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3538 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11264 output tokens, 69s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 7636 output tokens, 47s, finish=stop, ok
+  synthetic-001008-study3-decoy FGR 0.444  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3201 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3457 output tokens, 21s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11781 output tokens, 70s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 16299 output tokens, 105s, finish=stop, ok
+  synthetic-001010-study3-decoy FGR 0.667  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3135 output tokens, 19s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2984 output tokens, 17s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 7216 output tokens, 43s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4805 output tokens, 30s, finish=stop, ok
+  synthetic-001014-study3-decoy FGR 0.778  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4134 output tokens, 26s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3025 output tokens, 18s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6846 output tokens, 43s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 25397 output tokens, 163s, finish=stop, ok
+  synthetic-001017-study3-decoy FGR 0.778  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2993 output tokens, 22s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6921 output tokens, 49s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4691 output tokens, 30s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3453 output tokens, 22s, finish=stop, ok
+  synthetic-001018-study3-decoy FGR 0.394  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4798 output tokens, 35s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5456 output tokens, 38s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4318 output tokens, 28s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3294 output tokens, 21s, finish=stop, ok
+  synthetic-001020-study3-decoy FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2773 output tokens, 18s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3477 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4827 output tokens, 30s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4912 output tokens, 31s, finish=stop, ok
+  synthetic-001021-study3-decoy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2939 output tokens, 18s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3113 output tokens, 18s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 14227 output tokens, 83s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 16190 output tokens, 101s, finish=stop, ok
+  synthetic-001024-study3-decoy FGR 0.778  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 8162 output tokens, 54s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 7456 output tokens, 54s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4379 output tokens, 28s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2987 output tokens, 19s, finish=stop, ok
+  synthetic-001027-study3-decoy FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld: FGR 0.740 (sd 0.214)  recall 1.000  over 12 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/gemini-3.1-pro-preview__decoy__abstain_withheld.json

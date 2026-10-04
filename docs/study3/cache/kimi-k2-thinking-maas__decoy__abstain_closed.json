@@ -1,0 +1,290 @@
+{
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001001-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tfail\tsupplementBReverificationDate",
+  "output_tokens": 8846,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001001-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tofferAcceptedDate,firstDayOfEmployment,section1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tworkAuthorizationExpiry,supplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tofferAcceptedDate,firstDayOfEmployment,section1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tworkAuthorizationExpiry,supplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tfail\tofferAcceptedDate,firstDayOfEmployment,section1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tworkAuthorizationExpiry,supplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tfail\tofferAcceptedDate,firstDayOfEmployment,section1SignDate\ni9.section2.timeliness::SYN-1008\tfail\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tworkAuthorizationExpiry,supplementBReverificationDate",
+  "output_tokens": 5537,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001001-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate,firstDayOfEmployment,offerAcceptedDate\ni9.section2.timeliness::SYN-1009\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tworkAuthorizationExpiry,supplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tfail\tsection1SignDate,firstDayOfEmployment\ni9.section2.timeliness::SYN-1010\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate,firstDayOfEmployment,offerAcceptedDate\ni9.section2.timeliness::SYN-1011\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate,firstDayOfEmployment,offerAcceptedDate\ni9.section2.timeliness::SYN-1012\tpass\tfirstDayOfEmployment,section2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE",
+  "output_tokens": 15592,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001001-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tannualBaseSalary",
+  "output_tokens": 6117,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001002-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\t-\ni9.reverification.deadline::SYN-1001\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\t-\ni9.section2.timeliness::SYN-1002\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\t-\ni9.section1.timeliness::SYN-1003\tpass\t-\ni9.section2.timeliness::SYN-1003\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\t-\ni9.section1.timeliness::SYN-1004\tpass\t-\ni9.section2.timeliness::SYN-1004\tpass\t-\ni9.reverification.deadline::SYN-1004\tpass\t-",
+  "output_tokens": 10985,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001002-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tofferAcceptedDate,section1SignDate,firstDayOfEmployment\ni9.section2.timeliness::SYN-1005\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tworkAuthorizationExpiry,supplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tfail\tofferAcceptedDate,section1SignDate,firstDayOfEmployment\ni9.section2.timeliness::SYN-1006\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tworkAuthorizationExpiry,supplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tfail\tofferAcceptedDate,section1SignDate,firstDayOfEmployment\ni9.section2.timeliness::SYN-1007\tfail\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tworkAuthorizationExpiry,supplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tofferAcceptedDate,section1SignDate,firstDayOfEmployment\ni9.section2.timeliness::SYN-1008\tpass\tfirstDayOfEmployment,section2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tworkAuthorizationExpiry,supplementBReverificationDate",
+  "output_tokens": 13213,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001002-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tfail\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 8780,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001002-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\tpayroll_register.grossPay, lca_export.PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tpayroll_register.grossPay, lca_export.PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25005-100006\tfail\tpayroll_register.grossPay, lca_export.PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tpayroll_register.grossPay, lca_export.PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tpayroll_register.grossPay, lca_export.PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tpayroll_register.grossPay, lca_export.PREVAILING_WAGE",
+  "output_tokens": 7062,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001003-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tfail\tsupplementBReverificationDate",
+  "output_tokens": 9849,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001003-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1Signed,section1SignDate,firstDayOfEmployment,offerAcceptedDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate,firstDayOfEmployment\ni9.reverification.deadline::SYN-1005\tfail\tsupplementBReverificationDate,workAuthorizationExpiry\ni9.section1.timeliness::SYN-1006\tfail\tsection1Signed,section1SignDate,firstDayOfEmployment,offerAcceptedDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate,firstDayOfEmployment\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate,workAuthorizationExpiry\ni9.section1.timeliness::SYN-1007\tpass\tsection1Signed,section1SignDate,firstDayOfEmployment,offerAcceptedDate\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate,firstDayOfEmployment\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate,workAuthorizationExpiry\ni9.section1.timeliness::SYN-1008\tpass\tsection1Signed,section1SignDate,firstDayOfEmployment,offerAcceptedDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate,firstDayOfEmployment\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate,workAuthorizationExpiry",
+  "output_tokens": 10947,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001003-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tfail\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tannualBaseSalary",
+  "output_tokens": 17366,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001003-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tannualBaseSalary,ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL,PREVAILING_WAGE",
+  "output_tokens": 6456,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001008-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 10205,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001008-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 9975,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001008-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tfail\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay,PREVAILING_WAGE,payBandMidpoint\nlca.wage.required_wage_greater_of::I-200-25001-100002\tfail\tgrossPay,PREVAILING_WAGE,payBandMidpoint\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay,PREVAILING_WAGE",
+  "output_tokens": 17139,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001008-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "I-200-25003-100004\tfail\tpayroll_register.grossPay\nI-200-25004-100005\tpass\tpayroll_register.grossPay\nI-200-25005-100006\tfail\tpayroll_register.grossPay\nI-200-25006-100007\tfail\tpayroll_register.grossPay\nI-200-25007-100008\tfail\tpayroll_register.grossPay\nI-200-25008-100009\tpass\tpayroll_register.grossPay",
+  "output_tokens": 6936,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001010-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 9439,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001010-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 6583,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001010-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 15184,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001010-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\tlca_export.PREVAILING_WAGE,payroll_register.grossPay,hris_roster_export.jobTitle,hris_roster_export.city,hris_roster_export.state\nlca.wage.required_wage_greater_of::I-200-25004-100005\tfail\tlca_export.PREVAILING_WAGE,payroll_register.grossPay,hris_roster_export.jobTitle,hris_roster_export.city,hris_roster_export.state\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tlca_export.PREVAILING_WAGE,payroll_register.grossPay,hris_roster_export.jobTitle,hris_roster_export.city,hris_roster_export.state\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tlca_export.PREVAILING_WAGE,payroll_register.grossPay,hris_roster_export.jobTitle,hris_roster_export.city,hris_roster_export.state\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tlca_export.PREVAILING_WAGE,payroll_register.grossPay,hris_roster_export.jobTitle,hris_roster_export.city,hris_roster_export.state\nlca.wage.required_wage_greater_of::I-200-25008-100009\tfail\tlca_export.PREVAILING_WAGE,payroll_register.grossPay,hris_roster_export.jobTitle,hris_roster_export.city,hris_roster_export.state",
+  "output_tokens": 10360,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001014-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 7905,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001014-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tfail\tsupplementBReverificationDate",
+  "output_tokens": 7744,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001014-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tfail\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tannualBaseSalary",
+  "output_tokens": 10543,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001014-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tannualBaseSalary",
+  "output_tokens": 5913,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001017-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tfail\tsupplementBReverificationDate",
+  "output_tokens": 11068,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001017-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 6193,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001017-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tfail\tgrossPay",
+  "output_tokens": 13301,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001017-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tgrossPay",
+  "output_tokens": 8912,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001018-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tpass\tworkAuthValidThrough",
+  "output_tokens": 8548,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001018-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1005\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1006\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1007\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1008\tpass\tworkAuthValidThrough",
+  "output_tokens": 5959,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001018-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tfail\t-\ni9.reverification.deadline::SYN-1009\tfail\t-\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tfail\t-\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tfail\t-\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tfail\tgrossPay",
+  "output_tokens": 13553,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001018-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "I-200-25003-100004\tpass\tgrossPay\nI-200-25004-100005\tpass\tgrossPay\nI-200-25005-100006\tfail\tgrossPay\nI-200-25006-100007\tpass\tgrossPay\nI-200-25007-100008\tpass\tgrossPay\nI-200-25008-100009\tpass\tgrossPay",
+  "output_tokens": 4266,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001020-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1002\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1003\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1004\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tpass\tworkAuthValidThrough",
+  "output_tokens": 7823,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001020-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1005\tfail\t-\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1006\tfail\t-\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1007\tfail\t-\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1008\tfail\t-",
+  "output_tokens": 3569,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001020-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tfail\t-\ni9.section2.timeliness::SYN-1009\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1009\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1010\tfail\t-\ni9.section2.timeliness::SYN-1010\tpass\tonboardingCompletedDate\ni9.section1.timeliness::SYN-1011\tfail\t-\ni9.section2.timeliness::SYN-1011\tpass\tonboardingCompletedDate\ni9.section1.timeliness::SYN-1012\tfail\t-\ni9.section2.timeliness::SYN-1012\tpass\tonboardingCompletedDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 12426,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001020-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tgrossPay",
+  "output_tokens": 5523,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001021-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 17889,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001021-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1005\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1006\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1006\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1007\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1007\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1008\tpass\tsupplementBReverificationDate",
+  "output_tokens": 8390,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001021-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tannualBaseSalary",
+  "output_tokens": 14354,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001021-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tannualBaseSalary\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tannualBaseSalary",
+  "output_tokens": 6443,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001024-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1001\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1001\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1002\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1002\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1002\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1003\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1003\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1003\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1004\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1004\tpass\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1004\tpass\tsupplementBReverificationDate",
+  "output_tokens": 7782,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001024-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1005\tpass\t-\ni9.reverification.deadline::SYN-1005\tpass\t-\ni9.section1.timeliness::SYN-1006\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1006\tpass\t-\ni9.reverification.deadline::SYN-1006\tpass\t-\ni9.section1.timeliness::SYN-1007\tpass\t-\ni9.section2.timeliness::SYN-1007\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1007\tfail\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1008\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1008\tpass\t-\ni9.reverification.deadline::SYN-1008\tpass\t-",
+  "output_tokens": 11003,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001024-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1009\tfail\tsection2EmployerSignDate\ni9.reverification.deadline::SYN-1009\tpass\tsupplementBReverificationDate\ni9.section1.timeliness::SYN-1010\tfail\tsection1SignDate\ni9.section2.timeliness::SYN-1010\tpass\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1011\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1011\tfail\tsection2EmployerSignDate\ni9.section1.timeliness::SYN-1012\tpass\tsection1SignDate\ni9.section2.timeliness::SYN-1012\tpass\tsection2EmployerSignDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 16408,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001024-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "I-200-25003-100004\tfail\tpayroll_register.grossPay\nI-200-25004-100005\tfail\tpayroll_register.grossPay\nI-200-25005-100006\tfail\tpayroll_register.grossPay\nI-200-25006-100007\tpass\tpayroll_register.grossPay\nI-200-25007-100008\tpass\tpayroll_register.grossPay\nI-200-25008-100009\tpass\tpayroll_register.grossPay",
+  "output_tokens": 14378,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001027-study3-decoy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tfail\t-\ni9.section2.timeliness::SYN-1001\tfail\t-\ni9.reverification.deadline::SYN-1001\tfail\t-\ni9.section1.timeliness::SYN-1002\tfail\t-\ni9.section2.timeliness::SYN-1002\tfail\t-\ni9.reverification.deadline::SYN-1002\tfail\t-\ni9.section1.timeliness::SYN-1003\tfail\t-\ni9.section2.timeliness::SYN-1003\tfail\t-\ni9.reverification.deadline::SYN-1003\tfail\t-\ni9.section1.timeliness::SYN-1004\tfail\t-\ni9.section2.timeliness::SYN-1004\tfail\t-\ni9.reverification.deadline::SYN-1004\tfail\t-",
+  "output_tokens": 10660,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001027-study3-decoy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tfail\t-\ni9.section2.timeliness::SYN-1005\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1005\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1006\tfail\t-\ni9.section2.timeliness::SYN-1006\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1006\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1007\tfail\t-\ni9.section2.timeliness::SYN-1007\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1007\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1008\tfail\t-\ni9.section2.timeliness::SYN-1008\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1008\tpass\tworkAuthValidThrough",
+  "output_tokens": 9407,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001027-study3-decoy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1009\tfail\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1009\tfail\t-\ni9.section1.timeliness::SYN-1010\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1010\tpass\tonboardingCompletedDate\ni9.section1.timeliness::SYN-1011\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1011\tfail\tonboardingCompletedDate\ni9.section1.timeliness::SYN-1012\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1012\tpass\tonboardingCompletedDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 15296,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/moonshotai/kimi-k2-thinking-maas#r0|abstain_closed|synthetic-001027-study3-decoy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "I-200-25003-100004\tfail\tpayroll_register.grossPay\nI-200-25004-100005\tfail\tpayroll_register.grossPay\nI-200-25005-100006\tpass\tpayroll_register.grossPay\nI-200-25006-100007\tfail\tpayroll_register.grossPay\nI-200-25007-100008\tpass\tpayroll_register.grossPay\nI-200-25008-100009\tpass\tpayroll_register.grossPay",
+  "output_tokens": 5654,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

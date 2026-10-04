@@ -1,0 +1,184 @@
+
+=== vertexopen --model vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 --firms 0 --variant abstain_offered --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 252 output tokens, 5s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 333 output tokens, 3s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 278 output tokens, 3s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 80 output tokens, 2s, finish=stop, ok
+      batch 5/12 (36 parsed so far)
+        attempt 1: 371 output tokens, 4s, finish=stop, ok
+      batch 6/12 (48 parsed so far)
+        attempt 1: 230 output tokens, 3s, finish=stop, ok
+      batch 7/12 (60 parsed so far)
+        attempt 1: 335 output tokens, 4s, finish=stop, ok
+      batch 8/12 (72 parsed so far)
+        attempt 1: 411 output tokens, 4s, finish=stop, ok
+      batch 9/12 (84 parsed so far)
+        attempt 1: 351 output tokens, 3s, finish=stop, ok
+      batch 10/12 (96 parsed so far)
+        attempt 1: 401 output tokens, 4s, finish=stop, ok
+      batch 11/12 (108 parsed so far)
+        attempt 1: 362 output tokens, 4s, finish=stop, ok
+      batch 12/12 (120 parsed so far)
+        attempt 1: 253 output tokens, 3s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.142  recall 0.250  absF1 0.767  unparsed 0  (12 calls)
+
+  vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_offered: FGR 0.142 (sd 0.000)  recall 0.250  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/qwen3-235b-a22b-instruct-2507-maas__e1.json
+
+=== vertexopen --model vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 --firms 0 --variant abstain_removed_only --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_removed_only']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 233 output tokens, 3s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 262 output tokens, 3s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 285 output tokens, 3s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 180 output tokens, 2s, finish=stop, ok
+      batch 5/12 (36 parsed so far)
+        attempt 1: 467 output tokens, 5s, finish=stop, ok
+      batch 6/12 (48 parsed so far)
+        attempt 1: 213 output tokens, 3s, finish=stop, ok
+      batch 7/12 (60 parsed so far)
+        attempt 1: 284 output tokens, 4s, finish=stop, ok
+      batch 8/12 (72 parsed so far)
+        attempt 1: 399 output tokens, 4s, finish=stop, ok
+      batch 9/12 (84 parsed so far)
+        attempt 1: 367 output tokens, 4s, finish=stop, ok
+      batch 10/12 (96 parsed so far)
+        attempt 1: 345 output tokens, 4s, finish=stop, ok
+      batch 11/12 (108 parsed so far)
+        attempt 1: 350 output tokens, 4s, finish=stop, ok
+      batch 12/12 (120 parsed so far)
+        attempt 1: 246 output tokens, 3s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.167  recall 0.350  absF1 0.000  unparsed 0  (12 calls)
+
+  vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_removed_only: FGR 0.167 (sd 0.000)  recall 0.350  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/qwen3-235b-a22b-instruct-2507-maas__e1.json
+
+=== vertexopen --model vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 --firms 0 --variant abstain_closed --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_closed']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 223 output tokens, 3s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 280 output tokens, 3s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 240 output tokens, 3s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 172 output tokens, 3s, finish=stop, ok
+      batch 5/12 (36 parsed so far)
+        attempt 1: 380 output tokens, 5s, finish=stop, ok
+      batch 6/12 (48 parsed so far)
+        attempt 1: 206 output tokens, 2s, finish=stop, ok
+      batch 7/12 (60 parsed so far)
+        attempt 1: 282 output tokens, 4s, finish=stop, ok
+      batch 8/12 (72 parsed so far)
+        attempt 1: 375 output tokens, 3s, finish=stop, ok
+      batch 9/12 (84 parsed so far)
+        attempt 1: 345 output tokens, 3s, finish=stop, ok
+      batch 10/12 (96 parsed so far)
+        attempt 1: 342 output tokens, 3s, finish=stop, ok
+      batch 11/12 (104 parsed so far)
+        attempt 1: 326 output tokens, 3s, finish=stop, ok
+      batch 12/12 (116 parsed so far)
+        attempt 1: 229 output tokens, 3s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.258  recall 0.700  absF1 0.000  unparsed 4  (12 calls)
+
+  vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_closed: FGR 0.258 (sd 0.000)  recall 0.700  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/qwen3-235b-a22b-instruct-2507-maas__e1.json
+
+=== vertexopen --model vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 --firms 0 --variant abstain_withheld --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 223 output tokens, 4s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 274 output tokens, 3s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 267 output tokens, 3s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 295 output tokens, 3s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 370 output tokens, 4s, finish=stop, ok
+      batch 6/12 (55 parsed so far)
+        attempt 1: 205 output tokens, 2s, finish=stop, ok
+      batch 7/12 (67 parsed so far)
+        attempt 1: 312 output tokens, 4s, finish=stop, ok
+      batch 8/12 (79 parsed so far)
+        attempt 1: 375 output tokens, 3s, finish=stop, ok
+      batch 9/12 (91 parsed so far)
+        attempt 1: 329 output tokens, 3s, finish=stop, ok
+      batch 10/12 (103 parsed so far)
+        attempt 1: 342 output tokens, 3s, finish=stop, ok
+      batch 11/12 (110 parsed so far)
+        attempt 1: 326 output tokens, 4s, finish=stop, ok
+      batch 12/12 (122 parsed so far)
+        attempt 1: 229 output tokens, 3s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.308  recall 0.900  absF1 0.000  unparsed 9  (12 calls)
+
+  vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_withheld: FGR 0.308 (sd 0.000)  recall 0.900  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/qwen3-235b-a22b-instruct-2507-maas__e1.json
+
+=== vertexopen --model vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 --firms 0 --variant abstain_offered --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_offered']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_offered: FGR 0.142 (sd 0.000)  recall 0.250  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/qwen3-235b-a22b-instruct-2507-maas__e1.json
+
+=== vertexopen --model vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 --firms 0 --variant abstain_removed_only --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_removed_only']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_removed_only: FGR 0.167 (sd 0.000)  recall 0.350  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/qwen3-235b-a22b-instruct-2507-maas__e1.json
+
+=== vertexopen --model vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 --firms 0 --variant abstain_closed --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_closed']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_closed: FGR 0.258 (sd 0.000)  recall 0.700  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/qwen3-235b-a22b-instruct-2507-maas__e1.json
+
+=== vertexopen --model vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 --firms 0 --variant abstain_withheld --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_withheld']
+
+  northwind-robotics-subset140 skip (done)
+
+  vertexopen/qwen/qwen3-235b-a22b-instruct-2507-maas#r0::abstain_withheld: FGR 0.308 (sd 0.000)  recall 0.900  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/qwen3-235b-a22b-instruct-2507-maas__e1.json

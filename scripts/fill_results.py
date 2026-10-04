@@ -331,6 +331,76 @@ def table_contrasts() -> str:
                 "in Study 2); two-sided p-values Holm-corrected across all 24 contrasts; ** marks p < 0.05.")
     return "\n".join(rows)
 
+STUDY3 = ROOT / "docs" / "study3" / "results.json"
+S3_ORDER = ["gemini-3.1-pro-preview", "gemini-3.8-flash", "gemma-4-26b-a4b-it-maas",
+            "gpt-oss-120b-maas", "deepseek-v3.2-maas", "qwen3-235b-a22b-instruct-2507-maas",
+            "kimi-k2-thinking-maas"]
+
+
+def table_study3() -> str:
+    """Table 9: Study 3, false-green rate by model, arm and schema; coverage; detection."""
+    head = ("| Model | Arm | FGR offered | removed-only | closed | dashboard | Recall, offered "
+            "| False alarm, offered | Min answered |\n|---|---|---|---|---|---|---|---|---|")
+    if not STUDY3.exists():
+        return head
+    c = json.loads(STUDY3.read_text())["cells"]
+    rows = [head]
+    for m in S3_ORDER:
+        for arm in ("plain", "decoy"):
+            g = lambda cond, k: c.get(f"{m}::{arm}::{cond}", {}).get(k)  # noqa: E731
+            ans = [g(cond, "answered") for cond in COND if g(cond, "answered") is not None]
+            rows.append(f"| `{m}` | {arm} | " + " | ".join(_f(g(cond, "false_green_rate")) for cond in COND)
+                        + f" | {_f(g('abstain_offered', 'violation_recall'))} "
+                          f"| {_f(g('abstain_offered', 'false_alarm_rate'))} | {min(ans) if ans else '—'}/504 |")
+    rows.append("")
+    rows.append("Twelve fresh firms (504 pairs, 180 withheld) per arm, one run per cell. *plain*: generator "
+                "v2; *decoy*: the same firms with five adjacent-but-insufficient roster columns. False alarm "
+                "is any non-`pass` verdict on one of the 237 conforming controls.")
+    return "\n".join(rows)
+
+
+def table_study3_tests() -> str:
+    """Table 10: Study 3 preregistered tests (pooled, by developer group, per model)."""
+    head = ("| Estimate | P1 abstention | P2 definition | P3 adjacent cols, dashboard | P4 adjacent cols, offered |"
+            "\n|---|---|---|---|---|")
+    if not STUDY3.exists():
+        return head
+    d = json.loads(STUDY3.read_text())
+    names = [k for k in d["primary"]]
+
+    def fmt(v):
+        if not v or "delta" not in v:
+            return "—"
+        mark = " **" if v.get("p_holm", 1) < 0.05 else ""
+        return f"{v['delta']:+.3f} [{v['ci95'][0]:+.2f}, {v['ci95'][1]:+.2f}] p={v['p_holm']:.3f}{mark}"
+    rows = [head, "| **Pooled, 7 models (primary)** | " + " | ".join(fmt(d["primary"][n]) for n in names) + " |"]
+    for grp, lab in (("google", "Google, 3 models"), ("other_developers", "Other developers, 4 models")):
+        rows.append(f"| {lab} | " + " | ".join(fmt(d["S4_by_developer_group"].get(f"{n} | {grp}")) for n in names) + " |")
+    for m in S3_ORDER:
+        rows.append(f"| `{m}` | " + " | ".join(fmt(d["S1_per_model"].get(f"{n} | {m}")) for n in names) + " |")
+    rows.append("")
+    rows.append("Difference in false-green rate on withheld pairs answered in both cells, [95% CI] from an "
+                "obligation-cluster bootstrap (18 firm-by-rule clusters, 2,000 draws), Holm-adjusted p. "
+                "Holm families as declared: the four pooled tests; the 28 per-model tests; the eight "
+                "group tests. ** marks adjusted p < 0.05. Pooled estimates weight each model equally.")
+    return "\n".join(rows)
+
+
+def table_e1() -> str:
+    """Table 11: extension E1, the four new models on the anchor subset (descriptive)."""
+    head = ("| Model | FGR offered | removed-only | closed | dashboard | FG answered only, offered "
+            "| Recall, offered (of 20) | Answered, offered |\n|---|---|---|---|---|---|---|---|")
+    if not STUDY3.exists():
+        return head
+    e = json.loads(STUDY3.read_text())["E1_anchor"]
+    rows = [head]
+    for m in S3_ORDER[3:]:
+        g = lambda cond, k: e.get(f"{m}::{cond}", {}).get(k)  # noqa: E731
+        rows.append(f"| `{m}` | " + " | ".join(_f(g(cond, "false_green_rate")) for cond in COND)
+                    + f" | {_f(g('abstain_offered', 'false_green_rate_answered'))} "
+                      f"| {_f(g('abstain_offered', 'violation_recall'))} | {g('abstain_offered', 'answered')}/140 |")
+    return "\n".join(rows)
+
 
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
@@ -359,6 +429,9 @@ def main() -> int:
         "table1-trivial": table_trivial(),
         "table7-vertex": table_vertex(),
         "table8-contrasts": table_contrasts(),
+        "table9-study3": table_study3(),
+        "table10-study3-tests": table_study3_tests(),
+        "table11-e1": table_e1(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

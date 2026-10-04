@@ -1,0 +1,65 @@
+
+=== vertexopen --model vertexopen/openai/gpt-oss-120b-maas#r0 --firms 0 --variant abstain_offered --batch
+Study 3 (decoy): 12 generated firms x 42 pairs
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 12  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2695 output tokens, 103s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+
+=== vertexopen --model vertexopen/openai/gpt-oss-120b-maas#r0 --firms 0 --variant abstain_offered --batch
+Study 3 (decoy): 12 generated firms x 42 pairs
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 12  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2736 output tokens, 114s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3021 output tokens, 100s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1266 output tokens, 10s, finish=stop, ok
+  synthetic-001001-study3-decoy FGR 1.000  recall 0.875  absF1 0.000  unparsed 0  (3 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2495 output tokens, 107s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2365 output tokens, 104s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3602 output tokens, 107s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2507 output tokens, 107s, finish=stop, ok
+  synthetic-001002-study3-decoy FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2010 output tokens, 212s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3246 output tokens, 99s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2358 output tokens, 210s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 976 output tokens, 8s, finish=stop, ok
+  synthetic-001003-study3-decoy FGR 1.000  recall 0.923  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2084 output tokens, 112s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2448 output tokens, 117s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3557 output tokens, 110s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1648 output tokens, 118s, finish=stop, ok
+  synthetic-001008-study3-decoy FGR 0.222  recall 1.000  absF1 0.200  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 0 output tokens, 95s, finish=abort, EMPTY
+        attempt 2: 2576 output tokens, 118s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2182 output tokens, 77s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3231 output tokens, 234s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2621 output tokens, 37s, finish=stop, ok
+  synthetic-001010-study3-decoy FGR 0.556  recall 1.000  absF1 0.500  unparsed 0  (5 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2078 output tokens, 106s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2165 output tokens, 100s, finish=stop, ok
+      batch 3/4 (24 parsed so far)

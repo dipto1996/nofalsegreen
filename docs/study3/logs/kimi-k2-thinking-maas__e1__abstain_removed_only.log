@@ -1,0 +1,35 @@
+
+=== vertexopen --model vertexopen/moonshotai/kimi-k2-thinking-maas#r0 --firms 0 --variant abstain_removed_only --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/moonshotai/kimi-k2-thinking-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/moonshotai/kimi-k2-thinking-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_removed_only']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 11286 output tokens, 55s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 12046 output tokens, 59s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 6936 output tokens, 30s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 10389 output tokens, 42s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 8349 output tokens, 32s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 5259 output tokens, 17s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 11173 output tokens, 50s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 5437 output tokens, 25s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 10790 output tokens, 40s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 7139 output tokens, 41s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+        attempt 1: 3185 output tokens, 16s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+        attempt 1: 4015 output tokens, 23s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.175  recall 0.550  absF1 0.000  unparsed 0  (12 calls)
+
+  vertexopen/moonshotai/kimi-k2-thinking-maas#r0::abstain_removed_only: FGR 0.175 (sd 0.000)  recall 0.550  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/kimi-k2-thinking-maas__e1__abstain_removed_only.json

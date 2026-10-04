@@ -1,0 +1,38 @@
+Study 3 (plain): 12 generated firms x 42 pairs
+shard 2/4: ['synthetic-001003-study3-plain', 'synthetic-001017-study3-plain', 'synthetic-001024-study3-plain']
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_removed_only']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-001003-study3-plain FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2564 output tokens, 209s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2076 output tokens, 103s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2460 output tokens, 109s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1731 output tokens, 217s, finish=stop, ok
+  synthetic-001017-study3-plain FGR 0.333  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2020 output tokens, 71s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+      retry vertexopen/openai/gpt-oss-120b-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+   after 0s
+        attempt 1: 2168 output tokens, 66s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3169 output tokens, 35s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2102 output tokens, 115s, finish=stop, ok
+  synthetic-001024-study3-plain FGR 0.667  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/openai/gpt-oss-120b-maas#r0::abstain_removed_only: FGR 0.667 (sd 0.333)  recall 1.000  over 3 firm(s)
+
+wrote runs/gpt-oss-120b-maas__plain__abstain_removed_only__shard2of4.json

@@ -1,0 +1,146 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertexopen/moonshotai/kimi-k2-thinking-maas#r0::abstain_withheld": {
+      "model": "vertexopen/moonshotai/kimi-k2-thinking-maas#r0",
+      "provider": "vertexopen",
+      "variant": "abstain_withheld",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertexopen/moonshotai/kimi-k2-thinking-maas#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "northwind-robotics-subset140",
+          "n_pairs": 140,
+          "n_parsed": 140,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.26666666666666666,
+          "n_false_green": 32,
+          "n_withheld": 120,
+          "violation_recall": 0.95,
+          "violation_precision": 0.17757009345794392,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 0,
+          "per_regime": {
+            "deadlines-penalties": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.25,
+              "n_pairs": 6
+            },
+            "fdns-sitevisit": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.2857142857142857,
+              "n_pairs": 7
+            },
+            "h1b-status": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "i129-supplement": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.125,
+              "n_pairs": 8
+            },
+            "i9-everify": {
+              "violation_recall": 0.8,
+              "false_green_rate": 0.34782608695652173,
+              "n_pairs": 28
+            },
+            "lca-dol": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.43333333333333335,
+              "n_pairs": 33
+            },
+            "paf": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 17
+            },
+            "wage-prevailing": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.3888888888888889,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 121017,
+        "output_tokens": 111033,
+        "calls": 12,
+        "wall_seconds": 529.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.2667,
+          "stdev": 0.0,
+          "min": 0.2667,
+          "max": 0.2667,
+          "n_firms": 1
+        },
+        "violation_recall": {
+          "mean": 0.95,
+          "stdev": 0.0,
+          "min": 0.95,
+          "max": 0.95,
+          "n_firms": 1
+        },
+        "violation_precision": {
+          "mean": 0.1776,
+          "stdev": 0.0,
+          "min": 0.1776,
+          "max": 0.1776,
+          "n_firms": 1
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 1
+        }
+      },
+      "n_pairs": 140,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    }
+  }
+}

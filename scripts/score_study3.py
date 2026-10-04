@@ -180,6 +180,22 @@ def main() -> int:
         k: {"all_controls": v["false_alarm_rate"], "near_miss": v["false_alarm_near_miss"]}
         for k, v in cells.items()}
 
+    # EXPLORATORY, added after the results (not in the declaration): false-green rate
+    # by rule family (I-9 rules vs the wage rule), mean over models, per arm and schema.
+    fam = {}
+    for arm in study3.ARMS:
+        for cond in study3.CONDITIONS:
+            for family in ("i9", "wage"):
+                rates = []
+                for m in MODELS:
+                    v = verdicts[m][(arm, cond)]
+                    ks = [k for k in withheld if k in v
+                          and (k.split("|", 1)[1].startswith("lca.wage")) == (family == "wage")]
+                    if ks:
+                        rates.append(sum(v[k] == "pass" for k in ks) / len(ks))
+                fam[f"{family}::{arm}::{cond}"] = round(sum(rates) / len(rates), 4) if rates else None
+    out["exploratory_by_rule_family"] = fam
+
     # Extension E1: new models on the Study 1 anchor subset (descriptive).
     anchor_dir = ROOT / "data" / "firms" / "northwind-robotics"
     anchor = subset_firm(northwind.load(anchor_dir, anchor_dir / "expectations.json"),

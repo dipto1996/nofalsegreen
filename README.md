@@ -138,11 +138,14 @@ and archived in `docs/study2_v1_invalid/`.
 The oracle reaches 1.000 on every axis, so the task is solvable in principle and a low
 score is a property of the system under test rather than of an ill-posed benchmark.
 
-**Language-model results** (six free API models, 140-pair declared subset, both output
-schemas) are in `docs/PAPER.md` Section 8.2, generated from `docs/llm_results.json`,
-`docs/views_results.json` and `docs/analysis_results.json`. Offered an abstention, models
-report 0.042 to 0.142 of unassessable obligations as satisfied. Without the abstention in
-the schema, that rises three- to fivefold, to 0.175 to 0.525.
+**Language-model results** are in `docs/PAPER.md` Section 8. On the anchor firm's 140-pair
+declared subset, the six free models offered an abstention report 0.042 to 0.142 of
+unassessable obligations as satisfied; a dashboard schema raises that to 0.175 to 0.525.
+**Study 3**, preregistered in `docs/STUDY3_PREREGISTRATION.md` before any call, tests the
+schema decomposition and adjacent-field substitution on twelve fresh firms rendered with and
+without five misleading roster columns, across seven models from five developers. All four
+declared hypotheses were confirmed (`docs/study3/results.json`; rerun with
+`python3 scripts/score_study3.py`).
 
 ## Where the labels come from
 
@@ -154,13 +157,17 @@ outcome first, then writes records that decide it:
 - `withheld_evidence` the export carrying the required information is not provided at all
 
 It emits a pair only for the four rule families whose every listed input it renders, and
-only where the rule applies. A blind AI consistency check agreed with 60 of 60 sampled
-labels; the test suite checks every record against its label across 40 seeds.
+only where the rule applies. An independent checker written from the regulations, without
+access to the generator or the labels (`labelcheck/`), reproduces all 1,680 labels of every
+generated firm used in the paper (`python3 scripts/labelcheck_compare.py`). With
+`GeneratorConfig(decoys=True)` (v3) the roster gains five adjacent-but-insufficient columns
+and nothing else changes.
 
 **Anchor firm: from a rule engine, audited.** The anchor firm's 221 expectations were
 written as the acceptance gate for the author's company's compliance engine. Its withheld
-labels were audited blind by an AI agent (2 of 120 overturned); its known label problems
-are disclosed in the paper (Section 5.2). No label was validated by an independent human
+labels were audited blind by two AI auditors (2 and 5 of 120 overturned, none in common),
+and the second audited its violation labels, supporting five of the ten in the strict view;
+see the paper, Section 6.1. No label was validated by an independent human
 expert; `docs/expert_labelling/` is a blind kit for anyone who wants to.
 
 ## Contents
@@ -169,7 +176,9 @@ expert; `docs/expert_labelling/` is a blind kit for anyone who wants to.
 |---|---|
 | `nofalsegreen/schema.py` | verdicts, pairs, labels, firms |
 | `nofalsegreen/metrics.py` | the metric suite, including the false-green rate |
-| `nofalsegreen/generator.py` | seeded firm generator |
+| `nofalsegreen/generator.py` | seeded firm generator (v2; v3 adds decoy columns) |
+| `nofalsegreen/study3.py`, `docs/STUDY3_PREREGISTRATION.md` | Study 3 firms, models and declaration |
+| `labelcheck/` | independent reference checker and its interpretive choices |
 | `nofalsegreen/rulebook.py` | rulebook loader |
 | `nofalsegreen/northwind.py` | anchor-firm loader |
 | `rulebook/rulebook.json` | 194 manifest obligations + 17 engine aliases/roll-ups, every one cited |

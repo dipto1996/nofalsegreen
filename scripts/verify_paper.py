@@ -325,6 +325,84 @@ claim(_sig1 == {"gemma-4-26b-a4b-it-maas|abstain_offered->abstain_removed_only",
                 "gemini-3.8-flash|abstain_offered->abstain_withheld"},
       f"the significant Study 1 contrasts are exactly those the text describes ({len(_sig1)})")
 
+
+print("\nStudy 3, label checks and corrected Study 2 (recomputed)")
+_P = re.sub(r"\s+", " ", paper)
+_S3 = json.loads((ROOT / "docs" / "study3" / "results.json").read_text())
+_pr = _S3["primary"]
+_pk = list(_pr)
+claim(all(v["outcome"] == "confirmed" and v["p_holm"] == 0.002 for v in _pr.values())
+      and "all four declared hypotheses were confirmed (Holm-adjusted p = 0.002 each)" in _P,
+      "all four primary hypotheses confirmed at Holm p = 0.002, as stated")
+for _k, _lab in zip(_pk, ("abstention", "definition", "dashboard", "recommended")):
+    _v = _pr[_k]
+    claim(f"{_v['delta']:+.3f} [{_v['ci95'][0]:.2f}, {_v['ci95'][1]:.2f}]" in _P,
+          f"primary {_lab}: {_v['delta']:+.3f} with its interval in the text")
+claim(f"by {_pr[_pk[0]]['delta']:.3f};" in _P and f"by a further {_pr[_pk[1]]['delta']:.3f}" in _P and
+      f"by {_pr[_pk[2]]['delta']:.3f} under the dashboard" in _P and f"by {_pr[_pk[3]]['delta']:.3f} even under" in _P,
+      "abstract effect sizes match the primary estimates")
+_s4 = _S3["S4_by_developer_group"]
+claim(all(v["p_holm"] < 0.05 and v["delta"] > 0 for v in _s4.values()),
+      "every primary effect significant within each developer group, as stated")
+_s1 = _S3["S1_per_model"]
+_nsig = {k: sum(1 for kk, v in _s1.items() if kk.startswith(k + " |") and v.get("p_holm", 1) < 0.05 and v["delta"] > 0) for k in _pk}
+claim([_nsig[k] for k in _pk] == [5, 1, 7, 5], f"per-model significant counts P1-P4 {[_nsig[k] for k in _pk]} match the text")
+_fam = _S3["exploratory_by_rule_family"]
+_i9p = [_fam[f"i9::plain::{c}"] for c in ("abstain_offered", "abstain_removed_only", "abstain_closed", "abstain_withheld")]
+claim(f"{min(_i9p):.3f} to {max(_i9p):.3f}" in _P and f"{_fam['i9::decoy::abstain_offered']:.3f} under the recommended" in _P
+      and f"{_fam['i9::decoy::abstain_withheld']:.3f} under the dashboard" in _P
+      and f"compliant with abstention offered" in _P and f"{_fam['wage::plain::abstain_offered']:.3f}" in _P,
+      "I-9 and wage rule-family figures match")
+_c = _S3["cells"]
+_ms = ["gemini-3.1-pro-preview", "gemini-3.8-flash", "gemma-4-26b-a4b-it-maas", "gpt-oss-120b-maas",
+       "deepseek-v3.2-maas", "qwen3-235b-a22b-instruct-2507-maas", "kimi-k2-thinking-maas"]
+claim(min(v["answered"] for v in _c.values()) == 456 and "at least 456 of 504" in _P, "Study 3 minimum coverage 456/504")
+_dof = [_c[f"{m}::decoy::abstain_offered"]["false_green_rate"] for m in _ms]
+claim(f"{min(_dof):.2f} to {max(_dof):.2f} on firms with adjacent columns" in _P
+      and f"from {min(_dof):.3f} (Kimi K2) to {max(_dof):.3f} (Gemma 4)" in _P, "decoy offered FGR range")
+_hi = [m for m in _ms if _c[f"{m}::plain::abstain_offered"]["violation_recall"] >= 0.92]
+claim(len(_hi) == 4 and "{:.3f} to {:.3f} of withheld pairs".format(
+      min(_c[f"{m}::decoy::abstain_offered"]["false_green_rate"] for m in _hi),
+      max(_c[f"{m}::decoy::abstain_offered"]["false_green_rate"] for m in _hi)) in _P,
+      "high-recall models' decoy FGR range")
+_fa_o = max(abs(_c[f"{m}::decoy::abstain_offered"]["false_alarm_rate"] - _c[f"{m}::plain::abstain_offered"]["false_alarm_rate"]) for m in _ms)
+_fa_a = max(abs(_c[f"{m}::decoy::{k}"]["false_alarm_rate"] - _c[f"{m}::plain::{k}"]["false_alarm_rate"])
+            for m in _ms for k in ("abstain_offered", "abstain_removed_only", "abstain_closed", "abstain_withheld"))
+claim(f"at most {_fa_o:.3f}" in _P and f"at most {_fa_a:.3f} under any schema" in _P, "false-alarm shifts from decoys")
+_s2 = _S3["S2_removed_only"]
+claim(f"by {_s2['pooled']['delta']:.3f} pooled (p = {_s2['pooled']['p_holm']:.3f})" in _P
+      and [k for k, v in _s2.items() if k != "pooled" and v.get("p_holm", 1) < 0.05] == ["kimi-k2-thinking-maas"],
+      "S2 pooled and Kimi-only, as stated")
+_s3 = _S3["S3_interaction"]
+claim(_s3["p_two_sided"] >= 0.05 and f"{_s3['delta']:+.3f} [{_s3['ci95'][0]:.2f}, {_s3['ci95'][1]:.2f}], p = {_s3['p_two_sided']:.2f}".replace("-0.", "−0.") in _P,
+      "interaction not significant, figures as stated")
+_e1 = _S3["E1_anchor"]
+_e = lambda cond, k: [v[k] for kk, v in _e1.items() if kk.endswith("::" + cond)]  # noqa: E731
+claim(f"report {min(_e('abstain_offered','false_green_rate')):.3f} to {max(_e('abstain_offered','false_green_rate')):.3f}" in _P
+      and f"detect {min(_e('abstain_offered','violation_recall')):.3f} to {max(_e('abstain_offered','violation_recall')):.3f}" in _P
+      and f"{min(_e('abstain_withheld','false_green_rate')):.3f} to {max(_e('abstain_withheld','false_green_rate')):.3f}" in _P,
+      "E1 ranges as stated")
+_lc = json.loads((ROOT / "docs" / "labelcheck_results.json").read_text())
+claim(_lc["n_pairs"] == _lc["n_agree"] == 1680 and "agree on all 1,680 labels" in _P, "reference checker agrees on all 1,680")
+_a2 = json.loads((ROOT / "docs" / "label_audit_second.json").read_text())["summary"]
+claim(_a2["agreement"] == 113 and _a2["overturned_first"] == 2 and _a2["overturned_second"] == 5
+      and not _a2["overturned_both"] and "keep the label on 113 of 120" in _P, "second audit agreement figures")
+from nofalsegreen.labelviews import MEMO_ABSENCE, PROSPECTIVE  # noqa: E402
+_va = {k: v["decision"] for k, v in json.loads((ROOT / "docs" / "label_audit_second.json").read_text())["pairs"].items()
+       if v["audit"] == "violation" and k not in MEMO_ABSENCE | PROSPECTIVE}
+claim(len(_va) == 10 and sum(v == "violation_shown" for v in _va.values()) == 5
+      and sum(v == "cannot_tell" for v in _va.values()) == 4 and "it supports five" in _P,
+      "second audit supports 5 of 10 strict-view violations, 4 undecidable, 1 compliant")
+_st = json.loads((ROOT / "docs" / "studies_results.json").read_text())["vertex"]
+_g = _st["vertex/gemma-4-26b-a4b-it-maas::study2::abstain_offered"]["summary"]
+claim(f"detects {_g['violation_recall']['mean']:.3f} of violations" in _P
+      and f"raises {_g['false_alarm_near_miss']['mean']:.3f}" in _P, "corrected Study 2 Gemma figures")
+claim(all(_st[f"vertex/{m}::study2::{c}"]["summary"]["false_alarm_rate"]["max"] == 0
+          and _st[f"vertex/{m}::study2::{c}"]["summary"]["violation_recall"]["min"] == 1.0
+          for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash")
+          for c in ("abstain_offered", "abstain_closed", "abstain_withheld")),
+      "corrected Study 2: Pro and Flash perfect recall, no false alarm in three schemas")
+
 print("\nhonesty checks")
 claim("[TO RUN]" not in paper and "`[…]`" not in paper, "no unfilled placeholder remains")
 claim("have not yet been run" not in paper and "has not been run" not in paper,

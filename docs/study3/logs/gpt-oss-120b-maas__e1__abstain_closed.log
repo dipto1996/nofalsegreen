@@ -1,0 +1,35 @@
+
+=== vertexopen --model vertexopen/openai/gpt-oss-120b-maas#r0 --firms 0 --variant abstain_closed --batch
+using declared subset: 140 of 221 pairs (seed 20260921)
+vertexopen/openai/gpt-oss-120b-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/openai/gpt-oss-120b-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['abstain_closed']
+
+      batch 1/12 (0 parsed so far)
+        attempt 1: 1278 output tokens, 110s, finish=stop, ok
+      batch 2/12 (12 parsed so far)
+        attempt 1: 1322 output tokens, 104s, finish=stop, ok
+      batch 3/12 (24 parsed so far)
+        attempt 1: 2129 output tokens, 110s, finish=stop, ok
+      batch 4/12 (36 parsed so far)
+        attempt 1: 2208 output tokens, 107s, finish=stop, ok
+      batch 5/12 (48 parsed so far)
+        attempt 1: 2065 output tokens, 113s, finish=stop, ok
+      batch 6/12 (60 parsed so far)
+        attempt 1: 1512 output tokens, 110s, finish=stop, ok
+      batch 7/12 (72 parsed so far)
+        attempt 1: 2813 output tokens, 162s, finish=stop, ok
+      batch 8/12 (84 parsed so far)
+        attempt 1: 2284 output tokens, 106s, finish=stop, ok
+      batch 9/12 (96 parsed so far)
+        attempt 1: 2265 output tokens, 129s, finish=stop, ok
+      batch 10/12 (108 parsed so far)
+        attempt 1: 1325 output tokens, 109s, finish=stop, ok
+      batch 11/12 (120 parsed so far)
+        attempt 1: 811 output tokens, 45s, finish=stop, ok
+      batch 12/12 (132 parsed so far)
+        attempt 1: 1553 output tokens, 31s, finish=stop, ok
+  northwind-robotics-subset140 FGR 0.125  recall 0.850  absF1 0.000  unparsed 0  (12 calls)
+
+  vertexopen/openai/gpt-oss-120b-maas#r0::abstain_closed: FGR 0.125 (sd 0.000)  recall 0.850  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study3/runs/gpt-oss-120b-maas__e1__abstain_closed.json
