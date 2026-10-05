@@ -63,7 +63,7 @@ A green cell on a compliance dashboard asserts that an obligation, attached to a
 
 \textbf{A false green is not the mirror image of a false alarm.} A false alarm costs review time and is corrected by the review it triggers; a false green triggers nothing, and the review it suppresses is the only thing that would surface it. In immigration compliance the cost is concrete: Form I-9 paperwork violations are penalised per form (8 C.F.R. 274a.10(b)(2)), and violations of a Labor Condition Application (LCA), the wage attestation behind an H-1B petition, per violation (20 C.F.R. 655.810(b)). A gap found before an inspection can often be cured; found during one, it becomes a finding.
 
-\textbf{Pass/fail evaluation cannot see it.} An evaluation with no category for ``the evidence was not there'' never penalises a system that answers \texttt{\path|pass|} whenever evidence is absent. Recent benchmarks score overclaiming under insufficient evidence for agents (Solozobov, 2026; Tallam, 2026); none does so for regulatory verdicts over a third party's structured records, where declining to decide is the correct answer for about half the items.
+\textbf{Pass/fail evaluation cannot see it.} An evaluation with no category for ``the evidence was not there'' never penalises a system that answers \texttt{\path|pass|} whenever evidence is absent. Recent benchmarks score overclaiming under insufficient evidence for agents (Solozobov, 2026; Tallam, 2026), and legal and tabular benchmarks include a ``not enough information'' answer (§2); none scores regulatory verdicts over a third party's operational records when the required record is missing, where declining to decide is the correct answer for about half the items.
 
 \begin{figure*}[t]\centering
 \begin{adjustbox}{max width=\textwidth}\input{tex/fig_overview}\end{adjustbox}
@@ -75,11 +75,11 @@ We built an instrument for this error (Figure 1) and report three findings. \tex
 Our contributions are: a four-verdict task with a stated evidentiary standard (§3); an instrument whose generator fixes labels before data, renders paired firms with and without proxy columns, and whose labels are re-derived by a separately written checker (§4); a preregistered study with two declared follow-ups (§6) and the exploratory study that motivated it (§7); and a release in which every number in the paper is recomputed from retained replies by a script.
 
 \section{Related work}\label{sec:2}
-\textbf{Legal NLP and compliance.} Legal benchmarks (Guha et al., 2023; Chalkidis et al., 2022; Zheng et al., 2021; Hendrycks et al., 2021; Fei et al., 2024) evaluate reasoning over legal text, and hallucination studies (Dahl et al., 2024; Magesh et al., 2025) measure unsupported statements about the law. Immigration datasets are petitioner- and text-side (Shportun, 2026; Afsharrad and Mousavi, 2026). Compliance checking predates language models (Zhang and El-Gohary, 2016; Amaral et al., 2022; Ravichander et al., 2019); recent LLM work makes the model the regulated subject (Guldimann et al., 2024) or the assessor (Wang et al., 2025; Sarkar, 2026; Luo et al., 2026). None labels an insufficient record as its own correct answer.
+\textbf{Legal NLP and compliance.} Legal benchmarks (Guha et al., 2023; Chalkidis et al., 2022; Zheng et al., 2021; Hendrycks et al., 2021; Fei et al., 2024) evaluate reasoning over legal text, rule application (Zhou et al., 2025; Dou et al., 2026) and unsupported statements about the law (Dahl et al., 2024; Magesh et al., 2025). Immigration datasets are petitioner- and text-side (Shportun, 2026; Afsharrad and Mousavi, 2026). Compliance checking predates language models (Zhang and El-Gohary, 2016; Amaral et al., 2022); recent LLM work makes the model the regulated subject (Guldimann et al., 2024) or the assessor of another party's documentation (Marino et al., 2025; Yang et al., 2026; Wang et al., 2025; Sarkar, 2026; Luo et al., 2026). Absent support is already a correct answer over legal text (ContractNLI's NotMentioned, Koreeda and Manning, 2021; unanswerable privacy questions, Ravichander et al., 2019); what is new here is a correct answer for a missing \emph{primary record} when obligations are assessed from a third party's operational exports.
 
-\textbf{Overclaiming under insufficient evidence.} DEMM-Bench labels by construction whether agent records suffice to reconstruct a decision and reports overclaims (Solozobov, 2026); its ``container fallacy'' is the document-level counterpart of the proxy acceptance we measure per column. Partial Evidence Bench scores unsafe completeness when evidence lies outside an agent's permissions (Tallam, 2026). We do not claim the directional, construction-labelled framing as new; we differ in subject, output, the source of insufficiency, and in manipulating proxy columns directly.
+\textbf{Overclaiming under insufficient evidence.} DEMM-Bench labels by construction whether agent records suffice and reports overclaims, including a ``container fallacy'' in which a reassuring artefact stands in for evidence (Solozobov, 2026); Partial Evidence Bench scores unsafe completeness claims, including in compliance audits, when evidence lies outside an agent's permissions (Tallam, 2026). We do not claim the directional, construction-labelled framing as new; we differ in subject, in the source of insufficiency (a missing export rather than permissions), and in manipulating proxy columns and verdict menus directly across models.
 
-\textbf{Abstention and insufficiency.} Selective prediction treats abstention as a cost (Chow, 1970; El-Yaniv and Wiener, 2010; Geifman and El-Yaniv, 2017); language-model abstention is studied mostly on questions (Rajpurkar et al., 2018; Yin et al., 2023; Kirichenko et al., 2025; Wen et al., 2025; Kadavath et al., 2022). Joren et al. (2024) show strong models answer rather than abstain when retrieved context is insufficient; FEVER-style NotEnoughInfo labels (Thorne et al., 2018; Aly et al., 2021) and unanswerable database questions (Lee et al., 2022; Wang et al., 2023; Lee et al., 2024; Theologitis et al., 2026) extend this to tables. Output formats change answers (Tam et al., 2024; Röttger et al., 2024; Sclar et al., 2024), and grading that gives no credit for uncertainty rewards guessing (Kalai et al., 2025); our schema conditions locate that incentive in a product interface.
+\textbf{Insufficiency, distractors and answer menus.} Selective prediction treats abstention as a cost (Chow, 1970; El-Yaniv and Wiener, 2010; Geifman and El-Yaniv, 2017); language-model abstention is studied mostly on questions (Rajpurkar et al., 2018; Yin et al., 2023; Kirichenko et al., 2025; Wen et al., 2025; Kadavath et al., 2022), and models answer rather than abstain when context is insufficient (Joren et al., 2024). NotEnoughInfo or unknown labels exist for text and tables (Thorne et al., 2018; Aly et al., 2021; Wang et al., 2021; Theologitis et al., 2026) and unanswerable database questions (Lee et al., 2022; Wang et al., 2023; Lee et al., 2024). Irrelevant content changes answers whose label it leaves fixed (Shi et al., 2023), including irrelevant tax forms in rule application (Zhou et al., 2025), an instance of shortcut reliance (Geirhos et al., 2020); our proxy columns are the case where the distractor resembles the missing evidence and the error has a direction. Answer menus change behaviour: expanding a binary label set with ``insufficient evidence'' makes models more conservative (Fu et al., 2026), the presence and framing of an abstention option change how often models commit wrongly (Guo et al., 2026; Madhusudhan et al., 2025), and output formats and forced choice alter answers (Tam et al., 2024; Röttger et al., 2024; Sclar et al., 2024), while grading that gives no credit for uncertainty rewards guessing (Kalai et al., 2025). Our schema conditions place these effects in a compliance interface and separate removing the abstaining verdicts from redefining the committal ones.
 
 \section{Task and evidence standard}\label{sec:3}
 An instance is a firm with source exports, entities (workers, LCAs, the employer), a rulebook of obligations each citing a regulation and listing the information needed to decide it, and a pinned evaluation date. A \textbf{pair} is an obligation and an entity it applies to; the target is one of four verdicts (Table 1). Columns are matched to the required information by meaning, and reference knowledge such as holidays is the system's to supply. If a required item is absent for the entity, the pair is \textbf{unassessable} and any verdict but \texttt{\path|needs_evidence|} is wrong, whether or not the underlying situation complies.
@@ -209,7 +209,7 @@ LCA required wage & dashboard & 437 & 124 (28\%) & 0\%–71\% & 45 (10\%) \\
 \end{figure*}
 
 \subsection{What models rely on}\label{sec:6.4}
-Every reply line names the evidence field relied on, so the mechanism can be read directly, with the caveat that this is the model's own report (Table 4). On proxy-column firms, 1,376 of the 2,807 false greens (49\%) cite one of the five planted columns, and for the I-9 rules under the offered schema 118 of 134 (88\%), almost all the onboarding date or the current authorisation's end date. On plain firms, wage-rule false greens most often cite the LCA's offered wage. Under the dashboard schema more false greens cite other fields, consistent with a schema that asks only whether the obligation is satisfied.
+Every reply line names the evidence field relied on, so the mechanism can be read directly, with the caveat that this is the model's own report and stated reasons need not be the cause (Turpin et al., 2023); the causal evidence is the paired contrast and Study 3c (Table 4). On proxy-column firms, 1,376 of the 2,807 false greens (49\%) cite one of the five planted columns, and for the I-9 rules under the offered schema 118 of 134 (88\%), almost all the onboarding date or the current authorisation's end date. On plain firms, wage-rule false greens most often cite the LCA's offered wage. Under the dashboard schema more false greens cite other fields, consistent with a schema that asks only whether the obligation is satisfied.
 
 Detection does not bring safety. On the proxy-column firms, Gemini 3.1 Pro, Gemini 3.8 Flash, gpt-oss-120b and Kimi K2 detect at least 0.920 of violations with abstention offered, yet call 0.161 to 0.361 of unassessable pairs compliant. Across the seven models recall and false-green rate are negatively related, so higher recall helps, but none of the high-recall models comes near zero (Appendix Figure 9). Proxy columns change the false-alarm rate on conforming controls by at most 0.038 with abstention offered and 0.080 under any schema, so their cost falls mostly on the false-green side.
 
@@ -250,17 +250,25 @@ Chow, C. (1970). On optimum recognition error and reject tradeoff. IEEE Transact
 
 Dahl, M., Magesh, V., Suzgun, M. and Ho, D. E. (2024). Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models. Journal of Legal Analysis 16(1):64-93. \url{https://arxiv.org/abs/2401.01301}
 
+Dou, G., Brena, L., Deo, A., Jurayj, W., Zhang, J., Holzenberger, N. and Van Durme, B. (2026). DeonticBench: A Benchmark for Reasoning over Rules. arXiv preprint arXiv:2604.04443. \url{https://arxiv.org/abs/2604.04443}
+
 El-Yaniv, R. and Wiener, Y. (2010). On the Foundations of Noise-free Selective Classification. Journal of Machine Learning Research 11:1605-1641. \url{https://jmlr.org/papers/v11/el-yaniv10a.html}
 
 Fei, Z., Shen, X., Zhu, D., Zhou, F., Han, Z., Zhang, S., Chen, K., Shen, Z. and Ge, J. (2024). LawBench: Benchmarking Legal Knowledge of Large Language Models. Proceedings of EMNLP 2024. \url{https://aclanthology.org/2024.emnlp-main.452}
+
+Fu, Y., Kang, Y. and Zhao, Y. (2026). CalBrief: A Pilot Diagnostic Benchmark for Evidence-Calibrated Scientific Briefing with Large Language Models. arXiv preprint arXiv:2606.27383. \url{https://arxiv.org/abs/2606.27383}
 
 Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé, H. and Crawford, K. (2021). Datasheets for Datasets. Communications of the ACM 64(12). \url{https://doi.org/10.1145/3458723}
 
 Geifman, Y. and El-Yaniv, R. (2017). Selective Classification for Deep Neural Networks. Advances in Neural Information Processing Systems 30. \url{https://arxiv.org/abs/1705.08500}
 
+Geirhos, R., Jacobsen, J.-H., Michaelis, C., Zemel, R., Brendel, W., Bethge, M. and Wichmann, F. A. (2020). Shortcut Learning in Deep Neural Networks. Nature Machine Intelligence 2:665-673. \url{https://doi.org/10.1038/s42256-020-00257-z}
+
 Guha, N., Nyarko, J., Ho, D. E., Ré, C., et al. (2023). LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models. NeurIPS 2023 Datasets and Benchmarks Track. \url{https://arxiv.org/abs/2308.11462}
 
 Guldimann, P., Spiridonov, A., Staab, R., Jovanović, N., Vero, M., Vechev, V., Gueorguieva, A.-M., Balunović, M., Konstantinov, N., Bielik, P., Tsankov, P. and Vechev, M. (2024). COMPL-AI Framework: A Technical Interpretation and LLM Benchmarking Suite for the EU Artificial Intelligence Act. arXiv preprint arXiv:2410.07959. \url{https://arxiv.org/abs/2410.07959}
+
+Guo, K. H., Yan, C., Baidya, A., Brown, K., Gao, X., Xiong, J., Yin, Z. and Malin, B. A. (2026). CLEAR: Revealing How Noise and Ambiguity Degrade Reliability in LLMs for Medicine. arXiv preprint arXiv:2605.01011. \url{https://arxiv.org/abs/2605.01011}
 
 Hendrycks, D., Burns, C., Chen, A. and Ball, S. (2021). CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review. NeurIPS 2021 Datasets and Benchmarks Track. \url{https://arxiv.org/abs/2103.06268}
 
@@ -272,6 +280,8 @@ Kalai, A. T., Nachum, O., Vempala, S. S. and Zhang, E. (2025). Why Language Mode
 
 Kirichenko, P., Ibrahim, M., Chaudhuri, K. and Bell, S. J. (2025). AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions. arXiv preprint arXiv:2506.09038. \url{https://arxiv.org/abs/2506.09038}
 
+Koreeda, Y. and Manning, C. D. (2021). ContractNLI: A Dataset for Document-level Natural Language Inference for Contracts. Findings of EMNLP 2021. \url{https://aclanthology.org/2021.findings-emnlp.164}
+
 Lee, G., Chay, W., Cho, S. and Choi, E. (2024). TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring. arXiv preprint arXiv:2403.15879. \url{https://arxiv.org/abs/2403.15879}
 
 Lee, G., Hwang, H., Bae, S., Kwon, Y., Shin, W., Yang, S., Seo, M., Kim, J.-Y. and Choi, E. (2022). EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records. NeurIPS 2022 Datasets and Benchmarks Track. \url{https://arxiv.org/abs/2301.07695}
@@ -280,7 +290,11 @@ Lin, S., Hilton, J. and Evans, O. (2022). TruthfulQA: Measuring How Models Mimic
 
 Luo, Y., Jiang, Y., Xie, Q., Lan, L., Cong, L. W., Rao, A. and Song, Y. (2026). ReguSim: Evaluating LLM Agent Rule Grounding in Financial Compliance. arXiv preprint arXiv:2608.19974. \url{https://arxiv.org/abs/2608.19974}
 
+Madhusudhan, N., Madhusudhan, S. T., Yadav, V. and Hashemi, M. (2025). Do LLMs Know When to NOT Answer? Investigating Abstention Abilities of Large Language Models. Proceedings of COLING 2025. \url{https://aclanthology.org/2025.coling-main.627}
+
 Magesh, V., Surani, F., Dahl, M., Suzgun, M., Manning, C. D. and Ho, D. E. (2025). Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools. Journal of Empirical Legal Studies 22(2). \url{https://doi.org/10.1111/jels.12413}
+
+Marino, B., Hunter, R., Schnabl, C., Jamali, Z., Kalpakos, M. E., Kashyap, M., Hinton, I., Hanson, A., Nazir, M., Steffek, F., Wen, H. and Lane, N. D. (2025). AIReg-Bench: Benchmarking Language Models That Assess AI Regulation Compliance. arXiv preprint arXiv:2510.01474. \url{https://arxiv.org/abs/2510.01474}
 
 Min, S., Krishna, K., Lyu, X., Lewis, M., Yih, W., Koh, P. W., Iyyer, M., Zettlemoyer, L. and Hajishirzi, H. (2023). FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation. Proceedings of EMNLP 2023. \url{https://aclanthology.org/2023.emnlp-main.741}
 
@@ -300,6 +314,8 @@ Sarkar, D. (2026). A Four-Axis Trustworthiness Benchmark for LLM-as-Judge in Pri
 
 Sclar, M., Choi, Y., Tsvetkov, Y. and Suhr, A. (2024). Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How I learned to start worrying about prompt formatting. ICLR 2024. \url{https://arxiv.org/abs/2310.11324}
 
+Shi, F., Chen, X., Misra, K., Scales, N., Dohan, D., Chi, E., Schärli, N. and Zhou, D. (2023). Large Language Models Can Be Easily Distracted by Irrelevant Context. ICML 2023. \url{https://arxiv.org/abs/2302.00093}
+
 Shportun, N. (2026). ImmigrationQA: A Source-Grounded Dataset and Small-Model Adaptation for U.S. Immigration Law. arXiv preprint arXiv:2605.30589. \url{https://arxiv.org/abs/2605.30589}
 
 Solozobov, O. (2026). DEMM-Bench: A Cross-Regime Benchmark for Agent-Runtime Governance-Evidence Sufficiency. arXiv preprint arXiv:2606.20634. \url{https://arxiv.org/abs/2606.20634}
@@ -312,13 +328,19 @@ Theologitis, M., Dammu, P. P. S., Shah, C. and Suciu, D. (2026). ClaimDB: A Fact
 
 Thorne, J., Vlachos, A., Christodoulopoulos, C. and Mittal, A. (2018). FEVER: a Large-scale Dataset for Fact Extraction and VERification. Proceedings of NAACL-HLT 2018. \url{https://aclanthology.org/N18-1074}
 
+Turpin, M., Michael, J., Perez, E. and Bowman, S. R. (2023). Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting. NeurIPS 2023. \url{https://arxiv.org/abs/2305.04388}
+
 Wang, B., Gao, Y., Li, Z. and Lou, J.-G. (2023). Know What I don't Know: Handling Ambiguous and Unknown Questions for Text-to-SQL. Findings of ACL 2023. \url{https://aclanthology.org/2023.findings-acl.352}
 
 Wang, J., Wang, M., Zhou, Y., Xing, Z., Liu, Q., Xu, X., Zhang, W. and Zhu, L. (2025). LLM-based HSE Compliance Assessment: Benchmark, Performance, and Advancements. arXiv preprint arXiv:2505.22959. \url{https://arxiv.org/abs/2505.22959}
 
+Wang, N. X. R., Mahajan, D., Danilevsky, M. and Rosenthal, S. (2021). SemEval-2021 Task 9: Fact Verification and Evidence Finding for Tabular Data in Scientific Documents (SEM-TAB-FACTS). Proceedings of SemEval-2021. \url{https://aclanthology.org/2021.semeval-1.39}
+
 Wen, B., Yao, J., Feng, S., Xu, C., Tsvetkov, Y., Howe, B. and Wang, L. L. (2025). Know Your Limits: A Survey of Abstention in Large Language Models. Transactions of the Association for Computational Linguistics. \url{https://aclanthology.org/2025.tacl-1.26}
 
 Weston, J., Bordes, A., Chopra, S., Rush, A. M., van Merriënboer, B., Joulin, A. and Mikolov, T. (2015). Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks. arXiv preprint arXiv:1502.05698. \url{https://arxiv.org/abs/1502.05698}
+
+Yang, Y., Kim, I.-J. and Yoon, D. (2026). PASTA: A Scalable Framework for Multi-Policy AI Compliance Evaluation. Proceedings of CHI 2026. \url{https://doi.org/10.1145/3772318.3790966}
 
 Yin, Z., Sun, Q., Guo, Q., Wu, J., Qiu, X. and Huang, X. (2023). Do Large Language Models Know What They Don't Know? Findings of ACL 2023. \url{https://aclanthology.org/2023.findings-acl.551}
 
@@ -327,6 +349,8 @@ Yu, T., Zhang, R., Yang, K., Yasunaga, M., Wang, D., Li, Z., Ma, J., Li, I., Yao
 Zhang, J. and El-Gohary, N. M. (2016). Semantic NLP-Based Information Extraction from Construction Regulatory Documents for Automated Compliance Checking. Journal of Computing in Civil Engineering 30(2). \url{https://doi.org/10.1061/(ASCE})CP.1943-5487.0000346
 
 Zheng, L., Guha, N., Anderson, B. R., Henderson, P. and Ho, D. E. (2021). When Does Pretraining Help? Assessing Self-Supervised Learning for Law and the CaseHOLD Dataset. ICAIL 2021. \url{https://arxiv.org/abs/2104.08671}
+
+Zhou, R., Hua, W., Pan, L., Cheng, S., Wu, X., Yu, E. and Wang, W. Y. (2025). RuleArena: A Benchmark for Rule-Guided Reasoning with LLMs in Real-World Scenarios. Proceedings of ACL 2025. \url{https://aclanthology.org/2025.acl-long.27}
 
 ---
 
