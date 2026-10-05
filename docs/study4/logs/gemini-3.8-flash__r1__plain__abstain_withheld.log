@@ -1,0 +1,98 @@
+Study 4 (plain): 10 firms x 42 pairs
+vertex/gemini-3.8-flash#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1767 output tokens, 18s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3136 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 16318 output tokens, 90s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4032 output tokens, 26s, finish=stop, ok
+  synthetic-002003-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2903 output tokens, 16s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5806 output tokens, 38s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 13299 output tokens, 84s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4677 output tokens, 27s, finish=stop, ok
+  synthetic-002007-study3c-plain FGR 0.000  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2987 output tokens, 22s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1671 output tokens, 12s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10543 output tokens, 63s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2714 output tokens, 16s, finish=stop, ok
+  synthetic-002009-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1621 output tokens, 12s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3155 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 13234 output tokens, 78s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 7563 output tokens, 39s, finish=stop, ok
+  synthetic-002023-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3221 output tokens, 25s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2046 output tokens, 15s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 7977 output tokens, 54s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2160 output tokens, 14s, finish=stop, ok
+  synthetic-002026-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2813 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1483 output tokens, 11s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 14493 output tokens, 99s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2952 output tokens, 19s, finish=stop, ok
+  synthetic-002037-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1636 output tokens, 11s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6396 output tokens, 41s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6379 output tokens, 40s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2201 output tokens, 13s, finish=stop, ok
+  synthetic-002040-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2756 output tokens, 18s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1309 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11853 output tokens, 76s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2737 output tokens, 16s, finish=stop, ok
+  synthetic-002041-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2720 output tokens, 19s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2955 output tokens, 18s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 18278 output tokens, 110s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2125 output tokens, 13s, finish=stop, ok
+  synthetic-002048-study3c-plain FGR 0.030  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2709 output tokens, 17s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6200 output tokens, 41s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 9381 output tokens, 63s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3378 output tokens, 22s, finish=stop, ok
+  synthetic-002069-study3c-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r1::abstain_withheld: FGR 0.003 (sd 0.010)  recall 0.900  over 10 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.8-flash__r1__plain__abstain_withheld.json

@@ -1,0 +1,33 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study3c-proxy', 'synthetic-002023-study3c-proxy', 'synthetic-002040-study3c-proxy', 'synthetic-002069-study3c-proxy']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['fx_o0d1w1']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study3c-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002023-study3c-proxy FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002040-study3c-proxy FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 7089 output tokens, 55s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 7311 output tokens, 52s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 14908 output tokens, 99s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2733 output tokens, 16s, finish=stop, ok
+  synthetic-002069-study3c-proxy FGR 0.273  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::fx_o0d1w1: FGR 0.606 (sd 0.250)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.1-pro-preview__r0__proxy__fx_o0d1w1__shard0of3.json

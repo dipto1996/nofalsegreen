@@ -223,6 +223,63 @@ def fig_i9() -> None:
     save(fig, "fig_i9")
 
 
+# ---------- Figure: Study 4 controls, factorial and cite-first ----------
+
+def fig_study4() -> None:
+    r = load("docs/study4/results.json")["cells"]
+
+    def rate(arm, var, verdict="pass"):
+        bm = r[f"{arm}::{var}::r0"]["by_model"].values()
+        per = [x["allocation"].get(verdict, 0) / max(1, sum(v for k, v in x["allocation"].items() if k != "unanswered"))
+               for x in bm]
+        return sum(per) / len(per), per
+
+    fig = plt.figure(figsize=(7.0, 3.35))
+    gs = fig.add_gridspec(2, 2, width_ratios=[1, 1], height_ratios=[5, 2.6], wspace=0.78, hspace=0.95,
+                          left=0.205, right=0.985, bottom=0.12, top=0.93)
+
+    def dumbbell(ax, rows, title, xlabel, legend):
+        for i, (lab, a, b) in enumerate(rows):
+            ax.plot([a[0], b[0]], [i, i], color=LIGHT, lw=2.4, zorder=1, solid_capstyle="round")
+            for (m, per), col, kw in ((a, NAVY, dict(marker="o", mfc="white", mec=NAVY, mew=1.3)),
+                                      (b, BRICK, dict(marker="o", mfc=BRICK, mec="white", mew=0.7))):
+                ax.plot(per, [i] * len(per), ls="", marker="|", ms=5.5, color=col, alpha=0.5, zorder=2)
+                ax.plot([m], [i], ls="", ms=6.2, zorder=3, **kw)
+        ax.set_yticks(range(len(rows)))
+        ax.set_yticklabels([x[0] for x in rows], fontsize=7.5)
+        ax.set_ylim(len(rows) - 0.4, -0.6)
+        ax.set_xlim(-0.03, 1.03)
+        ax.set_xticks([0, 0.25, 0.5, 0.75, 1])
+        ax.set_xticklabels(["0", "", "0.50", "", "1"])
+        ax.grid(axis="y", visible=False)
+        ax.set_title(title, fontsize=8.2, pad=13, loc="left")
+        ax.set_xlabel(xlabel, fontsize=7.8, labelpad=2)
+        h = [plt.Line2D([], [], ls="", marker="o", mfc="white", mec=NAVY, mew=1.3, label=legend[0]),
+             plt.Line2D([], [], ls="", marker="o", mfc=BRICK, mec="white", label=legend[1])]
+        ax.legend(handles=h, loc="lower left", bbox_to_anchor=(-0.02, 0.99), ncol=2, fontsize=7,
+                  frameon=False, handletextpad=0.2, columnspacing=1.0, borderaxespad=0)
+
+    off, dash = "abstain_offered", "abstain_withheld"
+    dumbbell(fig.add_subplot(gs[0, 0]), [(lab, rate(a, off), rate(a, dash)) for lab, a in
+                                         (("nothing added", "plain"), ("irrelevant columns", "irrelevant"),
+                                          ("proxy values, neutral names", "renamed"), ("proxy columns", "proxy"),
+                                          ("adverse proxy columns", "adverse"))],
+             "(a) What is added to the roster", "False-green rate", ("offered schema", "dashboard schema"))
+    dumbbell(fig.add_subplot(gs[1, 0]), [(lab, rate(a, off, "fail"), rate(a, dash, "fail")) for lab, a in
+                                         (("nothing added", "plain"), ("adverse proxy columns", "adverse"))],
+             "(b) Do adverse proxies push toward fail?", "Share of unassessable pairs answered fail",
+             ("offered schema", "dashboard schema"))
+    ax = fig.add_subplot(gs[:, 1])
+    menus = [("fx_o1d1w1", "all three parts"), ("fx_o1d1w0", "− warning"), ("fx_o1d0w1", "− evidence definitions"),
+             ("fx_o1d0w0", "− definitions, − warning"), ("fx_o0d1w1", "− abstaining verdicts"),
+             ("fx_o0d1w0", "− abstaining, − warning"), ("fx_o0d0w1", "− abstaining, − definitions"),
+             ("fx_o0d0w0", "none (dashboard-like)"), ("cite_first", "offered + name the record")]
+    dumbbell(ax, [(lab, rate("plain", v), rate("proxy", v)) for v, lab in menus],
+             "(c) Verdict-menu parts, one at a time", "False-green rate", ("plain firms", "proxy-column firms"))
+    ax.axhline(7.5, color=INK2, lw=0.6, ls=(0, (2, 2)))
+    save(fig, "fig_study4")
+
+
 # ---------- the separation plot (anchor firm, thirteen models) ----------
 
 def anchor_points() -> list[tuple[str, tuple, tuple]]:
@@ -278,13 +335,17 @@ def fig_separation() -> None:
         placed_px.append(best[2])
         ax.annotate(str(i), w, xytext=best[1], textcoords="offset points", fontsize=7, color=INK,
                     fontweight="bold", zorder=6, path_effects=HALO, ha="center", va="center")
+    # Trivial baselines. Recall and false-green rate cannot tell the oracle from
+    # always_fail, so each label carries its false-alarm rate on conforming pairs.
     placed: dict[tuple, list[str]] = {}
     for name, r in triv.items():
         placed.setdefault((round(r["violation_recall"]["mean"], 3), round(r["false_green_rate"]["mean"], 3)), []).append(name)
     for xy, names in placed.items():
         ax.scatter(*xy, s=34, marker="s", color=MUTED, zorder=5, clip_on=False)
         right, top = xy[0] > 0.5, xy[1] > 0.5
-        ax.annotate(" = ".join(sorted(names)).replace("_", " "), xy, xytext=(-7 if right else 7, -10 if top else -1),
+        lab = "; ".join(f"{n.replace('_', ' ')} (false alarms {triv[n]['false_alarm_rate']['mean']:.0f})"
+                        for n in sorted(names, key=lambda n: triv[n]["false_alarm_rate"]["mean"]))
+        ax.annotate(lab, xy, xytext=(-7 if right else 7, -10 if top else -1),
                     textcoords="offset points", fontsize=7, color=INK2, style="italic",
                     ha="right" if right else "left", va="baseline" if top else "top")
     ax.set_xlim(-0.03, 1.05)
@@ -402,5 +463,5 @@ def fig_regime_heatmap() -> None:
 
 if __name__ == "__main__":
     for f in (fig_study3_multiples, fig_forest, fig_i9, fig_separation, fig_verdict_flow,
-              fig_detection_vs_safety, fig_regime_heatmap):
+              fig_detection_vs_safety, fig_regime_heatmap, fig_study4):
         f()

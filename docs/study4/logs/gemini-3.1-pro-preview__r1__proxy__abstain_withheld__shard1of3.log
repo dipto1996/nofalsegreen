@@ -1,0 +1,24 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 1/3: ['synthetic-002007-study3c-proxy', 'synthetic-002026-study3c-proxy', 'synthetic-002041-study3c-proxy']
+vertex/gemini-3.1-pro-preview#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002007-study3c-proxy FGR 0.879  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002026-study3c-proxy FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002041-study3c-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+
+  vertex/gemini-3.1-pro-preview#r1::abstain_withheld: FGR 0.758 (sd 0.121)  recall 0.667  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.1-pro-preview__r1__proxy__abstain_withheld__shard1of3.json

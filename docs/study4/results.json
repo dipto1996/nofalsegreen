@@ -1,0 +1,1539 @@
+{
+ "declared": "docs/STUDY4_DECLARATION.md",
+ "primary": {
+  "H1 proxy - renamed (false green, offered)": {
+   "n_firms": 10,
+   "delta": 0.2495,
+   "ci95_firm_bootstrap": [
+    0.2091,
+    0.2879
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.013671875,
+   "outcome": "confirmed"
+  },
+  "H2 proxy - irrelevant (false green, offered)": {
+   "n_firms": 10,
+   "delta": 0.298,
+   "ci95_firm_bootstrap": [
+    0.2697,
+    0.3263
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.013671875,
+   "outcome": "confirmed"
+  },
+  "H3 adverse - plain (false red, offered)": {
+   "n_firms": 10,
+   "delta": 0.0253,
+   "ci95_firm_bootstrap": [
+    0.0141,
+    0.0354
+   ],
+   "p_exact_two_sided": 0.015625,
+   "firms_positive": 7,
+   "firms_negative": 0,
+   "p_holm": 0.046875,
+   "outcome": "confirmed"
+  },
+  "H4 O main effect: no abstaining verdicts (proxy firms)": {
+   "n_firms": 10,
+   "delta": 0.3838,
+   "ci95_firm_bootstrap": [
+    0.3716,
+    0.3962
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.013671875,
+   "outcome": "confirmed"
+  },
+  "H5 D main effect: bare definitions (proxy firms)": {
+   "n_firms": 10,
+   "delta": -0.0386,
+   "ci95_firm_bootstrap": [
+    -0.079,
+    -0.0036
+   ],
+   "p_exact_two_sided": 0.080078125,
+   "firms_positive": 3,
+   "firms_negative": 7,
+   "p_holm": 0.080078125,
+   "outcome": "not confirmed"
+  },
+  "H6 W main effect: no warning (proxy firms)": {
+   "n_firms": 10,
+   "delta": 0.0929,
+   "ci95_firm_bootstrap": [
+    0.0696,
+    0.1207
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.013671875,
+   "outcome": "confirmed"
+  },
+  "H7 offered - cite_first (proxy firms)": {
+   "n_firms": 10,
+   "delta": 0.0737,
+   "ci95_firm_bootstrap": [
+    0.0253,
+    0.1253
+   ],
+   "p_exact_two_sided": 0.0234375,
+   "firms_positive": 7,
+   "firms_negative": 1,
+   "p_holm": 0.046875,
+   "outcome": "confirmed"
+  }
+ },
+ "secondary": {
+  "proxy - renamed | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.2495,
+   "ci95_firm_bootstrap": [
+    0.2091,
+    0.2879
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "proxy - irrelevant | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.298,
+   "ci95_firm_bootstrap": [
+    0.2697,
+    0.3263
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "renamed - plain | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.0525,
+   "ci95_firm_bootstrap": [
+    0.0283,
+    0.0778
+   ],
+   "p_exact_two_sided": 0.0078125,
+   "firms_positive": 8,
+   "firms_negative": 0
+  },
+  "irrelevant - plain | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.004,
+   "ci95_firm_bootstrap": [
+    0.0,
+    0.0121
+   ],
+   "p_exact_two_sided": 1.0,
+   "firms_positive": 1,
+   "firms_negative": 0
+  },
+  "proxy - plain | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.302,
+   "ci95_firm_bootstrap": [
+    0.2717,
+    0.3303
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "adverse - plain (false red) | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.0253,
+   "ci95_firm_bootstrap": [
+    0.0141,
+    0.0354
+   ],
+   "p_exact_two_sided": 0.015625,
+   "firms_positive": 7,
+   "firms_negative": 0
+  },
+  "adverse - plain (false green) | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.0899,
+   "ci95_firm_bootstrap": [
+    0.0737,
+    0.1071
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "proxy - renamed | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.155,
+   "ci95_firm_bootstrap": [
+    0.0961,
+    0.2183
+   ],
+   "p_exact_two_sided": 0.00390625,
+   "firms_positive": 9,
+   "firms_negative": 1
+  },
+  "proxy - irrelevant | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.7512,
+   "ci95_firm_bootstrap": [
+    0.7133,
+    0.793
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "renamed - plain | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.6684,
+   "ci95_firm_bootstrap": [
+    0.6237,
+    0.7118
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "irrelevant - plain | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.0711,
+   "ci95_firm_bootstrap": [
+    0.0561,
+    0.0863
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "proxy - plain | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.8216,
+   "ci95_firm_bootstrap": [
+    0.7814,
+    0.863
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "adverse - plain (false red) | abstain_withheld": {
+   "n_firms": 10,
+   "delta": -0.1141,
+   "ci95_firm_bootstrap": [
+    -0.1424,
+    -0.0869
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 0,
+   "firms_negative": 10
+  },
+  "adverse - plain (false green) | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.1141,
+   "ci95_firm_bootstrap": [
+    0.0869,
+    0.1424
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "O main effect | plain firms": {
+   "n_firms": 10,
+   "delta": 0.0188,
+   "ci95_firm_bootstrap": [
+    0.0112,
+    0.0276
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "D main effect | plain firms": {
+   "n_firms": 10,
+   "delta": -0.0097,
+   "ci95_firm_bootstrap": [
+    -0.0198,
+    -0.0013
+   ],
+   "p_exact_two_sided": 0.109375,
+   "firms_positive": 2,
+   "firms_negative": 5
+  },
+  "W main effect | plain firms": {
+   "n_firms": 10,
+   "delta": 0.0097,
+   "ci95_firm_bootstrap": [
+    0.0028,
+    0.0187
+   ],
+   "p_exact_two_sided": 0.015625,
+   "firms_positive": 7,
+   "firms_negative": 0
+  },
+  "offered - cite_first | plain firms": {
+   "n_firms": 10,
+   "delta": 0.0,
+   "ci95_firm_bootstrap": [
+    0.0,
+    0.0
+   ],
+   "p_exact_two_sided": 1.0,
+   "firms_positive": 0,
+   "firms_negative": 0
+  }
+ },
+ "cells": {
+  "plain::abstain_offered::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0
+  },
+  "plain::abstain_withheld::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.003,
+     "allocation": {
+      "fail": 329,
+      "pass": 1,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0212,
+     "allocation": {
+      "fail": 323,
+      "pass": 7,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0081
+  },
+  "plain::cite_first::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 329,
+      "unmonitored": 1,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0
+  },
+  "plain::fx_o0d0w0::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0091,
+     "allocation": {
+      "fail": 327,
+      "pass": 3,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.028,
+     "allocation": {
+      "fail": 312,
+      "pass": 9,
+      "unanswered": 9
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0124
+  },
+  "plain::fx_o0d0w1::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0242,
+     "allocation": {
+      "fail": 322,
+      "pass": 8,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0081
+  },
+  "plain::fx_o0d1w0::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.1241,
+     "allocation": {
+      "fail": 240,
+      "pass": 34,
+      "unanswered": 56
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0414
+  },
+  "plain::fx_o0d1w1::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0511,
+     "allocation": {
+      "fail": 297,
+      "pass": 16,
+      "unanswered": 17
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.017
+  },
+  "plain::fx_o1d0w0::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 315,
+      "unmonitored": 15,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0
+  },
+  "plain::fx_o1d0w1::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 305,
+      "fail": 25,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 266,
+      "fail": 64,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 311,
+      "unmonitored": 19,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0
+  },
+  "plain::fx_o1d1w0::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 311,
+      "unmonitored": 19,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0
+  },
+  "plain::fx_o1d1w1::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 292,
+      "unmonitored": 38,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0
+  },
+  "plain::abstain_offered::r1": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 312,
+      "unmonitored": 18,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0
+  },
+  "plain::abstain_withheld::r1": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.003,
+     "allocation": {
+      "fail": 329,
+      "pass": 1,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0273,
+     "allocation": {
+      "fail": 321,
+      "pass": 9,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0101
+  },
+  "plain::abstain_offered::r2": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "unmonitored": 12,
+      "needs_evidence": 318,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0
+  },
+  "plain::abstain_withheld::r2": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0061,
+     "allocation": {
+      "fail": 328,
+      "pass": 2,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0273,
+     "allocation": {
+      "fail": 321,
+      "pass": 9,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0111
+  },
+  "proxy::abstain_offered::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0212,
+     "allocation": {
+      "needs_evidence": 323,
+      "pass": 7,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.1152,
+     "allocation": {
+      "needs_evidence": 292,
+      "pass": 38,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.7697,
+     "allocation": {
+      "needs_evidence": 70,
+      "pass": 254,
+      "fail": 6,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.302
+  },
+  "proxy::abstain_withheld::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.6606,
+     "allocation": {
+      "pass": 218,
+      "fail": 112,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.8689,
+     "allocation": {
+      "pass": 285,
+      "fail": 43,
+      "unanswered": 2
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.9602,
+     "allocation": {
+      "pass": 314,
+      "fail": 13,
+      "unanswered": 3
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.8299
+  },
+  "proxy::cite_first::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0485,
+     "allocation": {
+      "needs_evidence": 314,
+      "pass": 16,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.6364,
+     "allocation": {
+      "needs_evidence": 118,
+      "pass": 210,
+      "fail": 2,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.2283
+  },
+  "proxy::fx_o0d0w0::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.5758,
+     "allocation": {
+      "pass": 190,
+      "fail": 140,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.8419,
+     "allocation": {
+      "pass": 277,
+      "fail": 52,
+      "unanswered": 1
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.9224,
+     "allocation": {
+      "pass": 297,
+      "fail": 25,
+      "unanswered": 8
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.78
+  },
+  "proxy::fx_o0d0w1::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.3333,
+     "allocation": {
+      "pass": 110,
+      "fail": 220,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.6282,
+     "allocation": {
+      "pass": 196,
+      "fail": 116,
+      "unanswered": 18
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.9233,
+     "allocation": {
+      "pass": 301,
+      "fail": 25,
+      "unanswered": 4
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.6283
+  },
+  "proxy::fx_o0d1w0::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.8545,
+     "allocation": {
+      "pass": 282,
+      "fail": 48,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.9273,
+     "allocation": {
+      "pass": 306,
+      "fail": 24,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.9242,
+     "allocation": {
+      "pass": 305,
+      "fail": 25,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.902
+  },
+  "proxy::fx_o0d1w1::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.4545,
+     "allocation": {
+      "pass": 150,
+      "fail": 180,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.6636,
+     "allocation": {
+      "pass": 213,
+      "fail": 108,
+      "unanswered": 9
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.9576,
+     "allocation": {
+      "pass": 316,
+      "fail": 14,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.6919
+  },
+  "proxy::fx_o1d0w0::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0576,
+     "allocation": {
+      "needs_evidence": 311,
+      "pass": 19,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.3455,
+     "allocation": {
+      "pass": 114,
+      "needs_evidence": 216,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.7515,
+     "allocation": {
+      "needs_evidence": 68,
+      "fail": 14,
+      "pass": 248,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.3849
+  },
+  "proxy::fx_o1d0w1::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0394,
+     "allocation": {
+      "needs_evidence": 317,
+      "pass": 13,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.3553,
+     "allocation": {
+      "pass": 113,
+      "needs_evidence": 149,
+      "fail": 56,
+      "unanswered": 12
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.6848,
+     "allocation": {
+      "needs_evidence": 78,
+      "fail": 26,
+      "pass": 226,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.3598
+  },
+  "proxy::fx_o1d1w0::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0242,
+     "allocation": {
+      "pass": 8,
+      "needs_evidence": 322,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.3,
+     "allocation": {
+      "needs_evidence": 231,
+      "pass": 99,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.7333,
+     "allocation": {
+      "needs_evidence": 73,
+      "pass": 242,
+      "fail": 13,
+      "unmonitored": 2,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.3525
+  },
+  "proxy::fx_o1d1w1::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0212,
+     "allocation": {
+      "needs_evidence": 323,
+      "pass": 7,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.2879,
+     "allocation": {
+      "pass": 95,
+      "needs_evidence": 235,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.7788,
+     "allocation": {
+      "needs_evidence": 64,
+      "pass": 257,
+      "fail": 8,
+      "unmonitored": 1,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.3626
+  },
+  "proxy::abstain_offered::r1": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0333,
+     "allocation": {
+      "needs_evidence": 319,
+      "pass": 11,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.1182,
+     "allocation": {
+      "pass": 39,
+      "needs_evidence": 291,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.7485,
+     "allocation": {
+      "needs_evidence": 74,
+      "pass": 247,
+      "fail": 8,
+      "unmonitored": 1,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.3
+  },
+  "proxy::abstain_withheld::r1": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.6848,
+     "allocation": {
+      "pass": 226,
+      "fail": 104,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.8424,
+     "allocation": {
+      "pass": 278,
+      "fail": 52,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.9509,
+     "allocation": {
+      "pass": 310,
+      "fail": 16,
+      "unanswered": 4
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.826
+  },
+  "proxy::abstain_offered::r2": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0333,
+     "allocation": {
+      "needs_evidence": 319,
+      "pass": 11,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.2152,
+     "allocation": {
+      "pass": 71,
+      "needs_evidence": 259,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.7939,
+     "allocation": {
+      "needs_evidence": 66,
+      "pass": 262,
+      "fail": 2,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.3475
+  },
+  "proxy::abstain_withheld::r2": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.6697,
+     "allocation": {
+      "pass": 221,
+      "fail": 109,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.8182,
+     "allocation": {
+      "pass": 270,
+      "fail": 60,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.9394,
+     "allocation": {
+      "pass": 310,
+      "fail": 20,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.8091
+  },
+  "renamed::abstain_offered::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.1576,
+     "allocation": {
+      "needs_evidence": 273,
+      "pass": 52,
+      "fail": 4,
+      "unmonitored": 1,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0525
+  },
+  "renamed::abstain_withheld::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.5606,
+     "allocation": {
+      "pass": 185,
+      "fail": 145,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.7134,
+     "allocation": {
+      "pass": 229,
+      "fail": 92,
+      "unanswered": 9
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.7546,
+     "allocation": {
+      "pass": 246,
+      "fail": 80,
+      "unanswered": 4
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.6762
+  },
+  "irrelevant::abstain_offered::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.0121,
+     "allocation": {
+      "needs_evidence": 290,
+      "unmonitored": 36,
+      "pass": 4,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.004
+  },
+  "irrelevant::abstain_withheld::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.003,
+     "allocation": {
+      "fail": 329,
+      "pass": 1,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.233,
+     "allocation": {
+      "fail": 237,
+      "pass": 72,
+      "unanswered": 21
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0787
+  },
+  "adverse::abstain_offered::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.2697,
+     "allocation": {
+      "needs_evidence": 216,
+      "pass": 89,
+      "fail": 25,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.0899
+  },
+  "adverse::abstain_withheld::r0": {
+   "by_model": {
+    "gemini-3.1-pro-preview": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemini-3.8-flash": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     }
+    },
+    "gemma-4-26b-a4b-it-maas": {
+     "fgr": 0.3667,
+     "allocation": {
+      "fail": 209,
+      "pass": 121,
+      "unanswered": 0
+     }
+    }
+   },
+   "fgr_mean_over_models": 0.1222
+  }
+ },
+ "factorial_means": {
+  "proxy": {
+   "fx_o1d1w1": 0.3626,
+   "fx_o1d1w0": 0.3525,
+   "fx_o1d0w1": 0.3598,
+   "fx_o1d0w0": 0.3849,
+   "fx_o0d1w1": 0.6919,
+   "fx_o0d1w0": 0.902,
+   "fx_o0d0w1": 0.6283,
+   "fx_o0d0w0": 0.78
+  },
+  "plain": {
+   "fx_o1d1w1": 0.0,
+   "fx_o1d1w0": 0.0,
+   "fx_o1d0w1": 0.0,
+   "fx_o1d0w0": 0.0,
+   "fx_o0d1w1": 0.017,
+   "fx_o0d1w0": 0.0414,
+   "fx_o0d0w1": 0.0081,
+   "fx_o0d0w0": 0.0124
+  }
+ },
+ "cite_first_costs": {
+  "plain::abstain_offered": {
+   "gemini-3.1-pro-preview": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   },
+   "gemini-3.8-flash": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "recall": 0.0667,
+    "false_alarm": 0.05
+   }
+  },
+  "plain::cite_first": {
+   "gemini-3.1-pro-preview": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   },
+   "gemini-3.8-flash": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "recall": 0.1481,
+    "false_alarm": 0.0588
+   }
+  },
+  "proxy::abstain_offered": {
+   "gemini-3.1-pro-preview": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   },
+   "gemini-3.8-flash": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "recall": 0.0,
+    "false_alarm": 0.0167
+   }
+  },
+  "proxy::cite_first": {
+   "gemini-3.1-pro-preview": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   },
+   "gemini-3.8-flash": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "recall": 0.0333,
+    "false_alarm": 0.0
+   }
+  }
+ },
+ "cite_first_pass_cites_required_export": {
+  "gemini-3.1-pro-preview": {
+   "passes": 0,
+   "cite_i9_export": 0
+  },
+  "gemini-3.8-flash": {
+   "passes": 16,
+   "cite_i9_export": 0
+  },
+  "gemma-4-26b-a4b-it-maas": {
+   "passes": 210,
+   "cite_i9_export": 0
+  }
+ },
+ "deterministic_gate": {
+  "gemini-3.1-pro-preview::plain::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "gemini-3.1-pro-preview::plain::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "gemini-3.8-flash::plain::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "gemini-3.8-flash::plain::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 0.0667
+  },
+  "gemma-4-26b-a4b-it-maas::plain::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 0.1
+  },
+  "gemini-3.1-pro-preview::proxy::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "gemini-3.1-pro-preview::proxy::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "gemini-3.8-flash::proxy::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "gemini-3.8-flash::proxy::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "gemma-4-26b-a4b-it-maas::proxy::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 0.0
+  },
+  "gemma-4-26b-a4b-it-maas::proxy::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 0.0
+  }
+ },
+ "repeat_runs": {
+  "plain::abstain_offered::gemini-3.1-pro-preview": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "plain::abstain_offered::gemini-3.8-flash": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "plain::abstain_offered::gemma-4-26b-a4b-it-maas": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "plain::abstain_withheld::gemini-3.1-pro-preview": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "plain::abstain_withheld::gemini-3.8-flash": [
+   0.003,
+   0.003,
+   0.0061
+  ],
+  "plain::abstain_withheld::gemma-4-26b-a4b-it-maas": [
+   0.0212,
+   0.0273,
+   0.0273
+  ],
+  "proxy::abstain_offered::gemini-3.1-pro-preview": [
+   0.0212,
+   0.0333,
+   0.0333
+  ],
+  "proxy::abstain_offered::gemini-3.8-flash": [
+   0.1152,
+   0.1182,
+   0.2152
+  ],
+  "proxy::abstain_offered::gemma-4-26b-a4b-it-maas": [
+   0.7697,
+   0.7485,
+   0.7939
+  ],
+  "proxy::abstain_withheld::gemini-3.1-pro-preview": [
+   0.6606,
+   0.6848,
+   0.6697
+  ],
+  "proxy::abstain_withheld::gemini-3.8-flash": [
+   0.8689,
+   0.8424,
+   0.8182
+  ],
+  "proxy::abstain_withheld::gemma-4-26b-a4b-it-maas": [
+   0.9602,
+   0.9509,
+   0.9394
+  ],
+  "proxy - plain per run | abstain_offered": [
+   0.302,
+   0.3,
+   0.3475
+  ],
+  "proxy - plain per run | abstain_withheld": [
+   0.8216,
+   0.815,
+   0.798
+  ]
+ }
+}

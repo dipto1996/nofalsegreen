@@ -1,0 +1,41 @@
+Study 4 (adverse): 10 firms x 42 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 20782 output tokens, 153s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3529 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 27872 output tokens, 156s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 7898 output tokens, 49s, finish=stop, ok
+  synthetic-002003-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 19570 output tokens, 123s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6250 output tokens, 37s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 27734 output tokens, 181s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 15759 output tokens, 84s, finish=stop, ok
+  synthetic-002007-study4-adverse FGR 0.000  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9207 output tokens, 57s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 16916 output tokens, 106s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31034 output tokens, 180s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4016 output tokens, 23s, finish=stop, ok
+  synthetic-002009-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 26978 output tokens, 166s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 9201 output tokens, 53s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 28317 output tokens, 163s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 26276 output tokens, 149s, finish=stop, ok
+  synthetic-002023-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)

@@ -1,0 +1,38 @@
+Study 4 (proxy): 10 firms x 42 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['fx_o1d0w1']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 26573 output tokens, 165s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30861 output tokens, 149s, finish=stop, ok
+      batch 3/4 (12 parsed so far)
+        attempt 1: 31006 output tokens, 212s, finish=stop, ok
+      batch 4/4 (24 parsed so far)
+        attempt 1: 2683 output tokens, 15s, finish=stop, ok
+  synthetic-002003-study3c-proxy FGR 0.152  recall 1.000  absF1 0.390  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5525 output tokens, 36s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 15871 output tokens, 92s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 19351 output tokens, 126s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 7013 output tokens, 40s, finish=stop, ok
+  synthetic-002007-study3c-proxy FGR 0.515  recall 0.000  absF1 0.653  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30966 output tokens, 192s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 18422 output tokens, 112s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 30863 output tokens, 185s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1887 output tokens, 14s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.273  recall 1.000  absF1 0.390  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 27058 output tokens, 168s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 19987 output tokens, 108s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31030 output tokens, 177s, finish=stop, ok
+      batch 4/4 (36 parsed so far)

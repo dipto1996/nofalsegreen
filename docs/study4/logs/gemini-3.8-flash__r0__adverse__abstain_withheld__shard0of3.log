@@ -1,0 +1,37 @@
+Study 4 (adverse): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study4-adverse', 'synthetic-002023-study4-adverse', 'synthetic-002040-study4-adverse', 'synthetic-002069-study4-adverse']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002023-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 13456 output tokens, 87s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 9686 output tokens, 57s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31031 output tokens, 178s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 8357 output tokens, 106s, finish=stop, ok
+  synthetic-002040-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 29622 output tokens, 181s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 17687 output tokens, 119s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 17688 output tokens, 99s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4587 output tokens, 27s, finish=stop, ok
+  synthetic-002069-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.000 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.8-flash__r0__adverse__abstain_withheld__shard0of3.json

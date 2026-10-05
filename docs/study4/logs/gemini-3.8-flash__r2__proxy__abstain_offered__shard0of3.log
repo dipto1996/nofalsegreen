@@ -1,0 +1,37 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study3c-proxy', 'synthetic-002023-study3c-proxy', 'synthetic-002040-study3c-proxy', 'synthetic-002069-study3c-proxy']
+vertex/gemini-3.8-flash#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study3c-proxy FGR 0.242  recall 1.000  absF1 0.862  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002023-study3c-proxy FGR 0.273  recall 1.000  absF1 0.842  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 11190 output tokens, 69s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 13775 output tokens, 77s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 17820 output tokens, 100s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1983 output tokens, 12s, finish=stop, ok
+  synthetic-002040-study3c-proxy FGR 0.242  recall 1.000  absF1 0.862  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 8929 output tokens, 56s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 11069 output tokens, 69s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 17249 output tokens, 107s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3869 output tokens, 24s, finish=stop, ok
+  synthetic-002069-study3c-proxy FGR 0.121  recall 1.000  absF1 0.935  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r2::abstain_offered: FGR 0.220 (sd 0.067)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.8-flash__r2__proxy__abstain_offered__shard0of3.json

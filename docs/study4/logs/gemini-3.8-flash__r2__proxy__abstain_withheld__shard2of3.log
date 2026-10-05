@@ -1,0 +1,32 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-proxy', 'synthetic-002037-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertex/gemini-3.8-flash#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002009-study3c-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30955 output tokens, 196s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30975 output tokens, 195s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 12723 output tokens, 69s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3606 output tokens, 21s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 25730 output tokens, 150s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 25199 output tokens, 154s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 13391 output tokens, 75s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2004 output tokens, 12s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r2::abstain_withheld: FGR 0.879 (sd 0.121)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.8-flash__r2__proxy__abstain_withheld__shard2of3.json

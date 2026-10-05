@@ -556,6 +556,36 @@ def table_e1() -> str:
     return "\n".join(rows)
 
 
+def table_study4() -> str:
+    """Study 4 declared tests (body table)."""
+    f = ROOT / "docs" / "study4" / "results.json"
+    head = ("| Test | Contrast | Effect [95% CI] | Firms + / − | Exact p (Holm) |"
+            "\n|---|---|---|---|---|")
+    if not f.exists():
+        return head
+    pr = json.loads(f.read_text())["primary"]
+    lab = {"H1": ("H1 Names", "proxy columns − same values, neutral names"),
+           "H2": ("H2 Meaning", "proxy columns − irrelevant columns"),
+           "H3": ("H3 Direction", "adverse proxies − none; outcome `fail`"),
+           "H4": ("H4 Abstaining verdicts", "removed − listed (factorial)"),
+           "H5": ("H5 Definitions", "bare − evidence-anchored (factorial)"),
+           "H6": ("H6 Warning", "absent − present (factorial)"),
+           "H7": ("H7 Name the record first", "offered − offered with record named first")}
+    fmtp = lambda x: "<0.001" if x < 0.001 else f"{x:.3f}"  # noqa: E731
+    rows = [head]
+    for k, v in pr.items():
+        a, b = lab[k[:2]]
+        rows.append(f"| {a} | {b} | {v['delta']:+.3f} [{v['ci95_firm_bootstrap'][0]:+.2f}, "
+                    f"{v['ci95_firm_bootstrap'][1]:+.2f}] | {v['firms_positive']} / {v['firms_negative']} "
+                    f"| {fmtp(v['p_holm'])} |")
+    rows.append("")
+    rows.append("Ten Study 3c firms (330 unassessable I-9 pairs), three Google models. Outcome: false green "
+                "(`pass` on an unassessable pair) except H3 (`fail`). H1-H3 and H7 use the offered schema; H4-H6 average "
+                "the four factorial menus on each side of the switch. All tests except H3 are on proxy-column firms. Paired, averaged within firm and model then over models; interval from a firm bootstrap; exact "
+                "sign-flip over the ten firms (1,024 patterns), Holm across the seven tests. Declared before any call.")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -590,6 +620,7 @@ def main() -> int:
         "table-cited": table_cited(),
         "table-arm-contrasts": table_arm_contrasts(),
         "table-robust": table_robust(),
+        "table-study4": table_study4(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

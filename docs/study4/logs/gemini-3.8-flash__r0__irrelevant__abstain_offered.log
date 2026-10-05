@@ -1,0 +1,98 @@
+Study 4 (irrelevant): 10 firms x 42 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1096 output tokens, 15s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 912 output tokens, 7s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3143 output tokens, 18s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1738 output tokens, 10s, finish=stop, ok
+  synthetic-002003-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1203 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1099 output tokens, 6s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 18323 output tokens, 125s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2276 output tokens, 13s, finish=stop, ok
+  synthetic-002007-study4-irrelevant FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1281 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1100 output tokens, 8s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2919 output tokens, 17s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2340 output tokens, 13s, finish=stop, ok
+  synthetic-002009-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1016 output tokens, 6s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1179 output tokens, 8s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3849 output tokens, 24s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2687 output tokens, 16s, finish=stop, ok
+  synthetic-002023-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1187 output tokens, 8s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 949 output tokens, 7s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2846 output tokens, 18s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2542 output tokens, 15s, finish=stop, ok
+  synthetic-002026-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1545 output tokens, 9s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 849 output tokens, 6s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2895 output tokens, 17s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2371 output tokens, 14s, finish=stop, ok
+  synthetic-002037-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1254 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1270 output tokens, 9s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5133 output tokens, 32s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2618 output tokens, 14s, finish=stop, ok
+  synthetic-002040-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1004 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1676 output tokens, 13s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3020 output tokens, 18s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2524 output tokens, 14s, finish=stop, ok
+  synthetic-002041-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1353 output tokens, 9s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1061 output tokens, 7s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2894 output tokens, 17s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2147 output tokens, 13s, finish=stop, ok
+  synthetic-002048-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1082 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1057 output tokens, 6s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10393 output tokens, 62s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2104 output tokens, 12s, finish=stop, ok
+  synthetic-002069-study4-irrelevant FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_offered: FGR 0.000 (sd 0.000)  recall 0.900  over 10 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.8-flash__r0__irrelevant__abstain_offered.json

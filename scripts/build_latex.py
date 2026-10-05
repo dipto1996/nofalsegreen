@@ -408,6 +408,10 @@ def main() -> int:
     (OUT / "main.tex").write_text(tex)
     r = subprocess.run(["tectonic", "--keep-logs", "main.tex"], cwd=OUT, capture_output=True, text=True)
     print(r.stdout[-1500:], r.stderr[-3000:])
+    if r.returncode == 0:
+        # docs/PAPER.pdf is the copy readers open; keep it in step with every build.
+        import shutil
+        shutil.copy(OUT / "main.pdf", OUT.parent / "docs" / "PAPER.pdf")
     return r.returncode
 
 

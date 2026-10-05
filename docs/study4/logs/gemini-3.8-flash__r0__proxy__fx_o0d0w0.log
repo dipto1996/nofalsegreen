@@ -1,0 +1,33 @@
+Study 4 (proxy): 10 firms x 42 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['fx_o0d0w0']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 31996 output tokens, 208s, finish=length, CAP
+        attempt 2: 30037 output tokens, 189s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30951 output tokens, 196s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 14187 output tokens, 76s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4038 output tokens, 28s, finish=stop, ok
+  synthetic-002003-study3c-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30978 output tokens, 189s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30952 output tokens, 198s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 19007 output tokens, 107s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3735 output tokens, 21s, finish=stop, ok
+  synthetic-002007-study3c-proxy FGR 0.758  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30977 output tokens, 197s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30951 output tokens, 195s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 7656 output tokens, 43s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3194 output tokens, 18s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)

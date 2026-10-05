@@ -1,0 +1,83 @@
+Study 4 (proxy): 10 firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4941 output tokens, 42s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6885 output tokens, 51s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10946 output tokens, 70s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3185 output tokens, 20s, finish=stop, ok
+  synthetic-002003-study3c-proxy FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5610 output tokens, 36s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6342 output tokens, 44s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31034 output tokens, 183s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 25985 output tokens, 337s, finish=stop, ok
+  synthetic-002007-study3c-proxy FGR 0.879  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4878 output tokens, 33s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3763 output tokens, 24s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5625 output tokens, 36s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2994 output tokens, 20s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5163 output tokens, 36s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3360 output tokens, 22s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5649 output tokens, 36s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4513 output tokens, 29s, finish=stop, ok
+  synthetic-002023-study3c-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4424 output tokens, 33s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8784 output tokens, 84s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4395 output tokens, 27s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3662 output tokens, 23s, finish=stop, ok
+  synthetic-002026-study3c-proxy FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5876 output tokens, 41s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3137 output tokens, 23s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5366 output tokens, 34s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3209 output tokens, 21s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.394  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4633 output tokens, 31s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8106 output tokens, 55s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4420 output tokens, 27s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3780 output tokens, 24s, finish=stop, ok
+  synthetic-002040-study3c-proxy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5504 output tokens, 37s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 17297 output tokens, 118s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3887 output tokens, 25s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3172 output tokens, 19s, finish=stop, ok
+  synthetic-002041-study3c-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6642 output tokens, 46s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8788 output tokens, 61s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4842 output tokens, 31s, finish=stop, ok
+      batch 4/4 (36 parsed so far)

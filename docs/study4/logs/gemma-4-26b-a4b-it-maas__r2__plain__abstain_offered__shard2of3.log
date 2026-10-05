@@ -1,0 +1,24 @@
+Study 4 (plain): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-plain', 'synthetic-002037-study3c-plain', 'synthetic-002048-study3c-plain']
+vertex/gemma-4-26b-a4b-it-maas#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002009-study3c-plain FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002037-study3c-plain FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002048-study3c-plain FGR 0.000  recall 0.333  absF1 1.000  unparsed 0  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r2::abstain_offered: FGR 0.000 (sd 0.000)  recall 0.111  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemma-4-26b-a4b-it-maas__r2__plain__abstain_offered__shard2of3.json

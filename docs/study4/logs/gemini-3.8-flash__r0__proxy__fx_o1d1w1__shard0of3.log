@@ -1,0 +1,40 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study3c-proxy', 'synthetic-002023-study3c-proxy', 'synthetic-002040-study3c-proxy', 'synthetic-002069-study3c-proxy']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['fx_o1d1w1']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study3c-proxy FGR 0.515  recall 1.000  absF1 0.653  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30979 output tokens, 195s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31025 output tokens, 179s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4631 output tokens, 25s, finish=stop, ok
+  synthetic-002023-study3c-proxy FGR 0.273  recall 1.000  absF1 0.842  unparsed 0  (3 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30980 output tokens, 182s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 26047 output tokens, 153s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 24044 output tokens, 135s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2457 output tokens, 16s, finish=stop, ok
+  synthetic-002040-study3c-proxy FGR 0.152  recall 1.000  absF1 0.918  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 15195 output tokens, 97s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30984 output tokens, 188s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31023 output tokens, 185s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2686 output tokens, 16s, finish=stop, ok
+  synthetic-002069-study3c-proxy FGR 0.485  recall 1.000  absF1 0.680  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::fx_o1d1w1: FGR 0.356 (sd 0.174)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.8-flash__r0__proxy__fx_o1d1w1__shard0of3.json

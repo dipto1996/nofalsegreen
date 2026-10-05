@@ -14,12 +14,14 @@ obligation and entity. A generator fixes every label by construction and can add
 columns**, fields that sit beside the required record without being it, such as an onboarding
 date beside a missing Form I-9. In a preregistered study of seven models from five
 developers, proxy columns raised the false-green rate by 0.427 under a pass/fail dashboard
-schema and by 0.217 under a schema that offers abstention; on proxy-column firms, removing the
-non-committal verdicts raised it by 0.259 and redefining both verdicts by 0.084 (exact
-permutation p ≤ 0.0013, Holm). The effects survive a reworded prompt, replicate on ten further
-firms, and are carried mostly by date columns that models cite as their evidence. An exploratory study of
-thirteen models on a hand-authored firm generated these hypotheses. No attorney validated the
-labels; all data, prompts and replies are released.
+schema and by 0.217 when abstention was offered (0.244 and 0.237 with firms weighted equally;
+exact permutation p ≤ 0.0013, Holm). Declared follow-ups on ten further firms with three
+models locate the effect: it needs the columns' names, not merely their values or any added
+column; two of three models accept proxies that suggest compliance but not ones that suggest
+a breach; and of the schema's parts, removing the abstaining verdicts (+0.384) and a
+one-sentence warning (+0.093) raise false greens while redefining `pass` does not. Asking the
+model to name the required record first helps modestly (−0.074). Labels were checked by an
+independent program, not by attorneys; all data, prompts and replies are released.
 
 ---
 
@@ -49,18 +51,23 @@ is missing, where declining to decide is the correct answer for about half the i
 
 We built an instrument for this error (Figure 1) and report three findings. **Proxy columns
 are the largest cause we found:** planting columns that resemble required evidence, with the
-prompt unchanged, raises the false-green rate by 0.217 to 0.427, and models cite those columns
-as their evidence. **The output schema matters in two parts:** removing the verdicts for
-"could not tell" and redefining `pass` from "shown to be satisfied" to "satisfied" each raise
-false greens, more on firms with proxy columns. **High recall does not bring safety:** no
-model that detects nearly every violation comes close to zero false greens.
+prompt unchanged, raises the false-green rate by 0.217 to 0.427. Controls show that the
+columns' names do this, not their values or their number, and that the bias runs one way:
+models take a proxy that suggests compliance as evidence and discount one that suggests a
+breach. **Of the output schema, two parts matter:** removing the verdicts for "could not
+tell" and removing a one-sentence warning that a missing record is not a record in order;
+redefining `pass` from "shown to be satisfied" to "satisfied" does not. **High recall does not
+bring safety:** no model that detects nearly every violation comes close to zero false greens.
 
-Our contributions are: a four-verdict task with a stated evidentiary standard (§3); an
-instrument whose generator fixes labels before data, renders paired firms with and without
-proxy columns, and whose labels are re-derived by a separately written checker (§4); a
-preregistered study with two declared follow-ups (§6) and the exploratory study that motivated
-it (§7); and a release in which every number in the paper is recomputed from retained replies
-by a script.
+Each ingredient has precedents (§2): answers for insufficient evidence, directional
+overclaiming, distracting context and answer-menu effects. Our contribution is their
+combination where it has consequences: a four-verdict task over a third party's operational
+exports with a stated primary-record standard (§3); a generator that fixes labels before data
+and renders paired firms that differ only in added columns, with labels re-derived by a
+separately written checker (§4); a preregistered study and three declared follow-ups that
+separate the proxy effect into name, value and direction and the schema effect into its parts
+(§6); and a release in which every number in the paper is recomputed from retained replies by
+a script.
 
 ---
 
@@ -100,15 +107,15 @@ et al., 2023), including irrelevant tax forms in rule application (Zhou et al., 
 instance of shortcut reliance (Geirhos et al., 2020); our proxy columns are the case where the
 distractor resembles the missing evidence and the error has a direction. Answer menus change
 behaviour: expanding a binary label set with "insufficient evidence" makes models more
-conservative (Fu et al., 2026), the presence and framing of an abstention option change how
-often models commit wrongly (Guo et al., 2026; Madhusudhan et al., 2025). In CLEAR, adding "I don't know" to
-multiple-choice medical questions *increased* wrong answers (Guo et al., 2026); here the
-abstaining verdicts are defined by whether the required record is present, and offering them
-lowers false greens (§6.2), so the effect of an abstention option depends on how it is defined, and output formats and forced choice alter
-answers (Tam et al., 2024; Röttger et al., 2024; Sclar et al., 2024), while grading that gives
-no credit for uncertainty rewards guessing (Kalai et al., 2025). Our schema conditions place
-these effects in a compliance interface and separate removing the abstaining verdicts from
-redefining the committal ones.
+conservative (Fu et al., 2026); the presence and framing of an abstention option change how
+often models commit wrongly (Guo et al., 2026; Madhusudhan et al., 2025); output formats and
+forced choice alter answers (Tam et al., 2024; Röttger et al., 2024; Sclar et al., 2024); and
+grading that gives no credit for uncertainty rewards guessing (Kalai et al., 2025). In CLEAR,
+adding "I don't know" to multiple-choice medical questions *increased* wrong answers (Guo et
+al., 2026); here the abstaining verdicts are defined by whether the required record is
+present, and offering them lowers false greens (§6), so the effect of an abstention option
+depends on its definition. Our schema conditions place these effects in a compliance
+interface and vary the menu's parts one at a time.
 
 ---
 
@@ -146,7 +153,7 @@ counted. A pair with no parsed answer can never be a false green, so every table
 coverage. FGR alone is gameable: `always_fail` scores 0 and catches every violation.
 Violation recall and the false-alarm rate on conforming controls (any verdict but `pass`)
 must therefore be reported with it (Appendix D gives trivial baselines). `unmonitored` on an
-unassessable pair is wrong but not a false green; in practice it acts as a second abstention (Appendix Figure 8).
+unassessable pair is wrong but not a false green; in practice it acts as a second abstention (Appendix Figure 9).
 
 ---
 
@@ -155,7 +162,8 @@ unassessable pair is wrong but not a false green; in practice it acts as a secon
 **Rulebook.** 194 obligations across ten US employment-immigration regimes, each with its
 check, threshold, citation and required information, built from the registry of a commercial
 compliance engine developed by the author's company, whose citations its maintainers had
-checked against primary sources.
+checked against primary sources. The rulebook defines the task's scope; the experiments test
+four of its rules.
 
 **Generator.** Labels precede data: for each pair the generator draws a disposition (a
 planted violation, a conforming control with a share placed exactly on the legal boundary,
@@ -163,14 +171,15 @@ or withheld evidence) and then writes records that decide it. It renders four ru
 completely: I-9 Section 1 and Section 2 timeliness, reverification before authorisation
 expires, and the LCA required wage. Evidence is withheld a whole export at a time, since a
 blank date for a past deadline would read as "not done", a violation. A firm has twelve
-workers and 42 pairs.
+workers and 42 pairs. No generated pair has `unmonitored` as its correct verdict, so that
+verdict is exercised only on the anchor firm.
 
 **Proxy columns.** For Study 3 the generator can add five roster columns that sit beside a
 rule's evidence without being it: an I-9 status of "Complete", an onboarding date, the current
 authorisation's end date, a salary of record set at the LCA offered wage, and a pay-band
 midpoint. They appear whether or not the export they imitate is withheld, and come from a
 separate random stream, so a plain firm and its proxy twin have identical labels and other
-exports (Appendix Figure 7). The wage rule has a native proxy even in plain firms: the LCA's
+exports (Appendix Figure 8). The wage rule has a native proxy even in plain firms: the LCA's
 offered wage beside a missing actual-wage table.
 
 **Label validation.** A separate AI agent wrote a deterministic checker from the regulations
@@ -205,9 +214,9 @@ four conditions (Table 2).
 | dashboard | `pass`, `fail` | Both verdicts redefined as "the obligation is satisfied / violated"; warning sentence removed |
 
 The step from *offered* to *closed* is the **abstention effect**; from *closed* to
-*dashboard*, the **definition-and-warning effect**, which cannot separate its two changes.
+*dashboard*, the **definition-and-warning effect**, whose two changes Study 4 separates (§6.4).
 Thirteen models from eight developers were run with temperature 0 and a 32,000-token cap
-(Appendix Table 6): six free-tier models, and seven on Google's Vertex AI paid from cloud
+(Appendix Table 7): six free-tier models, and seven on Google's Vertex AI paid from cloud
 credits. Unparseable lines are never coerced to a verdict (we report the unparseable rate), delivery
 failures are re-requested,
 and the commercial engine is not a baseline, since it and the anchor labels were developed
@@ -257,7 +266,15 @@ clusters are unbalanced: the I-9 pairs (99) come from only three firms that with
 export, and the wage pairs (81) from nine. Weighting the twelve firms equally instead of the
 pairs, every effect stays positive and significant (exact p from < 0.001 to 0.028), but P3
 falls to +0.244, because the large I-9 effect then counts for three firms rather than 99
-pairs. Dropping any one model or any one firm leaves every effect positive.
+pairs. Rules within a firm share its records and its withholding draw, so the cluster test
+treats them as exchangeable where the firm test does not; we read the firm-weighted values as
+the conservative magnitudes and the pooled ones as specific to this mix of firms. Dropping any
+one model or any one firm leaves every effect positive.
+
+False greens are not the only wrong answer on an unassessable pair. Averaged over the seven
+models, on proxy-column firms with abstention offered, 0.517 of unassessable pairs were
+answered `needs_evidence`, 0.395 `pass` and 0.045 `fail`; under the dashboard schema, where no
+correct answer exists, 0.713 were `pass` and 0.237 `fail` (Appendix Figure 9).
 
 
 
@@ -314,12 +331,70 @@ than a status flag. The reverification case is the most defensible proxy: a curr
 authorisation implies, without showing, a timely reverification.
 
 
-<!-- FIGURE: fig_separation | wide | The anchor subset: each model under the offered schema (filled) and the dashboard schema (open), joined by a line; numbers refer to the key. Without the abstention every model moves up and right, buying recall with false greens; the shaded region marks high recall with many false greens. Recall is measured against the source engine's contested violation labels. Grey squares are trivial baselines; always_fail shares the oracle's point because neither axis penalises a fail on an unassessable pair. -->
+### 6.4 Study 4: what the effects are made of
 
-### 6.4 What models rely on
+Study 4, declared before any call (commit `0c874fc`), reuses the ten Study 3c firms and the
+three Google models to take both effects apart (Table 5, Figure 5).
 
-Every reply line names the evidence field relied on, so the mechanism can be read directly,
-with the caveat that this is the model's own report and stated reasons need not be the cause (Turpin et al., 2023); the causal evidence is the paired contrast and Study 3c (Table 4). On proxy-column firms, 1,376 of
+**Names, not values.** Under the offered schema, the proxy values under neutral column names
+(`rosterField1`–`5`) raised false greens by only 0.052 over plain firms, and five irrelevant
+columns of the same types and positions by 0.004. The named proxy columns raised them 0.249
+more than their renamed twins (H1) and 0.298 more than irrelevant columns (H2). Under the
+dashboard schema, where every pair must be decided, the renamed values alone added 0.668:
+without an abstaining verdict, a plausible date near the hire date is enough.
+
+**One direction.** Proxy columns whose values suggest a breach (an I-9 status of
+"Incomplete", onboarding ten or more days after hire, an authorisation that has ended) moved
+few answers to `fail`: +0.025 (H3, Holm p = 0.047), all from Gemma 4. Gemini 3.1 Pro and 3.8
+Flash answered `needs_evidence` on all 330 such pairs, although they took favourable proxies
+as evidence of compliance; Gemma 4 answered `pass` on 89 of them, accepting the column's
+presence whatever it said. The proxy effect is therefore not symmetric evidence substitution:
+reassuring proxies are accepted and damning ones discounted, which is the direction a false
+green needs.
+
+**Menu parts.** In a 2×2×2 factorial of the verdict menu on proxy-column firms, removing the
+two abstaining verdicts raised false greens by 0.384 (H4) and removing the warning by 0.093
+(H6), while replacing the evidence-anchored definitions of `pass` and `fail` with bare ones
+changed them by −0.039 (H5, not confirmed). Study 3's definition-and-warning effect (P2) is
+the warning's. On plain firms no part moved false greens by more than 0.019.
+
+**Naming the record first.** Requiring the model to name the column that is itself the
+required record before committing lowered false greens on proxy-column firms from 0.302 to
+0.228 (H7, Holm p = 0.047) with no loss of recall. Gemini 3.1 Pro reached zero and Flash fell
+from 0.115 to 0.049, but Gemma 4 fell only from 0.770 to 0.636, and none of its 210 remaining
+`pass` answers named the I-9 export. A deterministic gate that routes a rule to
+`needs_evidence` whenever an export it needs is absent removes every false green here, but
+only because the generator withholds whole exports; partial or stale records would defeat so
+simple a gate.
+
+**Repeat runs.** Running the plain and proxy cells twice more moved per-model false-green
+rates by at most 0.100, and the proxy effect stayed between 0.300 and 0.347 under the offered
+schema and between 0.798 and 0.822 under the dashboard schema.
+
+**Table 5 — The seven declared tests of Study 4.**
+
+<!-- BEGIN GENERATED: table-study4 -->
+| Test | Contrast | Effect [95% CI] | Firms + / − | Exact p (Holm) |
+|---|---|---|---|---|
+| H1 Names | proxy columns − same values, neutral names | +0.249 [+0.21, +0.29] | 10 / 0 | 0.014 |
+| H2 Meaning | proxy columns − irrelevant columns | +0.298 [+0.27, +0.33] | 10 / 0 | 0.014 |
+| H3 Direction | adverse proxies − none; outcome `fail` | +0.025 [+0.01, +0.04] | 7 / 0 | 0.047 |
+| H4 Abstaining verdicts | removed − listed (factorial) | +0.384 [+0.37, +0.40] | 10 / 0 | 0.014 |
+| H5 Definitions | bare − evidence-anchored (factorial) | -0.039 [-0.08, -0.00] | 3 / 7 | 0.080 |
+| H6 Warning | absent − present (factorial) | +0.093 [+0.07, +0.12] | 10 / 0 | 0.014 |
+| H7 Name the record first | offered − offered with record named first | +0.074 [+0.03, +0.13] | 7 / 1 | 0.047 |
+
+Ten Study 3c firms (330 unassessable I-9 pairs), three Google models. Outcome: false green (`pass` on an unassessable pair) except H3 (`fail`). H1-H3 and H7 use the offered schema; H4-H6 average the four factorial menus on each side of the switch. All tests except H3 are on proxy-column firms. Paired, averaged within firm and model then over models; interval from a firm bootstrap; exact sign-flip over the ten firms (1,024 patterns), Holm across the seven tests. Declared before any call.
+<!-- END GENERATED: table-study4 -->
+
+<!-- FIGURE: fig_study4 | wide | Study 4: ten firms that withhold the I-9 export, three models; dots are means over models, ticks individual models. (a) False-green rate by what is added to the roster, under the offered and dashboard schemas. (b) Share of unassessable pairs answered fail with nothing added and with proxies that suggest a breach. (c) The verdict menu with its three parts (abstaining verdicts, evidence-anchored definitions, warning) removed one or more at a time, and the offered menu with the record named first, on plain and proxy-column firms. -->
+
+### 6.5 What models rely on
+
+Every reply line names the evidence field relied on. This is the model's own report, and
+stated reasons need not be the cause (Turpin et al., 2023); the causal evidence is the paired
+contrasts of Studies 3, 3c and 4, and the citations only show what models say they used
+(Table 4). On proxy-column firms, 1,376 of
 the 2,807 false greens (49%) cite one of the five planted columns, and for the I-9 rules under
 the offered schema 118 of 134 (88%), almost all the onboarding date or the current
 authorisation's end date. On plain firms, wage-rule false greens most often cite the LCA's
@@ -331,7 +406,7 @@ Detection does not bring safety. On the proxy-column firms, Gemini 3.1 Pro, Gemi
 gpt-oss-120b and Kimi K2 detect at least 0.920 of violations with abstention offered, yet call
 0.161 to 0.361 of unassessable pairs compliant. Across the seven models recall and false-green
 rate are negatively related, so higher recall helps, but none of the high-recall models comes
-near zero (Appendix Figure 9). Proxy columns change the false-alarm rate on conforming
+near zero (Appendix Figure 10). Proxy columns change the false-alarm rate on conforming
 controls by at most 0.038 with abstention offered and 0.080 under any schema, so their cost
 falls mostly on the false-green side.
 
@@ -339,13 +414,15 @@ falls mostly on the false-green side.
 
 ## 7. The exploratory study that generated the hypotheses
 
+<!-- FIGURE: fig_separation | wide | The anchor subset, exploratory: each model under the offered schema (filled) and the dashboard schema (open), joined by a line; numbers refer to the key. Without the abstention every model moves up and right, buying recall with false greens; the shaded region marks high recall with many false greens. Recall is measured against the source engine's contested violation labels and is shown only for direction. Grey squares are trivial baselines, labelled with their false-alarm rate on conforming pairs, which separates the oracle from always_fail. -->
+
 Before Study 3, all thirteen models were run on a declared 140-pair subset of the anchor firm,
 not all 221 pairs, for the free-tier budget (every planted violation and 120 evidence requests), most once, three Google models three
 times (their runs differed in false-green rate by at most 0.142).
 
 
 With abstention offered the thirteen models report 0.042 to 0.153 of unassessable pairs as
-satisfied, and 0.131 to 0.589 under the dashboard schema (Figure 5); the dashboard schema
+satisfied, and 0.131 to 0.589 under the dashboard schema (Figure 6); the dashboard schema
 raised the rate significantly for eight of the nine models tested for it, and the four added
 later were run descriptively. Decomposing the schema for the three repeated-run models showed
 that each failed through a different route: Gemma 4 when `needs_evidence` alone was removed,
@@ -361,16 +438,20 @@ from the presence of a document title. These observations are what Study 3 teste
 
 ## 8. Discussion
 
-Three design rules follow. Keep a verdict for "could not tell"; define `pass` as "the required
-evidence is present and satisfies the obligation"; and treat any export column that resembles
-required evidence as a hazard, by withholding it from the model or routing the obligations it
-touches to review, since no schema tested protected against it. With the first two in place
-false-green rates of 0.04 to 0.15 remain on the anchor firm and 0.16 to 0.84 on proxy-column
-firms. That models respond to wording is well known (Sclar et al., 2024); the effects here
-survive a rewording, replicate on fresh firms and across developers, and the largest involves
-no change to the prompt. Whether a proxy-based `pass` is an error depends on the standard
-(§3): it is a reasonable triage guess, and a claim made without the record under the standard
-a monitoring product implies.
+The experiments establish risks more firmly than remedies. Two parts of a verdict menu
+lowered false greens, a verdict for "could not tell" and the warning that a missing record is
+not a record in order, while the wording of `pass` did not; with both in place, false-green
+rates of 0.04 to 0.15 remain on the anchor firm and 0.16 to 0.84 on proxy-column firms. Export
+columns whose names resemble required evidence are a hazard that no menu removed, and the
+bias they create runs toward green. Asking for the required record by name helped two models
+and not the third, so the dependable safeguard sits outside the model: check that the
+required record exists before asking for a verdict, which is exact in our generator and harder
+with partial records. We have not compared such safeguards with human reviewers or on real
+employer data. That models respond to wording is well known (Sclar et al., 2024); the effects
+here survive a rewording, replicate on fresh firms and on repeat runs, and the largest
+involves no change to the prompt. Whether a proxy-based `pass` is an error depends on the
+standard (§3): it is a reasonable triage guess, and a claim made without the record under the
+standard a monitoring product implies.
 
 ---
 
@@ -379,14 +460,16 @@ a monitoring product implies.
 - **No human expert labels or baseline.** No attorney validated any label; the generated labels
   are re-derived by an AI-written checker sharing the generator's standard, and the anchor
   labels are qualified by two AI audits. A blind labelling kit is released.
-- **A narrow, synthetic generator.** Four rule families, whole-export withholding, five proxy
-  columns chosen by us; no partial records, scanned documents or OCR. Two rules simplify the
+- **A narrow, synthetic generator.** Four of the rulebook's rules, whole-export withholding,
+  five proxy columns chosen by us, and no generated pair whose answer is `unmonitored`; no
+  partial records, scanned documents or OCR. Study 4's controls cover the I-9 rules only. Two rules simplify the
   law (a timely extension can allow 240 more days before reverification; "business day" is not
   defined in the handbook).
-- **Statistics.** Study 3 has 18 clusters, its I-9 effect three firms (Study 3c adds ten), and
-  pooled estimates weight seven particular models equally. Cells were run once.
+- **Statistics.** Study 3 has 18 clusters, its I-9 effect three firms (Studies 3c and 4 add
+  ten), and pooled estimates weight particular models equally and depend on the mix of firms.
+  Study 3's cells were run once; repeat runs in Study 4 moved per-model rates by at most 0.100.
 - **Model coverage is narrow.** No closed OpenAI or Anthropic model was evaluated, the study using no funds
-  beyond cloud credits; the follow-ups use only the three Google models; several endpoints are
+  beyond cloud credits; Studies 3b, 3c and 4 use only the three Google models; several endpoints are
   previews that will be retired.
 - **One domain.** We conjecture, and do not show, that the failure generalises.
 
@@ -512,8 +595,8 @@ Zhou, R., Hua, W., Pan, L., Cheng, S., Wu, X., Yu, E. and Wang, W. Y. (2025). Ru
 
 ```bash
 python3 tests/test_benchmark.py; python3 tests/test_llm_harness.py; python3 tests/test_freetier.py
-python3 scripts/sweep.py --firms 30            # Table 5 (trivial baselines)
-python3 scripts/score_views.py                  # anchor study, label views, Table 10
+python3 scripts/sweep.py --firms 30            # Table 6 (trivial baselines)
+python3 scripts/score_views.py                  # anchor study, label views, Table 11
 python3 scripts/score_studies.py                # repeated-run study and Study 2
 python3 scripts/score_study3.py                 # Study 3, the declared analysis
 python3 scripts/study3_exploratory.py           # Section 6.3 (exploratory)
@@ -773,11 +856,21 @@ and run on the three Google models through Vertex AI, one process per model, ren
 condition; Gemini 3.1 Pro and 3.8 Flash were later split into three firm shards each, every
 shard starting from its condition's cache so no answered batch was requested twice.
 
+### C.9 Study 4
+
+Declared in `docs/STUDY4_DECLARATION.md` (commit `0c874fc`) before any call. The 96
+(model, run, rendering, schema) processes ran in parallel; 25 were stopped by a session time
+limit and resumed from their checkpoints, sharded three ways, with finished batches served
+from cache. Every cell covers all ten firms. Some replies omitted lines: the lowest coverage
+was 274 of 330 unassessable pairs (Gemma 4, plain firms, menu without abstaining verdicts or
+warning); re-requesting returned the cached replies, and omitted lines are never coerced to a
+verdict. The control renderings were checked to carry labels identical to the plain firms.
+
 ## Appendix D: The anchor firm's labels and per-model results
 
 ### D.0 Trivial baselines and all thirteen models
 
-**Table 5 — Trivial baselines.** Across 31 firms (the anchor and 30 generated), averaged over
+**Table 6 — Trivial baselines.** Across 31 firms (the anchor and 30 generated), averaged over
 the firms in which each rate is defined.
 
 <!-- BEGIN GENERATED: table1-trivial -->
@@ -796,7 +889,7 @@ A dash marks a rate undefined for that system: `always_pass` and `always_abstain
 anchor firm) while detecting nothing; `always_fail` and the oracle both score 0 on the
 false-green rate and 1 on recall, which is why the false-alarm rate must be reported too.
 
-**Table 6 — All thirteen models on the anchor subset.**
+**Table 7 — All thirteen models on the anchor subset.**
 
 <!-- BEGIN GENERATED: table-anchor-all -->
 | Model | Developer | Runs | Answered (offered) | FGR offered | FGR offered, answered only | Recall offered (of 20) | FGR dashboard | Change significant? |
@@ -948,9 +1041,9 @@ resamples *obligations* (2,000 draws, fixed seed), since pairs under one obligat
 rule text and records. At 140 pairs most differences *between* models are not resolved, so
 we do not rank models and list them alphabetically. The comparison the study is built for is
 *within* a model across schemas: the paired difference on withheld pairs both runs answered,
-Holm-corrected across the six models. All six remain significant at 0.05 (Table 10).
+Holm-corrected across the six models. All six remain significant at 0.05 (Table 11).
 
-**Table 7 — Single-run models on the anchor subset, offered schema.** One row per model on the 140-pair subset, with
+**Table 8 — Single-run models on the anchor subset, offered schema.** One row per model on the 140-pair subset, with
 the trivial baselines as reference rows. The false-alarm column is 0.000 by construction,
 since the subset has no conforming pair.
 
@@ -974,7 +1067,7 @@ runs from 0.050 to 0.450: models answer `needs_evidence` on violations whose evi
 the exports. Abstention F1 is between 0.766 and 0.918, so the abstentions mostly land on the
 right pairs; there are too many of them.
 
-**Table 8 — Strict label view.** The same runs scored under the strict view (D.3). Alerts: the verdicts given on the five future deadlines the strict view removes.
+**Table 9 — Strict label view.** The same runs scored under the strict view (D.3). Alerts: the verdicts given on the five future deadlines the strict view removes.
 
 <!-- BEGIN GENERATED: table2b-strict -->
 | Model | Condition | FGR, engine | FGR, strict | Recall, engine (of 20) | Recall, strict (of 10) | Alerts: fail / pass / other |
@@ -999,7 +1092,7 @@ stop counting as misses. A `pass` on a deadline days away is the one alert outco
 reviewer would never see: offered an abstention, models gave it on 2 of 30 alerts; without
 it, on 7 of 30, three of them Nemotron Ultra's.
 
-**Table 9 — Audited label view.** The two withheld pairs the first audit overturned are
+**Table 10 — Audited label view.** The two withheld pairs the first audit overturned are
 removed; the scored denominator is in every row.
 
 <!-- BEGIN GENERATED: table2c-audited -->
@@ -1023,7 +1116,7 @@ Removing the two I-9 signature pairs lowers the false-green rate by 0.008 to 0.0
 of the 12 runs; in the twelfth, Lightning without the abstention, it rises by 0.004. It
 changes neither the ordering of models nor the direction of any condition effect.
 
-**Table 10 — Offered versus dashboard schema, single-run models.**
+**Table 11 — Offered versus dashboard schema, single-run models.**
 
 <!-- BEGIN GENERATED: table3-ablation -->
 | Model | Unassessable pairs answered in both | FGR offered | FGR dashboard | Change [95% CI] | Holm-adjusted p | Off-schema replies (dashboard) |
@@ -1047,7 +1140,7 @@ model returned an off-schema verdict among the pairs it answered. This condition
 redefines `pass` and drops a warning paragraph, so its effect is that of moving to a
 dashboard schema; Sections 6 and 7 take it apart.
 
-**Table 11 — False-green rate by regime, offered schema.** In parentheses, the regime's
+**Table 12 — False-green rate by regime, offered schema.** In parentheses, the regime's
 scored pairs of any label.
 
 <!-- BEGIN GENERATED: table4-regime -->
@@ -1066,9 +1159,9 @@ Cells are the false-green rate over the regime's unassessable pairs; in parenthe
 <!-- END GENERATED: table4-regime -->
 
 Three regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost every false
-green; H-1B status and FDNS site visits have none. Figure 6 shows the same data as a heatmap.
+green; H-1B status and FDNS site visits have none. Figure 7 shows the same data as a heatmap.
 
-<!-- FIGURE: fig_regime_heatmap | wide | False-green rate by regime and model on the anchor subset, offered schema (the data of Table 11). False greens concentrate in the regimes whose exports carry a populated column next to the missing evidence. -->
+<!-- FIGURE: fig_regime_heatmap | wide | False-green rate by regime and model on the anchor subset, offered schema (the data of Table 12). False greens concentrate in the regimes whose exports carry a populated column next to the missing evidence. -->
 
 ### D.5 Further declared analyses
 
@@ -1108,7 +1201,7 @@ pairs, a step added after the first result was seen, gives the excerpts in Secti
 Study 2 runs the same protocol on all 252 pairs of six generated firms (Section 4.2), which
 carry what the anchor firm lacks: conforming controls, a third of them near-miss cases on
 the legal boundary. Firms were fixed in `nofalsegreen/study2.py` before any call. Results
-come from the three repeated-run models, three runs each, in the Study 2 rows of Table 13. The declared free-tier sweep was stopped after one model, superseded by Study 3
+come from the three repeated-run models, three runs each, in the Study 2 rows of Table 14. The declared free-tier sweep was stopped after one model, superseded by Study 3
 (Section 6), which runs four models from other developers on fresh firms.
 
 **A scoping defect, and what it touches.** While preparing Study 3 we found that the scoped
@@ -1116,13 +1209,13 @@ prompt for the wage rule never carried a generated firm's `actual_wage_system` e
 the rule needs. In Study 2 every wage pair was therefore sent without it. The 27 withheld
 wage pairs are unaffected, since their evidence was missing either way. The 27 decidable wage
 pairs (three firms, labelled `pass` or `fail`) were not decidable from what the models saw,
-and are excluded from every Study 2 metric. False-green rates and the Table 14 contrasts do
+and are excluded from every Study 2 metric. False-green rates and the Table 15 contrasts do
 not change. Detection and false-alarm figures do, and one reading in an earlier version of
 this paper was wrong: we attributed Gemini 3.1 Pro's near-miss false alarms (0.162) to
 caution about evidence that was present. They were requests for the missing actual-wage
 export, which was correct. The defect is fixed for Study 3.
 
-**Schema contrasts.** On these firms no contrast survives correction (Table 14), consistent with firms that carry no proxy columns.
+**Schema contrasts.** On these firms no contrast survives correction (Table 15), consistent with firms that carry no proxy columns.
 
 **Generated firms are easier.** With abstention offered, the three models report 0.021 to
 0.071 of unassessable pairs as compliant, below their anchor-firm rates. Gemini 3.1 Pro and 3.8
@@ -1140,7 +1233,7 @@ extension was filed (Section 9), changes no conclusion; no false green fell on t
 
 <!-- FIGURE: fig_detection_vs_safety | 0.5\textwidth | Study 3, proxy-column firms, offered schema: violation recall against false-green rate, one point per model. Higher recall goes with fewer false greens (Spearman −0.55), but no high-recall model is near zero. -->
 
-**Table 12 — Schema contrasts on plain and proxy-column firms (exploratory).**
+**Table 13 — Schema contrasts on plain and proxy-column firms (exploratory).**
 
 <!-- BEGIN GENERATED: table-arm-contrasts -->
 | Change of schema | Plain firms (exploratory) | Proxy firms (declared test) |
@@ -1152,7 +1245,7 @@ Pooled over the seven models with equal weight; same pairs, clusters and bootstr
 <!-- END GENERATED: table-arm-contrasts -->
 
 
-**Table 13 — The three repeated-run models, both studies, four schemas.** Mean of three runs, with the minimum and maximum in brackets.
+**Table 14 — The three repeated-run models, both studies, four schemas.** Mean of three runs, with the minimum and maximum in brackets.
 
 <!-- BEGIN GENERATED: table7-vertex -->
 | Model | Study | Schema | False green | FG, answered only | Recall | False alarm, near-miss | Unassessable pairs answered pass / fail / needs_ev. / unmon. | Min answered |
@@ -1185,7 +1278,7 @@ Pooled over the seven models with equal weight; same pairs, clusters and bootstr
 Schemas: *offered* (four verdicts, evidence-anchored definitions); *removed-only* (offered minus `needs_evidence`); *closed* (`pass`/`fail` only, evidence-anchored definitions kept); *dashboard* (`pass`/`fail` only, `pass` redefined as "the obligation is satisfied", warning dropped). The anchor subset has 120 unassessable pairs and no controls; Study 2 rates are pooled over its six firms (126 unassessable pairs). Min answered: the fewest pairs answered in any of the three runs. The verdict columns show every off-schema answer: none occurred on an unassessable pair in any cell.
 <!-- END GENERATED: table7-vertex -->
 
-**Table 14 — Paired schema contrasts, repeated-run models.**
+**Table 15 — Paired schema contrasts, repeated-run models.**
 
 <!-- BEGIN GENERATED: table8-contrasts -->
 | Model | Study | Change of schema | Unassessable pairs | Change in FGR [95% CI] | Holm p |
@@ -1223,7 +1316,7 @@ false-green rates differ by at most 0.142, and by 0.06 or less in 21 of them. Th
 run-to-run variation on one host at temperature 0; it says nothing about variation across
 hosts, so it does not license the single runs of Section 7.
 
-**Table 15 — Study 3, false-green rate by model, firm rendering and schema.**
+**Table 16 — Study 3, false-green rate by model, firm rendering and schema.**
 
 <!-- BEGIN GENERATED: table9-study3 -->
 | Model | Arm | FGR offered | removed-only | closed | dashboard | Recall, offered | False alarm, offered | Min answered |
@@ -1246,7 +1339,7 @@ hosts, so it does not license the single runs of Section 7.
 Twelve fresh firms (504 pairs, 180 unassessable) per arm, one run per cell. *plain*: generator v2; *proxy*: the same firms with the five proxy columns (generator v3). False alarm is any non-`pass` verdict on one of the 237 conforming controls.
 <!-- END GENERATED: table9-study3 -->
 
-**Table 16 — Study 3, the declared tests.**
+**Table 17 — Study 3, the declared tests.**
 
 <!-- BEGIN GENERATED: table10-study3-tests -->
 | Estimate | P1 abstention | P2 definition and warning | P3 proxy columns, dashboard | P4 proxy columns, offered |

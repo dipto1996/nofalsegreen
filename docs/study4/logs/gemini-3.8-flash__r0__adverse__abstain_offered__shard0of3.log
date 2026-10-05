@@ -1,0 +1,33 @@
+Study 4 (adverse): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study4-adverse', 'synthetic-002023-study4-adverse', 'synthetic-002040-study4-adverse', 'synthetic-002069-study4-adverse']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study4-adverse FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002023-study4-adverse FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002040-study4-adverse FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5665 output tokens, 38s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8141 output tokens, 52s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 17712 output tokens, 105s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 15869 output tokens, 96s, finish=stop, ok
+  synthetic-002069-study4-adverse FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_offered: FGR 0.000 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemini-3.8-flash__r0__adverse__abstain_offered__shard0of3.json

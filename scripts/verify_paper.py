@@ -343,9 +343,10 @@ for _k, _lab in zip(_pk, ("abstention", "definition", "dashboard", "recommended"
     claim(f"{_v['delta']:+.3f} [{_v['ci95'][0]:+.2f}, {_v['ci95'][1]:+.2f}]" in _P,
           f"primary {_lab}: {_v['delta']:+.3f} with its interval in Table 3")
 _AB = re.sub(r"\s+", " ", paper[paper.index("## Abstract"):paper.index("## 1. Introduction")])
-claim(f"by {_pr[_pk[0]]['delta']:.3f}" in _AB and f"by {_pr[_pk[1]]['delta']:.3f}" in _AB and
-      f"by {_pr[_pk[2]]['delta']:.3f} under a pass/fail dashboard" in _AB and f"by {_pr[_pk[3]]['delta']:.3f} under a schema" in _AB,
-      "abstract effect sizes match the primary estimates")
+claim(f"by {_pr[_pk[2]]['delta']:.3f} under a pass/fail dashboard" in _AB
+      and f"by {_pr[_pk[3]]['delta']:.3f} when abstention was offered" in _AB
+      and f"({_RB['firm_clustered'][_pk[2]]['firm_mean_effect']:.3f} and {_RB['firm_clustered'][_pk[3]]['firm_mean_effect']:.3f} with firms weighted equally" in _AB,
+      "abstract effect sizes match the primary estimates, pooled and firm-weighted")
 _s4 = _S3["S4_by_developer_group"]
 claim(all(v["p_holm"] < 0.05 and v["delta"] > 0 for v in _s4.values()),
       "every primary effect significant within each developer group, as stated")
@@ -507,6 +508,69 @@ for forbidden in ["250-rule", "237-rule", "612 cases", "768 checks"]:
     claim(forbidden not in paper, f"paper avoids unverified figure '{forbidden}'")
 claim("not an independent baseline" in paper or "do not" in paper and "acceptance gate" in paper,
       "paper excludes the co-developed engine as a baseline")
+
+# verdict allocation on unassessable pairs, Study 3 (mean over the seven models)
+_FL = json.loads((ROOT / "docs" / "study3" / "exploratory.json").read_text())["verdict_flow"]
+
+
+def _alloc(arm, cond, verdict):
+    sh = [v.get(verdict, 0) / sum(v.values()) for k, v in _FL.items() if k.endswith(f"::{arm}::{cond}")]
+    return f"{sum(sh) / len(sh):.3f}"
+
+
+_flat = paper.replace("\n", " ")
+claim(f"{_alloc('decoy', 'abstain_offered', 'needs_evidence')} of unassessable pairs were answered `needs_evidence`, "
+      f"{_alloc('decoy', 'abstain_offered', 'pass')} `pass` and {_alloc('decoy', 'abstain_offered', 'fail')} `fail`" in _flat
+      and f"{_alloc('decoy', 'abstain_withheld', 'pass')} were `pass` and {_alloc('decoy', 'abstain_withheld', 'fail')} `fail`" in _flat,
+      "verdict allocation on proxy-column firms matches exploratory.json")
+
+# Study 4 (docs/STUDY4_DECLARATION.md)
+_S4 = json.loads((ROOT / "docs" / "study4" / "results.json").read_text())
+_P4, _X4, _C4 = _S4["primary"], _S4["secondary"], _S4["cells"]
+_d = lambda k: _P4[k]["delta"]  # noqa: E731
+_fg = lambda arm, v, m=None: (_C4[f"{arm}::{v}::r0"]["by_model"][m]["fgr"] if m  # noqa: E731
+                              else _C4[f"{arm}::{v}::r0"]["fgr_mean_over_models"])
+_k = {k[:2]: k for k in _P4}
+claim(f"0.{round(_X4['renamed - plain | abstain_offered']['delta'] * 1000):03d} over plain firms" in _flat
+      and f"by {_X4['irrelevant - plain | abstain_offered']['delta']:.3f}. The named" in _flat,
+      "Study 4: renamed and irrelevant vs plain, offered")
+claim(f"raised them {_d(_k['H1']):.3f} more than their renamed twins (H1) and {_d(_k['H2']):.3f} more" in _flat,
+      "Study 4: H1, H2 effects")
+claim(f"renamed values alone added {_X4['renamed - plain | abstain_withheld']['delta']:.3f}" in _flat,
+      "Study 4: renamed vs plain, dashboard")
+claim(f"+{_d(_k['H3']):.3f} (H3, Holm p = {_P4[_k['H3']]['p_holm']:.3f})" in _flat, "Study 4: H3")
+_adv = _C4["adverse::abstain_offered::r0"]["by_model"]
+claim(all(_adv[m]["allocation"].get("needs_evidence") == 330 for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash"))
+      and f"answered `pass` on {_adv['gemma-4-26b-a4b-it-maas']['allocation']['pass']} of them" in _flat
+      and _adv["gemma-4-26b-a4b-it-maas"]["allocation"].get("fail", 0) > 0,
+      "Study 4: adverse allocation (Gemini all needs_evidence; Gemma passes; fails only from Gemma)")
+claim(f"by {_d(_k['H4']):.3f} (H4)" in _flat and f"warning by {_d(_k['H6']):.3f}" in _flat
+      and f"changed them by {_d(_k['H5']):.3f} (H5, not confirmed)".replace("-", "−") in _flat
+      and _P4[_k["H5"]]["outcome"] == "not confirmed",
+      "Study 4: factorial main effects H4-H6")
+claim(f"+{_d(_k['H4']):.3f})" in _flat and f"(+{_d(_k['H6']):.3f})" in _flat and f"(−{_d(_k['H7']):.3f})" in _flat,
+      "abstract: Study 4 effects")
+claim(max(abs(_X4[f"{f} main effect | plain firms"]["delta"]) for f in "ODW") <= 0.019 + 1e-9
+      and "more than 0.019" in _flat, "Study 4: plain-firm factorial effects")
+claim(f"from {_fg('proxy', 'abstain_offered'):.3f} to {_fg('proxy', 'cite_first'):.3f} (H7, Holm p = {_P4[_k['H7']]['p_holm']:.3f})" in _flat
+      and _fg("proxy", "cite_first", "gemini-3.1-pro-preview") == 0
+      and f"from {_fg('proxy', 'abstain_offered', 'gemini-3.8-flash'):.3f} to {_fg('proxy', 'cite_first', 'gemini-3.8-flash'):.3f}" in _flat
+      and f"from {_fg('proxy', 'abstain_offered', 'gemma-4-26b-a4b-it-maas'):.3f} to {_fg('proxy', 'cite_first', 'gemma-4-26b-a4b-it-maas'):.3f}" in _flat,
+      "Study 4: cite-first rates")
+_cc = _S4["cite_first_costs"]
+claim(all(_cc[f"proxy::cite_first"][m]["recall"] >= _cc["proxy::abstain_offered"][m]["recall"] for m in _cc["proxy::cite_first"])
+      and "with no loss of recall" in _flat, "Study 4: cite-first costs no recall")
+_cf = _S4["cite_first_pass_cites_required_export"]["gemma-4-26b-a4b-it-maas"]
+claim(_cf["cite_i9_export"] == 0 and f"none of its {_cf['passes']} remaining" in _flat, "Study 4: Gemma cite-first passes")
+claim(all(v["fgr_after_gate"] == 0 for v in _S4["deterministic_gate"].values()), "Study 4: gate removes every false green")
+_rr = _S4["repeat_runs"]
+_sp4 = max(max(v) - min(v) for k, v in _rr.items() if "per run" not in k)
+_po, _pd = _rr["proxy - plain per run | abstain_offered"], _rr["proxy - plain per run | abstain_withheld"]
+claim(f"at most {_sp4:.3f}" in _flat and f"between {min(_po):.3f} and {max(_po):.3f}" in _flat
+      and f"between {min(_pd):.3f} and {max(_pd):.3f}" in _flat, "Study 4: repeat-run spreads")
+_cov = min(330 - v["allocation"].get("unanswered", 0) for c in _C4.values() for v in c["by_model"].values())
+claim(f"lowest coverage\nwas {_cov} of 330".replace("\n", " ") in _flat, "Study 4: lowest coverage")
+claim("table-study4" in paper, "Study 4 table is generated")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))

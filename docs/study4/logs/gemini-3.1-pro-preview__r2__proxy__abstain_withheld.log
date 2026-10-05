@@ -1,0 +1,79 @@
+Study 4 (proxy): 10 firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r2 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5715 output tokens, 47s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6885 output tokens, 51s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (24 parsed so far)
+        attempt 1: 2430 output tokens, 15s, finish=stop, ok
+  synthetic-002003-study3c-proxy INCOMPLETE: 30/42 pairs, 0 unrecovered + 1 failed batches; resume later
+      batch 1/4 (0 parsed so far)
+        attempt 1: 14312 output tokens, 96s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6654 output tokens, 47s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31034 output tokens, 183s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r2: RuntimeError: HTTP 500: {
+  "error": {
+    "code": 500,
+    "message": "Internal error encountered.",
+    "status": "INTERNAL"
+  }
+}
+ after 224s
+        attempt 1: 25985 output tokens, 244s, finish=stop, ok
+  synthetic-002007-study3c-proxy FGR 0.636  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5417 output tokens, 38s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 7872 output tokens, 57s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5625 output tokens, 36s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2994 output tokens, 20s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 7059 output tokens, 52s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3039 output tokens, 20s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4838 output tokens, 30s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4513 output tokens, 29s, finish=stop, ok
+  synthetic-002023-study3c-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 7017 output tokens, 52s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 4063 output tokens, 28s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4395 output tokens, 27s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3333 output tokens, 21s, finish=stop, ok
+  synthetic-002026-study3c-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5456 output tokens, 54s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8497 output tokens, 59s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5366 output tokens, 34s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3209 output tokens, 21s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6143 output tokens, 42s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8106 output tokens, 54s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5141 output tokens, 31s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3780 output tokens, 24s, finish=stop, ok
+  synthetic-002040-study3c-proxy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6801 output tokens, 46s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 9985 output tokens, 66s, finish=stop, ok
+      batch 3/4 (24 parsed so far)

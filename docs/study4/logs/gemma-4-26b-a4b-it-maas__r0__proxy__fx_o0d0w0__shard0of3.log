@@ -1,0 +1,30 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study3c-proxy', 'synthetic-002023-study3c-proxy', 'synthetic-002040-study3c-proxy', 'synthetic-002069-study3c-proxy']
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['fx_o0d0w0']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 272 output tokens, 13s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study3c-proxy FGR 0.909  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002023-study3c-proxy FGR 0.939  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (8 parsed so far)
+      batch 3/4 (20 parsed so far)
+      batch 4/4 (32 parsed so far)
+  synthetic-002040-study3c-proxy FGR 0.576  recall 0.000  absF1 0.000  unparsed 4  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002069-study3c-proxy FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::fx_o0d0w0: FGR 0.856 (sd 0.191)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study4/runs/gemma-4-26b-a4b-it-maas__r0__proxy__fx_o0d0w0__shard0of3.json
