@@ -216,7 +216,7 @@ def parse_response(text: str, expected_pair_ids: list[str], variant: str):
     unparseable = len(mentioned_without_verdict - set(seen))
     off_schema = 0
     variant = variant[:-len("_para")] if variant.endswith("_para") else variant
-    if variant in (ABSTAIN_WITHHELD, ABSTAIN_CLOSED):
+    if variant in (ABSTAIN_WITHHELD, ABSTAIN_CLOSED) or variant.startswith("fx_o0"):
         off_schema = sum(1 for pr in seen.values()
                          if pr.verdict in (Verdict.NEEDS_EVIDENCE, Verdict.UNMONITORED))
     elif variant == ABSTAIN_REMOVED_ONLY:

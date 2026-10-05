@@ -163,6 +163,7 @@ class GeneratorConfig:
     as_of: date = date(2026, 6, 29)
     decoys: bool = False            # v3: adjacent-but-insufficient roster columns (see docstring)
     decoy_columns: tuple = ()       # Study 3c: render only these proxy columns (empty = all five)
+    decoy_style: str = "proxy"      # Study 4 controls: proxy | renamed | irrelevant | adverse
 
 
 class FirmGenerator:
@@ -286,6 +287,7 @@ class FirmGenerator:
                     "withhold_export": cfg.withhold_export, "as_of": cfg.as_of.isoformat(),
                     **({"decoys": True} if cfg.decoys else {}),
                     **({"decoy_columns": list(cfg.decoy_columns)} if cfg.decoy_columns else {}),
+                    **({"decoy_style": cfg.decoy_style} if cfg.decoys and cfg.decoy_style != "proxy" else {}),
                 },
                 "rulebook_version": self.rb.version,
                 "synthetic": True,
@@ -323,15 +325,54 @@ class FirmGenerator:
         return out
 
     def _add_decoys(self, rng: random.Random, workers: list[dict]) -> None:
+        """Roster columns beside the required evidence (see module docstring).
+
+        Study 4 control styles (docs/STUDY4_DECLARATION.md) draw from the same
+        stream in the same order, so each style's firm is paired with the plain
+        firm of its seed exactly as the proxy firm is:
+          renamed     the proxy VALUES under neutral names (rosterField1..5)
+          irrelevant  five columns of the same types and placement whose meaning
+                      has nothing to do with any obligation
+          adverse     the proxy NAMES with values that suggest non-compliance
+        """
+        style = self.cfg.decoy_style
         for w in workers:
-            w["decoy"] = {
+            # Same draws in the same order as the original proxy dict literal,
+            # whose middle draw happens only for workers with an authorization
+            # expiry: Study 3 and 3c proxy firms must regenerate byte for byte.
+            auth = bool(w["auth_expiry"])
+            d_onb = rng.randint(0, 6)
+            d_auth = rng.randint(90, 1000) if auth else 0
+            d_band = rng.randint(3, 8)
+            if style == "irrelevant":
+                w["decoy"] = {
+                    "badgeStatus": "Active",
+                    "parkingPermitIssuedDate": (w["start"] - timedelta(days=d_onb)).isoformat(),
+                    "laptopWarrantyThrough": ((self.cfg.as_of + timedelta(days=d_auth)).isoformat() if auth else ""),
+                    "annualTrainingBudgetUsd": 1_500 + 250 * d_band,
+                    "commuterBenefitUsd": 600 + 120 * d_onb,
+                }
+                continue
+            if style == "adverse":
+                w["decoy"] = {
+                    "i9Status": "Incomplete",
+                    "onboardingCompletedDate": (w["start"] + timedelta(days=10 + d_onb)).isoformat(),
+                    "workAuthValidThrough": ((self.cfg.as_of - timedelta(days=d_auth % 300 + 30)).isoformat()
+                                             if auth else ""),
+                    "annualBaseSalary": min(w["pw"], w["actual"]) - 1_200 * d_band if w["visa"] == "H-1B" else w["annual"],
+                    "payBandMidpoint": min(w["pw"], w["actual"]) - 1_200 * (d_band + 4),
+                }
+                continue
+            vals = {
                 "i9Status": "Complete",
-                "onboardingCompletedDate": (w["start"] - timedelta(days=rng.randint(0, 6))).isoformat(),
-                "workAuthValidThrough": ((self.cfg.as_of + timedelta(days=rng.randint(90, 1000))).isoformat()
-                                         if w["auth_expiry"] else ""),
+                "onboardingCompletedDate": (w["start"] - timedelta(days=d_onb)).isoformat(),
+                "workAuthValidThrough": ((self.cfg.as_of + timedelta(days=d_auth)).isoformat() if auth else ""),
                 "annualBaseSalary": max(w["pw"], w["actual"]) if w["visa"] == "H-1B" else w["annual"],
-                "payBandMidpoint": w["actual"] - 1_200 * rng.randint(3, 8),
+                "payBandMidpoint": w["actual"] - 1_200 * d_band,
             }
+            if style == "renamed":
+                vals = {f"rosterField{i}": v for i, v in enumerate(vals.values(), 1)}
+            w["decoy"] = vals
 
     def _make_lcas(self, rng: random.Random, workers: list[dict]) -> list[dict]:
         out = []

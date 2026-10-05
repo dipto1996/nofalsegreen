@@ -32,7 +32,7 @@ from baselines.freetier import (  # noqa: E402
     Quota,
 )
 from baselines.llm import Usage, run_firm  # noqa: E402
-from baselines.prompts import ABSTAIN_OFFERED, ABSTAIN_WITHHELD, PROMPT_VERSION  # noqa: E402
+from baselines.prompts import ABSTAIN_OFFERED, ABSTAIN_WITHHELD, CITE_FIRST, FACTORIAL, PROMPT_VERSION  # noqa: E402
 from nofalsegreen import northwind  # noqa: E402
 from nofalsegreen.generator import FirmGenerator, GeneratorConfig  # noqa: E402
 from nofalsegreen.metrics import score  # noqa: E402
@@ -49,7 +49,8 @@ def main() -> int:
     ap.add_argument("--firms", type=int, default=0, help="generated firms (0 = anchor only)")
     ap.add_argument("--variant", default="both",
                     choices=[ABSTAIN_OFFERED, ABSTAIN_WITHHELD, "abstain_removed_only", "abstain_closed",
-                             "abstain_offered_para", "abstain_withheld_para", "both"])
+                             "abstain_offered_para", "abstain_withheld_para", "both",
+                             *FACTORIAL, CITE_FIRST])
     ap.add_argument("--batch", type=int, default=8,
                     help="pairs per call; reasoning models need a small batch "
                          "so their trace plus verdicts fit the output budget")
@@ -77,6 +78,8 @@ def main() -> int:
                          "(nofalsegreen/study3.py, docs/STUDY3_PREREGISTRATION.md)")
     ap.add_argument("--study3c", default=None,
                     help="evaluate one arm of the declared Study 3c firms (nofalsegreen/study3c.py)")
+    ap.add_argument("--study4", default=None,
+                    help="evaluate one control arm of the declared Study 4 firms (nofalsegreen/study4.py)")
     ap.add_argument("--shard", default=None,
                     help="k/n: evaluate only firms k, k+n, ... (throughput only; each shard "
                          "needs its own cache, results and checkpoint files)")
@@ -121,6 +124,10 @@ def main() -> int:
         from nofalsegreen import study3c
         firms = study3c.load_firms(rb, args.study3c)
         print(f"Study 3c ({args.study3c}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
+    if args.study4:
+        from nofalsegreen import study4
+        firms = study4.load_firms(rb, args.study4)
+        print(f"Study 4 ({args.study4}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
     if args.shard:
         k, n = map(int, args.shard.split("/"))
         firms = firms[k::n]

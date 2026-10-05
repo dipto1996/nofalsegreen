@@ -177,6 +177,48 @@ _MENU_WITHHELD_PARA = """Allowed verdicts:
 Give every pair one of these two verdicts."""
 
 
+# Study 4 (docs/STUDY4_DECLARATION.md, declared before any call): the three
+# things the offered -> dashboard change bundles, varied one at a time in a 2x2x2
+# factorial. Variant "fx_o{O}d{D}w{W}":
+#   O  1 = the two abstaining verdicts are listed with their offered definitions
+#   D  1 = pass/fail defined by the required evidence; 0 = bare definitions
+#   W  1 = the one-sentence warning is present
+# Every menu ends with the same closing sentence, so menus differ only in O, D, W.
+_FX_PASS = {1: "pass            the required evidence is present in the exports and satisfies the obligation",
+            0: "pass            the obligation is satisfied"}
+_FX_FAIL = {1: "fail            the required evidence is present in the exports and violates the obligation",
+            0: "fail            the obligation is violated"}
+_FX_ABSTAIN = """needs_evidence  the exports do not contain the firm-specific information needed to
+                  decide this obligation for this entity, so it cannot be evaluated
+                  either way
+  unmonitored     the obligation cannot be evaluated from employer export data at all"""
+_FX_WARNING = "A document that was not provided is not a document that is in order."
+FACTORIAL = tuple(f"fx_o{o}d{d}w{w}" for o in (1, 0) for d in (1, 0) for w in (1, 0))
+
+
+def _menu_factorial(variant: str) -> str:
+    o, d, w = (int(variant[i]) for i in (4, 6, 8))
+    lines = ["Permitted verdicts:", "  " + _FX_PASS[d], "  " + _FX_FAIL[d]]
+    if o:
+        lines.append("  " + _FX_ABSTAIN)
+    out = "\n".join(lines)
+    if w:
+        out += "\n\n" + _FX_WARNING
+    return out + "\n\nEvery pair must receive one of the verdicts listed above."
+
+
+# Study 4 evidence-gating prompt: the offered menu, plus a requirement to name
+# the column that IS the required record before committing.
+CITE_FIRST = "cite_first"
+_MENU_CITE_FIRST = _MENU_OFFERED + """
+
+Before you give `pass` or `fail`, identify the column that is itself the required
+record (for example, the Section 2 completion date in the I-9 export, or wages
+actually paid in the payroll register) and give it as the evidence field, in the
+form <export>.<column>. If no export contains that record, the verdict is
+`needs_evidence`, even when other columns suggest the obligation is met."""
+
+
 def base_variant(variant: str) -> str:
     """The schema a (possibly paraphrased) condition implements."""
     return variant[:-len("_para")] if variant.endswith("_para") else variant
@@ -186,6 +228,10 @@ def system_prompt(firm: Firm, variant: str) -> str:
     if variant in (ABSTAIN_OFFERED_PARA, ABSTAIN_WITHHELD_PARA):
         menu = {ABSTAIN_OFFERED_PARA: _MENU_OFFERED_PARA, ABSTAIN_WITHHELD_PARA: _MENU_WITHHELD_PARA}[variant]
         return _SYSTEM_PARA.format(as_of=firm.as_of, verdict_menu=menu)
+    if variant in FACTORIAL:
+        return _SYSTEM.format(as_of=firm.as_of, verdict_menu=_menu_factorial(variant))
+    if variant == CITE_FIRST:
+        return _SYSTEM.format(as_of=firm.as_of, verdict_menu=_MENU_CITE_FIRST)
     menu = {ABSTAIN_OFFERED: _MENU_OFFERED, ABSTAIN_WITHHELD: _MENU_WITHHELD,
             ABSTAIN_REMOVED_ONLY: _MENU_REMOVED_ONLY, ABSTAIN_CLOSED: _MENU_CLOSED}[variant]
     return _SYSTEM.format(as_of=firm.as_of, verdict_menu=menu)
