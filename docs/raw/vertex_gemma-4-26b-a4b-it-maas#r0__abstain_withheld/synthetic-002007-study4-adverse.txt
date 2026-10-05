@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	fail	-
+i9.section2.timeliness::SYN-1001	pass	2025-03-13
+i9.reverification.deadline::SYN-1001	fail	-
+i9.section1.timeliness::SYN-1002	fail	-
+i9.section2.timeliness::SYN-1002	pass	2023-06-22
+i9.reverification.deadline::SYN-1002	fail	-
+i9.section1.timeliness::SYN-1003	fail	-
+i9.section2.timeliness::SYN-1003	pass	2022-02-02
+i9.reverification.deadline::SYN-1003	fail	-
+i9.section1.timeliness::SYN-1004	fail	-
+i9.section2.timeliness::SYN-1004	pass	2021-10-04
+i9.reverification.deadline::SYN-1004	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	-
+i9.section2.timeliness::SYN-1005	pass	2021-09-16
+i9.reverification.deadline::SYN-1005	fail	-
+i9.section1.timeliness::SYN-1006	fail	-
+i9.section2.timeliness::SYN-1006	pass	2024-10-01
+i9.reverification.deadline::SYN-1006	fail	-
+i9.section1.timeliness::SYN-1007	fail	-
+i9.section2.timeliness::SYN-1007	pass	2022-10-14
+i9.reverification.deadline::SYN-1007	fail	-
+i9.section1.timeliness::SYN-1008	fail	-
+i9.section2.timeliness::SYN-1008	pass	2022-05-28
+i9.reverification.deadline::SYN-1008	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	-
+i9.section2.timeliness::SYN-1009	fail	-
+i9.reverification.deadline::SYN-1009	pass	2026-04-28
+i9.section1.timeliness::SYN-1010	fail	-
+i9.section2.timeliness::SYN-1010	fail	-
+i9.section1.timeliness::SYN-1011	fail	-
+i9.section2.timeliness::SYN-1011	fail	-
+i9.section1.timeliness::SYN-1012	fail	-
+i9.section2.timeliness::SYN-1012	fail	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	fail	170400
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	122400
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	126000
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	150000
+lca.wage.required_wage_greater_of::I-200-25004-100005	fail	138000
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	150000
+lca.wage.required_wage_greater_of::I-200-25006-100007	fail	106800
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	186000
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	150000

@@ -1,0 +1,88 @@
+i9.section1.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1001	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1002	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1003	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1004	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1005	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1005	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1006	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1006	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1006	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1007	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1007	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1007	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1008	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1008	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1008	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	2024-06-25
+i9.section2.timeliness::SYN-1009	pass	2024-06-25
+i9.reverification.deadline::SYN-1009	pass	2027-12-24
+i9.section1.timeliness::SYN-1010	pass	2025-06-29
+i9.section2.timeliness::SYN-1010	pass	2025-06-29
+i9.section1.timeliness::SYN-1011	pass	2025-09-28
+i9.section2.timeliness::SYN-1011	pass	2025-09-28
+i9.section1.timeliness::SYN-1012	pass	2022-02-25
+i9.section2.timeliness::SYN-1012	pass	2022-02-25
+lca.wage.required_wage_greater_of::I-200-25000-100001	fail	150000 < 142800 is false, but 150000 < 142800 is false; wait, 150000 >= 142800 (PW) and 150000 >= 150000 (Actual) -> pass. Let me re-check.
+LCA I-200-25000-100001: PW=142800. Actual Wage (Engineers, All Other)=150000. 150000 >= 142800. Pass.
+LCA I-200-25001-100002: PW=142800. Actual Wage (Engineers, All Other)=150000. 150000 >= 142800. Pass.
+LCA I-200-25002-100003: PW=142800. Actual Wage (Engineers, All Other)=150000. 150000 >= 142800. Pass.
+
+Wait, I must re-evaluate the LCA wage logic carefully.
+LCA I-200-25000-100001: PW 142800. Actual Wage (from actual_wage_system for 17-2199) is 150000. 150000 >= 142800. Pass.
+LCA I-200-25001-100002: PW 142800. Actual Wage (from actual_wage_system for 17-2199) is 150000. 150000 >= 142800. Pass.
+LCA I-200-25002-100003: PW 142800. Actual Wage (from actual_wage_system for 17-2199) is 150000. 150000 >= 142800. Pass.
+
+Let's re-check SYN-1009 Section 1. Hire date 2024-06-27. Onboarding completed 2024-06-25. Pass.
+SYN-1010 Section 1. Hire date 2025-06-30. Onboarding completed 2025-06-29. Pass.
+SYN-1011 Section 1. Hire date 2025-10-02. Onboarding completed 2025-09-28. Pass.
+SYN-1012 Section 1. Hire date 2022-03-01. Onboarding completed 2022-02-25. Pass.
+
+Wait, I need to check if the actual wage is the *greater* of the two.
+For I-200-25000-100001:
+Actual Wage (from actual_wage_system for 17-2199) = 150000.
+Prevailing Wage (from LCA) = 142800.
+Is 150000 >= max(150000, 142800)? Yes. Pass.
+
+Wait, I see a potential error in my logic for SYN-1009.
+SYN-1009: Hire date 2024-06-27. Onboarding 2024-06-25.
+Section 1 must be on/before first day of employment. 2024-06-25 is before 2024-06-27. Pass.
+Section 2 must be within 3 business days of first day. 2024-06-25 is before 2024-06-27. Pass.
+
+Let's re-verify all.
+
+i9.section1.timeliness::SYN-1009	pass	2024-06-25
+i9.section2.timeliness::SYN-1009	pass	2024-06-25
+i9.reverification.deadline::SYN-1009	pass	2027-12-24
+i9.section1.timeliness::SYN-1010	pass	2025-06-29
+i9.section2.timeliness::SYN-1010	pass	2025-06-29
+i9.section1.timeliness::SYN-1011	pass	2025-09-28
+i9.section2.timeliness::SYN-1011	pass	2025-09-28
+i9.section1.timeliness::SYN-1012	pass	2022-02-25
+i9.section2.timeliness::SYN-1012	pass	2022-02-25
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	150000
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	150000
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	150000
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	138000
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	186000
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	150000
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	118800
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	138000
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	186000

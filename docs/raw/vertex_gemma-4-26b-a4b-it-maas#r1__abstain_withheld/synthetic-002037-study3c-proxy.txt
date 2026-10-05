@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1001	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1002	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1003	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1004	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	2022-05-16
+i9.section2.timeliness::SYN-1005	pass	2022-05-16
+i9.reverification.deadline::SYN-1005	pass	2028-01-17
+i9.section1.timeliness::SYN-1006	pass	2022-04-10
+i9.section2.timeliness::SYN-1006	pass	2022-04-10
+i9.reverification.deadline::SYN-1006	pass	2028-05-17
+i9.section1.timeliness::SYN-1007	pass	2021-09-20
+i9.section2.timeliness::SYN-1007	pass	2021-09-20
+i9.reverification.deadline::SYN-1007	pass	2028-03-12
+i9.section1.timeliness::SYN-1008	pass	2024-09-14
+i9.section2.timeliness::SYN-1008	pass	2024-09-14
+i9.reverification.deadline::SYN-1008	pass	2026-11-01
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1009	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1009	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1010	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1010	pass	onboardingCompletedDate
+i9.section1.timeliness::SYN-1011	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1011	pass	onboardingCompletedDate
+i9.section1.timeliness::SYN-1012	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1012	pass	onboardingCompletedDate
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	WAGE_RATE_OF_PAY_FROM
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	138000
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	186000
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	150000
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	118800
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	138000
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	186000

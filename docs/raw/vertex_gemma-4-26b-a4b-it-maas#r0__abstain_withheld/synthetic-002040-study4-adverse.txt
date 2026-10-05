@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1001	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1002	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1003	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1004	fail	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1005	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1005	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1006	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1006	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1006	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1007	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1007	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1007	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1008	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1008	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1008	fail	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	-
+i9.section2.timeliness::SYN-1009	fail	-
+i9.reverification.deadline::SYN-1009	pass	2025-09-09
+i9.section1.timeliness::SYN-1010	fail	-
+i9.section2.timeliness::SYN-1010	fail	-
+i9.section1.timeliness::SYN-1011	fail	-
+i9.section2.timeliness::SYN-1011	fail	-
+i9.section1.timeliness::SYN-1012	fail	-
+i9.section2.timeliness::SYN-1012	fail	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	fail	172800
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	110400
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	124800
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	WAGE_RATE_OF_PAY_FROM
