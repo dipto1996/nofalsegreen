@@ -79,7 +79,7 @@ Our contributions are: a four-verdict task with a stated evidentiary standard (�
 
 \textbf{Overclaiming under insufficient evidence.} DEMM-Bench labels by construction whether agent records suffice and reports overclaims, including a ``container fallacy'' in which a reassuring artefact stands in for evidence (Solozobov, 2026); Partial Evidence Bench scores unsafe completeness claims, including in compliance audits, when evidence lies outside an agent's permissions (Tallam, 2026). We do not claim the directional, construction-labelled framing as new; we differ in subject, in the source of insufficiency (a missing export rather than permissions), and in manipulating proxy columns and verdict menus directly across models.
 
-\textbf{Insufficiency, distractors and answer menus.} Selective prediction treats abstention as a cost (Chow, 1970; El-Yaniv and Wiener, 2010; Geifman and El-Yaniv, 2017); language-model abstention is studied mostly on questions (Rajpurkar et al., 2018; Yin et al., 2023; Kirichenko et al., 2025; Wen et al., 2025; Kadavath et al., 2022), and models answer rather than abstain when context is insufficient (Joren et al., 2024). NotEnoughInfo or unknown labels exist for text and tables (Thorne et al., 2018; Aly et al., 2021; Wang et al., 2021; Theologitis et al., 2026) and unanswerable database questions (Lee et al., 2022; Wang et al., 2023; Lee et al., 2024). Irrelevant content changes answers whose label it leaves fixed (Shi et al., 2023), including irrelevant tax forms in rule application (Zhou et al., 2025), an instance of shortcut reliance (Geirhos et al., 2020); our proxy columns are the case where the distractor resembles the missing evidence and the error has a direction. Answer menus change behaviour: expanding a binary label set with ``insufficient evidence'' makes models more conservative (Fu et al., 2026), the presence and framing of an abstention option change how often models commit wrongly (Guo et al., 2026; Madhusudhan et al., 2025), and output formats and forced choice alter answers (Tam et al., 2024; Röttger et al., 2024; Sclar et al., 2024), while grading that gives no credit for uncertainty rewards guessing (Kalai et al., 2025). Our schema conditions place these effects in a compliance interface and separate removing the abstaining verdicts from redefining the committal ones.
+\textbf{Insufficiency, distractors and answer menus.} Selective prediction treats abstention as a cost (Chow, 1970; El-Yaniv and Wiener, 2010; Geifman and El-Yaniv, 2017); language-model abstention is studied mostly on questions (Rajpurkar et al., 2018; Yin et al., 2023; Kirichenko et al., 2025; Wen et al., 2025; Kadavath et al., 2022), and models answer rather than abstain when context is insufficient (Joren et al., 2024). NotEnoughInfo or unknown labels exist for text and tables (Thorne et al., 2018; Aly et al., 2021; Wang et al., 2021; Theologitis et al., 2026) and unanswerable database questions (Lee et al., 2022; Wang et al., 2023; Lee et al., 2024). Irrelevant content changes answers whose label it leaves fixed (Shi et al., 2023), including irrelevant tax forms in rule application (Zhou et al., 2025), an instance of shortcut reliance (Geirhos et al., 2020); our proxy columns are the case where the distractor resembles the missing evidence and the error has a direction. Answer menus change behaviour: expanding a binary label set with ``insufficient evidence'' makes models more conservative (Fu et al., 2026), the presence and framing of an abstention option change how often models commit wrongly (Guo et al., 2026; Madhusudhan et al., 2025). In CLEAR, adding ``I don't know'' to multiple-choice medical questions \emph{increased} wrong answers (Guo et al., 2026); here the abstaining verdicts are defined by whether the required record is present, and offering them lowers false greens (§6.2), so the effect of an abstention option depends on how it is defined, and output formats and forced choice alter answers (Tam et al., 2024; Röttger et al., 2024; Sclar et al., 2024), while grading that gives no credit for uncertainty rewards guessing (Kalai et al., 2025). Our schema conditions place these effects in a compliance interface and separate removing the abstaining verdicts from redefining the committal ones.
 
 \section{Task and evidence standard}\label{sec:3}
 An instance is a firm with source exports, entities (workers, LCAs, the employer), a rulebook of obligations each citing a regulation and listing the information needed to decide it, and a pinned evaluation date. A \textbf{pair} is an obligation and an entity it applies to; the target is one of four verdicts (Table 1). Columns are matched to the required information by meaning, and reference knowledge such as holidays is the system's to supply. If a required item is absent for the entity, the pair is \textbf{unassessable} and any verdict but \texttt{\path|needs_evidence|} is wrong, whether or not the underlying situation complies.
@@ -244,8 +244,6 @@ Amaral, O., Abualhaija, S., Torre, D., Sabetzadeh, M. and Briand, L. C. (2022). 
 
 Chalkidis, I., Jana, A., Hartung, D., Bommarito, M., Androutsopoulos, I., Katz, D. M. and Aletras, N. (2022). LexGLUE: A Benchmark Dataset for Legal Language Understanding in English. Proceedings of ACL 2022. \url{https://aclanthology.org/2022.acl-long.297}
 
-Chen, W., Wang, H., Chen, J., Zhang, Y., Wang, H., Li, S., Zhou, X. and Wang, W. Y. (2020). TabFact: A Large-scale Dataset for Table-based Fact Verification. ICLR 2020. \url{https://arxiv.org/abs/1909.02164}
-
 Chow, C. (1970). On optimum recognition error and reject tradeoff. IEEE Transactions on Information Theory 16(1):41-46. \url{https://doi.org/10.1109/TIT.1970.1054406}
 
 Dahl, M., Magesh, V., Suzgun, M. and Ho, D. E. (2024). Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models. Journal of Legal Analysis 16(1):64-93. \url{https://arxiv.org/abs/2401.01301}
@@ -257,8 +255,6 @@ El-Yaniv, R. and Wiener, Y. (2010). On the Foundations of Noise-free Selective C
 Fei, Z., Shen, X., Zhu, D., Zhou, F., Han, Z., Zhang, S., Chen, K., Shen, Z. and Ge, J. (2024). LawBench: Benchmarking Legal Knowledge of Large Language Models. Proceedings of EMNLP 2024. \url{https://aclanthology.org/2024.emnlp-main.452}
 
 Fu, Y., Kang, Y. and Zhao, Y. (2026). CalBrief: A Pilot Diagnostic Benchmark for Evidence-Calibrated Scientific Briefing with Large Language Models. arXiv preprint arXiv:2606.27383. \url{https://arxiv.org/abs/2606.27383}
-
-Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé, H. and Crawford, K. (2021). Datasheets for Datasets. Communications of the ACM 64(12). \url{https://doi.org/10.1145/3458723}
 
 Geifman, Y. and El-Yaniv, R. (2017). Selective Classification for Deep Neural Networks. Advances in Neural Information Processing Systems 30. \url{https://arxiv.org/abs/1705.08500}
 
@@ -286,8 +282,6 @@ Lee, G., Chay, W., Cho, S. and Choi, E. (2024). TrustSQL: Benchmarking Text-to-S
 
 Lee, G., Hwang, H., Bae, S., Kwon, Y., Shin, W., Yang, S., Seo, M., Kim, J.-Y. and Choi, E. (2022). EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records. NeurIPS 2022 Datasets and Benchmarks Track. \url{https://arxiv.org/abs/2301.07695}
 
-Lin, S., Hilton, J. and Evans, O. (2022). TruthfulQA: Measuring How Models Mimic Human Falsehoods. Proceedings of ACL 2022. \url{https://aclanthology.org/2022.acl-long.229}
-
 Luo, Y., Jiang, Y., Xie, Q., Lan, L., Cong, L. W., Rao, A. and Song, Y. (2026). ReguSim: Evaluating LLM Agent Rule Grounding in Financial Compliance. arXiv preprint arXiv:2608.19974. \url{https://arxiv.org/abs/2608.19974}
 
 Madhusudhan, N., Madhusudhan, S. T., Yadav, V. and Hashemi, M. (2025). Do LLMs Know When to NOT Answer? Investigating Abstention Abilities of Large Language Models. Proceedings of COLING 2025. \url{https://aclanthology.org/2025.coling-main.627}
@@ -296,19 +290,11 @@ Magesh, V., Surani, F., Dahl, M., Suzgun, M., Manning, C. D. and Ho, D. E. (2025
 
 Marino, B., Hunter, R., Schnabl, C., Jamali, Z., Kalpakos, M. E., Kashyap, M., Hinton, I., Hanson, A., Nazir, M., Steffek, F., Wen, H. and Lane, N. D. (2025). AIReg-Bench: Benchmarking Language Models That Assess AI Regulation Compliance. arXiv preprint arXiv:2510.01474. \url{https://arxiv.org/abs/2510.01474}
 
-Min, S., Krishna, K., Lyu, X., Lewis, M., Yih, W., Koh, P. W., Iyyer, M., Zettlemoyer, L. and Hajishirzi, H. (2023). FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation. Proceedings of EMNLP 2023. \url{https://aclanthology.org/2023.emnlp-main.741}
-
-Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I. D. and Gebru, T. (2019). Model Cards for Model Reporting. Proceedings of FAT* 2019. \url{https://doi.org/10.1145/3287560.3287596}
-
-Northcutt, C. G., Athalye, A. and Mueller, J. (2021). Pervasive Label Errors in Test Sets Destabilize Machine Learning Benchmarks. NeurIPS 2021 Datasets and Benchmarks Track. \url{https://arxiv.org/abs/2103.14749}
-
 Rajpurkar, P., Jia, R. and Liang, P. (2018). Know What You Don't Know: Unanswerable Questions for SQuAD. Proceedings of ACL 2018. \url{https://aclanthology.org/P18-2124}
 
 Ravichander, A., Black, A. W., Wilson, S., Norton, T. and Sadeh, N. (2019). Question Answering for Privacy Policies: Combining Computational and Legal Perspectives. Proceedings of EMNLP-IJCNLP 2019. \url{https://aclanthology.org/D19-1500}
 
 Röttger, P., Hofmann, V., Pyatkin, V., Hinck, M., Kirk, H. R., Schütze, H. and Hovy, D. (2024). Political Compass or Spinning Arrow? Towards More Meaningful Evaluations for Values and Opinions in Large Language Models. Proceedings of ACL 2024. \url{https://aclanthology.org/2024.acl-long.816}
-
-Sainz, O., Campos, J. A., García-Ferrero, I., Etxaniz, J., Lopez de Lacalle, O. and Agirre, E. (2023). NLP Evaluation in trouble: On the Need to Measure LLM Data Contamination for each Benchmark. Findings of EMNLP 2023. \url{https://aclanthology.org/2023.findings-emnlp.722}
 
 Sarkar, D. (2026). A Four-Axis Trustworthiness Benchmark for LLM-as-Judge in Principle-Based Regulation. KDD 2026 Workshop on Secure and Trustworthy Large Language Models. arXiv:2608.14329. \url{https://arxiv.org/abs/2608.14329}
 
@@ -338,13 +324,9 @@ Wang, N. X. R., Mahajan, D., Danilevsky, M. and Rosenthal, S. (2021). SemEval-20
 
 Wen, B., Yao, J., Feng, S., Xu, C., Tsvetkov, Y., Howe, B. and Wang, L. L. (2025). Know Your Limits: A Survey of Abstention in Large Language Models. Transactions of the Association for Computational Linguistics. \url{https://aclanthology.org/2025.tacl-1.26}
 
-Weston, J., Bordes, A., Chopra, S., Rush, A. M., van Merriënboer, B., Joulin, A. and Mikolov, T. (2015). Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks. arXiv preprint arXiv:1502.05698. \url{https://arxiv.org/abs/1502.05698}
-
 Yang, Y., Kim, I.-J. and Yoon, D. (2026). PASTA: A Scalable Framework for Multi-Policy AI Compliance Evaluation. Proceedings of CHI 2026. \url{https://doi.org/10.1145/3772318.3790966}
 
 Yin, Z., Sun, Q., Guo, Q., Wu, J., Qiu, X. and Huang, X. (2023). Do Large Language Models Know What They Don't Know? Findings of ACL 2023. \url{https://aclanthology.org/2023.findings-acl.551}
-
-Yu, T., Zhang, R., Yang, K., Yasunaga, M., Wang, D., Li, Z., Ma, J., Li, I., Yao, Q., Roman, S., Zhang, Z. and Radev, D. (2018). Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task. Proceedings of EMNLP 2018. \url{https://aclanthology.org/D18-1425}
 
 Zhang, J. and El-Gohary, N. M. (2016). Semantic NLP-Based Information Extraction from Construction Regulatory Documents for Automated Compliance Checking. Journal of Computing in Civil Engineering 30(2). \url{https://doi.org/10.1061/(ASCE})CP.1943-5487.0000346
 
