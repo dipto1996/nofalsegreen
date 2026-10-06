@@ -213,6 +213,59 @@ def main() -> int:
             test(firm_diffs([("proxy", cond)], [("plain", cond)], run=r)).get("delta") for r in RUNS]
     out["repeat_runs"] = var_
 
+    # ---- Added 2026-10-06 after review. The declaration listed the two-way
+    # interactions and cell means as descriptive output, but the first version
+    # of this script did not report the interactions; nothing below is a test.
+    def cond_effect(arm, factor, fixed):
+        """Effect of switching `factor` 1 -> 0 with `fixed` held, averaging the remaining factor."""
+        b, a = [], []
+        free = [f for f in "odw" if f != factor and f not in fixed]
+        for x in (0, 1):
+            kw = {**fixed, free[0]: x}
+            b.append((arm, fx(**{**kw, factor: 0})))
+            a.append((arm, fx(**{**kw, factor: 1})))
+        pf = firm_diffs(b, a)
+        return round(sum(pf.values()) / len(pf), 4) if pf else None
+
+    inter = {}
+    for f in "dw":
+        for o in (1, 0):
+            inter[f"{f.upper()} effect | O={o} (proxy firms)"] = cond_effect("proxy", f, {"o": o})
+    for d in (1, 0):
+        for w in (1, 0):
+            inter[f"D effect | O=0, W={w} (proxy firms)"] = firm_diffs([("proxy", fx(o=0, d=0, w=w))], [("proxy", fx(o=0, d=1, w=w))])
+    out["factorial_interactions_posthoc"] = {k: (round(sum(v.values()) / len(v), 4) if isinstance(v, dict) else v)
+                                             for k, v in inter.items()}
+
+    # all-pairs rates (the paper's FGR definition: unanswered pairs count as not false green)
+    for key, rcell in rates.items():
+        for m, x in rcell["by_model"].items():
+            x["fgr_all_pairs"] = round(x["allocation"].get("pass", 0) / len(unass), 4)
+        rcell["fgr_all_pairs_mean_over_models"] = round(
+            sum(x["fgr_all_pairs"] for x in rcell["by_model"].values()) / len(rcell["by_model"]), 4)
+
+    # cite_first: coverage on decidable pairs and the paper's false-alarm definition
+    def decided_all(arm, var, m):
+        d = preds.get((m, "r0", arm, var), {})
+        vio = [k for k, l in labels.items() if l.verdict.value == "fail"]
+        ok = [k for k, l in labels.items() if l.verdict.value == "pass"]
+        return {"recall_all_pairs": round(sum(k in d and d[k].verdict.value == "fail" for k in vio) / len(vio), 4),
+                "false_alarm_any_nonpass_all_pairs": round(sum(k in d and d[k].verdict.value != "pass" for k in ok) / len(ok), 4),
+                "unanswered_violations": sum(k not in d for k in vio), "unanswered_controls": sum(k not in d for k in ok),
+                "n_violations": len(vio), "n_controls": len(ok)}
+    out["cite_first_costs_all_pairs"] = {f"{arm}::{var}": {m: decided_all(arm, var, m) for m in models}
+                                         for arm in ("plain", "proxy") for var in (OFF, CITE_FIRST)}
+
+    # share of the proxy - renamed difference (in false-green counts, offered) carried by each model
+    share = {}
+    for m in models:
+        a, b = preds.get((m, "r0", "proxy", OFF), {}), preds.get((m, "r0", "renamed", OFF), {})
+        share[m] = sum(1 for k in unass if k in a and k in b and a[k].verdict.value == "pass") - \
+            sum(1 for k in unass if k in a and k in b and b[k].verdict.value == "pass")
+    tot = sum(share.values())
+    out["proxy_minus_renamed_count_share_posthoc"] = {m: {"count_diff": v, "share": round(v / tot, 4) if tot else None}
+                                                      for m, v in share.items()}
+
     (ROOT / "docs" / "study4").mkdir(exist_ok=True)
     (ROOT / "docs" / "study4" / "results.json").write_text(json.dumps(out, indent=1))
     for k, v in out["primary"].items():

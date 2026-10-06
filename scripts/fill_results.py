@@ -570,7 +570,7 @@ def table_study4() -> str:
            "H4": ("H4 Abstaining verdicts", "removed − listed (factorial)"),
            "H5": ("H5 Definitions", "bare − evidence-anchored (factorial)"),
            "H6": ("H6 Warning", "absent − present (factorial)"),
-           "H7": ("H7 Name the record first", "offered − offered with record named first")}
+           "H7": ("H7 Evidence-first prompt", "offered − offered with evidence-first prompt")}
     fmtp = lambda x: "<0.001" if x < 0.001 else f"{x:.3f}"  # noqa: E731
     rows = [head]
     for k, v in pr.items():

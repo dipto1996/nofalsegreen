@@ -545,7 +545,7 @@ claim(all(_adv[m]["allocation"].get("needs_evidence") == 330 for m in ("gemini-3
       and _adv["gemma-4-26b-a4b-it-maas"]["allocation"].get("fail", 0) > 0,
       "Study 4: adverse allocation (Gemini all needs_evidence; Gemma passes; fails only from Gemma)")
 claim(f"by {_d(_k['H4']):.3f} (H4)" in _flat and f"warning by {_d(_k['H6']):.3f}" in _flat
-      and f"changed them by {_d(_k['H5']):.3f} (H5, not confirmed)".replace("-", "−") in _flat
+      and f"them by {_d(_k['H5']):.3f} (H5, Holm p = {_P4[_k['H5']]['p_holm']:.3f}, not confirmed)".replace("-", "−") in _flat
       and _P4[_k["H5"]]["outcome"] == "not confirmed",
       "Study 4: factorial main effects H4-H6")
 claim(f"+{_d(_k['H4']):.3f})" in _flat and f"(+{_d(_k['H6']):.3f})" in _flat and f"(−{_d(_k['H7']):.3f})" in _flat,
@@ -558,10 +558,21 @@ claim(f"from {_fg('proxy', 'abstain_offered'):.3f} to {_fg('proxy', 'cite_first'
       and f"from {_fg('proxy', 'abstain_offered', 'gemma-4-26b-a4b-it-maas'):.3f} to {_fg('proxy', 'cite_first', 'gemma-4-26b-a4b-it-maas'):.3f}" in _flat,
       "Study 4: cite-first rates")
 _cc = _S4["cite_first_costs"]
-claim(all(_cc[f"proxy::cite_first"][m]["recall"] >= _cc["proxy::abstain_offered"][m]["recall"] for m in _cc["proxy::cite_first"])
-      and "with no loss of recall" in _flat, "Study 4: cite-first costs no recall")
+_ca = _S4["cite_first_costs_all_pairs"]
+claim(all(_ca[f"{a}::cite_first"][m]["recall_all_pairs"] >= _ca[f"{a}::abstain_offered"][m]["recall_all_pairs"]
+          for a in ("plain", "proxy") for m in _ca["proxy::cite_first"])
+      and "No model's recall over all violations fell" in _flat, "Study 4: cite-first lowers no model's recall (all pairs)")
+_g = _ca["plain::cite_first"]["gemma-4-26b-a4b-it-maas"]
+claim(f"left {_g['unanswered_violations']} of {_g['n_violations']} violations and {_g['unanswered_controls']} of {_g['n_controls']} controls unanswered" in _flat,
+      "Study 4: Gemma cite-first coverage on plain firms")
+_I = _S4["factorial_interactions_posthoc"]
+claim(f"(+{_I['W effect | O=0 (proxy firms)']:.3f}, against +{_I['W effect | O=1 (proxy firms)']:.3f} with them)" in _flat
+      and f"*lowered* false greens ({_I['D effect | O=0 (proxy firms)']:.3f})".replace("-", "−") in _flat,
+      "Study 4: factorial interactions")
+_sh = _S4["proxy_minus_renamed_count_share_posthoc"]["gemma-4-26b-a4b-it-maas"]["share"]
+claim(f"accounts for {round(_sh * 100)}% of the named-versus-renamed" in _flat, "Study 4: Gemma share of H1")
 _cf = _S4["cite_first_pass_cites_required_export"]["gemma-4-26b-a4b-it-maas"]
-claim(_cf["cite_i9_export"] == 0 and f"none of its {_cf['passes']} remaining" in _flat, "Study 4: Gemma cite-first passes")
+claim(_cf["cite_i9_export"] == 0 and f"none of Gemma 4's {_cf['passes']} remaining" in _flat, "Study 4: Gemma cite-first passes")
 claim(all(v["fgr_after_gate"] == 0 for v in _S4["deterministic_gate"].values()), "Study 4: gate removes every false green")
 _rr = _S4["repeat_runs"]
 _sp4 = max(max(v) - min(v) for k, v in _rr.items() if "per run" not in k)
@@ -571,6 +582,31 @@ claim(f"at most {_sp4:.3f}" in _flat and f"between {min(_po):.3f} and {max(_po):
 _cov = min(330 - v["allocation"].get("unanswered", 0) for c in _C4.values() for v in c["by_model"].values())
 claim(f"lowest coverage\nwas {_cov} of 330".replace("\n", " ") in _flat, "Study 4: lowest coverage")
 claim("table-study4" in paper, "Study 4 table is generated")
+
+# Study 5 (docs/STUDY5_DECLARATION.md)
+_S5 = json.loads((ROOT / "docs" / "study5" / "results.json").read_text())
+_P5, _C5 = _S5["primary"], _S5["cells"]
+_r = {k[:2]: v for k, v in _P5.items()}
+claim(f"raised false greens by {_r['R1']['delta']:.3f} (R1, Holm p = {_r['R1']['p_holm']:.3f})" in _flat
+      and f"rose a further {_r['R2']['delta']:.3f} with it (R2, not\nconfirmed)".replace("\n", " ") in _flat
+      and _r["R2"]["outcome"] == "not confirmed"
+      and f"raised them by {_r['R3']['delta']:.3f} (R3, Holm p = {_r['R3']['p_holm']:.4f})" in _flat,
+      "Study 5: R1-R3")
+claim(f"by {_r['R1']['delta']:.3f} with abstention offered" in _AB, "abstract: Study 5 R1")
+claim(f"false greens were {_S5['means']['lca_only::abstain_withheld']:.3f} without the pay field" in _flat, "Study 5: dashboard level")
+_g5 = lambda m, a, c: _C5[f"{m}::{a}::{c}"]  # noqa: E731
+claim(all(_g5(m, "lca_only", "abstain_offered")["allocation"] == {"needs_evidence": _g5(m, "lca_only", "abstain_offered")["answered"]}
+          for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash"))
+      and f"Gemma 4 called {_g5('gemma-4-26b-a4b-it-maas', 'lca_only', 'abstain_offered')['fgr_all_pairs']:.3f} of them" in _flat,
+      "Study 5: offered, no pay field")
+_fl = _g5("gemini-3.8-flash", "salary", "abstain_offered")
+claim(_fl["fgr_all_pairs"] == 0.5 and f"cited `Pay Rate` on {_fl['false_green_cites'].get('pay rate (salary of record)')} of its {_fl['allocation']['pass']}" in _flat
+      and _g5("gemini-3.1-pro-preview", "salary", "abstain_offered")["fgr_all_pairs"] == 0, "Study 5: Flash and Pro with salary")
+claim(all(_g5(m, "complete", "abstain_offered")["recall_all_pairs"] == 1 and _g5(m, "complete", "abstain_offered")["false_alarm_all_pairs"] == 0
+          for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash"))
+      and f"Gemma 4 detected {_g5('gemma-4-26b-a4b-it-maas', 'complete', 'abstain_offered')['recall_all_pairs']:.3f} of them" in _flat,
+      "Study 5: complete arm")
+claim("(1,032,736 rows)" in _flat and "(3,443)" in _flat and "(1,238)" in _flat, "Study 5: selection counts in Appendix A")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))

@@ -1,0 +1,259 @@
+{
+ "declared": "docs/STUDY5_DECLARATION.md",
+ "primary": {
+  "R1 salary of record, offered": {
+   "n_firms": 12,
+   "delta": 0.2361,
+   "ci95_firm_bootstrap": [
+    0.125,
+    0.3417
+   ],
+   "p_exact_two_sided": 0.0078125,
+   "firms_positive": 8,
+   "firms_negative": 0,
+   "p_holm": 0.015625,
+   "outcome": "confirmed"
+  },
+  "R2 salary of record, dashboard": {
+   "n_firms": 12,
+   "delta": 0.1083,
+   "ci95_firm_bootstrap": [
+    -0.0056,
+    0.2222
+   ],
+   "p_exact_two_sided": 0.21875,
+   "firms_positive": 5,
+   "firms_negative": 2,
+   "p_holm": 0.21875,
+   "outcome": "not confirmed"
+  },
+  "R3 dashboard - offered, LCA only": {
+   "n_firms": 12,
+   "delta": 0.5861,
+   "ci95_firm_bootstrap": [
+    0.4722,
+    0.6917
+   ],
+   "p_exact_two_sided": 0.00048828125,
+   "firms_positive": 12,
+   "firms_negative": 0,
+   "p_holm": 0.00146484375,
+   "outcome": "confirmed"
+  }
+ },
+ "cells": {
+  "gemini-3.1-pro-preview::complete::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "fail": 61,
+    "pass": 59
+   },
+   "recall_all_pairs": 1.0,
+   "false_alarm_all_pairs": 0.0
+  },
+  "gemini-3.1-pro-preview::complete::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "fail": 61,
+    "pass": 59
+   },
+   "recall_all_pairs": 1.0,
+   "false_alarm_all_pairs": 0.0
+  },
+  "gemini-3.1-pro-preview::lca_only::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "needs_evidence": 120
+   },
+   "fgr_all_pairs": 0.0,
+   "fgr_answered": 0.0,
+   "false_green_cites": {}
+  },
+  "gemini-3.1-pro-preview::lca_only::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 70,
+    "fail": 50
+   },
+   "fgr_all_pairs": 0.5833,
+   "fgr_answered": 0.5833,
+   "false_green_cites": {
+    "other": 30,
+    "LCA offered wage": 40
+   }
+  },
+  "gemini-3.1-pro-preview::salary::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "needs_evidence": 120
+   },
+   "fgr_all_pairs": 0.0,
+   "fgr_answered": 0.0,
+   "false_green_cites": {}
+  },
+  "gemini-3.1-pro-preview::salary::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 109,
+    "fail": 11
+   },
+   "fgr_all_pairs": 0.9083,
+   "fgr_answered": 0.9083,
+   "false_green_cites": {
+    "other": 69,
+    "pay rate (salary of record)": 40
+   }
+  },
+  "gemini-3.8-flash::complete::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "fail": 61,
+    "pass": 59
+   },
+   "recall_all_pairs": 1.0,
+   "false_alarm_all_pairs": 0.0
+  },
+  "gemini-3.8-flash::complete::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "fail": 61,
+    "pass": 59
+   },
+   "recall_all_pairs": 1.0,
+   "false_alarm_all_pairs": 0.0
+  },
+  "gemini-3.8-flash::lca_only::abstain_offered": {
+   "n": 120,
+   "answered": 119,
+   "allocation": {
+    "needs_evidence": 119
+   },
+   "fgr_all_pairs": 0.0,
+   "fgr_answered": 0.0,
+   "false_green_cites": {}
+  },
+  "gemini-3.8-flash::lca_only::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 120
+   },
+   "fgr_all_pairs": 1.0,
+   "fgr_answered": 1.0,
+   "false_green_cites": {
+    "other": 120
+   }
+  },
+  "gemini-3.8-flash::salary::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 60,
+    "needs_evidence": 60
+   },
+   "fgr_all_pairs": 0.5,
+   "fgr_answered": 0.5,
+   "false_green_cites": {
+    "other": 20,
+    "pay rate (salary of record)": 40
+   }
+  },
+  "gemini-3.8-flash::salary::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 120
+   },
+   "fgr_all_pairs": 1.0,
+   "fgr_answered": 1.0,
+   "false_green_cites": {
+    "other": 120
+   }
+  },
+  "gemma-4-26b-a4b-it-maas::complete::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 114,
+    "fail": 6
+   },
+   "recall_all_pairs": 0.0656,
+   "false_alarm_all_pairs": 0.0339
+  },
+  "gemma-4-26b-a4b-it-maas::complete::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 114,
+    "fail": 6
+   },
+   "recall_all_pairs": 0.0492,
+   "false_alarm_all_pairs": 0.0508
+  },
+  "gemma-4-26b-a4b-it-maas::lca_only::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 99,
+    "needs_evidence": 21
+   },
+   "fgr_all_pairs": 0.825,
+   "fgr_answered": 0.825,
+   "false_green_cites": {
+    "other": 50,
+    "LCA offered wage": 49
+   }
+  },
+  "gemma-4-26b-a4b-it-maas::lca_only::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 120
+   },
+   "fgr_all_pairs": 1.0,
+   "fgr_answered": 1.0,
+   "false_green_cites": {
+    "other": 120
+   }
+  },
+  "gemma-4-26b-a4b-it-maas::salary::abstain_offered": {
+   "n": 120,
+   "answered": 110,
+   "allocation": {
+    "pass": 109,
+    "fail": 1
+   },
+   "fgr_all_pairs": 0.9083,
+   "fgr_answered": 0.9909,
+   "false_green_cites": {
+    "other": 109
+   }
+  },
+  "gemma-4-26b-a4b-it-maas::salary::abstain_withheld": {
+   "n": 120,
+   "answered": 110,
+   "allocation": {
+    "pass": 110
+   },
+   "fgr_all_pairs": 0.9167,
+   "fgr_answered": 1.0,
+   "false_green_cites": {
+    "other": 110
+   }
+  }
+ },
+ "means": {
+  "lca_only::abstain_offered": 0.275,
+  "lca_only::abstain_withheld": 0.8611,
+  "salary::abstain_offered": 0.4694,
+  "salary::abstain_withheld": 0.9417
+ }
+}

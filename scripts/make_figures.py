@@ -273,7 +273,7 @@ def fig_study4() -> None:
     menus = [("fx_o1d1w1", "all three parts"), ("fx_o1d1w0", "− warning"), ("fx_o1d0w1", "− evidence definitions"),
              ("fx_o1d0w0", "− definitions, − warning"), ("fx_o0d1w1", "− abstaining verdicts"),
              ("fx_o0d1w0", "− abstaining, − warning"), ("fx_o0d0w1", "− abstaining, − definitions"),
-             ("fx_o0d0w0", "none (dashboard-like)"), ("cite_first", "offered + name the record")]
+             ("fx_o0d0w0", "none (dashboard-like)"), ("cite_first", "evidence-first prompt")]
     dumbbell(ax, [(lab, rate("plain", v), rate("proxy", v)) for v, lab in menus],
              "(c) Verdict-menu parts, one at a time", "False-green rate", ("plain firms", "proxy-column firms"))
     ax.axhline(7.5, color=INK2, lw=0.6, ls=(0, (2, 2)))

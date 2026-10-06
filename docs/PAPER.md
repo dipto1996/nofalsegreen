@@ -15,13 +15,15 @@ columns**, fields that sit beside the required record without being it, such as 
 date beside a missing Form I-9. In a preregistered study of seven models from five
 developers, proxy columns raised the false-green rate by 0.427 under a pass/fail dashboard
 schema and by 0.217 when abstention was offered (0.244 and 0.237 with firms weighted equally;
-exact permutation p ≤ 0.0013, Holm). Declared follow-ups on ten further firms with three
-models locate the effect: it needs the columns' names, not merely their values or any added
-column; two of three models accept proxies that suggest compliance but not ones that suggest
-a breach; and of the schema's parts, removing the abstaining verdicts (+0.384) and a
-one-sentence warning (+0.093) raise false greens while redefining `pass` does not. Asking the
-model to name the required record first helps modestly (−0.074). Labels were checked by an
-independent program, not by attorneys; all data, prompts and replies are released.
+exact permutation p ≤ 0.0013, Holm). Declared follow-ups with three
+models locate the effect. With abstention offered it needs the columns' names, while under
+forced choice their values suffice; two of three models accept proxies that suggest
+compliance but not ones that suggest a breach; removing the abstaining verdicts (+0.384) or a
+one-sentence warning (+0.093) raises false greens, the warning mattering only without the
+abstaining verdicts; and an evidence-first prompt helps modestly (−0.074). On 120 real public
+LCA records, a salary-of-record column raised false greens by 0.236 with abstention offered.
+Labels were checked by an independent program, not by attorneys; all data, prompts and
+replies are released.
 
 ---
 
@@ -47,16 +49,27 @@ benchmarks score overclaiming under insufficient evidence for agents (Solozobov,
 scores regulatory verdicts over a third party's operational records when the required record
 is missing, where declining to decide is the correct answer for about half the items.
 
+**Rule engines make it too.** The commercial engine our rulebook derives from (§4; see
+Competing interests) had the same substitution written into deterministic code. Reviews in
+June and July 2026 found that two I-9 evaluators skipped employees whose records lacked the deciding
+dates, dropping them from monitoring and leaving the dashboard green; that a wage rule let a
+salary of record decide whether wages were paid; and that the required-wage rule passed
+without the employer's actual-wage benchmark. Each now returns `needs_evidence` (Appendix H).
+The engine was written with AI coding assistance and the defects were found in AI-assisted
+review, so this shows that the shortcut is easy to build into a system, not how human
+engineers behave.
+
 <!-- TEXFIGURE: fig_overview | The task and the error. Each panel shows the exports a system is given for one obligation and one worker (values illustrative). With the I-9 record present the record decides (a); with it missing the correct verdict is needs_evidence (b); with it missing but an onboarding date beside it, a model may answer pass (c). A wrong fail sends the item to review; a wrong pass removes it from review. -->
 
 We built an instrument for this error (Figure 1) and report three findings. **Proxy columns
 are the largest cause we found:** planting columns that resemble required evidence, with the
-prompt unchanged, raises the false-green rate by 0.217 to 0.427. Controls show that the
-columns' names do this, not their values or their number, and that the bias runs one way:
+prompt unchanged, raises the false-green rate by 0.217 to 0.427. Controls show that when
+abstention is offered the columns' names do this, not their values or their number (under
+forced choice the values alone suffice), and that the bias runs one way:
 models take a proxy that suggests compliance as evidence and discount one that suggests a
 breach. **Of the output schema, two parts matter:** removing the verdicts for "could not
 tell" and removing a one-sentence warning that a missing record is not a record in order;
-redefining `pass` from "shown to be satisfied" to "satisfied" does not. **High recall does not
+redefining `pass` from "shown to be satisfied" to "satisfied" had no confirmed effect. **High recall does not
 bring safety:** no model that detects nearly every violation comes close to zero false greens.
 
 Each ingredient has precedents (§2): answers for insufficient evidence, directional
@@ -64,9 +77,10 @@ overclaiming, distracting context and answer-menu effects. Our contribution is t
 combination where it has consequences: a four-verdict task over a third party's operational
 exports with a stated primary-record standard (§3); a generator that fixes labels before data
 and renders paired firms that differ only in added columns, with labels re-derived by a
-separately written checker (§4); a preregistered study and three declared follow-ups that
-separate the proxy effect into name, value and direction and the schema effect into its parts
-(§6); and a release in which every number in the paper is recomputed from retained replies by
+separately written checker (§4); a preregistered study and four declared follow-ups that
+separate the proxy effect into name, value and direction and the schema effect into its parts,
+and replicate it on real public LCA records (§6); evidence that a deterministic compliance
+engine acquired the same shortcut (Appendix H); and a release in which every number in the paper is recomputed from retained replies by
 a script.
 
 ---
@@ -334,14 +348,18 @@ authorisation implies, without showing, a timely reverification.
 ### 6.4 Study 4: what the effects are made of
 
 Study 4, declared before any call (commit `0c874fc`), reuses the ten Study 3c firms and the
-three Google models to take both effects apart (Table 5, Figure 5).
+three Google models to take both effects apart (Table 5, Figure 5). Contrasts are paired on
+pairs answered in both cells, a conditional estimand; cell rates are over answered pairs, and
+coverage is in Appendix C.9.
 
-**Names, not values.** Under the offered schema, the proxy values under neutral column names
+**Names and values.** Under the offered schema, the proxy values under neutral column names
 (`rosterField1`–`5`) raised false greens by only 0.052 over plain firms, and five irrelevant
 columns of the same types and positions by 0.004. The named proxy columns raised them 0.249
 more than their renamed twins (H1) and 0.298 more than irrelevant columns (H2). Under the
-dashboard schema, where every pair must be decided, the renamed values alone added 0.668:
-without an abstaining verdict, a plausible date near the hire date is enough.
+dashboard schema, where every pair must be decided, the renamed values alone added 0.668. So
+names matter when a model may abstain; when it must decide, plausible values suffice. Gemma 4
+accounts for 82% of the named-versus-renamed difference in false-green counts, so H1 rests
+mostly on one model.
 
 **One direction.** Proxy columns whose values suggest a breach (an I-9 status of
 "Incomplete", onboarding ten or more days after hire, an authorisation that has ended) moved
@@ -354,21 +372,30 @@ green needs.
 
 **Menu parts.** In a 2×2×2 factorial of the verdict menu on proxy-column firms, removing the
 two abstaining verdicts raised false greens by 0.384 (H4) and removing the warning by 0.093
-(H6), while replacing the evidence-anchored definitions of `pass` and `fail` with bare ones
-changed them by −0.039 (H5, not confirmed). Study 3's definition-and-warning effect (P2) is
-the warning's. On plain firms no part moved false greens by more than 0.019.
+(H6). Replacing the evidence-anchored definitions of `pass` and `fail` with bare ones changed
+them by −0.039 (H5, Holm p = 0.080, not confirmed), if anything downward. The parts interact
+(exploratory; the declaration listed interactions as descriptive): the warning mattered only
+without the abstaining verdicts (+0.179, against +0.007 with them), and without them bare
+definitions *lowered* false greens (−0.093). Study 3's definition-and-warning effect (P2) is
+therefore more plausibly the warning's than the definitions', although Study 4's menus are
+worded differently. On plain firms no part moved false greens by more than 0.019.
 
-**Naming the record first.** Requiring the model to name the column that is itself the
-required record before committing lowered false greens on proxy-column firms from 0.302 to
-0.228 (H7, Holm p = 0.047) with no loss of recall. Gemini 3.1 Pro reached zero and Flash fell
-from 0.115 to 0.049, but Gemma 4 fell only from 0.770 to 0.636, and none of its 210 remaining
-`pass` answers named the I-9 export. A deterministic gate that routes a rule to
-`needs_evidence` whenever an export it needs is absent removes every false green here, but
-only because the generator withholds whole exports; partial or stale records would defeat so
-simple a gate.
+**An evidence-first prompt.** Adding to the offered menu a requirement to name, as
+`<export>.<column>`, the column that is itself the required record, with two examples and a
+restated rule to abstain when it is absent, lowered false greens on proxy-column firms from
+0.302 to 0.228 (H7, Holm p = 0.047). The change is a bundle, and the reply format still puts
+the verdict before the evidence field, so it does not isolate ordering. It lowered false
+greens for all three models: Gemini 3.1 Pro to zero, Flash from 0.115 to 0.049, and Gemma 4
+from 0.770 to 0.636, the largest drop but still the highest rate; none of Gemma 4's 210
+remaining `pass` answers named the I-9 export. No model's recall over all violations fell, but
+on plain firms Gemma 4 left 3 of 30 violations and 9 of 60 controls unanswered under it. A
+deterministic gate that routes a rule to `needs_evidence` when an export it needs is absent
+removes every false green here, but it reads the same rule-to-export mapping the generator
+uses to withhold evidence, so the result is guaranteed by construction: a structural baseline,
+not evidence for a safeguard against partial, stale or conflicting records.
 
-**Repeat runs.** Running the plain and proxy cells twice more moved per-model false-green
-rates by at most 0.100, and the proxy effect stayed between 0.300 and 0.347 under the offered
+**Repeat runs.** Running the original plain and proxy cells twice more (not the factorial, the
+controls or the evidence-first prompt) moved per-model false-green rates by at most 0.100, and the proxy effect stayed between 0.300 and 0.347 under the offered
 schema and between 0.798 and 0.822 under the dashboard schema.
 
 **Table 5 — The seven declared tests of Study 4.**
@@ -382,14 +409,36 @@ schema and between 0.798 and 0.822 under the dashboard schema.
 | H4 Abstaining verdicts | removed − listed (factorial) | +0.384 [+0.37, +0.40] | 10 / 0 | 0.014 |
 | H5 Definitions | bare − evidence-anchored (factorial) | -0.039 [-0.08, -0.00] | 3 / 7 | 0.080 |
 | H6 Warning | absent − present (factorial) | +0.093 [+0.07, +0.12] | 10 / 0 | 0.014 |
-| H7 Name the record first | offered − offered with record named first | +0.074 [+0.03, +0.13] | 7 / 1 | 0.047 |
+| H7 Evidence-first prompt | offered − offered with evidence-first prompt | +0.074 [+0.03, +0.13] | 7 / 1 | 0.047 |
 
 Ten Study 3c firms (330 unassessable I-9 pairs), three Google models. Outcome: false green (`pass` on an unassessable pair) except H3 (`fail`). H1-H3 and H7 use the offered schema; H4-H6 average the four factorial menus on each side of the switch. All tests except H3 are on proxy-column firms. Paired, averaged within firm and model then over models; interval from a firm bootstrap; exact sign-flip over the ten firms (1,024 patterns), Holm across the seven tests. Declared before any call.
 <!-- END GENERATED: table-study4 -->
 
-<!-- FIGURE: fig_study4 | wide | Study 4: ten firms that withhold the I-9 export, three models; dots are means over models, ticks individual models. (a) False-green rate by what is added to the roster, under the offered and dashboard schemas. (b) Share of unassessable pairs answered fail with nothing added and with proxies that suggest a breach. (c) The verdict menu with its three parts (abstaining verdicts, evidence-anchored definitions, warning) removed one or more at a time, and the offered menu with the record named first, on plain and proxy-column firms. -->
+<!-- FIGURE: fig_study4 | wide | Study 4: ten firms that withhold the I-9 export, three models; dots are means over models, ticks individual models. (a) False-green rate by what is added to the roster, under the offered and dashboard schemas. (b) Share of unassessable pairs answered fail with nothing added and with proxies that suggest a breach. (c) The verdict menu with its three parts (abstaining verdicts, evidence-anchored definitions, warning) removed one or more at a time, and the offered menu with the evidence-first prompt, on plain and proxy-column firms. -->
 
-### 6.5 What models rely on
+### 6.5 Study 5: real LCA records
+
+Study 5, declared before any call (commit `bc4a796`), replaces generated LCAs with 120
+certified H-1B LCAs drawn by a fixed rule from the Department of Labor's public FY2026 Q3
+disclosure file (Appendix A). A disclosure states the offered and prevailing wages but never
+the wages paid, so whether the required wage was paid (20 C.F.R. 655.731) cannot be decided
+from it; the label needs no legal interpretation. The rows form 12 firms of 10, and each worker
+sits on a roster whose columns follow BambooHR's export format, with or without its `Pay Rate`
+field, a salary of record set to the LCA's offered wage. A third arm adds a payroll register
+and an actual-wage export, making every pair decidable.
+
+With abstention offered and no pay field, Gemini 3.1 Pro and 3.8 Flash answered
+`needs_evidence` on every pair, while Gemma 4 called 0.825 of them compliant. Adding the salary
+of record raised false greens by 0.236 (R1, Holm p = 0.016): Flash then called half the pairs
+compliant and cited `Pay Rate` on 40 of its 60, while Pro stayed at zero. Under the dashboard
+schema false greens were 0.861 without the pay field and rose a further 0.108 with it (R2, not
+confirmed); removing the abstaining verdicts raised them by 0.586 (R3, Holm p = 0.0015). Given
+the payroll register, Pro and Flash detected every underpaid worker with no false alarm, so
+their abstention was not indiscriminate; Gemma 4 detected 0.066 of them. On real records the
+wage rule thus shows both effects of Study 3, the proxy effect with abstention offered in two
+of three models.
+
+### 6.6 What models rely on
 
 Every reply line names the evidence field relied on. This is the model's own report, and
 stated reasons need not be the cause (Turpin et al., 2023); the causal evidence is the paired
@@ -439,16 +488,17 @@ from the presence of a document title. These observations are what Study 3 teste
 ## 8. Discussion
 
 The experiments establish risks more firmly than remedies. Two parts of a verdict menu
-lowered false greens, a verdict for "could not tell" and the warning that a missing record is
-not a record in order, while the wording of `pass` did not; with both in place, false-green
+lowered false greens, a verdict for "could not tell" and, when that verdict was absent, the
+warning that a missing record is not a record in order; the wording of `pass` had no confirmed
+effect; with both in place, false-green
 rates of 0.04 to 0.15 remain on the anchor firm and 0.16 to 0.84 on proxy-column firms. Export
 columns whose names resemble required evidence are a hazard that no menu removed, and the
-bias they create runs toward green. Asking for the required record by name helped two models
-and not the third, so the dependable safeguard sits outside the model: check that the
-required record exists before asking for a verdict, which is exact in our generator and harder
-with partial records. We have not compared such safeguards with human reviewers or on real
+bias they create runs toward green. An evidence-first prompt lowered false greens for all three
+models but left one at 0.636, which suggests checking outside the model that the required
+record exists before asking for a verdict; our generator cannot test such a check, because
+its gaps are whole exports. We have not compared such safeguards with human reviewers or on real
 employer data. That models respond to wording is well known (Sclar et al., 2024); the effects
-here survive a rewording, replicate on fresh firms and on repeat runs, and the largest
+here survive a rewording, replicate on fresh firms, on repeat runs and on real LCA records, and the largest
 involves no change to the prompt. Whether a proxy-based `pass` is an error depends on the
 standard (§3): it is a reasonable triage guess, and a claim made without the record under the
 standard a monitoring product implies.
@@ -462,14 +512,16 @@ standard a monitoring product implies.
   labels are qualified by two AI audits. A blind labelling kit is released.
 - **A narrow, synthetic generator.** Four of the rulebook's rules, whole-export withholding,
   five proxy columns chosen by us, and no generated pair whose answer is `unmonitored`; no
-  partial records, scanned documents or OCR. Study 4's controls cover the I-9 rules only. Two rules simplify the
+  partial records, scanned documents or OCR. Study 4's controls cover the I-9 rules only;
+  Study 5's LCAs are real but its rosters and payroll are constructed, and it covers the wage
+  rule only. Two rules simplify the
   law (a timely extension can allow 240 more days before reverification; "business day" is not
   defined in the handbook).
 - **Statistics.** Study 3 has 18 clusters, its I-9 effect three firms (Studies 3c and 4 add
   ten), and pooled estimates weight particular models equally and depend on the mix of firms.
   Study 3's cells were run once; repeat runs in Study 4 moved per-model rates by at most 0.100.
 - **Model coverage is narrow.** No closed OpenAI or Anthropic model was evaluated, the study using no funds
-  beyond cloud credits; Studies 3b, 3c and 4 use only the three Google models; several endpoints are
+  beyond cloud credits; Studies 3b, 3c, 4 and 5 use only the three Google models; several endpoints are
   previews that will be retired.
 - **One domain.** We conjecture, and do not show, that the failure generalises.
 
@@ -477,7 +529,7 @@ standard a monitoring product implies.
 
 ## Ethics, competing interests and AI use
 
-Every record is synthetic. A high score does not show a system fit for use, and the labels
+Every employer record is synthetic except Study 5's LCAs, which are public DOL disclosures used without employer names. A high score does not show a system fit for use, and the labels
 are not a training set. The author works for Settle AI Inc., which builds commercial
 compliance software; the anchor labels and the rulebook derive from its engine, which is not
 evaluated, and the audits that weaken those labels are reported in full. No model provider was
@@ -599,7 +651,12 @@ python3 scripts/sweep.py --firms 30            # Table 6 (trivial baselines)
 python3 scripts/score_views.py                  # anchor study, label views, Table 11
 python3 scripts/score_studies.py                # repeated-run study and Study 2
 python3 scripts/score_study3.py                 # Study 3, the declared analysis
-python3 scripts/study3_exploratory.py           # Section 6.3 (exploratory)
+python3 scripts/study3_exploratory.py           # Section 6.6 (exploratory)
+python3 scripts/study3_robustness.py            # Table 3 robustness columns
+python3 scripts/score_paraphrase.py             # Study 3b
+python3 scripts/score_study3c.py                # Study 3c
+python3 scripts/score_study4.py                 # Study 4
+python3 scripts/score_study5.py                 # Study 5
 python3 scripts/labelcheck_compare.py           # generated labels vs the reference checker
 python3 scripts/fill_results.py                 # regenerates every table in this paper
 python3 scripts/make_figures.py                 # regenerates every chart
@@ -608,7 +665,14 @@ python3 scripts/verify_paper.py                 # recomputes every number in the
 
 No step makes an API call: every score is rebuilt from the retained replies in
 `docs/**/cache/` and `docs/raw/`. Re-running the models uses `scripts/run_free.py`,
-`scripts/run_vertex.py` and `scripts/run_study3.py`.
+`scripts/run_vertex.py` and the `scripts/run_study*.py` launchers.
+
+**Real LCA records (Study 5).** The 120 rows come from the Department of Labor's public *LCA
+Program Disclosure Data, FY2026 Q3* (1,032,736 rows), retrieved 2026-10-06. Rows were kept by
+a fixed hash of the row number (3,443), restricted to certified H-1B cases with annual wages
+(1,238), and ordered by a seeded hash of the case number; the first 120 were used. Employer,
+FEIN and contact or attorney names were never extracted. The sample, its selection rule and a
+SHA-256 checksum are in `data/real_lca/`.
 
 ## Appendix B: Prompt and protocol
 
@@ -1374,3 +1438,24 @@ Across the checked firms, 70 Section 2 dates fall exactly on the deadline day; c
 without excluding federal holidays would change 6 verdicts, and counting calendar days 55. The
 1,176 distinct labels are 1,680 counting the proxy twins of Study 3, whose labels are identical
 by construction (`docs/labelcheck_results.json`).
+
+## Appendix H: The same error in a rule engine
+
+The defects below were found and fixed in the private repository of the engine that the
+rulebook comes from (Settle AI Inc.), between 2026-06-28 and 2026-07-14. Commit identifiers
+are given for the record; the repository is not public. In each case the engine returned a
+verdict that the available record could not support.
+
+| Defect | What the code did | Fix |
+|---|---|---|
+| Silent skip, I-9 Section 2 and reverification | An evaluator skipped an employee whose record lacked the deciding dates, so the employee left monitoring and the dashboard stayed green | Emit a visible `needs_evidence` finding (commits `16de553c`, `407eb438`; an internal review note calls it "a verified production defect") |
+| Salary of record as wages paid | The material-change wage check returned pass or fail from the HR salary of record | Retired: a salary of record "proves nothing about wages paid"; it never passes alone (commits `1b181e00`, `4b2605ec`) |
+| Required wage without the actual-wage limb | The greater-of rule passed on the prevailing wage alone when the employer's actual-wage benchmark was unknown | The would-be pass becomes `needs_evidence` (commit `55c5e6fb`) |
+| Fabricated provenance | Wage cohorts were stamped with a prevailing-wage source and an "ok" document status that no input supplied | Stored as unknown, so the rules ask for the record (commit `c47a945b`) |
+
+The engine's rules were written with AI coding assistance, and the defects were found by
+AI-assisted review (Codex), so the table is not evidence about human engineers. It shows
+that a system built to fill a dashboard acquires these substitutions easily, and that each
+fix is the same: return `needs_evidence` when the record that decides the obligation is
+absent.
+
