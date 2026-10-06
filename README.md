@@ -138,7 +138,7 @@ and archived in `docs/study2_v1_invalid/`.
 The oracle reaches 1.000 on every axis, so the task is solvable in principle and a low
 score is a property of the system under test rather than of an ill-posed benchmark.
 
-**Language-model results** are in `docs/PAPER.md` Section 8. On the anchor firm's 140-pair
+**Language-model results** are in `docs/PAPER.md` Sections 6 and 7. On the anchor firm's 140-pair
 declared subset, the six free models offered an abstention report 0.042 to 0.142 of
 unassessable obligations as satisfied; a dashboard schema raises that to 0.175 to 0.525.
 **Study 3**, preregistered in `docs/STUDY3_PREREGISTRATION.md` before any call, tests the
@@ -150,7 +150,11 @@ rewords the prompts (`docs/STUDY3B_PARAPHRASE.md`, `scripts/score_paraphrase.py`
 **Study 3c** adds ten firms that withhold the I-9 export and adds proxy columns one at a time
 (`docs/STUDY3C_DECLARATION.md`, `scripts/score_study3c.py`); every declared test in both was
 confirmed. `scripts/study3_robustness.py` adds exact permutation tests, firm-weighted
-estimates and leave-one-out checks.
+estimates and leave-one-out checks. **Study 4** (`docs/STUDY4_DECLARATION.md`,
+`scripts/score_study4.py`) takes both effects apart on the Study 3c firms: proxy values under
+neutral names, irrelevant columns and proxies that suggest a breach; a 2×2×2 factorial of the
+verdict menu; a prompt that asks for the required record by name; and repeat runs. Six of its
+seven declared tests were confirmed.
 
 ## Where the labels come from
 
@@ -172,7 +176,7 @@ and nothing else changes.
 written as the acceptance gate for the author's company's compliance engine. Its withheld
 labels were audited blind by two AI auditors (2 and 5 of 120 overturned, none in common),
 and the second audited its violation labels, supporting five of the ten in the strict view;
-see the paper, Section 6.1. No label was validated by an independent human
+see the paper, Section 4 and Appendix D. No label was validated by an independent human
 expert; `docs/expert_labelling/` is a blind kit for anyone who wants to.
 
 ## Contents
@@ -209,7 +213,7 @@ were hand-authored against a written test plan.
   firms exist to address the scale problem, not the independence problem.
 - **Prompt v1.1 follows a disclosed pilot.** Prompt v1.0 was run on the same 140 pairs and
   found to be invalid: 30 pairs reached the model with no obligation text. The pilot's
-  replies and scores are kept in `docs/pilot_v1.0/`. See paper Section 7.1.
+  replies and scores are kept in `docs/pilot_v1.0/`. See paper Appendix C.1.
 - **Verdict granularity is coarse.** Real adjudication distinguishes a technical from
   a substantive defect; this benchmark does not.
 
