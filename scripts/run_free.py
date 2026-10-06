@@ -78,6 +78,8 @@ def main() -> int:
                          "(nofalsegreen/study3.py, docs/STUDY3_PREREGISTRATION.md)")
     ap.add_argument("--study3c", default=None,
                     help="evaluate one arm of the declared Study 3c firms (nofalsegreen/study3c.py)")
+    ap.add_argument("--study5", default=None,
+                    help="evaluate one arm of the declared Study 5 real-LCA firms (nofalsegreen/study5.py)")
     ap.add_argument("--study4", default=None,
                     help="evaluate one control arm of the declared Study 4 firms (nofalsegreen/study4.py)")
     ap.add_argument("--shard", default=None,
@@ -124,6 +126,10 @@ def main() -> int:
         from nofalsegreen import study3c
         firms = study3c.load_firms(rb, args.study3c)
         print(f"Study 3c ({args.study3c}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
+    if args.study5:
+        from nofalsegreen import study5
+        firms = study5.load_firms(rb, args.study5)
+        print(f"Study 5 ({args.study5}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
     if args.study4:
         from nofalsegreen import study4
         firms = study4.load_firms(rb, args.study4)
