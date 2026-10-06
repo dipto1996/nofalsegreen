@@ -1,4 +1,10 @@
-"""Build the expert-review workbook (v2) for immigration counsel and I-9/LCA paralegals.
+"""Build the expert-review workbook (v3) for immigration counsel and I-9/LCA paralegals.
+
+v3 (2026-10-06), after an AI pilot run of v2 (not a human review) found defects
+before any human saw the kit: IDs repeated across synthetic firms now carry the
+firm's seed; at most one item per person or LCA; at least three wage items can
+fail; the instructions state the holiday calendar and that no extension was filed
+unless a record shows one. The seed is unchanged; the selection is redrawn.
 
 Declared 2026-10-06. The item selection is seeded and fixed here before any expert
 sees an item. The workbook carries no benchmark label, label note or model output:
@@ -42,8 +48,8 @@ from nofalsegreen import study3, study3c  # noqa: E402
 from nofalsegreen.rulebook import Rulebook  # noqa: E402
 
 SEED = 20261006
-OUT = ROOT / "docs" / "expert_review_v2"
-KEY = ROOT / "docs" / "expert_review_v2_key.json"
+OUT = ROOT / "docs" / "expert_review_v3"
+KEY = ROOT / "docs" / "expert_review_v3_key.json"
 
 RULES = {
     "i9.section1.timeliness": (
@@ -115,8 +121,21 @@ def fmt_rows(title: str, rows: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def unique_ids(text: str, seed: int) -> str:
+    """Synthetic firms reuse employee and case numbers; prefix them with the firm."""
+    import re
+    text = re.sub(r"SYN-(\d{4})", lambda m: f"E{seed}-{m.group(1)[-2:]}", text)
+    return re.sub(r"I-200-(\d{5})-(\d{6})", lambda m: f"I-200-{seed}{m.group(1)[-2:]}-{m.group(2)}", text)
+
+
 def render(firm, pair_id: str) -> tuple[str, str, str]:
     """Records shown for one item: (entity line, records text, exports provided)."""
+    e, t, pv = _render(firm, pair_id)
+    s = firm.provenance["seed"]
+    return unique_ids(e, s), unique_ids(t, s), pv
+
+
+def _render(firm, pair_id: str) -> tuple[str, str, str]:
     rule, ent = pair_id.split("::", 1)
     d = Path(firm.sources["hris_roster_export"]).parent
     have = {k for k in firm.sources if (d / Path(firm.sources[k]).name).exists()}
@@ -163,11 +182,21 @@ def pool(rb):
     return out
 
 
+def person(c) -> tuple:
+    """(seed, worker) for an I-9 item; (seed, worker on the LCA) for a wage item."""
+    firm, pid = c[2], c[3].pair_id
+    ent = pid.split("::", 1)[1]
+    if pid.startswith("lca."):
+        d = Path(firm.sources["hris_roster_export"]).parent
+        ent = next((r["EMPLOYEE_NUMBER"] for r in read(d / "lca_export.csv") if r["CASE_NUMBER"] == ent), ent)
+    return firm.provenance["seed"], ent
+
+
 def pick(rng, cands, n, taken):
     rng.shuffle(cands)
     got = []
     for c in cands:
-        k = (c[2].provenance["seed"], c[3].pair_id)
+        k = person(c)
         if k in taken:
             continue
         taken.add(k)
@@ -189,12 +218,18 @@ def select(rb):
     for r in ("i9.section1.timeliness", "i9.section2.timeliness", "i9.reverification.deadline"):
         items += pick(rng, [c for c in p if c[1] == "proxy" and ne(c) and rule(c) == r], 4, taken)
     items += pick(rng, [c for c in p if c[1] == "proxy" and ne(c) and family(rule(c)) == "wage"], 8, taken)
-    items += pick(rng, [c for c in p if c[1] == "proxy" and c[3].verdict.value == "fail"], 7, taken)
+    items += pick(rng, [c for c in p if c[1] == "proxy" and c[3].verdict.value == "fail"
+                        and family(rule(c)) == "i9"], 4, taken)
+    items += pick(rng, [c for c in p if c[1] == "proxy" and c[3].verdict.value == "fail"
+                        and family(rule(c)) == "wage"], 3, taken)
     items += pick(rng, [c for c in p if c[1] == "proxy" and c[3].verdict.value == "pass" and near(c)], 4, taken)
     items += pick(rng, [c for c in p if c[1] == "proxy" and c[3].verdict.value == "pass" and not near(c)], 4, taken)
     items += pick(rng, [c for c in p if c[1] == "plain" and ne(c) and family(rule(c)) == "i9"], 5, taken)
     items += pick(rng, [c for c in p if c[1] == "plain" and ne(c) and family(rule(c)) == "wage"], 5, taken)
-    items += pick(rng, [c for c in p if c[1] == "plain" and c[3].verdict.value in ("pass", "fail")], 5, taken)
+    items += pick(rng, [c for c in p if c[1] == "plain" and c[3].verdict.value in ("pass", "fail")
+                        and family(rule(c)) == "i9"], 3, taken)
+    items += pick(rng, [c for c in p if c[1] == "plain" and c[3].verdict.value in ("pass", "fail")
+                        and family(rule(c)) == "wage"], 2, taken)
     rng.shuffle(items)
     return items
 
@@ -241,6 +276,11 @@ def build():
         ("- Use your own knowledge of the rules, deadlines and business-day counting; do not look anything up "
          "unless you normally would.", F),
         ("- Do not assume any record exists that is not shown. Do not assume anything is missing that is shown.", F),
+        ("- Business days: the employer is closed on Saturdays, Sundays and US federal holidays (observed dates), and "
+         "open on every other day.", F),
+        ("- Extensions: assume no petition to extend the employee's status was filed unless a record provided shows "
+         "one.", F),
+        ("- Each item stands alone: read only the records shown in its row. Identifiers are unique to each employer.", F),
         ("- There are no trick questions and no target answers; we want your professional view.", F),
         ("- Only the yellow cells need filling in. The grey row on the Part A sheet is a worked example of the format "
          "and is not scored.", F),
