@@ -401,7 +401,7 @@ def table_anchor_all() -> str:
                 "false greens, so the answered-only column guards against coverage effects. Change: offered to "
                 "dashboard, paired on pairs answered in both; Holm across the six single-run models, and across "
                 "24 contrasts for the three repeated-run models. The last four models were added with Study 3 and "
-                "run once, descriptively. Recall is against the source engine's violation labels (Section 4.4).")
+                "run once, descriptively. Recall is against the source engine's violation labels (§4 and Appendix D.3).")
     return "\n".join(rows)
 
 

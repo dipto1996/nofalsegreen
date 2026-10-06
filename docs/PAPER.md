@@ -520,8 +520,9 @@ standard a monitoring product implies.
 - **Statistics.** Study 3 has 18 clusters, its I-9 effect three firms (Studies 3c and 4 add
   ten), and pooled estimates weight particular models equally and depend on the mix of firms.
   Study 3's cells were run once; repeat runs in Study 4 moved per-model rates by at most 0.100.
-- **Model coverage is narrow.** No closed OpenAI or Anthropic model was evaluated, the study using no funds
-  beyond cloud credits; Studies 3b, 3c, 4 and 5 use only the three Google models; several endpoints are
+- **Model coverage is narrow.** No closed OpenAI, Anthropic or xAI model was evaluated: on
+  Vertex AI they are sold through Google Cloud Marketplace, which the study's cloud credits do
+  not cover, and the study used no other funds; Studies 3b, 3c, 4 and 5 use only the three Google models; several endpoints are
   previews that will be retired.
 - **One domain.** We conjecture, and do not show, that the failure generalises.
 
@@ -972,7 +973,7 @@ false-green rate and 1 on recall, which is why the false-alarm rate must be repo
 | Qwen3 235B | Alibaba | 1 | 128/140 | 0.142 | 0.155 | 0.250 | 0.308 | not tested |
 | Kimi K2 Thinking | Moonshot | 1 | 140/140 | 0.042 | 0.042 | 0.350 | 0.267 | not tested |
 
-FGR over the 120 unassessable pairs of the 140-pair anchor subset; unanswered pairs cannot be false greens, so the answered-only column guards against coverage effects. Change: offered to dashboard, paired on pairs answered in both; Holm across the six single-run models, and across 24 contrasts for the three repeated-run models. The last four models were added with Study 3 and run once, descriptively. Recall is against the source engine's violation labels (Section 4.4).
+FGR over the 120 unassessable pairs of the 140-pair anchor subset; unanswered pairs cannot be false greens, so the answered-only column guards against coverage effects. Change: offered to dashboard, paired on pairs answered in both; Holm across the six single-run models, and across 24 contrasts for the three repeated-run models. The last four models were added with Study 3 and run once, descriptively. Recall is against the source engine's violation labels (§4 and Appendix D.3).
 <!-- END GENERATED: table-anchor-all -->
 
 ### D.1 The rulebook, the anchor firm and the released data
@@ -1024,22 +1025,18 @@ The strict view, the duplicate count and the generated firms are the checks on t
 
 The firm's expectation set contains no `pass` labels. Some workers' records conform, but
 the engine's expectations name only violations and evidence requests, so the anchor firm
-cannot measure false alarms; the generated firms can (Section 4.2).
+cannot measure false alarms; the generated firms can (§4).
 
 Its expectation set contains 221 pairs: 20 planted violations and 201 evidence requests.
-The 201 arise because most obligations in this domain require evidence an employer export
-does not contain. A certified LCA does not evidence that the required notice was posted; a
-roster does not evidence which document a worker presented. The honest output for such a
-pair is an evidence request. The ten-to-one ratio reflects which obligations the source
-engine can assess from exports, not a measured property of real employers; we treat the
-large abstention share as a design choice that mirrors that engine's coverage.
+Most obligations need evidence an export does not contain (a certified LCA does not show that
+the notice was posted), so the ten-to-one ratio reflects the source engine's coverage, not a
+measured property of real employers.
 
 
 ### D.3 Label views and the two audits
 
-**Two label views, fixed before per-pair results were read.** The anchor firm's labels were
-written as the acceptance gate for a compliance engine, where `fail` means "requires
-action"; here `fail` means "the records show a violation". Ten of the 20 planted violations
+**Two label views, fixed before per-pair results were read.** Here `fail` means "the records
+show a violation", against the engine's "requires action". Ten of the 20 planted violations
 sit between those meanings, so we score under two views, fixed in
 `nofalsegreen/labelviews.py` on 2026-09-24 with each affected pair named. The commit came
 six minutes after a first, later-discarded attempt at the main run had printed preliminary
