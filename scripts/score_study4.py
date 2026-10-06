@@ -21,8 +21,13 @@ from nofalsegreen.rulebook import Rulebook  # noqa: E402
 
 OFF, DASH = "abstain_offered", "abstain_withheld"
 RUNS = ("r0", "r1", "r2")
-MODELS = study4.MODELS
-CACHES = [ROOT / "docs" / "study3c" / "cache", ROOT / "docs" / "study4" / "cache"]
+# --study6: the same declared analysis on the Study 6 models (docs/STUDY6_DECLARATION.md)
+STUDY6 = "--study6" in sys.argv
+if STUDY6:
+    from nofalsegreen import study6  # noqa: E402
+MODELS = [f"vertexopen/{m}#r0" for m in study6.MODELS] if STUDY6 else study4.MODELS
+CACHES = ([ROOT / "docs" / "study6" / "cache"] if STUDY6
+          else [ROOT / "docs" / "study3c" / "cache", ROOT / "docs" / "study4" / "cache"])
 
 
 def short(m: str) -> str:
@@ -267,7 +272,7 @@ def main() -> int:
                                                       for m, v in share.items()}
 
     (ROOT / "docs" / "study4").mkdir(exist_ok=True)
-    (ROOT / "docs" / "study4" / "results.json").write_text(json.dumps(out, indent=1))
+    (ROOT / "docs" / ("study6/study4_results.json" if STUDY6 else "study4/results.json")).write_text(json.dumps(out, indent=1))
     for k, v in out["primary"].items():
         print(k, v)
     return 0

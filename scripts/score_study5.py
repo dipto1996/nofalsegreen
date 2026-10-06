@@ -17,12 +17,15 @@ from baselines.prompts import PROMPT_VERSION  # noqa: E402
 from nofalsegreen import study4, study5  # noqa: E402
 
 OFF, DASH = "abstain_offered", "abstain_withheld"
-MODELS = [m.split("/")[-1] for m in study4.MODELS]
+STUDY6 = "--study6" in sys.argv  # same declared analysis on the Study 6 models
+if STUDY6:
+    from nofalsegreen import study6  # noqa: E402
+MODELS = [m.split("/")[-1] for m in (study6.MODELS if STUDY6 else study4.MODELS)]
 
 
 def main() -> int:
     cache: dict = {}
-    for vc in sorted((ROOT / "docs" / "study5" / "cache").glob("*.json")):
+    for vc in sorted((ROOT / "docs" / ("study6" if STUDY6 else "study5") / "cache").glob("*.json")):
         cache.update(json.loads(vc.read_text()))
     firms = {a: study5.build(a) for a in study5.ARMS}
     preds: dict = {}  # (model, arm, cond) -> {firm|pair: Prediction}
@@ -112,7 +115,7 @@ def main() -> int:
             if rs and arm != "complete":
                 out.setdefault("means", {})[f"{arm}::{cond}"] = round(sum(r["fgr_all_pairs"] for r in rs) / len(rs), 4)
     (ROOT / "docs" / "study5").mkdir(exist_ok=True)
-    (ROOT / "docs" / "study5" / "results.json").write_text(json.dumps(out, indent=1))
+    (ROOT / "docs" / ("study6/study5_results.json" if STUDY6 else "study5/results.json")).write_text(json.dumps(out, indent=1))
     for k, v in out["primary"].items():
         print(k, v)
     print(out.get("means"))

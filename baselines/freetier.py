@@ -446,9 +446,10 @@ class VertexOpenProvider(VertexProvider):
 
     def __init__(self, model: str, quota: Quota, *, max_retries: int = 6):
         from nofalsegreen.study3 import OPEN_MODELS, OUTPUT_LIMITS
+        from nofalsegreen.study6 import MODELS as STUDY6_MODELS
 
         super().__init__(model, quota, max_retries=max_retries)
-        self.location = OPEN_MODELS[self.model_id]
+        self.location = {**STUDY6_MODELS, **OPEN_MODELS}[self.model_id]
         self.output_limit = OUTPUT_LIMITS.get(self.model_id)
 
     def complete(self, system: str, user: str, max_tokens: int) -> tuple[str, Usage]:
