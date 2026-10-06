@@ -200,7 +200,10 @@ offered wage beside a missing actual-wage table.
 without access to the generator or any label. It reproduces all 1,176 distinct generated
 labels after exposing and fixing one generator bug, a year-end observed holiday that touched
 no study firm. Both programs were written by agents of one model family and share the
-primary-record standard; boundary choices are stated with their sensitivity (Appendix G).
+primary-record standard; boundary choices are stated with their sensitivity (Appendix G). A
+50-item expert protocol is released with a blind workbook; no human expert has completed it.
+Two AI systems given the protocol as a pilot agreed with every label and rejected every
+proxy as evidence (Appendix I), which tests the instrument, not the labels.
 
 **Anchor firm.** A hand-authored employer of twelve workers with eleven exports and 221 pairs,
 whose labels were the engine's acceptance gate, where `fail` means "requires action". It is
@@ -509,7 +512,8 @@ standard a monitoring product implies.
 
 - **No human expert labels or baseline.** No attorney validated any label; the generated labels
   are re-derived by an AI-written checker sharing the generator's standard, and the anchor
-  labels are qualified by two AI audits. A blind labelling kit is released.
+  labels are qualified by two AI audits. A blind expert workbook is released; only two AI
+  pilot runs have completed it (Appendix I).
 - **A narrow, synthetic generator.** Four of the rulebook's rules, whole-export withholding,
   five proxy columns chosen by us, and no generated pair whose answer is `unmonitored`; no
   partial records, scanned documents or OCR. Study 4's controls cover the I-9 rules only;
@@ -1455,4 +1459,54 @@ AI-assisted review (Codex), so the table is not evidence about human engineers. 
 that a system built to fill a dashboard acquires these substitutions easily, and that each
 fix is the same: return `needs_evidence` when the record that decides the obligation is
 absent.
+
+## Appendix I: AI pilot runs of the expert protocol
+
+The expert protocol is a workbook of 50 items and 8 statements (`docs/expert_review_v3/`,
+built by `scripts/build_expert_kit_v3.py`). Its 50 items are:
+
+- 20 unassessable pairs on proxy-column firms;
+- 10 unassessable pairs on plain firms;
+- 20 decidable violations and controls, some on the legal boundary.
+
+Each item shows the employer's records inline, and the reviewer answers blind to the
+construction label. No human expert has completed it.
+
+**What was run.** Two AI systems completed it as a pilot, at the author's request:
+
+- Claude (Anthropic) completed version 2. Its own answers flagged five defects in the
+  workbook, fixed in version 3:
+  - identifiers repeated across firms;
+  - two items with identical records;
+  - no stated rule on status extensions;
+  - no holiday calendar;
+  - no wage item that could fail.
+- Codex (OpenAI) completed version 3.
+
+Both are scored against their own version's labels (`scripts/score_ai_pilot.py`,
+`docs/ai_pilot_review/results.json`).
+
+**Results.** Each agreed with all 50 labels:
+
+- every proxy-column item was answered `needs_evidence`;
+- every planted violation was answered `fail`;
+- every control was answered `pass`.
+
+On the evidence statements, both strongly disagreed that an I-9 status flag, an onboarding
+date or a future authorisation end date shows I-9 timeliness, and both strongly disagreed
+that an LCA's wage shows the wages paid. Both strongly agreed that a missing record should be
+reported as needing evidence. Claude disagreed, and Codex strongly disagreed, that a salary of
+record shows the required wage was paid and that an HR status field can mark an item compliant
+for triage.
+
+**What this shows.** These runs are not expert validation:
+
+- **Not blind to the study.** Both systems worked with the author on this project, and Codex
+  had reviewed earlier drafts of the paper, so neither was blind to the evidence standard.
+- **Correlated errors.** Systems of the same kind as the models under test may share their
+  errors.
+
+The runs show that the protocol can be completed as designed, and that a careful reader of
+the standard reproduces the labels. Whether practitioners accept that standard remains open
+(§9).
 

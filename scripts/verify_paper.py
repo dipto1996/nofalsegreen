@@ -608,6 +608,16 @@ claim(all(_g5(m, "complete", "abstain_offered")["recall_all_pairs"] == 1 and _g5
       "Study 5: complete arm")
 claim("(1,032,736 rows)" in _flat and "(3,443)" in _flat and "(1,238)" in _flat, "Study 5: selection counts in Appendix A")
 
+# AI pilot of the expert protocol (Appendix I)
+_AP = json.loads((ROOT / "docs" / "ai_pilot_review" / "results.json").read_text())["runs"]
+claim(all(v["agreement_overall"] == 1 and v["items"] == 50 for v in _AP.values())
+      and "Each agreed with all 50 labels" in _flat, "AI pilot: both agree with all 50 labels")
+_pb = {n: list(v["part_b"].values()) for n, v in _AP.items()}
+claim(all(x[:4] == ["Strongly disagree"] * 4 and x[5] == "Strongly agree" for x in _pb.values())
+      and _pb["Claude (kit v2)"][4] == "Disagree" and _pb["Claude (kit v2)"][6] == "Disagree"
+      and _pb["Codex (kit v3)"][4] == "Strongly disagree" and _pb["Codex (kit v3)"][6] == "Strongly disagree",
+      "AI pilot: Part B answers as described")
+
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
 claim(pcts <= {f"{_nw / _np:.1%}"}, f"only verified percentages appear (found {sorted(pcts)})")

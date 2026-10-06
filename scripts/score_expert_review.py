@@ -47,8 +47,10 @@ def read(path: Path) -> dict:
                          "relied": a.cell(r, 9).value, "note": a.cell(r, 10).value}
     b = wb["Part B - Statements"]
     stm = {str(b.cell(r, 1).value): b.cell(r, 3).value for r in range(2, b.max_row + 1) if b.cell(r, 1).value}
-    y = wb["About you"]
-    about = {str(y.cell(r, 1).value): y.cell(r, 2).value for r in range(2, y.max_row + 1) if y.cell(r, 1).value}
+    about = {}
+    if "About you" in wb.sheetnames:
+        y = wb["About you"]
+        about = {str(y.cell(r, 1).value): y.cell(r, 2).value for r in range(2, y.max_row + 1) if y.cell(r, 1).value}
     return {"items": items, "statements": stm, "about": about}
 
 
