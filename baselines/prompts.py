@@ -230,8 +230,18 @@ CONTRACT_EXTRACT = "contract_extract"
 # than bound to named columns, and the system prompt without the binding sentence.
 CONTRACT_SEM_OFFERED = "contract_sem_offered"
 CONTRACT_SEM_FORCED = "contract_sem_forced"
+# Study 12 (docs/STUDY12_DECLARATION.md): the "match by meaning" reading rule of the
+# original prompt, added to the described-evidence prompt (and, below, removed from the
+# original offered prompt).
+CONTRACT_SEM_MEANING_OFFERED = "contract_sem_meaning_offered"
+ABSTAIN_OFFERED_NOMATCH = "abstain_offered_nomatch"
+_MEANING_RULE = """Column names will not match the wording of the rules. Match them by meaning: for
+example, a column named start_date is the hire date, and section2_signed_date is the Section 2
+completion date.
+
+"""
 CONTRACT_VARIANTS = (CONTRACT_OFFERED, CONTRACT_FORCED, CONTRACT_EVIDENCE_FIRST, CONTRACT_EXTRACT,
-                     CONTRACT_SEM_OFFERED, CONTRACT_SEM_FORCED)
+                     CONTRACT_SEM_OFFERED, CONTRACT_SEM_FORCED, CONTRACT_SEM_MEANING_OFFERED)
 
 _SYSTEM_CONTRACT = """You are checking an organisation's records against stated decision rules.
 
@@ -302,6 +312,9 @@ In the evidence field, give the table.column you relied on."""
 def _contract_system(variant: str) -> str:
     if variant == CONTRACT_SEM_OFFERED:
         return _SYSTEM_SEM.replace("{verdict_menu}", _MENU_SEM_OFFERED)
+    if variant == CONTRACT_SEM_MEANING_OFFERED:
+        return _SYSTEM_SEM.replace("Business days exclude", _MEANING_RULE + "Business days exclude").replace(
+            "{verdict_menu}", _MENU_SEM_OFFERED)
     if variant == CONTRACT_SEM_FORCED:
         return _SYSTEM_SEM.replace("{verdict_menu}", _MENU_CONTRACT_FORCED)
     if variant == CONTRACT_EXTRACT:
@@ -323,6 +336,15 @@ def system_prompt(firm: Firm, variant: str) -> str:
         return _SYSTEM_PARA.format(as_of=firm.as_of, verdict_menu=menu)
     if variant in CONTRACT_VARIANTS:
         return _contract_system(variant)
+    if variant == ABSTAIN_OFFERED_NOMATCH:
+        nomatch = _SYSTEM.replace("""Two reading rules:
+  - Export column names will not match the wording of the obligations. Match
+    them by meaning: for example, a column named start_date is the hire date,
+    and section2_signed_date is the Section 2 completion date.
+  - Reference""", """One reading rule:
+  - Reference""")
+        assert nomatch != _SYSTEM
+        return nomatch.format(as_of=firm.as_of, verdict_menu=_MENU_OFFERED)
     if variant in FACTORIAL:
         return _SYSTEM.format(as_of=firm.as_of, verdict_menu=_menu_factorial(variant))
     if variant == CITE_FIRST:

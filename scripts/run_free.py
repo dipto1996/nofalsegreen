@@ -51,7 +51,7 @@ def main() -> int:
     ap.add_argument("--variant", default="both",
                     choices=[ABSTAIN_OFFERED, ABSTAIN_WITHHELD, "abstain_removed_only", "abstain_closed",
                              "abstain_offered_para", "abstain_withheld_para", "both",
-                             *FACTORIAL, CITE_FIRST, *CONTRACT_VARIANTS])
+                             *FACTORIAL, CITE_FIRST, *CONTRACT_VARIANTS, "abstain_offered_nomatch"])
     ap.add_argument("--batch", type=int, default=8,
                     help="pairs per call; reasoning models need a small batch "
                          "so their trace plus verdicts fit the output budget")
