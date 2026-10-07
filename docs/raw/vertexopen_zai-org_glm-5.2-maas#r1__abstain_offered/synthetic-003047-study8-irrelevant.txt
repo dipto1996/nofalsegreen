@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	needs_evidence	-
+i9.section2.timeliness::SYN-1001	needs_evidence	-
+i9.reverification.deadline::SYN-1001	needs_evidence	-
+i9.section1.timeliness::SYN-1002	needs_evidence	-
+i9.section2.timeliness::SYN-1002	needs_evidence	-
+i9.reverification.deadline::SYN-1002	needs_evidence	-
+i9.section1.timeliness::SYN-1003	needs_evidence	-
+i9.section2.timeliness::SYN-1003	needs_evidence	-
+i9.reverification.deadline::SYN-1003	needs_evidence	-
+i9.section1.timeliness::SYN-1004	needs_evidence	-
+i9.section2.timeliness::SYN-1004	needs_evidence	-
+i9.reverification.deadline::SYN-1004	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1005	needs_evidence	-
+i9.section2.timeliness::SYN-1005	needs_evidence	-
+i9.reverification.deadline::SYN-1005	needs_evidence	-
+i9.section1.timeliness::SYN-1006	needs_evidence	-
+i9.section2.timeliness::SYN-1006	needs_evidence	-
+i9.reverification.deadline::SYN-1006	needs_evidence	-
+i9.section1.timeliness::SYN-1007	needs_evidence	-
+i9.section2.timeliness::SYN-1007	needs_evidence	-
+i9.reverification.deadline::SYN-1007	needs_evidence	-
+i9.section1.timeliness::SYN-1008	needs_evidence	-
+i9.section2.timeliness::SYN-1008	needs_evidence	-
+i9.reverification.deadline::SYN-1008	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1009	needs_evidence	-
+i9.section2.timeliness::SYN-1009	needs_evidence	-
+i9.reverification.deadline::SYN-1009	needs_evidence	-
+i9.section1.timeliness::SYN-1010	needs_evidence	-
+i9.section2.timeliness::SYN-1010	needs_evidence	-
+i9.section1.timeliness::SYN-1011	needs_evidence	-
+i9.section2.timeliness::SYN-1011	needs_evidence	-
+i9.section1.timeliness::SYN-1012	needs_evidence	-
+i9.section2.timeliness::SYN-1012	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay=8500 semimonthly ×24=204000 annual ≥ max(actual_wage 186000, prevailing_wage 178800)=186000
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	grossPay=5250 semimonthly ×24=126000 annual ≥ max(actual_wage 116400, prevailing_wage 118800)=118800
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	grossPay=5900 semimonthly ×24=141600 annual ≥ max(actual_wage 138000, prevailing_wage 132000)=138000
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	payroll gross $7,700/semimonthly = $184,800/yr < required $186,000/yr (actual wage $186,000 > prevailing $178,800)
+lca.wage.required_wage_greater_of::I-200-25004-100005	fail	payroll gross $7,400/semimonthly = $177,600/yr < required $186,000/yr (actual wage $186,000 > prevailing $178,800)
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	payroll gross $5,050/semimonthly = $121,200/yr ≥ required $118,800/yr (prevailing $118,800 > actual $116,400)
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	payroll gross $7,750/semimonthly = $186,000/yr ≥ required $186,000/yr (actual wage $186,000 > prevailing $178,800)
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	payroll gross $6,200/semimonthly = $148,800/yr ≥ required $138,000/yr (actual wage $138,000 > prevailing $132,000)
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	payroll gross $5,750/semimonthly = $138,000/yr ≥ required $138,000/yr (actual wage $138,000 > prevailing $132,000)

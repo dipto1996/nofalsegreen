@@ -1,0 +1,37 @@
+Study 8 (proxy): 10 firms x 42 pairs
+shard 0/3: ['synthetic-003011-study8-proxy', 'synthetic-003025-study8-proxy', 'synthetic-003038-study8-proxy', 'synthetic-003060-study8-proxy']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-003011-study8-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-003025-study8-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 23833 output tokens, 143s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 26222 output tokens, 170s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 24305 output tokens, 143s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2767 output tokens, 15s, finish=stop, ok
+  synthetic-003038-study8-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30978 output tokens, 183s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30951 output tokens, 189s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 21196 output tokens, 121s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6042 output tokens, 42s, finish=stop, ok
+  synthetic-003060-study8-proxy FGR 0.758  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.758 (sd 0.000)  recall 0.750  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/gemini-3.8-flash__study8__proxy__abstain_withheld__r0__shard0of3.json

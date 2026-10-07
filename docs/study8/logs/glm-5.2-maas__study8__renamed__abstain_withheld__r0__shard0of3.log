@@ -1,0 +1,46 @@
+Study 8 (renamed): 10 firms x 42 pairs
+shard 0/3: ['synthetic-003011-study8-renamed', 'synthetic-003025-study8-renamed', 'synthetic-003038-study8-renamed', 'synthetic-003060-study8-renamed']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 32000 output tokens, 376s, finish=length, CAP
+        attempt 2: 19936 output tokens, 217s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 334s, finish=length, CAP
+        attempt 2: 18747 output tokens, 204s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 358s, finish=length, CAP
+        attempt 2: 32000 output tokens, 347s, finish=length, CAP
+        attempt 3: 32000 output tokens, 344s, finish=length, CAP
+      batch 4/4 (24 parsed so far)
+        attempt 1: 1605 output tokens, 18s, finish=stop, ok
+  synthetic-003011-study8-renamed FGR 0.606  recall 1.000  absF1 0.000  unparsed 0  (8 calls)  TRUNCATED 5
+      batch 1/4 (0 parsed so far)
+        attempt 1: 16828 output tokens, 187s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 20468 output tokens, 209s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 340s, finish=length, CAP
+        attempt 2: 32000 output tokens, 376s, finish=length, CAP
+        attempt 3: 15159 output tokens, 162s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1679 output tokens, 19s, finish=stop, ok
+  synthetic-003025-study8-renamed FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (6 calls)  TRUNCATED 2
+      batch 1/4 (0 parsed so far)
+        attempt 1: 32000 output tokens, 355s, finish=length, CAP
+        attempt 2: 17839 output tokens, 185s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 10180 output tokens, 108s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 334s, finish=length, CAP
+        attempt 2: 12082 output tokens, 132s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 952 output tokens, 10s, finish=stop, ok
+  synthetic-003038-study8-renamed FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (6 calls)  TRUNCATED 2
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9704 output tokens, 107s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 16816 output tokens, 185s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 340s, finish=length, CAP

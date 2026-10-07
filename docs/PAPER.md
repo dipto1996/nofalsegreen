@@ -21,7 +21,8 @@ abstaining verdicts (+0.384) or a one-sentence warning (+0.093) raises them; an
 evidence-first prompt lowers them (−0.074); and on 120 real public LCA records a
 roster's pay fields raised them by 0.236 with abstention offered, most of it from the
 salary-of-record column alone. Averaged over DeepSeek V3.2 and
-GLM-5.2, these replicate. Two findings on Google's models do not: that the columns' names
+GLM-5.2, these replicate, and the core effects replicate again on ten fresh firms with five
+models and two runs. Two findings on Google's models do not: that the columns' names
 drive the effect, and that redefining `pass` does not matter.
 Labels were checked by an independent program, not by attorneys; all data, prompts and
 replies are released.
@@ -65,9 +66,10 @@ engineers behave.
 We built an instrument for this error (Figure 1) and report three findings. **Proxy columns
 are the largest cause we found:** planting columns that resemble required evidence, with the
 prompt unchanged, raises the false-green rate by 0.217 to 0.427. Controls show that it is
-not the number of added columns; for Google's models it is their names, and those models take
-a proxy that suggests compliance as evidence while discounting one that suggests a breach;
-two other developers' models respond to the values and substitute in both directions. **Of
+not the number of added columns; for Google's models it is mostly their names; the two Gemini models
+take a proxy that suggests compliance as evidence while discounting one that suggests a
+breach, and two other developers' models respond to the values and substitute in both
+directions. **Of
 the output schema, removing the verdicts for "could not tell" matters most** for all five
 models, and removing a one-sentence warning that a missing record is not a record in order
 also raises false greens; redefining `pass` from "shown to be satisfied" to "satisfied"
@@ -79,7 +81,7 @@ overclaiming, distracting context and answer-menu effects. Our contribution is t
 combination where it has consequences: a four-verdict task over a third party's operational
 exports with a stated primary-record standard (§3); a generator that fixes labels before data
 and renders paired firms that differ only in added columns, with labels re-derived by a
-separately written checker (§4); a preregistered study and six declared follow-ups that
+separately written checker (§4); a preregistered study and seven declared follow-ups that
 separate the proxy effect into name, value and direction and the schema effect into its parts,
 and replicate it on real public LCA records and on two more developers' models (§6); evidence that a deterministic compliance
 engine acquired the same shortcut (Appendix H); and a release in which every number in the paper is recomputed from retained replies by
@@ -488,7 +490,7 @@ replicated with the same sign (Table 6):
 - on the real LCA records, the pay fields raised them by 0.562 with abstention offered, and
   removing abstention raised them by 0.892.
 
-Averages can hide disagreement between models:
+Averages can hide disagreement between models (Table 19 gives every model's effect):
 
 - **Warning (H6).** The warning's effect came from DeepSeek (+0.059); for GLM-5.2 it was
   −0.005.
@@ -525,7 +527,7 @@ Given complete records, GLM-5.2 detected every underpaid worker and DeepSeek V3.
 | R2 Salary of record, dashboard (real LCAs) | +0.108 (p 0.219, n.s.) | +0.046 (p 0.188, n.s.) | both n.s. |
 | R3 Dashboard − offered (real LCAs) | +0.586 (p 0.001) | +0.892 (p 0.001) | yes |
 
-Effects on the false-green rate (H3: on `fail`), each model weighted equally; Holm-adjusted exact sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's contrast averages the remaining models. Per-model directions are in Section 6.7.
+Effects on the false-green rate (H3: on `fail`), each model weighted equally; Holm-adjusted exact sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's contrast averages the remaining models. Per-model effects are in Table 19.
 <!-- END GENERATED: table-study6 -->
 
 ### 6.8 Study 7: which pay field
@@ -544,6 +546,41 @@ twelve real-LCA firms under the offered schema, on all five models.
 
 The salary of record therefore carries the effect for most models, and the surrounding pay
 context strengthens it for some. GLM-5.2 answered 100 of 120 pairs in the `Pay Rate` arm.
+
+### 6.9 Study 8: fresh firms, repeat runs and two wage controls
+
+Study 6 reused the Study 3c firms and ran once; Study 5's `Pay Rate` equalled the LCA's offered
+wage; and its complete arm made the greater-of rule trivial. Study 8, declared before any call
+(commit `ec2a325`), addressed all three.
+
+**Fresh firms, repeat runs.** Ten new firms that withhold the I-9 export were rendered plain,
+with proxy columns, with irrelevant columns and with renamed proxy values. All five models ran
+them twice under both schemas. All four declared tests were confirmed (Holm p = 0.010 each),
+positive in all ten firms, and the two runs agreed to within 0.02:
+
+| Test | Effect |
+|---|---|
+| F1: proxy columns over none, offered | +0.224 |
+| F2: proxy columns over irrelevant columns | +0.224 |
+| F3: dashboard over offered, on proxy firms | +0.608 |
+| F4: renamed values over none, dashboard | +0.700 |
+
+The proxy effect under the offered schema was positive for every model, from +0.038 (Gemini
+3.1 Pro) to +0.795 (Gemma 4). Proxy columns are now tested on 32 firms.
+
+**Wage controls.** On the real-LCA firms:
+
+- **G1.** `Pay Rate` set 7% above the LCA's offered wage still raised false greens by 0.247
+  (Holm p = 0.006, positive in eleven firms), so the effect does not depend on the roster
+  repeating the LCA's number.
+- **G2.** A complete arm whose actual-wage export exceeds the offered wage contains
+  underpayments visible only under the greater-of rule. Models detected these as often as
+  underpayments below the offered wage (G2, −0.028, not confirmed): Gemini 3.1 Pro and GLM-5.2
+  detected all of them and Flash 0.947. DeepSeek V3.2 detected about half of each kind, but
+  also flagged 0.569 of correctly paid workers.
+
+The lowest coverage in Part A was 291 of 330 pairs (GLM-5.2 again exceeding its output budget
+on renamed values under the dashboard schema).
 
 ## 7. The exploratory study that generated the hypotheses
 
@@ -576,8 +613,9 @@ lowered false greens, a verdict for "could not tell" and, when that verdict was 
 warning that a missing record is not a record in order; the wording of `pass` mattered for some models and not others; with both in place, false-green
 rates of 0.04 to 0.15 remain on the anchor firm and 0.16 to 0.84 on proxy-column firms. Export
 columns whose names resemble required evidence are a hazard that no menu removed, and for
-Google's models the bias they create runs toward green. An evidence-first prompt lowered false greens for all three
-models but left one at 0.636, which suggests checking outside the model that the required
+Google's models the bias they create runs toward green. An evidence-first prompt lowered false greens for all five
+models, but left Gemma 4 at 0.636 and cost DeepSeek V3.2 half its violation recall, which
+suggests checking outside the model that the required
 record exists before asking for a verdict; our generator cannot test such a check, because
 its gaps are whole exports. We have not compared such safeguards with human reviewers or on real
 employer data. That models respond to wording is well known (Sclar et al., 2024); the effects
@@ -603,7 +641,8 @@ standard a monitoring product implies.
   defined in the handbook).
 - **Statistics.** Study 3 has 18 clusters, its I-9 effect three firms (Studies 3c and 4 add
   ten), and pooled estimates weight particular models equally and depend on the mix of firms.
-  Study 3's cells were run once; repeat runs in Study 4 moved per-model rates by at most 0.100.
+  Study 3's cells were run once; repeat runs in Study 4 moved per-model rates by at most 0.100,
+  and Study 8's two runs on fresh firms agreed to within 0.02.
 - **Model coverage is narrow.** No closed OpenAI, Anthropic or xAI model was evaluated: on
   Vertex AI they are sold through Google Cloud Marketplace, which the study's cloud credits do
   not cover, and the study used no other funds; Studies 3b and 3c use only the three Google models, and Studies 4 and 5 add two
@@ -1514,6 +1553,27 @@ Twelve fresh firms (504 pairs, 180 unassessable) per arm, one run per cell. *pla
 Difference in false-green rate on unassessable pairs answered in both cells, [95% CI] from an obligation-cluster bootstrap (18 firm-by-rule clusters, 2,000 draws), Holm-adjusted p. Holm families as declared: the four pooled tests; the 28 per-model tests; the eight group tests. ** marks adjusted p < 0.05. Pooled estimates weight each model equally.
 <!-- END GENERATED: table10-study3-tests -->
 
+**Table 19 — Per-model effects of the declared tests of Studies 4–7.**
+
+<!-- BEGIN GENERATED: table-per-model -->
+| Test | Gemini 3.1 Pro | Gemini 3.8 Flash | Gemma 4 26B | DeepSeek V3.2 | GLM-5.2 |
+|---|---|---|---|---|---|
+| H1 Names | +0.021 | +0.115 | +0.612 | +0.091 | -0.091 |
+| H2 Meaning | +0.021 | +0.115 | +0.758 | +0.121 | +0.115 |
+| H3 Direction (`fail`) | +0.000 | +0.000 | +0.076 | +0.076 | +0.051 |
+| H4 Abstaining verdicts | +0.519 | +0.444 | +0.188 | +0.564 | +0.725 |
+| H5 Bare definitions | -0.087 | +0.001 | -0.027 | +0.045 | +0.068 |
+| H6 Warning | +0.166 | +0.114 | -0.003 | +0.059 | -0.005 |
+| H7 Evidence-first prompt | +0.021 | +0.067 | +0.133 | +0.106 | +0.088 |
+| R1 Pay fields, offered | +0.000 | +0.496 | +0.182 | +0.748 | +0.382 |
+| R2 Pay fields, dashboard | +0.325 | +0.000 | +0.000 | +0.092 | +0.000 |
+| R3 Dashboard − offered | +0.583 | +1.000 | +0.175 | +0.783 | +1.000 |
+| W1 Pay Rate alone | +0.000 | +0.160 | +0.182 | +0.775 | +0.000 |
+| W2 Pay type and schedule | +0.000 | +0.000 | +0.175 | +0.158 | +0.000 |
+
+Each model's effect on the false-green rate (H3: on `fail`), paired on pairs answered in both cells and pooled over firms; descriptive, computed after the results. Tests in Tables 5 and 6 and Section 6.8.
+<!-- END GENERATED: table-per-model -->
+
 ## Appendix G: Interpretive choices of the reference checker
 
 The checker of Section 4.3 records every choice the regulations leave open, with its source,
@@ -1544,6 +1604,32 @@ verdict that the available record could not support.
 | Salary of record as wages paid | The material-change wage check returned pass or fail from the HR salary of record | Retired: a salary of record "proves nothing about wages paid"; it never passes alone (commits `1b181e00`, `4b2605ec`) |
 | Required wage without the actual-wage limb | The greater-of rule passed on the prevailing wage alone when the employer's actual-wage benchmark was unknown | The would-be pass becomes `needs_evidence` (commit `55c5e6fb`) |
 | Fabricated provenance | Wage cohorts were stamped with a prevailing-wage source and an "ok" document status that no input supplied | Stored as unknown, so the rules ask for the record (commit `c47a945b`) |
+
+Because the repository is private, the logic of each defect is restated below as pseudocode
+(paraphrased, not copied), so that the claim can be checked against the description.
+
+```text
+# silent skip (I-9 Section 2; reverification)
+before: for worker in workers:
+            record = i9_records.get(worker)
+            if record is None or record.section2_date is None: continue   # worker leaves monitoring
+            emit(check(record))
+after:      if record is None or record.section2_date is None:
+                emit(needs_evidence(worker, missing="Section 2 date")); continue
+
+# salary of record as wages paid
+before: verdict = PASS if roster.salary >= lca.required_wage else FAIL
+after:  verdict = NEEDS_EVIDENCE unless payroll.periods cover the span; salary alone never passes
+
+# greater-of rule without the actual-wage limb
+before: required = lca.prevailing_wage; verdict = PASS if paid >= required else FAIL
+after:  if actual_wage_benchmark is None and paid >= lca.prevailing_wage: verdict = NEEDS_EVIDENCE
+        else: required = max(lca.prevailing_wage, actual_wage_benchmark); ...
+
+# fabricated provenance
+before: cohort.pw_source = "OES"; cohort.pw_doc_status = "ok"
+after:  cohort.pw_source = mapped_column or "unknown"   # "unknown" is read as an evidence request
+```
 
 The engine's rules were written with AI coding assistance, and the defects were found by
 AI-assisted review (Codex), so the table is not evidence about human engineers. It shows

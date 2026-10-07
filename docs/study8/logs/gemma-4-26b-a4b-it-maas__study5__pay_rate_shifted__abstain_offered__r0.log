@@ -1,0 +1,66 @@
+Study 5 (pay_rate_shifted): 12 firms x 10 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 12  variants ['abstain_offered']
+
+      batch 1/1 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 20s
+        attempt 1: 449 output tokens, 31s, finish=stop, ok
+  real-lca-01-study5-pay_rate_shifted FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 315 output tokens, 7s, finish=stop, ok
+  real-lca-02-study5-pay_rate_shifted FGR 0.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 0s
+        attempt 1: 449 output tokens, 10s, finish=stop, ok
+  real-lca-03-study5-pay_rate_shifted FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 320 output tokens, 7s, finish=stop, ok
+  real-lca-04-study5-pay_rate_shifted FGR 0.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 449 output tokens, 9s, finish=stop, ok
+  real-lca-05-study5-pay_rate_shifted FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 2s
+        attempt 1: 436 output tokens, 6s, finish=stop, ok
+  real-lca-06-study5-pay_rate_shifted FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 450 output tokens, 5s, finish=stop, ok
+  real-lca-07-study5-pay_rate_shifted FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 447 output tokens, 6s, finish=stop, ok
+  real-lca-08-study5-pay_rate_shifted FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 447 output tokens, 9s, finish=stop, ok
+  real-lca-09-study5-pay_rate_shifted FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 448 output tokens, 8s, finish=stop, ok
+  real-lca-10-study5-pay_rate_shifted FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 370 output tokens, 6s, finish=stop, ok
+  real-lca-11-study5-pay_rate_shifted FGR 0.900  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 447 output tokens, 61s, finish=stop, ok
+  real-lca-12-study5-pay_rate_shifted FGR 0.900  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::abstain_offered: FGR 0.817 (sd 0.383)  recall 0.000  over 12 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/gemma-4-26b-a4b-it-maas__study5__pay_rate_shifted__abstain_offered__r0.json

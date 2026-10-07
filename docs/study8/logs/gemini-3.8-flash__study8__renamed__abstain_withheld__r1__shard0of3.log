@@ -1,0 +1,39 @@
+Study 8 (renamed): 10 firms x 42 pairs
+shard 0/3: ['synthetic-003011-study8-renamed', 'synthetic-003025-study8-renamed', 'synthetic-003038-study8-renamed', 'synthetic-003060-study8-renamed']
+vertex/gemini-3.8-flash#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (12 parsed so far)
+      batch 4/4 (24 parsed so far)
+  synthetic-003011-study8-renamed FGR 0.394  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+        attempt 1: 7821 output tokens, 53s, finish=stop, ok
+  synthetic-003025-study8-renamed FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30951 output tokens, 214s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30975 output tokens, 197s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 27480 output tokens, 187s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4959 output tokens, 31s, finish=stop, ok
+  synthetic-003038-study8-renamed FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30976 output tokens, 165s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 18722 output tokens, 103s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31996 output tokens, 184s, finish=length, CAP
+        attempt 2: 31002 output tokens, 171s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 6072 output tokens, 32s, finish=stop, ok
+  synthetic-003060-study8-renamed FGR 0.758  recall 0.000  absF1 0.000  unparsed 0  (5 calls)  TRUNCATED 1
+
+  vertex/gemini-3.8-flash#r1::abstain_withheld: FGR 0.667 (sd 0.182)  recall 0.750  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/gemini-3.8-flash__study8__renamed__abstain_withheld__r1__shard0of3.json

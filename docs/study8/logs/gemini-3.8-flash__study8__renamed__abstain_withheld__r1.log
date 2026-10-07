@@ -1,0 +1,40 @@
+Study 8 (renamed): 10 firms x 42 pairs
+vertex/gemini-3.8-flash#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30973 output tokens, 212s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 51381 output tokens, 333s, finish=length, CAP
+        attempt 2: 30874 output tokens, 173s, finish=stop, ok
+      batch 3/4 (12 parsed so far)
+        attempt 1: 31002 output tokens, 177s, finish=stop, ok
+      batch 4/4 (24 parsed so far)
+        attempt 1: 2648 output tokens, 14s, finish=stop, ok
+  synthetic-003011-study8-renamed FGR 0.394  recall 1.000  absF1 0.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30978 output tokens, 220s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30976 output tokens, 215s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 43294 output tokens, 241s, finish=length, CAP
+        attempt 2: 30888 output tokens, 166s, finish=stop, ok
+      batch 4/4 (24 parsed so far)
+        attempt 1: 2599 output tokens, 16s, finish=stop, ok
+  synthetic-003014-study8-renamed FGR 0.485  recall 1.000  absF1 0.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30977 output tokens, 199s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 18474 output tokens, 116s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 30884 output tokens, 176s, finish=stop, ok
+      batch 4/4 (24 parsed so far)
+        attempt 1: 4776 output tokens, 27s, finish=stop, ok
+  synthetic-003019-study8-renamed FGR 0.485  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9589 output tokens, 64s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30822 output tokens, 189s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 19231 output tokens, 131s, finish=stop, ok
+      batch 4/4 (36 parsed so far)

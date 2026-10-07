@@ -1,0 +1,74 @@
+{
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-01-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-25311-389529|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25311-389529\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26086-733972\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25316-399414\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26110-810327\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26152-968543\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26128-887336\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25324-423725\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26085-732214\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26091-747057\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26132-898813\tpass\t-",
+  "output_tokens": 261,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-02-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26098-772148|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26098-772148\tfail\tPay Rate 91000.00 USD < Prevailing Wage 83387.00 USD? No, 91000 >= 83387. But we lack actual wage for similarly-employed workers (cohort wage rates). The check requires \u2265 greater of (actual wage for similarly-employed workers) and (prevailing wage). Since we cannot determine the actual wage for similarly-employed workers from the exports, we cannot evaluate if the paid wage meets the greater of the two. Therefore, needs_evidence.\nlca.wage.required_wage_greater_of::I-200-26111-817717\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26021-575603\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26106-801121\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26071-699345\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26133-905351\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26048-645950\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26133-906721\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26126-873490\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26021-576570\tneeds_evidence\t-",
+  "output_tokens": 386,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-03-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26075-707221|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26075-707221\tfail\tPay Rate 87400.00 USD < Prevailing Wage 81682 Year\nlca.wage.required_wage_greater_of::I-200-26050-650727\tfail\tPay Rate 100800.00 USD < Prevailing Wage 94162 Year\nlca.wage.required_wage_greater_of::I-200-26083-724947\tpass\tPay Rate 181900.00 USD >= Prevailing Wage 170000 Year\nlca.wage.required_wage_greater_of::I-200-26170-032882\tpass\tPay Rate 288900.00 USD >= Prevailing Wage 270000 Year\nlca.wage.required_wage_greater_of::I-200-26163-008855\tneeds_evidence\tActual wage for similarly-employed workers not provided\nlca.wage.required_wage_greater_of::I-200-26166-014824\tpass\tPay Rate 139100.00 USD >= Prevailing Wage 130000 Year\nlca.wage.required_wage_greater_of::I-200-26105-797057\tpass\tPay Rate 120800.00 USD >= Prevailing Wage 112923 Year\nlca.wage.required_wage_greater_of::I-200-26138-920469\tneeds_evidence\tActual wage for similarly-employed workers not provided\nlca.wage.required_wage_greater_of::I-200-26044-639589\tpass\tPay Rate 181900.00 USD >= Prevailing Wage 170000 Year\nlca.wage.required_wage_greater_of::I-200-26016-564458\tpass\tPay Rate 246100.00 USD >= Prevailing Wage 230000 Year",
+  "output_tokens": 410,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-04-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26114-830718|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26114-830718\tfail\t162100.00 USD < 187724.25 USD\nlca.wage.required_wage_greater_of::I-200-26036-622077\tpass\t106100.00 USD >= 99177.81 USD\nlca.wage.required_wage_greater_of::I-200-26163-012130\tpass\t200900.00 USD >= 187724.25 USD\nlca.wage.required_wage_greater_of::I-200-26158-989785\tpass\t572200.00 USD >= 534808.00 USD\nlca.wage.required_wage_greater_of::I-200-26020-573778\tpass\t153700.00 USD >= 143640.00 USD\nlca.wage.required_wage_greater_of::I-200-26113-825890\tpass\t152600.00 USD >= 142600.00 USD\nlca.wage.required_wage_greater_of::I-200-26155-979923\tpass\t177800.00 USD >= 166151.00 USD\nlca.wage.required_wage_greater_of::I-200-26136-919458\tpass\t101000.00 USD >= 94390.40 USD\nlca.wage.required_wage_greater_of::I-200-26134-913439\tpass\t165800.00 USD >= 155000.00 USD\nlca.wage.required_wage_greater_of::I-200-26090-742141\tpass\t181900.00 USD >= 170000.00 USD",
+  "output_tokens": 380,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-05-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26173-036632|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26173-036632\tfail\t166400.00 USD < 155500? No, but actual wage for similarly-employed workers unknown\nlca.wage.required_wage_greater_of::I-200-26119-850569\tfail\t123000.00 USD < 115000? No, but actual wage for similarly-employed workers unknown\nlca.wage.required_wage_greater_of::I-200-26147-953815\tpass\t116900.00 USD >= 109283\nlca.wage.required_wage_greater_of::I-200-25365-520028\tfail\t227100.00 USD < 212202? No, but actual wage for similarly-employed workers unknown\nlca.wage.required_wage_greater_of::I-200-26166-014726\tpass\t120800.00 USD >= 112923\nlca.wage.required_wage_greater_of::I-200-26014-557792\tfail\t282300.00 USD < 263856.84? No, but actual wage for similarly-employed workers unknown\nlca.wage.required_wage_greater_of::I-200-26082-721243\tfail\t97100.00 USD < 90730? No, but actual wage for similarly-employed workers unknown\nlca.wage.required_wage_greater_of::I-200-26027-592483\tpass\t111300.00 USD >= 104000\nlca.wage.required_wage_greater_of::I-200-26084-729805\tfail\t192600.00 USD < 180000? No, but actual wage for similarly-employed workers unknown\nlca.wage.required_wage_greater_of::I-200-26068-690268\tpass\t200300.00 USD >= 187200",
+  "output_tokens": 418,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-06-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26070-694561|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26070-694561\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26028-599388\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26159-991305\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26009-548424\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26054-658292\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26160-996242\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26134-911150\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26138-924308\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26112-820127\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26097-763845\tpass\t-",
+  "output_tokens": 261,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-07-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26035-618444|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26035-618444\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26110-813278\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26075-704676\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25268-335316\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26077-712911\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26023-587633\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25308-368623\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26020-572682\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26111-818828\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26086-737525\tfail\t-",
+  "output_tokens": 261,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-08-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26078-715134|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26078-715134\tfail\tPay Rate 221700.00 USD < Prevailing Wage 61890.00 USD (converted to annual)\nlca.wage.required_wage_greater_of::I-200-25329-435222\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26062-675732\tfail\tPay Rate 66700.00 USD < Prevailing Wage 48942.00 USD (converted to annual)\nlca.wage.required_wage_greater_of::I-200-25314-394001\tfail\tPay Rate 100900.00 USD < Prevailing Wage 94307.00 USD (converted to annual)\nlca.wage.required_wage_greater_of::I-200-26106-802484\tfail\tPay Rate 89700.00 USD < Prevailing Wage 83824.00 USD (converted to annual)\nlca.wage.required_wage_greater_of::I-200-26148-959513\tfail\tPay Rate 139100.00 USD < Prevailing Wage 120536.00 USD (converted to annual)\nlca.wage.required_wage_greater_of::I-200-26149-961892\tfail\tPay Rate 114900.00 USD < Prevailing Wage 107349.00 USD (converted to annual)\nlca.wage.required_wage_greater_of::I-200-26035-619374\tfail\tPay Rate 87100.00 USD < Prevailing Wage 48300.00 USD (converted to annual)\nlca.wage.required_wage_greater_of::I-200-26134-909579\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26141-936740\tfail\tPay Rate 106500.00 USD < Prevailing Wage 99362.00 USD (converted to annual)",
+  "output_tokens": 451,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-09-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26107-805147|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26107-805147\tfail\tPay Rate 121400.00 USD < Prevailing Wage 113500? No, but wage range bottom 113500 < Prevailing Wage 113360? No, but need actual wage for similarly-employed workers.\nlca.wage.required_wage_greater_of::I-200-26055-660606\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26147-954430\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26106-801923\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25336-448928\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26121-859748\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25307-362225\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26126-873755\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26076-708997\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26163-010593\tneeds_evidence\t-",
+  "output_tokens": 331,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-10-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26131-894062|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26131-894062\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26141-937560\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26153-972193\tfail\t-\nlca.wage.required_wage_greater_of::I-200-25304-352898\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26107-808187\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26015-562090\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25309-374794\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26023-583698\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26132-897561\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26075-705519\tfail\t-",
+  "output_tokens": 261,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-11-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-25324-424629|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25324-424629\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26112-821080\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26139-925758\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25308-366821\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26059-671417\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26104-792937\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26097-765862\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25338-456532\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26128-888781\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25336-450325\tpass\t-",
+  "output_tokens": 261,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|abstain_offered|real-lca-12-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26135-915909|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26135-915909\tfail\t-\nlca.wage.required_wage_greater_of::I-200-26121-859837\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26131-893671\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25272-340353\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26016-564814\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26050-651724\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26113-825410\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26161-002720\tpass\t-\nlca.wage.required_wage_greater_of::I-200-26049-649023\tpass\t-\nlca.wage.required_wage_greater_of::I-200-25343-467453\tpass\t-",
+  "output_tokens": 261,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

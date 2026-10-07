@@ -1,0 +1,37 @@
+Study 8 (renamed): 10 firms x 42 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30964 output tokens, 199s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30952 output tokens, 185s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31996 output tokens, 198s, finish=length, CAP
+        attempt 2: 30885 output tokens, 181s, finish=stop, ok
+      batch 4/4 (24 parsed so far)
+        attempt 1: 3961 output tokens, 22s, finish=stop, ok
+  synthetic-003011-study8-renamed FGR 0.485  recall 1.000  absF1 0.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 31995 output tokens, 183s, finish=length, CAP
+        attempt 2: 30977 output tokens, 218s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30976 output tokens, 211s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31996 output tokens, 178s, finish=length, CAP
+        attempt 2: 31004 output tokens, 181s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3275 output tokens, 19s, finish=stop, ok
+  synthetic-003014-study8-renamed FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (6 calls)  TRUNCATED 2
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30951 output tokens, 180s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30979 output tokens, 187s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31006 output tokens, 210s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3905 output tokens, 22s, finish=stop, ok
+  synthetic-003019-study8-renamed FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30989 output tokens, 202s, finish=stop, ok
+      batch 2/4 (12 parsed so far)

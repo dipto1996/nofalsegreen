@@ -1,0 +1,39 @@
+Study 8 (renamed): 10 firms x 42 pairs
+shard 2/3: ['synthetic-003019-study8-renamed', 'synthetic-003030-study8-renamed', 'synthetic-003047-study8-renamed']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 8760 output tokens, 119s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 366s, finish=length, CAP
+        attempt 2: 13658 output tokens, 149s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 12476 output tokens, 139s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2592 output tokens, 30s, finish=stop, ok
+  synthetic-003019-study8-renamed FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 10247 output tokens, 109s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 11500 output tokens, 119s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11299 output tokens, 122s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2298 output tokens, 25s, finish=stop, ok
+  synthetic-003030-study8-renamed FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 32000 output tokens, 347s, finish=length, CAP
+        attempt 2: 8293 output tokens, 89s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 354s, finish=length, CAP
+        attempt 2: 8000 output tokens, 88s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 16829 output tokens, 182s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3186 output tokens, 32s, finish=stop, ok
+  synthetic-003047-study8-renamed FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (6 calls)  TRUNCATED 2
+
+  vertexopen/zai-org/glm-5.2-maas#r0::abstain_offered: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/glm-5.2-maas__study8__renamed__abstain_offered__r0__shard2of3.json

@@ -1,0 +1,37 @@
+Study 8 (proxy): 10 firms x 42 pairs
+shard 1/3: ['synthetic-003014-study8-proxy', 'synthetic-003027-study8-proxy', 'synthetic-003046-study8-proxy']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 7908 output tokens, 104s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 15465 output tokens, 171s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 9208 output tokens, 99s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3791 output tokens, 44s, finish=stop, ok
+  synthetic-003014-study8-proxy FGR 0.242  recall 1.000  absF1 0.862  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 11715 output tokens, 128s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5906 output tokens, 64s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 14833 output tokens, 177s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2142 output tokens, 23s, finish=stop, ok
+  synthetic-003027-study8-proxy FGR 0.273  recall 1.000  absF1 0.842  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5797 output tokens, 62s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 341s, finish=length, CAP
+        attempt 2: 9701 output tokens, 104s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6435 output tokens, 72s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2014 output tokens, 21s, finish=stop, ok
+  synthetic-003046-study8-proxy FGR 0.030  recall 1.000  absF1 0.985  unparsed 0  (5 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r0::abstain_offered: FGR 0.182 (sd 0.132)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/glm-5.2-maas__study8__proxy__abstain_offered__r0__shard1of3.json

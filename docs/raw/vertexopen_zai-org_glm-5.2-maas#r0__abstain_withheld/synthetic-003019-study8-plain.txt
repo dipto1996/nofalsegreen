@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	fail	-
+i9.section2.timeliness::SYN-1001	fail	-
+i9.reverification.deadline::SYN-1001	fail	-
+i9.section1.timeliness::SYN-1002	fail	-
+i9.section2.timeliness::SYN-1002	fail	-
+i9.reverification.deadline::SYN-1002	fail	-
+i9.section1.timeliness::SYN-1003	fail	-
+i9.section2.timeliness::SYN-1003	fail	-
+i9.reverification.deadline::SYN-1003	fail	-
+i9.section1.timeliness::SYN-1004	fail	-
+i9.section2.timeliness::SYN-1004	fail	-
+i9.reverification.deadline::SYN-1004	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	-
+i9.section2.timeliness::SYN-1005	fail	-
+i9.reverification.deadline::SYN-1005	fail	-
+i9.section1.timeliness::SYN-1006	fail	-
+i9.section2.timeliness::SYN-1006	fail	-
+i9.reverification.deadline::SYN-1006	fail	-
+i9.section1.timeliness::SYN-1007	fail	-
+i9.section2.timeliness::SYN-1007	fail	-
+i9.reverification.deadline::SYN-1007	fail	-
+i9.section1.timeliness::SYN-1008	fail	-
+i9.section2.timeliness::SYN-1008	fail	-
+i9.reverification.deadline::SYN-1008	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	-
+i9.section2.timeliness::SYN-1009	fail	-
+i9.reverification.deadline::SYN-1009	fail	-
+i9.section1.timeliness::SYN-1010	fail	-
+i9.section2.timeliness::SYN-1010	fail	-
+i9.section1.timeliness::SYN-1011	fail	-
+i9.section2.timeliness::SYN-1011	fail	-
+i9.section1.timeliness::SYN-1012	fail	-
+i9.section2.timeliness::SYN-1012	fail	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	grossPay
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	grossPay=7700 semimonthly × 24 = 184800/yr < required 186000 (max of actual_wage 186000 and prevailing 178800)
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	grossPay=5900 semimonthly × 24 = 141600/yr ≥ required 138000 (max of actual_wage 138000 and prevailing 132000)
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	grossPay=6200 semimonthly × 24 = 148800/yr ≥ required 138000 (max of actual_wage 138000 and prevailing 132000)
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	grossPay=5750 semimonthly × 24 = 138000/yr ≥ required 138000 (max of actual_wage 138000 and prevailing 132000)
+lca.wage.required_wage_greater_of::I-200-25007-100008	fail	grossPay=5500 semimonthly × 24 = 132000/yr < required 138000 (max of actual_wage 138000 and prevailing 132000)
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	grossPay=5000 semimonthly × 24 = 120000/yr ≥ required 118800 (max of actual_wage 116400 and prevailing 118800)

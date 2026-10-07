@@ -619,7 +619,37 @@ def table_study6() -> str:
                 "sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. "
                 "Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired "
                 "on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's "
-                "contrast averages the remaining models. Per-model directions are in Section 6.7.")
+                "contrast averages the remaining models. Per-model effects are in Table 19.")
+    return "\n".join(rows)
+
+
+def table_per_model() -> str:
+    """Per-model effect of every declared Study 4-7 contrast (appendix)."""
+    d = ROOT / "docs"
+    srcs = [d / "study4" / "results.json", d / "study6" / "study4_results.json",
+            d / "study5" / "results.json", d / "study6" / "study5_results.json", d / "study7" / "results.json"]
+    cols = ["gemini-3.1-pro-preview", "gemini-3.8-flash", "gemma-4-26b-a4b-it-maas", "deepseek-v3.2-maas", "glm-5.2-maas"]
+    head = ("| Test | Gemini 3.1 Pro | Gemini 3.8 Flash | Gemma 4 26B | DeepSeek V3.2 | GLM-5.2 |"
+            "\n|---|---|---|---|---|---|")
+    if not all(f.exists() for f in srcs):
+        return head
+    pm: dict = {}
+    for f in srcs[:4]:
+        for k, v in json.loads(f.read_text()).get("per_model_primary_posthoc", {}).items():
+            pm.setdefault(k, {}).update(v)
+    s7 = json.loads(srcs[4].read_text())["per_model"]
+    pm["W1"] = s7["pay_rate_only - lca_only"]
+    pm["W2"] = s7["pay_context_only - lca_only"]
+    lab = {"H1": "H1 Names", "H2": "H2 Meaning", "H3": "H3 Direction (`fail`)", "H4": "H4 Abstaining verdicts",
+           "H5": "H5 Bare definitions", "H6": "H6 Warning", "H7": "H7 Evidence-first prompt",
+           "R1": "R1 Pay fields, offered", "R2": "R2 Pay fields, dashboard", "R3": "R3 Dashboard − offered",
+           "W1": "W1 Pay Rate alone", "W2": "W2 Pay type and schedule"}
+    rows = [head]
+    for k, name in lab.items():
+        rows.append(f"| {name} | " + " | ".join("—" if pm[k].get(c) is None else f"{pm[k][c]:+.3f}" for c in cols) + " |")
+    rows.append("")
+    rows.append("Each model's effect on the false-green rate (H3: on `fail`), paired on pairs answered in both cells and "
+                "pooled over firms; descriptive, computed after the results. Tests in Tables 5 and 6 and Section 6.8.")
     return "\n".join(rows)
 
 
@@ -659,6 +689,7 @@ def main() -> int:
         "table-robust": table_robust(),
         "table-study4": table_study4(),
         "table-study6": table_study6(),
+        "table-per-model": table_per_model(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

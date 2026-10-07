@@ -1,0 +1,102 @@
+Study 8 (proxy): 10 firms x 42 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 14385 output tokens, 109s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3159 output tokens, 21s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5414 output tokens, 51s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3124 output tokens, 20s, finish=stop, ok
+  synthetic-003011-study8-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 7637 output tokens, 52s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6131 output tokens, 44s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4588 output tokens, 27s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3751 output tokens, 21s, finish=stop, ok
+  synthetic-003014-study8-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4522 output tokens, 34s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5576 output tokens, 40s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11851 output tokens, 81s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1863 output tokens, 14s, finish=stop, ok
+  synthetic-003019-study8-proxy FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6289 output tokens, 47s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5680 output tokens, 42s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 14s
+        attempt 1: 4145 output tokens, 27s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3079 output tokens, 21s, finish=stop, ok
+  synthetic-003025-study8-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6432 output tokens, 48s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 7405 output tokens, 55s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3618 output tokens, 24s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3344 output tokens, 22s, finish=stop, ok
+  synthetic-003027-study8-proxy FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4599 output tokens, 34s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 4673 output tokens, 34s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5195 output tokens, 34s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2619 output tokens, 17s, finish=stop, ok
+  synthetic-003030-study8-proxy FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6129 output tokens, 46s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 7440 output tokens, 53s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5980 output tokens, 39s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3715 output tokens, 25s, finish=stop, ok
+  synthetic-003038-study8-proxy FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4725 output tokens, 34s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8316 output tokens, 61s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 8510 output tokens, 56s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3003 output tokens, 19s, finish=stop, ok
+  synthetic-003046-study8-proxy FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4234 output tokens, 31s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5837 output tokens, 39s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31034 output tokens, 177s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2278 output tokens, 15s, finish=stop, ok
+  synthetic-003047-study8-proxy FGR 0.515  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9264 output tokens, 66s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6952 output tokens, 50s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 13265 output tokens, 92s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3345 output tokens, 24s, finish=stop, ok
+  synthetic-003060-study8-proxy FGR 0.758  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::abstain_withheld: FGR 0.661 (sd 0.170)  recall 0.900  over 10 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/gemini-3.1-pro-preview__study8__proxy__abstain_withheld__r0.json

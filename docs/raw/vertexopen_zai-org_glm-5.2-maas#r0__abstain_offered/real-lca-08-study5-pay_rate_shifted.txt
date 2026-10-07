@@ -1,0 +1,24 @@
+Looking at each LCA case, I need to determine whether the actual wage paid to the worker is ≥ the greater of (actual wage for similarly-employed workers) and (prevailing wage on the LCA).
+
+From the exports I have:
+- **HRIS Pay Rate** (annual salary for each worker)
+- **LCA prevailing wage** (from lca_export)
+- **LCA wage range** (WAGE_RATE_OF_PAY_FROM / TO from lca_export)
+- **FT/PT status** (Full-Time from both exports)
+
+What I do **not** have from any export:
+- **Cohort wage rates** — the wages paid to similarly-employed workers, which are needed to independently establish the "actual wage for similarly-employed workers" required by 20 CFR 655.731(a)(1)
+- **Gross wages paid per period** and **pay frequency** — needed to verify actual cash-in-hand payments under 655.731(c)(1)
+
+While I can compare the HRIS Pay Rate against the LCA prevailing wage (and in every case the HRIS rate exceeds the prevailing wage), the obligation requires the greater of the prevailing wage *and* the actual wage for similarly-employed workers. Without cohort wage rate data, I cannot determine the actual wage for similarly-employed workers, and therefore cannot establish the required wage threshold. The LCA wage range is the employer's certified wage, not the underlying cohort data needed to verify it.
+
+lca.wage.required_wage_greater_of::I-200-26078-715134	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25329-435222	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-26062-675732	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25314-394001	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-26106-802484	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-26148-959513	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-26149-961892	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-26035-619374	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-26134-909579	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-26141-936740	needs_evidence	-

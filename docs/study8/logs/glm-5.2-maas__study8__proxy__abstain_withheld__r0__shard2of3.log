@@ -1,0 +1,36 @@
+Study 8 (proxy): 10 firms x 42 pairs
+shard 2/3: ['synthetic-003019-study8-proxy', 'synthetic-003030-study8-proxy', 'synthetic-003047-study8-proxy']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9466 output tokens, 125s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6723 output tokens, 72s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5161 output tokens, 57s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2305 output tokens, 25s, finish=stop, ok
+  synthetic-003019-study8-proxy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5118 output tokens, 59s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 9557 output tokens, 104s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 9944 output tokens, 109s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2294 output tokens, 25s, finish=stop, ok
+  synthetic-003030-study8-proxy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9366 output tokens, 104s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 9150 output tokens, 98s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 7311 output tokens, 78s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1649 output tokens, 21s, finish=stop, ok
+  synthetic-003047-study8-proxy FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::abstain_withheld: FGR 1.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/glm-5.2-maas__study8__proxy__abstain_withheld__r0__shard2of3.json

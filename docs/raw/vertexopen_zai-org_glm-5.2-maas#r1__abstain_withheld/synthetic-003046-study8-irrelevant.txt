@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	fail	-
+i9.section2.timeliness::SYN-1001	fail	-
+i9.reverification.deadline::SYN-1001	fail	-
+i9.section1.timeliness::SYN-1002	fail	-
+i9.section2.timeliness::SYN-1002	fail	-
+i9.reverification.deadline::SYN-1002	fail	-
+i9.section1.timeliness::SYN-1003	fail	-
+i9.section2.timeliness::SYN-1003	fail	-
+i9.reverification.deadline::SYN-1003	fail	-
+i9.section1.timeliness::SYN-1004	fail	-
+i9.section2.timeliness::SYN-1004	fail	-
+i9.reverification.deadline::SYN-1004	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	-
+i9.section2.timeliness::SYN-1005	fail	-
+i9.reverification.deadline::SYN-1005	fail	-
+i9.section1.timeliness::SYN-1006	fail	-
+i9.section2.timeliness::SYN-1006	fail	-
+i9.reverification.deadline::SYN-1006	fail	-
+i9.section1.timeliness::SYN-1007	fail	-
+i9.section2.timeliness::SYN-1007	fail	-
+i9.reverification.deadline::SYN-1007	fail	-
+i9.section1.timeliness::SYN-1008	fail	-
+i9.section2.timeliness::SYN-1008	fail	-
+i9.reverification.deadline::SYN-1008	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	-
+i9.section2.timeliness::SYN-1009	fail	-
+i9.reverification.deadline::SYN-1009	fail	-
+i9.section1.timeliness::SYN-1010	fail	-
+i9.section2.timeliness::SYN-1010	fail	-
+i9.section1.timeliness::SYN-1011	fail	-
+i9.section2.timeliness::SYN-1011	fail	-
+i9.section1.timeliness::SYN-1012	fail	-
+i9.section2.timeliness::SYN-1012	fail	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay=4950×24=118800 ≥ max(PREVAILING_WAGE=118800, ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=116400)=118800
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	grossPay=7750×24=186000 ≥ max(PREVAILING_WAGE=178800, ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=186000)=186000
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	grossPay=6550×24=157200 ≥ max(PREVAILING_WAGE=142800, ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=150000)=150000
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25008-100009	fail	grossPay

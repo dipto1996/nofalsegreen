@@ -84,6 +84,16 @@ def main() -> int:
         out["primary"][k]["p_holm"] = run
         out["primary"][k]["outcome"] = "confirmed" if run < 0.05 else "not confirmed"
 
+    def pm(b, a, m, outcome="pass"):
+        db, da = preds.get((m, *b), {}), preds.get((m, *a), {})
+        ks = [k for k in labels["lca_only"] if k in db and k in da]
+        return round(sum(float(db[k].verdict.value == outcome) - float(da[k].verdict.value == outcome)
+                         for k in ks) / len(ks), 4) if ks else None
+    out["per_model_primary_posthoc"] = {
+        "R1": {m: pm(("salary", OFF), ("lca_only", OFF), m) for m in MODELS},
+        "R2": {m: pm(("salary", DASH), ("lca_only", DASH), m) for m in MODELS},
+        "R3": {m: pm(("lca_only", DASH), ("lca_only", OFF), m) for m in MODELS}}
+
     cells = {}
     for (m, arm, cond), d in sorted(preds.items()):
         lab = labels[arm]

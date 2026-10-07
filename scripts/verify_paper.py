@@ -27,6 +27,27 @@ results = json.loads((ROOT / "docs" / "results.json").read_text())
 
 ok = bad = 0
 
+# Rebuild first: re-run every scorer from the retained replies (no API call) and require
+# that each results file comes out byte-identical to the one the paper's numbers were
+# checked against. Skip with --no-rebuild for a quick text-only pass.
+REBUILD = [("score_study3.py",), ("study3_exploratory.py",), ("study3_robustness.py",),
+           ("score_paraphrase.py",), ("score_study3c.py",), ("score_study4.py",), ("score_study4.py", "--study6"),
+           ("score_study5.py",), ("score_study5.py", "--study6"), ("score_study7.py",), ("score_study8.py",),
+           ("score_ai_pilot.py",)]
+REBUILT = {}
+if "--no-rebuild" not in sys.argv:
+    import hashlib
+    import subprocess
+    outs = [ROOT / "docs" / f for f in ("study3/results.json", "study3/exploratory.json", "study3/robustness.json",
+                                        "study3b/results.json", "study3c/results.json", "study4/results.json",
+                                        "study6/study4_results.json", "study5/results.json", "study6/study5_results.json",
+                                        "study7/results.json", "study8/results.json", "ai_pilot_review/results.json")]
+    before = {f: hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None for f in outs}
+    for args in REBUILD:
+        subprocess.run([sys.executable, str(ROOT / "scripts" / args[0]), *args[1:]], cwd=ROOT,
+                       capture_output=True, text=True)
+    REBUILT = {f: (before[f], hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None) for f in outs}
+
 
 def claim(cond: bool, label: str) -> None:
     global ok, bad
@@ -43,6 +64,10 @@ firm = northwind.load(ANCHOR, ANCHOR / "expectations.json")
 counts = collections.Counter(l.verdict.value for l in firm.labels)
 regimes = rb.rule_regimes()
 scored = {n: score(firm.labels, fn(firm), rule_regimes=regimes) for n, fn in REGISTRY.items()}
+
+print("rebuild from retained replies")
+for _f, (_b, _a) in REBUILT.items():
+    claim(_a is not None and _b == _a, f"{_f.relative_to(ROOT)} rebuilt byte-identical from retained replies")
 
 print("rulebook claims")
 claim("194 obligations" in paper, "paper says 194 obligations")
@@ -667,6 +692,27 @@ claim(f"+{_pr['deepseek-v3.2-maas']:.3f} for DeepSeek V3.2, +{_pr['gemma-4-26b-a
       and f"Flash's false greens by {_sp['gemini-3.8-flash']:.3f} and GLM-5.2's by {_sp['glm-5.2-maas']:.3f}" in _flat
       and f"answered {_S7['answered']['glm-5.2-maas::pay_rate_only']} of 120 pairs in the `Pay Rate` arm" in _flat,
       "Study 7: per-model effects and coverage")
+
+# Study 8 (docs/STUDY8_DECLARATION.md)
+_S8 = json.loads((ROOT / "docs" / "study8" / "results.json").read_text())
+_f8 = {k[:2]: v for k, v in _S8["primary"].items()}
+claim(all(_f8[k]["outcome"] == "confirmed" and _f8[k]["firms_positive"] == 10 and f"{_f8[k]['p_holm']:.3f}" == "0.010"
+          for k in ("F1", "F2", "F3", "F4"))
+      and all(f"+{_f8[k]['delta']:.3f}" in _flat for k in ("F1", "F2", "F3", "F4")), "Study 8: F1-F4")
+_pr8 = _S8["fresh_per_run"]
+claim(max(abs(v["r0"] - v["r1"]) for v in _pr8.values()) <= 0.02 and "agreed to within 0.02" in _flat, "Study 8: runs agree")
+_pm8 = _S8["fresh_per_model"]["F1 proxy - plain, offered"]
+claim(min(_pm8.values()) > 0 and f"+{min(_pm8.values()):.3f} (Gemini 3.1 Pro) to +{max(_pm8.values()):.3f} (Gemma 4)" in _flat
+      and min(_pm8, key=_pm8.get) == "gemini-3.1-pro-preview" and max(_pm8, key=_pm8.get) == "gemma-4-26b-a4b-it-maas",
+      "Study 8: per-model F1 range")
+claim(_f8["G1"]["outcome"] == "confirmed" and f"raised false greens by {_f8['G1']['delta']:.3f}\n(Holm p = {_f8['G1']['p_holm']:.3f}, positive in eleven".replace("\n", " ") in _flat
+      and _f8["G1"]["firms_positive"] == 11, "Study 8: G1")
+_gr = _S8["greater_of_recall"]
+claim(_f8["G2"]["outcome"] == "not confirmed" and f"(G2, {_f8['G2']['delta']:.3f}, not confirmed)".replace("-", "−") in _flat
+      and _gr["gemini-3.1-pro-preview::greater_of_only"] == 1 and _gr["glm-5.2-maas::greater_of_only"] == 1
+      and f"Flash {_gr['gemini-3.8-flash::greater_of_only']:.3f}" in _flat
+      and f"flagged {_gr['deepseek-v3.2-maas::false_alarm']:.3f} of correctly paid" in _flat, "Study 8: G2 and recall")
+claim(f"{_S8['fresh_coverage_min']} of {_S8['fresh_n_unassessable']} pairs" in _flat, "Study 8: coverage")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))

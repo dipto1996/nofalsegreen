@@ -1,0 +1,29 @@
+
+
+---
+
+
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	-
+i9.section2.timeliness::SYN-1009	fail	-
+i9.reverification.deadline::SYN-1009	fail	-
+i9.section1.timeliness::SYN-1010	fail	-
+i9.section2.timeliness::SYN-1010	fail	-
+i9.section1.timeliness::SYN-1011	fail	-
+i9.section2.timeliness::SYN-1011	fail	-
+i9.section1.timeliness::SYN-1012	fail	-
+i9.section2.timeliness::SYN-1012	fail	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	fail	grossPay
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	grossPay
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	grossPay=5300/semimonthly=$127,200/yr ≥ max(actual_wage $116,400, prevailing_wage $118,800)=$118,800
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	grossPay=5650/semimonthly=$135,600/yr ≥ max(actual_wage $116,400, prevailing_wage $118,800)=$118,800
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	grossPay=8500/semimonthly=$204,000/yr ≥ max(actual_wage $186,000, prevailing_wage $178,800)=$186,000
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	grossPay=5750/semimonthly=$138,000/yr ≥ max(actual_wage $138,000, prevailing_wage $132,000)=$138,000
+lca.wage.required_wage_greater_of::I-200-25007-100008	fail	grossPay=5500/semimonthly=$132,000/yr < max(actual_wage $138,000, prevailing_wage $132,000)=$138,000
+lca.wage.required_wage_greater_of::I-200-25008-100009	fail	grossPay=6150/semimonthly=$147,600/yr < max(actual_wage $150,000, prevailing_wage $142,800)=$150,000

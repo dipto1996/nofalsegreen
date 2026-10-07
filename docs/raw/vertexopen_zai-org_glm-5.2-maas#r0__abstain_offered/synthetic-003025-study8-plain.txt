@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	needs_evidence	-
+i9.section2.timeliness::SYN-1001	needs_evidence	-
+i9.reverification.deadline::SYN-1001	needs_evidence	-
+i9.section1.timeliness::SYN-1002	needs_evidence	-
+i9.section2.timeliness::SYN-1002	needs_evidence	-
+i9.reverification.deadline::SYN-1002	needs_evidence	-
+i9.section1.timeliness::SYN-1003	needs_evidence	-
+i9.section2.timeliness::SYN-1003	needs_evidence	-
+i9.reverification.deadline::SYN-1003	needs_evidence	-
+i9.section1.timeliness::SYN-1004	needs_evidence	-
+i9.section2.timeliness::SYN-1004	needs_evidence	-
+i9.reverification.deadline::SYN-1004	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1005	needs_evidence	-
+i9.section2.timeliness::SYN-1005	needs_evidence	-
+i9.reverification.deadline::SYN-1005	needs_evidence	-
+i9.section1.timeliness::SYN-1006	needs_evidence	-
+i9.section2.timeliness::SYN-1006	needs_evidence	-
+i9.reverification.deadline::SYN-1006	needs_evidence	-
+i9.section1.timeliness::SYN-1007	needs_evidence	-
+i9.section2.timeliness::SYN-1007	needs_evidence	-
+i9.reverification.deadline::SYN-1007	needs_evidence	-
+i9.section1.timeliness::SYN-1008	needs_evidence	-
+i9.section2.timeliness::SYN-1008	needs_evidence	-
+i9.reverification.deadline::SYN-1008	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1009	needs_evidence	-
+i9.section2.timeliness::SYN-1009	needs_evidence	-
+i9.reverification.deadline::SYN-1009	needs_evidence	-
+i9.section1.timeliness::SYN-1010	needs_evidence	-
+i9.section2.timeliness::SYN-1010	needs_evidence	-
+i9.section1.timeliness::SYN-1011	needs_evidence	-
+i9.section2.timeliness::SYN-1011	needs_evidence	-
+i9.section1.timeliness::SYN-1012	needs_evidence	-
+i9.section2.timeliness::SYN-1012	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay=5400×24=129600 ≥ max(ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=116400, PREVAILING_WAGE=118800)=118800
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	grossPay=6650×24=159600 ≥ max(ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=150000, PREVAILING_WAGE=142800)=150000
+lca.wage.required_wage_greater_of::I-200-25002-100003	fail	grossPay=5750×24=138000 < max(ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=150000, PREVAILING_WAGE=142800)=150000
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	grossPay=6100/semimonthly=$146400/yr;ACTUAL_WAGE=138000;PREVAILING_WAGE=132000;required=max(138000,132000)=138000;paid>=required
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	grossPay=5650/semimonthly=$135600/yr;ACTUAL_WAGE=116400;PREVAILING_WAGE=118800;required=max(116400,118800)=118800;paid>=required
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	grossPay=6900/semimonthly=$165600/yr;ACTUAL_WAGE=150000;PREVAILING_WAGE=142800;required=max(150000,142800)=150000;paid>=required
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	grossPay=6250/semimonthly=$150000/yr;ACTUAL_WAGE=150000;PREVAILING_WAGE=142800;required=max(150000,142800)=150000;paid>=required
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	grossPay=6250/semimonthly=$150000/yr;ACTUAL_WAGE=150000;PREVAILING_WAGE=142800;required=max(150000,142800)=150000;paid>=required
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	grossPay=6550/semimonthly=$157200/yr;ACTUAL_WAGE=150000;PREVAILING_WAGE=142800;required=max(150000,142800)=150000;paid>=required

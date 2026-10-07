@@ -1,0 +1,74 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003014-study8-proxy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1001\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1001\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1002\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1002\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1002\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1003\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1003\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1003\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1004\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1004\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1004\tpass\tworkAuthValidThrough",
+  "output_tokens": 9168,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003014-study8-proxy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1005\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1005\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1006\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1006\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1006\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1007\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1007\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1007\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1008\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1008\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1008\tpass\tworkAuthValidThrough",
+  "output_tokens": 9523,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003014-study8-proxy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tonboardingCompletedDate=2025-06-15,hireDate=2025-06-16\ni9.section2.timeliness::SYN-1009\tpass\tonboardingCompletedDate=2025-06-15,hireDate=2025-06-16\ni9.reverification.deadline::SYN-1009\tpass\tworkAuthValidThrough=2028-05-20\ni9.section1.timeliness::SYN-1010\tpass\tonboardingCompletedDate=2022-12-29,hireDate=2022-12-29\ni9.section2.timeliness::SYN-1010\tpass\tonboardingCompletedDate=2022-12-29,hireDate=2022-12-29\ni9.section1.timeliness::SYN-1011\tpass\tonboardingCompletedDate=2022-10-19,hireDate=2022-10-25\ni9.section2.timeliness::SYN-1011\tpass\tonboardingCompletedDate=2022-10-19,hireDate=2022-10-25\ni9.section1.timeliness::SYN-1012\tpass\tonboardingCompletedDate=2023-04-28,hireDate=2023-05-03\ni9.section2.timeliness::SYN-1012\tpass\tonboardingCompletedDate=2023-04-28,hireDate=2023-05-03\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tgrossPay=5750/semimonthly\u2192138000/yr;ACTUAL_WAGE=138000;PREVAILING_WAGE=132000;required=138000\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay=7750/semimonthly\u2192186000/yr;ACTUAL_WAGE=186000;PREVAILING_WAGE=178800;required=186000\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay=7750/semimonthly\u2192186000/yr;ACTUAL_WAGE=186000;PREVAILING_WAGE=178800;required=186000",
+  "output_tokens": 5357,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003014-study8-proxy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tgrossPay=5200 semimonthly \u00d724=124800 \u2265 max(actual_wage_system 116400, LCA prevailing_wage 118800)=118800\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tgrossPay=5750 semimonthly \u00d724=138000 \u2265 max(actual_wage_system 138000, LCA prevailing_wage 132000)=138000\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tgrossPay=5750 semimonthly \u00d724=138000 \u2265 max(actual_wage_system 138000, LCA prevailing_wage 132000)=138000\nlca.wage.required_wage_greater_of::I-200-25006-100007\tfail\tgrossPay=5950 semimonthly \u00d724=142800 < max(actual_wage_system 150000, LCA prevailing_wage 142800)=150000\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tgrossPay=7500 semimonthly \u00d724=180000 < max(actual_wage_system 186000, LCA prevailing_wage 178800)=186000\nlca.wage.required_wage_greater_of::I-200-25008-100009\tpass\tgrossPay=6300 semimonthly \u00d724=151200 \u2265 max(actual_wage_system 138000, LCA prevailing_wage 132000)=138000",
+  "output_tokens": 1995,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003027-study8-proxy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tonboardingCompletedDate=2025-01-22,hireDate=2025-01-22\ni9.section2.timeliness::SYN-1001\tpass\tonboardingCompletedDate=2025-01-22,hireDate=2025-01-22\ni9.reverification.deadline::SYN-1001\tpass\tworkAuthValidThrough=2027-11-28\ni9.section1.timeliness::SYN-1002\tpass\tonboardingCompletedDate=2022-01-02,hireDate=2022-01-06\ni9.section2.timeliness::SYN-1002\tpass\tonboardingCompletedDate=2022-01-02,hireDate=2022-01-06\ni9.reverification.deadline::SYN-1002\tpass\tworkAuthValidThrough=2028-07-05\ni9.section1.timeliness::SYN-1003\tpass\tonboardingCompletedDate=2023-09-14,hireDate=2023-09-18\ni9.section2.timeliness::SYN-1003\tpass\tonboardingCompletedDate=2023-09-14,hireDate=2023-09-18\ni9.reverification.deadline::SYN-1003\tpass\tworkAuthValidThrough=2028-05-23\ni9.section1.timeliness::SYN-1004\tpass\tonboardingCompletedDate=2024-05-28,hireDate=2024-05-30\ni9.section2.timeliness::SYN-1004\tpass\tonboardingCompletedDate=2024-05-28,hireDate=2024-05-30\ni9.reverification.deadline::SYN-1004\tpass\tworkAuthValidThrough=2028-04-14",
+  "output_tokens": 8699,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003027-study8-proxy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1005\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1005\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1006\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1006\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1006\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1007\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1007\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1007\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1008\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1008\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1008\tpass\tworkAuthValidThrough",
+  "output_tokens": 9261,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003027-study8-proxy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1009\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1009\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1010\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1010\tpass\tonboardingCompletedDate\ni9.section1.timeliness::SYN-1011\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1011\tpass\tonboardingCompletedDate\ni9.section1.timeliness::SYN-1012\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1012\tpass\tonboardingCompletedDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 11009,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003027-study8-proxy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25007-100008\tfail\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tfail\tgrossPay",
+  "output_tokens": 2254,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003046-study8-proxy|i9.section1.timeliness::SYN-1001|12": {
+  "text": "i9.section1.timeliness::SYN-1001\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1001\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1001\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1002\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1002\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1002\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1003\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1003\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1003\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1004\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1004\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1004\tpass\tworkAuthValidThrough",
+  "output_tokens": 7421,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003046-study8-proxy|i9.section1.timeliness::SYN-1005|12": {
+  "text": "i9.section1.timeliness::SYN-1005\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1005\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1005\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1006\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1006\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1006\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1007\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1007\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1007\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1008\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1008\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1008\tpass\tworkAuthValidThrough",
+  "output_tokens": 11351,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003046-study8-proxy|i9.section1.timeliness::SYN-1009|12": {
+  "text": "i9.section1.timeliness::SYN-1009\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1009\tpass\tonboardingCompletedDate\ni9.reverification.deadline::SYN-1009\tpass\tworkAuthValidThrough\ni9.section1.timeliness::SYN-1010\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1010\tpass\tonboardingCompletedDate\ni9.section1.timeliness::SYN-1011\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1011\tpass\tonboardingCompletedDate\ni9.section1.timeliness::SYN-1012\tpass\tonboardingCompletedDate\ni9.section2.timeliness::SYN-1012\tpass\tonboardingCompletedDate\nlca.wage.required_wage_greater_of::I-200-25000-100001\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25001-100002\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25002-100003\tpass\tgrossPay",
+  "output_tokens": 11924,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_withheld|synthetic-003046-study8-proxy|lca.wage.required_wage_greater_of::I-200-25003-100004|6": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25003-100004\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25004-100005\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25005-100006\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25006-100007\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25007-100008\tpass\tgrossPay\nlca.wage.required_wage_greater_of::I-200-25008-100009\tfail\tgrossPay",
+  "output_tokens": 1685,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

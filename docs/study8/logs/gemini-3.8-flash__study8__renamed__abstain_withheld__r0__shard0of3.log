@@ -1,0 +1,41 @@
+Study 8 (renamed): 10 firms x 42 pairs
+shard 0/3: ['synthetic-003011-study8-renamed', 'synthetic-003025-study8-renamed', 'synthetic-003038-study8-renamed', 'synthetic-003060-study8-renamed']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (24 parsed so far)
+  synthetic-003011-study8-renamed FGR 0.485  recall 1.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30952 output tokens, 196s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 29481 output tokens, 220s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5141 output tokens, 31s, finish=stop, ok
+  synthetic-003025-study8-renamed FGR 1.000  recall 1.000  absF1 0.000  unparsed 0  (3 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 24336 output tokens, 169s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30976 output tokens, 184s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 21316 output tokens, 147s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4152 output tokens, 23s, finish=stop, ok
+  synthetic-003038-study8-renamed FGR 0.636  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30952 output tokens, 175s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30951 output tokens, 166s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 40055 output tokens, 226s, finish=length, CAP
+        attempt 2: 31007 output tokens, 170s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5980 output tokens, 34s, finish=stop, ok
+  synthetic-003060-study8-renamed FGR 0.758  recall 0.000  absF1 0.000  unparsed 0  (5 calls)  TRUNCATED 1
+
+  vertex/gemini-3.8-flash#r0::abstain_withheld: FGR 0.720 (sd 0.218)  recall 0.750  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/gemini-3.8-flash__study8__renamed__abstain_withheld__r0__shard0of3.json

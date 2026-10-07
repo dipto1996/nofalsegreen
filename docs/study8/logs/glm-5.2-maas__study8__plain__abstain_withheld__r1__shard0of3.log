@@ -1,0 +1,45 @@
+Study 8 (plain): 10 firms x 42 pairs
+shard 0/3: ['synthetic-003011-study8-plain', 'synthetic-003025-study8-plain', 'synthetic-003038-study8-plain', 'synthetic-003060-study8-plain']
+vertexopen/zai-org/glm-5.2-maas#r1 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2290 output tokens, 45s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3020 output tokens, 38s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3729 output tokens, 40s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1642 output tokens, 18s, finish=stop, ok
+  synthetic-003011-study8-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2000 output tokens, 21s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3135 output tokens, 34s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5715 output tokens, 63s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1261 output tokens, 15s, finish=stop, ok
+  synthetic-003025-study8-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1185 output tokens, 15s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5907 output tokens, 69s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4342 output tokens, 49s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1563 output tokens, 16s, finish=stop, ok
+  synthetic-003038-study8-plain FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3165 output tokens, 35s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2328 output tokens, 26s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3888 output tokens, 45s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1339 output tokens, 15s, finish=stop, ok
+  synthetic-003060-study8-plain FGR 0.000  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r1::abstain_withheld: FGR 0.000 (sd 0.000)  recall 0.750  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/glm-5.2-maas__study8__plain__abstain_withheld__r1__shard0of3.json

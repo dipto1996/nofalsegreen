@@ -1,0 +1,77 @@
+i9.section1.timeliness::SYN-1001	fail	-
+i9.section2.timeliness::SYN-1001	fail	-
+i9.reverification.deadline::SYN-1001	fail	-
+i9.section1.timeliness::SYN-1002	fail	-
+i9.section2.timeliness::SYN-1002	fail	-
+i9.reverification.deadline::SYN-1002	fail	-
+i9.section1.timeliness::SYN-1003	fail	-
+i9.section2.timeliness::SYN-1003	fail	-
+i9.reverification.deadline::SYN-1003	fail	-
+i9.section1.timeliness::SYN-1004	fail	-
+i9.section2.timeliness::SYN-1004	fail	-
+i9.reverification.deadline::SYN-1004	fail	-
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	-
+i9.section2.timeliness::SYN-1005	fail	-
+i9.reverification.deadline::SYN-1005	fail	-
+i9.section1.timeliness::SYN-1006	fail	-
+i9.section2.timeliness::SYN-1006	fail	-
+i9.reverification.deadline::SYN-1006	fail	-
+i9.section1.timeliness::SYN-1007	fail	-
+i9.section2.timeliness::SYN-1007	fail	-
+i9.reverification.deadline::SYN-1007	fail	-
+i9.section1.timeliness::SYN-1008	fail	-
+i9.section2.timeliness::SYN-1008	fail	-
+i9.reverification.deadline::SYN-1008	fail	-
+
+---
+
+i9.section2.timeliness::SYN-1012`
+Entity: SYN-1012 (Rosa Santos)
+Verdict: fail
+Evidence: -
+
+Pair 10: `lca.wage.required_wage_greater_of::I-200-25000-100001`
+Entity: I-200-25000-100001 (SYN-1001, Wen Kovac)
+PW: 132000, Actual wage system: 138000. Required wage: 138000.
+Gross pay: 6050 * 24 = 145200 >= 138000.
+Verdict: pass
+Evidence: grossPay
+
+Pair 11: `lca.wage.required_wage_greater_of::I-200-25001-100002`
+Entity: I-200-25001-100002 (SYN-1002, Rosa Abara)
+PW: 132000, Actual wage system: 138000. Required wage: 138000.
+Gross pay: 6300 * 24 = 151200 >= 138000.
+Verdict: pass
+Evidence: grossPay
+
+Pair 12: `lca.wage.required_wage_greater_of::I-200-25002-100003`
+Entity: I-200-25002-100003 (SYN-1003, Uma Duarte)
+PW: 118800, Actual wage system: 116400. Required wage: 118800.
+Gross pay: 4950 * 24 = 118800 >= 118800.
+Verdict: pass
+Evidence: grossPay
+
+Everything is verified, aligned, and ready to output. Format is tab-delimited, exactly one line per pair. No commentary.i9.section1.timeliness::SYN-1009	fail	-
+i9.section2.timeliness::SYN-1009	fail	-
+i9.reverification.deadline::SYN-1009	fail	-
+i9.section1.timeliness::SYN-1010	fail	-
+i9.section2.timeliness::SYN-1010	fail	-
+i9.section1.timeliness::SYN-1011	fail	-
+i9.section2.timeliness::SYN-1011	fail	-
+i9.section1.timeliness::SYN-1012	fail	-
+i9.section2.timeliness::SYN-1012	fail	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	grossPay
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	grossPay
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	-
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	-
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	-
+lca.wage.required_wage_greater_of::I-200-25007-100008	fail	grossPay
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	-

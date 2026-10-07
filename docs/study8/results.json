@@ -1,0 +1,171 @@
+{
+ "declared": "docs/STUDY8_DECLARATION.md",
+ "fresh_per_model": {
+  "F1 proxy - plain, offered": {
+   "gemini-3.1-pro-preview": 0.0379,
+   "gemini-3.8-flash": 0.1061,
+   "gemma-4-26b-a4b-it-maas": 0.7955,
+   "deepseek-v3.2-maas": 0.0758,
+   "glm-5.2-maas": 0.1061
+  },
+  "F2 proxy - irrelevant, offered": {
+   "gemini-3.1-pro-preview": 0.0379,
+   "gemini-3.8-flash": 0.1061,
+   "gemma-4-26b-a4b-it-maas": 0.7924,
+   "deepseek-v3.2-maas": 0.0758,
+   "glm-5.2-maas": 0.1061
+  },
+  "F3 dashboard - offered, proxy firms": {
+   "gemini-3.1-pro-preview": 0.6288,
+   "gemini-3.8-flash": 0.6992,
+   "gemma-4-26b-a4b-it-maas": 0.1788,
+   "deepseek-v3.2-maas": 0.6379,
+   "glm-5.2-maas": 0.8939
+  },
+  "F4 renamed - plain, dashboard": {
+   "gemini-3.1-pro-preview": 0.6015,
+   "gemini-3.8-flash": 0.7294,
+   "gemma-4-26b-a4b-it-maas": 0.8288,
+   "deepseek-v3.2-maas": 0.5439,
+   "glm-5.2-maas": 0.7952
+  }
+ },
+ "fresh_per_run": {
+  "F1 proxy - plain, offered": {
+   "r0": 0.223,
+   "r1": 0.2255
+  },
+  "F2 proxy - irrelevant, offered": {
+   "r0": 0.2224,
+   "r1": 0.2248
+  },
+  "F3 dashboard - offered, proxy firms": {
+   "r0": 0.6045,
+   "r1": 0.6109
+  },
+  "F4 renamed - plain, dashboard": {
+   "r0": 0.6903,
+   "r1": 0.7093
+  }
+ },
+ "fresh_names_descriptive": {
+  "proxy - renamed, offered, per model": {
+   "gemini-3.1-pro-preview": 0.0379,
+   "gemini-3.8-flash": 0.1061,
+   "gemma-4-26b-a4b-it-maas": 0.6424,
+   "deepseek-v3.2-maas": 0.0636,
+   "glm-5.2-maas": -0.0154
+  }
+ },
+ "fresh_coverage_min": 291,
+ "fresh_n_unassessable": 330,
+ "primary": {
+  "F1 proxy - plain, offered": {
+   "n_firms": 10,
+   "delta": 0.2242,
+   "ci95_firm_bootstrap": [
+    0.2085,
+    0.2391
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  },
+  "F2 proxy - irrelevant, offered": {
+   "n_firms": 10,
+   "delta": 0.2236,
+   "ci95_firm_bootstrap": [
+    0.2082,
+    0.2385
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  },
+  "F3 dashboard - offered, proxy firms": {
+   "n_firms": 10,
+   "delta": 0.6077,
+   "ci95_firm_bootstrap": [
+    0.575,
+    0.64
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  },
+  "F4 renamed - plain, dashboard": {
+   "n_firms": 10,
+   "delta": 0.6998,
+   "ci95_firm_bootstrap": [
+    0.6729,
+    0.7228
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.009765625,
+   "outcome": "confirmed"
+  },
+  "G1 Pay Rate (7% above the LCA wage) - LCA only": {
+   "n_firms": 12,
+   "delta": 0.2471,
+   "ci95_firm_bootstrap": [
+    0.1658,
+    0.3275
+   ],
+   "p_exact_two_sided": 0.0009765625,
+   "firms_positive": 11,
+   "firms_negative": 0,
+   "p_holm": 0.005859375,
+   "outcome": "confirmed"
+  },
+  "G2 recall: below the offered wage - greater-of only": {
+   "n_firms": 10,
+   "delta": -0.0283,
+   "ci95_firm_bootstrap": [
+    -0.115,
+    0.0533
+   ],
+   "p_exact_two_sided": 0.5859375,
+   "firms_positive": 4,
+   "firms_negative": 4,
+   "p_holm": 0.5859375,
+   "outcome": "not confirmed"
+  }
+ },
+ "greater_of_recall": {
+  "gemini-3.1-pro-preview::below_offered": 0.9167,
+  "gemini-3.1-pro-preview::greater_of_only": 1.0,
+  "gemini-3.1-pro-preview::false_alarm": 0.0,
+  "gemini-3.1-pro-preview::answered": 120,
+  "gemini-3.8-flash::below_offered": 1.0,
+  "gemini-3.8-flash::greater_of_only": 0.9474,
+  "gemini-3.8-flash::false_alarm": 0.0,
+  "gemini-3.8-flash::answered": 118,
+  "gemma-4-26b-a4b-it-maas::below_offered": 0.0,
+  "gemma-4-26b-a4b-it-maas::greater_of_only": 0.1053,
+  "gemma-4-26b-a4b-it-maas::false_alarm": 0.0517,
+  "gemma-4-26b-a4b-it-maas::answered": 120,
+  "deepseek-v3.2-maas::below_offered": 0.6667,
+  "deepseek-v3.2-maas::greater_of_only": 0.5263,
+  "deepseek-v3.2-maas::false_alarm": 0.569,
+  "deepseek-v3.2-maas::answered": 120,
+  "glm-5.2-maas::below_offered": 1.0,
+  "glm-5.2-maas::greater_of_only": 1.0,
+  "glm-5.2-maas::false_alarm": 0.0,
+  "glm-5.2-maas::answered": 120
+ },
+ "pay_rate_shifted_per_model": {
+  "gemini-3.1-pro-preview": 0.0,
+  "gemini-3.8-flash": 0.25,
+  "gemma-4-26b-a4b-it-maas": 0.8167,
+  "deepseek-v3.2-maas": 0.5,
+  "glm-5.2-maas": 0.3333
+ }
+}

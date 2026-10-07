@@ -1,0 +1,55 @@
+Study 8 (proxy): 10 firms x 42 pairs
+vertex/gemini-3.8-flash#r1 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 25148 output tokens, 174s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30952 output tokens, 188s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 16348 output tokens, 101s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1883 output tokens, 12s, finish=stop, ok
+  synthetic-003011-study8-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30952 output tokens, 195s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 27933 output tokens, 156s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10560 output tokens, 73s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2680 output tokens, 14s, finish=stop, ok
+  synthetic-003014-study8-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30975 output tokens, 217s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 26611 output tokens, 196s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 9153 output tokens, 59s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2153 output tokens, 14s, finish=stop, ok
+  synthetic-003019-study8-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 14096 output tokens, 91s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30977 output tokens, 198s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 8945 output tokens, 53s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 5848 output tokens, 32s, finish=stop, ok
+  synthetic-003025-study8-proxy FGR 0.758  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 30988 output tokens, 202s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 30975 output tokens, 197s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 8334 output tokens, 49s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2950 output tokens, 18s, finish=stop, ok
+  synthetic-003027-study8-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 23145 output tokens, 140s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 31996 output tokens, 188s, finish=length, CAP
+        attempt 2: 23382 output tokens, 171s, finish=stop, ok
+      batch 3/4 (24 parsed so far)

@@ -1,0 +1,40 @@
+Study 8 (renamed): 10 firms x 42 pairs
+shard 2/3: ['synthetic-003019-study8-renamed', 'synthetic-003030-study8-renamed', 'synthetic-003047-study8-renamed']
+vertexopen/zai-org/glm-5.2-maas#r1 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r1 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 15063 output tokens, 188s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 344s, finish=length, CAP
+        attempt 2: 11232 output tokens, 120s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 11347 output tokens, 133s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2646 output tokens, 28s, finish=stop, ok
+  synthetic-003019-study8-renamed FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 20544 output tokens, 227s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 19812 output tokens, 214s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 360s, finish=length, CAP
+        attempt 2: 32000 output tokens, 358s, finish=length, CAP
+        attempt 3: 22342 output tokens, 240s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2306 output tokens, 27s, finish=stop, ok
+  synthetic-003030-study8-renamed FGR 0.364  recall 1.000  absF1 0.778  unparsed 0  (6 calls)  TRUNCATED 2
+      batch 1/4 (0 parsed so far)
+        attempt 1: 27549 output tokens, 300s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 12263 output tokens, 129s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 344s, finish=length, CAP
+        attempt 2: 19702 output tokens, 215s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2304 output tokens, 26s, finish=stop, ok
+  synthetic-003047-study8-renamed FGR 0.121  recall 1.000  absF1 0.935  unparsed 0  (5 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r1::abstain_offered: FGR 0.162 (sd 0.185)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/glm-5.2-maas__study8__renamed__abstain_offered__r1__shard2of3.json

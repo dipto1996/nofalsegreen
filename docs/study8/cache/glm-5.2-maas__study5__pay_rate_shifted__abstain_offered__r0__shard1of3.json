@@ -1,0 +1,26 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_offered|real-lca-02-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26098-772148|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26098-772148\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26111-817717\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26021-575603\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26106-801121\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26071-699345\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26133-905351\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26048-645950\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26133-906721\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26126-873490\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26021-576570\tneeds_evidence\t-",
+  "output_tokens": 7673,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_offered|real-lca-05-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26173-036632|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-26173-036632\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26119-850569\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26147-953815\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25365-520028\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26166-014726\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26014-557792\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26082-721243\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26027-592483\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26084-729805\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26068-690268\tneeds_evidence\t-",
+  "output_tokens": 15486,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_offered|real-lca-08-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-26078-715134|10": {
+  "text": "Looking at each LCA case, I need to determine whether the actual wage paid to the worker is \u2265 the greater of (actual wage for similarly-employed workers) and (prevailing wage on the LCA).\n\nFrom the exports I have:\n- **HRIS Pay Rate** (annual salary for each worker)\n- **LCA prevailing wage** (from lca_export)\n- **LCA wage range** (WAGE_RATE_OF_PAY_FROM / TO from lca_export)\n- **FT/PT status** (Full-Time from both exports)\n\nWhat I do **not** have from any export:\n- **Cohort wage rates** \u2014 the wages paid to similarly-employed workers, which are needed to independently establish the \"actual wage for similarly-employed workers\" required by 20 CFR 655.731(a)(1)\n- **Gross wages paid per period** and **pay frequency** \u2014 needed to verify actual cash-in-hand payments under 655.731(c)(1)\n\nWhile I can compare the HRIS Pay Rate against the LCA prevailing wage (and in every case the HRIS rate exceeds the prevailing wage), the obligation requires the greater of the prevailing wage *and* the actual wage for similarly-employed workers. Without cohort wage rate data, I cannot determine the actual wage for similarly-employed workers, and therefore cannot establish the required wage threshold. The LCA wage range is the employer's certified wage, not the underlying cohort data needed to verify it.\n\nlca.wage.required_wage_greater_of::I-200-26078-715134\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25329-435222\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26062-675732\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-25314-394001\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26106-802484\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26148-959513\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26149-961892\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26035-619374\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26134-909579\tneeds_evidence\t-\nlca.wage.required_wage_greater_of::I-200-26141-936740\tneeds_evidence\t-",
+  "output_tokens": 8392,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|abstain_offered|real-lca-11-study5-pay_rate_shifted|lca.wage.required_wage_greater_of::I-200-25324-424629|10": {
+  "text": "lca.wage.required_wage_greater_of::I-200-25324-424629\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-26112-821080\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-26139-925758\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-25308-366821\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-26059-671417\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-26104-792937\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-26097-765862\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-25338-456532\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-26128-888781\tpass\tPay Rate\nlca.wage.required_wage_greater_of::I-200-25336-450325\tpass\tPay Rate",
+  "output_tokens": 9811,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

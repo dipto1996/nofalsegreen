@@ -41,6 +41,20 @@
    "outcome": "confirmed"
   }
  },
+ "per_model_primary_posthoc": {
+  "R1": {
+   "deepseek-v3.2-maas": 0.7479,
+   "glm-5.2-maas": 0.3818
+  },
+  "R2": {
+   "deepseek-v3.2-maas": 0.0917,
+   "glm-5.2-maas": 0.0
+  },
+  "R3": {
+   "deepseek-v3.2-maas": 0.7833,
+   "glm-5.2-maas": 1.0
+  }
+ },
  "cells": {
   "deepseek-v3.2-maas::complete::abstain_offered": {
    "n": 120,

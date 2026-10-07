@@ -1,0 +1,21 @@
+Study 5 (complete_actual_above): 12 firms x 10 pairs
+shard 1/3: ['real-lca-02-study5-complete_actual_above', 'real-lca-05-study5-complete_actual_above', 'real-lca-08-study5-complete_actual_above', 'real-lca-11-study5-complete_actual_above']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered']
+
+      batch 1/1 (0 parsed so far)
+        attempt 1: 3565 output tokens, 57s, finish=stop, ok
+  real-lca-02-study5-complete_actual_above FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 2792 output tokens, 32s, finish=stop, ok
+  real-lca-05-study5-complete_actual_above FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 3160 output tokens, 36s, finish=stop, ok
+  real-lca-08-study5-complete_actual_above FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 3836 output tokens, 45s, finish=stop, ok
+  real-lca-11-study5-complete_actual_above FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::abstain_offered: FGR 0.000 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study8/runs/glm-5.2-maas__study5__complete_actual_above__abstain_offered__r0__shard1of3.json
