@@ -64,7 +64,7 @@ engineers behave.
 <!-- TEXFIGURE: fig_overview | The task and the error. Each panel shows the exports a system is given for one obligation and one worker (values illustrative). With the I-9 record present the record decides (a); with it missing the correct verdict is needs_evidence (b); with it missing but an onboarding date beside it, a model may answer pass (c). A wrong fail sends the item to review; a wrong pass removes it from review. -->
 
 We built an instrument for this error (Figure 1) and report three findings. **Proxy columns
-are the largest cause we found:** planting columns that resemble required evidence, with the
+are a large cause:** planting columns that resemble required evidence, with the
 prompt unchanged, raises the false-green rate by 0.217 to 0.427. Controls show that it is
 not the number of added columns; for Google's models it is mostly their names; the two Gemini models
 take a proxy that suggests compliance as evidence while discounting one that suggests a
@@ -74,7 +74,9 @@ the output schema, removing the verdicts for "could not tell" matters most** for
 models, and removing a one-sentence warning that a missing record is not a record in order
 also raises false greens; redefining `pass` from "shown to be satisfied" to "satisfied"
 raised them for two models and not for Google's three. **High recall does not
-bring safety:** no model that detects nearly every violation comes close to zero false greens.
+guarantee safety:** in Study 3, none of the four models that detected at least 0.92 of
+violations came close to zero false greens on proxy-column firms, although on real LCA records
+Gemini 3.1 Pro both detected every underpayment and made no false green (§6.5).
 
 Each ingredient has precedents (§2): answers for insufficient evidence, directional
 overclaiming, distracting context and answer-menu effects. Our contribution is their
@@ -628,7 +630,7 @@ suggests checking outside the model that the required
 record exists before asking for a verdict; our generator cannot test such a check, because
 its gaps are whole exports. We have not compared such safeguards with human reviewers or on real
 employer data. That models respond to wording is well known (Sclar et al., 2024); the effects
-here survive a rewording, replicate on fresh firms, on repeat runs, on real LCA records and on two other developers' models, and the largest
+here survive a rewording, replicate on fresh firms, on repeat runs, on real LCA records and on two other developers' models, and the proxy effect
 involves no change to the prompt. Whether a proxy-based `pass` is an error depends on the
 standard (§3): it is a reasonable triage guess, and a claim made without the record under the
 standard a monitoring product implies.
@@ -805,7 +807,10 @@ python3 scripts/verify_paper.py                 # recomputes every number in the
 ```
 
 No step makes an API call: every score is rebuilt from the retained replies in
-`docs/**/cache/` and `docs/raw/`. Re-running the models uses `scripts/run_free.py`,
+`docs/**/cache/` and `docs/raw/`. `verify_paper.py` re-runs every scorer above and requires all
+17 derived results files to come out byte-identical; the two remaining inputs,
+`docs/llm_results.json` and `docs/label_audit_second.json`, are records of model calls rather
+than derived files. Re-running the models uses `scripts/run_free.py`,
 `scripts/run_vertex.py` and the `scripts/run_study*.py` launchers.
 
 **Real LCA records (Study 5).** The 120 rows come from the Department of Labor's public *LCA

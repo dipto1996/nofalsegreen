@@ -33,7 +33,8 @@ ok = bad = 0
 REBUILD = [("score_study3.py",), ("study3_exploratory.py",), ("study3_robustness.py",),
            ("score_paraphrase.py",), ("score_study3c.py",), ("score_study4.py",), ("score_study4.py", "--study6"),
            ("score_study5.py",), ("score_study5.py", "--study6"), ("score_study7.py",), ("score_study8.py",),
-           ("score_ai_pilot.py",)]
+           ("score_ai_pilot.py",), ("sweep.py", "--firms", "30"), ("score_views.py",), ("score_studies.py",),
+           ("analysis.py",), ("labelcheck_compare.py",)]
 REBUILT = {}
 if "--no-rebuild" not in sys.argv:
     import hashlib
@@ -41,7 +42,9 @@ if "--no-rebuild" not in sys.argv:
     outs = [ROOT / "docs" / f for f in ("study3/results.json", "study3/exploratory.json", "study3/robustness.json",
                                         "study3b/results.json", "study3c/results.json", "study4/results.json",
                                         "study6/study4_results.json", "study5/results.json", "study6/study5_results.json",
-                                        "study7/results.json", "study8/results.json", "ai_pilot_review/results.json")]
+                                        "study7/results.json", "study8/results.json", "ai_pilot_review/results.json",
+                                        "results.json", "views_results.json", "studies_results.json",
+                                        "analysis_results.json", "labelcheck_results.json")]
     import os
     before = {f: hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None for f in outs}
     # A scorer that fails leaves the old file in place, which would hash as "identical";
@@ -750,6 +753,14 @@ from collections import Counter as _C  # noqa: E402
 _kinds = _C(l.note for f in _s5.build("complete_actual_above") for l in f.labels if l.verdict.value == "fail")
 claim(_kinds["greater_of_only"] == 38 and _kinds["below_offered"] == 24
       and "these 38 underpayments and on the 24 below the offered wage" in _flat, "Study 8: G2 denominators")
+
+claim(len(REBUILD) == 17 and "all 17 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
+_c5 = json.loads((ROOT / "docs" / "study5" / "results.json").read_text())["cells"]
+claim(_c5["gemini-3.1-pro-preview::complete::abstain_offered"]["recall_all_pairs"] == 1
+      and _c5["gemini-3.1-pro-preview::lca_only::abstain_offered"]["fgr_all_pairs"] == 0
+      and _c5["gemini-3.1-pro-preview::salary::abstain_offered"]["fgr_all_pairs"] == 0
+      and "Gemini 3.1 Pro both detected every underpayment and made no false green" in _flat
+      and "largest cause" not in _flat, "intro: scoped recall claim; no cross-study superlative")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
