@@ -226,7 +226,12 @@ CONTRACT_OFFERED = "contract_offered"
 CONTRACT_FORCED = "contract_forced"
 CONTRACT_EVIDENCE_FIRST = "contract_evidence_first"
 CONTRACT_EXTRACT = "contract_extract"
-CONTRACT_VARIANTS = (CONTRACT_OFFERED, CONTRACT_FORCED, CONTRACT_EVIDENCE_FIRST, CONTRACT_EXTRACT)
+# Study 10 (docs/STUDY10_DECLARATION.md): the same rules with the evidence described rather
+# than bound to named columns, and the system prompt without the binding sentence.
+CONTRACT_SEM_OFFERED = "contract_sem_offered"
+CONTRACT_SEM_FORCED = "contract_sem_forced"
+CONTRACT_VARIANTS = (CONTRACT_OFFERED, CONTRACT_FORCED, CONTRACT_EVIDENCE_FIRST, CONTRACT_EXTRACT,
+                     CONTRACT_SEM_OFFERED, CONTRACT_SEM_FORCED)
 
 _SYSTEM_CONTRACT = """You are checking an organisation's records against stated decision rules.
 
@@ -281,7 +286,24 @@ report the prevailing value). Use exactly the fact names in the rule. Dates as Y
 amounts as plain numbers."""
 
 
+_SYSTEM_SEM = _SYSTEM_CONTRACT.replace("""  2. the decision rules; each rule states its predicate and, for every fact it needs, the
+     only table columns that establish that fact""", """  2. the decision rules; each rule states its predicate and the information it needs""").replace(
+    """A fact is established only by the columns the rule names for it. Other columns, however
+they are named, do not establish it. """, "")
+_MENU_SEM_OFFERED = """Permitted verdicts:
+  pass            the records establish every fact and the rule is satisfied
+  fail            the records establish that the rule is violated
+  needs_evidence  the records do not establish enough to decide, or they conflict
+  unmonitored     the rule cannot apply to this entity
+
+In the evidence field, give the table.column you relied on."""
+
+
 def _contract_system(variant: str) -> str:
+    if variant == CONTRACT_SEM_OFFERED:
+        return _SYSTEM_SEM.replace("{verdict_menu}", _MENU_SEM_OFFERED)
+    if variant == CONTRACT_SEM_FORCED:
+        return _SYSTEM_SEM.replace("{verdict_menu}", _MENU_CONTRACT_FORCED)
     if variant == CONTRACT_EXTRACT:
         head = _SYSTEM_CONTRACT.split("Return one line per pair")[0]
         return head + _MENU_CONTRACT_EXTRACT + "\n\nReturn a line for every pair. Do not add commentary, headers, or explanation."

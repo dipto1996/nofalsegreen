@@ -196,7 +196,8 @@ def main() -> int:
                 obls = rb.all_rules()
                 if args.study9:
                     from nofalsegreen import study9
-                    obls = study9.all_obligations()
+                    obls = (study9.semantic_obligations() if variant.startswith("contract_sem")
+                            else study9.all_obligations())
                 r = run_firm(provider, firm, obls, variant=variant,
                              batch_size=args.batch, scope_sources=scope, keep_raw=True,
                              progress=True, stop_on_host_failure=not args.finalize,

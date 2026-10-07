@@ -45,6 +45,13 @@ def obligations(wf: str, familiar: bool) -> list[Obligation]:
                        data_needed=c.statement(nm)) for c in C.RULES[wf]]
 
 
+def semantic_obligations() -> list[Obligation]:
+    """Study 10: the same rules, evidence described rather than bound."""
+    return [Obligation(rule_id=c.rule_id, regime="contract", citation="stated decision rule",
+                       summary=c.predicate_text, applies_to="entity", evidence_required=(),
+                       data_needed=c.statement_semantic()) for c in C.CONTRACTS.values()]
+
+
 def all_obligations() -> list[Obligation]:
     return [o for wf in WORKFLOWS for fam in (True, False) for o in obligations(wf, fam)]
 

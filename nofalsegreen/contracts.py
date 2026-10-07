@@ -60,6 +60,11 @@ class Contract:
     predicate: Callable[[dict], bool]
     constants: tuple = ()             # values the predicate compares against
 
+    def statement_semantic(self) -> str:
+        """Study 10: the same rule with its evidence described, not bound to columns."""
+        return (f"Decision rule: {self.predicate_text}\n  - Information needed: "
+                + "; ".join(f.name for f in self.facts) + ".")
+
     def statement(self, names: dict) -> str:
         """The contract as shown to a model; `names` maps (table, column) to rendered names."""
         lines = [f"Decision rule: {self.predicate_text}"]
