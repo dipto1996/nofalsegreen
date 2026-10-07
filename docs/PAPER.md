@@ -160,6 +160,10 @@ item is absent for the entity, the pair is **unassessable** and any verdict but
 only by the record the law requires the employer to keep. The standard follows what the
 regulations make inspectable. An I-9 inspection is "an inspection of Forms I-9" on three
 business days' notice (8 C.F.R. 274a.2(b)(2)(ii)), so timeliness is shown by the form's dates.
+ICE's inspection guidance draws the same line in practice: a Notice of Inspection requires the
+Forms I-9, with payroll and employee lists as supporting documentation, and "failure to present
+the Form I-9 for inspection upon request" is a substantive violation (U.S. Immigration and
+Customs Enforcement, 2026).
 The LCA wage "must be paid to the employee, cash in hand, free and clear, when due" (20 C.F.R.
 655.731(c)(1)), and the employer must keep documentation proving it (655.731(b)(1)), so the
 wage is shown by the record of wages paid, not by a salary of record or the LCA's offered
@@ -753,6 +757,8 @@ Theologitis, M., Dammu, P. P. S., Shah, C. and Suciu, D. (2026). ClaimDB: A Fact
 Thorne, J., Vlachos, A., Christodoulopoulos, C. and Mittal, A. (2018). FEVER: a Large-scale Dataset for Fact Extraction and VERification. Proceedings of NAACL-HLT 2018. https://aclanthology.org/N18-1074
 
 Turpin, M., Michael, J., Perez, E. and Bowman, S. R. (2023). Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting. NeurIPS 2023. https://arxiv.org/abs/2305.04388
+
+U.S. Immigration and Customs Enforcement (2026). Form I-9 Inspection. Fact sheet, retrieved 2026-10-07. https://www.ice.gov/factsheets/i9-inspection
 
 Wang, B., Gao, Y., Li, Z. and Lou, J.-G. (2023). Know What I don't Know: Handling Ambiguous and Unknown Questions for Text-to-SQL. Findings of ACL 2023. https://aclanthology.org/2023.findings-acl.352
 
