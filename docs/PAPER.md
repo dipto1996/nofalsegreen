@@ -42,7 +42,11 @@ suppresses is the only thing that would surface it. In immigration compliance th
 concrete: Form I-9 paperwork violations are penalised per form (8 C.F.R. 274a.10(b)(2)), and
 violations of a Labor Condition Application (LCA), the wage attestation behind an H-1B
 petition, per violation (20 C.F.R. 655.810(b)). A gap found before an inspection can often be
-cured; found during one, it becomes a finding.
+cured; found during one, it becomes a finding. The wage gap is not hypothetical: in fiscal year
+2025 the Department of Labor's Wage and Hour Division found H-1B violations in 74 compliance
+actions and recovered $3,306,457 in back wages for 152 workers (U.S. Department of Labor,
+2026), each a case in which wages an LCA required were not fully paid, which an LCA's offered
+wage or a salary of record would have shown as compliant.
 
 **Pass/fail evaluation cannot see it.** An evaluation with no category for "the evidence was
 not there" never penalises a system that answers `pass` whenever evidence is absent. Recent
@@ -759,6 +763,8 @@ Theologitis, M., Dammu, P. P. S., Shah, C. and Suciu, D. (2026). ClaimDB: A Fact
 Thorne, J., Vlachos, A., Christodoulopoulos, C. and Mittal, A. (2018). FEVER: a Large-scale Dataset for Fact Extraction and VERification. Proceedings of NAACL-HLT 2018. https://aclanthology.org/N18-1074
 
 Turpin, M., Michael, J., Perez, E. and Bowman, S. R. (2023). Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting. NeurIPS 2023. https://arxiv.org/abs/2305.04388
+
+U.S. Department of Labor, Wage and Hour Division (2026). H-1B compliance data by fiscal year. Retrieved 2026-10-07. https://www.dol.gov/agencies/whd/data/charts/h-1b
 
 U.S. Immigration and Customs Enforcement (2026). Form I-9 Inspection. Fact sheet, retrieved 2026-10-07. https://www.ice.gov/factsheets/i9-inspection
 

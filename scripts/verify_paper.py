@@ -762,6 +762,10 @@ claim(_c5["gemini-3.1-pro-preview::complete::abstain_offered"]["recall_all_pairs
       and "Gemini 3.1 Pro both detected every underpayment and made no false green" in _flat
       and "largest cause" not in _flat, "intro: scoped recall claim; no cross-study superlative")
 
+_wh = json.loads((ROOT / "docs" / "external" / "whd_h1b.json").read_text())["FY2025"]
+claim(f"in {_wh['compliance_actions_with_violations']} compliance actions and recovered ${_wh['back_wages_usd']:,} in back wages for {_wh['employees_receiving_back_wages']} workers" in _flat,
+      "intro: WHD FY2025 H-1B figures match the retained snapshot")
+
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
 claim(pcts <= {f"{_nw / _np:.1%}"}, f"only verified percentages appear (found {sorted(pcts)})")
