@@ -41,6 +41,10 @@ DIR = ROOT / "data" / "study5"
 RULE = "lca.wage.required_wage_greater_of"
 AS_OF = date(2027, 3, 31)
 ARMS = ("lca_only", "salary", "complete")
+# Study 7 (docs/STUDY7_DECLARATION.md): the salary arm's three pay fields taken apart.
+#   pay_rate_only     roster with "Pay Rate" alone
+#   pay_context_only  roster with "Pay Type" and "Pay Schedule" alone
+STUDY7_ARMS = ("pay_rate_only", "pay_context_only")
 N_FIRMS, PER_FIRM = 12, 10
 SEED = 20261006
 FIRST = ["Aarav", "Mei", "Lucas", "Sofia", "Omar", "Priya", "Daniel", "Yuki", "Elena", "Kwame",
@@ -83,12 +87,13 @@ def build(arm: str) -> list[Firm]:
         p = d / "hris_roster_export.csv"
         with p.open("w", newline="") as fh:
             w = csv.writer(fh)
-            pay = arm in ("salary", "complete")
+            cols = {"salary": (0, 1, 2), "complete": (0, 1, 2), "pay_rate_only": (0,), "pay_context_only": (1, 2)}.get(arm, ())
             w.writerow(["Employee #", "First Name", "Last Name", "Job Title", "Hire Date", "Employment Status",
-                        "Work Authorization Type", *(["Pay Rate", "Pay Type", "Pay Schedule"] if pay else [])])
+                        "Work Authorization Type", *(["Pay Rate", "Pay Type", "Pay Schedule"][c] for c in cols)])
             for x in workers:
+                pay = [f"{x['offered']:.2f} USD", "Salary", "Twice a month"]
                 w.writerow([x["id"], x["first"], x["last"], x["row"]["JOB_TITLE"], x["hire"].isoformat(), "Full-Time",
-                            "H-1B", *([f"{x['offered']:.2f} USD", "Salary", "Twice a month"] if pay else [])])
+                            "H-1B", *(pay[c] for c in cols)])
         sources["hris_roster_export"] = p
         p = d / "lca_export.csv"
         cols = ["CASE_NUMBER", "JOB_TITLE", "SOC_CODE", "SOC_TITLE", "FULL_TIME_POSITION", "BEGIN_DATE", "END_DATE",
