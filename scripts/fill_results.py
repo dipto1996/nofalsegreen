@@ -619,7 +619,7 @@ def table_study6() -> str:
                 "sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. "
                 "Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired "
                 "on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's "
-                "contrast averages the remaining models. Per-model effects are in Table 19.")
+                "contrast averages the remaining models. Per-model effects are in Table 20.")
     return "\n".join(rows)
 
 
@@ -650,6 +650,38 @@ def table_per_model() -> str:
     rows.append("")
     rows.append("Each model's effect on the false-green rate (H3: on `fail`), paired on pairs answered in both cells and "
                 "pooled over firms; descriptive, computed after the results. Tests in Tables 5 and 6 and Section 6.8.")
+    return "\n".join(rows)
+
+
+def table_study9() -> str:
+    """Declared tests of Studies 9-12 (body table)."""
+    d = ROOT / "docs"
+    head = "| Study | Test | Effect [95% CI] | Packets + / − | Holm p | Result |\n|---|---|---|---|---|---|"
+    files = [d / f"study{n}" / "results.json" for n in (9, 10, 11, 12)]
+    if not all(f.exists() for f in files):
+        return head
+    lab = {"P1": "Familiar − neutral names: unsupported pass", "P2": "Neutral − familiar names: abstention on decidable pairs",
+           "P3": "Forced − offered menu: familiarity effect", "P4": "P1 on a held-out workflow",
+           "I1": "Extraction + solver − evidence-first: unsupported pass",
+           "I2": "Extraction + solver − evidence-first: correct decisions",
+           "I3": "Extraction + solver − row gate + evidence-first: correct decisions",
+           "B1": "Described − bound evidence, offered", "B2": "Described − bound evidence, forced",
+           "B3": "Described − bound, held-out workflows", "G1": "Table absent − row missing", "G2": "Row missing − blank cell",
+           "G3": "Table absent − blank cell", "M1": "Reading rule added to contract prompts",
+           "M2": "Reading rule kept − removed, original prompt"}
+    rows = [head]
+    for n, f in zip((9, 10, 11, 12), files):
+        for k, v in json.loads(f.read_text())["primary"].items():
+            name = lab[k[:2]] + (f" ({k.split(': ')[1]})" if k.startswith("P4") else "")
+            p = "<0.001" if v["p_holm"] < 0.001 else f"{v['p_holm']:.3f}"
+            rows.append(f"| {n} | {k[:2]} {name} | {v['delta']:+.3f} [{v['ci95_packet_bootstrap'][0]:+.3f}, "
+                        f"{v['ci95_packet_bootstrap'][1]:+.3f}] | {v['packets_positive']} / {v['packets_negative']} | {p} | "
+                        f"{'confirmed' if v['outcome'] == 'confirmed' else 'not confirmed'} |")
+    rows.append("")
+    rows.append("Five models (Gemini 3.1 Pro, Gemini 3.8 Flash, Gemma 4 26B, DeepSeek V3.2, GLM-5.2). Unit: the packet "
+                "(Study 12 M2: the firm); paired contrasts averaged over models with equal weight; exact sign-flip test "
+                "(Study 9: Monte Carlo above 20 packets), packet bootstrap interval, Holm within each study. All declared "
+                "before any call of that study.")
     return "\n".join(rows)
 
 
@@ -690,6 +722,7 @@ def main() -> int:
         "table-study4": table_study4(),
         "table-study6": table_study6(),
         "table-per-model": table_per_model(),
+        "table-study9": table_study9(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

@@ -280,6 +280,61 @@ def fig_study4() -> None:
     save(fig, "fig_study4")
 
 
+# ---------- Figure: Studies 9 and 11 ----------
+
+def fig_study9() -> None:
+    r9 = load("docs/study9/results.json")["partB_metrics"]
+    r11 = load("docs/study11/results.json")["rates_on_shared_needs_evidence_pairs"]
+    fig = plt.figure(figsize=(7.0, 2.75))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.25, 1], wspace=0.55, left=0.25, right=0.985, bottom=0.17, top=0.86)
+    ax = fig.add_subplot(gs[0])
+    conds = [("offered prompt", "offered prompt"), ("evidence-first prompt", "evidence-first prompt"),
+             ("presence gate + evidence-first prompt", "row-level gate + evidence-first"),
+             ("extraction + solver", "extraction + solver"), ("always abstain", "always abstain")]
+    for i, (k, lab) in enumerate(conds):
+        m = r9[k]
+        ax.plot([m["unsupported_pos"]], [i], ls="", marker="o", ms=6.2, mfc=BRICK, mec="white", zorder=3)
+        ax.plot([m["correct_determinate"]], [i], ls="", marker="o", ms=6.2, mfc="white", mec=NAVY, mew=1.3, zorder=3)
+        ax.plot([m["unsupported_pos"], m["correct_determinate"]], [i, i], color=LIGHT, lw=2.2, zorder=1)
+    ax.set_yticks(range(len(conds)))
+    ax.set_yticklabels([c[1] for c in conds], fontsize=7.5)
+    ax.set_ylim(len(conds) - 0.4, -0.6)
+    ax.set_xlim(-0.03, 1.03)
+    ax.set_xticks([0, 0.25, 0.5, 0.75, 1])
+    ax.set_xticklabels(["0", "", "0.50", "", "1"])
+    ax.grid(axis="y", visible=False)
+    ax.set_title("(a) Harder packets: safeguards", fontsize=8.2, pad=13, loc="left")
+    ax.set_xlabel("Rate (mean of five models)", fontsize=7.8)
+    h = [plt.Line2D([], [], ls="", marker="o", mfc=BRICK, mec="white", label="unsupported pass (all pairs)"),
+         plt.Line2D([], [], ls="", marker="o", mfc="white", mec=NAVY, mew=1.3, label="correct on decidable pairs")]
+    ax.legend(handles=h, loc="lower left", bbox_to_anchor=(-0.02, 0.99), ncol=2, fontsize=7, frameon=False,
+              handletextpad=0.2, columnspacing=0.8, borderaxespad=0)
+    ax = fig.add_subplot(gs[1])
+    forms = [("blank", "blank cell"), ("row", "missing row"), ("table", "table absent")]
+    models = [m for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash", "gemma-4-26b-a4b-it-maas",
+                          "deepseek-v3.2-maas", "glm-5.2-maas") if f"{m}::blank" in r11]
+    disp = {"gemini-3.1-pro-preview": "Gemini 3.1 Pro", "gemini-3.8-flash": "Gemini 3.8 Flash",
+            "gemma-4-26b-a4b-it-maas": "Gemma 4 26B", "deepseek-v3.2-maas": "DeepSeek V3.2", "glm-5.2-maas": "GLM-5.2"}
+    cols = [NAVY, TEAL, GOLD, BRICK, INK2]
+    for j, m in enumerate(models):
+        ys = [(r11.get(f"{m}::{f}") or {}).get("pass") for f, _ in forms]
+        if any(y is None for y in ys):
+            continue
+        ax.plot(range(3), ys, color=cols[j % len(cols)], lw=1.2, marker="o", ms=4, alpha=0.85, label=disp[m])
+    mean = [sum((r11.get(f"{m}::{f}") or {}).get("pass", 0) for m in models) / len(models) for f, _ in forms]
+    ax.plot(range(3), mean, color=INK, lw=2.2, marker="D", ms=5, label="mean")
+    ax.set_xticks(range(3))
+    ax.set_xticklabels([f[1] for f in forms], fontsize=7.5)
+    ax.set_xlim(-0.3, 2.3)
+    ax.set_ylim(-0.005, 0.12)
+    ax.set_yticks([0, 0.05, 0.10])
+    ax.set_yticklabels(["0", "0.05", "0.10"])
+    ax.set_ylabel("Unsupported pass (axis to 0.12)", fontsize=7.8)
+    ax.set_title("(b) How the record is missing", fontsize=8.2, pad=13, loc="left")
+    ax.legend(loc="upper left", fontsize=6.4, frameon=False, ncol=1, handlelength=1.2)
+    save(fig, "fig_study9")
+
+
 # ---------- the separation plot (anchor firm, thirteen models) ----------
 
 def anchor_points() -> list[tuple[str, tuple, tuple]]:
@@ -463,5 +518,5 @@ def fig_regime_heatmap() -> None:
 
 if __name__ == "__main__":
     for f in (fig_study3_multiples, fig_forest, fig_i9, fig_separation, fig_verdict_flow,
-              fig_detection_vs_safety, fig_regime_heatmap, fig_study4):
+              fig_detection_vs_safety, fig_regime_heatmap, fig_study4, fig_study9):
         f()

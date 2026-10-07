@@ -154,7 +154,11 @@ estimates and leave-one-out checks. **Study 4** (`docs/STUDY4_DECLARATION.md`,
 `scripts/score_study4.py`) takes both effects apart on the Study 3c firms: proxy values under
 neutral names, irrelevant columns and proxies that suggest a breach; a 2×2×2 factorial of the
 verdict menu; a prompt that asks for the required record by name; and repeat runs. Six of its
-seven declared tests were confirmed.
+seven declared tests were confirmed. **Studies 9–12** (`docs/STUDY9_DECLARATION.md` to `docs/STUDY12_DECLARATION.md`)
+restate the task as explicit decision contracts in three workflows (workforce, purchasing,
+engineering acceptance) with certified labels (`labelcheck/contract_checker.py`,
+`scripts/verify_study9_labels.py`, `scripts/certify_existing.py`), test four explanations of
+proxy acceptance, and evaluate an extraction-plus-solver remedy.
 
 ## Where the labels come from
 

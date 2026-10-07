@@ -34,7 +34,8 @@ REBUILD = [("score_study3.py",), ("study3_exploratory.py",), ("study3_robustness
            ("score_paraphrase.py",), ("score_study3c.py",), ("score_study4.py",), ("score_study4.py", "--study6"),
            ("score_study5.py",), ("score_study5.py", "--study6"), ("score_study7.py",), ("score_study8.py",),
            ("score_ai_pilot.py",), ("sweep.py", "--firms", "30"), ("score_views.py",), ("score_studies.py",),
-           ("analysis.py",), ("labelcheck_compare.py",)]
+           ("analysis.py",), ("labelcheck_compare.py",), ("certify_existing.py",), ("verify_study9_labels.py",),
+           ("score_study9.py",), ("score_study10.py",), ("score_study11.py",)]
 REBUILT = {}
 if "--no-rebuild" not in sys.argv:
     import hashlib
@@ -44,7 +45,9 @@ if "--no-rebuild" not in sys.argv:
                                         "study6/study4_results.json", "study5/results.json", "study6/study5_results.json",
                                         "study7/results.json", "study8/results.json", "ai_pilot_review/results.json",
                                         "results.json", "views_results.json", "studies_results.json",
-                                        "analysis_results.json", "labelcheck_results.json")]
+                                        "analysis_results.json", "labelcheck_results.json",
+                                        "existing_certificates.json", "study9/label_verification.json",
+                                        "study9/results.json", "study10/results.json", "study11/results.json")]
     import os
     before = {f: hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None for f in outs}
     # A scorer that fails leaves the old file in place, which would hash as "identical";
@@ -754,7 +757,13 @@ _kinds = _C(l.note for f in _s5.build("complete_actual_above") for l in f.labels
 claim(_kinds["greater_of_only"] == 38 and _kinds["below_offered"] == 24
       and "these 38 underpayments and on the 24 below the offered wage" in _flat, "Study 8: G2 denominators")
 
-claim(len(REBUILD) == 17 and "all 17 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
+claim(len(REBUILD) == 22 and "all 22 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
+_ec = json.loads((ROOT / "docs" / "existing_certificates.json").read_text())
+_lv = json.loads((ROOT / "docs" / "study9" / "label_verification.json").read_text())
+claim(_ec["needs_evidence_pairs"] == _ec["certified"] == 3330 and not _ec["failures"]
+      and "All 3,330 such labels in Studies 3, 3c, 4 and 8 are certified" in _flat, "existing labels certified")
+claim(_lv["certificates"] == _lv["certificates_verified"] == 454 and _lv["agree"] == _lv["labels"]
+      and "as are all\n454 in Study 9".replace("\n", " ") in _flat, "Study 9 certificates and checker agreement")
 _c5 = json.loads((ROOT / "docs" / "study5" / "results.json").read_text())["cells"]
 claim(_c5["gemini-3.1-pro-preview::complete::abstain_offered"]["recall_all_pairs"] == 1
       and _c5["gemini-3.1-pro-preview::lca_only::abstain_offered"]["fgr_all_pairs"] == 0
@@ -765,6 +774,49 @@ claim(_c5["gemini-3.1-pro-preview::complete::abstain_offered"]["recall_all_pairs
 _wh = json.loads((ROOT / "docs" / "external" / "whd_h1b.json").read_text())["FY2025"]
 claim(f"in {_wh['compliance_actions_with_violations']} compliance actions and recovered ${_wh['back_wages_usd']:,} in back wages for {_wh['employees_receiving_back_wages']} workers" in _flat,
       "intro: WHD FY2025 H-1B figures match the retained snapshot")
+
+# Studies 9-12 (docs/STUDY9..12_DECLARATION.md)
+_R = {n: json.loads((ROOT / "docs" / f"study{n}" / "results.json").read_text()) for n in (9, 10, 11, 12)}
+_bm = _R[9]["partB_metrics"]
+_ef, _ex, _gt = _bm["evidence-first prompt"], _bm["extraction + solver"], _bm["presence gate + evidence-first prompt"]
+_p9 = {k[:2]: v for k, v in _R[9]["primary"].items() if not k.startswith("P4")}
+claim(f"from {_ef['unsupported_pos']:.3f} to {_ex['unsupported_pos']:.3f}" in _AB
+      and f"from {_ef['correct_determinate']:.3f} to {_ex['correct_determinate']:.3f}" in _AB, "abstract: Study 9 remedy")
+claim(all(_p9[k]["outcome"] == "confirmed" for k in ("I1", "I2", "I3")) and all(_p9[k]["outcome"] == "not confirmed" for k in ("P1", "P2", "P3"))
+      and all(v["outcome"] == "not confirmed" for k, v in _R[9]["primary"].items() if k.startswith("P4")), "Study 9: declared outcomes")
+claim(f"| Unsupported `pass` (I1) | {_ef['unsupported_pos']:.3f} | {_ex['unsupported_pos']:.3f} |" in paper
+      and f"| Correct decisions on decidable pairs (I2) | {_ef['correct_determinate']:.3f} | {_ex['correct_determinate']:.3f} |" in paper
+      and f"| Unsupported `fail` | {_ef['unsupported_neg']:.3f} | {_ex['unsupported_neg']:.3f} |" in paper
+      and f"| Coverage | {_ef['coverage']:.3f} | {_ex['coverage']:.3f} |" in paper
+      and f"| Unnecessary abstention | {_ef['unnecessary_abstention']:.3f} | {_ex['unnecessary_abstention']:.3f} |" in paper
+      and f"| Share sent to review | {_ef['review_burden']:.3f} | {_ex['review_burden']:.3f} |" in paper, "Study 9: remedy table")
+claim(f"by {_p9['I3']['delta']:.3f} in correct decisions (I3)" in _flat and f"only to {_gt['unsupported_pos']:.3f}" in _flat
+      and _p9["I1"]["packets_negative"] == 17 and _p9["I2"]["packets_positive"] == 17 and "in 17 of 18 packets" in _flat,
+      "Study 9: I3 and gate")
+claim(1 - _ex["unsupported_pos"] / _ef["unsupported_pos"] > 0.8 and 1 - _ex["unsupported_neg"] / _ef["unsupported_neg"] > 0.8
+      and _ex["review_burden"] <= _ef["review_burden"] and "by more than 80%" in _flat, "discussion: >80% and no more review")
+_ra = _R[9]["partA_rates"]
+_mods = ["gemini-3.1-pro-preview", "gemini-3.8-flash", "gemma-4-26b-a4b-it-maas", "deepseek-v3.2-maas", "glm-5.2-maas"]
+_o = [_ra[f"{m}::familiar::contract_offered"]["unsupported_pos_on_unassessable"] for m in _mods]
+_f = [_ra[f"{m}::familiar::contract_forced"]["unsupported_pos_on_unassessable"] for m in _mods]
+claim(f"{max(_o):.3f}" == "0.009" and "at most 0.009 for every model" in _flat and f"{min(_f):.3f}–{max(_f):.3f} under the forced menu" in _flat
+      and f"(−{-_p9['P1']['delta']:.3f}, not confirmed)" in _flat, "Study 9: Part A rates")
+_b, _g, _m = ({k[:2]: v for k, v in _R[n]["primary"].items()} for n in (10, 11, 12))
+claim(all(v["outcome"] == "not confirmed" for v in (*_b.values(), *_g.values(), _m["M1"]))
+      and _m["M2"]["outcome"] == "confirmed" and _m["M2"]["packets_positive"] == 10
+      and f"by only {_b['B1']['delta']:.3f}" in _flat and f"and {_b['B2']['delta']:.3f} under the forced menu" in _flat
+      and f"at most +{max(v['delta'] for v in _g.values()):.3f}" in _flat
+      and f"by {_m['M2']['delta']:.3f} (M2, Holm p = {_m['M2']['p_holm']:.3f}, all ten firms)" in _flat, "Studies 10-12")
+_ur = _R[12]["unsupported_pass_rate"]
+claim(f"Gemma 4 from {_ur['gemma-4-26b-a4b-it-maas::abstain_offered']:.3f} to {_ur['gemma-4-26b-a4b-it-maas::abstain_offered_nomatch']:.3f}" in _flat
+      and f"GLM-5.2 from {_ur['glm-5.2-maas::abstain_offered']:.3f} to {_ur['glm-5.2-maas::abstain_offered_nomatch']:.3f}" in _flat,
+      "Study 12: per-model M2")
+_cov = _R[9]["coverage_answered"]
+def _cv(m):
+    a = [v for k, v in _cov.items() if k.startswith(m + "::A::")]
+    return sum(a) / (24 * len(a))
+claim(f"{_cv('gemma-4-26b-a4b-it-maas'):.2f} and {_cv('glm-5.2-maas'):.2f}" in _flat, "Study 9: Part A coverage")
+claim("table-study9" in paper and _lv["labels"] == 2304 and "All 2,304 labels of Studies 9 and 11" in _flat, "Study 9/11 label agreement")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
