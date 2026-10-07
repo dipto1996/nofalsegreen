@@ -1,0 +1,28 @@
+PO-00301	fail	purchase_orders.po_amount
+PO-00302	pass	purchase_orders.po_amount
+PO-00303	fail	purchase_orders.po_amount
+PO-00304	fail	purchase_orders.po_amount
+PO-00305	fail	purchase_orders.po_amount
+PO-00306	fail	purchase_orders.po_amount
+PO-00307	fail	purchase_orders.po_amount
+PO-00308	pass	purchase_orders.po_amount
+PO-00309	fail	purchase_orders.po_amount
+PO-00310	fail	purchase_orders.po_amount
+PO-00311	fail	purchase_orders.po_amount
+PO-00312	pass	purchase_orders.po_amount
+
+---
+
+PO-00301	fail	signed_approvals.signed_on (2026-01-30) is after purchase_orders.po_date (2026-01-20)
+PO-00302	fail	signed_approvals.signed_on is missing
+PO-00303	fail	signed_approvals.signed_on (2026-01-29) is after purchase_orders.po_date (2026-02-02) is false, wait: 2026-01-29 <= 2026-02-02 is true. Let me re-check.
+PO-00303	pass	signed_approvals.signed_on (2026-01-29) is before purchase_orders.po_date (2026-02-02)
+PO-00304	fail	signed_approvals.signed_on is missing
+PO-00305	fail	signed_approvals.signed_on (2026-04-24) is after purchase_orders.po_date (2026-04-08)
+PO-00306	fail	signed_approvals.signed_on is missing
+PO-00307	pass	signed_approvals.signed_on (2026-01-14) is before purchase_orders.po_date (2026-01-19)
+PO-00308	fail	signed_approvals.signed_on (2026-03-07) is after purchase_orders.po_date (2026-02-20)
+PO-00309	fail	signed_approvals.signed_on (2026-02-02) is after purchase_orders.po_date (2026-01-20)
+PO-00310	fail	signed_approvals.signed_on is missing
+PO-00311	pass	signed_approvals.signed_on (2026-02-06) is before purchase_orders.po_date (2026-02-20)
+PO-00312	fail	signed_approvals.signed_on (2026-03-11) is after purchase_orders.po_date (2026-02-22)

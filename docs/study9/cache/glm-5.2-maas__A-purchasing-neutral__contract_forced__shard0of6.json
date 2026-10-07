@@ -1,0 +1,14 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_forced|study9-A-purchasing-neu-s1|pa.within_approval::PO-00101|12": {
+  "text": "pa.within_approval::PO-00101\tfail\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00102\tfail\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00103\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00104\tfail\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00105\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00106\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00107\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00108\tfail\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00109\tfail\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00110\tfail\tsrc_B.c202\npa.within_approval::PO-00111\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00112\tfail\tsrc_C.c302",
+  "output_tokens": 4556,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_forced|study9-A-purchasing-neu-s1|pa.approved_before_order::PO-00101|12": {
+  "text": "pa.approved_before_order::PO-00101\tpass\tsrc_C.c303,src_B.c203\npa.approved_before_order::PO-00102\tfail\tsrc_C.c303\npa.approved_before_order::PO-00103\tpass\tsrc_C.c303,src_B.c203\npa.approved_before_order::PO-00104\tfail\tsrc_C.c303\npa.approved_before_order::PO-00105\tfail\tsrc_C.c303,src_B.c203\npa.approved_before_order::PO-00106\tfail\tsrc_C.c303\npa.approved_before_order::PO-00107\tpass\tsrc_C.c303,src_B.c203\npa.approved_before_order::PO-00108\tfail\tsrc_C.c303\npa.approved_before_order::PO-00109\tfail\tsrc_C.c303,src_B.c203\npa.approved_before_order::PO-00110\tpass\tsrc_C.c303,src_B.c203\npa.approved_before_order::PO-00111\tpass\tsrc_C.c303,src_B.c203\npa.approved_before_order::PO-00112\tfail\tsrc_C.c303",
+  "output_tokens": 8527,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

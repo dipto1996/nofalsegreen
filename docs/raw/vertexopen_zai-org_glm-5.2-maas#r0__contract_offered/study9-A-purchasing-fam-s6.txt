@@ -1,0 +1,27 @@
+pa.within_approval::PO-00601	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00602	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00603	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00604	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00605	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00606	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00607	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00608	needs_evidence	purchase_orders.po_amount
+pa.within_approval::PO-00609	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00610	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-00611	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00612	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+
+---
+
+pa.approved_before_order::PO-00601	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00602	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-00603	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00604	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-00605	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00606	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-00607	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00608	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00609	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00610	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00611	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00612	needs_evidence	signed_approvals.signed_on

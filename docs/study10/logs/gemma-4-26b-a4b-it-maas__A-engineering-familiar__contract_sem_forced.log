@@ -1,0 +1,86 @@
+Study 9 (A:engineering:familiar): 6 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_sem_forced']
+
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 8s
+        attempt 1: 336 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 420 output tokens, 7s, finish=stop, ok
+  study9-A-engineering-fam-s1 FGR 0.167  recall 0.538  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 336 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 420 output tokens, 12s, finish=stop, ok
+  study9-A-engineering-fam-s2 FGR 0.167  recall 0.600  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 336 output tokens, 11s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 324 output tokens, 9s, finish=stop, ok
+  study9-A-engineering-fam-s3 FGR 0.000  recall 0.333  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 336 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 403 output tokens, 7s, finish=stop, ok
+  study9-A-engineering-fam-s4 FGR 0.000  recall 0.200  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 336 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+        attempt 1: 384 output tokens, 9s, finish=stop, ok
+  study9-A-engineering-fam-s5 FGR 0.500  recall 0.727  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 336 output tokens, 10s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 411 output tokens, 10s, finish=stop, ok
+  study9-A-engineering-fam-s6 FGR 0.167  recall 0.571  absF1 0.000  unparsed 0  (2 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract_sem_forced: FGR 0.167 (sd 0.183)  recall 0.495  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study10/runs/gemma-4-26b-a4b-it-maas__A-engineering-familiar__contract_sem_forced.json

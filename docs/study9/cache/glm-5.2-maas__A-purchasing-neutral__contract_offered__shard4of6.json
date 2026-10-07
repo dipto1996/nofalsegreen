@@ -1,0 +1,14 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-A-purchasing-neu-s5|pa.approved_before_order::PO-00501|12": {
+  "text": "pa.approved_before_order::PO-00501\tpass\tsrc_C.c303=2026-03-27, src_B.c203=2026-03-27\npa.approved_before_order::PO-00502\tfail\tsrc_C.c303=2026-02-17, src_B.c203=2026-02-08\npa.approved_before_order::PO-00503\tpass\tsrc_C.c303=2026-03-03, src_B.c203=2026-03-20\npa.approved_before_order::PO-00504\tneeds_evidence\tsrc_C.c303 is empty\npa.approved_before_order::PO-00505\tfail\tsrc_C.c303=2026-01-28, src_B.c203=2026-01-21\npa.approved_before_order::PO-00506\tfail\tsrc_C.c303=2026-03-03, src_B.c203=2026-02-23\npa.approved_before_order::PO-00507\tfail\tsrc_C.c303=2026-05-05, src_B.c203=2026-04-15\npa.approved_before_order::PO-00508\tpass\tsrc_C.c303=2026-01-30, src_B.c203=2026-02-14\npa.approved_before_order::PO-00509\tpass\tsrc_C.c303=2026-04-18, src_B.c203=2026-04-19\npa.approved_before_order::PO-00510\tneeds_evidence\tsrc_C.c303 is empty\npa.approved_before_order::PO-00511\tfail\tsrc_C.c303=2026-05-12, src_B.c203=2026-05-05\npa.approved_before_order::PO-00512\tneeds_evidence\tsrc_C.c303 is empty",
+  "output_tokens": 3341,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-A-purchasing-neu-s5|pa.within_approval::PO-00501|12": {
+  "text": "pa.within_approval::PO-00501\tfail\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00502\tneeds_evidence\tsrc_B.c202\npa.within_approval::PO-00503\tfail\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00504\tfail\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00505\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00506\tneeds_evidence\tsrc_B.c202\npa.within_approval::PO-00507\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00508\tneeds_evidence\tsrc_B.c202\npa.within_approval::PO-00509\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00510\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00511\tpass\tsrc_B.c202, src_C.c302\npa.within_approval::PO-00512\tpass\tsrc_B.c202, src_C.c302",
+  "output_tokens": 2392,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

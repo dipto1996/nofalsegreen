@@ -1,0 +1,27 @@
+pa.within_approval::PO-00101	fail	purchase_orders.po_amount=88000 > signed_approvals.approved_amount=78500
+pa.within_approval::PO-00102	fail	purchase_orders.po_amount=102500 > signed_approvals.approved_amount=98500
+pa.within_approval::PO-00103	pass	purchase_orders.po_amount=19500 <= signed_approvals.approved_amount=29500
+pa.within_approval::PO-00104	fail	purchase_orders.po_amount=91000 > signed_approvals.approved_amount=88000
+pa.within_approval::PO-00105	pass	purchase_orders.po_amount=11000 <= signed_approvals.approved_amount=13500
+pa.within_approval::PO-00106	pass	purchase_orders.po_amount=136500 <= signed_approvals.approved_amount=141000
+pa.within_approval::PO-00107	pass	purchase_orders.po_amount=156000 <= signed_approvals.approved_amount=156000
+pa.within_approval::PO-00108	fail	purchase_orders.po_amount=91500 > signed_approvals.approved_amount=90500
+pa.within_approval::PO-00109	fail	purchase_orders.po_amount=23000 > signed_approvals.approved_amount=16000
+pa.within_approval::PO-00110	needs_evidence	purchase_orders.po_amount is empty; signed_approvals.approved_amount=86500
+pa.within_approval::PO-00111	pass	purchase_orders.po_amount=98500 <= signed_approvals.approved_amount=102000
+pa.within_approval::PO-00112	needs_evidence	purchase_orders.po_amount=135500; signed_approvals.approved_amount is empty
+
+---
+
+pa.approved_before_order::PO-00101	pass	signed_approvals.signed_on=2026-04-26, purchase_orders.po_date=2026-04-30
+pa.approved_before_order::PO-00102	needs_evidence	signed_approvals.signed_on is empty
+pa.approved_before_order::PO-00103	pass	signed_approvals.signed_on=2026-02-21, purchase_orders.po_date=2026-03-05
+pa.approved_before_order::PO-00104	needs_evidence	signed_approvals.signed_on is empty
+pa.approved_before_order::PO-00105	fail	signed_approvals.signed_on=2026-04-19, purchase_orders.po_date=2026-04-10
+pa.approved_before_order::PO-00106	needs_evidence	signed_approvals.signed_on is empty
+pa.approved_before_order::PO-00107	pass	signed_approvals.signed_on=2026-03-03, purchase_orders.po_date=2026-03-15
+pa.approved_before_order::PO-00108	needs_evidence	signed_approvals.signed_on is empty
+pa.approved_before_order::PO-00109	fail	signed_approvals.signed_on=2026-02-07, purchase_orders.po_date=2026-01-20
+pa.approved_before_order::PO-00110	pass	signed_approvals.signed_on=2025-12-18, purchase_orders.po_date=2026-01-07
+pa.approved_before_order::PO-00111	pass	signed_approvals.signed_on=2026-01-11, purchase_orders.po_date=2026-01-17
+pa.approved_before_order::PO-00112	fail	signed_approvals.signed_on=2026-02-07, purchase_orders.po_date=2026-01-18

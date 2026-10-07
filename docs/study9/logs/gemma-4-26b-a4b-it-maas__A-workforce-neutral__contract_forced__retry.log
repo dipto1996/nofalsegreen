@@ -1,0 +1,26 @@
+Study 9 (A:workforce:neutral): 6 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_forced']
+
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-workforce-neu-s1 FGR 0.500  recall 0.500  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-workforce-neu-s2 FGR 0.000  recall 0.429  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-workforce-neu-s3 FGR 0.500  recall 0.375  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-workforce-neu-s4 FGR 1.000  recall 0.333  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (0 parsed so far)
+  study9-A-workforce-neu-s5 FGR 0.000  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (11 parsed so far)
+  study9-A-workforce-neu-s6 FGR 0.600  recall 0.444  absF1 0.000  unparsed 1  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract_forced: FGR 0.433 (sd 0.383)  recall 0.347  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemma-4-26b-a4b-it-maas__A-workforce-neutral__contract_forced__retry.json

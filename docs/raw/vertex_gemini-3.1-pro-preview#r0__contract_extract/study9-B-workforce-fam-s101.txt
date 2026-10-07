@@ -1,0 +1,38 @@
+wf.section2::E-10101	facts	first day of employment=2026-02-11 from i9_records.first_day_of_employment | Section 2 completion date=2026-02-23 from i9_records.section2_completed_on
+wf.section2::E-10102	facts	first day of employment=2026-01-31 from i9_records.first_day_of_employment | Section 2 completion date=ABSENT
+wf.section2::E-10103	facts	first day of employment=2026-03-15 from i9_records.first_day_of_employment | Section 2 completion date=2026-03-20 from i9_records.section2_completed_on
+wf.section2::E-10104	facts	first day of employment=2026-04-05 from i9_records.first_day_of_employment | Section 2 completion date=2026-04-16 from i9_records.section2_completed_on
+wf.section2::E-10105	facts	first day of employment=2026-03-05 from i9_records.first_day_of_employment | Section 2 completion date=2026-03-12 from i9_records.section2_completed_on
+wf.section2::E-10106	facts	first day of employment=2026-04-25 from i9_records.first_day_of_employment | Section 2 completion date=2026-04-30 from i9_records.section2_completed_on
+wf.section2::E-10107	facts	first day of employment=2026-04-18 from i9_records.first_day_of_employment | Section 2 completion date=2026-04-24 from i9_records.section2_completed_on
+wf.section2::E-10108	facts	first day of employment=2026-04-19 from i9_records.first_day_of_employment | Section 2 completion date=CONFLICT
+wf.section2::E-10109	facts	first day of employment=2026-04-15 from i9_records.first_day_of_employment | Section 2 completion date=2026-04-27 from i9_records.section2_completed_on
+wf.section2::E-10110	facts	first day of employment=2026-04-14 from i9_records.first_day_of_employment | Section 2 completion date=2026-04-24 from i9_records.section2_completed_on
+wf.section2::E-10111	facts	first day of employment=2026-02-21 from hr_roster.hire_date | Section 2 completion date=ABSENT
+wf.section2::E-10112	facts	first day of employment=2026-03-13 from i9_records.first_day_of_employment | Section 2 completion date=ABSENT
+
+---
+
+wf.section2::E-10113	facts	first day of employment=2026-03-16 from i9_records.first_day_of_employment | Section 2 completion date=2026-03-30 from i9_records.section2_completed_on
+wf.section2::E-10114	facts	first day of employment=2026-01-23 from i9_records.first_day_of_employment | Section 2 completion date=2026-02-10 from i9_records.section2_completed_on
+wf.section2::E-10115	facts	first day of employment=2026-04-08 from i9_records.first_day_of_employment | Section 2 completion date=2026-04-23 from i9_records.section2_completed_on
+wf.section2::E-10116	facts	first day of employment=2026-04-24 from i9_records.first_day_of_employment | Section 2 completion date=CONFLICT
+wf.required_wage::E-10101	facts	annualised wages paid=125000 from payroll.annualised_gross | prevailing wage=118000 from lca.prevailing_wage | actual wage=136000 from actual_wage_system.actual_wage
+wf.required_wage::E-10102	facts	annualised wages paid=118000 from payroll.annualised_gross | prevailing wage=122000 from lca.prevailing_wage | actual wage=132000 from actual_wage_system.actual_wage
+wf.required_wage::E-10103	facts	annualised wages paid=ABSENT | prevailing wage=88000 from lca.prevailing_wage | actual wage=96000 from actual_wage_system.actual_wage
+wf.required_wage::E-10104	facts	annualised wages paid=99000 from payroll.annualised_gross | prevailing wage=84000 from lca.prevailing_wage | actual wage=ABSENT
+wf.required_wage::E-10105	facts	annualised wages paid=129000 from payroll.annualised_gross | prevailing wage=110000 from lca.prevailing_wage | actual wage=121000 from actual_wage_system.actual_wage
+wf.required_wage::E-10106	facts	annualised wages paid=91000 from payroll.annualised_gross | prevailing wage=100000 from lca.prevailing_wage | actual wage=ABSENT
+wf.required_wage::E-10107	facts	annualised wages paid=95000 from payroll.annualised_gross | prevailing wage=83000 from lca.prevailing_wage | actual wage=100000 from actual_wage_system.actual_wage
+wf.required_wage::E-10108	facts	annualised wages paid=103000 from payroll.annualised_gross | prevailing wage=103000 from lca.prevailing_wage | actual wage=109000 from actual_wage_system.actual_wage
+
+---
+
+wf.required_wage::E-10109	facts	annualised wages paid=78000 from payroll.annualised_gross | prevailing wage=80000 from lca.prevailing_wage | actual wage=83000 from actual_wage_system.actual_wage
+wf.required_wage::E-10110	facts	annualised wages paid=ABSENT | prevailing wage=138000 from lca.prevailing_wage | actual wage=154000 from actual_wage_system.actual_wage
+wf.required_wage::E-10111	facts	annualised wages paid=100000 from payroll.annualised_gross | prevailing wage=101000 from lca.prevailing_wage | actual wage=112000 from actual_wage_system.actual_wage
+wf.required_wage::E-10112	facts	annualised wages paid=137000 from payroll.annualised_gross | prevailing wage=131000 from lca.prevailing_wage | actual wage=148000 from actual_wage_system.actual_wage
+wf.required_wage::E-10113	facts	annualised wages paid=107000 from payroll.annualised_gross | prevailing wage=108000 from lca.prevailing_wage | actual wage=120000 from actual_wage_system.actual_wage
+wf.required_wage::E-10114	facts	annualised wages paid=133000 from payroll.annualised_gross | prevailing wage=140000 from lca.prevailing_wage | actual wage=ABSENT
+wf.required_wage::E-10115	facts	annualised wages paid=138000 from payroll.annualised_gross | prevailing wage=137000 from lca.prevailing_wage | actual wage=149000 from actual_wage_system.actual_wage
+wf.required_wage::E-10116	facts	annualised wages paid=115000 from payroll.annualised_gross | prevailing wage=101000 from lca.prevailing_wage | actual wage=117000 from actual_wage_system.actual_wage

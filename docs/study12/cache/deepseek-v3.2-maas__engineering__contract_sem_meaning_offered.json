@@ -1,0 +1,74 @@
+{
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s1|ea.load_meets_spec::P-00101|12": {
+  "text": "ea.load_meets_spec::P-00101\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00102\tneeds_evidence\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00103\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00104\tneeds_evidence\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00105\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00106\tneeds_evidence\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00107\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00108\tneeds_evidence\t-\nea.load_meets_spec::P-00109\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00110\tneeds_evidence\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00111\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00112\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn",
+  "output_tokens": 340,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s1|ea.tested_before_ship::P-00101|12": {
+  "text": "ea.tested_before_ship::P-00101\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00102\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00103\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00104\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00105\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00106\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00107\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00108\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00109\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00110\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00111\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00112\tneeds_evidence\ttest_reports.tested_on",
+  "output_tokens": 267,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s2|ea.load_meets_spec::P-00201|12": {
+  "text": "ea.load_meets_spec::P-00201\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00202\tneeds_evidence\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00203\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00204\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00205\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00206\tneeds_evidence\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00207\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00208\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00209\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00210\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00211\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00212\tneeds_evidence\tspec_sheets.min_load_kn",
+  "output_tokens": 357,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s2|ea.tested_before_ship::P-00201|12": {
+  "text": "ea.tested_before_ship::P-00201\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00202\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00203\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00204\tneeds_evidence\tshipping_log.shipped_on\nea.tested_before_ship::P-00205\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00206\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00207\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00208\tneeds_evidence\tshipping_log.shipped_on\nea.tested_before_ship::P-00209\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00210\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00211\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00212\tpass\ttest_reports.tested_on,shipping_log.shipped_on",
+  "output_tokens": 337,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s3|ea.load_meets_spec::P-00301|12": {
+  "text": "ea.load_meets_spec::P-00301\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00302\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00303\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00304\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00305\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00306\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00307\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00308\tneeds_evidence\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00309\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00310\tneeds_evidence\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00311\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00312\tneeds_evidence\ttest_reports.measured_load_kn",
+  "output_tokens": 357,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s3|ea.tested_before_ship::P-00301|12": {
+  "text": "ea.tested_before_ship::P-00301\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00302\tneeds_evidence\tshipping_log.shipped_on\nea.tested_before_ship::P-00303\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00304\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00305\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00306\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00307\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00308\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00309\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00310\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00311\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00312\tneeds_evidence\ttest_reports.tested_on",
+  "output_tokens": 330,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s4|ea.load_meets_spec::P-00401|12": {
+  "text": "ea.load_meets_spec::P-00401\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00402\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00403\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00404\tneeds_evidence\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00405\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00406\tneeds_evidence\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00407\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00408\tneeds_evidence\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00409\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00410\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00411\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00412\tneeds_evidence\tspec_sheets.min_load_kn",
+  "output_tokens": 352,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s4|ea.tested_before_ship::P-00401|12": {
+  "text": "ea.tested_before_ship::P-00401\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00402\tneeds_evidence\tshipping_log.shipped_on\nea.tested_before_ship::P-00403\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00404\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00405\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00406\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00407\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00408\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00409\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00410\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00411\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00412\tpass\ttest_reports.tested_on",
+  "output_tokens": 263,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s5|ea.load_meets_spec::P-00501|12": {
+  "text": "ea.load_meets_spec::P-00501\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00502\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00503\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00504\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00505\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00506\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00507\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00508\tneeds_evidence\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00509\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00510\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00511\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00512\tneeds_evidence\ttest_reports.measured_load_kn",
+  "output_tokens": 362,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s5|ea.tested_before_ship::P-00501|12": {
+  "text": "ea.tested_before_ship::P-00501\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00502\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00503\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00504\tunmonitored\tshipping_log.shipped_on\nea.tested_before_ship::P-00505\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00506\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00507\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00508\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00509\tfail\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00510\tunmonitored\tshipping_log.shipped_on\nea.tested_before_ship::P-00511\tpass\ttest_reports.tested_on,shipping_log.shipped_on\nea.tested_before_ship::P-00512\tneeds_evidence\ttest_reports.tested_on",
+  "output_tokens": 325,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s6|ea.load_meets_spec::P-00601|12": {
+  "text": "ea.load_meets_spec::P-00601\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00602\tneeds_evidence\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00603\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00604\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00605\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00606\tneeds_evidence\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00607\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00608\tneeds_evidence\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00609\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00610\tfail\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00611\tpass\ttest_reports.measured_load_kn,spec_sheets.min_load_kn\nea.load_meets_spec::P-00612\tneeds_evidence\tspec_sheets.min_load_kn",
+  "output_tokens": 352,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/deepseek-ai/deepseek-v3.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s6|ea.tested_before_ship::P-00601|12": {
+  "text": "ea.tested_before_ship::P-00601\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00602\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00603\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00604\tneeds_evidence\tshipping_log.shipped_on\nea.tested_before_ship::P-00605\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00606\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00607\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00608\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00609\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00610\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-00611\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00612\tpass\ttest_reports.tested_on",
+  "output_tokens": 260,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

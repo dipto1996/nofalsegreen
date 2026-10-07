@@ -1,0 +1,38 @@
+ea.load_meets_spec::P-10201	facts	measured failure load=485 from test_reports.measured_load_kn | specified minimum load=535 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10202	facts	measured failure load=940 from test_reports.measured_load_kn | specified minimum load=ABSENT
+ea.load_meets_spec::P-10203	facts	measured failure load=ABSENT | specified minimum load=370 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10204	facts	measured failure load=615 from test_reports.measured_load_kn | specified minimum load=ABSENT
+ea.load_meets_spec::P-10205	facts	measured failure load=1040 from test_reports.measured_load_kn | specified minimum load=995 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10206	facts	measured failure load=925 from test_reports.measured_load_kn | specified minimum load=835 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10207	facts	measured failure load=705 from test_reports.measured_load_kn | specified minimum load=635 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10208	facts	measured failure load=750 from test_reports.measured_load_kn | specified minimum load=805 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10209	facts	measured failure load=930 from test_reports.measured_load_kn | specified minimum load=845 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10210	facts	measured failure load=1065 from test_reports.measured_load_kn | specified minimum load=970 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10211	facts	measured failure load=1015 from test_reports.measured_load_kn | specified minimum load=925 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10212	facts	measured failure load=265 from test_reports.measured_load_kn | specified minimum load=ABSENT
+
+---
+
+ea.load_meets_spec::P-10213	facts	measured failure load=570 from test_reports.measured_load_kn | specified minimum load=575 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10214	facts	measured failure load=680 from test_reports.measured_load_kn | specified minimum load=705 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10215	facts	measured failure load=380 from test_reports.measured_load_kn | specified minimum load=435 from spec_sheets.min_load_kn
+ea.load_meets_spec::P-10216	facts	measured failure load=695 from test_reports.measured_load_kn | specified minimum load=665 from spec_sheets.min_load_kn
+ea.tested_before_ship::P-10201	facts	test date=2026-01-07 from test_reports.tested_on | ship date=2026-01-07 from shipping_log.shipped_on
+ea.tested_before_ship::P-10202	facts	test date=2026-01-08 from test_reports.tested_on | ship date=2026-01-20 from shipping_log.shipped_on
+ea.tested_before_ship::P-10203	facts	test date=ABSENT | ship date=2026-04-25 from shipping_log.shipped_on
+ea.tested_before_ship::P-10204	facts	test date=2026-03-24 from test_reports.tested_on | ship date=2026-03-29 from shipping_log.shipped_on
+ea.tested_before_ship::P-10205	facts	test date=2026-03-21 from test_reports.tested_on | ship date=2026-03-05 from shipping_log.shipped_on
+ea.tested_before_ship::P-10206	facts	test date=2026-03-31 from test_reports.tested_on | ship date=2026-03-30 from shipping_log.shipped_on
+ea.tested_before_ship::P-10207	facts	test date=2026-02-23 from test_reports.tested_on | ship date=2026-03-13 from shipping_log.shipped_on
+ea.tested_before_ship::P-10208	facts	test date=CONFLICT | ship date=2026-04-01 from shipping_log.shipped_on
+
+---
+
+ea.tested_before_ship::P-10209	facts	test date=2026-04-02 from test_reports.tested_on | ship date=2026-04-04 from shipping_log.shipped_on
+ea.tested_before_ship::P-10210	facts	test date=ABSENT | ship date=2026-01-11 from shipping_log.shipped_on
+ea.tested_before_ship::P-10211	facts	test date=2026-03-15 from test_reports.tested_on | ship date=ABSENT
+ea.tested_before_ship::P-10212	facts	test date=2026-02-16 from test_reports.tested_on | ship date=2026-03-02 from shipping_log.shipped_on
+ea.tested_before_ship::P-10213	facts	test date=2026-03-16 from test_reports.tested_on | ship date=2026-02-27 from shipping_log.shipped_on
+ea.tested_before_ship::P-10214	facts	test date=2026-03-27 from test_reports.tested_on | ship date=2026-04-01 from shipping_log.shipped_on
+ea.tested_before_ship::P-10215	facts	test date=2026-05-06 from test_reports.tested_on | ship date=2026-04-22 from shipping_log.shipped_on
+ea.tested_before_ship::P-10216	facts	test date=CONFLICT | ship date=2026-03-09 from shipping_log.shipped_on

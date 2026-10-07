@@ -1,0 +1,27 @@
+pa.within_approval::PO-00501	fail	purchase_orders.po_amount=173500 > signed_approvals.approved_amount=167000
+pa.within_approval::PO-00502	fail	purchase_orders.po_amount is empty; cannot establish purchase order amount
+pa.within_approval::PO-00503	fail	purchase_orders.po_amount=195000 > signed_approvals.approved_amount=185500
+pa.within_approval::PO-00504	fail	purchase_orders.po_amount=91000 > signed_approvals.approved_amount=85000
+pa.within_approval::PO-00505	pass	purchase_orders.po_amount=123000 <= signed_approvals.approved_amount=124500
+pa.within_approval::PO-00506	fail	purchase_orders.po_amount is empty; cannot establish purchase order amount
+pa.within_approval::PO-00507	pass	purchase_orders.po_amount=2500 <= signed_approvals.approved_amount=7000
+pa.within_approval::PO-00508	fail	purchase_orders.po_amount is empty; cannot establish purchase order amount
+pa.within_approval::PO-00509	pass	purchase_orders.po_amount=149000 <= signed_approvals.approved_amount=151500
+pa.within_approval::PO-00510	pass	purchase_orders.po_amount=79000 <= signed_approvals.approved_amount=82500
+pa.within_approval::PO-00511	pass	purchase_orders.po_amount=83500 <= signed_approvals.approved_amount=91500
+pa.within_approval::PO-00512	pass	purchase_orders.po_amount=165500 <= signed_approvals.approved_amount=173500
+
+---
+
+pa.approved_before_order::PO-00501	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00502	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00503	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00504	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-00505	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00506	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00507	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00508	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00509	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00510	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-00511	fail	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-00512	fail	signed_approvals.signed_on

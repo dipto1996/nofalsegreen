@@ -1,0 +1,38 @@
+pa.within_approval::PO-10601	fail	purchase_orders.po_amount
+pa.within_approval::PO-10602	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-10603	unmonitored	-
+pa.within_approval::PO-10604	fail	purchase_orders.po_amount
+pa.within_approval::PO-10605	fail	purchase_orders.po_amount
+pa.within_approval::PO-10606	fail	purchase_orders.po_amount
+pa.within_approval::PO-10607	fail	purchase_orders.po_amount
+pa.within_approval::PO-10608	fail	purchase_orders.po_amount
+pa.within_approval::PO-10609	fail	purchase_orders.po_amount
+pa.within_approval::PO-10610	needs_evidence	purchase_orders.po_amount
+pa.within_approval::PO-10611	unmonitored	-
+pa.within_approval::PO-10612	needs_evidence	signed_approvals.approved_amount
+
+---
+
+pa.within_approval::PO-10613	fail	purchase_orders.po_amount
+pa.within_approval::PO-10614	fail	purchase_orders.po_amount
+pa.within_approval::PO-10615	fail	purchase_orders.po_amount
+pa.within_approval::PO-10616	fail	purchase_orders.po_amount
+pa.approved_before_order::PO-10601	fail	purchase_orders.po_date
+pa.approved_before_order::PO-10602	needs_evidence	-
+pa.approved_before_order::PO-10603	needs_evidence	-
+pa.approved_before_order::PO-10604	needs_evidence	-
+pa.approved_before_order::PO-10605	fail	purchase_orders.po_date
+pa.approved_before_order::PO-10606	pass	purchase_orders.po_date
+pa.approved_before_order::PO-10607	fail	purchase_orders.po_date
+pa.approved_before_order::PO-10608	fail	purchase_orders.po_date
+
+---
+
+pa.approved_before_order::PO-10609	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10610	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10611	needs_evidence	-
+pa.approved_before_order::PO-10612	needs_evidence	-
+pa.approved_before_order::PO-10613	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10614	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10615	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10616	needs_evidence	-

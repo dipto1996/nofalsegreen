@@ -1,0 +1,38 @@
+Study 9 (A:engineering:familiar): 6 firms x 24 pairs
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_offered']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 253 output tokens, 677s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 243 output tokens, 5s, finish=stop, ok
+  study9-A-engineering-fam-s1 FGR 0.000  recall 0.615  absF1 0.706  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 285 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 246 output tokens, 14s, finish=stop, ok
+  study9-A-engineering-fam-s2 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 285 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 246 output tokens, 9s, finish=stop, ok
+  study9-A-engineering-fam-s3 FGR 0.000  recall 0.889  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 384 output tokens, 12s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 246 output tokens, 8s, finish=stop, ok
+  study9-A-engineering-fam-s4 FGR 0.000  recall 0.800  absF1 0.923  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 269 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 244 output tokens, 33s, finish=stop, ok
+  study9-A-engineering-fam-s5 FGR 0.000  recall 0.909  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 261 output tokens, 30s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 248 output tokens, 19s, finish=stop, ok
+  study9-A-engineering-fam-s6 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract_offered: FGR 0.000 (sd 0.000)  recall 0.869  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/deepseek-v3.2-maas__A-engineering-familiar__contract_offered.json

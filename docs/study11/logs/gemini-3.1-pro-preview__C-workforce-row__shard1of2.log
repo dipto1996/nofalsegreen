@@ -1,0 +1,24 @@
+Study 9 (C:workforce:row): 6 firms x 24 pairs
+shard 1/2: ['study11-workforce-row-s202', 'study11-workforce-row-s204', 'study11-workforce-row-s206']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_offered']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3256 output tokens, 72s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3296 output tokens, 23s, finish=stop, ok
+  study11-workforce-row-s202 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3100 output tokens, 18s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3331 output tokens, 22s, finish=stop, ok
+  study11-workforce-row-s204 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2632 output tokens, 19s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2624 output tokens, 17s, finish=stop, ok
+  study11-workforce-row-s206 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract_offered: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study11/runs/gemini-3.1-pro-preview__C-workforce-row__shard1of2.json

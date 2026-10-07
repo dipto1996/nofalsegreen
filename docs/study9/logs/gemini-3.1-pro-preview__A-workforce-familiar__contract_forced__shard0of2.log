@@ -1,0 +1,32 @@
+Study 9 (A:workforce:familiar): 6 firms x 24 pairs
+shard 0/2: ['study9-A-workforce-fam-s1', 'study9-A-workforce-fam-s3', 'study9-A-workforce-fam-s5']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_forced']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3300 output tokens, 494s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3437 output tokens, 25s, finish=stop, ok
+  study9-A-workforce-fam-s1 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3531 output tokens, 29s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2686 output tokens, 32s, finish=stop, ok
+  study9-A-workforce-fam-s3 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+Study 9 (A:workforce:familiar): 6 firms x 24 pairs
+shard 0/2: ['study9-A-workforce-fam-s1', 'study9-A-workforce-fam-s3', 'study9-A-workforce-fam-s5']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_forced']
+
+  study9-A-workforce-fam-s1 skip (done)
+  study9-A-workforce-fam-s3 skip (done)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3364 output tokens, 23s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3610 output tokens, 23s, finish=stop, ok
+  study9-A-workforce-fam-s5 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract_forced: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemini-3.1-pro-preview__A-workforce-familiar__contract_forced__shard0of2.json

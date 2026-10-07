@@ -1,0 +1,151 @@
+{
+ "declared": "docs/STUDY11_DECLARATION.md",
+ "primary": {
+  "G1 table - row": {
+   "n_packets": 18,
+   "delta": 0.0181,
+   "ci95_packet_bootstrap": [
+    0.0,
+    0.0444
+   ],
+   "p_exact_two_sided": 0.5,
+   "packets_positive": 2,
+   "packets_negative": 0,
+   "p_holm": 1.0,
+   "outcome": "not confirmed"
+  },
+  "G2 row - blank": {
+   "n_packets": 18,
+   "delta": 0.0,
+   "ci95_packet_bootstrap": [
+    0.0,
+    0.0
+   ],
+   "p_exact_two_sided": 1.0,
+   "packets_positive": 0,
+   "packets_negative": 0,
+   "p_holm": 1.0,
+   "outcome": "not confirmed"
+  },
+  "G3 table - blank": {
+   "n_packets": 18,
+   "delta": 0.0181,
+   "ci95_packet_bootstrap": [
+    0.0,
+    0.0472
+   ],
+   "p_exact_two_sided": 0.5,
+   "packets_positive": 2,
+   "packets_negative": 0,
+   "p_holm": 1.0,
+   "outcome": "not confirmed"
+  }
+ },
+ "per_model": {
+  "table-row": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.0,
+   "gemma-4-26b-a4b-it-maas": 0.1111,
+   "deepseek-v3.2-maas": 0.0278,
+   "glm-5.2-maas": 0.0
+  },
+  "row-blank": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.0,
+   "gemma-4-26b-a4b-it-maas": 0.0,
+   "deepseek-v3.2-maas": 0.0,
+   "glm-5.2-maas": 0.0
+  },
+  "table-blank": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.0,
+   "gemma-4-26b-a4b-it-maas": 0.0909,
+   "deepseek-v3.2-maas": 0.0278,
+   "glm-5.2-maas": 0.0
+  }
+ },
+ "per_workflow": {
+  "table-blank": {
+   "workforce": 0.0333,
+   "purchasing": 0.0208,
+   "engineering": 0.0
+  }
+ },
+ "rates_on_shared_needs_evidence_pairs": {
+  "gemini-3.1-pro-preview::blank": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "gemini-3.8-flash::blank": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "gemma-4-26b-a4b-it-maas::blank": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "deepseek-v3.2-maas::blank": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 0.9667
+  },
+  "glm-5.2-maas::blank": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "gemini-3.1-pro-preview::row": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "gemini-3.8-flash::row": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "gemma-4-26b-a4b-it-maas::row": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 0.2917
+  },
+  "deepseek-v3.2-maas::row": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 0.2
+  },
+  "glm-5.2-maas::row": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "gemini-3.1-pro-preview::table": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "gemini-3.8-flash::table": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  },
+  "gemma-4-26b-a4b-it-maas::table": {
+   "pass": 0.0556,
+   "fail": 0.0,
+   "needs_evidence": 0.9444
+  },
+  "deepseek-v3.2-maas::table": {
+   "pass": 0.0345,
+   "fail": 0.1034,
+   "needs_evidence": 0.4828
+  },
+  "glm-5.2-maas::table": {
+   "pass": 0.0,
+   "fail": 0.0,
+   "needs_evidence": 1.0
+  }
+ }
+}

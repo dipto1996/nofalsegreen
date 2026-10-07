@@ -1,0 +1,27 @@
+ea.load_meets_spec::P-00101	fail	src_B.c202, src_C.c302
+ea.load_meets_spec::P-00102	needs_evidence	src_B.c202
+ea.load_meets_spec::P-00103	fail	src_B.c202, src_C.c302
+ea.load_meets_spec::P-00104	needs_evidence	src_B.c202
+ea.load_meets_spec::P-00105	fail	src_B.c202, src_C.c302
+ea.load_meets_spec::P-00106	needs_evidence	src_B.c202
+ea.load_meets_spec::P-00107	fail	src_B.c202, src_C.c302
+ea.load_meets_spec::P-00108	needs_evidence	src_C.c302
+ea.load_meets_spec::P-00109	fail	src_B.c202, src_C.c302
+ea.load_meets_spec::P-00110	needs_evidence	src_B.c202
+ea.load_meets_spec::P-00111	pass	src_B.c202, src_C.c302
+ea.load_meets_spec::P-00112	fail	src_B.c202, src_C.c302
+
+---
+
+ea.tested_before_ship::P-00101	pass	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00102	fail	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00103	fail	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00104	fail	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00105	fail	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00106	fail	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00107	fail	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00108	pass	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00109	pass	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00110	pass	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00111	fail	src_B.c203, src_D.c402
+ea.tested_before_ship::P-00112	needs_evidence	src_B.c203

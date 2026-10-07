@@ -1,0 +1,84 @@
+Study 9 (A:workforce:familiar): 6 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_sem_forced']
+
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 8s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request 0rTGarzUCPGQk8sPoIXXiAc is throttled due to too many requests. Please try again later. Ple after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request 5rTGavj_Jp2nk8sP09io4AY is throttled due to too many requests. Please try again later. Ple after 2s
+        attempt 1: 324 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 276 output tokens, 5s, finish=stop, ok
+  study9-A-workforce-fam-s1 FGR 0.333  recall 0.750  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 324 output tokens, 5s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 204 output tokens, 4s, finish=stop, ok
+  study9-A-workforce-fam-s2 FGR 0.000  recall 0.286  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 324 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 276 output tokens, 7s, finish=stop, ok
+  study9-A-workforce-fam-s3 FGR 0.000  recall 0.625  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request S7XGaqbLEfaYk8sPgPeN4QU is throttled due to too many requests. Please try again later. Ple after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request arXGapyhIZ2nk8sP09io4AY is throttled due to too many requests. Please try again later. Ple after 0s
+        attempt 1: 264 output tokens, 10s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 204 output tokens, 8s, finish=stop, ok
+  study9-A-workforce-fam-s4 FGR 0.000  recall 0.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 324 output tokens, 10s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 204 output tokens, 4s, finish=stop, ok
+  study9-A-workforce-fam-s5 FGR 0.000  recall 0.250  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 324 output tokens, 6s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 276 output tokens, 9s, finish=stop, ok
+  study9-A-workforce-fam-s6 FGR 0.600  recall 0.667  absF1 0.000  unparsed 0  (2 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract_sem_forced: FGR 0.156 (sd 0.255)  recall 0.430  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study10/runs/gemma-4-26b-a4b-it-maas__A-workforce-familiar__contract_sem_forced.json

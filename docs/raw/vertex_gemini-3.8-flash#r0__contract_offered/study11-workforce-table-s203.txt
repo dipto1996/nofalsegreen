@@ -1,0 +1,27 @@
+wf.section2::E-20301	needs_evidence	-
+wf.section2::E-20302	needs_evidence	-
+wf.section2::E-20303	needs_evidence	-
+wf.section2::E-20304	needs_evidence	-
+wf.section2::E-20305	needs_evidence	-
+wf.section2::E-20306	needs_evidence	-
+wf.section2::E-20307	needs_evidence	-
+wf.section2::E-20308	needs_evidence	-
+wf.section2::E-20309	needs_evidence	-
+wf.section2::E-20310	needs_evidence	-
+wf.section2::E-20311	needs_evidence	-
+wf.section2::E-20312	needs_evidence	-
+
+---
+
+wf.required_wage::E-20301	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20302	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20303	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20304	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20305	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20306	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20307	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20308	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20309	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20310	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20311	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20312	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage

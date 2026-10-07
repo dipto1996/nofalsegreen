@@ -1,0 +1,26 @@
+{
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_sem_forced|study9-A-workforce-fam-s3|wf.section2::E-00301|12": {
+  "text": "wf.section2::E-00301\tfail\ti9_records.section2_completed_on\nwf.section2::E-00302\tfail\ti9_records.section2_completed_on\nwf.section2::E-00303\tfail\ti9_records.section2_completed_on\nwf.section2::E-00304\tfail\ti9_records.section2_completed_on\nwf.section2::E-00305\tfail\ti9_records.section2_completed_on\nwf.section2::E-00306\tpass\ti9_records.section2_completed_on\nwf.section2::E-00307\tfail\ti9_records.section2_completed_on\nwf.section2::E-00308\tpass\ti9_records.section2_completed_on\nwf.section2::E-00309\tpass\ti9_records.section2_completed_on\nwf.section2::E-00310\tfail\ti9_records.section2_completed_on\nwf.section2::E-00311\tpass\ti9_records.section2_completed_on\nwf.section2::E-00312\tfail\ti9_records.section2_completed_on",
+  "output_tokens": 3100,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_sem_forced|study9-A-workforce-fam-s3|wf.required_wage::E-00301|12": {
+  "text": "wf.required_wage::E-00301\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00302\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00303\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00304\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00305\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00306\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00307\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00308\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00309\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00310\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00311\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00312\tfail\tpayroll.annualised_gross",
+  "output_tokens": 1477,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_sem_forced|study9-A-workforce-fam-s6|wf.section2::E-00601|12": {
+  "text": "wf.section2::E-00601\tfail\ti9_records.section2_completed_on\nwf.section2::E-00602\tpass\ti9_records.section2_completed_on\nwf.section2::E-00603\tfail\ti9_records.section2_completed_on\nwf.section2::E-00604\tfail\ti9_records.section2_completed_on\nwf.section2::E-00605\tpass\ti9_records.section2_completed_on\nwf.section2::E-00606\tpass\ti9_records.section2_completed_on\nwf.section2::E-00607\tfail\ti9_records.section2_completed_on\nwf.section2::E-00608\tpass\ti9_records.section2_completed_on\nwf.section2::E-00609\tpass\ti9_records.section2_completed_on\nwf.section2::E-00610\tpass\ti9_records.section2_completed_on\nwf.section2::E-00611\tpass\ti9_records.section2_completed_on\nwf.section2::E-00612\tfail\ti9_records.section2_completed_on",
+  "output_tokens": 2908,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_sem_forced|study9-A-workforce-fam-s6|wf.required_wage::E-00601|12": {
+  "text": "wf.required_wage::E-00601\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00602\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00603\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00604\tfail\tactual_wage_system.actual_wage\nwf.required_wage::E-00605\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00606\tfail\tactual_wage_system.actual_wage\nwf.required_wage::E-00607\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00608\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00609\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00610\tfail\tlca.prevailing_wage\nwf.required_wage::E-00611\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00612\tfail\tpayroll.annualised_gross",
+  "output_tokens": 3215,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

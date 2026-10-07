@@ -1,0 +1,27 @@
+wf.section2::E-00101	fail	-
+wf.section2::E-00102	fail	-
+wf.section2::E-00103	fail	-
+wf.section2::E-00104	fail	-
+wf.section2::E-00105	fail	-
+wf.section2::E-00106	fail	-
+wf.section2::E-00107	fail	-
+wf.section2::E-00108	fail	-
+wf.section2::E-00109	fail	-
+wf.section2::E-00110	fail	-
+wf.section2::E-00111	fail	-
+wf.section2::E-00112	fail	-
+
+---
+
+wf.required_wage::E-00101	fail	payroll.annualised_gross
+wf.required_wage::E-00102	fail	payroll.annualised_gross
+wf.required_wage::E-00103	pass	payroll.annualised_gross
+wf.required_wage::E-00104	fail	payroll.annualised_gross
+wf.required_wage::E-00105	pass	payroll.annualised_gross
+wf.required_wage::E-00106	fail	lca.prevailing_wage
+wf.required_wage::E-00107	fail	payroll.annualised_gross
+wf.required_wage::E-00108	pass	payroll.annualised_gross
+wf.required_wage::E-00109	fail	payroll.annualised_gross
+wf.required_wage::E-00110	fail	payroll.annualised_gross
+wf.required_wage::E-00111	fail	payroll.annualised_gross
+wf.required_wage::E-00112	fail	actual_wage_system.actual_wage

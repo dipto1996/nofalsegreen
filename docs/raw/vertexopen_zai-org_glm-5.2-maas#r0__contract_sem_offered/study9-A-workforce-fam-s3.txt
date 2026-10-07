@@ -1,0 +1,27 @@
+wf.section2::E-00301	fail	i9_records.first_day_of_employment,i9_records.section2_completed_on
+wf.section2::E-00302	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-00303	fail	i9_records.first_day_of_employment,i9_records.section2_completed_on
+wf.section2::E-00304	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-00305	fail	i9_records.first_day_of_employment,i9_records.section2_completed_on
+wf.section2::E-00306	pass	i9_records.first_day_of_employment,i9_records.section2_completed_on
+wf.section2::E-00307	fail	i9_records.first_day_of_employment,i9_records.section2_completed_on
+wf.section2::E-00308	pass	i9_records.first_day_of_employment,i9_records.section2_completed_on
+wf.section2::E-00309	pass	i9_records.first_day_of_employment,i9_records.section2_completed_on
+wf.section2::E-00310	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-00311	pass	i9_records.first_day_of_employment,i9_records.section2_completed_on
+wf.section2::E-00312	fail	i9_records.first_day_of_employment,i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-00301	pass	payroll.annualised_gross=104000 >= max(lca.prevailing_wage=86000, actual_wage_system.actual_wage=100000)
+wf.required_wage::E-00302	fail	payroll.annualised_gross=105000 < max(lca.prevailing_wage=92000, actual_wage_system.actual_wage=106000)=106000
+wf.required_wage::E-00303	fail	payroll.annualised_gross=140000 < max(lca.prevailing_wage=136000, actual_wage_system.actual_wage=144000)=144000
+wf.required_wage::E-00304	pass	payroll.annualised_gross=155000 >= max(lca.prevailing_wage=149000, actual_wage_system.actual_wage=150000)=150000
+wf.required_wage::E-00305	pass	payroll.annualised_gross=130000 >= max(lca.prevailing_wage=107000, actual_wage_system.actual_wage=126000)=126000
+wf.required_wage::E-00306	needs_evidence	payroll.annualised_gross is blank; lca.prevailing_wage=111000, actual_wage_system.actual_wage=111000
+wf.required_wage::E-00307	pass	payroll.annualised_gross=151000 >= max(lca.prevailing_wage=150000, actual_wage_system.actual_wage=150000)=150000
+wf.required_wage::E-00308	needs_evidence	payroll.annualised_gross is blank; lca.prevailing_wage=129000, actual_wage_system.actual_wage=133000
+wf.required_wage::E-00309	fail	payroll.annualised_gross=129000 < max(lca.prevailing_wage=140000, actual_wage_system.actual_wage=142000)=142000
+wf.required_wage::E-00310	pass	payroll.annualised_gross=135000 >= max(lca.prevailing_wage=104000, actual_wage_system.actual_wage=123000)=123000
+wf.required_wage::E-00311	pass	payroll.annualised_gross=104000 >= max(lca.prevailing_wage=84000, actual_wage_system.actual_wage=101000)=101000
+wf.required_wage::E-00312	needs_evidence	payroll.annualised_gross is blank; lca.prevailing_wage=135000, actual_wage_system.actual_wage=140000

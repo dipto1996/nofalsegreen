@@ -1,0 +1,24 @@
+Study 9 (A:purchasing:familiar): 6 firms x 24 pairs
+shard 0/2: ['study9-A-purchasing-fam-s1', 'study9-A-purchasing-fam-s3', 'study9-A-purchasing-fam-s5']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_sem_offered']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1927 output tokens, 27s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2941 output tokens, 23s, finish=stop, ok
+  study9-A-purchasing-fam-s1 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2171 output tokens, 14s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2162 output tokens, 15s, finish=stop, ok
+  study9-A-purchasing-fam-s3 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2935 output tokens, 21s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3162 output tokens, 19s, finish=stop, ok
+  study9-A-purchasing-fam-s5 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract_sem_offered: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study10/runs/gemini-3.1-pro-preview__A-purchasing-familiar__contract_sem_offered__shard0of2.json

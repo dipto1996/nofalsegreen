@@ -1,0 +1,15 @@
+Study 9 (A:engineering:familiar): 6 firms x 24 pairs
+shard 4/6: ['study9-A-engineering-fam-s5']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['contract_forced']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 5627 output tokens, 728s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 32000 output tokens, 339s, finish=length, CAP
+        attempt 2: 12554 output tokens, 134s, finish=stop, ok
+  study9-A-engineering-fam-s5 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (3 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract_forced: FGR 0.000 (sd 0.000)  recall 1.000  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/glm-5.2-maas__A-engineering-familiar__contract_forced__shard4of6.json

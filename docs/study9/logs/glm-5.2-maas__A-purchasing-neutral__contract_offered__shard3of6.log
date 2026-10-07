@@ -1,0 +1,16 @@
+Study 9 (A:purchasing:neutral): 6 firms x 24 pairs
+shard 3/6: ['study9-A-purchasing-neu-s4']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['contract_offered']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 32000 output tokens, 1011s, finish=length, CAP
+        attempt 2: 32000 output tokens, 339s, finish=length, CAP
+        attempt 3: 32000 output tokens, 281s, finish=length, CAP
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2968 output tokens, 28s, finish=stop, ok
+  study9-A-purchasing-neu-s4 FGR 0.000  recall 0.556  absF1 0.667  unparsed 0  (4 calls)  TRUNCATED 3
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract_offered: FGR 0.000 (sd 0.000)  recall 0.556  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/glm-5.2-maas__A-purchasing-neutral__contract_offered__shard3of6.json

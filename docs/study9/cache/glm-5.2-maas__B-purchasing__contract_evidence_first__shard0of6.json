@@ -1,0 +1,20 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_evidence_first|study9-B-purchasing-fam-s101|pa.within_approval::PO-10101|12": {
+  "text": "pa.within_approval::PO-10101\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10102\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10103\tneeds_evidence\tpurchase_orders.po_amount\npa.within_approval::PO-10104\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10105\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10106\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10107\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10108\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10109\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10110\tneeds_evidence\tsigned_approvals.approved_amount\npa.within_approval::PO-10111\tneeds_evidence\tsigned_approvals.approved_amount\npa.within_approval::PO-10112\tneeds_evidence\tpurchase_orders.po_amount",
+  "output_tokens": 3708,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_evidence_first|study9-B-purchasing-fam-s101|pa.within_approval::PO-10113|12": {
+  "text": "pa.within_approval::PO-10113\tfail\tpurchase_orders.po_amount=84000, signed_approvals.approved_amount=75000\npa.within_approval::PO-10114\tpass\tpurchase_orders.po_amount=97500, signed_approvals.approved_amount=104500\npa.within_approval::PO-10115\tfail\tpurchase_orders.po_amount=38500, signed_approvals.approved_amount=32500\npa.within_approval::PO-10116\tfail\tpurchase_orders.po_amount=64500, signed_approvals.approved_amount=58500\npa.approved_before_order::PO-10101\tfail\tsigned_approvals.signed_on=2026-03-24, purchase_orders.po_date=2026-03-09\npa.approved_before_order::PO-10102\tneeds_evidence\tsigned_approvals.signed_on missing, purchase_orders.po_date=2026-02-27\npa.approved_before_order::PO-10103\tneeds_evidence\tsigned_approvals.signed_on missing (no record), purchase_orders.po_date=2026-03-09\npa.approved_before_order::PO-10104\tneeds_evidence\tsigned_approvals.signed_on missing, purchase_orders.po_date=2026-04-14\npa.approved_before_order::PO-10105\tfail\tsigned_approvals.signed_on=2026-03-11, purchase_orders.po_date=2026-03-04\npa.approved_before_order::PO-10106\tfail\tsigned_approvals.signed_on=2026-02-23, purchase_orders.po_date=2026-02-20\npa.approved_before_order::PO-10107\tfail\tsigned_approvals.signed_on=2026-02-07, purchase_orders.po_date=2026-01-21\npa.approved_before_order::PO-10108\tneeds_evidence\tsigned_approvals.signed_on conflicting (2026-03-08 vs 2026-03-22), purchase_orders.po_date=2026-03-13",
+  "output_tokens": 2404,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_evidence_first|study9-B-purchasing-fam-s101|pa.approved_before_order::PO-10109|8": {
+  "text": "pa.approved_before_order::PO-10109\tfail\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10110\tfail\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10111\tpass\tsigned_approvals.signed_on,erp_ledger.order_date\npa.approved_before_order::PO-10112\tfail\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10113\tpass\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10114\tpass\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10115\tpass\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10116\tneeds_evidence\tsigned_approvals.signed_on",
+  "output_tokens": 21311,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

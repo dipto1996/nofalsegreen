@@ -1,0 +1,58 @@
+wf.section2::E-10201	fail	i9_records.section2_completed_on
+wf.section2::E-10202	fail	i9_records.section2_completed_on
+wf.section2::E-10203	pass	i9_records.section2_completed_on
+wf.section2::E-10204	needs_evidence	-
+wf.section2::E-10205	fail	i9_records.section2_completed_on
+wf.section2::E-10206	pass	i9_records.section2_completed_on
+wf.section2::E-10207	fail	i9_records.section2_completed_on
+wf.section2::E-10208	needs_evidence	-
+wf.section2::E-10209	pass	i9_records.section2_completed_on
+wf.section2::E-10210	needs_evidence	-
+wf.section2::E-10211	needs_evidence	-
+wf.section2::E-10212	pass	i9_records.section2_completed_on
+
+---
+
+wf.section2::E-10213	pass	i9_records.section2_completed_on
+wf.section2::E-10214	pass	i9_records.section2_completed_on
+wf.section2::E-10215	pass	i9_records.section2_completed_on
+wf.section2::E-10216	needs_evidence	-
+wf.required_wage::E-10201	pass	payroll.annualised_gross
+wf.required_wage::E-10202	needs_evidence	-
+wf.required_wage::E-10203	needs_evidence	-
+wf.required_wage::E-10204	fail	payroll.annualised_gross
+wf.required_wage::E-10205	fail	payroll.annualised_gross
+wf.required_wage::E-10206	needs_evidence	-
+wf.required_wage::E-10207	fail	payroll.annualised_gross
+wf.required_wage::E-10208	fail	payroll.annualised_gross
+
+---
+
+`!
+Therefore, you relied on ALL THREE columns!
+What about E-10214?
+In E-10214, actual wage was missing, so you only relied on `payroll.annualised_gross, lca.prevailing_wage`.
+What about E-10212?
+`needs_evidence` -> `-`.
+
+Wait, could E-10212 evidence be `-`?
+Yes, definitely `-`.
+
+Let's do a final review of the pairs:
+1. `wf.required_wage::E-10209`	`pass`	`payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage`
+2. `wf.required_wage::E-10210`	`fail`	`payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage`
+3. `wf.required_wage::E-10211`	`pass`	`payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage`
+4. `wf.required_wage::E-10212`	`needs_evidence`	`-`
+5. `wf.required_wage::E-10213`	`fail`	`payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage`
+6. `wf.required_wage::E-10214`	`fail`	`payroll.annualised_gross, lca.prevailing_wage`
+7. `wf.required_wage::E-10215`	`fail`	`payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage`
+8. `wf.required_wage::E-10216`	`pass`	`payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage`
+
+Everything is solid, rigorous, and strictly adheres to all constraints and formatting rules.wf.required_wage::E-10209	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10210	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10211	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10212	needs_evidence	-
+wf.required_wage::E-10213	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10214	fail	payroll.annualised_gross, lca.prevailing_wage
+wf.required_wage::E-10215	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10216	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage

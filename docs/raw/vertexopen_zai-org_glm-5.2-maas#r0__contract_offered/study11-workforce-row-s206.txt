@@ -1,0 +1,27 @@
+wf.section2::E-20601	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20602	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20603	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20604	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20605	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20606	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20607	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20608	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20609	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20610	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20611	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20612	needs_evidence	i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-20601	needs_evidence	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-20602	needs_evidence	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-20603	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20604	needs_evidence	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-20605	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20606	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20607	needs_evidence	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-20608	needs_evidence	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-20609	needs_evidence	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-20610	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20611	needs_evidence	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-20612	needs_evidence	src_C.c302, src_D.c402, src_E.c502

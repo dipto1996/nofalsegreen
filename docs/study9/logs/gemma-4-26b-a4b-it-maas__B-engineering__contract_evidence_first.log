@@ -1,0 +1,150 @@
+Study 9 (B:engineering): 6 firms x 32 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 673s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 344 output tokens, 5s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 425 output tokens, 8s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 273 output tokens, 4s, finish=stop, ok
+  study9-B-engineering-fam-s101 FGR 0.400  recall 0.444  absF1 0.625  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 342 output tokens, 8s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 322 output tokens, 7s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 273 output tokens, 9s, finish=stop, ok
+  study9-B-engineering-fam-s102 FGR 0.444  recall 0.556  absF1 0.714  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request tLDGapeSIKLK4PoP7N2OyAQ is throttled due to too many requests. Please try again later. Ple after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request v7DGarKxB6LK4PoP7N2OyAQ is throttled due to too many requests. Please try again later. Ple after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 466 output tokens, 15s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 323 output tokens, 6s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 259 output tokens, 6s, finish=stop, ok
+  study9-B-engineering-fam-s103 FGR 0.300  recall 0.667  absF1 0.737  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 335 output tokens, 12s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 436 output tokens, 11s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 212 output tokens, 9s, finish=stop, ok
+  study9-B-engineering-fam-s104 FGR 0.300  recall 0.182  absF1 0.625  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 432 output tokens, 11s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 325 output tokens, 6s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 274 output tokens, 9s, finish=stop, ok
+  study9-B-engineering-fam-s105 FGR 0.375  recall 0.833  absF1 0.714  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request q7HGaqr6F6LK4PoP7N2OyAQ is throttled due to too many requests. Please try again later. Ple after 1s
+        attempt 1: 340 output tokens, 7s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request vbHGato19oyKuA-mvb-JCg is throttled due to too many requests. Please try again later. Plea after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 326 output tokens, 7s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 213 output tokens, 5s, finish=stop, ok
+  study9-B-engineering-fam-s106 FGR 0.222  recall 0.462  absF1 0.667  unparsed 0  (3 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract_evidence_first: FGR 0.340 (sd 0.081)  recall 0.524  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemma-4-26b-a4b-it-maas__B-engineering__contract_evidence_first.json

@@ -1,0 +1,39 @@
+Study 9 (B:engineering): 6 firms x 32 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_offered']
+
+      batch 1/3 (0 parsed so far)
+      batch 2/3 (12 parsed so far)
+      batch 3/3 (24 parsed so far)
+  study9-B-engineering-fam-s101 FGR 0.500  recall 0.444  absF1 0.667  unparsed 0  (0 calls)
+      batch 1/3 (0 parsed so far)
+      batch 2/3 (12 parsed so far)
+      batch 3/3 (24 parsed so far)
+  study9-B-engineering-fam-s102 FGR 0.444  recall 0.556  absF1 0.615  unparsed 0  (0 calls)
+      batch 1/3 (0 parsed so far)
+      batch 2/3 (12 parsed so far)
+      batch 3/3 (24 parsed so far)
+  study9-B-engineering-fam-s103 FGR 0.300  recall 0.750  absF1 0.737  unparsed 0  (0 calls)
+      batch 1/3 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 6s
+        attempt 1: 445 output tokens, 8s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+      batch 3/3 (24 parsed so far)
+  study9-B-engineering-fam-s104 FGR 0.300  recall 0.182  absF1 0.625  unparsed 0  (1 calls)
+      batch 1/3 (0 parsed so far)
+      batch 2/3 (12 parsed so far)
+      batch 3/3 (24 parsed so far)
+  study9-B-engineering-fam-s105 FGR 0.375  recall 0.583  absF1 0.714  unparsed 0  (0 calls)
+      batch 1/3 (0 parsed so far)
+      batch 2/3 (12 parsed so far)
+      batch 3/3 (24 parsed so far)
+  study9-B-engineering-fam-s106 FGR 0.111  recall 0.462  absF1 0.667  unparsed 0  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract_offered: FGR 0.338 (sd 0.137)  recall 0.496  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemma-4-26b-a4b-it-maas__B-engineering__contract_offered__retry.json

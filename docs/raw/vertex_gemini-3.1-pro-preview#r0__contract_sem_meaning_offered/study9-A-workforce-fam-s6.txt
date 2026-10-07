@@ -1,0 +1,27 @@
+wf.section2::E-00601	fail	i9_records.section2_completed_on
+wf.section2::E-00602	pass	i9_records.section2_completed_on
+wf.section2::E-00603	fail	i9_records.section2_completed_on
+wf.section2::E-00604	fail	i9_records.section2_completed_on
+wf.section2::E-00605	pass	i9_records.section2_completed_on
+wf.section2::E-00606	pass	i9_records.section2_completed_on
+wf.section2::E-00607	fail	i9_records.section2_completed_on
+wf.section2::E-00608	pass	i9_records.section2_completed_on
+wf.section2::E-00609	pass	i9_records.section2_completed_on
+wf.section2::E-00610	pass	i9_records.section2_completed_on
+wf.section2::E-00611	pass	i9_records.section2_completed_on
+wf.section2::E-00612	needs_evidence	i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-00601	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-00602	fail	payroll.annualised_gross, lca.prevailing_wage
+wf.required_wage::E-00603	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-00604	needs_evidence	actual_wage_system.actual_wage
+wf.required_wage::E-00605	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-00606	needs_evidence	actual_wage_system.actual_wage
+wf.required_wage::E-00607	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-00608	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-00609	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-00610	needs_evidence	lca.prevailing_wage
+wf.required_wage::E-00611	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-00612	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage

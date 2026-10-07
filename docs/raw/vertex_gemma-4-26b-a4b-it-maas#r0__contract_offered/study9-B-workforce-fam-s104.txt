@@ -1,0 +1,38 @@
+E-10401	pass	i9_records.section2_completed_on
+E-10402	needs_evidence	i9_records.section2_completed_on
+E-10403	pass	i9_records.section2_completed_on
+E-10404	pass	i9_records.section2_completed_on
+E-10405	pass	i9_records.section2_completed_on
+E-10406	pass	i9_records.section2_completed_on
+E-10407	pass	i9_records.section2_completed_on
+E-10408	fail	i9_records.section2_completed_on
+E-10409	pass	i9_records.section2_completed_on
+E-10410	pass	i9_records.section2_completed_on
+E-10411	needs_evidence	i9_records.section2_completed_on
+E-10412	needs_evidence	i9_records.section2_completed_on
+
+---
+
+wf.section2::E-10413	fail	i9_records.section2_completed_on
+wf.section2::E-10414	pass	i9_records.section2_completed_on
+wf.section2::E-10415	fail	i9_records.section2_completed_on
+wf.section2::E-10416	pass	i9_records.section2_completed_on
+wf.required_wage::E-10401	pass	payroll.annualised_gross
+wf.required_wage::E-10402	fail	payroll.annualised_gross
+wf.required_wage::E-10403	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10404	needs_evidence	lca.prevailing_wage
+wf.required_wage::E-10405	pass	payroll.annualised_gross
+wf.required_wage::E-10406	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10407	pass	payroll.annualised_gross
+wf.required_wage::E-10408	pass	payroll.annualised_gross
+
+---
+
+wf.required_wage::E-10409	fail	payroll.annualised_gross
+wf.required_wage::E-10410	needs_evidence	lca.prevailing_wage
+wf.required_wage::E-10411	fail	payroll.annualised_gross
+wf.required_wage::E-10412	pass	payroll.annualised_gross
+wf.required_wage::E-10413	pass	payroll.annualised_gross
+wf.required_wage::E-10414	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10415	pass	payroll.annualised_gross
+wf.required_wage::E-10416	pass	payroll.annualised_gross

@@ -1,0 +1,38 @@
+pa.within_approval::PO-10101	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10102	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10103	needs_evidence	-
+pa.within_approval::PO-10104	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10105	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10106	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10107	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10108	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10109	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10110	needs_evidence	-
+pa.within_approval::PO-10111	needs_evidence	-
+pa.within_approval::PO-10112	needs_evidence	-
+
+---
+
+pa.within_approval::PO-10113	fail	purchase_orders.po_amount
+pa.within_approval::PO-10114	pass	purchase_orders.po_amount
+pa.within_approval::PO-10115	fail	purchase_orders.po_amount
+pa.within_approval::PO-10116	fail	purchase_orders.po_amount
+pa.approved_before_order::PO-10101	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10102	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10103	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10104	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10105	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10106	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10107	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10108	needs_evidence	signed_approvals.signed_on
+
+---
+
+pa.approved_before_order::PO-10109	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10110	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10111	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10112	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10113	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10114	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10115	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10116	needs_evidence	-

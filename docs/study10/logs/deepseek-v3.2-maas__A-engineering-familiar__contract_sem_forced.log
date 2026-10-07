@@ -1,0 +1,58 @@
+Study 9 (A:engineering:familiar): 6 firms x 24 pairs
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_sem_forced']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 364 output tokens, 13s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 252 output tokens, 12s, finish=stop, ok
+  study9-A-engineering-fam-s1 FGR 0.667  recall 0.462  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 372 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 256 output tokens, 20s, finish=stop, ok
+  study9-A-engineering-fam-s2 FGR 0.000  recall 0.900  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 276 output tokens, 6s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 252 output tokens, 10s, finish=stop, ok
+  study9-A-engineering-fam-s3 FGR 0.000  recall 0.556  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 372 output tokens, 24s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 252 output tokens, 9s, finish=stop, ok
+  study9-A-engineering-fam-s4 FGR 0.500  recall 0.400  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 263 output tokens, 8s, finish=stop, ok
+      batch 2/2 (10 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 256 output tokens, 7s, finish=stop, ok
+  study9-A-engineering-fam-s5 FGR 0.000  recall 0.909  absF1 0.000  unparsed 2  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 372 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 252 output tokens, 17s, finish=stop, ok
+  study9-A-engineering-fam-s6 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract_sem_forced: FGR 0.194 (sd 0.306)  recall 0.704  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study10/runs/deepseek-v3.2-maas__A-engineering-familiar__contract_sem_forced.json

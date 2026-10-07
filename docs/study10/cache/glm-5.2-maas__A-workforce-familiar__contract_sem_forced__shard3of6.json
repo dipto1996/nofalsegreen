@@ -1,0 +1,14 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_sem_forced|study9-A-workforce-fam-s4|wf.section2::E-00401|12": {
+  "text": "wf.section2::E-00401\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-00402\tfail\ti9_records.section2_completed_on\nwf.section2::E-00403\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-00404\tfail\ti9_records.section2_completed_on\nwf.section2::E-00405\tfail\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-00406\tfail\ti9_records.section2_completed_on\nwf.section2::E-00407\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-00408\tfail\ti9_records.section2_completed_on\nwf.section2::E-00409\tfail\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-00410\tfail\ti9_records.section2_completed_on\nwf.section2::E-00411\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-00412\tfail\ti9_records.section2_completed_on",
+  "output_tokens": 6041,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_sem_forced|study9-A-workforce-fam-s4|wf.required_wage::E-00401|12": {
+  "text": "wf.required_wage::E-00401\tpass\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00402\tfail\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00403\tpass\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00404\tpass\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00405\tpass\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00406\tpass\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00407\tfail\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00408\tfail\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00409\tpass\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00410\tfail\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00411\tpass\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage\nwf.required_wage::E-00412\tpass\tpayroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage",
+  "output_tokens": 1288,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

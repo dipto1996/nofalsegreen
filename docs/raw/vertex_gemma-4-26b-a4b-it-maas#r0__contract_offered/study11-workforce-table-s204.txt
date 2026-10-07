@@ -1,0 +1,27 @@
+wf.section2::E-20401	needs_evidence	-
+wf.section2::E-20402	needs_evidence	-
+wf.section2::E-20403	needs_evidence	-
+wf.section2::E-20404	needs_evidence	-
+wf.section2::E-20405	needs_evidence	-
+wf.section2::E-20406	needs_evidence	-
+wf.section2::E-20407	needs_evidence	-
+wf.section2::E-20408	needs_evidence	-
+wf.section2::E-20409	needs_evidence	-
+wf.section2::E-20410	needs_evidence	-
+wf.section2::E-20411	needs_evidence	-
+wf.section2::E-20412	needs_evidence	-
+
+---
+
+wf.required_wage::E-20401	pass	payroll.annualised_gross
+wf.required_wage::E-20402	pass	payroll.annualised_gross
+wf.required_wage::E-20403	pass	payroll.annualised_gross
+wf.required_wage::E-20404	pass	payroll.annualised_gross
+wf.required_wage::E-20405	pass	payroll.annualised_gross
+wf.required_wage::E-20406	pass	payroll.annualised_gross
+wf.required_wage::E-20407	pass	payroll.annualised_gross
+wf.required_wage::E-20408	pass	payroll.annualised_gross
+wf.required_wage::E-20409	fail	payroll.annualised_gross
+wf.required_wage::E-20410	pass	payroll.annualised_gross
+wf.required_wage::E-20411	pass	payroll.annualised_gross
+wf.required_wage::E-20412	pass	payroll.annualised_gross

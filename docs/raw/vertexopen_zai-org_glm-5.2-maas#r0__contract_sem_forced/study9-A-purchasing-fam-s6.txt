@@ -1,0 +1,27 @@
+pa.within_approval::PO-00601	pass	purchase_orders.po_amount=10500, signed_approvals.approved_amount=19500
+pa.within_approval::PO-00602	fail	purchase_orders.po_amount=59500, signed_approvals.approved_amount=56000
+pa.within_approval::PO-00603	fail	purchase_orders.po_amount=136000, signed_approvals.approved_amount=133000
+pa.within_approval::PO-00604	fail	purchase_orders.po_amount=195000, signed_approvals.approved_amount=185500
+pa.within_approval::PO-00605	pass	purchase_orders.po_amount=165000, signed_approvals.approved_amount=169000
+pa.within_approval::PO-00606	pass	purchase_orders.po_amount=188000, signed_approvals.approved_amount=193500
+pa.within_approval::PO-00607	fail	purchase_orders.po_amount=27500, signed_approvals.approved_amount=20500
+pa.within_approval::PO-00608	fail	purchase_orders.po_amount is empty, signed_approvals.approved_amount=117500
+pa.within_approval::PO-00609	pass	purchase_orders.po_amount=175000, signed_approvals.approved_amount=182500
+pa.within_approval::PO-00610	fail	purchase_orders.po_amount=33000, signed_approvals.approved_amount is empty
+pa.within_approval::PO-00611	fail	purchase_orders.po_amount=30500, signed_approvals.approved_amount=22000
+pa.within_approval::PO-00612	pass	purchase_orders.po_amount=198500, signed_approvals.approved_amount=199500
+
+---
+
+pa.approved_before_order::PO-00601	fail	signed_approvals.signed_on=2026-01-24 > purchase_orders.po_date=2026-01-18
+pa.approved_before_order::PO-00602	fail	signed_approvals.signed_on is blank; purchase_orders.po_date=2026-02-06
+pa.approved_before_order::PO-00603	fail	signed_approvals.signed_on=2026-04-19 > purchase_orders.po_date=2026-04-12
+pa.approved_before_order::PO-00604	fail	signed_approvals.signed_on is blank; purchase_orders.po_date=2026-02-03
+pa.approved_before_order::PO-00605	pass	signed_approvals.signed_on=2026-01-13 <= purchase_orders.po_date=2026-01-27
+pa.approved_before_order::PO-00606	fail	signed_approvals.signed_on is blank; purchase_orders.po_date=2026-02-02
+pa.approved_before_order::PO-00607	pass	signed_approvals.signed_on=2026-04-12 <= purchase_orders.po_date=2026-04-25
+pa.approved_before_order::PO-00608	pass	signed_approvals.signed_on=2026-01-22 <= purchase_orders.po_date=2026-01-23
+pa.approved_before_order::PO-00609	fail	signed_approvals.signed_on=2026-02-19 > purchase_orders.po_date=2026-02-05
+pa.approved_before_order::PO-00610	fail	signed_approvals.signed_on=2026-03-21 > purchase_orders.po_date=2026-03-01
+pa.approved_before_order::PO-00611	fail	signed_approvals.signed_on=2026-04-02 > purchase_orders.po_date=2026-03-16
+pa.approved_before_order::PO-00612	fail	signed_approvals.signed_on is blank; purchase_orders.po_date=2026-04-22

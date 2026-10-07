@@ -1,0 +1,27 @@
+wf.section2::E-20601	pass	-
+wf.section2::E-20602	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20603	fail	-
+wf.section2::E-20604	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20605	fail	-
+wf.section2::E-20606	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20607	pass	-
+wf.section2::E-20608	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20609	pass	-
+wf.section2::E-20610	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20611	pass	-
+wf.section2::E-20612	needs_evidence	i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-20601	pass	-
+wf.required_wage::E-20602	pass	-
+wf.required_wage::E-20603	fail	payroll.annualised_gross
+wf.required_wage::E-20604	pass	-
+wf.required_wage::E-20605	fail	payroll.annualised_gross
+wf.required_wage::E-20606	fail	payroll.annualised_gross
+wf.required_wage::E-20607	pass	-
+wf.required_wage::E-20608	pass	-
+wf.required_wage::E-20609	pass	-
+wf.required_wage::E-20610	fail	payroll.annualised_gross
+wf.required_wage::E-20611	pass	-
+wf.required_wage::E-20612	pass	-

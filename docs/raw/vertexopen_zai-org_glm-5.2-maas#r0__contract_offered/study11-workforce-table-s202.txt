@@ -1,0 +1,27 @@
+wf.section2::E-20201	needs_evidence	hr_roster.hire_date
+wf.section2::E-20202	needs_evidence	hr_roster.hire_date
+wf.section2::E-20203	needs_evidence	hr_roster.hire_date
+wf.section2::E-20204	needs_evidence	hr_roster.hire_date
+wf.section2::E-20205	needs_evidence	hr_roster.hire_date
+wf.section2::E-20206	needs_evidence	hr_roster.hire_date
+wf.section2::E-20207	needs_evidence	hr_roster.hire_date
+wf.section2::E-20208	needs_evidence	hr_roster.hire_date
+wf.section2::E-20209	needs_evidence	hr_roster.hire_date
+wf.section2::E-20210	needs_evidence	hr_roster.hire_date
+wf.section2::E-20211	needs_evidence	hr_roster.hire_date
+wf.section2::E-20212	needs_evidence	hr_roster.hire_date
+
+---
+
+wf.required_wage::E-20201	pass	payroll.annualised_gross=108000 >= max(lca.prevailing_wage=87000, actual_wage_system.actual_wage=106000)
+wf.required_wage::E-20202	pass	payroll.annualised_gross=152000 >= max(lca.prevailing_wage=124000, actual_wage_system.actual_wage=143000)
+wf.required_wage::E-20203	pass	payroll.annualised_gross=145000 >= max(lca.prevailing_wage=134000, actual_wage_system.actual_wage=141000)
+wf.required_wage::E-20204	fail	payroll.annualised_gross=113000 < max(lca.prevailing_wage=106000, actual_wage_system.actual_wage=126000)
+wf.required_wage::E-20205	pass	payroll.annualised_gross=114000 >= max(lca.prevailing_wage=108000, actual_wage_system.actual_wage=109000)
+wf.required_wage::E-20206	pass	payroll.annualised_gross=119000 >= max(lca.prevailing_wage=114000, actual_wage_system.actual_wage=115000)
+wf.required_wage::E-20207	pass	payroll.annualised_gross=158000 >= max(lca.prevailing_wage=140000, actual_wage_system.actual_wage=156000)
+wf.required_wage::E-20208	pass	payroll.annualised_gross=141000 >= max(lca.prevailing_wage=125000, actual_wage_system.actual_wage=129000)
+wf.required_wage::E-20209	fail	payroll.annualised_gross=94000 < max(lca.prevailing_wage=97000, actual_wage_system.actual_wage=97000)
+wf.required_wage::E-20210	fail	payroll.annualised_gross=123000 < max(lca.prevailing_wage=124000, actual_wage_system.actual_wage=133000)
+wf.required_wage::E-20211	pass	payroll.annualised_gross=141000 >= max(lca.prevailing_wage=124000, actual_wage_system.actual_wage=128000)
+wf.required_wage::E-20212	pass	payroll.annualised_gross=143000 >= max(lca.prevailing_wage=125000, actual_wage_system.actual_wage=139000)

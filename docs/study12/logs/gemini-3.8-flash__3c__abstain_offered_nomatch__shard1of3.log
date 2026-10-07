@@ -1,0 +1,36 @@
+Study 3c (proxy): 10 firms x 42 pairs
+shard 1/3: ['synthetic-002007-study3c-proxy', 'synthetic-002026-study3c-proxy', 'synthetic-002041-study3c-proxy']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered_nomatch']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9511 output tokens, 62s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6664 output tokens, 42s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 31026 output tokens, 200s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3004 output tokens, 18s, finish=stop, ok
+  synthetic-002007-study3c-proxy FGR 0.152  recall 0.000  absF1 0.918  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6956 output tokens, 45s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 7006 output tokens, 47s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5046 output tokens, 32s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2922 output tokens, 17s, finish=stop, ok
+  synthetic-002026-study3c-proxy FGR 0.030  recall 1.000  absF1 0.985  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 4318 output tokens, 29s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5738 output tokens, 41s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6585 output tokens, 41s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2353 output tokens, 13s, finish=stop, ok
+  synthetic-002041-study3c-proxy FGR 0.152  recall 1.000  absF1 0.918  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_offered_nomatch: FGR 0.111 (sd 0.070)  recall 0.667  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study12/runs/gemini-3.8-flash__3c__abstain_offered_nomatch__shard1of3.json

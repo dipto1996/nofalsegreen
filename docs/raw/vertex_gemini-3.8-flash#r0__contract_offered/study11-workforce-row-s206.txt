@@ -1,0 +1,27 @@
+wf.section2::E-20601	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20602	needs_evidence	-
+wf.section2::E-20603	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20604	needs_evidence	-
+wf.section2::E-20605	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20606	needs_evidence	-
+wf.section2::E-20607	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20608	needs_evidence	-
+wf.section2::E-20609	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20610	needs_evidence	-
+wf.section2::E-20611	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-20612	needs_evidence	-
+
+---
+
+wf.required_wage::E-20601	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20602	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20603	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20604	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20605	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20606	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20607	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20608	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20609	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20610	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20611	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20612	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross

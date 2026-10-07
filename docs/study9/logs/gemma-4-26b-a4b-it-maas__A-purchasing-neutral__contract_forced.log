@@ -1,0 +1,72 @@
+Study 9 (A:purchasing:neutral): 6 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_forced']
+
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 674s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 300 output tokens, 6s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 324 output tokens, 9s, finish=stop, ok
+  study9-A-purchasing-neu-s1 FGR 0.167  recall 0.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request wrDGaqmPC-LdsbwPuuWW0Qc is throttled due to too many requests. Please try again later. Ple after 2s
+        attempt 1: 300 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 324 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-neu-s2 FGR 0.500  recall 0.143  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 300 output tokens, 6s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 324 output tokens, 18s, finish=stop, ok
+  study9-A-purchasing-neu-s3 FGR 0.833  recall 0.556  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 300 output tokens, 6s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 324 output tokens, 7s, finish=stop, ok
+  study9-A-purchasing-neu-s4 FGR 0.667  recall 0.778  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 300 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 324 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-neu-s5 FGR 0.167  recall 0.125  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 300 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 228 output tokens, 5s, finish=stop, ok
+  study9-A-purchasing-neu-s6 FGR 0.000  recall 0.200  absF1 0.000  unparsed 0  (2 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract_forced: FGR 0.389 (sd 0.328)  recall 0.300  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemma-4-26b-a4b-it-maas__A-purchasing-neutral__contract_forced.json

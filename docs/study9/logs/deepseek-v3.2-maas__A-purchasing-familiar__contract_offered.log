@@ -1,0 +1,46 @@
+Study 9 (A:purchasing:familiar): 6 firms x 24 pairs
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_offered']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 247 output tokens, 679s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 257 output tokens, 6s, finish=stop, ok
+  study9-A-purchasing-fam-s1 FGR 0.000  recall 0.875  absF1 0.923  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 235 output tokens, 5s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 285 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-fam-s2 FGR 0.000  recall 0.714  absF1 0.800  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 238 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 260 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-fam-s3 FGR 0.000  recall 1.000  absF1 0.800  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 280 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 257 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-fam-s4 FGR 0.000  recall 0.556  absF1 0.706  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 270 output tokens, 19s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 265 output tokens, 26s, finish=stop, ok
+  study9-A-purchasing-fam-s5 FGR 0.000  recall 0.875  absF1 0.800  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 244 output tokens, 19s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 257 output tokens, 15s, finish=stop, ok
+  study9-A-purchasing-fam-s6 FGR 0.000  recall 0.900  absF1 0.857  unparsed 0  (2 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract_offered: FGR 0.000 (sd 0.000)  recall 0.820  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/deepseek-v3.2-maas__A-purchasing-familiar__contract_offered.json

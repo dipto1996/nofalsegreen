@@ -1,0 +1,28 @@
+Study 9 (A:workforce:familiar): 6 firms x 24 pairs
+shard 0/2: ['study9-A-workforce-fam-s1', 'study9-A-workforce-fam-s3', 'study9-A-workforce-fam-s5']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_sem_offered']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 4063 output tokens, 42s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3351 output tokens, 19s, finish=stop, ok
+  study9-A-workforce-fam-s1 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3649 output tokens, 29s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "TPM quota exhausted. No spare capacity is currently available to serve over-limit requests. Please try after 11s
+        attempt 1: 1716 output tokens, 11s, finish=stop, ok
+  study9-A-workforce-fam-s3 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2728 output tokens, 20s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2562 output tokens, 17s, finish=stop, ok
+  study9-A-workforce-fam-s5 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract_sem_offered: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study10/runs/gemini-3.1-pro-preview__A-workforce-familiar__contract_sem_offered__shard0of2.json

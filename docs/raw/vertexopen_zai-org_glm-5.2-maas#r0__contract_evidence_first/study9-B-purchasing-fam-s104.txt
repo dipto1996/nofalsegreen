@@ -1,0 +1,38 @@
+pa.within_approval::PO-10401	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10402	needs_evidence	purchase_orders.po_amount
+pa.within_approval::PO-10403	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-10404	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10405	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10406	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10407	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10408	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10409	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10410	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10411	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-10412	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+
+---
+
+pa.within_approval::PO-10413	fail	purchase_orders.po_amount=179000 > signed_approvals.approved_amount=170000
+pa.within_approval::PO-10414	pass	purchase_orders.po_amount=8500 <= signed_approvals.approved_amount=12500
+pa.within_approval::PO-10415	pass	purchase_orders.po_amount=26500 <= signed_approvals.approved_amount=33500
+pa.within_approval::PO-10416	fail	purchase_orders.po_amount=26500 > signed_approvals.approved_amount=17000
+pa.approved_before_order::PO-10401	fail	signed_approvals.signed_on=2026-04-18 > purchase_orders.po_date=2026-04-01
+pa.approved_before_order::PO-10402	pass	signed_approvals.signed_on=2026-01-23 <= purchase_orders.po_date=2026-01-24
+pa.approved_before_order::PO-10403	needs_evidence	signed_approvals.signed_on has no value for PO-10403
+pa.approved_before_order::PO-10404	needs_evidence	signed_approvals.signed_on is empty for PO-10404
+pa.approved_before_order::PO-10405	pass	signed_approvals.signed_on=2026-01-26 <= purchase_orders.po_date=2026-02-12
+pa.approved_before_order::PO-10406	pass	signed_approvals.signed_on=2026-04-08 <= purchase_orders.po_date=2026-04-14
+pa.approved_before_order::PO-10407	fail	signed_approvals.signed_on=2026-03-17 > purchase_orders.po_date=2026-03-04
+pa.approved_before_order::PO-10408	needs_evidence	signed_approvals.signed_on has conflicting values (2026-02-09 and 2026-02-17) for PO-10408
+
+---
+
+pa.approved_before_order::PO-10409	pass	signed_approvals.signed_on=2026-02-11, purchase_orders.po_date=2026-02-20
+pa.approved_before_order::PO-10410	needs_evidence	signed_approvals.signed_on is empty
+pa.approved_before_order::PO-10411	needs_evidence	no signed_approvals record for PO-10411
+pa.approved_before_order::PO-10412	needs_evidence	signed_approvals.signed_on is empty
+pa.approved_before_order::PO-10413	fail	signed_approvals.signed_on=2026-02-07, purchase_orders.po_date=2026-02-01
+pa.approved_before_order::PO-10414	pass	signed_approvals.signed_on=2026-01-12, purchase_orders.po_date=2026-01-31
+pa.approved_before_order::PO-10415	fail	signed_approvals.signed_on=2026-04-01, purchase_orders.po_date=2026-03-23
+pa.approved_before_order::PO-10416	needs_evidence	signed_approvals.signed_on disagrees (2026-04-17 vs 2026-04-29)

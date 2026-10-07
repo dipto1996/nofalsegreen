@@ -1,0 +1,32 @@
+Study 9 (A:purchasing:neutral): 6 firms x 24 pairs
+shard 0/2: ['study9-A-purchasing-neu-s1', 'study9-A-purchasing-neu-s3', 'study9-A-purchasing-neu-s5']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_forced']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3277 output tokens, 521s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2488 output tokens, 29s, finish=stop, ok
+  study9-A-purchasing-neu-s1 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3251 output tokens, 31s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+Study 9 (A:purchasing:neutral): 6 firms x 24 pairs
+shard 0/2: ['study9-A-purchasing-neu-s1', 'study9-A-purchasing-neu-s3', 'study9-A-purchasing-neu-s5']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_forced']
+
+  study9-A-purchasing-neu-s1 skip (done)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2452 output tokens, 23s, finish=stop, ok
+  study9-A-purchasing-neu-s3 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3334 output tokens, 24s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3038 output tokens, 18s, finish=stop, ok
+  study9-A-purchasing-neu-s5 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract_forced: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemini-3.1-pro-preview__A-purchasing-neutral__contract_forced__shard0of2.json

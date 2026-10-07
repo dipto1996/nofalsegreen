@@ -1,0 +1,20 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-engineering-fam-s106|ea.load_meets_spec::P-10601|12": {
+  "text": "ea.load_meets_spec::P-10601\tfail\ttest_reports.measured_load_kn=565, spec_sheets.min_load_kn=645\nea.load_meets_spec::P-10602\tneeds_evidence\tspec_sheets.min_load_kn is empty\nea.load_meets_spec::P-10603\tneeds_evidence\ttest_reports.measured_load_kn not found for P-10603\nea.load_meets_spec::P-10604\tfail\ttest_reports.measured_load_kn=10, spec_sheets.min_load_kn=80\nea.load_meets_spec::P-10605\tfail\ttest_reports.measured_load_kn=365, spec_sheets.min_load_kn=375\nea.load_meets_spec::P-10606\tpass\ttest_reports.measured_load_kn=970, spec_sheets.min_load_kn=935\nea.load_meets_spec::P-10607\tfail\ttest_reports.measured_load_kn=195, spec_sheets.min_load_kn=210\nea.load_meets_spec::P-10608\tneeds_evidence\ttest_reports.measured_load_kn has conflicting values 615 and 1615 for P-10608\nea.load_meets_spec::P-10609\tfail\ttest_reports.measured_load_kn=135, spec_sheets.min_load_kn=170\nea.load_meets_spec::P-10610\tfail\ttest_reports.measured_load_kn=245, spec_sheets.min_load_kn=345\nea.load_meets_spec::P-10611\tneeds_evidence\tspec_sheets.min_load_kn not found for P-10611\nea.load_meets_spec::P-10612\tfail\ttest_reports.measured_load_kn=650, spec_sheets.min_load_kn=655",
+  "output_tokens": 2044,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-engineering-fam-s106|ea.load_meets_spec::P-10613|12": {
+  "text": "ea.load_meets_spec::P-10613\tpass\ttest_reports.measured_load_kn, spec_sheets.min_load_kn\nea.load_meets_spec::P-10614\tfail\ttest_reports.measured_load_kn, spec_sheets.min_load_kn\nea.load_meets_spec::P-10615\tfail\ttest_reports.measured_load_kn, spec_sheets.min_load_kn\nea.load_meets_spec::P-10616\tfail\ttest_reports.measured_load_kn, spec_sheets.min_load_kn\nea.tested_before_ship::P-10601\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10602\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10603\tneeds_evidence\t-\nea.tested_before_ship::P-10604\tneeds_evidence\t-\nea.tested_before_ship::P-10605\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10606\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10607\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10608\tfail\ttest_reports.tested_on, shipping_log.shipped_on",
+  "output_tokens": 4083,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-engineering-fam-s106|ea.tested_before_ship::P-10609|8": {
+  "text": "ea.tested_before_ship::P-10609\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10610\tneeds_evidence\ttest_reports.tested_on\nea.tested_before_ship::P-10611\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10612\tneeds_evidence\tshipping_log.shipped_on\nea.tested_before_ship::P-10613\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10614\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10615\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-10616\tneeds_evidence\ttest_reports.tested_on",
+  "output_tokens": 9208,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

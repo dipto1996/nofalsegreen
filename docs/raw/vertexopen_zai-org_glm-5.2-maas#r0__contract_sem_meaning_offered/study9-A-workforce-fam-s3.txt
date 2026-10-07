@@ -1,0 +1,27 @@
+wf.section2::E-00301	fail	i9_records.section2_completed_on (2026-04-17 > 3 business days after 2026-04-04; deadline 2026-04-08)
+wf.section2::E-00302	needs_evidence	i9_records.section2_completed_on (blank)
+wf.section2::E-00303	fail	i9_records.section2_completed_on (2026-01-27 > 3 business days after 2026-01-17; deadline 2026-01-22, accounting for MLK Day 2026-01-19)
+wf.section2::E-00304	needs_evidence	i9_records.section2_completed_on (blank)
+wf.section2::E-00305	fail	i9_records.section2_completed_on (2026-03-13 > 3 business days after 2026-03-06; deadline 2026-03-11)
+wf.section2::E-00306	pass	i9_records.section2_completed_on (2026-03-17 = 3 business days after 2026-03-12; deadline 2026-03-17)
+wf.section2::E-00307	fail	i9_records.section2_completed_on (2026-03-24 > 3 business days after 2026-03-07; deadline 2026-03-11)
+wf.section2::E-00308	pass	i9_records.section2_completed_on (2026-03-30 ≤ 3 business days after 2026-03-27; deadline 2026-04-01)
+wf.section2::E-00309	pass	i9_records.section2_completed_on (2026-01-20 = 3 business days after 2026-01-14; deadline 2026-01-20, accounting for MLK Day 2026-01-19)
+wf.section2::E-00310	needs_evidence	i9_records.section2_completed_on (blank)
+wf.section2::E-00311	pass	i9_records.section2_completed_on (2026-02-18 ≤ 3 business days after 2026-02-16; deadline 2026-02-19, accounting for Presidents' Day 2026-02-16)
+wf.section2::E-00312	fail	i9_records.section2_completed_on (2026-03-19 > 3 business days after 2026-03-10; deadline 2026-03-13)
+
+---
+
+wf.required_wage::E-00301	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00302	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00303	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00304	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00305	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00306	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-00307	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00308	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-00309	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00310	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00311	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00312	needs_evidence	payroll.annualised_gross

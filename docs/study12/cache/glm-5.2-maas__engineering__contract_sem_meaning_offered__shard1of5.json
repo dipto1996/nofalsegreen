@@ -1,0 +1,14 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s2|ea.load_meets_spec::P-00201|12": {
+  "text": "ea.load_meets_spec::P-00201\tfail\ttest_reports.measured_load_kn=740 < spec_sheets.min_load_kn=765\nea.load_meets_spec::P-00202\tneeds_evidence\ttest_reports.measured_load_kn is empty; spec_sheets.min_load_kn=335\nea.load_meets_spec::P-00203\tpass\ttest_reports.measured_load_kn=1030 >= spec_sheets.min_load_kn=930\nea.load_meets_spec::P-00204\tfail\ttest_reports.measured_load_kn=500 < spec_sheets.min_load_kn=505\nea.load_meets_spec::P-00205\tfail\ttest_reports.measured_load_kn=295 < spec_sheets.min_load_kn=305\nea.load_meets_spec::P-00206\tneeds_evidence\ttest_reports.measured_load_kn=850; spec_sheets.min_load_kn is empty\nea.load_meets_spec::P-00207\tfail\ttest_reports.measured_load_kn=65 < spec_sheets.min_load_kn=95\nea.load_meets_spec::P-00208\tpass\ttest_reports.measured_load_kn=730 >= spec_sheets.min_load_kn=645\nea.load_meets_spec::P-00209\tpass\ttest_reports.measured_load_kn=95 >= spec_sheets.min_load_kn=50\nea.load_meets_spec::P-00210\tpass\ttest_reports.measured_load_kn=395 >= spec_sheets.min_load_kn=350\nea.load_meets_spec::P-00211\tfail\ttest_reports.measured_load_kn=100 < spec_sheets.min_load_kn=150\nea.load_meets_spec::P-00212\tneeds_evidence\ttest_reports.measured_load_kn=400; spec_sheets.min_load_kn is empty",
+  "output_tokens": 733,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_sem_meaning_offered|study9-A-engineering-fam-s2|ea.tested_before_ship::P-00201|12": {
+  "text": "ea.tested_before_ship::P-00201\tfail\ttest_reports.tested_on=2026-04-10, shipping_log.shipped_on=2026-04-02\nea.tested_before_ship::P-00202\tpass\ttest_reports.tested_on=2026-03-21, shipping_log.shipped_on=2026-03-29\nea.tested_before_ship::P-00203\tfail\ttest_reports.tested_on=2026-03-29, shipping_log.shipped_on=2026-03-16\nea.tested_before_ship::P-00204\tneeds_evidence\tshipping_log.shipped_on is blank\nea.tested_before_ship::P-00205\tpass\ttest_reports.tested_on=2026-01-24, shipping_log.shipped_on=2026-01-28\nea.tested_before_ship::P-00206\tfail\ttest_reports.tested_on=2026-03-01, shipping_log.shipped_on=2026-02-16\nea.tested_before_ship::P-00207\tpass\ttest_reports.tested_on=2026-01-10, shipping_log.shipped_on=2026-01-27\nea.tested_before_ship::P-00208\tneeds_evidence\tshipping_log.shipped_on is blank\nea.tested_before_ship::P-00209\tfail\ttest_reports.tested_on=2026-03-03, shipping_log.shipped_on=2026-02-20\nea.tested_before_ship::P-00210\tneeds_evidence\ttest_reports.tested_on is blank\nea.tested_before_ship::P-00211\tfail\ttest_reports.tested_on=2026-05-17, shipping_log.shipped_on=2026-04-30\nea.tested_before_ship::P-00212\tpass\ttest_reports.tested_on=2026-04-11, shipping_log.shipped_on=2026-04-22",
+  "output_tokens": 1008,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

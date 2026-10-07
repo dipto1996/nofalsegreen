@@ -1,0 +1,38 @@
+wf.section2::E-10101	pass	i9_records.section2_completed_on
+wf.section2::E-10102	needs_evidence	-
+wf.section2::E-10103	pass	i9_records.section2_completed_on
+wf.section2::E-10104	pass	i9_records.section2_completed_on
+wf.section2::E-10105	pass	i9_records.section2_completed_on
+wf.section2::E-10106	pass	i9_records.section2_completed_on
+wf.section2::E-10107	pass	i9_records.section2_completed_on
+wf.section2::E-10108	needs_evidence	-
+wf.section2::E-10109	pass	i9_records.section2_completed_on
+wf.section2::E-10110	pass	i9_records.section2_completed_on
+wf.section2::E-10111	unmonitored	-
+wf.section2::E-10112	needs_evidence	-
+
+---
+
+wf.section2::E-10113	needs_evidence	-
+wf.section2::E-10114	needs_evidence	-
+wf.section2::E-10115	needs_evidence	-
+wf.section2::E-10116	needs_evidence	-
+wf.required_wage::E-10101	fail	payroll.annualised_gross
+wf.required_wage::E-10102	fail	payroll.annualised_gross
+wf.required_wage::E-10103	needs_evidence	-
+wf.required_wage::E-10104	needs_evidence	-
+wf.required_wage::E-10105	needs_evidence	-
+wf.required_wage::E-10106	needs_evidence	-
+wf.required_wage::E-10107	needs_evidence	-
+wf.required_wage::E-10108	needs_evidence	-
+
+---
+
+wf.required_wage::E-10109	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-10110	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10111	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-10112	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-10113	needs_evidence	actual_wage_system.actual_wage
+wf.required_wage::E-10114	needs_evidence	actual_wage_system.actual_wage
+wf.required_wage::E-10115	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-10116	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage

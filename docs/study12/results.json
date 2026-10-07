@@ -1,0 +1,69 @@
+{
+ "declared": "docs/STUDY12_DECLARATION.md",
+ "primary": {
+  "M1 with - without the reading rule, contract packets": {
+   "n_packets": 18,
+   "delta": 0.0019,
+   "ci95_packet_bootstrap": [
+    0.0,
+    0.0056
+   ],
+   "p_exact_two_sided": 1.0,
+   "packets_positive": 1,
+   "packets_negative": 0,
+   "p_holm": 1.0,
+   "outcome": "not confirmed"
+  },
+  "M2 original - without the reading rule, Study 3c proxy firms": {
+   "n_packets": 10,
+   "delta": 0.0848,
+   "ci95_packet_bootstrap": [
+    0.0564,
+    0.1133
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "packets_positive": 10,
+   "packets_negative": 0,
+   "p_holm": 0.00390625,
+   "outcome": "confirmed"
+  }
+ },
+ "per_model": {
+  "M1": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.0,
+   "gemma-4-26b-a4b-it-maas": 0.0238,
+   "deepseek-v3.2-maas": 0.0,
+   "glm-5.2-maas": 0.0
+  },
+  "M2": {
+   "gemini-3.1-pro-preview": 0.0091,
+   "gemini-3.8-flash": 0.0394,
+   "gemma-4-26b-a4b-it-maas": 0.2879,
+   "deepseek-v3.2-maas": 0.0091,
+   "glm-5.2-maas": 0.0788
+  }
+ },
+ "unsupported_pass_rate": {
+  "gemini-3.1-pro-preview::abstain_offered": 0.0212,
+  "gemini-3.1-pro-preview::abstain_offered_nomatch": 0.0121,
+  "gemini-3.1-pro-preview::contract_sem_meaning_offered": 0.0,
+  "gemini-3.1-pro-preview::contract_sem_offered": 0.0,
+  "gemini-3.8-flash::abstain_offered": 0.1152,
+  "gemini-3.8-flash::abstain_offered_nomatch": 0.0758,
+  "gemini-3.8-flash::contract_sem_meaning_offered": 0.0,
+  "gemini-3.8-flash::contract_sem_offered": 0.0,
+  "gemma-4-26b-a4b-it-maas::abstain_offered": 0.7697,
+  "gemma-4-26b-a4b-it-maas::abstain_offered_nomatch": 0.4906,
+  "gemma-4-26b-a4b-it-maas::contract_sem_meaning_offered": 0.0526,
+  "gemma-4-26b-a4b-it-maas::contract_sem_offered": 0.0519,
+  "deepseek-v3.2-maas::abstain_offered": 0.1212,
+  "deepseek-v3.2-maas::abstain_offered_nomatch": 0.1121,
+  "deepseek-v3.2-maas::contract_sem_meaning_offered": 0.0095,
+  "deepseek-v3.2-maas::contract_sem_offered": 0.0095,
+  "glm-5.2-maas::abstain_offered": 0.1152,
+  "glm-5.2-maas::abstain_offered_nomatch": 0.0364,
+  "glm-5.2-maas::contract_sem_meaning_offered": 0.0,
+  "glm-5.2-maas::contract_sem_offered": 0.0
+ }
+}

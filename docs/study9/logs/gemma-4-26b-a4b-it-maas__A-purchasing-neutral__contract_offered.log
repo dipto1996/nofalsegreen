@@ -1,0 +1,60 @@
+Study 9 (A:purchasing:neutral): 6 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_offered']
+
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 670s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request IbDGatOSEaLK4PoP7N2OyAQ is throttled due to too many requests. Please try again later. Ple after 3s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 322 output tokens, 6s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 332 output tokens, 6s, finish=stop, ok
+  study9-A-purchasing-neu-s1 FGR 0.000  recall 0.000  absF1 0.800  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 380 output tokens, 43s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 326 output tokens, 7s, finish=stop, ok
+  study9-A-purchasing-neu-s2 FGR 0.167  recall 0.143  absF1 0.909  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 394 output tokens, 13s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 332 output tokens, 10s, finish=stop, ok
+  study9-A-purchasing-neu-s3 FGR 0.000  recall 0.556  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 403 output tokens, 13s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 330 output tokens, 37s, finish=stop, ok
+  study9-A-purchasing-neu-s4 FGR 0.167  recall 0.556  absF1 0.909  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 387 output tokens, 10s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 330 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-neu-s5 FGR 0.000  recall 0.250  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 394 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 236 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-neu-s6 FGR 0.000  recall 0.100  absF1 0.500  unparsed 0  (2 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract_offered: FGR 0.056 (sd 0.086)  recall 0.267  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemma-4-26b-a4b-it-maas__A-purchasing-neutral__contract_offered.json

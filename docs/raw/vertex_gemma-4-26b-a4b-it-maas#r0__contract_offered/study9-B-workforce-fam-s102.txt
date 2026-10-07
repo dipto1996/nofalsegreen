@@ -1,0 +1,38 @@
+wf.section2::E-10201	pass	i9_records.section2_completed_on
+wf.section2::E-10202	fail	i9_records.section2_completed_on
+wf.section2::E-10203	pass	i9_records.section2_completed_on
+wf.section2::E-10204	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-10205	fail	i9_records.section2_completed_on
+wf.section2::E-10206	pass	i9_records.section2_completed_on
+wf.section2::E-10207	fail	i9_records.section2_completed_on
+wf.section2::E-10208	fail	i9_records.section2_completed_on
+wf.section2::E-10209	pass	i9_records.section2_completed_on
+wf.section2::E-10210	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-10211	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-10212	pass	i9_records.section2_completed_on
+
+---
+
+wf.section2::E-10213	pass	i9_records.section2_completed_on
+wf.section2::E-10214	pass	i9_records.section2_completed_on
+wf.section2::E-10215	pass	i9_records.section2_completed_on
+wf.section2::E-10216	fail	i9_records.section2_completed_on
+wf.required_wage::E-10201	pass	payroll.annualised_gross
+wf.required_wage::E-10202	needs_evidence	lca.prevailing_wage
+wf.required_wage::E-10203	fail	payroll.annualised_gross
+wf.required_wage::E-10204	pass	payroll.annualised_gross
+wf.required_wage::E-10205	pass	payroll.annualised_gross
+wf.required_wage::E-10206	needs_evidence	actual_wage_system.actual_wage
+wf.required_wage::E-10207	fail	payroll.annualised_gross
+wf.required_wage::E-10208	pass	payroll.annualised_gross
+
+---
+
+E-10209	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+E-10210	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+E-10211	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+E-10212	needs_evidence	payroll.annualised_gross
+E-10213	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+E-10214	needs_evidence	lca.prevailing_wage
+E-10215	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+E-10216	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage

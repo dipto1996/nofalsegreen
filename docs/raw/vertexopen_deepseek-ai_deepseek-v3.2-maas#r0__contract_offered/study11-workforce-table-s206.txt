@@ -1,0 +1,27 @@
+wf.section2::E-20601	unmonitored	-
+wf.section2::E-20602	unmonitored	-
+wf.section2::E-20603	unmonitored	-
+wf.section2::E-20604	unmonitored	-
+wf.section2::E-20605	unmonitored	-
+wf.section2::E-20606	unmonitored	-
+wf.section2::E-20607	unmonitored	-
+wf.section2::E-20608	unmonitored	-
+wf.section2::E-20609	unmonitored	-
+wf.section2::E-20610	unmonitored	-
+wf.section2::E-20611	unmonitored	-
+wf.section2::E-20612	unmonitored	-
+
+---
+
+wf.required_wage::E-20601	fail	payroll.annualised_gross
+wf.required_wage::E-20602	pass	payroll.annualised_gross
+wf.required_wage::E-20603	needs_evidence	-
+wf.required_wage::E-20604	pass	payroll.annualised_gross
+wf.required_wage::E-20605	needs_evidence	-
+wf.required_wage::E-20606	pass	payroll.annualised_gross
+wf.required_wage::E-20607	pass	payroll.annualised_gross
+wf.required_wage::E-20608	pass	payroll.annualised_gross
+wf.required_wage::E-20609	pass	payroll.annualised_gross
+wf.required_wage::E-20610	fail	payroll.annualised_gross
+wf.required_wage::E-20611	pass	payroll.annualised_gross
+wf.required_wage::E-20612	pass	payroll.annualised_gross

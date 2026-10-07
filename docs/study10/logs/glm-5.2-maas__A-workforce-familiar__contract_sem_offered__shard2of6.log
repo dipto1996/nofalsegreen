@@ -1,0 +1,14 @@
+Study 9 (A:workforce:familiar): 6 firms x 24 pairs
+shard 2/6: ['study9-A-workforce-fam-s3']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['contract_sem_offered']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 7247 output tokens, 78s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1608 output tokens, 13s, finish=stop, ok
+  study9-A-workforce-fam-s3 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract_sem_offered: FGR 0.000 (sd 0.000)  recall 1.000  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study10/runs/glm-5.2-maas__A-workforce-familiar__contract_sem_offered__shard2of6.json

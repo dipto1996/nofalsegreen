@@ -1,0 +1,36 @@
+Study 9 (B:workforce): 6 firms x 32 pairs
+shard 1/2: ['study9-B-workforce-fam-s102', 'study9-B-workforce-fam-s104', 'study9-B-workforce-fam-s106']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_offered']
+
+      batch 1/3 (0 parsed so far)
+Study 9 (B:workforce): 6 firms x 32 pairs
+shard 1/2: ['study9-B-workforce-fam-s102', 'study9-B-workforce-fam-s104', 'study9-B-workforce-fam-s106']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_offered']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4200 output tokens, 34s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 4563 output tokens, 30s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 3362 output tokens, 25s, finish=stop, ok
+  study9-B-workforce-fam-s102 FGR 0.000  recall 0.800  absF1 0.800  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 3860 output tokens, 24s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 7076 output tokens, 54s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 5313 output tokens, 39s, finish=stop, ok
+  study9-B-workforce-fam-s104 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4706 output tokens, 36s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 6724 output tokens, 44s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 3949 output tokens, 27s, finish=stop, ok
+  study9-B-workforce-fam-s106 FGR 0.000  recall 1.000  absF1 0.923  unparsed 0  (3 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract_offered: FGR 0.000 (sd 0.000)  recall 0.933  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemini-3.1-pro-preview__B-workforce__contract_offered__shard1of2.json

@@ -1,0 +1,27 @@
+pa.within_approval::PO-00601	fail	purchase_orders.po_amount
+pa.within_approval::PO-00602	fail	purchase_orders.po_amount
+pa.within_approval::PO-00603	fail	purchase_orders.po_amount
+pa.within_approval::PO-00604	fail	purchase_orders.po_amount
+pa.within_approval::PO-00605	fail	purchase_orders.po_amount
+pa.within_approval::PO-00606	fail	purchase_orders.po_amount
+pa.within_approval::PO-00607	fail	purchase_orders.po_amount
+pa.within_approval::PO-00608	fail	purchase_orders.po_amount
+pa.within_approval::PO-00609	fail	purchase_orders.po_amount
+pa.within_approval::PO-00610	fail	purchase_orders.po_amount
+pa.within_approval::PO-00611	fail	purchase_orders.po_amount
+pa.within_approval::PO-00612	fail	purchase_orders.po_amount
+
+---
+
+pa.approved_before_order::PO-00601	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-00602	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-00603	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-00604	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-00605	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-00606	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-00607	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-00608	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-00609	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-00610	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-00611	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-00612	fail	signed_approvals.signed_on

@@ -1,0 +1,27 @@
+wf.section2::E-00601	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00602	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00603	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00604	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00605	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00606	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00607	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00608	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00609	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00610	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00611	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00612	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-00601	fail	payroll.annualised_gross=148000 < actual_wage_system.actual_wage=156000
+wf.required_wage::E-00602	fail	payroll.annualised_gross=131000 < lca.prevailing_wage=132000
+wf.required_wage::E-00603	fail	payroll.annualised_gross=109000 < actual_wage_system.actual_wage=122000
+wf.required_wage::E-00604	pass	payroll.annualised_gross=160000 >= lca.prevailing_wage=145000
+wf.required_wage::E-00605	pass	payroll.annualised_gross=168000 >= actual_wage_system.actual_wage=160000
+wf.required_wage::E-00606	pass	payroll.annualised_gross=158000 >= lca.prevailing_wage=138000
+wf.required_wage::E-00607	pass	payroll.annualised_gross=110000 >= actual_wage_system.actual_wage=108000
+wf.required_wage::E-00608	fail	payroll.annualised_gross not established; actual_wage_system.actual_wage=128000, lca.prevailing_wage=120000
+wf.required_wage::E-00609	pass	payroll.annualised_gross=136000 >= actual_wage_system.actual_wage=122000
+wf.required_wage::E-00610	pass	payroll.annualised_gross=110000 >= actual_wage_system.actual_wage=96000
+wf.required_wage::E-00611	fail	payroll.annualised_gross=100000 < actual_wage_system.actual_wage=106000
+wf.required_wage::E-00612	fail	payroll.annualised_gross=146000 < actual_wage_system.actual_wage=150000

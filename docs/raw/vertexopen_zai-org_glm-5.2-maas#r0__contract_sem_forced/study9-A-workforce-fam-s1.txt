@@ -1,0 +1,27 @@
+wf.section2::E-00101	fail	i9_records.section2_completed_on
+wf.section2::E-00102	fail	i9_records.section2_completed_on
+wf.section2::E-00103	fail	i9_records.section2_completed_on
+wf.section2::E-00104	fail	i9_records.section2_completed_on
+wf.section2::E-00105	fail	i9_records.section2_completed_on
+wf.section2::E-00106	fail	i9_records.section2_completed_on
+wf.section2::E-00107	pass	i9_records.section2_completed_on
+wf.section2::E-00108	fail	i9_records.section2_completed_on
+wf.section2::E-00109	pass	i9_records.section2_completed_on
+wf.section2::E-00110	pass	i9_records.section2_completed_on
+wf.section2::E-00111	fail	i9_records.section2_completed_on
+wf.section2::E-00112	fail	i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-00101	fail	payroll.annualised_gross=84000 < max(lca.prevailing_wage=98000, actual_wage_system.actual_wage=99000)=99000
+wf.required_wage::E-00102	fail	payroll.annualised_gross=159000 < max(lca.prevailing_wage=154000, actual_wage_system.actual_wage=172000)=172000
+wf.required_wage::E-00103	pass	payroll.annualised_gross=107000 >= max(lca.prevailing_wage=93000, actual_wage_system.actual_wage=105000)=105000
+wf.required_wage::E-00104	fail	payroll.annualised_gross=135000 < max(lca.prevailing_wage=127000, actual_wage_system.actual_wage=144000)=144000
+wf.required_wage::E-00105	pass	payroll.annualised_gross=169000 >= max(lca.prevailing_wage=152000, actual_wage_system.actual_wage=167000)=167000
+wf.required_wage::E-00106	pass	payroll.annualised_gross=132000 >= actual_wage_system.actual_wage=126000 (lca.prevailing_wage missing)
+wf.required_wage::E-00107	fail	payroll.annualised_gross=154000 < max(lca.prevailing_wage=160000, actual_wage_system.actual_wage=167000)=167000
+wf.required_wage::E-00108	pass	payroll.annualised_gross=120000 >= max(lca.prevailing_wage=107000, actual_wage_system.actual_wage=109000)=109000
+wf.required_wage::E-00109	fail	payroll.annualised_gross=147000 < max(lca.prevailing_wage=144000, actual_wage_system.actual_wage=152000)=152000
+wf.required_wage::E-00110	fail	payroll.annualised_gross is empty; required threshold max(lca.prevailing_wage=112000, actual_wage_system.actual_wage=127000)=127000
+wf.required_wage::E-00111	fail	payroll.annualised_gross=121000 < max(lca.prevailing_wage=106000, actual_wage_system.actual_wage=123000)=123000
+wf.required_wage::E-00112	pass	payroll.annualised_gross=167000 >= lca.prevailing_wage=157000 (actual_wage_system.actual_wage missing)

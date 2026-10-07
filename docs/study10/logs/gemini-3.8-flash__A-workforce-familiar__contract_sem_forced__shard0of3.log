@@ -1,0 +1,19 @@
+Study 9 (A:workforce:familiar): 6 firms x 24 pairs
+shard 0/3: ['study9-A-workforce-fam-s1', 'study9-A-workforce-fam-s4']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract_sem_forced']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2295 output tokens, 25s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2661 output tokens, 17s, finish=stop, ok
+  study9-A-workforce-fam-s1 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1678 output tokens, 10s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1402 output tokens, 9s, finish=stop, ok
+  study9-A-workforce-fam-s4 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.8-flash#r0::contract_sem_forced: FGR 0.000 (sd 0.000)  recall 1.000  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study10/runs/gemini-3.8-flash__A-workforce-familiar__contract_sem_forced__shard0of3.json

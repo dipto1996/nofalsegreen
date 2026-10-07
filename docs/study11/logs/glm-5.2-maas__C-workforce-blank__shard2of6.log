@@ -1,0 +1,15 @@
+Study 9 (C:workforce:blank): 6 firms x 24 pairs
+shard 2/6: ['study11-workforce-blank-s203']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 1  variants ['contract_offered']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 32000 output tokens, 346s, finish=length, CAP
+        attempt 2: 5675 output tokens, 47s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 4849 output tokens, 42s, finish=stop, ok
+  study11-workforce-blank-s203 FGR 0.000  recall 0.250  absF1 0.500  unparsed 0  (3 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract_offered: FGR 0.000 (sd 0.000)  recall 0.250  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study11/runs/glm-5.2-maas__C-workforce-blank__shard2of6.json

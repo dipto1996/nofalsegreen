@@ -1,0 +1,23 @@
+Study 9 (B:workforce): 6 firms x 32 pairs
+shard 1/3: ['study9-B-workforce-fam-s102', 'study9-B-workforce-fam-s105']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6283 output tokens, 711s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 7516 output tokens, 44s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 1494 output tokens, 9s, finish=stop, ok
+  study9-B-workforce-fam-s102 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 3631 output tokens, 19s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 5786 output tokens, 32s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 18900 output tokens, 128s, finish=stop, ok
+  study9-B-workforce-fam-s105 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertex/gemini-3.8-flash#r0::contract_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemini-3.8-flash__B-workforce__contract_evidence_first__shard1of3.json

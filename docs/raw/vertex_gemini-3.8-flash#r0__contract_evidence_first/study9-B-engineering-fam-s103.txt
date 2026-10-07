@@ -1,0 +1,38 @@
+ea.load_meets_spec::P-10301	pass	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10302	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10303	needs_evidence	-
+ea.load_meets_spec::P-10304	needs_evidence	-
+ea.load_meets_spec::P-10305	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10306	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10307	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10308	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10309	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10310	pass	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10311	needs_evidence	-
+ea.load_meets_spec::P-10312	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+
+---
+
+ea.load_meets_spec::P-10313	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10314	fail	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10315	pass	spec_sheets.min_load_kn, test_reports.measured_load_kn
+ea.load_meets_spec::P-10316	needs_evidence	test_reports.measured_load_kn
+ea.tested_before_ship::P-10301	fail	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10302	needs_evidence	shipping_log.shipped_on
+ea.tested_before_ship::P-10303	needs_evidence	test_reports.tested_on
+ea.tested_before_ship::P-10304	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10305	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10306	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10307	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10308	needs_evidence	shipping_log.shipped_on
+
+---
+
+ea.tested_before_ship::P-10309	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10310	needs_evidence	-
+ea.tested_before_ship::P-10311	needs_evidence	-
+ea.tested_before_ship::P-10312	needs_evidence	-
+ea.tested_before_ship::P-10313	fail	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10314	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10315	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-10316	fail	shipping_log.shipped_on, test_reports.tested_on

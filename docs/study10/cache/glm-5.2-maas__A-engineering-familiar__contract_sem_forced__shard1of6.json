@@ -1,0 +1,14 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_sem_forced|study9-A-engineering-fam-s2|ea.load_meets_spec::P-00201|12": {
+  "text": "ea.load_meets_spec::P-00201\tfail\ttest_reports.measured_load_kn=740 < spec_sheets.min_load_kn=765\nea.load_meets_spec::P-00202\tfail\ttest_reports.measured_load_kn is empty; spec_sheets.min_load_kn=335\nea.load_meets_spec::P-00203\tpass\ttest_reports.measured_load_kn=1030 >= spec_sheets.min_load_kn=930\nea.load_meets_spec::P-00204\tfail\ttest_reports.measured_load_kn=500 < spec_sheets.min_load_kn=505\nea.load_meets_spec::P-00205\tfail\ttest_reports.measured_load_kn=295 < spec_sheets.min_load_kn=305\nea.load_meets_spec::P-00206\tfail\tspec_sheets.min_load_kn is empty; test_reports.measured_load_kn=850\nea.load_meets_spec::P-00207\tfail\ttest_reports.measured_load_kn=65 < spec_sheets.min_load_kn=95\nea.load_meets_spec::P-00208\tpass\ttest_reports.measured_load_kn=730 >= spec_sheets.min_load_kn=645\nea.load_meets_spec::P-00209\tpass\ttest_reports.measured_load_kn=95 >= spec_sheets.min_load_kn=50\nea.load_meets_spec::P-00210\tpass\ttest_reports.measured_load_kn=395 >= spec_sheets.min_load_kn=350\nea.load_meets_spec::P-00211\tfail\ttest_reports.measured_load_kn=100 < spec_sheets.min_load_kn=150\nea.load_meets_spec::P-00212\tfail\tspec_sheets.min_load_kn is empty; test_reports.measured_load_kn=400",
+  "output_tokens": 1574,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_sem_forced|study9-A-engineering-fam-s2|ea.tested_before_ship::P-00201|12": {
+  "text": "ea.tested_before_ship::P-00201\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00202\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00203\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00204\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00205\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00206\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00207\tpass\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00208\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00209\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00210\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00211\tfail\ttest_reports.tested_on, shipping_log.shipped_on\nea.tested_before_ship::P-00212\tpass\ttest_reports.tested_on, shipping_log.shipped_on",
+  "output_tokens": 1441,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

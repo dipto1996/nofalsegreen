@@ -1,0 +1,598 @@
+{
+ "declared": "docs/STUDY9_DECLARATION.md",
+ "partB_metrics": {
+  "offered prompt": {
+   "unsupported_pos": 0.0667,
+   "unsupported_neg": 0.0389,
+   "correct_determinate": 0.831,
+   "coverage": 0.9788,
+   "unnecessary_abstention": 0.0466,
+   "review_burden": 0.2712
+  },
+  "evidence-first prompt": {
+   "unsupported_pos": 0.0677,
+   "unsupported_neg": 0.034,
+   "correct_determinate": 0.8181,
+   "coverage": 0.9778,
+   "unnecessary_abstention": 0.0534,
+   "review_burden": 0.2826
+  },
+  "extraction + solver": {
+   "unsupported_pos": 0.0108,
+   "unsupported_neg": 0.0056,
+   "correct_determinate": 0.9677,
+   "coverage": 0.9972,
+   "unnecessary_abstention": 0.0288,
+   "review_burden": 0.2781
+  },
+  "presence gate + offered prompt": {
+   "unsupported_pos": 0.0597,
+   "unsupported_neg": 0.0365,
+   "correct_determinate": 0.8185,
+   "coverage": 0.9788,
+   "unnecessary_abstention": 0.06,
+   "review_burden": 0.2903
+  },
+  "presence gate + evidence-first prompt": {
+   "unsupported_pos": 0.0604,
+   "unsupported_neg": 0.0316,
+   "correct_determinate": 0.7962,
+   "coverage": 0.9778,
+   "unnecessary_abstention": 0.078,
+   "review_burden": 0.3094
+  },
+  "always abstain": {
+   "unsupported_pos": 0.0,
+   "unsupported_neg": 0.0,
+   "correct_determinate": 0.0,
+   "coverage": 1.0,
+   "unnecessary_abstention": 1.0,
+   "review_burden": 1.0
+  }
+ },
+ "primary": {
+  "P1 familiar - neutral unsupported positives, offered": {
+   "n_packets": 18,
+   "delta": -0.0139,
+   "ci95_packet_bootstrap": [
+    -0.0259,
+    -0.0037
+   ],
+   "p_exact_two_sided": 0.0546875,
+   "packets_positive": 1,
+   "packets_negative": 7,
+   "p_holm": 0.2734375,
+   "outcome": "not confirmed"
+  },
+  "P2 neutral - familiar abstention on decidable pairs, offered": {
+   "n_packets": 18,
+   "delta": -0.0176,
+   "ci95_packet_bootstrap": [
+    -0.0477,
+    0.0167
+   ],
+   "p_exact_two_sided": 0.31884765625,
+   "packets_positive": 4,
+   "packets_negative": 9,
+   "p_holm": 0.6376953125,
+   "outcome": "not confirmed"
+  },
+  "P3 forced minus offered familiarity effect on unsupported positives": {
+   "n_packets": 18,
+   "delta": -0.0556,
+   "ci95_packet_bootstrap": [
+    -0.119,
+    0.0036
+   ],
+   "p_exact_two_sided": 0.12078857421875,
+   "packets_positive": 4,
+   "packets_negative": 11,
+   "p_holm": 0.36236572265625,
+   "outcome": "not confirmed"
+  },
+  "P4 P1 on held-out workflow: purchasing": {
+   "n_packets": 6,
+   "delta": -0.0111,
+   "ci95_packet_bootstrap": [
+    -0.0222,
+    0.0
+   ],
+   "p_exact_two_sided": 0.5,
+   "packets_positive": 0,
+   "packets_negative": 2,
+   "p_holm": 0.6376953125,
+   "outcome": "not confirmed"
+  },
+  "P4 P1 on held-out workflow: engineering": {
+   "n_packets": 6,
+   "delta": -0.0361,
+   "ci95_packet_bootstrap": [
+    -0.0528,
+    -0.0194
+   ],
+   "p_exact_two_sided": 0.0625,
+   "packets_positive": 0,
+   "packets_negative": 5,
+   "p_holm": 0.2734375,
+   "outcome": "not confirmed"
+  },
+  "I1 unsupported positives: extraction+solver - evidence-first": {
+   "n_packets": 18,
+   "delta": -0.0569,
+   "ci95_packet_bootstrap": [
+    -0.0781,
+    -0.0396
+   ],
+   "p_exact_two_sided": 1.52587890625e-05,
+   "packets_positive": 0,
+   "packets_negative": 17,
+   "p_holm": 0.0001220703125,
+   "outcome": "confirmed"
+  },
+  "I2 correct determinate: extraction+solver - evidence-first": {
+   "n_packets": 18,
+   "delta": 0.1496,
+   "ci95_packet_bootstrap": [
+    0.1135,
+    0.1888
+   ],
+   "p_exact_two_sided": 1.52587890625e-05,
+   "packets_positive": 17,
+   "packets_negative": 0,
+   "p_holm": 0.0001220703125,
+   "outcome": "confirmed"
+  },
+  "I3 correct determinate: extraction+solver - presence gate + evidence-first": {
+   "n_packets": 18,
+   "delta": 0.1716,
+   "ci95_packet_bootstrap": [
+    0.1271,
+    0.2156
+   ],
+   "p_exact_two_sided": 1.52587890625e-05,
+   "packets_positive": 17,
+   "packets_negative": 0,
+   "p_holm": 0.0001220703125,
+   "outcome": "confirmed"
+  }
+ },
+ "partA_rates": {
+  "gemini-3.1-pro-preview::familiar::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0
+  },
+  "gemini-3.1-pro-preview::familiar::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.0472,
+   "abstention_on_decidable": 0.0
+  },
+  "gemini-3.1-pro-preview::neutral::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0
+  },
+  "gemini-3.1-pro-preview::neutral::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.0565,
+   "abstention_on_decidable": 0.0
+  },
+  "gemini-3.8-flash::familiar::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0556
+  },
+  "gemini-3.8-flash::familiar::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.0139,
+   "abstention_on_decidable": 0.0
+  },
+  "gemini-3.8-flash::neutral::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0029
+  },
+  "gemini-3.8-flash::neutral::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0
+  },
+  "gemma-4-26b-a4b-it-maas::familiar::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0588
+  },
+  "gemma-4-26b-a4b-it-maas::familiar::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.1204,
+   "abstention_on_decidable": 0.0
+  },
+  "gemma-4-26b-a4b-it-maas::neutral::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.088,
+   "abstention_on_decidable": 0.0379
+  },
+  "gemma-4-26b-a4b-it-maas::neutral::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.4363,
+   "abstention_on_decidable": 0.0
+  },
+  "deepseek-v3.2-maas::familiar::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0093,
+   "abstention_on_decidable": 0.0824
+  },
+  "deepseek-v3.2-maas::familiar::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.0528,
+   "abstention_on_decidable": 0.0
+  },
+  "deepseek-v3.2-maas::neutral::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0185,
+   "abstention_on_decidable": 0.0949
+  },
+  "deepseek-v3.2-maas::neutral::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.1222,
+   "abstention_on_decidable": 0.0
+  },
+  "glm-5.2-maas::familiar::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0816
+  },
+  "glm-5.2-maas::familiar::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.0472,
+   "abstention_on_decidable": 0.0
+  },
+  "glm-5.2-maas::neutral::contract_offered": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0309
+  },
+  "glm-5.2-maas::neutral::contract_forced": {
+   "unsupported_pos_on_unassessable": 0.0,
+   "abstention_on_decidable": 0.0
+  }
+ },
+ "partA_per_model": {
+  "P1": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.0,
+   "gemma-4-26b-a4b-it-maas": -0.0677,
+   "deepseek-v3.2-maas": -0.0093,
+   "glm-5.2-maas": 0.0
+  },
+  "P2": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": -0.0526,
+   "gemma-4-26b-a4b-it-maas": 0.0028,
+   "deepseek-v3.2-maas": 0.0125,
+   "glm-5.2-maas": -0.0478
+  }
+ },
+ "partB_per_model": {
+  "offered prompt": {
+   "gemini-3.1-pro-preview": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0087,
+    "correct_determinate": 0.9866,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0134,
+    "review_burden": 0.276
+   },
+   "gemini-3.8-flash": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.971,
+    "coverage": 0.9983,
+    "unnecessary_abstention": 0.0269,
+    "review_burden": 0.2951
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "unsupported_pos": 0.2257,
+    "unsupported_neg": 0.0625,
+    "correct_determinate": 0.5712,
+    "coverage": 0.8958,
+    "unnecessary_abstention": 0.0575,
+    "review_burden": 0.1944
+   },
+   "deepseek-v3.2-maas": {
+    "unsupported_pos": 0.1024,
+    "unsupported_neg": 0.1042,
+    "correct_determinate": 0.6679,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0934,
+    "review_burden": 0.309
+   },
+   "glm-5.2-maas": {
+    "unsupported_pos": 0.0052,
+    "unsupported_neg": 0.0191,
+    "correct_determinate": 0.9581,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0419,
+    "review_burden": 0.2812
+   }
+  },
+  "evidence-first prompt": {
+   "gemini-3.1-pro-preview": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0017,
+    "correct_determinate": 1.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0,
+    "review_burden": 0.2726
+   },
+   "gemini-3.8-flash": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0017,
+    "correct_determinate": 1.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0,
+    "review_burden": 0.2726
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "unsupported_pos": 0.2292,
+    "unsupported_neg": 0.0608,
+    "correct_determinate": 0.5717,
+    "coverage": 0.8889,
+    "unnecessary_abstention": 0.0547,
+    "review_burden": 0.1823
+   },
+   "deepseek-v3.2-maas": {
+    "unsupported_pos": 0.1076,
+    "unsupported_neg": 0.099,
+    "correct_determinate": 0.5733,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1579,
+    "review_burden": 0.3802
+   },
+   "glm-5.2-maas": {
+    "unsupported_pos": 0.0017,
+    "unsupported_neg": 0.0069,
+    "correct_determinate": 0.9456,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0544,
+    "review_burden": 0.3056
+   }
+  },
+  "extraction + solver": {
+   "gemini-3.1-pro-preview": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 1.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0,
+    "review_burden": 0.2743
+   },
+   "gemini-3.8-flash": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.9773,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0227,
+    "review_burden": 0.2899
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "unsupported_pos": 0.0156,
+    "unsupported_neg": 0.0278,
+    "correct_determinate": 0.951,
+    "coverage": 0.9861,
+    "unnecessary_abstention": 0.0369,
+    "review_burden": 0.2517
+   },
+   "deepseek-v3.2-maas": {
+    "unsupported_pos": 0.0122,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.961,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.039,
+    "review_burden": 0.2899
+   },
+   "glm-5.2-maas": {
+    "unsupported_pos": 0.026,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.9494,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0455,
+    "review_burden": 0.2847
+   }
+  },
+  "presence gate + offered prompt": {
+   "gemini-3.1-pro-preview": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0087,
+    "correct_determinate": 0.9642,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0358,
+    "review_burden": 0.2934
+   },
+   "gemini-3.8-flash": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.9621,
+    "coverage": 0.9983,
+    "unnecessary_abstention": 0.0358,
+    "review_burden": 0.3021
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "unsupported_pos": 0.1962,
+    "unsupported_neg": 0.0538,
+    "correct_determinate": 0.5645,
+    "coverage": 0.8958,
+    "unnecessary_abstention": 0.0687,
+    "review_burden": 0.2378
+   },
+   "deepseek-v3.2-maas": {
+    "unsupported_pos": 0.099,
+    "unsupported_neg": 0.1007,
+    "correct_determinate": 0.6522,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1092,
+    "review_burden": 0.3281
+   },
+   "glm-5.2-maas": {
+    "unsupported_pos": 0.0035,
+    "unsupported_neg": 0.0191,
+    "correct_determinate": 0.9494,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0506,
+    "review_burden": 0.2899
+   }
+  },
+  "presence gate + evidence-first prompt": {
+   "gemini-3.1-pro-preview": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0017,
+    "correct_determinate": 0.9642,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0358,
+    "review_burden": 0.3003
+   },
+   "gemini-3.8-flash": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0017,
+    "correct_determinate": 0.9642,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0358,
+    "review_burden": 0.3003
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "unsupported_pos": 0.1962,
+    "unsupported_neg": 0.0503,
+    "correct_determinate": 0.5674,
+    "coverage": 0.8889,
+    "unnecessary_abstention": 0.0704,
+    "review_burden": 0.2292
+   },
+   "deepseek-v3.2-maas": {
+    "unsupported_pos": 0.1059,
+    "unsupported_neg": 0.0972,
+    "correct_determinate": 0.5666,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1668,
+    "review_burden": 0.3889
+   },
+   "glm-5.2-maas": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0069,
+    "correct_determinate": 0.9184,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0816,
+    "review_burden": 0.3281
+   }
+  }
+ },
+ "partB_pattern_counts": {
+  "complete": 36,
+  "proxy_only": 36,
+  "missing_row": 36,
+  "blank_fact": 36,
+  "redundant": 36,
+  "violation_despite_gap": 36,
+  "conflict_resolved": 36,
+  "conflict_unresolved": 36
+ },
+ "label_counts": {
+  "A": {
+   "fail": 163,
+   "needs_evidence": 105,
+   "pass": 164
+  },
+  "B": {
+   "fail": 216,
+   "needs_evidence": 158,
+   "pass": 202
+  }
+ },
+ "coverage_answered": {
+  "deepseek-v3.2-maas::A::workforce::True::contract_offered": 24,
+  "gemini-3.1-pro-preview::A::workforce::True::contract_offered": 24,
+  "gemini-3.8-flash::A::workforce::True::contract_offered": 24,
+  "gemma-4-26b-a4b-it-maas::A::workforce::True::contract_offered": 0,
+  "glm-5.2-maas::A::workforce::True::contract_offered": 24,
+  "deepseek-v3.2-maas::A::workforce::True::contract_forced": 24,
+  "gemini-3.1-pro-preview::A::workforce::True::contract_forced": 24,
+  "gemini-3.8-flash::A::workforce::True::contract_forced": 24,
+  "gemma-4-26b-a4b-it-maas::A::workforce::True::contract_forced": 23,
+  "glm-5.2-maas::A::workforce::True::contract_forced": 24,
+  "deepseek-v3.2-maas::A::workforce::False::contract_offered": 24,
+  "gemini-3.1-pro-preview::A::workforce::False::contract_offered": 24,
+  "gemini-3.8-flash::A::workforce::False::contract_offered": 24,
+  "gemma-4-26b-a4b-it-maas::A::workforce::False::contract_offered": 12,
+  "glm-5.2-maas::A::workforce::False::contract_offered": 12,
+  "deepseek-v3.2-maas::A::workforce::False::contract_forced": 24,
+  "gemini-3.1-pro-preview::A::workforce::False::contract_forced": 24,
+  "gemini-3.8-flash::A::workforce::False::contract_forced": 24,
+  "gemma-4-26b-a4b-it-maas::A::workforce::False::contract_forced": 23,
+  "glm-5.2-maas::A::workforce::False::contract_forced": 24,
+  "deepseek-v3.2-maas::A::purchasing::True::contract_offered": 24,
+  "gemini-3.1-pro-preview::A::purchasing::True::contract_offered": 24,
+  "gemini-3.8-flash::A::purchasing::True::contract_offered": 24,
+  "gemma-4-26b-a4b-it-maas::A::purchasing::True::contract_offered": 24,
+  "glm-5.2-maas::A::purchasing::True::contract_offered": 24,
+  "deepseek-v3.2-maas::A::purchasing::True::contract_forced": 24,
+  "gemini-3.1-pro-preview::A::purchasing::True::contract_forced": 24,
+  "gemini-3.8-flash::A::purchasing::True::contract_forced": 24,
+  "gemma-4-26b-a4b-it-maas::A::purchasing::True::contract_forced": 12,
+  "glm-5.2-maas::A::purchasing::True::contract_forced": 24,
+  "deepseek-v3.2-maas::A::purchasing::False::contract_offered": 24,
+  "gemini-3.1-pro-preview::A::purchasing::False::contract_offered": 24,
+  "gemini-3.8-flash::A::purchasing::False::contract_offered": 24,
+  "gemma-4-26b-a4b-it-maas::A::purchasing::False::contract_offered": 12,
+  "glm-5.2-maas::A::purchasing::False::contract_offered": 24,
+  "deepseek-v3.2-maas::A::purchasing::False::contract_forced": 24,
+  "gemini-3.1-pro-preview::A::purchasing::False::contract_forced": 24,
+  "gemini-3.8-flash::A::purchasing::False::contract_forced": 24,
+  "gemma-4-26b-a4b-it-maas::A::purchasing::False::contract_forced": 12,
+  "glm-5.2-maas::A::purchasing::False::contract_forced": 12,
+  "deepseek-v3.2-maas::A::engineering::True::contract_offered": 24,
+  "gemini-3.1-pro-preview::A::engineering::True::contract_offered": 24,
+  "gemini-3.8-flash::A::engineering::True::contract_offered": 24,
+  "gemma-4-26b-a4b-it-maas::A::engineering::True::contract_offered": 24,
+  "glm-5.2-maas::A::engineering::True::contract_offered": 12,
+  "deepseek-v3.2-maas::A::engineering::True::contract_forced": 24,
+  "gemini-3.1-pro-preview::A::engineering::True::contract_forced": 24,
+  "gemini-3.8-flash::A::engineering::True::contract_forced": 24,
+  "gemma-4-26b-a4b-it-maas::A::engineering::True::contract_forced": 12,
+  "glm-5.2-maas::A::engineering::True::contract_forced": 12,
+  "deepseek-v3.2-maas::A::engineering::False::contract_offered": 24,
+  "gemini-3.1-pro-preview::A::engineering::False::contract_offered": 24,
+  "gemini-3.8-flash::A::engineering::False::contract_offered": 24,
+  "gemma-4-26b-a4b-it-maas::A::engineering::False::contract_offered": 24,
+  "glm-5.2-maas::A::engineering::False::contract_offered": 24,
+  "deepseek-v3.2-maas::A::engineering::False::contract_forced": 24,
+  "gemini-3.1-pro-preview::A::engineering::False::contract_forced": 24,
+  "gemini-3.8-flash::A::engineering::False::contract_forced": 24,
+  "gemma-4-26b-a4b-it-maas::A::engineering::False::contract_forced": 24,
+  "glm-5.2-maas::A::engineering::False::contract_forced": 24,
+  "deepseek-v3.2-maas::B::workforce::True::contract_offered": 32,
+  "gemini-3.1-pro-preview::B::workforce::True::contract_offered": 32,
+  "gemini-3.8-flash::B::workforce::True::contract_offered": 32,
+  "gemma-4-26b-a4b-it-maas::B::workforce::True::contract_offered": 24,
+  "glm-5.2-maas::B::workforce::True::contract_offered": 32,
+  "deepseek-v3.2-maas::B::workforce::True::contract_evidence_first": 32,
+  "gemini-3.1-pro-preview::B::workforce::True::contract_evidence_first": 32,
+  "gemini-3.8-flash::B::workforce::True::contract_evidence_first": 32,
+  "gemma-4-26b-a4b-it-maas::B::workforce::True::contract_evidence_first": 32,
+  "glm-5.2-maas::B::workforce::True::contract_evidence_first": 32,
+  "deepseek-v3.2-maas::B::workforce::True::contract_extract": 32,
+  "gemini-3.1-pro-preview::B::workforce::True::contract_extract": 32,
+  "gemini-3.8-flash::B::workforce::True::contract_extract": 32,
+  "gemma-4-26b-a4b-it-maas::B::workforce::True::contract_extract": 32,
+  "glm-5.2-maas::B::workforce::True::contract_extract": 32,
+  "deepseek-v3.2-maas::B::purchasing::True::contract_offered": 32,
+  "gemini-3.1-pro-preview::B::purchasing::True::contract_offered": 32,
+  "gemini-3.8-flash::B::purchasing::True::contract_offered": 32,
+  "gemma-4-26b-a4b-it-maas::B::purchasing::True::contract_offered": 24,
+  "glm-5.2-maas::B::purchasing::True::contract_offered": 32,
+  "deepseek-v3.2-maas::B::purchasing::True::contract_evidence_first": 32,
+  "gemini-3.1-pro-preview::B::purchasing::True::contract_evidence_first": 32,
+  "gemini-3.8-flash::B::purchasing::True::contract_evidence_first": 32,
+  "gemma-4-26b-a4b-it-maas::B::purchasing::True::contract_evidence_first": 24,
+  "glm-5.2-maas::B::purchasing::True::contract_evidence_first": 32,
+  "deepseek-v3.2-maas::B::purchasing::True::contract_extract": 32,
+  "gemini-3.1-pro-preview::B::purchasing::True::contract_extract": 32,
+  "gemini-3.8-flash::B::purchasing::True::contract_extract": 32,
+  "gemma-4-26b-a4b-it-maas::B::purchasing::True::contract_extract": 24,
+  "glm-5.2-maas::B::purchasing::True::contract_extract": 32,
+  "deepseek-v3.2-maas::B::engineering::True::contract_offered": 32,
+  "gemini-3.1-pro-preview::B::engineering::True::contract_offered": 32,
+  "gemini-3.8-flash::B::engineering::True::contract_offered": 32,
+  "gemma-4-26b-a4b-it-maas::B::engineering::True::contract_offered": 32,
+  "glm-5.2-maas::B::engineering::True::contract_offered": 32,
+  "deepseek-v3.2-maas::B::engineering::True::contract_evidence_first": 32,
+  "gemini-3.1-pro-preview::B::engineering::True::contract_evidence_first": 32,
+  "gemini-3.8-flash::B::engineering::True::contract_evidence_first": 32,
+  "gemma-4-26b-a4b-it-maas::B::engineering::True::contract_evidence_first": 32,
+  "glm-5.2-maas::B::engineering::True::contract_evidence_first": 32,
+  "deepseek-v3.2-maas::B::engineering::True::contract_extract": 32,
+  "gemini-3.1-pro-preview::B::engineering::True::contract_extract": 32,
+  "gemini-3.8-flash::B::engineering::True::contract_extract": 32,
+  "gemma-4-26b-a4b-it-maas::B::engineering::True::contract_extract": 32,
+  "glm-5.2-maas::B::engineering::True::contract_extract": 32
+ }
+}

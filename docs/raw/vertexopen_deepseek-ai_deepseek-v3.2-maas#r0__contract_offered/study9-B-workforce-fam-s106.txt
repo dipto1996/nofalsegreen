@@ -1,0 +1,38 @@
+wf.section2::E-10601	fail	i9_records.section2_completed_on
+wf.section2::E-10602	needs_evidence	-
+wf.section2::E-10603	fail	i9_records.section2_completed_on
+wf.section2::E-10604	fail	i9_records.section2_completed_on
+wf.section2::E-10605	fail	i9_records.section2_completed_on
+wf.section2::E-10606	pass	i9_records.section2_completed_on
+wf.section2::E-10607	pass	i9_records.section2_completed_on
+wf.section2::E-10608	needs_evidence	-
+wf.section2::E-10609	pass	i9_records.section2_completed_on
+wf.section2::E-10610	pass	i9_records.section2_completed_on
+wf.section2::E-10611	unmonitored	-
+wf.section2::E-10612	fail	i9_records.section2_completed_on
+
+---
+
+wf.section2::E-10613	fail	i9_records.section2_completed_on
+wf.section2::E-10614	fail	i9_records.section2_completed_on
+wf.section2::E-10615	fail	i9_records.section2_completed_on
+wf.section2::E-10616	fail	i9_records.section2_completed_on
+wf.required_wage::E-10601	pass	payroll.annualised_gross
+wf.required_wage::E-10602	pass	payroll.annualised_gross
+wf.required_wage::E-10603	fail	payroll.annualised_gross
+wf.required_wage::E-10604	needs_evidence	-
+wf.required_wage::E-10605	pass	payroll.annualised_gross
+wf.required_wage::E-10606	fail	payroll.annualised_gross
+wf.required_wage::E-10607	pass	payroll.annualised_gross
+wf.required_wage::E-10608	pass	payroll.annualised_gross
+
+---
+
+wf.required_wage::E-10609	pass	payroll.annualised_gross
+wf.required_wage::E-10610	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10611	pass	payroll.annualised_gross
+wf.required_wage::E-10612	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10613	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10614	fail	payroll.annualised_gross
+wf.required_wage::E-10615	pass	payroll.annualised_gross
+wf.required_wage::E-10616	fail	payroll.annualised_gross

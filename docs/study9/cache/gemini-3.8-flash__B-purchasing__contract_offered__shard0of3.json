@@ -1,0 +1,38 @@
+{
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_offered|study9-B-purchasing-fam-s101|pa.within_approval::PO-10101|12": {
+  "text": "pa.within_approval::PO-10101\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10102\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10103\tneeds_evidence\t-\npa.within_approval::PO-10104\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10105\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10106\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10107\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10108\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10109\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10110\tneeds_evidence\t-\npa.within_approval::PO-10111\tneeds_evidence\t-\npa.within_approval::PO-10112\tneeds_evidence\t-",
+  "output_tokens": 8210,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_offered|study9-B-purchasing-fam-s101|pa.within_approval::PO-10113|12": {
+  "text": "pa.within_approval::PO-10113\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10114\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10115\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10116\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.approved_before_order::PO-10101\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10102\tneeds_evidence\tsigned_approvals.signed_on\npa.approved_before_order::PO-10103\tneeds_evidence\tsigned_approvals.signed_on\npa.approved_before_order::PO-10104\tneeds_evidence\tsigned_approvals.signed_on\npa.approved_before_order::PO-10105\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10106\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10107\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10108\tneeds_evidence\tsigned_approvals.signed_on",
+  "output_tokens": 13473,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_offered|study9-B-purchasing-fam-s101|pa.approved_before_order::PO-10109|8": {
+  "text": "pa.approved_before_order::PO-10109\tfail\tsigned_approvals.signed_on\npa.approved_before_order::PO-10110\tfail\tsigned_approvals.signed_on\npa.approved_before_order::PO-10111\tpass\tsigned_approvals.signed_on\npa.approved_before_order::PO-10112\tfail\tsigned_approvals.signed_on\npa.approved_before_order::PO-10113\tpass\tsigned_approvals.signed_on\npa.approved_before_order::PO-10114\tpass\tsigned_approvals.signed_on\npa.approved_before_order::PO-10115\tpass\tsigned_approvals.signed_on\npa.approved_before_order::PO-10116\tneeds_evidence\tsigned_approvals.signed_on",
+  "output_tokens": 10934,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_offered|study9-B-purchasing-fam-s104|pa.within_approval::PO-10401|12": {
+  "text": "pa.within_approval::PO-10401\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10402\tneeds_evidence\t-\npa.within_approval::PO-10403\tneeds_evidence\t-\npa.within_approval::PO-10404\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10405\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10406\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10407\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10408\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10409\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10410\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10411\tneeds_evidence\t-\npa.within_approval::PO-10412\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount",
+  "output_tokens": 4710,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_offered|study9-B-purchasing-fam-s104|pa.within_approval::PO-10413|12": {
+  "text": "pa.within_approval::PO-10413\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10414\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10415\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-10416\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.approved_before_order::PO-10401\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10402\tpass\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10403\tneeds_evidence\t-\npa.approved_before_order::PO-10404\tneeds_evidence\t-\npa.approved_before_order::PO-10405\tpass\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10406\tpass\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10407\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-10408\tneeds_evidence\t-",
+  "output_tokens": 23850,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.8-flash#r0|contract_offered|study9-B-purchasing-fam-s104|pa.approved_before_order::PO-10409|8": {
+  "text": "pa.approved_before_order::PO-10409\tpass\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10410\tneeds_evidence\tsigned_approvals.signed_on\npa.approved_before_order::PO-10411\tneeds_evidence\tsigned_approvals.signed_on\npa.approved_before_order::PO-10412\tneeds_evidence\tsigned_approvals.signed_on\npa.approved_before_order::PO-10413\tfail\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10414\tpass\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10415\tfail\tsigned_approvals.signed_on,purchase_orders.po_date\npa.approved_before_order::PO-10416\tneeds_evidence\tsigned_approvals.signed_on",
+  "output_tokens": 5912,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

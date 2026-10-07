@@ -1,0 +1,27 @@
+wf.section2::E-00401	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00402	fail	i9_records.section2_completed_on
+wf.section2::E-00403	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00404	fail	i9_records.section2_completed_on
+wf.section2::E-00405	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00406	fail	i9_records.section2_completed_on
+wf.section2::E-00407	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00408	fail	i9_records.section2_completed_on
+wf.section2::E-00409	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00410	fail	i9_records.section2_completed_on
+wf.section2::E-00411	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-00412	fail	i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-00401	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00402	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00403	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00404	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00405	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00406	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00407	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00408	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00409	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00410	fail	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00411	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage
+wf.required_wage::E-00412	pass	payroll.annualised_gross,lca.prevailing_wage,actual_wage_system.actual_wage

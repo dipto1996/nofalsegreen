@@ -1,0 +1,27 @@
+P-20301	pass	test_reports.measured_load_kn, spec_sheets.min_load_kn
+P-20302	needs_evidence	test_reports.measured_load_kn
+P-20303	pass	test_reports.measured_load_kn, spec_sheets.min_load_kn
+P-20304	needs_evidence	test_reports.measured_load_kn
+P-20305	fail	test_reports.measured_load_kn, spec_sheets.min_load_kn
+P-20306	needs_evidence	test_reports.measured_load_kn
+P-20307	fail	test_reports.measured_load_kn, spec_sheets.min_load_kn
+P-20308	needs_evidence	test_reports.measured_load_kn
+P-20309	pass	test_reports.measured_load_kn, spec_sheets.min_load_kn
+P-20310	needs_evidence	test_reports.measured_load_kn
+P-20311	fail	test_reports.measured_load_kn, spec_sheets.min_load_kn
+P-20312	needs_evidence	test_reports.measured_load_kn
+
+---
+
+ea.tested_before_ship::P-20301	pass	test_reports.tested_on
+ea.tested_before_ship::P-20302	needs_evidence	test_reports.tested_on
+ea.tested_before_ship::P-20303	fail	test_reports.tested_on
+ea.tested_before_ship::P-20304	needs_evidence	test_reports.tested_on
+ea.tested_before_ship::P-20305	pass	test_reports.tested_on
+ea.tested_before_ship::P-20306	needs_evidence	test_reports.tested_on
+ea.tested_before_ship::P-20307	pass	test_reports.tested_on
+ea.tested_before_ship::P-20308	needs_evidence	test_reports.tested_on
+ea.tested_before_ship::P-20309	pass	test_reports.tested_on
+ea.tested_before_ship::P-20310	needs_evidence	test_reports.tested_on
+ea.tested_before_ship::P-20311	pass	test_reports.tested_on
+ea.tested_before_ship::P-20312	needs_evidence	test_reports.tested_on

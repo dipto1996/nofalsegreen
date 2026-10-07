@@ -1,0 +1,19 @@
+Study 9 (A:purchasing:familiar): 6 firms x 24 pairs
+shard 0/3: ['study9-A-purchasing-fam-s1', 'study9-A-purchasing-fam-s4']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract_forced']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 31082 output tokens, 894s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1349 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-fam-s1 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 26348 output tokens, 187s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1381 output tokens, 8s, finish=stop, ok
+  study9-A-purchasing-fam-s4 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.8-flash#r0::contract_forced: FGR 0.000 (sd 0.000)  recall 1.000  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemini-3.8-flash__A-purchasing-familiar__contract_forced__shard0of3.json

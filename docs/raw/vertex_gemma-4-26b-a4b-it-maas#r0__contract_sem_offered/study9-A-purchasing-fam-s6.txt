@@ -1,0 +1,27 @@
+pa.within_approval::PO-00601	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00602	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-00603	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00604	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00605	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00606	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00607	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00608	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00609	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00610	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-00611	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+pa.within_approval::PO-00612	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+
+---
+
+PO-00601	fail	signed_approvals.signed_on (2026-01-24) > purchase_orders.po_date (2026-01-18)
+PO-00602	needs_evidence	signed_approvals.signed_on
+PO-00603	fail	signed_approvals.signed_on (2026-04-19) > purchase_orders.po_date (2026-04-12)
+PO-00604	needs_evidence	signed_approvals.signed_on
+PO-00605	pass	signed_approvals.signed_on (2026-01-13) <= purchase_orders.po_date (2026-01-27)
+PO-00606	needs_evidence	signed_approvals.signed_on
+PO-00607	pass	signed_approvals.signed_on (2026-04-12) <= purchase_orders.po_date (2026-04-25)
+PO-00608	pass	signed_approvals.signed_on (2026-01-22) <= purchase_orders.po_date (2026-01-23)
+PO-00609	fail	signed_approvals.signed_on (2026-02-19) > purchase_orders.po_date (2026-02-05)
+PO-00610	fail	signed_approvals.signed_on (2026-03-21) > purchase_orders.po_date (2026-03-01)
+PO-00611	fail	signed_approvals.signed_on (2026-04-02) > purchase_orders.po_date (2026-03-16)
+PO-00612	needs_evidence	signed_approvals.signed_on

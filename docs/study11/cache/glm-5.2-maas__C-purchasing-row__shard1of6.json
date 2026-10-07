@@ -1,0 +1,14 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study11-purchasing-row-s202|pa.within_approval::PO-20201|12": {
+  "text": "pa.within_approval::PO-20201\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-20202\tneeds_evidence\t-\npa.within_approval::PO-20203\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-20204\tneeds_evidence\t-\npa.within_approval::PO-20205\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-20206\tneeds_evidence\t-\npa.within_approval::PO-20207\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-20208\tneeds_evidence\t-\npa.within_approval::PO-20209\tpass\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-20210\tneeds_evidence\t-\npa.within_approval::PO-20211\tfail\tpurchase_orders.po_amount, signed_approvals.approved_amount\npa.within_approval::PO-20212\tneeds_evidence\t-",
+  "output_tokens": 13282,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study11-purchasing-row-s202|pa.approved_before_order::PO-20201|12": {
+  "text": "pa.approved_before_order::PO-20201\tpass\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-20202\tneeds_evidence\t-\npa.approved_before_order::PO-20203\tpass\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-20204\tneeds_evidence\t-\npa.approved_before_order::PO-20205\tpass\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-20206\tneeds_evidence\t-\npa.approved_before_order::PO-20207\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-20208\tneeds_evidence\t-\npa.approved_before_order::PO-20209\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-20210\tneeds_evidence\t-\npa.approved_before_order::PO-20211\tfail\tsigned_approvals.signed_on, purchase_orders.po_date\npa.approved_before_order::PO-20212\tneeds_evidence\t-",
+  "output_tokens": 4673,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

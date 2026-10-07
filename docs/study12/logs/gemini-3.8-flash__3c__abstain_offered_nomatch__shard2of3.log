@@ -1,0 +1,36 @@
+Study 3c (proxy): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-proxy', 'synthetic-002037-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered_nomatch']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 12230 output tokens, 83s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8731 output tokens, 57s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 26613 output tokens, 184s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2730 output tokens, 15s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5791 output tokens, 36s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 6003 output tokens, 41s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 7917 output tokens, 45s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2551 output tokens, 14s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 16213 output tokens, 111s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 28355 output tokens, 167s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 13469 output tokens, 91s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3448 output tokens, 23s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 0.121  recall 1.000  absF1 0.935  unparsed 0  (4 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_offered_nomatch: FGR 0.040 (sd 0.070)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study12/runs/gemini-3.8-flash__3c__abstain_offered_nomatch__shard2of3.json

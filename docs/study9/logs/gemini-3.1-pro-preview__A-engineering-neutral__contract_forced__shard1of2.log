@@ -1,0 +1,30 @@
+Study 9 (A:engineering:neutral): 6 firms x 24 pairs
+shard 1/2: ['study9-A-engineering-neu-s2', 'study9-A-engineering-neu-s4', 'study9-A-engineering-neu-s6']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_forced']
+
+      batch 1/2 (0 parsed so far)
+Study 9 (A:engineering:neutral): 6 firms x 24 pairs
+shard 1/2: ['study9-A-engineering-neu-s2', 'study9-A-engineering-neu-s4', 'study9-A-engineering-neu-s6']
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract_forced']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2366 output tokens, 21s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2827 output tokens, 20s, finish=stop, ok
+  study9-A-engineering-neu-s2 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2265 output tokens, 15s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2792 output tokens, 20s, finish=stop, ok
+  study9-A-engineering-neu-s4 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3032 output tokens, 20s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3273 output tokens, 26s, finish=stop, ok
+  study9-A-engineering-neu-s6 FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract_forced: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemini-3.1-pro-preview__A-engineering-neutral__contract_forced__shard1of2.json

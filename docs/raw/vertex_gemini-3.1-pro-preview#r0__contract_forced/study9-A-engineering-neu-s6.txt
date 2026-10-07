@@ -1,0 +1,27 @@
+ea.load_meets_spec::P-00601	fail	src_B.c202
+ea.load_meets_spec::P-00602	fail	src_C.c302
+ea.load_meets_spec::P-00603	fail	src_B.c202
+ea.load_meets_spec::P-00604	pass	src_B.c202
+ea.load_meets_spec::P-00605	fail	src_B.c202
+ea.load_meets_spec::P-00606	fail	src_C.c302
+ea.load_meets_spec::P-00607	fail	src_B.c202
+ea.load_meets_spec::P-00608	fail	src_C.c302
+ea.load_meets_spec::P-00609	pass	src_B.c202
+ea.load_meets_spec::P-00610	fail	src_B.c202
+ea.load_meets_spec::P-00611	pass	src_B.c202
+ea.load_meets_spec::P-00612	fail	src_C.c302
+
+---
+
+ea.tested_before_ship::P-00601	pass	-
+ea.tested_before_ship::P-00602	pass	-
+ea.tested_before_ship::P-00603	pass	-
+ea.tested_before_ship::P-00604	fail	src_D.c402
+ea.tested_before_ship::P-00605	pass	-
+ea.tested_before_ship::P-00606	pass	-
+ea.tested_before_ship::P-00607	fail	src_B.c203
+ea.tested_before_ship::P-00608	pass	-
+ea.tested_before_ship::P-00609	fail	src_B.c203
+ea.tested_before_ship::P-00610	fail	src_B.c203
+ea.tested_before_ship::P-00611	pass	-
+ea.tested_before_ship::P-00612	pass	-

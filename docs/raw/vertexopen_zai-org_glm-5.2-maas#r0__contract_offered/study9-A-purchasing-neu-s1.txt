@@ -1,0 +1,27 @@
+pa.within_approval::PO-00101	fail	src_B.c202, src_C.c302
+pa.within_approval::PO-00102	fail	src_B.c202, src_C.c302
+pa.within_approval::PO-00103	pass	src_B.c202, src_C.c302
+pa.within_approval::PO-00104	fail	src_B.c202, src_C.c302
+pa.within_approval::PO-00105	pass	src_B.c202, src_C.c302
+pa.within_approval::PO-00106	pass	src_B.c202, src_C.c302
+pa.within_approval::PO-00107	pass	src_B.c202, src_C.c302
+pa.within_approval::PO-00108	fail	src_B.c202, src_C.c302
+pa.within_approval::PO-00109	fail	src_B.c202, src_C.c302
+pa.within_approval::PO-00110	needs_evidence	src_B.c202
+pa.within_approval::PO-00111	pass	src_B.c202, src_C.c302
+pa.within_approval::PO-00112	needs_evidence	src_C.c302
+
+---
+
+pa.approved_before_order::PO-00101	pass	src_C.c303, src_B.c203
+pa.approved_before_order::PO-00102	needs_evidence	src_C.c303
+pa.approved_before_order::PO-00103	pass	src_C.c303, src_B.c203
+pa.approved_before_order::PO-00104	needs_evidence	src_C.c303
+pa.approved_before_order::PO-00105	fail	src_C.c303, src_B.c203
+pa.approved_before_order::PO-00106	needs_evidence	src_C.c303
+pa.approved_before_order::PO-00107	pass	src_C.c303, src_B.c203
+pa.approved_before_order::PO-00108	needs_evidence	src_C.c303
+pa.approved_before_order::PO-00109	fail	src_C.c303, src_B.c203
+pa.approved_before_order::PO-00110	pass	src_C.c303, src_B.c203
+pa.approved_before_order::PO-00111	pass	src_C.c303, src_B.c203
+pa.approved_before_order::PO-00112	fail	src_C.c303, src_B.c203

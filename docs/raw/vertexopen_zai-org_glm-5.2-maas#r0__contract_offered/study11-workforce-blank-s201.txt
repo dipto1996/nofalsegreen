@@ -1,0 +1,27 @@
+wf.section2::E-20101	pass	i9_records.first_day_of_employment=2026-02-01, i9_records.section2_completed_on=2026-02-04
+wf.section2::E-20102	needs_evidence	i9_records.section2_completed_on is empty
+wf.section2::E-20103	pass	i9_records.first_day_of_employment=2026-02-09, i9_records.section2_completed_on=2026-02-12
+wf.section2::E-20104	needs_evidence	i9_records.section2_completed_on is empty
+wf.section2::E-20105	pass	i9_records.first_day_of_employment=2026-03-11, i9_records.section2_completed_on=2026-03-13
+wf.section2::E-20106	needs_evidence	i9_records.section2_completed_on is empty
+wf.section2::E-20107	fail	i9_records.first_day_of_employment=2026-04-12, i9_records.section2_completed_on=2026-04-23
+wf.section2::E-20108	needs_evidence	i9_records.section2_completed_on is empty
+wf.section2::E-20109	fail	i9_records.first_day_of_employment=2026-03-13, i9_records.section2_completed_on=2026-03-24
+wf.section2::E-20110	needs_evidence	i9_records.section2_completed_on is empty
+wf.section2::E-20111	pass	i9_records.first_day_of_employment=2026-04-03, i9_records.section2_completed_on=2026-04-06
+wf.section2::E-20112	needs_evidence	i9_records.section2_completed_on is empty
+
+---
+
+wf.required_wage::E-20101	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20102	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20103	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20104	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20105	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20106	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20107	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20108	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20109	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20110	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20111	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-20112	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage

@@ -1,0 +1,38 @@
+wf.section2::E-10301	fail	i9_records.section2_completed_on
+wf.section2::E-10302	needs_evidence	-
+wf.section2::E-10303	pass	i9_records.section2_completed_on
+wf.section2::E-10304	fail	i9_records.section2_completed_on
+wf.section2::E-10305	fail	i9_records.section2_completed_on
+wf.section2::E-10306	fail	i9_records.section2_completed_on
+wf.section2::E-10307	pass	i9_records.section2_completed_on
+wf.section2::E-10308	fail	i9_records.section2_completed_on
+wf.section2::E-10309	pass	i9_records.section2_completed_on
+wf.section2::E-10310	needs_evidence	-
+wf.section2::E-10311	needs_evidence	-
+wf.section2::E-10312	needs_evidence	-
+
+---
+
+wf.section2::E-10313	pass	i9_records.section2_completed_on
+wf.section2::E-10314	pass	i9_records.section2_completed_on
+wf.section2::E-10315	fail	i9_records.section2_completed_on
+wf.section2::E-10316	needs_evidence	i9_records.section2_completed_on
+wf.required_wage::E-10301	pass	payroll.annualised_gross
+wf.required_wage::E-10302	pass	payroll.annualised_gross
+wf.required_wage::E-10303	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10304	needs_evidence	lca.prevailing_wage
+wf.required_wage::E-10305	fail	payroll.annualised_gross
+wf.required_wage::E-10306	fail	payroll.annualised_gross
+wf.required_wage::E-10307	pass	payroll.annualised_gross
+wf.required_wage::E-10308	needs_evidence	actual_wage_system.actual_wage
+
+---
+
+wf.required_wage::E-10309	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10310	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10311	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10312	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10313	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10314	fail	payroll.annualised_gross, lca.prevailing_wage
+wf.required_wage::E-10315	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10316	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage

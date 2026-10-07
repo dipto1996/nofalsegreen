@@ -1,0 +1,27 @@
+E-20101	pass	i9_records.section2_completed_on
+E-20102	needs_evidence	i9_records.section2_completed_on
+E-20103	pass	i9_records.section2_completed_on
+E-20104	needs_evidence	i9_records.section2_completed_on
+E-20105	pass	i9_records.section2_completed_on
+E-20106	needs_evidence	i9_records.section2_completed_on
+E-20107	fail	i9_records.section2_completed_on
+E-20108	needs_evidence	i9_records.section2_completed_on
+E-20109	fail	i9_records.section2_completed_on
+E-20110	needs_evidence	i9_records.section2_completed_on
+E-20111	pass	i9_records.section2_completed_on
+E-20112	needs_evidence	i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-20101	pass	payroll.annualised_gross
+wf.required_wage::E-20102	fail	payroll.annualised_gross
+wf.required_wage::E-20103	pass	payroll.annualised_gross
+wf.required_wage::E-20104	pass	payroll.annualised_gross
+wf.required_wage::E-20105	pass	payroll.annualised_gross
+wf.required_wage::E-20106	pass	payroll.annualised_gross
+wf.required_wage::E-20107	pass	payroll.annualised_gross
+wf.required_wage::E-20108	fail	payroll.annualised_gross
+wf.required_wage::E-20109	fail	payroll.annualised_gross
+wf.required_wage::E-20110	pass	payroll.annualised_gross
+wf.required_wage::E-20111	fail	payroll.annualised_gross
+wf.required_wage::E-20112	pass	payroll.annualised_gross

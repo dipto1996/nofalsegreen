@@ -1,0 +1,27 @@
+ea.load_meets_spec::P-00201	fail	test_reports.measured_load_kn=740 < spec_sheets.min_load_kn=765
+ea.load_meets_spec::P-00202	fail	test_reports.measured_load_kn is empty; spec_sheets.min_load_kn=335
+ea.load_meets_spec::P-00203	pass	test_reports.measured_load_kn=1030 >= spec_sheets.min_load_kn=930
+ea.load_meets_spec::P-00204	fail	test_reports.measured_load_kn=500 < spec_sheets.min_load_kn=505
+ea.load_meets_spec::P-00205	fail	test_reports.measured_load_kn=295 < spec_sheets.min_load_kn=305
+ea.load_meets_spec::P-00206	fail	spec_sheets.min_load_kn is empty; test_reports.measured_load_kn=850
+ea.load_meets_spec::P-00207	fail	test_reports.measured_load_kn=65 < spec_sheets.min_load_kn=95
+ea.load_meets_spec::P-00208	pass	test_reports.measured_load_kn=730 >= spec_sheets.min_load_kn=645
+ea.load_meets_spec::P-00209	pass	test_reports.measured_load_kn=95 >= spec_sheets.min_load_kn=50
+ea.load_meets_spec::P-00210	pass	test_reports.measured_load_kn=395 >= spec_sheets.min_load_kn=350
+ea.load_meets_spec::P-00211	fail	test_reports.measured_load_kn=100 < spec_sheets.min_load_kn=150
+ea.load_meets_spec::P-00212	fail	spec_sheets.min_load_kn is empty; test_reports.measured_load_kn=400
+
+---
+
+ea.tested_before_ship::P-00201	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00202	pass	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00203	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00204	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00205	pass	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00206	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00207	pass	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00208	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00209	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00210	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00211	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-00212	pass	test_reports.tested_on, shipping_log.shipped_on

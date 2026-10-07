@@ -1,0 +1,20 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-workforce-fam-s101|wf.section2::E-10101|12": {
+  "text": "wf.section2::E-10101\tfail\ti9_records.section2_completed_on\nwf.section2::E-10102\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-10103\tfail\ti9_records.section2_completed_on\nwf.section2::E-10104\tfail\ti9_records.section2_completed_on\nwf.section2::E-10105\tfail\ti9_records.section2_completed_on\nwf.section2::E-10106\tfail\ti9_records.section2_completed_on\nwf.section2::E-10107\tfail\ti9_records.section2_completed_on\nwf.section2::E-10108\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-10109\tfail\ti9_records.section2_completed_on\nwf.section2::E-10110\tfail\ti9_records.section2_completed_on\nwf.section2::E-10111\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-10112\tneeds_evidence\ti9_records.section2_completed_on",
+  "output_tokens": 2503,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-workforce-fam-s101|wf.section2::E-10113|12": {
+  "text": "wf.section2::E-10113\tfail\ti9_records.section2_completed_on, i9_records.first_day_of_employment\nwf.section2::E-10114\tfail\ti9_records.section2_completed_on, i9_records.first_day_of_employment\nwf.section2::E-10115\tfail\ti9_records.section2_completed_on, i9_records.first_day_of_employment\nwf.section2::E-10116\tfail\ti9_records.section2_completed_on, i9_records.first_day_of_employment\nwf.required_wage::E-10101\tfail\tpayroll.annualised_gross, actual_wage_system.actual_wage\nwf.required_wage::E-10102\tfail\tpayroll.annualised_gross, actual_wage_system.actual_wage\nwf.required_wage::E-10103\tneeds_evidence\tpayroll.annualised_gross\nwf.required_wage::E-10104\tneeds_evidence\tactual_wage_system.actual_wage\nwf.required_wage::E-10105\tpass\tpayroll.annualised_gross, actual_wage_system.actual_wage\nwf.required_wage::E-10106\tneeds_evidence\tactual_wage_system.actual_wage\nwf.required_wage::E-10107\tfail\tpayroll.annualised_gross, actual_wage_system.actual_wage\nwf.required_wage::E-10108\tfail\tpayroll.annualised_gross, actual_wage_system.actual_wage",
+  "output_tokens": 8768,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-workforce-fam-s101|wf.required_wage::E-10109|8": {
+  "text": "wf.required_wage::E-10109\tfail\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10110\tneeds_evidence\tpayroll.annualised_gross\nwf.required_wage::E-10111\tfail\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10112\tfail\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10113\tfail\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10114\tneeds_evidence\tactual_wage_system.actual_wage\nwf.required_wage::E-10115\tfail\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10116\tfail\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage",
+  "output_tokens": 2476,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

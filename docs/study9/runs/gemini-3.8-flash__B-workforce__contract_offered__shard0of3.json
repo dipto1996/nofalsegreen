@@ -1,0 +1,139 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertex/gemini-3.8-flash#r0::contract_offered": {
+      "model": "vertex/gemini-3.8-flash#r0",
+      "provider": "vertex",
+      "variant": "contract_offered",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 10,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertex/gemini-3.8-flash#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "study9-B-workforce-fam-s101",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 8,
+          "violation_recall": 0.9565217391304348,
+          "violation_precision": 1.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.8888888888888888,
+          "abstention_recall": 1.0,
+          "abstention_f1": 0.9411764705882353,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.9565217391304348,
+              "false_green_rate": 0.0,
+              "n_pairs": 31
+            }
+          }
+        },
+        {
+          "firm_id": "study9-B-workforce-fam-s104",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 7,
+          "violation_recall": 0.7272727272727273,
+          "violation_precision": 1.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.7,
+          "abstention_recall": 1.0,
+          "abstention_f1": 0.8235294117647058,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.7272727272727273,
+              "false_green_rate": 0.0,
+              "n_pairs": 18
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 16978,
+        "output_tokens": 81225,
+        "calls": 6,
+        "wall_seconds": 1175.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 2
+        },
+        "violation_recall": {
+          "mean": 0.8419,
+          "stdev": 0.1621,
+          "min": 0.7273,
+          "max": 0.9565,
+          "n_firms": 2
+        },
+        "violation_precision": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 2
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 2
+        },
+        "abstention_precision": {
+          "mean": 0.7944,
+          "stdev": 0.1336,
+          "min": 0.7,
+          "max": 0.8889,
+          "n_firms": 2
+        },
+        "abstention_recall": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 2
+        },
+        "abstention_f1": {
+          "mean": 0.8824,
+          "stdev": 0.0832,
+          "min": 0.8235,
+          "max": 0.9412,
+          "n_firms": 2
+        }
+      },
+      "n_pairs": 64,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    }
+  }
+}

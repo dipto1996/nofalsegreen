@@ -1,0 +1,27 @@
+ea.load_meets_spec::P-00401	pass	test_reports.measured_load_kn
+ea.load_meets_spec::P-00402	fail	test_reports.measured_load_kn
+ea.load_meets_spec::P-00403	pass	test_reports.measured_load_kn
+ea.load_meets_spec::P-00404	needs_evidence	-
+ea.load_meets_spec::P-00405	pass	test_reports.measured_load_kn
+ea.load_meets_spec::P-00406	needs_evidence	-
+ea.load_meets_spec::P-00407	pass	test_reports.measured_load_kn
+ea.load_meets_spec::P-00408	needs_evidence	-
+ea.load_meets_spec::P-00409	pass	test_reports.measured_load_kn
+ea.load_meets_spec::P-00410	fail	test_reports.measured_load_kn
+ea.load_meets_spec::P-00411	pass	test_reports.measured_load_kn
+ea.load_meets_spec::P-00412	needs_evidence	-
+
+---
+
+ea.tested_before_ship::P-00401	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00402	needs_evidence	shipping_log.shipped_on
+ea.tested_before_ship::P-00403	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00404	fail	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00405	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00406	fail	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00407	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00408	fail	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00409	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00410	needs_evidence	test_reports.tested_on
+ea.tested_before_ship::P-00411	pass	shipping_log.shipped_on, test_reports.tested_on
+ea.tested_before_ship::P-00412	pass	shipping_log.shipped_on, test_reports.tested_on

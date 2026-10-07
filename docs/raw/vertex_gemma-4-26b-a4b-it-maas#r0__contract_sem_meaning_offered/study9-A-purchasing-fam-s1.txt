@@ -1,0 +1,27 @@
+PO-00101	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00102	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00103	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00104	needs_evidence	signed_approvals.approved_amount
+PO-00105	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00106	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00107	pass	purchase_orders.po_amount <= signed_approvals.approved_amount
+PO-00108	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00109	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00110	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00111	fail	purchase_orders.po_amount > signed_approvals.approved_amount
+PO-00112	needs_evidence	signed_approvals.approved_amount
+
+---
+
+PO-00101	pass	signed_approvals.signed_on <= purchase_orders.po_date
+PO-00102	needs_evidence	signed_approvals.signed_on
+PO-00103	pass	signed_approvals.signed_on <= purchase_orders.po_date
+PO-00104	needs_evidence	signed_approvals.signed_on
+PO-00105	fail	signed_approvals.signed_on > purchase_orders.po_date
+PO-00106	needs_evidence	signed_approvals.signed_on
+PO-00107	pass	signed_approvals.signed_on <= purchase_orders.po_date
+PO-00108	needs_evidence	signed_approvals.signed_on
+PO-00109	fail	signed_approvals.signed_on > purchase_orders.po_date
+PO-00110	pass	signed_approvals.signed_on <= purchase_orders.po_date
+PO-00111	pass	signed_approvals.signed_on <= purchase_orders.po_date
+PO-00112	pass	signed_approvals.signed_on <= purchase_orders.po_date

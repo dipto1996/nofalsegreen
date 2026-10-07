@@ -1,0 +1,38 @@
+pa.within_approval::PO-10301	fail	purchase_orders.po_amount
+pa.within_approval::PO-10302	needs_evidence	-
+pa.within_approval::PO-10303	needs_evidence	-
+pa.within_approval::PO-10304	needs_evidence	-
+pa.within_approval::PO-10305	pass	purchase_orders.po_amount
+pa.within_approval::PO-10306	pass	purchase_orders.po_amount
+pa.within_approval::PO-10307	fail	purchase_orders.po_amount
+pa.within_approval::PO-10308	fail	purchase_orders.po_amount
+pa.within_approval::PO-10309	pass	purchase_orders.po_amount
+pa.within_approval::PO-10310	pass	purchase_orders.po_amount
+pa.within_approval::PO-10311	needs_evidence	-
+pa.within_approval::PO-10312	needs_evidence	-
+
+---
+
+pa.within_approval::PO-10313	fail	purchase_orders.po_amount,signed_approvals.approved_amount
+pa.within_approval::PO-10314	fail	purchase_orders.po_amount,signed_approvals.approved_amount
+pa.within_approval::PO-10315	fail	purchase_orders.po_amount,signed_approvals.approved_amount
+pa.within_approval::PO-10316	fail	purchase_orders.po_amount,signed_approvals.approved_amount
+pa.approved_before_order::PO-10301	pass	purchase_orders.po_date,signed_approvals.signed_on
+pa.approved_before_order::PO-10302	fail	purchase_orders.po_date,signed_approvals.signed_on
+pa.approved_before_order::PO-10303	needs_evidence	-
+pa.approved_before_order::PO-10304	pass	purchase_orders.po_date,signed_approvals.signed_on
+pa.approved_before_order::PO-10305	pass	purchase_orders.po_date,signed_approvals.signed_on
+pa.approved_before_order::PO-10306	pass	purchase_orders.po_date,signed_approvals.signed_on
+pa.approved_before_order::PO-10307	fail	purchase_orders.po_date,signed_approvals.signed_on
+pa.approved_before_order::PO-10308	pass	purchase_orders.po_date,signed_approvals.signed_on
+
+---
+
+pa.approved_before_order::PO-10309	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10310	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10311	unmonitored	-
+pa.approved_before_order::PO-10312	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10313	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10314	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10315	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10316	needs_evidence	signed_approvals.signed_on

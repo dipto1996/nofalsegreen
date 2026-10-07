@@ -1,0 +1,26 @@
+Study 9 (A:engineering:familiar): 6 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 6  variants ['contract_offered']
+
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-engineering-fam-s1 FGR 0.000  recall 0.538  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-engineering-fam-s2 FGR 0.000  recall 0.600  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-engineering-fam-s3 FGR 0.000  recall 0.222  absF1 0.600  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-engineering-fam-s4 FGR 0.000  recall 0.400  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-engineering-fam-s5 FGR 0.000  recall 0.455  absF1 0.857  unparsed 0  (0 calls)
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (12 parsed so far)
+  study9-A-engineering-fam-s6 FGR 0.000  recall 0.571  absF1 1.000  unparsed 0  (0 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract_offered: FGR 0.000 (sd 0.000)  recall 0.464  over 6 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study9/runs/gemma-4-26b-a4b-it-maas__A-engineering-familiar__contract_offered__retry.json

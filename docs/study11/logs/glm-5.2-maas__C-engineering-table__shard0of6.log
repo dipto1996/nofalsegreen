@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/roydi/Desktop/nofalsegreen/scripts/run_free.py", line 294, in <module>
+    raise SystemExit(main())
+  File "/Users/roydi/Desktop/nofalsegreen/scripts/run_free.py", line 136, in main
+    firms = study9.load_firms(args.study9)
+  File "/Users/roydi/Desktop/nofalsegreen/nofalsegreen/study9.py", line 77, in load_firms
+    return [gap_firm(parts[1], s, parts[2]) for s in C_SEEDS]
+  File "/Users/roydi/Desktop/nofalsegreen/nofalsegreen/study9.py", line 77, in <listcomp>
+    return [gap_firm(parts[1], s, parts[2]) for s in C_SEEDS]
+  File "/Users/roydi/Desktop/nofalsegreen/nofalsegreen/study9.py", line 121, in gap_firm
+    tpath.unlink()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1344, in unlink
+    self._accessor.unlink(self)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/roydi/Desktop/nofalsegreen/data/study9/C/engineering/table/s206/test_reports.csv'

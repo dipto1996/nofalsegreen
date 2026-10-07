@@ -1,0 +1,38 @@
+ea.load_meets_spec::P-10101	fail	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10102	needs_evidence	-
+ea.load_meets_spec::P-10103	needs_evidence	-
+ea.load_meets_spec::P-10104	needs_evidence	-
+ea.load_meets_spec::P-10105	fail	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10106	fail	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10107	pass	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10108	pass	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10109	fail	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10110	needs_evidence	-
+ea.load_meets_spec::P-10111	needs_evidence	-
+ea.load_meets_spec::P-10112	needs_evidence	-
+
+---
+
+ea.load_meets_spec::P-10113	pass	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10114	pass	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10115	pass	test_reports.measured_load_kn, spec_sheets.min_load_kn
+ea.load_meets_spec::P-10116	needs_evidence	spec_sheets.min_load_kn
+ea.tested_before_ship::P-10101	pass	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-10102	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-10103	needs_evidence	-
+ea.tested_before_ship::P-10104	pass	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-10105	fail	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-10106	pass	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-10107	pass	test_reports.tested_on, shipping_log.shipped_on
+ea.tested_before_ship::P-10108	fail	test_reports.tested_on, shipping_log.shipped_on
+
+---
+
+ea.tested_before_ship::P-10109	fail	test_reports.tested_on=2026-03-16, shipping_log.shipped_on=2026-03-03
+ea.tested_before_ship::P-10110	pass	test_reports.tested_on=2025-12-25, shipping_log.shipped_on=2026-01-14
+ea.tested_before_ship::P-10111	needs_evidence	shipping_log.shipped_on=2026-01-18; no test_reports.tested_on for P-10111
+ea.tested_before_ship::P-10112	fail	test_reports.tested_on=2026-03-06, shipping_log.shipped_on=2026-03-02
+ea.tested_before_ship::P-10113	pass	test_reports.tested_on=2026-01-02, shipping_log.shipped_on=2026-01-16
+ea.tested_before_ship::P-10114	pass	test_reports.tested_on=2026-01-13, shipping_log.shipped_on=2026-01-26
+ea.tested_before_ship::P-10115	pass	test_reports.tested_on=2026-03-09, shipping_log.shipped_on=2026-03-17
+ea.tested_before_ship::P-10116	pass	test_reports.tested_on=2026-04-23, shipping_log.shipped_on=2026-04-28

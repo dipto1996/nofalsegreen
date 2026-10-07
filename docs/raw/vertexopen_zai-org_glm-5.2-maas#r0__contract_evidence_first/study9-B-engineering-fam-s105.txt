@@ -1,0 +1,38 @@
+ea.load_meets_spec::P-10501	pass	test_reports.measured_load_kn=70, spec_sheets.min_load_kn=60
+ea.load_meets_spec::P-10502	needs_evidence	spec_sheets.min_load_kn is empty
+ea.load_meets_spec::P-10503	fail	test_reports.measured_load_kn=455, spec_sheets.min_load_kn=520
+ea.load_meets_spec::P-10504	pass	test_reports.measured_load_kn=810, spec_sheets.min_load_kn=740
+ea.load_meets_spec::P-10505	pass	test_reports.measured_load_kn=335, spec_sheets.min_load_kn=305
+ea.load_meets_spec::P-10506	fail	test_reports.measured_load_kn=955, spec_sheets.min_load_kn=965
+ea.load_meets_spec::P-10507	fail	test_reports.measured_load_kn=410, spec_sheets.min_load_kn=440
+ea.load_meets_spec::P-10508	needs_evidence	test_reports.measured_load_kn has conflicting values 600 and 1600
+ea.load_meets_spec::P-10509	pass	test_reports.measured_load_kn=130, spec_sheets.min_load_kn=50
+ea.load_meets_spec::P-10510	fail	test_reports.measured_load_kn=760, spec_sheets.min_load_kn=825
+ea.load_meets_spec::P-10511	needs_evidence	spec_sheets.min_load_kn not found for P-10511
+ea.load_meets_spec::P-10512	needs_evidence	test_reports.measured_load_kn is empty
+
+---
+
+ea.load_meets_spec::P-10513	fail	test_reports.measured_load_kn=375, spec_sheets.min_load_kn=455
+ea.load_meets_spec::P-10514	fail	test_reports.measured_load_kn=315, spec_sheets.min_load_kn=340
+ea.load_meets_spec::P-10515	pass	test_reports.measured_load_kn=545, spec_sheets.min_load_kn=445
+ea.load_meets_spec::P-10516	needs_evidence	spec_sheets.min_load_kn has conflicting values (500 and 1500) for P-10516
+ea.tested_before_ship::P-10501	pass	test_reports.tested_on=2026-01-23, shipping_log.shipped_on=2026-01-23
+ea.tested_before_ship::P-10502	fail	test_reports.tested_on=2026-01-28, shipping_log.shipped_on=2026-01-08
+ea.tested_before_ship::P-10503	needs_evidence	shipping_log.shipped_on has no value for P-10503
+ea.tested_before_ship::P-10504	needs_evidence	test_reports.tested_on has no value for P-10504
+ea.tested_before_ship::P-10505	fail	test_reports.tested_on=2026-02-24, shipping_log.shipped_on=2026-02-11
+ea.tested_before_ship::P-10506	fail	test_reports.tested_on=2026-05-06, shipping_log.shipped_on=2026-05-05
+ea.tested_before_ship::P-10507	fail	test_reports.tested_on=2026-03-05, shipping_log.shipped_on=2026-02-23
+ea.tested_before_ship::P-10508	pass	test_reports.tested_on=2026-02-21, shipping_log.shipped_on=2026-02-28
+
+---
+
+ea.tested_before_ship::P-10509	pass	test_reports.tested_on=2026-03-14, shipping_log.shipped_on=2026-03-25
+ea.tested_before_ship::P-10510	needs_evidence	shipping_log.shipped_on is missing
+ea.tested_before_ship::P-10511	fail	test_reports.tested_on=2026-01-25, shipping_log.shipped_on=2026-01-10
+ea.tested_before_ship::P-10512	pass	test_reports.tested_on=2026-04-14, shipping_log.shipped_on=2026-05-01
+ea.tested_before_ship::P-10513	pass	test_reports.tested_on=2026-02-11, shipping_log.shipped_on=2026-02-23
+ea.tested_before_ship::P-10514	pass	test_reports.tested_on=2026-03-23, shipping_log.shipped_on=2026-03-31
+ea.tested_before_ship::P-10515	fail	test_reports.tested_on=2026-04-07, shipping_log.shipped_on=2026-03-31
+ea.tested_before_ship::P-10516	pass	test_reports.tested_on=2026-03-02, shipping_log.shipped_on=2026-03-13

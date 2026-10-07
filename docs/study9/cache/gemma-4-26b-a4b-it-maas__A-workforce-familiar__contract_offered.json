@@ -1,0 +1,74 @@
+{
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s1|wf.section2::E-00101|12": {
+  "text": "wf.section2::E-00101\tfail\ti9_records.section2_completed_on\nwf.section2::E-00102\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00103\tfail\ti9_records.section2_completed_on\nwf.section2::E-00104\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00105\tpass\ti9_records.section2_completed_on\nwf.section2::E-00106\tpass\ti9_records.section2_completed_on\nwf.section2::E-00107\tpass\ti9_records.section2_completed_on\nwf.section2::E-00108\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00109\tpass\ti9_records.section2_completed_on\nwf.section2::E-00110\tpass\ti9_records.section2_completed_on\nwf.section2::E-00111\tfail\ti9_records.section2_completed_on\nwf.section2::E-00112\tfail\ti9_records.section2_completed_on",
+  "output_tokens": 330,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s2|wf.section2::E-00201|12": {
+  "text": "wf.section2::E-00201\tpass\ti9_records.section2_completed_on\nwf.section2::E-00202\tpass\ti9_records.section2_completed_on\nwf.section2::E-00203\tfail\ti9_records.section2_completed_on\nwf.section2::E-00204\tfail\ti9_records.section2_completed_on\nwf.section2::E-00205\tpass\ti9_records.section2_completed_on\nwf.section2::E-00206\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00207\tpass\ti9_records.section2_completed_on\nwf.section2::E-00208\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00209\tfail\ti9_records.section2_completed_on\nwf.section2::E-00210\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00211\tpass\ti9_records.section2_completed_on\nwf.section2::E-00212\tfail\ti9_records.section2_completed_on",
+  "output_tokens": 330,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s2|wf.required_wage::E-00201|12": {
+  "text": "E-00201\tpass\tpayroll.annualised_gross\nE-00202\tneeds_evidence\tactual_wage_system.actual_wage\nE-00203\tpass\tpayroll.annualised_gross\nE-00204\tfail\tpayroll.annualised_gross\nE-00205\tpass\tpayroll.annualised_gross\nE-00206\tfail\tpayroll.annualised_gross\nE-00207\tpass\tpayroll.annualised_gross\nE-00208\tpass\tpayroll.annualised_gross\nE-00209\tpass\tpayroll.annualised_gross\nE-00210\tpass\tpayroll.annualised_gross\nE-00211\tpass\tpayroll.annualised_gross\nE-00212\tneeds_evidence\tactual_wage_system.actual_wage",
+  "output_tokens": 214,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s3|wf.section2::E-00301|12": {
+  "text": "wf.section2::E-00301\tfail\ti9_records.section2_completed_on\nwf.section2::E-00302\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00303\tpass\ti9_records.section2_completed_on\nwf.section2::E-00304\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00305\tpass\ti9_records.section2_completed_on\nwf.section2::E-00306\tpass\ti9_records.section2_completed_on\nwf.section2::E-00307\tfail\ti9_records.section2_completed_on\nwf.section2::E-00308\tpass\ti9_records.section2_completed_on\nwf.section2::E-00309\tpass\ti9_records.section2_completed_on\nwf.section2::E-00310\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00311\tpass\ti9_records.section2_completed_on\nwf.section2::E-00312\tpass\ti9_records.section2_completed_on",
+  "output_tokens": 330,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s3|wf.required_wage::E-00301|12": {
+  "text": "E-00301\tpass\tpayroll.annualised_gross\nE-00302\tfail\tpayroll.annualised_gross\nE-00303\tpass\tpayroll.annualised_gross\nE-00304\tpass\tpayroll.annualised_gross\nE-00305\tpass\tpayroll.annualised_gross\nE-00306\tneeds_evidence\tpayroll.annualised_gross\nE-00307\tpass\tpayroll.annualised_gross\nE-00308\tneeds_evidence\tpayroll.annualised_gross\nE-00309\tfail\tpayroll.annualised_gross\nE-00310\tpass\tpayroll.annualised_gross\nE-00311\tpass\tpayroll.annualised_gross\nE-00312\tneeds_evidence\tpayroll.annualised_gross",
+  "output_tokens": 210,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s4|wf.section2::E-00401|12": {
+  "text": "wf.section2::E-00401\tpass\ti9_records.section2_completed_on\nwf.section2::E-00402\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00403\tpass\ti9_records.section2_completed_on\nwf.section2::E-00404\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00405\tfail\ti9_records.section2_completed_on\nwf.section2::E-00406\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00407\tpass\ti9_records.section2_completed_on\nwf.section2::E-00408\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00409\tfail\ti9_records.section2_completed_on\nwf.section2::E-00410\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00411\tpass\ti9_records.section2_completed_on\nwf.section2::E-00412\tneeds_evidence\ti9_records.section2_completed_on",
+  "output_tokens": 336,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s4|wf.required_wage::E-00401|12": {
+  "text": "wf.required_wage::E-00401\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00402\tfail\tpayroll.annualised_gross\nwf.required_wage::E-00403\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00404\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00405\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00406\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00407\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00408\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00409\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00410\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00411\tpass\tpayroll.annualised_gross\nwf.required_wage::E-00412\tpass\tpayroll.annualised_gross",
+  "output_tokens": 276,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s5|wf.section2::E-00501|12": {
+  "text": "wf.section2::E-00501\tpass\ti9_records.section2_completed_on\nwf.section2::E-00502\tpass\ti9_records.section2_completed_on\nwf.section2::E-00503\tpass\ti9_records.section2_completed_on\nwf.section2::E-00504\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00505\tpass\ti9_records.section2_completed_on\nwf.section2::E-00506\tfail\ti9_records.section2_completed_on\nwf.section2::E-00507\tfail\ti9_records.section2_completed_on\nwf.section2::E-00508\tneeds_evidence\ti9_records.section2_completed_on\nwf.section2::E-00509\tfail\ti9_records.section2_completed_on\nwf.section2::E-00510\tpass\ti9_records.section2_completed_on\nwf.section2::E-00511\tpass\ti9_records.section2_completed_on\nwf.section2::E-00512\tneeds_evidence\ti9_records.section2_completed_on",
+  "output_tokens": 330,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s5|wf.required_wage::E-00501|12": {
+  "text": "E-00501\tpass\tpayroll.annualised_gross\nE-00502\tneeds_evidence\tpayroll.annualised_gross\nE-00503\tfail\tpayroll.annualised_gross\nE-00504\tpass\tpayroll.annualised_gross\nE-00505\tpass\tpayroll.annualised_gross\nE-00506\tpass\tpayroll.annualised_gross\nE-00507\tfail\tpayroll.annualised_gross\nE-00508\tpass\tpayroll.annualised_gross\nE-00509\tpass\tpayroll.annualised_gross\nE-00510\tneeds_evidence\tpayroll.annualised_gross\nE-00511\tpass\tpayroll.annualised_gross\nE-00512\tpass\tpayroll.annualised_gross",
+  "output_tokens": 208,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s6|wf.section2::E-00601|12": {
+  "text": "E-00601\tfail\ti9_records.section2_completed_on\nE-00602\tpass\ti9_records.section2_completed_on\nE-00603\tfail\ti9_records.section2_completed_on\nE-00604\tfail\ti9_records.section2_completed_on\nE-00605\tpass\ti9_records.section2_completed_on\nE-00606\tpass\ti9_records.section2_completed_on\nE-00607\tfail\ti9_records.section2_completed_on\nE-00608\tpass\ti9_records.section2_completed_on\nE-00609\tpass\ti9_records.section2_completed_on\nE-00610\tpass\ti9_records.section2_completed_on\nE-00611\tpass\ti9_records.section2_completed_on\nE-00612\tneeds_evidence\ti9_records.section2_completed_on",
+  "output_tokens": 266,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s6|wf.required_wage::E-00601|12": {
+  "text": "E-00601\tpass\tpayroll.annualised_gross\nE-00602\tfail\tpayroll.annualised_gross\nE-00603\tpass\tpayroll.annualised_gross\nE-00604\tpass\tpayroll.annualised_gross\nE-00605\tpass\tpayroll.annualised_gross\nE-00606\tpass\tpayroll.annualised_gross\nE-00607\tpass\tpayroll.annualised_gross\nE-00608\tneeds_evidence\tpayroll.annualised_gross\nE-00609\tpass\tpayroll.annualised_gross\nE-00610\tneeds_evidence\tlca.prevailing_wage\nE-00611\tpass\tpayroll.annualised_gross\nE-00612\tpass\tpayroll.annualised_gross",
+  "output_tokens": 209,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract_offered|study9-A-workforce-fam-s1|wf.required_wage::E-00101|12": {
+  "text": "E-00101\tpass\tpayroll.annualised_gross\nE-00102\tpass\tpayroll.annualised_gross\nE-00103\tpass\tpayroll.annualised_gross\nE-00104\tpass\tpayroll.annualised_gross\nE-00105\tpass\tpayroll.annualised_gross\nE-00106\tneeds_evidence\tlca.prevailing_wage\nE-00107\tfail\tpayroll.annualised_gross\nE-00108\tpass\tpayroll.annualised_gross\nE-00109\tpass\tpayroll.annualised_gross\nE-00110\tneeds_evidence\tpayroll.annualised_gross\nE-00111\tpass\tpayroll.annualised_gross\nE-00112\tpass\tpayroll.annualised_gross",
+  "output_tokens": 209,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

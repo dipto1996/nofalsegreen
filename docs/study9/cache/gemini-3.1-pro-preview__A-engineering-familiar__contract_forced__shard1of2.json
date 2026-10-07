@@ -1,0 +1,38 @@
+{
+ "1.1.0|vertex/gemini-3.1-pro-preview#r0|contract_forced|study9-A-engineering-fam-s2|ea.load_meets_spec::P-00201|12": {
+  "text": "ea.load_meets_spec::P-00201\tfail\t-\nea.load_meets_spec::P-00202\tfail\t-\nea.load_meets_spec::P-00203\tpass\t-\nea.load_meets_spec::P-00204\tfail\t-\nea.load_meets_spec::P-00205\tfail\t-\nea.load_meets_spec::P-00206\tfail\t-\nea.load_meets_spec::P-00207\tfail\t-\nea.load_meets_spec::P-00208\tpass\t-\nea.load_meets_spec::P-00209\tpass\t-\nea.load_meets_spec::P-00210\tpass\t-\nea.load_meets_spec::P-00211\tfail\t-\nea.load_meets_spec::P-00212\tfail\t-",
+  "output_tokens": 2696,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.1-pro-preview#r0|contract_forced|study9-A-engineering-fam-s2|ea.tested_before_ship::P-00201|12": {
+  "text": "ea.tested_before_ship::P-00201\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00202\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00203\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00204\tfail\tshipping_log.shipped_on\nea.tested_before_ship::P-00205\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00206\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00207\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00208\tfail\tshipping_log.shipped_on\nea.tested_before_ship::P-00209\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00210\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00211\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00212\tpass\ttest_reports.tested_on",
+  "output_tokens": 2368,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.1-pro-preview#r0|contract_forced|study9-A-engineering-fam-s4|ea.load_meets_spec::P-00401|12": {
+  "text": "ea.load_meets_spec::P-00401\tpass\t-\nea.load_meets_spec::P-00402\tfail\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00403\tpass\t-\nea.load_meets_spec::P-00404\tfail\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00405\tpass\t-\nea.load_meets_spec::P-00406\tfail\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00407\tpass\t-\nea.load_meets_spec::P-00408\tfail\tspec_sheets.min_load_kn\nea.load_meets_spec::P-00409\tpass\t-\nea.load_meets_spec::P-00410\tfail\ttest_reports.measured_load_kn\nea.load_meets_spec::P-00411\tpass\t-\nea.load_meets_spec::P-00412\tfail\tspec_sheets.min_load_kn",
+  "output_tokens": 2658,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.1-pro-preview#r0|contract_forced|study9-A-engineering-fam-s4|ea.tested_before_ship::P-00401|12": {
+  "text": "ea.tested_before_ship::P-00401\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00402\tfail\tshipping_log.shipped_on\nea.tested_before_ship::P-00403\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00404\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00405\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00406\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00407\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00408\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00409\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00410\tfail\ttest_reports.tested_on\nea.tested_before_ship::P-00411\tpass\ttest_reports.tested_on\nea.tested_before_ship::P-00412\tpass\ttest_reports.tested_on",
+  "output_tokens": 2772,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.1-pro-preview#r0|contract_forced|study9-A-engineering-fam-s6|ea.load_meets_spec::P-00601|12": {
+  "text": "ea.load_meets_spec::P-00601\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00602\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00603\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00604\tpass\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00605\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00606\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00607\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00608\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00609\tpass\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00610\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00611\tpass\tspec_sheets.min_load_kn, test_reports.measured_load_kn\nea.load_meets_spec::P-00612\tfail\tspec_sheets.min_load_kn, test_reports.measured_load_kn",
+  "output_tokens": 2208,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemini-3.1-pro-preview#r0|contract_forced|study9-A-engineering-fam-s6|ea.tested_before_ship::P-00601|12": {
+  "text": "ea.tested_before_ship::P-00601\tpass\t-\nea.tested_before_ship::P-00602\tpass\t-\nea.tested_before_ship::P-00603\tpass\t-\nea.tested_before_ship::P-00604\tfail\t-\nea.tested_before_ship::P-00605\tpass\t-\nea.tested_before_ship::P-00606\tpass\t-\nea.tested_before_ship::P-00607\tfail\t-\nea.tested_before_ship::P-00608\tpass\t-\nea.tested_before_ship::P-00609\tfail\t-\nea.tested_before_ship::P-00610\tfail\t-\nea.tested_before_ship::P-00611\tpass\t-\nea.tested_before_ship::P-00612\tpass\t-",
+  "output_tokens": 2419,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

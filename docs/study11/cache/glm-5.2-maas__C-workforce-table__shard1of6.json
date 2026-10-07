@@ -1,0 +1,14 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study11-workforce-table-s202|wf.section2::E-20201|12": {
+  "text": "wf.section2::E-20201\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20202\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20203\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20204\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20205\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20206\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20207\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20208\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20209\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20210\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20211\tneeds_evidence\thr_roster.hire_date\nwf.section2::E-20212\tneeds_evidence\thr_roster.hire_date",
+  "output_tokens": 1759,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study11-workforce-table-s202|wf.required_wage::E-20201|12": {
+  "text": "wf.required_wage::E-20201\tpass\tpayroll.annualised_gross=108000 >= max(lca.prevailing_wage=87000, actual_wage_system.actual_wage=106000)\nwf.required_wage::E-20202\tpass\tpayroll.annualised_gross=152000 >= max(lca.prevailing_wage=124000, actual_wage_system.actual_wage=143000)\nwf.required_wage::E-20203\tpass\tpayroll.annualised_gross=145000 >= max(lca.prevailing_wage=134000, actual_wage_system.actual_wage=141000)\nwf.required_wage::E-20204\tfail\tpayroll.annualised_gross=113000 < max(lca.prevailing_wage=106000, actual_wage_system.actual_wage=126000)\nwf.required_wage::E-20205\tpass\tpayroll.annualised_gross=114000 >= max(lca.prevailing_wage=108000, actual_wage_system.actual_wage=109000)\nwf.required_wage::E-20206\tpass\tpayroll.annualised_gross=119000 >= max(lca.prevailing_wage=114000, actual_wage_system.actual_wage=115000)\nwf.required_wage::E-20207\tpass\tpayroll.annualised_gross=158000 >= max(lca.prevailing_wage=140000, actual_wage_system.actual_wage=156000)\nwf.required_wage::E-20208\tpass\tpayroll.annualised_gross=141000 >= max(lca.prevailing_wage=125000, actual_wage_system.actual_wage=129000)\nwf.required_wage::E-20209\tfail\tpayroll.annualised_gross=94000 < max(lca.prevailing_wage=97000, actual_wage_system.actual_wage=97000)\nwf.required_wage::E-20210\tfail\tpayroll.annualised_gross=123000 < max(lca.prevailing_wage=124000, actual_wage_system.actual_wage=133000)\nwf.required_wage::E-20211\tpass\tpayroll.annualised_gross=141000 >= max(lca.prevailing_wage=124000, actual_wage_system.actual_wage=128000)\nwf.required_wage::E-20212\tpass\tpayroll.annualised_gross=143000 >= max(lca.prevailing_wage=125000, actual_wage_system.actual_wage=139000)",
+  "output_tokens": 3168,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

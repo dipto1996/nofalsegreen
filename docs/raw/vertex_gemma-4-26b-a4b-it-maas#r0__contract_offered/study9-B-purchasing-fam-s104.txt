@@ -1,0 +1,38 @@
+pa.within_approval::PO-10401	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10402	needs_evidence	purchase_orders.po_amount
+pa.within_approval::PO-10403	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-10404	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10405	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10406	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10407	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10408	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10409	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-10410	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-10411	unmonitored	-
+pa.within_approval::PO-10412	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+
+---
+
+pa.within_approval::PO-10413	pass	purchase_orders.po_amount
+pa.within_approval::PO-10414	pass	purchase_orders.po_amount
+pa.within_approval::PO-10415	pass	purchase_orders.po_amount
+pa.within_approval::PO-10416	pass	purchase_orders.po_amount
+pa.approved_before_order::PO-10401	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10402	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10403	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10404	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10405	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10406	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10407	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10408	pass	signed_approvals.signed_on
+
+---
+
+PO-10409	pass	signed_approvals.signed_on, purchase_orders.po_date
+PO-10410	needs_evidence	signed_approvals.signed_on
+PO-10411	needs_evidence	signed_approvals.signed_on
+PO-10412	needs_evidence	signed_approvals.signed_on
+PO-10413	pass	signed_approvals.signed_on, purchase_orders.po_date
+PO-10414	pass	signed_approvals.signed_on, purchase_orders.po_date
+PO-10415	fail	signed_approvals.signed_on, purchase_orders.po_date
+PO-10416	fail	signed_approvals.signed_on, purchase_orders.po_date

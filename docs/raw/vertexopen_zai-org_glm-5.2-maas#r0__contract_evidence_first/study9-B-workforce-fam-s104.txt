@@ -1,0 +1,38 @@
+wf.section2::E-10401	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10402	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-10403	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10404	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10405	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10406	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10407	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10408	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-10409	pass	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10410	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10411	needs_evidence	hr_roster.hire_date, i9_records.section2_completed_on
+wf.section2::E-10412	needs_evidence	i9_records.section2_completed_on
+
+---
+
+wf.section2::E-10413	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10414	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10415	fail	i9_records.first_day_of_employment, i9_records.section2_completed_on
+wf.section2::E-10416	needs_evidence	i9_records.section2_completed_on
+wf.required_wage::E-10401	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10402	fail	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10403	needs_evidence	payroll.annualised_gross
+wf.required_wage::E-10404	needs_evidence	lca.prevailing_wage
+wf.required_wage::E-10405	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10406	needs_evidence	actual_wage_system.actual_wage
+wf.required_wage::E-10407	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+wf.required_wage::E-10408	pass	payroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage
+
+---
+
+wf.required_wage::E-10409	fail	payroll.annualised_gross=106000, lca.prevailing_wage=104000, actual_wage_system.actual_wage=112000
+wf.required_wage::E-10410	fail	payroll.annualised_gross=148000, actual_wage_system.actual_wage=152000
+wf.required_wage::E-10411	fail	payroll.annualised_gross=106000, lca.prevailing_wage=113000, actual_wage_system.actual_wage=120000
+wf.required_wage::E-10412	pass	payroll.annualised_gross=119000, lca.prevailing_wage=88000, actual_wage_system.actual_wage=104000
+wf.required_wage::E-10413	pass	payroll.annualised_gross=93000, lca.prevailing_wage=84000, actual_wage_system.actual_wage=88000
+wf.required_wage::E-10414	fail	payroll.annualised_gross=76000, lca.prevailing_wage=80000
+wf.required_wage::E-10415	pass	payroll.annualised_gross=115000, lca.prevailing_wage=86000, actual_wage_system.actual_wage=101000
+wf.required_wage::E-10416	pass	payroll.annualised_gross=165000, lca.prevailing_wage=141000, actual_wage_system.actual_wage=150000

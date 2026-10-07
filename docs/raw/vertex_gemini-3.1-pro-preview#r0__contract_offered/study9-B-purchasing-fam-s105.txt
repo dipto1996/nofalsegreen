@@ -1,0 +1,38 @@
+pa.within_approval::PO-10501	fail	purchase_orders.po_amount
+pa.within_approval::PO-10502	fail	purchase_orders.po_amount
+pa.within_approval::PO-10503	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-10504	fail	purchase_orders.po_amount
+pa.within_approval::PO-10505	fail	purchase_orders.po_amount
+pa.within_approval::PO-10506	fail	purchase_orders.po_amount
+pa.within_approval::PO-10507	pass	purchase_orders.po_amount
+pa.within_approval::PO-10508	pass	purchase_orders.po_amount
+pa.within_approval::PO-10509	pass	purchase_orders.po_amount
+pa.within_approval::PO-10510	pass	purchase_orders.po_amount
+pa.within_approval::PO-10511	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-10512	pass	purchase_orders.po_amount
+
+---
+
+pa.within_approval::PO-10513	pass	purchase_orders.po_amount
+pa.within_approval::PO-10514	pass	purchase_orders.po_amount
+pa.within_approval::PO-10515	pass	purchase_orders.po_amount
+pa.within_approval::PO-10516	needs_evidence	purchase_orders.po_amount
+pa.approved_before_order::PO-10501	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10502	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10503	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10504	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10505	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10506	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-10507	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-10508	needs_evidence	signed_approvals.signed_on
+
+---
+
+pa.approved_before_order::PO-10509	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-10510	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10511	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10512	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-10513	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-10514	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-10515	pass	signed_approvals.signed_on, purchase_orders.po_date
+pa.approved_before_order::PO-10516	fail	signed_approvals.signed_on, purchase_orders.po_date

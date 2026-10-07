@@ -1,0 +1,27 @@
+wf.section2::E-00501	pass	i9_records.section2_completed_on
+wf.section2::E-00502	pass	i9_records.section2_completed_on
+wf.section2::E-00503	pass	i9_records.section2_completed_on
+wf.section2::E-00504	fail	i9_records.section2_completed_on
+wf.section2::E-00505	pass	i9_records.section2_completed_on
+wf.section2::E-00506	fail	i9_records.section2_completed_on
+wf.section2::E-00507	pass	i9_records.section2_completed_on
+wf.section2::E-00508	fail	i9_records.section2_completed_on
+wf.section2::E-00509	fail	i9_records.section2_completed_on
+wf.section2::E-00510	fail	i9_records.section2_completed_on
+wf.section2::E-00511	pass	i9_records.section2_completed_on
+wf.section2::E-00512	fail	i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-00501	fail	payroll.annualised_gross
+wf.required_wage::E-00502	fail	payroll.annualised_gross
+wf.required_wage::E-00503	fail	payroll.annualised_gross
+wf.required_wage::E-00504	pass	payroll.annualised_gross
+wf.required_wage::E-00505	pass	payroll.annualised_gross
+wf.required_wage::E-00506	fail	actual_wage_system.actual_wage
+wf.required_wage::E-00507	fail	payroll.annualised_gross
+wf.required_wage::E-00508	pass	payroll.annualised_gross
+wf.required_wage::E-00509	fail	payroll.annualised_gross
+wf.required_wage::E-00510	fail	payroll.annualised_gross
+wf.required_wage::E-00511	fail	payroll.annualised_gross
+wf.required_wage::E-00512	pass	payroll.annualised_gross

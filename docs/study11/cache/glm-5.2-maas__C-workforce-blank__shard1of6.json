@@ -1,0 +1,14 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study11-workforce-blank-s202|wf.section2::E-20201|12": {
+  "text": "wf.section2::E-20201\tpass\ti9_records.first_day_of_employment=2026-01-22, i9_records.section2_completed_on=2026-01-26 (2 business days after, within 3)\nwf.section2::E-20202\tneeds_evidence\ti9_records.section2_completed_on is empty\nwf.section2::E-20203\tpass\ti9_records.first_day_of_employment=2026-01-13, i9_records.section2_completed_on=2026-01-14 (1 business day after, within 3)\nwf.section2::E-20204\tneeds_evidence\ti9_records.section2_completed_on is empty\nwf.section2::E-20205\tfail\ti9_records.first_day_of_employment=2026-03-20, i9_records.section2_completed_on=2026-03-26 (4 business days after, exceeds 3)\nwf.section2::E-20206\tneeds_evidence\ti9_records.section2_completed_on is empty\nwf.section2::E-20207\tpass\ti9_records.first_day_of_employment=2026-03-28, i9_records.section2_completed_on=2026-03-28 (same day, within 3 business days)\nwf.section2::E-20208\tneeds_evidence\ti9_records.section2_completed_on is empty\nwf.section2::E-20209\tpass\ti9_records.first_day_of_employment=2026-03-12, i9_records.section2_completed_on=2026-03-16 (2 business days after, within 3)\nwf.section2::E-20210\tneeds_evidence\ti9_records.section2_completed_on is empty\nwf.section2::E-20211\tfail\ti9_records.first_day_of_employment=2026-03-29, i9_records.section2_completed_on=2026-04-10 (more than 3 business days after)\nwf.section2::E-20212\tneeds_evidence\ti9_records.section2_completed_on is empty",
+  "output_tokens": 5982,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study11-workforce-blank-s202|wf.required_wage::E-20201|12": {
+  "text": "wf.required_wage::E-20201\tneeds_evidence\t-\nwf.required_wage::E-20202\tneeds_evidence\t-\nwf.required_wage::E-20203\tneeds_evidence\t-\nwf.required_wage::E-20204\tneeds_evidence\t-\nwf.required_wage::E-20205\tneeds_evidence\t-\nwf.required_wage::E-20206\tneeds_evidence\t-\nwf.required_wage::E-20207\tneeds_evidence\t-\nwf.required_wage::E-20208\tneeds_evidence\t-\nwf.required_wage::E-20209\tneeds_evidence\t-\nwf.required_wage::E-20210\tneeds_evidence\t-\nwf.required_wage::E-20211\tneeds_evidence\t-\nwf.required_wage::E-20212\tneeds_evidence\t-",
+  "output_tokens": 7937,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

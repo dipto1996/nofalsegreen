@@ -1,0 +1,16 @@
+
+
+---
+
+pa.approved_before_order::PO-20401	pass	signed_approvals.signed_on=2026-04-20, purchase_orders.po_date=2026-04-21
+pa.approved_before_order::PO-20402	needs_evidence	signed_approvals.signed_on missing
+pa.approved_before_order::PO-20403	fail	signed_approvals.signed_on=2026-02-16, purchase_orders.po_date=2026-02-03
+pa.approved_before_order::PO-20404	needs_evidence	signed_approvals.signed_on missing
+pa.approved_before_order::PO-20405	fail	signed_approvals.signed_on=2026-02-06, purchase_orders.po_date=2026-01-29
+pa.approved_before_order::PO-20406	needs_evidence	signed_approvals.signed_on missing
+pa.approved_before_order::PO-20407	fail	signed_approvals.signed_on=2026-05-11, purchase_orders.po_date=2026-04-25
+pa.approved_before_order::PO-20408	needs_evidence	signed_approvals.signed_on missing
+pa.approved_before_order::PO-20409	fail	signed_approvals.signed_on=2026-01-20, purchase_orders.po_date=2026-01-19
+pa.approved_before_order::PO-20410	needs_evidence	signed_approvals.signed_on missing
+pa.approved_before_order::PO-20411	fail	signed_approvals.signed_on=2026-05-07, purchase_orders.po_date=2026-04-19
+pa.approved_before_order::PO-20412	needs_evidence	signed_approvals.signed_on missing

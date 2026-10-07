@@ -1,0 +1,20 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-workforce-fam-s103|wf.section2::E-10301|12": {
+  "text": "wf.section2::E-10301\tfail\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10302\tneeds_evidence\t-\nwf.section2::E-10303\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10304\tfail\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10305\tfail\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10306\tfail\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10307\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10308\tfail\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10309\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10310\tneeds_evidence\t-\nwf.section2::E-10311\tneeds_evidence\t-\nwf.section2::E-10312\tneeds_evidence\t-",
+  "output_tokens": 7485,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-workforce-fam-s103|wf.section2::E-10313|12": {
+  "text": "wf.section2::E-10313\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10314\tpass\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10315\tfail\ti9_records.first_day_of_employment, i9_records.section2_completed_on\nwf.section2::E-10316\tneeds_evidence\ti9_records.section2_completed_on\nwf.required_wage::E-10301\tpass\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10302\tpass\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10303\tneeds_evidence\tpayroll.annualised_gross\nwf.required_wage::E-10304\tneeds_evidence\tlca.prevailing_wage\nwf.required_wage::E-10305\tfail\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10306\tneeds_evidence\tactual_wage_system.actual_wage\nwf.required_wage::E-10307\tpass\tpayroll.annualised_gross, lca.prevailing_wage, actual_wage_system.actual_wage\nwf.required_wage::E-10308\tneeds_evidence\tactual_wage_system.actual_wage",
+  "output_tokens": 4219,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract_offered|study9-B-workforce-fam-s103|wf.required_wage::E-10309|8": {
+  "text": "wf.required_wage::E-10309\tpass\tpayroll.annualised_gross=177000, lca.prevailing_wage=150000, actual_wage_system.actual_wage=169000\nwf.required_wage::E-10310\tfail\tpayroll.annualised_gross=163000, lca.prevailing_wage=157000, actual_wage_system.actual_wage=170000\nwf.required_wage::E-10311\tfail\tpayroll.annualised_gross=135000, lca.prevailing_wage=120000, actual_wage_system.actual_wage=140000\nwf.required_wage::E-10312\tpass\tpayroll.annualised_gross=125000, lca.prevailing_wage=106000, actual_wage_system.actual_wage=123000\nwf.required_wage::E-10313\tpass\tpayroll.annualised_gross=162000, lca.prevailing_wage=137000, actual_wage_system.actual_wage=152000\nwf.required_wage::E-10314\tfail\tpayroll.annualised_gross=93000, lca.prevailing_wage=96000\nwf.required_wage::E-10315\tpass\tpayroll.annualised_gross=129000, lca.prevailing_wage=119000, actual_wage_system.actual_wage=125000\nwf.required_wage::E-10316\tfail\tpayroll.annualised_gross=113000, lca.prevailing_wage=122000, actual_wage_system.actual_wage=128000",
+  "output_tokens": 3263,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

@@ -1,0 +1,27 @@
+pa.within_approval::PO-20401	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-20402	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-20403	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-20404	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-20405	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-20406	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-20407	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-20408	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-20409	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-20410	needs_evidence	signed_approvals.approved_amount
+pa.within_approval::PO-20411	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-20412	needs_evidence	signed_approvals.approved_amount
+
+---
+
+pa.approved_before_order::PO-20401	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-20402	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-20403	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-20404	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-20405	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-20406	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-20407	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-20408	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-20409	pass	signed_approvals.signed_on
+pa.approved_before_order::PO-20410	needs_evidence	signed_approvals.signed_on
+pa.approved_before_order::PO-20411	fail	signed_approvals.signed_on
+pa.approved_before_order::PO-20412	needs_evidence	signed_approvals.signed_on

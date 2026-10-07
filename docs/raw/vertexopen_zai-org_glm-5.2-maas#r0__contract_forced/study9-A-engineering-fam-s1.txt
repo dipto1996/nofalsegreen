@@ -1,0 +1,15 @@
+ea.load_meets_spec::P-00101	fail	test_reports.measured_load_kn=35 < spec_sheets.min_load_kn=60
+ea.load_meets_spec::P-00102	fail	test_reports.measured_load_kn is empty; spec_sheets.min_load_kn=485
+ea.load_meets_spec::P-00103	fail	test_reports.measured_load_kn=905 < spec_sheets.min_load_kn=930
+ea.load_meets_spec::P-00104	fail	test_reports.measured_load_kn is empty; spec_sheets.min_load_kn=325
+ea.load_meets_spec::P-00105	fail	test_reports.measured_load_kn=145 < spec_sheets.min_load_kn=170
+ea.load_meets_spec::P-00106	fail	test_reports.measured_load_kn is empty; spec_sheets.min_load_kn=210
+ea.load_meets_spec::P-00107	fail	test_reports.measured_load_kn=705 < spec_sheets.min_load_kn=790
+ea.load_meets_spec::P-00108	fail	spec_sheets.min_load_kn is empty; test_reports.measured_load_kn=970
+ea.load_meets_spec::P-00109	fail	test_reports.measured_load_kn=905 < spec_sheets.min_load_kn=920
+ea.load_meets_spec::P-00110	fail	test_reports.measured_load_kn is empty; spec_sheets.min_load_kn=630
+ea.load_meets_spec::P-00111	pass	test_reports.measured_load_kn=405 >= spec_sheets.min_load_kn=345
+ea.load_meets_spec::P-00112	fail	test_reports.measured_load_kn is empty; spec_sheets.min_load_kn=615
+
+---
+

@@ -1,0 +1,38 @@
+pa.within_approval::PO-10201	facts	purchase order amount=126500 from purchase_orders.po_amount | signed approval amount=125000 from signed_approvals.approved_amount
+pa.within_approval::PO-10202	facts	purchase order amount=65000 from purchase_orders.po_amount | signed approval amount=60000 from signed_approvals.approved_amount
+pa.within_approval::PO-10203	facts	purchase order amount=143500 from purchase_orders.po_amount | signed approval amount=ABSENT from signed_approvals.approved_amount
+pa.within_approval::PO-10204	facts	purchase order amount=ABSENT from purchase_orders.po_amount | signed approval amount=29500 from signed_approvals.approved_amount
+pa.within_approval::PO-10205	facts	purchase order amount=19500 from purchase_orders.po_amount | signed approval amount=10000 from signed_approvals.approved_amount
+pa.within_approval::PO-10206	facts	purchase order amount=154500 from purchase_orders.po_amount | signed approval amount=164500 from signed_approvals.approved_amount
+pa.within_approval::PO-10207	facts	purchase order amount=188500 from purchase_orders.po_amount | signed approval amount=181000 from signed_approvals.approved_amount
+pa.within_approval::PO-10208	facts	purchase order amount=CONFLICT from purchase_orders.po_amount | signed approval amount=20500 from signed_approvals.approved_amount
+pa.within_approval::PO-10209	facts	purchase order amount=9000 from purchase_orders.po_amount | signed approval amount=16000 from signed_approvals.approved_amount
+pa.within_approval::PO-10210	facts	purchase order amount=13500 from purchase_orders.po_amount | signed approval amount=ABSENT from signed_approvals.approved_amount
+pa.within_approval::PO-10211	facts	purchase order amount=157000 from purchase_orders.po_amount | signed approval amount=ABSENT from signed_approvals.approved_amount
+pa.within_approval::PO-10212	facts	purchase order amount=37500 from purchase_orders.po_amount | signed approval amount=ABSENT from signed_approvals.approved_amount
+
+---
+
+pa.within_approval::PO-10213	facts	purchase order amount=191500 from purchase_orders.po_amount | signed approval amount=184000 from signed_approvals.approved_amount
+pa.within_approval::PO-10214	facts	purchase order amount=135500 from purchase_orders.po_amount | signed approval amount=142500 from signed_approvals.approved_amount
+pa.within_approval::PO-10215	facts	purchase order amount=180500 from purchase_orders.po_amount | signed approval amount=175000 from signed_approvals.approved_amount
+pa.within_approval::PO-10216	facts	purchase order amount=161000 from purchase_orders.po_amount | signed approval amount=151500 from signed_approvals.approved_amount
+pa.approved_before_order::PO-10201	facts	approval signature date=2026-01-25 from signed_approvals.signed_on | purchase order date=2026-01-30 from purchase_orders.po_date
+pa.approved_before_order::PO-10202	facts	approval signature date=ABSENT from signed_approvals.signed_on | purchase order date=2026-04-04 from purchase_orders.po_date
+pa.approved_before_order::PO-10203	facts	approval signature date=ABSENT from signed_approvals.signed_on | purchase order date=2026-04-18 from purchase_orders.po_date
+pa.approved_before_order::PO-10204	facts	approval signature date=2026-02-12 from signed_approvals.signed_on | purchase order date=2026-01-23 from purchase_orders.po_date
+pa.approved_before_order::PO-10205	facts	approval signature date=2026-03-22 from signed_approvals.signed_on | purchase order date=ABSENT from purchase_orders.po_date
+pa.approved_before_order::PO-10206	facts	approval signature date=2026-04-23 from signed_approvals.signed_on | purchase order date=2026-04-28 from purchase_orders.po_date
+pa.approved_before_order::PO-10207	facts	approval signature date=2026-04-08 from signed_approvals.signed_on | purchase order date=2026-03-31 from purchase_orders.po_date
+pa.approved_before_order::PO-10208	facts	approval signature date=2026-02-20 from signed_approvals.signed_on | purchase order date=2026-02-04 from purchase_orders.po_date
+
+---
+
+pa.approved_before_order::PO-10209	facts	approval signature date=2026-01-31 from signed_approvals.signed_on | purchase order date=2026-01-13 from purchase_orders.po_date
+pa.approved_before_order::PO-10210	facts	approval signature date=2026-02-24 from signed_approvals.signed_on | purchase order date=2026-02-11 from purchase_orders.po_date
+pa.approved_before_order::PO-10211	facts	approval signature date=ABSENT from signed_approvals.signed_on | purchase order date=2026-01-09 from purchase_orders.po_date
+pa.approved_before_order::PO-10212	facts	approval signature date=2026-03-19 from signed_approvals.signed_on | purchase order date=2026-03-28 from purchase_orders.po_date
+pa.approved_before_order::PO-10213	facts	approval signature date=2026-04-10 from signed_approvals.signed_on | purchase order date=ABSENT from purchase_orders.po_date
+pa.approved_before_order::PO-10214	facts	approval signature date=2026-03-05 from signed_approvals.signed_on | purchase order date=2026-03-19 from purchase_orders.po_date
+pa.approved_before_order::PO-10215	facts	approval signature date=2026-05-04 from signed_approvals.signed_on | purchase order date=2026-05-01 from purchase_orders.po_date
+pa.approved_before_order::PO-10216	facts	approval signature date=2026-04-24 from signed_approvals.signed_on | purchase order date=2026-04-12 from purchase_orders.po_date

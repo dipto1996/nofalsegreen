@@ -1,0 +1,27 @@
+pa.within_approval::PO-00201	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00202	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00203	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00204	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00205	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00206	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00207	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00208	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00209	pass	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00210	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00211	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+pa.within_approval::PO-00212	fail	purchase_orders.po_amount, signed_approvals.approved_amount
+
+---
+
+pa.approved_before_order::PO-00201	fail	signed_approvals.signed_on=2026-02-23, purchase_orders.po_date=2026-02-08
+pa.approved_before_order::PO-00202	pass	signed_approvals.signed_on=2026-01-26, purchase_orders.po_date=2026-01-29
+pa.approved_before_order::PO-00203	pass	signed_approvals.signed_on=2026-03-26, purchase_orders.po_date=2026-04-04
+pa.approved_before_order::PO-00204	fail	signed_approvals.signed_on is empty, purchase_orders.po_date=2026-01-19
+pa.approved_before_order::PO-00205	fail	signed_approvals.signed_on=2026-02-24, purchase_orders.po_date=2026-02-10
+pa.approved_before_order::PO-00206	fail	signed_approvals.signed_on=2026-04-19, purchase_orders.po_date=2026-04-18
+pa.approved_before_order::PO-00207	pass	signed_approvals.signed_on=2026-02-12, purchase_orders.po_date=2026-02-20
+pa.approved_before_order::PO-00208	pass	signed_approvals.signed_on=2026-02-27, purchase_orders.po_date=2026-03-16
+pa.approved_before_order::PO-00209	fail	signed_approvals.signed_on=2026-02-16, purchase_orders.po_date=2026-02-10
+pa.approved_before_order::PO-00210	fail	signed_approvals.signed_on=2026-03-04, purchase_orders.po_date=2026-03-01
+pa.approved_before_order::PO-00211	pass	signed_approvals.signed_on=2026-03-10, purchase_orders.po_date=2026-03-23
+pa.approved_before_order::PO-00212	pass	signed_approvals.signed_on=2026-01-13, purchase_orders.po_date=2026-01-14

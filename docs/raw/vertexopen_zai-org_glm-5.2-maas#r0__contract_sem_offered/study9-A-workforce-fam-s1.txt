@@ -1,0 +1,27 @@
+wf.section2::E-00101	fail	i9_records.section2_completed_on (2026-04-23 > 3 business days after 2026-04-12)
+wf.section2::E-00102	needs_evidence	i9_records.section2_completed_on is blank
+wf.section2::E-00103	fail	i9_records.section2_completed_on (2026-03-19 > 3 business days after 2026-03-09)
+wf.section2::E-00104	needs_evidence	i9_records.section2_completed_on is blank
+wf.section2::E-00105	fail	i9_records.section2_completed_on (2026-03-13 > 3 business days after 2026-03-01)
+wf.section2::E-00106	fail	i9_records.section2_completed_on (2026-03-12 > 3 business days after 2026-03-02)
+wf.section2::E-00107	pass	i9_records.section2_completed_on (2026-04-19 ≤ 3 business days after 2026-04-19)
+wf.section2::E-00108	needs_evidence	i9_records.section2_completed_on is blank
+wf.section2::E-00109	pass	i9_records.section2_completed_on (2026-04-06 ≤ 3 business days after 2026-04-06)
+wf.section2::E-00110	pass	i9_records.section2_completed_on (2026-01-27 ≤ 3 business days after 2026-01-23)
+wf.section2::E-00111	fail	i9_records.section2_completed_on (2026-05-14 > 3 business days after 2026-05-03)
+wf.section2::E-00112	fail	i9_records.section2_completed_on (2026-05-12 > 3 business days after 2026-04-24)
+
+---
+
+wf.required_wage::E-00101	fail	payroll.annualised_gross=84000 < max(lca.prevailing_wage=98000, actual_wage_system.actual_wage=99000)=99000
+wf.required_wage::E-00102	fail	payroll.annualised_gross=159000 < max(lca.prevailing_wage=154000, actual_wage_system.actual_wage=172000)=172000
+wf.required_wage::E-00103	pass	payroll.annualised_gross=107000 >= max(lca.prevailing_wage=93000, actual_wage_system.actual_wage=105000)=105000
+wf.required_wage::E-00104	fail	payroll.annualised_gross=135000 < max(lca.prevailing_wage=127000, actual_wage_system.actual_wage=144000)=144000
+wf.required_wage::E-00105	pass	payroll.annualised_gross=169000 >= max(lca.prevailing_wage=152000, actual_wage_system.actual_wage=167000)=167000
+wf.required_wage::E-00106	needs_evidence	lca.prevailing_wage is missing
+wf.required_wage::E-00107	fail	payroll.annualised_gross=154000 < max(lca.prevailing_wage=160000, actual_wage_system.actual_wage=167000)=167000
+wf.required_wage::E-00108	pass	payroll.annualised_gross=120000 >= max(lca.prevailing_wage=107000, actual_wage_system.actual_wage=109000)=109000
+wf.required_wage::E-00109	fail	payroll.annualised_gross=147000 < max(lca.prevailing_wage=144000, actual_wage_system.actual_wage=152000)=152000
+wf.required_wage::E-00110	needs_evidence	payroll.annualised_gross is missing
+wf.required_wage::E-00111	fail	payroll.annualised_gross=121000 < max(lca.prevailing_wage=106000, actual_wage_system.actual_wage=123000)=123000
+wf.required_wage::E-00112	needs_evidence	actual_wage_system.actual_wage is missing

@@ -1,0 +1,27 @@
+wf.section2::E-20501	fail	i9_records.section2_completed_on
+wf.section2::E-20502	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20503	pass	i9_records.section2_completed_on
+wf.section2::E-20504	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20505	pass	i9_records.section2_completed_on
+wf.section2::E-20506	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20507	fail	i9_records.section2_completed_on
+wf.section2::E-20508	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20509	pass	i9_records.section2_completed_on
+wf.section2::E-20510	needs_evidence	i9_records.section2_completed_on
+wf.section2::E-20511	pass	i9_records.section2_completed_on
+wf.section2::E-20512	needs_evidence	i9_records.section2_completed_on
+
+---
+
+wf.required_wage::E-20501	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20502	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20503	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20504	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20505	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20506	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20507	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20508	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20509	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20510	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20511	pass	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross
+wf.required_wage::E-20512	fail	actual_wage_system.actual_wage, lca.prevailing_wage, payroll.annualised_gross

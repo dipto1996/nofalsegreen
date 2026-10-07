@@ -1,0 +1,27 @@
+wf.section2::E-00301	fail	src_B.c203
+wf.section2::E-00302	needs_evidence	-
+wf.section2::E-00303	fail	src_B.c203
+wf.section2::E-00304	needs_evidence	-
+wf.section2::E-00305	fail	src_B.c203
+wf.section2::E-00306	pass	src_B.c203
+wf.section2::E-00307	fail	src_B.c203
+wf.section2::E-00308	pass	src_B.c203
+wf.section2::E-00309	pass	src_B.c203
+wf.section2::E-00310	needs_evidence	-
+wf.section2::E-00311	pass	src_B.c203
+wf.section2::E-00312	fail	src_B.c203
+
+---
+
+wf.required_wage::E-00301	pass	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00302	fail	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00303	fail	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00304	pass	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00305	pass	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00306	needs_evidence	-
+wf.required_wage::E-00307	pass	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00308	needs_evidence	-
+wf.required_wage::E-00309	fail	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00310	pass	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00311	pass	src_C.c302, src_D.c402, src_E.c502
+wf.required_wage::E-00312	needs_evidence	-
