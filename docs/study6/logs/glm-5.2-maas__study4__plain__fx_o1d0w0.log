@@ -1,0 +1,63 @@
+Study 4 (plain): 10 firms x 42 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['fx_o1d0w0']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1691 output tokens, 25s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1041 output tokens, 11s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3156 output tokens, 39s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1717 output tokens, 18s, finish=stop, ok
+  synthetic-002003-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1125 output tokens, 12s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2018 output tokens, 21s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3319 output tokens, 34s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1382 output tokens, 15s, finish=stop, ok
+  synthetic-002007-study3c-plain FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1306 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 921 output tokens, 10s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2696 output tokens, 28s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1916 output tokens, 20s, finish=stop, ok
+  synthetic-002009-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1378 output tokens, 14s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3491 output tokens, 38s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5096 output tokens, 51s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2181 output tokens, 22s, finish=stop, ok
+  synthetic-002023-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1604 output tokens, 16s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1854 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 1996 output tokens, 21s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2313 output tokens, 25s, finish=stop, ok
+  synthetic-002026-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1582 output tokens, 17s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 337s, finish=length, CAP
+        attempt 2: 1146 output tokens, 12s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3476 output tokens, 35s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2159 output tokens, 22s, finish=stop, ok
+  synthetic-002037-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1341 output tokens, 15s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 315s, finish=length, CAP

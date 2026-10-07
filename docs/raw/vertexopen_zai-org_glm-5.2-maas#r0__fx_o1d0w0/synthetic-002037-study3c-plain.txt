@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	needs_evidence	-
+i9.section2.timeliness::SYN-1001	needs_evidence	-
+i9.reverification.deadline::SYN-1001	needs_evidence	-
+i9.section1.timeliness::SYN-1002	needs_evidence	-
+i9.section2.timeliness::SYN-1002	needs_evidence	-
+i9.reverification.deadline::SYN-1002	needs_evidence	-
+i9.section1.timeliness::SYN-1003	needs_evidence	-
+i9.section2.timeliness::SYN-1003	needs_evidence	-
+i9.reverification.deadline::SYN-1003	needs_evidence	-
+i9.section1.timeliness::SYN-1004	needs_evidence	-
+i9.section2.timeliness::SYN-1004	needs_evidence	-
+i9.reverification.deadline::SYN-1004	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1005	needs_evidence	-
+i9.section2.timeliness::SYN-1005	needs_evidence	-
+i9.reverification.deadline::SYN-1005	needs_evidence	-
+i9.section1.timeliness::SYN-1006	needs_evidence	-
+i9.section2.timeliness::SYN-1006	needs_evidence	-
+i9.reverification.deadline::SYN-1006	needs_evidence	-
+i9.section1.timeliness::SYN-1007	needs_evidence	-
+i9.section2.timeliness::SYN-1007	needs_evidence	-
+i9.reverification.deadline::SYN-1007	needs_evidence	-
+i9.section1.timeliness::SYN-1008	needs_evidence	-
+i9.section2.timeliness::SYN-1008	needs_evidence	-
+i9.reverification.deadline::SYN-1008	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1009	needs_evidence	-
+i9.section2.timeliness::SYN-1009	needs_evidence	-
+i9.reverification.deadline::SYN-1009	needs_evidence	-
+i9.section1.timeliness::SYN-1010	needs_evidence	-
+i9.section2.timeliness::SYN-1010	needs_evidence	-
+i9.section1.timeliness::SYN-1011	needs_evidence	-
+i9.section2.timeliness::SYN-1011	needs_evidence	-
+i9.section1.timeliness::SYN-1012	needs_evidence	-
+i9.section2.timeliness::SYN-1012	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	fail	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	fail	grossPay
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	grossPay
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	payroll_register.grossPay=5750 semimonthly → $138,000/yr ≥ max($138,000 actual, $132,000 PW)
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	payroll_register.grossPay=8200 semimonthly → $196,800/yr ≥ max($186,000 actual, $178,800 PW)
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	payroll_register.grossPay=6600 semimonthly → $158,400/yr ≥ max($150,000 actual, $142,800 PW)
+lca.wage.required_wage_greater_of::I-200-25006-100007	fail	payroll_register.grossPay=4800 semimonthly → $115,200/yr < max($116,400 actual, $118,800 PW)=$118,800
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	payroll_register.grossPay=6200 semimonthly → $148,800/yr ≥ max($138,000 actual, $132,000 PW)
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	payroll_register.grossPay=7950 semimonthly → $190,800/yr ≥ max($186,000 actual, $178,800 PW)

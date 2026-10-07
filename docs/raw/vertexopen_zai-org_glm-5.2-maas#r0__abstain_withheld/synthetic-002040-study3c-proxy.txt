@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1001	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1002	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1003	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1004	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	onboardingCompletedDate=2025-12-10, hireDate=2025-12-10
+i9.section2.timeliness::SYN-1005	pass	onboardingCompletedDate=2025-12-10, hireDate=2025-12-10
+i9.reverification.deadline::SYN-1005	pass	workAuthValidThrough=2026-10-01
+i9.section1.timeliness::SYN-1006	pass	onboardingCompletedDate=2022-08-17, hireDate=2022-08-22
+i9.section2.timeliness::SYN-1006	pass	onboardingCompletedDate=2022-08-17, hireDate=2022-08-22
+i9.reverification.deadline::SYN-1006	pass	workAuthValidThrough=2027-12-08
+i9.section1.timeliness::SYN-1007	pass	onboardingCompletedDate=2025-02-24, hireDate=2025-02-24
+i9.section2.timeliness::SYN-1007	pass	onboardingCompletedDate=2025-02-24, hireDate=2025-02-24
+i9.reverification.deadline::SYN-1007	pass	workAuthValidThrough=2028-09-15
+i9.section1.timeliness::SYN-1008	pass	onboardingCompletedDate=2024-08-17, hireDate=2024-08-23
+i9.section2.timeliness::SYN-1008	pass	onboardingCompletedDate=2024-08-17, hireDate=2024-08-23
+i9.reverification.deadline::SYN-1008	pass	workAuthValidThrough=2027-01-22
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	onboardingCompletedDate=2024-05-30
+i9.section2.timeliness::SYN-1009	pass	onboardingCompletedDate=2024-05-30
+i9.reverification.deadline::SYN-1009	pass	workAuthValidThrough=2027-03-19
+i9.section1.timeliness::SYN-1010	pass	onboardingCompletedDate=2022-10-25
+i9.section2.timeliness::SYN-1010	pass	onboardingCompletedDate=2022-10-25
+i9.section1.timeliness::SYN-1011	pass	onboardingCompletedDate=2025-10-17
+i9.section2.timeliness::SYN-1011	pass	onboardingCompletedDate=2025-10-17
+i9.section1.timeliness::SYN-1012	pass	onboardingCompletedDate=2021-09-17
+i9.section2.timeliness::SYN-1012	pass	onboardingCompletedDate=2021-09-17
+lca.wage.required_wage_greater_of::I-200-25000-100001	fail	grossPay=7350_semimonthly×24=176400<required_186000
+lca.wage.required_wage_greater_of::I-200-25001-100002	fail	grossPay=4700_semimonthly×24=112800<required_118800
+lca.wage.required_wage_greater_of::I-200-25002-100003	fail	grossPay=5300_semimonthly×24=127200<required_138000
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25004-100005	fail	grossPay
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25006-100007	fail	grossPay
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	grossPay

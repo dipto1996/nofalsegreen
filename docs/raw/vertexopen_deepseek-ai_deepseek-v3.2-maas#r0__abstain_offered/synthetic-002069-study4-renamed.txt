@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	needs_evidence	-
+i9.section2.timeliness::SYN-1001	needs_evidence	-
+i9.reverification.deadline::SYN-1001	needs_evidence	-
+i9.section1.timeliness::SYN-1002	needs_evidence	-
+i9.section2.timeliness::SYN-1002	needs_evidence	-
+i9.reverification.deadline::SYN-1002	needs_evidence	-
+i9.section1.timeliness::SYN-1003	needs_evidence	-
+i9.section2.timeliness::SYN-1003	needs_evidence	-
+i9.reverification.deadline::SYN-1003	needs_evidence	-
+i9.section1.timeliness::SYN-1004	needs_evidence	-
+i9.section2.timeliness::SYN-1004	needs_evidence	-
+i9.reverification.deadline::SYN-1004	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1005	needs_evidence	-
+i9.section2.timeliness::SYN-1005	needs_evidence	-
+i9.reverification.deadline::SYN-1005	needs_evidence	-
+i9.section1.timeliness::SYN-1006	needs_evidence	-
+i9.section2.timeliness::SYN-1006	needs_evidence	-
+i9.reverification.deadline::SYN-1006	needs_evidence	-
+i9.section1.timeliness::SYN-1007	needs_evidence	-
+i9.section2.timeliness::SYN-1007	needs_evidence	-
+i9.reverification.deadline::SYN-1007	needs_evidence	-
+i9.section1.timeliness::SYN-1008	needs_evidence	-
+i9.section2.timeliness::SYN-1008	needs_evidence	-
+i9.reverification.deadline::SYN-1008	needs_evidence	-
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	hireDate=2021-09-02, rosterField1=Complete, rosterField2=2021-08-31
+i9.section2.timeliness::SYN-1009	pass	hireDate=2021-09-02, rosterField2=2021-08-31, rosterField3=2028-09-08
+i9.reverification.deadline::SYN-1009	needs_evidence	-
+i9.section1.timeliness::SYN-1010	fail	hireDate=2025-04-21, rosterField1=Complete, rosterField2=2025-04-16
+i9.section2.timeliness::SYN-1010	needs_evidence	-
+i9.section1.timeliness::SYN-1011	fail	hireDate=2024-03-19, rosterField1=Complete, rosterField2=2024-03-19
+i9.section2.timeliness::SYN-1011	needs_evidence	-
+i9.section1.timeliness::SYN-1012	fail	hireDate=2025-10-20, rosterField1=Complete, rosterField2=2025-10-14
+i9.section2.timeliness::SYN-1012	needs_evidence	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	WAGE_RATE_OF_PAY_FROM=150000, PREVAILING_WAGE=142800, ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=150000
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	WAGE_RATE_OF_PAY_FROM=118800, PREVAILING_WAGE=118800, ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=116400
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	WAGE_RATE_OF_PAY_FROM=150000, PREVAILING_WAGE=142800, ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL=150000
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	-
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	-
+lca.wage.required_wage_greater_of::I-200-25006-100007	fail	WAGE_RATE_OF_PAY_FROM
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	-
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	-

@@ -1,0 +1,38 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 1/3: ['synthetic-002007-study3c-proxy', 'synthetic-002026-study3c-proxy', 'synthetic-002041-study3c-proxy']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['fx_o1d0w0']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+        attempt 1: 12709 output tokens, 144s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 397s, finish=length, CAP
+        attempt 2: 10578 output tokens, 117s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4587 output tokens, 57s, finish=stop, ok
+  synthetic-002007-study3c-proxy FGR 0.242  recall 0.000  absF1 0.862  unparsed 0  (4 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 17038 output tokens, 176s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 336s, finish=length, CAP
+        attempt 2: 6743 output tokens, 70s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 14045 output tokens, 146s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2620 output tokens, 28s, finish=stop, ok
+  synthetic-002026-study3c-proxy FGR 0.030  recall 1.000  absF1 0.985  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 10933 output tokens, 114s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 318s, finish=length, CAP
+        attempt 2: 10604 output tokens, 117s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 10421 output tokens, 103s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3603 output tokens, 37s, finish=stop, ok
+  synthetic-002041-study3c-proxy FGR 0.030  recall 1.000  absF1 0.985  unparsed 0  (5 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r0::fx_o1d0w0: FGR 0.101 (sd 0.122)  recall 0.667  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study6/runs/glm-5.2-maas__study4__proxy__fx_o1d0w0__shard1of3.json

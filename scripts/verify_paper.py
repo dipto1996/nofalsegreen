@@ -618,6 +618,29 @@ claim(all(x[:4] == ["Strongly disagree"] * 4 and x[5] == "Strongly agree" for x 
       and _pb["Codex (kit v3)"][4] == "Strongly disagree" and _pb["Codex (kit v3)"][6] == "Strongly disagree",
       "AI pilot: Part B answers as described")
 
+# Study 6 (docs/STUDY6_DECLARATION.md)
+_S64 = json.loads((ROOT / "docs" / "study6" / "study4_results.json").read_text())
+_S65 = json.loads((ROOT / "docs" / "study6" / "study5_results.json").read_text())
+_q = {k[:2]: v for k, v in {**_S64["primary"], **_S65["primary"]}.items()}
+claim(f"(+{_q['H2']['delta']:.3f});" in _flat and f"(+{_q['H4']['delta']:.3f});" in _flat
+      and f"(−{_q['H7']['delta']:.3f});" in _flat and f"raised them by {_q['R1']['delta']:.3f} with abstention offered" in _flat
+      and f"raised them by {_q['R3']['delta']:.3f}." in _flat
+      and all(_q[k]["outcome"] == "confirmed" for k in ("H2", "H3", "H4", "H6", "H7", "R1", "R3")), "Study 6: replicated tests")
+claim(_q["H1"]["outcome"] == "not confirmed" and f"(H1, {_q['H1']['delta']:.3f})".replace("-", "−") in _flat
+      and _q["H5"]["outcome"] == "confirmed" and _q["H5"]["delta"] > 0 and f"(H5, +{_q['H5']['delta']:.3f})" in _flat
+      and f"(H3, +{_q['H3']['delta']:.3f})" in _flat, "Study 6: H1 not replicated, H5 opposite sign, H3")
+_gl = _S64["cells"]
+claim(f"called {_gl['renamed::abstain_offered::r0']['by_model']['glm-5.2-maas']['fgr']:.3f} of unassessable pairs compliant from the renamed values" in _flat
+      and _gl["renamed::abstain_offered::r0"]["by_model"]["glm-5.2-maas"]["fgr"] > _gl["proxy::abstain_offered::r0"]["by_model"]["glm-5.2-maas"]["fgr"],
+      "Study 6: GLM renamed > named")
+_c6 = _S65["cells"]
+claim(_c6["glm-5.2-maas::complete::abstain_offered"]["recall_all_pairs"] == 1
+      and _c6["deepseek-v3.2-maas::complete::abstain_offered"]["recall_all_pairs"] == 0, "Study 6: complete-arm detection")
+_cov6 = sorted(330 - v["allocation"].get("unanswered", 0) for c in _gl.values() for v in c["by_model"].values())
+claim(_cov6[0] == 285 and _cov6[1] == 318 and min(v["answered"] for v in _c6.values()) == 110
+      and "285 of 330" in _flat and "least 318 of 330" in _flat and "at least 110 of 120" in _flat, "Study 6: coverage")
+claim("table-study6" in paper, "Study 6 table is generated")
+
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
 claim(pcts <= {f"{_nw / _np:.1%}"}, f"only verified percentages appear (found {sorted(pcts)})")

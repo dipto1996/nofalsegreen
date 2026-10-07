@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1001	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1002	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1003	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1004	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1005	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1005	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1006	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1006	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1006	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1007	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1007	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1007	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1008	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1008	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1008	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1009	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1009	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1010	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1010	pass	onboardingCompletedDate
+i9.section1.timeliness::SYN-1011	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1011	pass	onboardingCompletedDate
+i9.section1.timeliness::SYN-1012	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1012	pass	onboardingCompletedDate
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25002-100003	fail	grossPay
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	grossPay=4950 semimonthly ×24 = 118800 ≥ max(actual_wage 116400, prevailing_wage 118800) = 118800
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	grossPay=7850 semimonthly ×24 = 188400 ≥ max(actual_wage 186000, prevailing_wage 178800) = 186000
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	grossPay=6500 semimonthly ×24 = 156000 ≥ max(actual_wage 150000, prevailing_wage 142800) = 150000
+lca.wage.required_wage_greater_of::I-200-25006-100007	fail	grossPay=5500 semimonthly ×24 = 132000 < max(actual_wage 138000, prevailing_wage 132000) = 138000
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	grossPay=5750 semimonthly ×24 = 138000 ≥ max(actual_wage 138000, prevailing_wage 132000) = 138000
+lca.wage.required_wage_greater_of::I-200-25008-100009	fail	grossPay=5500 semimonthly ×24 = 132000 < max(actual_wage 138000, prevailing_wage 132000) = 138000

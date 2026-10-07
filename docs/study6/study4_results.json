@@ -1,0 +1,1210 @@
+{
+ "declared": "docs/STUDY4_DECLARATION.md",
+ "primary": {
+  "H1 proxy - renamed (false green, offered)": {
+   "n_firms": 10,
+   "delta": -0.0089,
+   "ci95_firm_bootstrap": [
+    -0.0766,
+    0.0532
+   ],
+   "p_exact_two_sided": 0.828125,
+   "firms_positive": 4,
+   "firms_negative": 4,
+   "p_holm": 0.828125,
+   "outcome": "not confirmed"
+  },
+  "H2 proxy - irrelevant (false green, offered)": {
+   "n_firms": 10,
+   "delta": 0.1182,
+   "ci95_firm_bootstrap": [
+    0.0621,
+    0.1773
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.013671875,
+   "outcome": "confirmed"
+  },
+  "H3 adverse - plain (false red, offered)": {
+   "n_firms": 10,
+   "delta": 0.0636,
+   "ci95_firm_bootstrap": [
+    0.0333,
+    0.0985
+   ],
+   "p_exact_two_sided": 0.0078125,
+   "firms_positive": 8,
+   "firms_negative": 0,
+   "p_holm": 0.0234375,
+   "outcome": "confirmed"
+  },
+  "H4 O main effect: no abstaining verdicts (proxy firms)": {
+   "n_firms": 10,
+   "delta": 0.6455,
+   "ci95_firm_bootstrap": [
+    0.6072,
+    0.6875
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.013671875,
+   "outcome": "confirmed"
+  },
+  "H5 D main effect: bare definitions (proxy firms)": {
+   "n_firms": 10,
+   "delta": 0.0559,
+   "ci95_firm_bootstrap": [
+    0.0276,
+    0.0874
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.013671875,
+   "outcome": "confirmed"
+  },
+  "H6 W main effect: no warning (proxy firms)": {
+   "n_firms": 10,
+   "delta": 0.0283,
+   "ci95_firm_bootstrap": [
+    0.0108,
+    0.0469
+   ],
+   "p_exact_two_sided": 0.021484375,
+   "firms_positive": 7,
+   "firms_negative": 3,
+   "p_holm": 0.04296875,
+   "outcome": "confirmed"
+  },
+  "H7 offered - cite_first (proxy firms)": {
+   "n_firms": 10,
+   "delta": 0.097,
+   "ci95_firm_bootstrap": [
+    0.053,
+    0.1455
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0,
+   "p_holm": 0.013671875,
+   "outcome": "confirmed"
+  }
+ },
+ "secondary": {
+  "proxy - renamed | abstain_offered": {
+   "n_firms": 10,
+   "delta": -0.0089,
+   "ci95_firm_bootstrap": [
+    -0.0766,
+    0.0532
+   ],
+   "p_exact_two_sided": 0.828125,
+   "firms_positive": 4,
+   "firms_negative": 4
+  },
+  "proxy - irrelevant | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.1182,
+   "ci95_firm_bootstrap": [
+    0.0621,
+    0.1773
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "renamed - plain | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.1271,
+   "ci95_firm_bootstrap": [
+    0.0848,
+    0.1751
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "irrelevant - plain | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.0,
+   "ci95_firm_bootstrap": [
+    0.0,
+    0.0
+   ],
+   "p_exact_two_sided": 1.0,
+   "firms_positive": 0,
+   "firms_negative": 0
+  },
+  "proxy - plain | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.1182,
+   "ci95_firm_bootstrap": [
+    0.0621,
+    0.1773
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "adverse - plain (false red) | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.0636,
+   "ci95_firm_bootstrap": [
+    0.0333,
+    0.0985
+   ],
+   "p_exact_two_sided": 0.0078125,
+   "firms_positive": 8,
+   "firms_negative": 0
+  },
+  "adverse - plain (false green) | abstain_offered": {
+   "n_firms": 10,
+   "delta": 0.0076,
+   "ci95_firm_bootstrap": [
+    0.0,
+    0.0152
+   ],
+   "p_exact_two_sided": 0.25,
+   "firms_positive": 3,
+   "firms_negative": 0
+  },
+  "proxy - renamed | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.0909,
+   "ci95_firm_bootstrap": [
+    0.0485,
+    0.1348
+   ],
+   "p_exact_two_sided": 0.0078125,
+   "firms_positive": 8,
+   "firms_negative": 1
+  },
+  "proxy - irrelevant | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.8258,
+   "ci95_firm_bootstrap": [
+    0.7818,
+    0.8682
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "renamed - plain | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.7578,
+   "ci95_firm_bootstrap": [
+    0.7199,
+    0.7955
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "irrelevant - plain | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.0234,
+   "ci95_firm_bootstrap": [
+    -0.0002,
+    0.0513
+   ],
+   "p_exact_two_sided": 0.15625,
+   "firms_positive": 5,
+   "firms_negative": 1
+  },
+  "proxy - plain | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.8448,
+   "ci95_firm_bootstrap": [
+    0.8145,
+    0.8742
+   ],
+   "p_exact_two_sided": 0.001953125,
+   "firms_positive": 10,
+   "firms_negative": 0
+  },
+  "adverse - plain (false red) | abstain_withheld": {
+   "n_firms": 10,
+   "delta": -0.0496,
+   "ci95_firm_bootstrap": [
+    -0.0723,
+    -0.0258
+   ],
+   "p_exact_two_sided": 0.015625,
+   "firms_positive": 1,
+   "firms_negative": 7
+  },
+  "adverse - plain (false green) | abstain_withheld": {
+   "n_firms": 10,
+   "delta": 0.0496,
+   "ci95_firm_bootstrap": [
+    0.0258,
+    0.0723
+   ],
+   "p_exact_two_sided": 0.015625,
+   "firms_positive": 7,
+   "firms_negative": 1
+  },
+  "O main effect | plain firms": {
+   "n_firms": 10,
+   "delta": 0.0064,
+   "ci95_firm_bootstrap": [
+    0.0019,
+    0.0121
+   ],
+   "p_exact_two_sided": 0.03125,
+   "firms_positive": 6,
+   "firms_negative": 0
+  },
+  "D main effect | plain firms": {
+   "n_firms": 10,
+   "delta": 0.0064,
+   "ci95_firm_bootstrap": [
+    0.0019,
+    0.0121
+   ],
+   "p_exact_two_sided": 0.03125,
+   "firms_positive": 6,
+   "firms_negative": 0
+  },
+  "W main effect | plain firms": {
+   "n_firms": 10,
+   "delta": 0.0049,
+   "ci95_firm_bootstrap": [
+    0.0,
+    0.011
+   ],
+   "p_exact_two_sided": 0.25,
+   "firms_positive": 4,
+   "firms_negative": 1
+  },
+  "offered - cite_first | plain firms": {
+   "n_firms": 10,
+   "delta": 0.0,
+   "ci95_firm_bootstrap": [
+    0.0,
+    0.0
+   ],
+   "p_exact_two_sided": 1.0,
+   "firms_positive": 0,
+   "firms_negative": 0
+  }
+ },
+ "cells": {
+  "plain::abstain_offered::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "plain::abstain_withheld::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 318,
+      "unanswered": 12
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0061,
+     "allocation": {
+      "fail": 328,
+      "pass": 2,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0061
+    }
+   },
+   "fgr_mean_over_models": 0.0031,
+   "fgr_all_pairs_mean_over_models": 0.0031
+  },
+  "plain::cite_first::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "plain::fx_o0d0w0::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0394,
+     "allocation": {
+      "fail": 317,
+      "pass": 13,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0394
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0061,
+     "allocation": {
+      "fail": 328,
+      "pass": 2,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0061
+    }
+   },
+   "fgr_mean_over_models": 0.0227,
+   "fgr_all_pairs_mean_over_models": 0.0227
+  },
+  "plain::fx_o0d0w1::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0061,
+     "allocation": {
+      "fail": 328,
+      "pass": 2,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0061
+    }
+   },
+   "fgr_mean_over_models": 0.0031,
+   "fgr_all_pairs_mean_over_models": 0.0031
+  },
+  "plain::fx_o0d1w0::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "plain::fx_o0d1w1::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "plain::fx_o1d0w0::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "plain::fx_o1d0w1::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 321,
+      "fail": 9,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "plain::fx_o1d1w0::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "plain::fx_o1d1w1::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 322,
+      "fail": 8,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "proxy::abstain_offered::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.1212,
+     "allocation": {
+      "needs_evidence": 273,
+      "pass": 40,
+      "fail": 17,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.1212
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.1152,
+     "allocation": {
+      "needs_evidence": 292,
+      "pass": 38,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.1152
+    }
+   },
+   "fgr_mean_over_models": 0.1182,
+   "fgr_all_pairs_mean_over_models": 0.1182
+  },
+  "proxy::abstain_withheld::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.7061,
+     "allocation": {
+      "pass": 233,
+      "fail": 97,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.7061
+    },
+    "glm-5.2-maas": {
+     "fgr": 1.0,
+     "allocation": {
+      "pass": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 1.0
+    }
+   },
+   "fgr_mean_over_models": 0.853,
+   "fgr_all_pairs_mean_over_models": 0.853
+  },
+  "proxy::cite_first::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0152,
+     "allocation": {
+      "needs_evidence": 322,
+      "fail": 3,
+      "pass": 5,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0152
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0273,
+     "allocation": {
+      "needs_evidence": 321,
+      "pass": 9,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0273
+    }
+   },
+   "fgr_mean_over_models": 0.0213,
+   "fgr_all_pairs_mean_over_models": 0.0213
+  },
+  "proxy::fx_o0d0w0::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.7848,
+     "allocation": {
+      "pass": 259,
+      "fail": 71,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.7848
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.9636,
+     "allocation": {
+      "pass": 318,
+      "fail": 12,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.9636
+    }
+   },
+   "fgr_mean_over_models": 0.8742,
+   "fgr_all_pairs_mean_over_models": 0.8742
+  },
+  "proxy::fx_o0d0w1::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.5485,
+     "allocation": {
+      "pass": 181,
+      "fail": 149,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.5485
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.9636,
+     "allocation": {
+      "pass": 318,
+      "fail": 12,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.9636
+    }
+   },
+   "fgr_mean_over_models": 0.756,
+   "fgr_all_pairs_mean_over_models": 0.756
+  },
+  "proxy::fx_o0d1w0::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.7061,
+     "allocation": {
+      "pass": 233,
+      "fail": 97,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.7061
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.9879,
+     "allocation": {
+      "pass": 326,
+      "fail": 4,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.9879
+    }
+   },
+   "fgr_mean_over_models": 0.847,
+   "fgr_all_pairs_mean_over_models": 0.847
+  },
+  "proxy::fx_o0d1w1::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.6333,
+     "allocation": {
+      "pass": 209,
+      "fail": 121,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.6333
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.8667,
+     "allocation": {
+      "pass": 286,
+      "fail": 44,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.8667
+    }
+   },
+   "fgr_mean_over_models": 0.75,
+   "fgr_all_pairs_mean_over_models": 0.75
+  },
+  "proxy::fx_o1d0w0::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.1303,
+     "allocation": {
+      "needs_evidence": 275,
+      "fail": 12,
+      "pass": 43,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.1303
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.2485,
+     "allocation": {
+      "pass": 82,
+      "needs_evidence": 248,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.2485
+    }
+   },
+   "fgr_mean_over_models": 0.1894,
+   "fgr_all_pairs_mean_over_models": 0.1894
+  },
+  "proxy::fx_o1d0w1::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.1727,
+     "allocation": {
+      "needs_evidence": 230,
+      "fail": 43,
+      "pass": 57,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.1727
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.2893,
+     "allocation": {
+      "pass": 92,
+      "needs_evidence": 226,
+      "unanswered": 12
+     },
+     "fgr_all_pairs": 0.2788
+    }
+   },
+   "fgr_mean_over_models": 0.231,
+   "fgr_all_pairs_mean_over_models": 0.2258
+  },
+  "proxy::fx_o1d1w0::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0424,
+     "allocation": {
+      "needs_evidence": 300,
+      "pass": 14,
+      "fail": 16,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0424
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.1384,
+     "allocation": {
+      "needs_evidence": 274,
+      "pass": 44,
+      "unanswered": 12
+     },
+     "fgr_all_pairs": 0.1333
+    }
+   },
+   "fgr_mean_over_models": 0.0904,
+   "fgr_all_pairs_mean_over_models": 0.0878
+  },
+  "proxy::fx_o1d1w1::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0727,
+     "allocation": {
+      "needs_evidence": 279,
+      "pass": 24,
+      "fail": 27,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0727
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.2273,
+     "allocation": {
+      "needs_evidence": 255,
+      "pass": 75,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.2273
+    }
+   },
+   "fgr_mean_over_models": 0.15,
+   "fgr_all_pairs_mean_over_models": 0.15
+  },
+  "renamed::abstain_offered::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0303,
+     "allocation": {
+      "needs_evidence": 297,
+      "pass": 10,
+      "fail": 23,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0303
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.2107,
+     "allocation": {
+      "needs_evidence": 251,
+      "pass": 67,
+      "unanswered": 12
+     },
+     "fgr_all_pairs": 0.203
+    }
+   },
+   "fgr_mean_over_models": 0.1205,
+   "fgr_all_pairs_mean_over_models": 0.1167
+  },
+  "renamed::abstain_withheld::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.6879,
+     "allocation": {
+      "pass": 227,
+      "fail": 103,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.6879
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.8316,
+     "allocation": {
+      "pass": 237,
+      "fail": 48,
+      "unanswered": 45
+     },
+     "fgr_all_pairs": 0.7182
+    }
+   },
+   "fgr_mean_over_models": 0.7597,
+   "fgr_all_pairs_mean_over_models": 0.703
+  },
+  "irrelevant::abstain_offered::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0,
+   "fgr_all_pairs_mean_over_models": 0.0
+  },
+  "irrelevant::abstain_withheld::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0212,
+     "allocation": {
+      "fail": 323,
+      "pass": 7,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0212
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0346,
+     "allocation": {
+      "fail": 307,
+      "pass": 11,
+      "unanswered": 12
+     },
+     "fgr_all_pairs": 0.0333
+    }
+   },
+   "fgr_mean_over_models": 0.0279,
+   "fgr_all_pairs_mean_over_models": 0.0273
+  },
+  "adverse::abstain_offered::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.0152,
+     "allocation": {
+      "needs_evidence": 300,
+      "fail": 25,
+      "pass": 5,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0152
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "needs_evidence": 313,
+      "fail": 17,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0076,
+   "fgr_all_pairs_mean_over_models": 0.0076
+  },
+  "adverse::abstain_withheld::r0": {
+   "by_model": {
+    "deepseek-v3.2-maas": {
+     "fgr": 0.1182,
+     "allocation": {
+      "pass": 39,
+      "fail": 291,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.1182
+    },
+    "glm-5.2-maas": {
+     "fgr": 0.0,
+     "allocation": {
+      "fail": 330,
+      "unanswered": 0
+     },
+     "fgr_all_pairs": 0.0
+    }
+   },
+   "fgr_mean_over_models": 0.0591,
+   "fgr_all_pairs_mean_over_models": 0.0591
+  }
+ },
+ "factorial_means": {
+  "proxy": {
+   "fx_o1d1w1": 0.15,
+   "fx_o1d1w0": 0.0904,
+   "fx_o1d0w1": 0.231,
+   "fx_o1d0w0": 0.1894,
+   "fx_o0d1w1": 0.75,
+   "fx_o0d1w0": 0.847,
+   "fx_o0d0w1": 0.756,
+   "fx_o0d0w0": 0.8742
+  },
+  "plain": {
+   "fx_o1d1w1": 0.0,
+   "fx_o1d1w0": 0.0,
+   "fx_o1d0w1": 0.0,
+   "fx_o1d0w0": 0.0,
+   "fx_o0d1w1": 0.0,
+   "fx_o0d1w0": 0.0,
+   "fx_o0d0w1": 0.0031,
+   "fx_o0d0w0": 0.0227
+  }
+ },
+ "cite_first_costs": {
+  "plain::abstain_offered": {
+   "deepseek-v3.2-maas": {
+    "recall": 0.3,
+    "false_alarm": 0.3
+   },
+   "glm-5.2-maas": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   }
+  },
+  "plain::cite_first": {
+   "deepseek-v3.2-maas": {
+    "recall": 0.3,
+    "false_alarm": 0.4167
+   },
+   "glm-5.2-maas": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   }
+  },
+  "proxy::abstain_offered": {
+   "deepseek-v3.2-maas": {
+    "recall": 0.1333,
+    "false_alarm": 0.1667
+   },
+   "glm-5.2-maas": {
+    "recall": 1.0,
+    "false_alarm": 0.0167
+   }
+  },
+  "proxy::cite_first": {
+   "deepseek-v3.2-maas": {
+    "recall": 0.0667,
+    "false_alarm": 0.2
+   },
+   "glm-5.2-maas": {
+    "recall": 1.0,
+    "false_alarm": 0.0
+   }
+  }
+ },
+ "cite_first_pass_cites_required_export": {
+  "deepseek-v3.2-maas": {
+   "passes": 5,
+   "cite_i9_export": 0
+  },
+  "glm-5.2-maas": {
+   "passes": 9,
+   "cite_i9_export": 0
+  }
+ },
+ "deterministic_gate": {
+  "deepseek-v3.2-maas::plain::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 0.3
+  },
+  "deepseek-v3.2-maas::plain::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 0.3333
+  },
+  "glm-5.2-maas::plain::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "glm-5.2-maas::plain::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "deepseek-v3.2-maas::proxy::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 0.1333
+  },
+  "deepseek-v3.2-maas::proxy::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 0.2
+  },
+  "glm-5.2-maas::proxy::abstain_offered": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  },
+  "glm-5.2-maas::proxy::abstain_withheld": {
+   "fgr_after_gate": 0.0,
+   "recall_after_gate": 1.0
+  }
+ },
+ "repeat_runs": {
+  "plain::abstain_offered::deepseek-v3.2-maas": [
+   0.0,
+   null,
+   null
+  ],
+  "plain::abstain_offered::glm-5.2-maas": [
+   0.0,
+   null,
+   null
+  ],
+  "plain::abstain_withheld::deepseek-v3.2-maas": [
+   0.0,
+   null,
+   null
+  ],
+  "plain::abstain_withheld::glm-5.2-maas": [
+   0.0061,
+   null,
+   null
+  ],
+  "proxy::abstain_offered::deepseek-v3.2-maas": [
+   0.1212,
+   null,
+   null
+  ],
+  "proxy::abstain_offered::glm-5.2-maas": [
+   0.1152,
+   null,
+   null
+  ],
+  "proxy::abstain_withheld::deepseek-v3.2-maas": [
+   0.7061,
+   null,
+   null
+  ],
+  "proxy::abstain_withheld::glm-5.2-maas": [
+   1.0,
+   null,
+   null
+  ],
+  "proxy - plain per run | abstain_offered": [
+   0.1182,
+   null,
+   null
+  ],
+  "proxy - plain per run | abstain_withheld": [
+   0.8448,
+   null,
+   null
+  ]
+ },
+ "factorial_interactions_posthoc": {
+  "D effect | O=1 (proxy firms)": 0.0951,
+  "D effect | O=0 (proxy firms)": 0.0167,
+  "W effect | O=1 (proxy firms)": -0.051,
+  "W effect | O=0 (proxy firms)": 0.1076,
+  "D effect | O=0, W=1 (proxy firms)": 0.0061,
+  "D effect | O=0, W=0 (proxy firms)": 0.0273
+ },
+ "cite_first_costs_all_pairs": {
+  "plain::abstain_offered": {
+   "deepseek-v3.2-maas": {
+    "recall_all_pairs": 0.3,
+    "false_alarm_any_nonpass_all_pairs": 0.3,
+    "unanswered_violations": 0,
+    "unanswered_controls": 0,
+    "n_violations": 30,
+    "n_controls": 60
+   },
+   "glm-5.2-maas": {
+    "recall_all_pairs": 1.0,
+    "false_alarm_any_nonpass_all_pairs": 0.0,
+    "unanswered_violations": 0,
+    "unanswered_controls": 0,
+    "n_violations": 30,
+    "n_controls": 60
+   }
+  },
+  "plain::cite_first": {
+   "deepseek-v3.2-maas": {
+    "recall_all_pairs": 0.3,
+    "false_alarm_any_nonpass_all_pairs": 0.4167,
+    "unanswered_violations": 0,
+    "unanswered_controls": 0,
+    "n_violations": 30,
+    "n_controls": 60
+   },
+   "glm-5.2-maas": {
+    "recall_all_pairs": 1.0,
+    "false_alarm_any_nonpass_all_pairs": 0.0,
+    "unanswered_violations": 0,
+    "unanswered_controls": 0,
+    "n_violations": 30,
+    "n_controls": 60
+   }
+  },
+  "proxy::abstain_offered": {
+   "deepseek-v3.2-maas": {
+    "recall_all_pairs": 0.1333,
+    "false_alarm_any_nonpass_all_pairs": 0.1667,
+    "unanswered_violations": 0,
+    "unanswered_controls": 0,
+    "n_violations": 30,
+    "n_controls": 60
+   },
+   "glm-5.2-maas": {
+    "recall_all_pairs": 1.0,
+    "false_alarm_any_nonpass_all_pairs": 0.0167,
+    "unanswered_violations": 0,
+    "unanswered_controls": 0,
+    "n_violations": 30,
+    "n_controls": 60
+   }
+  },
+  "proxy::cite_first": {
+   "deepseek-v3.2-maas": {
+    "recall_all_pairs": 0.0667,
+    "false_alarm_any_nonpass_all_pairs": 0.2,
+    "unanswered_violations": 0,
+    "unanswered_controls": 0,
+    "n_violations": 30,
+    "n_controls": 60
+   },
+   "glm-5.2-maas": {
+    "recall_all_pairs": 1.0,
+    "false_alarm_any_nonpass_all_pairs": 0.0,
+    "unanswered_violations": 0,
+    "unanswered_controls": 0,
+    "n_violations": 30,
+    "n_controls": 60
+   }
+  }
+ },
+ "proxy_minus_renamed_count_share_posthoc": {
+  "deepseek-v3.2-maas": {
+   "count_diff": 30,
+   "share": 30.0
+  },
+  "glm-5.2-maas": {
+   "count_diff": -29,
+   "share": -29.0
+  }
+ }
+}

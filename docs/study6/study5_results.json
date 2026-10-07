@@ -1,0 +1,196 @@
+{
+ "declared": "docs/STUDY5_DECLARATION.md",
+ "primary": {
+  "R1 salary of record, offered": {
+   "n_firms": 12,
+   "delta": 0.5625,
+   "ci95_firm_bootstrap": [
+    0.3833,
+    0.7458
+   ],
+   "p_exact_two_sided": 0.0009765625,
+   "firms_positive": 11,
+   "firms_negative": 0,
+   "p_holm": 0.001953125,
+   "outcome": "confirmed"
+  },
+  "R2 salary of record, dashboard": {
+   "n_firms": 12,
+   "delta": 0.0458,
+   "ci95_firm_bootstrap": [
+    0.0,
+    0.1125
+   ],
+   "p_exact_two_sided": 0.1875,
+   "firms_positive": 5,
+   "firms_negative": 1,
+   "p_holm": 0.1875,
+   "outcome": "not confirmed"
+  },
+  "R3 dashboard - offered, LCA only": {
+   "n_firms": 12,
+   "delta": 0.8917,
+   "ci95_firm_bootstrap": [
+    0.8,
+    0.9625
+   ],
+   "p_exact_two_sided": 0.00048828125,
+   "firms_positive": 12,
+   "firms_negative": 0,
+   "p_holm": 0.00146484375,
+   "outcome": "confirmed"
+  }
+ },
+ "cells": {
+  "deepseek-v3.2-maas::complete::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 118,
+    "fail": 2
+   },
+   "recall_all_pairs": 0.0,
+   "false_alarm_all_pairs": 0.0339
+  },
+  "deepseek-v3.2-maas::complete::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 117,
+    "fail": 3
+   },
+   "recall_all_pairs": 0.0164,
+   "false_alarm_all_pairs": 0.0339
+  },
+  "deepseek-v3.2-maas::lca_only::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "fail": 2,
+    "pass": 8,
+    "needs_evidence": 110
+   },
+   "fgr_all_pairs": 0.0667,
+   "fgr_answered": 0.0667,
+   "false_green_cites": {
+    "LCA offered wage": 8
+   }
+  },
+  "deepseek-v3.2-maas::lca_only::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 102,
+    "fail": 18
+   },
+   "fgr_all_pairs": 0.85,
+   "fgr_answered": 0.85,
+   "false_green_cites": {
+    "other": 102
+   }
+  },
+  "deepseek-v3.2-maas::salary::abstain_offered": {
+   "n": 120,
+   "answered": 119,
+   "allocation": {
+    "pass": 97,
+    "needs_evidence": 19,
+    "fail": 3
+   },
+   "fgr_all_pairs": 0.8083,
+   "fgr_answered": 0.8151,
+   "false_green_cites": {
+    "other": 93,
+    "pay rate (salary of record)": 4
+   }
+  },
+  "deepseek-v3.2-maas::salary::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 113,
+    "fail": 7
+   },
+   "fgr_all_pairs": 0.9417,
+   "fgr_answered": 0.9417,
+   "false_green_cites": {
+    "other": 113
+   }
+  },
+  "glm-5.2-maas::complete::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "fail": 61,
+    "pass": 59
+   },
+   "recall_all_pairs": 1.0,
+   "false_alarm_all_pairs": 0.0
+  },
+  "glm-5.2-maas::complete::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "fail": 61,
+    "pass": 59
+   },
+   "recall_all_pairs": 1.0,
+   "false_alarm_all_pairs": 0.0
+  },
+  "glm-5.2-maas::lca_only::abstain_offered": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "needs_evidence": 120
+   },
+   "fgr_all_pairs": 0.0,
+   "fgr_answered": 0.0,
+   "false_green_cites": {}
+  },
+  "glm-5.2-maas::lca_only::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 120
+   },
+   "fgr_all_pairs": 1.0,
+   "fgr_answered": 1.0,
+   "false_green_cites": {
+    "LCA offered wage": 120
+   }
+  },
+  "glm-5.2-maas::salary::abstain_offered": {
+   "n": 120,
+   "answered": 110,
+   "allocation": {
+    "pass": 42,
+    "needs_evidence": 68
+   },
+   "fgr_all_pairs": 0.35,
+   "fgr_answered": 0.3818,
+   "false_green_cites": {
+    "pay rate (salary of record)": 32,
+    "LCA offered wage": 10
+   }
+  },
+  "glm-5.2-maas::salary::abstain_withheld": {
+   "n": 120,
+   "answered": 120,
+   "allocation": {
+    "pass": 120
+   },
+   "fgr_all_pairs": 1.0,
+   "fgr_answered": 1.0,
+   "false_green_cites": {
+    "pay rate (salary of record)": 100,
+    "LCA offered wage": 20
+   }
+  }
+ },
+ "means": {
+  "lca_only::abstain_offered": 0.0333,
+  "lca_only::abstain_withheld": 0.925,
+  "salary::abstain_offered": 0.5792,
+  "salary::abstain_withheld": 0.9708
+ }
+}

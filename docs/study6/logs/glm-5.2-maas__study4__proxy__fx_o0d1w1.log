@@ -1,0 +1,23 @@
+Study 4 (proxy): 10 firms x 42 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['fx_o0d1w1']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 23846 output tokens, 239s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 17340 output tokens, 176s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 15138 output tokens, 155s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2520 output tokens, 27s, finish=stop, ok
+  synthetic-002003-study3c-proxy FGR 0.879  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 11786 output tokens, 116s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 13710 output tokens, 137s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 18751 output tokens, 196s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1516 output tokens, 17s, finish=stop, ok
+  synthetic-002007-study3c-proxy FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)

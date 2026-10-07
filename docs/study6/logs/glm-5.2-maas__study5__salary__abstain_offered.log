@@ -1,0 +1,19 @@
+Study 5 (salary): 12 firms x 10 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 12  variants ['abstain_offered']
+
+      batch 1/1 (0 parsed so far)
+        attempt 1: 32000 output tokens, 330s, finish=length, CAP
+        attempt 2: 20756 output tokens, 208s, finish=stop, ok
+  real-lca-01-study5-salary FGR 0.200  recall 0.000  absF1 0.889  unparsed 0  (2 calls)  TRUNCATED 1
+      batch 1/1 (0 parsed so far)
+        attempt 1: 4347 output tokens, 45s, finish=stop, ok
+  real-lca-02-study5-salary FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 32000 output tokens, 323s, finish=length, CAP
+        attempt 2: 5603 output tokens, 71s, finish=stop, ok
+  real-lca-03-study5-salary FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (2 calls)  TRUNCATED 1
+      batch 1/1 (0 parsed so far)
+        attempt 1: 9910 output tokens, 102s, finish=stop, ok
+  real-lca-04-study5-salary FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)

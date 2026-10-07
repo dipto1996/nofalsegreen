@@ -1,0 +1,18 @@
+Study 4 (adverse): 10 firms x 42 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6748 output tokens, 77s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 17709 output tokens, 182s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 317s, finish=length, CAP
+        attempt 2: 32000 output tokens, 331s, finish=length, CAP
+        attempt 3: 11764 output tokens, 118s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2266 output tokens, 24s, finish=stop, ok
+  synthetic-002003-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (6 calls)  TRUNCATED 2
+      batch 1/4 (0 parsed so far)
+        attempt 1: 8013 output tokens, 80s, finish=stop, ok
+      batch 2/4 (12 parsed so far)

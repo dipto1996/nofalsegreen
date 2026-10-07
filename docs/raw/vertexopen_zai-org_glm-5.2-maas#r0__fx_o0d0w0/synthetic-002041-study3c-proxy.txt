@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1001	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1001	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1002	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1002	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1003	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1003	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1004	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1004	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1005	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1005	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1005	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1006	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1006	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1006	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1007	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1007	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1007	pass	workAuthValidThrough
+i9.section1.timeliness::SYN-1008	pass	onboardingCompletedDate
+i9.section2.timeliness::SYN-1008	pass	onboardingCompletedDate
+i9.reverification.deadline::SYN-1008	pass	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1009	pass	-
+i9.section2.timeliness::SYN-1009	pass	-
+i9.reverification.deadline::SYN-1009	pass	-
+i9.section1.timeliness::SYN-1010	pass	-
+i9.section2.timeliness::SYN-1010	pass	-
+i9.section1.timeliness::SYN-1011	pass	-
+i9.section2.timeliness::SYN-1011	pass	-
+i9.section1.timeliness::SYN-1012	pass	-
+i9.section2.timeliness::SYN-1012	pass	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	fail	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	-
+lca.wage.required_wage_greater_of::I-200-25002-100003	fail	grossPay
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	grossPay=4700 semimonthly ×24=112800 < max(actual_wage=116400, prevailing_wage=118800)=118800
+lca.wage.required_wage_greater_of::I-200-25004-100005	fail	grossPay=7500 semimonthly ×24=180000 < max(actual_wage=186000, prevailing_wage=178800)=186000
+lca.wage.required_wage_greater_of::I-200-25005-100006	fail	grossPay=4800 semimonthly ×24=115200 < max(actual_wage=116400, prevailing_wage=118800)=118800
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	grossPay=4950 semimonthly ×24=118800 ≥ max(actual_wage=116400, prevailing_wage=118800)=118800
+lca.wage.required_wage_greater_of::I-200-25007-100008	fail	grossPay=6000 semimonthly ×24=144000 < max(actual_wage=150000, prevailing_wage=142800)=150000
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	grossPay=6900 semimonthly ×24=165600 ≥ max(actual_wage=150000, prevailing_wage=142800)=150000

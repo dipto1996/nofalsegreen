@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	fail	-
+i9.section2.timeliness::SYN-1001	fail	-
+i9.reverification.deadline::SYN-1001	pass	-
+i9.section1.timeliness::SYN-1002	pass	-
+i9.section2.timeliness::SYN-1002	pass	-
+i9.reverification.deadline::SYN-1002	pass	-
+i9.section1.timeliness::SYN-1003	fail	-
+i9.section2.timeliness::SYN-1003	fail	-
+i9.reverification.deadline::SYN-1003	pass	-
+i9.section1.timeliness::SYN-1004	fail	-
+i9.section2.timeliness::SYN-1004	fail	-
+i9.reverification.deadline::SYN-1004	pass	-
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	hireDate=2021-09-02,onboardingCompletedDate=2021-08-29
+i9.section2.timeliness::SYN-1005	pass	hireDate=2021-09-02,onboardingCompletedDate=2021-08-29
+i9.reverification.deadline::SYN-1005	pass	workAuthValidThrough=2028-06-19
+i9.section1.timeliness::SYN-1006	fail	hireDate=2024-09-18,onboardingCompletedDate=2024-09-15
+i9.section2.timeliness::SYN-1006	pass	hireDate=2024-09-18,onboardingCompletedDate=2024-09-15
+i9.reverification.deadline::SYN-1006	pass	workAuthValidThrough=2028-07-04
+i9.section1.timeliness::SYN-1007	fail	hireDate=2022-10-03,onboardingCompletedDate=2022-10-02
+i9.section2.timeliness::SYN-1007	pass	hireDate=2022-10-03,onboardingCompletedDate=2022-10-02
+i9.reverification.deadline::SYN-1007	pass	workAuthValidThrough=2028-05-22
+i9.section1.timeliness::SYN-1008	pass	hireDate=2022-05-18,onboardingCompletedDate=2022-05-18
+i9.section2.timeliness::SYN-1008	pass	hireDate=2022-05-18,onboardingCompletedDate=2022-05-18
+i9.reverification.deadline::SYN-1008	pass	workAuthValidThrough=2028-08-05
+
+---
+
+i9.section1.timeliness::SYN-1009	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1009	fail	onboardingCompletedDate
+i9.reverification.deadline::SYN-1009	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1010	pass	-
+i9.section2.timeliness::SYN-1010	pass	-
+i9.section1.timeliness::SYN-1011	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1011	pass	-
+i9.section1.timeliness::SYN-1012	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1012	pass	-
+lca.wage.required_wage_greater_of::I-200-25000-100001	pass	-
+lca.wage.required_wage_greater_of::I-200-25001-100002	pass	-
+lca.wage.required_wage_greater_of::I-200-25002-100003	pass	-
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	fail	-
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	-
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	-
+lca.wage.required_wage_greater_of::I-200-25006-100007	fail	-
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	-
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	-

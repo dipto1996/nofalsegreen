@@ -1,0 +1,38 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-proxy', 'synthetic-002037-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+        attempt 1: 7817 output tokens, 93s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 14476 output tokens, 153s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 32000 output tokens, 349s, finish=length, CAP
+        attempt 2: 32000 output tokens, 342s, finish=length, CAP
+        attempt 3: 2949 output tokens, 30s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.152  recall 1.000  absF1 0.918  unparsed 0  (5 calls)  TRUNCATED 2
+      batch 1/4 (0 parsed so far)
+        attempt 1: 8162 output tokens, 84s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8673 output tokens, 84s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 12352 output tokens, 124s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3048 output tokens, 32s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.030  recall 1.000  absF1 0.985  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 3735 output tokens, 38s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8388 output tokens, 87s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 321s, finish=length, CAP
+        attempt 2: 9082 output tokens, 89s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1612 output tokens, 16s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (5 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r0::abstain_offered: FGR 0.061 (sd 0.080)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study6/runs/glm-5.2-maas__study4__proxy__abstain_offered__shard2of3.json

@@ -1,0 +1,41 @@
+Study 4 (proxy): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-proxy', 'synthetic-002037-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['fx_o1d0w1']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 8234 output tokens, 96s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 26117 output tokens, 284s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 342s, finish=length, CAP
+        attempt 2: 14384 output tokens, 154s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 32000 output tokens, 332s, finish=length, CAP
+        attempt 2: 2447 output tokens, 26s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.242  recall 1.000  absF1 0.862  unparsed 0  (6 calls)  TRUNCATED 2
+      batch 1/4 (0 parsed so far)
+        attempt 1: 7438 output tokens, 75s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 9889 output tokens, 99s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 32000 output tokens, 328s, finish=length, CAP
+        attempt 2: 16446 output tokens, 156s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2512 output tokens, 30s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.030  recall 1.000  absF1 0.985  unparsed 0  (5 calls)  TRUNCATED 1
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5891 output tokens, 57s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 32000 output tokens, 314s, finish=length, CAP
+        attempt 2: 32000 output tokens, 300s, finish=length, CAP
+        attempt 3: 32000 output tokens, 320s, finish=length, CAP
+      batch 3/4 (12 parsed so far)
+        attempt 1: 9426 output tokens, 93s, finish=stop, ok
+      batch 4/4 (24 parsed so far)
+        attempt 1: 1714 output tokens, 17s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 0.152  recall 1.000  absF1 0.653  unparsed 0  (6 calls)  TRUNCATED 3
+
+  vertexopen/zai-org/glm-5.2-maas#r0::fx_o1d0w1: FGR 0.141 (sd 0.106)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study6/runs/glm-5.2-maas__study4__proxy__fx_o1d0w1__shard2of3.json

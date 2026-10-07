@@ -1,0 +1,51 @@
+i9.section1.timeliness::SYN-1001	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1001	fail	i9Status
+i9.reverification.deadline::SYN-1001	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1002	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1002	fail	i9Status
+i9.reverification.deadline::SYN-1002	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1003	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1003	fail	i9Status
+i9.reverification.deadline::SYN-1003	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1004	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1004	fail	i9Status
+i9.reverification.deadline::SYN-1004	fail	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1005	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1005	fail	onboardingCompletedDate
+i9.reverification.deadline::SYN-1005	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1006	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1006	fail	onboardingCompletedDate
+i9.reverification.deadline::SYN-1006	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1007	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1007	fail	onboardingCompletedDate
+i9.reverification.deadline::SYN-1007	fail	workAuthValidThrough
+i9.section1.timeliness::SYN-1008	fail	onboardingCompletedDate
+i9.section2.timeliness::SYN-1008	fail	onboardingCompletedDate
+i9.reverification.deadline::SYN-1008	fail	workAuthValidThrough
+
+---
+
+i9.section1.timeliness::SYN-1009	FAIL	onboardingCompletedDate
+i9.section2.timeliness::SYN-1009	FAIL	onboardingCompletedDate
+i9.reverification.deadline::SYN-1009	FAIL	workAuthValidThrough
+i9.section1.timeliness::SYN-1010	FAIL	onboardingCompletedDate
+i9.section2.timeliness::SYN-1010	FAIL	onboardingCompletedDate
+i9.section1.timeliness::SYN-1011	FAIL	onboardingCompletedDate
+i9.section2.timeliness::SYN-1011	FAIL	onboardingCompletedDate
+i9.section1.timeliness::SYN-1012	FAIL	onboardingCompletedDate
+i9.section2.timeliness::SYN-1012	FAIL	onboardingCompletedDate
+lca.wage.required_wage_greater_of::I-200-25000-100001	PASS	grossPay
+lca.wage.required_wage_greater_of::I-200-25001-100002	PASS	grossPay
+lca.wage.required_wage_greater_of::I-200-25002-100003	FAIL	grossPay
+
+---
+
+lca.wage.required_wage_greater_of::I-200-25003-100004	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25004-100005	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25005-100006	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25006-100007	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25007-100008	pass	grossPay
+lca.wage.required_wage_greater_of::I-200-25008-100009	pass	grossPay

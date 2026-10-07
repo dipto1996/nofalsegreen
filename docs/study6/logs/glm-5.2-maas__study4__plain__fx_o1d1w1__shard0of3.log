@@ -1,0 +1,37 @@
+Study 4 (plain): 10 firms x 42 pairs
+shard 0/3: ['synthetic-002003-study3c-plain', 'synthetic-002023-study3c-plain', 'synthetic-002040-study3c-plain', 'synthetic-002069-study3c-plain']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['fx_o1d1w1']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002003-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002023-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1214 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1494 output tokens, 17s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2512 output tokens, 27s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3601 output tokens, 40s, finish=stop, ok
+  synthetic-002040-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1740 output tokens, 20s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1157 output tokens, 14s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3702 output tokens, 41s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2429 output tokens, 29s, finish=stop, ok
+  synthetic-002069-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::fx_o1d1w1: FGR 0.000 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study6/runs/glm-5.2-maas__study4__plain__fx_o1d1w1__shard0of3.json

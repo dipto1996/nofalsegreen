@@ -586,6 +586,41 @@ def table_study4() -> str:
     return "\n".join(rows)
 
 
+def table_study6() -> str:
+    """Declared tests of Studies 4-5 (Google models) beside Study 6 (DeepSeek V3.2, GLM-5.2)."""
+    d = ROOT / "docs"
+    files = [d / "study4" / "results.json", d / "study5" / "results.json",
+             d / "study6" / "study4_results.json", d / "study6" / "study5_results.json"]
+    head = ("| Test | Gemini 3.1 Pro, 3.8 Flash, Gemma 4 | DeepSeek V3.2, GLM-5.2 | Replicated |"
+            "\n|---|---|---|---|")
+    if not all(f.exists() for f in files):
+        return head
+    g4, g5, o4, o5 = (json.loads(f.read_text())["primary"] for f in files)
+    lab = {"H1": "H1 Names (proxy − renamed)", "H2": "H2 Meaning (proxy − irrelevant)",
+           "H3": "H3 Direction (adverse, `fail`)", "H4": "H4 Abstaining verdicts removed",
+           "H5": "H5 Bare definitions", "H6": "H6 Warning removed", "H7": "H7 Evidence-first prompt",
+           "R1": "R1 Salary of record, offered (real LCAs)", "R2": "R2 Salary of record, dashboard (real LCAs)",
+           "R3": "R3 Dashboard − offered (real LCAs)"}
+
+    def cell(v):
+        mark = "" if v["outcome"] == "confirmed" else ", n.s."
+        p = "<0.001" if v["p_holm"] < 0.001 else f"{v['p_holm']:.3f}"
+        return f"{v['delta']:+.3f} (p {p}{mark})"
+    rows = [head]
+    for g, o in ((g4, o4), (g5, o5)):
+        for k in g:
+            a, b = g[k], o[k]
+            rep = ("yes" if a["outcome"] == b["outcome"] == "confirmed" and (a["delta"] > 0) == (b["delta"] > 0)
+                   else "no (opposite sign)" if b["outcome"] == "confirmed" and (a["delta"] > 0) != (b["delta"] > 0)
+                   else "both n.s." if a["outcome"] != "confirmed" and b["outcome"] != "confirmed" else "no")
+            rows.append(f"| {lab[k[:2]]} | {cell(a)} | {cell(b)} | {rep} |")
+    rows.append("")
+    rows.append("Effects on the false-green rate (H3: on `fail`), each model weighted equally; Holm-adjusted exact "
+                "sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. "
+                "Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models.")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -621,6 +656,7 @@ def main() -> int:
         "table-arm-contrasts": table_arm_contrasts(),
         "table-robust": table_robust(),
         "table-study4": table_study4(),
+        "table-study6": table_study6(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

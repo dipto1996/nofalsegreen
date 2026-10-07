@@ -1,0 +1,35 @@
+Study 4 (adverse): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study4-adverse', 'synthetic-002037-study4-adverse', 'synthetic-002048-study4-adverse']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3236 output tokens, 41s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 16881 output tokens, 181s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3343 output tokens, 34s, finish=stop, ok
+  synthetic-002009-study4-adverse FGR 0.000  recall 1.000  absF1 0.985  unparsed 0  (3 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6606 output tokens, 73s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8957 output tokens, 99s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6026 output tokens, 63s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3821 output tokens, 48s, finish=stop, ok
+  synthetic-002037-study4-adverse FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6993 output tokens, 71s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 17677 output tokens, 203s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 16567 output tokens, 224s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1982 output tokens, 20s, finish=stop, ok
+  synthetic-002048-study4-adverse FGR 0.000  recall 1.000  absF1 0.935  unparsed 0  (4 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::abstain_offered: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study6/runs/glm-5.2-maas__study4__adverse__abstain_offered__shard2of3.json

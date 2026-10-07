@@ -1,0 +1,36 @@
+Study 4 (adverse): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study4-adverse', 'synthetic-002037-study4-adverse', 'synthetic-002048-study4-adverse']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['abstain_withheld']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 12743 output tokens, 151s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8685 output tokens, 87s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 9645 output tokens, 100s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1958 output tokens, 22s, finish=stop, ok
+  synthetic-002009-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 9200 output tokens, 101s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 10475 output tokens, 128s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6221 output tokens, 66s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2069 output tokens, 22s, finish=stop, ok
+  synthetic-002037-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 8185 output tokens, 88s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 7980 output tokens, 91s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 12294 output tokens, 124s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1689 output tokens, 17s, finish=stop, ok
+  synthetic-002048-study4-adverse FGR 0.000  recall 1.000  absF1 0.000  unparsed 0  (4 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::abstain_withheld: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study6/runs/glm-5.2-maas__study4__adverse__abstain_withheld__shard2of3.json

@@ -1,0 +1,28 @@
+Study 4 (plain): 10 firms x 42 pairs
+shard 2/3: ['synthetic-002009-study3c-plain', 'synthetic-002037-study3c-plain', 'synthetic-002048-study3c-plain']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['fx_o1d0w0']
+
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002009-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+      batch 2/4 (12 parsed so far)
+      batch 3/4 (24 parsed so far)
+      batch 4/4 (36 parsed so far)
+  synthetic-002037-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (0 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1709 output tokens, 26s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1175 output tokens, 13s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 2318 output tokens, 25s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 1805 output tokens, 21s, finish=stop, ok
+  synthetic-002048-study3c-plain FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::fx_o1d0w0: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study6/runs/glm-5.2-maas__study4__plain__fx_o1d0w0__shard2of3.json

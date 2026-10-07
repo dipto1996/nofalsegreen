@@ -1,0 +1,19 @@
+Study 5 (lca_only): 12 firms x 10 pairs
+shard 0/3: ['real-lca-01-study5-lca_only', 'real-lca-04-study5-lca_only', 'real-lca-07-study5-lca_only', 'real-lca-10-study5-lca_only']
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_withheld']
+
+      batch 1/1 (0 parsed so far)
+  real-lca-01-study5-lca_only FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/1 (0 parsed so far)
+  real-lca-04-study5-lca_only FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/1 (0 parsed so far)
+  real-lca-07-study5-lca_only FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (0 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 32000 output tokens, 339s, finish=length, CAP
+        attempt 2: 3443 output tokens, 38s, finish=stop, ok
+  real-lca-10-study5-lca_only FGR 1.000  recall 0.000  absF1 0.000  unparsed 0  (2 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r0::abstain_withheld: FGR 1.000 (sd 0.000)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study6/runs/glm-5.2-maas__study5__lca_only__abstain_withheld__shard0of3.json
