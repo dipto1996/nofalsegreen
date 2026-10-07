@@ -45,8 +45,9 @@ petition, per violation (20 C.F.R. 655.810(b)). A gap found before an inspection
 cured; found during one, it becomes a finding. The wage gap is not hypothetical: in fiscal year
 2025 the Department of Labor's Wage and Hour Division found H-1B violations in 74 compliance
 actions and recovered $3,306,457 in back wages for 152 workers (U.S. Department of Labor,
-2026), each a case in which wages an LCA required were not fully paid, which an LCA's offered
-wage or a salary of record would have shown as compliant.
+2026), each a case in which wages an LCA required were not fully paid. The figures show
+that the obligation is enforced with consequences; they do not show what records those
+employers kept or what a compliance system would have reported.
 
 **Pass/fail evaluation cannot see it.** An evaluation with no category for "the evidence was
 not there" never penalises a system that answers `pass` whenever evidence is absent. Recent
