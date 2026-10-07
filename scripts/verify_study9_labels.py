@@ -67,6 +67,21 @@ def main() -> int:
                             out["certificates_verified"] += 1
                         else:
                             out["certificate_failures"].append({"pair": key, "want": want, "got": got})
+    # Study 11 gap packets: labels must agree with the independent checker too
+    for wf in study9.WORKFLOWS:
+        for form in study9.GAP_FORMS:
+            for s in study9.C_SEEDS:
+                p = study9.gap_packet(wf, s, form)
+                d = tmp / f"C-{wf}-{form}-{s}"
+                write(p.tables, wf, d)
+                ref = check(wf, str(d))
+                for key, cert in p.labels.items():
+                    out["labels"] += 1
+                    if ref.get(key) == cert.label:
+                        out["agree"] += 1
+                    else:
+                        out["disagreements"].append({"packet": f"C-{wf}-{form}-{s}", "pair": key, "ours": cert.label,
+                                                     "checker": ref.get(key)})
     (ROOT / "docs" / "study9").mkdir(exist_ok=True)
     (ROOT / "docs" / "study9" / "label_verification.json").write_text(json.dumps(out, indent=1))
     print({k: (v if not isinstance(v, list) else len(v)) for k, v in out.items()})

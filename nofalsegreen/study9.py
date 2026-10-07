@@ -71,9 +71,57 @@ def firm(part: str, wf: str, seed: int, familiar: bool) -> Firm:
 
 
 def load_firms(spec: str) -> list[Firm]:
-    """spec = 'A:<workflow>:<familiar|neutral>' or 'B:<workflow>'."""
+    """spec = 'A:<workflow>:<familiar|neutral>', 'B:<workflow>' or 'C:<workflow>:<blank|row|table>'."""
     parts = spec.split(":")
+    if parts[0] == "C":
+        return [gap_firm(parts[1], s, parts[2]) for s in C_SEEDS]
     part, wf = parts[0], parts[1]
     fam = part == "B" or parts[2] == "familiar"
     seeds = A_SEEDS if part == "A" else B_SEEDS
     return [firm(part, wf, s, fam) for s in seeds]
+
+
+# ---------------------------------------------------------------- Study 11 (gap salience)
+# DECLARED 2026-10-07 before any Study 11 call (docs/STUDY11_DECLARATION.md). Six new
+# packets per workflow, twelve entities. The deciding records of one target table are
+# removed for half the entities, in one of three forms: blank cells, missing rows, or the
+# whole table absent (then every entity loses them). Values elsewhere are identical.
+C_SEEDS = range(201, 207)
+TARGET = {"workforce": "i9_records", "purchasing": "signed_approvals", "engineering": "test_reports"}
+GAP_FORMS = ("blank", "row", "table")
+
+
+def gap_packet(wf: str, seed: int, form: str) -> C.Packet:
+    import random as _r
+    p = C.make_packet(wf, seed, A_N, lambda i, r: "complete")
+    t = TARGET[wf]
+    key = C.KEY[wf]
+    hit = set(p.entities[1::2])
+    cols = [c for c in C.SCHEMAS[wf][t] if c != key]
+    if form == "blank":
+        for r in p.tables[t]:
+            if r[key] in hit:
+                for c in cols:
+                    r[c] = ""
+    elif form == "row":
+        p.tables[t] = [r for r in p.tables[t] if r[key] not in hit]
+    else:
+        p.tables[t] = []
+    p.labels = {f"{c.rule_id}::{e}": C.label(c, p.tables, e) for c in C.RULES[wf] for e in p.entities}
+    p.packet_id = f"{wf}-{seed}-{form}"
+    return p
+
+
+def gap_firm(wf: str, seed: int, form: str) -> Firm:
+    p = gap_packet(wf, seed, form)
+    d = DIR / "C" / wf / form / f"s{seed}"
+    sources = C.write_packet(p, d, True)
+    if form == "table":
+        tpath = sources.pop(TARGET[wf])
+        tpath.unlink()
+    pairs = [Pair.make(c.rule_id, e) for c in C.RULES[wf] for e in p.entities]
+    labels = [Label(pair_id=pr.pair_id, verdict=Verdict(p.labels[pr.pair_id].label),
+                    basis=p.labels[pr.pair_id].kind) for pr in pairs]
+    return Firm(firm_id=f"study11-{wf}-{form}-s{seed}", name=f"Case file {wf}-{seed}", as_of="2026-10-07",
+                sources=sources, entities=[Entity(e, "entity", e) for e in p.entities], pairs=pairs, labels=labels,
+                provenance={"seed": seed, "workflow": wf, "part": "C", "form": form, "header": "Case file"})
