@@ -45,6 +45,9 @@ ARMS = ("lca_only", "salary", "complete")
 #   pay_rate_only     roster with "Pay Rate" alone
 #   pay_context_only  roster with "Pay Type" and "Pay Schedule" alone
 STUDY7_ARMS = ("pay_rate_only", "pay_context_only")
+# Study 8 (docs/STUDY8_DECLARATION.md): Pay Rate alone at a value unlike the LCA wage, and a
+# complete arm whose actual wage exceeds the offered wage (greater-of underpayments).
+STUDY8_ARMS = ("pay_rate_shifted", "complete_actual_above")
 N_FIRMS, PER_FIRM = 12, 10
 SEED = 20261006
 FIRST = ["Aarav", "Mei", "Lucas", "Sofia", "Omar", "Priya", "Daniel", "Yuki", "Elena", "Kwame",
@@ -78,20 +81,39 @@ def build(arm: str) -> list[Firm]:
             ok = rng.random() < 0.5
             k = rng.randint(1, 10)
             annual = required + 1200 * k if ok else required - 1200 * k
+            kind = ""
+            if arm == "complete_actual_above":
+                # own stream, so the other arms' draws are untouched
+                r8 = random.Random(f"{SEED}-s8-{fi}-{j}")
+                actual = round(offered * 1.06 / 100) * 100
+                required = max(actual, float(r["PREVAILING_WAGE"]))
+                u = r8.random()
+                ok = u < 0.5
+                if ok:
+                    annual = required + 1200 * r8.randint(1, 10)
+                elif u < 0.75:  # paid at or above the offered wage, below the actual wage
+                    annual = offered + (required - offered) * r8.uniform(0.1, 0.8)
+                    kind = "greater_of_only"
+                else:
+                    annual = min(offered, float(r["PREVAILING_WAGE"])) - 1200 * r8.randint(1, 10)
+                    kind = "below_offered"
             workers.append({
                 "id": f"{fi + 1:02d}{j + 1:02d}", "first": rng.choice(FIRST), "last": rng.choice(LAST),
                 "row": r, "hire": _xl_date(r["BEGIN_DATE"]), "offered": offered, "required": required,
                 "semimonthly": (math.ceil if ok else math.floor)(annual / 24 * 100) / 100, "ok": ok,
+                "actual": actual if arm == "complete_actual_above" else offered, "kind": kind,
             })
         sources = {}
         p = d / "hris_roster_export.csv"
         with p.open("w", newline="") as fh:
             w = csv.writer(fh)
-            cols = {"salary": (0, 1, 2), "complete": (0, 1, 2), "pay_rate_only": (0,), "pay_context_only": (1, 2)}.get(arm, ())
+            cols = {"salary": (0, 1, 2), "complete": (0, 1, 2), "pay_rate_only": (0,), "pay_context_only": (1, 2),
+                    "pay_rate_shifted": (0,), "complete_actual_above": (0, 1, 2)}.get(arm, ())
             w.writerow(["Employee #", "First Name", "Last Name", "Job Title", "Hire Date", "Employment Status",
                         "Work Authorization Type", *(["Pay Rate", "Pay Type", "Pay Schedule"][c] for c in cols)])
             for x in workers:
-                pay = [f"{x['offered']:.2f} USD", "Salary", "Twice a month"]
+                rate = round(x["offered"] * 1.07 / 100) * 100 if arm == "pay_rate_shifted" else x["offered"]
+                pay = [f"{rate:.2f} USD", "Salary", "Twice a month"]
                 w.writerow([x["id"], x["first"], x["last"], x["row"]["JOB_TITLE"], x["hire"].isoformat(), "Full-Time",
                             "H-1B", *(pay[c] for c in cols)])
         sources["hris_roster_export"] = p
@@ -108,7 +130,7 @@ def build(arm: str) -> list[Firm]:
                          END_DATE=_xl_date(x["row"]["END_DATE"]).isoformat())
                 w.writerow([x["id"], *(r[c] for c in cols)])
         sources["lca_export"] = p
-        if arm == "complete":
+        if arm in ("complete", "complete_actual_above"):
             p = d / "payroll_register.csv"
             with p.open("w", newline="") as fh:
                 w = csv.writer(fh)
@@ -125,7 +147,7 @@ def build(arm: str) -> list[Firm]:
                 w = csv.writer(fh)
                 w.writerow(["CASE_NUMBER", "JOB_TITLE", "ACTUAL_WAGE_FOR_SIMILARLY_EMPLOYED_ANNUAL", "BASIS"])
                 for x in workers:
-                    w.writerow([x["row"]["CASE_NUMBER"], x["row"]["JOB_TITLE"], f"{x['offered']:.2f}",
+                    w.writerow([x["row"]["CASE_NUMBER"], x["row"]["JOB_TITLE"], f"{x['actual']:.2f}",
                                 "Employer actual wage system: rate paid to workers with similar experience and "
                                 "qualifications in this role"])
             sources["actual_wage_system"] = p
@@ -135,15 +157,17 @@ def build(arm: str) -> list[Firm]:
             entities.append(Entity(case, "lca", f"LCA {case}"))
             pair = Pair.make(RULE, case)
             pairs.append(pair)
-            v = (Verdict.PASS if x["ok"] else Verdict.FAIL) if arm == "complete" else Verdict.NEEDS_EVIDENCE
+            v = ((Verdict.PASS if x["ok"] else Verdict.FAIL) if arm in ("complete", "complete_actual_above")
+                 else Verdict.NEEDS_EVIDENCE)
             labels.append(Label(pair_id=pair.pair_id, verdict=v,
-                                basis="real_lca_constructed_pay" if arm == "complete" else "no_record_of_wages_paid",
+                                basis="real_lca_constructed_pay" if arm in ("complete", "complete_actual_above") else "no_record_of_wages_paid",
+                                note=x["kind"],
                                 severity=Severity.HIGH if v is Verdict.FAIL else None,
                                 evidence_fields=("payroll_register", "actual_wage_system")))
         firms.append(Firm(firm_id=f"real-lca-{fi + 1:02d}-study5-{arm}", name=f"Employer {fi + 1:02d}",
                           as_of=AS_OF.isoformat(), sources=sources, entities=entities, pairs=pairs, labels=labels,
                           provenance={"seed": fi + 1, "study": "study5", "arm": arm, "real_lca_rows": True,
-                                      "withheld_exports": [] if arm == "complete" else ["payroll", "actual_wage"]}))
+                                      "withheld_exports": [] if arm in ("complete", "complete_actual_above") else ["payroll", "actual_wage"]}))
     return firms
 
 
