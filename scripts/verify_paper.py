@@ -42,11 +42,28 @@ if "--no-rebuild" not in sys.argv:
                                         "study3b/results.json", "study3c/results.json", "study4/results.json",
                                         "study6/study4_results.json", "study5/results.json", "study6/study5_results.json",
                                         "study7/results.json", "study8/results.json", "ai_pilot_review/results.json")]
+    import os
     before = {f: hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None for f in outs}
+    # A scorer that fails leaves the old file in place, which would hash as "identical";
+    # so delete each output first and require every scorer to exit cleanly.
+    for f in outs:
+        if f.exists():
+            f.rename(f.with_suffix(".json.prev"))
+    SCORER_FAILURES = []
+    env = {**os.environ, "PYTHONHASHSEED": "0"}
     for args in REBUILD:
-        subprocess.run([sys.executable, str(ROOT / "scripts" / args[0]), *args[1:]], cwd=ROOT,
-                       capture_output=True, text=True)
-    REBUILT = {f: (before[f], hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None) for f in outs}
+        r = subprocess.run([sys.executable, str(ROOT / "scripts" / args[0]), *args[1:]], cwd=ROOT,
+                           capture_output=True, text=True, env=env)
+        if r.returncode != 0:
+            SCORER_FAILURES.append((" ".join(args), r.stderr.strip().splitlines()[-1:] if r.stderr else []))
+    after = {f: hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None for f in outs}
+    for f in outs:
+        prev = f.with_suffix(".json.prev")
+        if not f.exists() and prev.exists():
+            prev.rename(f)  # restore so the text checks below still run; the rebuild check fails
+        elif prev.exists():
+            prev.unlink()
+    REBUILT = {f: (before[f], after[f]) for f in outs}
 
 
 def claim(cond: bool, label: str) -> None:
@@ -66,6 +83,8 @@ regimes = rb.rule_regimes()
 scored = {n: score(firm.labels, fn(firm), rule_regimes=regimes) for n, fn in REGISTRY.items()}
 
 print("rebuild from retained replies")
+if "--no-rebuild" not in sys.argv:
+    claim(not SCORER_FAILURES, f"every scorer exited cleanly (failures: {SCORER_FAILURES})")
 for _f, (_b, _a) in REBUILT.items():
     claim(_a is not None and _b == _a, f"{_f.relative_to(ROOT)} rebuilt byte-identical from retained replies")
 
@@ -700,7 +719,11 @@ claim(all(_f8[k]["outcome"] == "confirmed" and _f8[k]["firms_positive"] == 10 an
           for k in ("F1", "F2", "F3", "F4"))
       and all(f"+{_f8[k]['delta']:.3f}" in _flat for k in ("F1", "F2", "F3", "F4")), "Study 8: F1-F4")
 _pr8 = _S8["fresh_per_run"]
-claim(max(abs(v["r0"] - v["r1"]) for v in _pr8.values()) <= 0.02 and "agreed to within 0.02" in _flat, "Study 8: runs agree")
+_pmr = _S8["fresh_per_model_per_run"]
+_mx = max((abs(v["r0"] - v["r1"]), k, m) for k, mm in _pmr.items() for m, v in mm.items())
+claim(max(abs(v["r0"] - v["r1"]) for v in _pr8.values()) <= 0.02 and "pooled estimates from the two runs agreed to within 0.02" in _flat
+      and _mx[2] == "glm-5.2-maas" and _mx[1].startswith("F4") and f"GLM-5.2's F4 by {_mx[0]:.3f}" in _flat
+      and f"single models by up to {_mx[0]:.3f}" in _flat, "Study 8: pooled vs per-model run agreement")
 _pm8 = _S8["fresh_per_model"]["F1 proxy - plain, offered"]
 claim(min(_pm8.values()) > 0 and f"+{min(_pm8.values()):.3f} (Gemini 3.1 Pro) to +{max(_pm8.values()):.3f} (Gemma 4)" in _flat
       and min(_pm8, key=_pm8.get) == "gemini-3.1-pro-preview" and max(_pm8, key=_pm8.get) == "gemma-4-26b-a4b-it-maas",
@@ -708,11 +731,25 @@ claim(min(_pm8.values()) > 0 and f"+{min(_pm8.values()):.3f} (Gemini 3.1 Pro) to
 claim(_f8["G1"]["outcome"] == "confirmed" and f"raised false greens by {_f8['G1']['delta']:.3f}\n(Holm p = {_f8['G1']['p_holm']:.3f}, positive in eleven".replace("\n", " ") in _flat
       and _f8["G1"]["firms_positive"] == 11, "Study 8: G1")
 _gr = _S8["greater_of_recall"]
-claim(_f8["G2"]["outcome"] == "not confirmed" and f"(G2, {_f8['G2']['delta']:.3f}, not confirmed)".replace("-", "−") in _flat
+_g2 = _f8["G2"]
+claim(_g2["outcome"] == "not confirmed"
+      and f"(G2, {_g2['delta']:.3f} [{_g2['ci95_firm_bootstrap'][0]:.3f}, +{_g2['ci95_firm_bootstrap'][1]:.3f}], ten firms, not confirmed)".replace("-", "−") in _flat
+      and f"{_gr['deepseek-v3.2-maas::greater_of_only']:.3f} of them against {_gr['deepseek-v3.2-maas::below_offered']:.3f}" in _flat
       and _gr["gemini-3.1-pro-preview::greater_of_only"] == 1 and _gr["glm-5.2-maas::greater_of_only"] == 1
       and f"Flash {_gr['gemini-3.8-flash::greater_of_only']:.3f}" in _flat
       and f"flagged {_gr['deepseek-v3.2-maas::false_alarm']:.3f} of correctly paid" in _flat, "Study 8: G2 and recall")
 claim(f"{_S8['fresh_coverage_min']} of {_S8['fresh_n_unassessable']} pairs" in _flat, "Study 8: coverage")
+
+_go = _S7["google_only_posthoc"]
+claim(f"`Pay Rate` alone gives +{_go['pay_rate_only - lca_only']:.3f} against +{_go['salary - lca_only']:.3f} for the three fields" in _flat
+      and sum(v > 0 for v in _S7["per_model"]["pay_rate_only - lca_only"].values()) == 3
+      and "column alone induced false greens in three of five models" in _AB, "Study 7: Google-only diagnostic and abstract claim")
+_lab8 = json.loads((ROOT / "docs" / "study8" / "results.json").read_text())
+from nofalsegreen import study5 as _s5  # noqa: E402
+from collections import Counter as _C  # noqa: E402
+_kinds = _C(l.note for f in _s5.build("complete_actual_above") for l in f.labels if l.verdict.value == "fail")
+claim(_kinds["greater_of_only"] == 38 and _kinds["below_offered"] == 24
+      and "these 38 underpayments and on the 24 below the offered wage" in _flat, "Study 8: G2 denominators")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))

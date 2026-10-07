@@ -106,8 +106,9 @@ def main() -> int:
 
     def diffs(m, a1, c1, a2, c2):
         va, vb = preds[(m, a1, c1)], preds[(m, a2, c2)]
+        # sorted, so float sums do not depend on set iteration order (hash seed)
         return {k: float(vb[k].verdict.value == "pass") - float(va[k].verdict.value == "pass")
-                for k in unassessable if k in va and k in vb}
+                for k in sorted(unassessable) if k in va and k in vb}
 
     def estimate(spec):
         ds = [d for d in (diffs(m, *spec) for m in MODELS) if d]
@@ -133,7 +134,9 @@ def main() -> int:
                            ("definition and warning (closed -> dashboard)", "abstain_closed", "abstain_withheld"))
         for arm in ("plain", "decoy")}
 
-    # 3. cluster sign counts for the proxy-column effect
+    # 3. cluster sign counts for the proxy-column effect, in exact arithmetic (a cluster
+    # whose mean difference is exactly zero must count as zero, not as a rounding residue)
+    from fractions import Fraction
     signs = {}
     for cond in ("abstain_withheld", "abstain_offered"):
         per_cluster = []
@@ -141,7 +144,7 @@ def main() -> int:
             ms = []
             for m in MODELS:
                 d = diffs(m, "plain", cond, "decoy", cond)
-                xs = [d[k] for k in clusters[cl] if k in d]
+                xs = [Fraction(int(d[k])) for k in clusters[cl] if k in d]
                 if xs:
                     ms.append(sum(xs) / len(xs))
             per_cluster.append(sum(ms) / len(ms))

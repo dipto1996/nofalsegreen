@@ -133,8 +133,8 @@ def main() -> int:
             xs = list(fe.values())
             obs = sum(xs) / len(xs)
             pats = itertools.product((1, -1), repeat=len(xs))
-            perm = [abs(sum(sg * x for sg, x in zip(pt, xs)) / len(xs)) for pt in pats]
-            pval = sum(v >= abs(obs) - 1e-12 for v in perm) / len(perm)
+            perm_f = [abs(sum(sg * x for sg, x in zip(pt, xs)) / len(xs)) for pt in pats]
+            pval = sum(v >= abs(obs) - 1e-12 for v in perm_f) / len(perm_f)
             fs_ = list(fe)
             boots = sorted(sum(fe[f] for f in pick) / len(pick)
                            for pick in ([rng.choice(fs_) for _ in fs_] for _ in range(2000)))

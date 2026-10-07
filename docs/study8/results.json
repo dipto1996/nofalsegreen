@@ -48,6 +48,96 @@
    "r1": 0.7093
   }
  },
+ "fresh_per_model_per_run": {
+  "F1 proxy - plain, offered": {
+   "gemini-3.1-pro-preview": {
+    "r0": 0.0424,
+    "r1": 0.0333
+   },
+   "gemini-3.8-flash": {
+    "r0": 0.1182,
+    "r1": 0.0939
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "r0": 0.7939,
+    "r1": 0.797
+   },
+   "deepseek-v3.2-maas": {
+    "r0": 0.0636,
+    "r1": 0.0879
+   },
+   "glm-5.2-maas": {
+    "r0": 0.097,
+    "r1": 0.1152
+   }
+  },
+  "F2 proxy - irrelevant, offered": {
+   "gemini-3.1-pro-preview": {
+    "r0": 0.0424,
+    "r1": 0.0333
+   },
+   "gemini-3.8-flash": {
+    "r0": 0.1182,
+    "r1": 0.0939
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "r0": 0.7909,
+    "r1": 0.7939
+   },
+   "deepseek-v3.2-maas": {
+    "r0": 0.0636,
+    "r1": 0.0879
+   },
+   "glm-5.2-maas": {
+    "r0": 0.097,
+    "r1": 0.1152
+   }
+  },
+  "F3 dashboard - offered, proxy firms": {
+   "gemini-3.1-pro-preview": {
+    "r0": 0.6182,
+    "r1": 0.6394
+   },
+   "gemini-3.8-flash": {
+    "r0": 0.6864,
+    "r1": 0.7121
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "r0": 0.1788,
+    "r1": 0.1788
+   },
+   "deepseek-v3.2-maas": {
+    "r0": 0.6364,
+    "r1": 0.6394
+   },
+   "glm-5.2-maas": {
+    "r0": 0.903,
+    "r1": 0.8848
+   }
+  },
+  "F4 renamed - plain, dashboard": {
+   "gemini-3.1-pro-preview": {
+    "r0": 0.6,
+    "r1": 0.603
+   },
+   "gemini-3.8-flash": {
+    "r0": 0.7242,
+    "r1": 0.7346
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "r0": 0.8455,
+    "r1": 0.8121
+   },
+   "deepseek-v3.2-maas": {
+    "r0": 0.5242,
+    "r1": 0.5636
+   },
+   "glm-5.2-maas": {
+    "r0": 0.7574,
+    "r1": 0.8331
+   }
+  }
+ },
  "fresh_names_descriptive": {
   "proxy - renamed, offered, per model": {
    "gemini-3.1-pro-preview": 0.0379,

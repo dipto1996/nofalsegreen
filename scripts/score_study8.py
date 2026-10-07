@@ -88,6 +88,8 @@ def main() -> int:
                                   for m in MODELS} for k, v in specs.items()}
     out["fresh_per_run"] = {k: {r: round(sum(fd(*v, runs=[r]).values()) / max(1, len(fd(*v, runs=[r]))), 4)
                                 for r in RUNS} for k, v in specs.items()}
+    out["fresh_per_model_per_run"] = {k: {m: {r: round(sum(fd(*v, runs=[r], models=[m]).values()) / max(1, len(fd(*v, runs=[r], models=[m]))), 4)
+                                              for r in RUNS} for m in MODELS} for k, v in specs.items()}
     out["fresh_names_descriptive"] = {"proxy - renamed, offered, per model":
                                       {m: round(sum(fd(("proxy", OFF), ("renamed", OFF), models=[m]).values()) / 10, 4) for m in MODELS}}
     out["fresh_coverage_min"] = min(len([k for k in unass if k in d]) for d in pa.values()) if pa else None

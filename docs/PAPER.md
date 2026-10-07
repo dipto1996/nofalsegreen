@@ -19,8 +19,8 @@ exact permutation p ≤ 0.0013, Holm). Declared follow-ups locate the
 effect: proxy columns raise false greens more than irrelevant columns do; removing the
 abstaining verdicts (+0.384) or a one-sentence warning (+0.093) raises them; an
 evidence-first prompt lowers them (−0.074); and on 120 real public LCA records a
-roster's pay fields raised them by 0.236 with abstention offered, most of it from the
-salary-of-record column alone. Averaged over DeepSeek V3.2 and
+roster's pay fields raised them by 0.236 with abstention offered, and the salary-of-record
+column alone induced false greens in three of five models. Averaged over DeepSeek V3.2 and
 GLM-5.2, these replicate, and the core effects replicate again on ten fresh firms with five
 models and two runs. Two findings on Google's models do not: that the columns' names
 drive the effect, and that redefining `pass` does not matter.
@@ -544,8 +544,10 @@ twelve real-LCA firms under the offered schema, on all five models.
   `Pay Rate` alone, all three fields raised Flash's false greens by 0.342 and GLM-5.2's by
   0.244.
 
-The salary of record therefore carries the effect for most models, and the surrounding pay
-context strengthens it for some. GLM-5.2 answered 100 of 120 pairs in the `Pay Rate` arm.
+The salary of record alone induces false greens in three of five models, and the
+surrounding pay context strengthens the response in some. Study 7's five-model estimate is not
+a share of Study 5's three-model one: restricted to Study 5's three models, `Pay Rate` alone
+gives +0.108 against +0.236 for the three fields together. GLM-5.2 answered 100 of 120 pairs in the `Pay Rate` arm.
 
 ### 6.9 Study 8: fresh firms, repeat runs and two wage controls
 
@@ -556,7 +558,8 @@ wage; and its complete arm made the greater-of rule trivial. Study 8, declared b
 **Fresh firms, repeat runs.** Ten new firms that withhold the I-9 export were rendered plain,
 with proxy columns, with irrelevant columns and with renamed proxy values. All five models ran
 them twice under both schemas. All four declared tests were confirmed (Holm p = 0.010 each),
-positive in all ten firms, and the two runs agreed to within 0.02:
+positive in all ten firms. The pooled estimates from the two runs agreed to within 0.02,
+though single models moved more (GLM-5.2's F4 by 0.076):
 
 | Test | Effect |
 |---|---|
@@ -574,10 +577,12 @@ The proxy effect under the offered schema was positive for every model, from +0.
   (Holm p = 0.006, positive in eleven firms), so the effect does not depend on the roster
   repeating the LCA's number.
 - **G2.** A complete arm whose actual-wage export exceeds the offered wage contains
-  underpayments visible only under the greater-of rule. Models detected these as often as
-  underpayments below the offered wage (G2, −0.028, not confirmed): Gemini 3.1 Pro and GLM-5.2
-  detected all of them and Flash 0.947. DeepSeek V3.2 detected about half of each kind, but
-  also flagged 0.569 of correctly paid workers.
+  underpayments visible only under the greater-of rule. We found no significant pooled
+  difference between recall on these 38 underpayments and on the 24 below the offered wage
+  (G2, −0.028 [−0.115, +0.053], ten firms, not confirmed); this does not show the two are
+  detected equally often. Gemini 3.1 Pro and GLM-5.2 detected every greater-of-only
+  underpayment and Flash 0.947. DeepSeek V3.2 detected 0.526 of them against 0.667 of those
+  below the offered wage, and also flagged 0.569 of correctly paid workers.
 
 The lowest coverage in Part A was 291 of 330 pairs (GLM-5.2 again exceeding its output budget
 on renamed values under the dashboard schema).
@@ -642,7 +647,8 @@ standard a monitoring product implies.
 - **Statistics.** Study 3 has 18 clusters, its I-9 effect three firms (Studies 3c and 4 add
   ten), and pooled estimates weight particular models equally and depend on the mix of firms.
   Study 3's cells were run once; repeat runs in Study 4 moved per-model rates by at most 0.100,
-  and Study 8's two runs on fresh firms agreed to within 0.02.
+  and Study 8's pooled estimates from two runs on fresh firms agreed to within 0.02 (single
+  models by up to 0.076).
 - **Model coverage is narrow.** No closed OpenAI, Anthropic or xAI model was evaluated: on
   Vertex AI they are sold through Google Cloud Marketplace, which the study's cloud credits do
   not cover, and the study used no other funds; Studies 3b and 3c use only the three Google models, and Studies 4 and 5 add two

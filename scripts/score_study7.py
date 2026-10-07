@@ -88,6 +88,23 @@ def main() -> int:
     out["per_model"] = {f"{b} - {a}": {m: per_model(b, a, m) for m in MODELS}
                         for b, a in (("pay_rate_only", "lca_only"), ("pay_context_only", "lca_only"),
                                      ("salary", "lca_only"), ("salary", "pay_rate_only"))}
+    # post hoc diagnostic: the same estimator restricted to Study 5's three Google models
+    google = [m.split("/")[-1] for m in study4.MODELS]
+
+    def firm_diff_models(b, a, models):
+        res = {}
+        for fs in fids:
+            per = []
+            for m in models:
+                db, da = preds.get((m, b), {}), preds.get((m, a), {})
+                ks = [k for k in keys if k.startswith(fs + "|") and k in db and k in da]
+                if ks:
+                    per.append(sum((db[k] == "pass") - (da[k] == "pass") for k in ks) / len(ks))
+            if per:
+                res[fs] = sum(per) / len(per)
+        return round(sum(res.values()) / len(res), 4) if res else None
+    out["google_only_posthoc"] = {"pay_rate_only - lca_only": firm_diff_models("pay_rate_only", "lca_only", google),
+                                  "salary - lca_only": firm_diff_models("salary", "lca_only", google)}
     out["answered"] = {f"{m}::{a}": len(preds.get((m, a), {})) for m in MODELS for a in ARMS}
     out["fgr_all_pairs"] = {f"{m}::{a}": round(sum(v == "pass" for v in preds.get((m, a), {}).values()) / 120, 4)
                             for m in MODELS for a in ARMS}
