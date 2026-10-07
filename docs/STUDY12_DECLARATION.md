@@ -47,3 +47,11 @@ It licenses reading a column as the required fact by meaning.
 ## Deviations
 
 Any departure from this declaration will be reported in the paper.
+
+## Addendum, 2026-10-07, before the calls it describes
+
+A review noted that M2 compares fresh replies without the reading rule against retained replies
+with it, run on earlier days. The original offered prompt is therefore re-run on the Study 3c
+proxy-column firms with all five models, with run tag `#r12`, at the same time as no other
+change. M2 is re-estimated against these contemporaneous replies by the same estimator and
+reported beside the declared estimate. The declared estimate is unchanged.
