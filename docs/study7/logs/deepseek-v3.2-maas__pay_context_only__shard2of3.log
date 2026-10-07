@@ -1,0 +1,41 @@
+Study 5 (pay_context_only): 12 firms x 10 pairs
+shard 2/3: ['real-lca-03-study5-pay_context_only', 'real-lca-06-study5-pay_context_only', 'real-lca-09-study5-pay_context_only', 'real-lca-12-study5-pay_context_only']
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered']
+
+      batch 1/1 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 2s
+        attempt 1: 291 output tokens, 8s, finish=stop, ok
+  real-lca-03-study5-pay_context_only FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 291 output tokens, 13s, finish=stop, ok
+  real-lca-06-study5-pay_context_only FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 270 output tokens, 11s, finish=stop, ok
+  real-lca-09-study5-pay_context_only FGR 0.900  recall 0.000  absF1 0.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 291 output tokens, 7s, finish=stop, ok
+  real-lca-12-study5-pay_context_only FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (1 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::abstain_offered: FGR 0.225 (sd 0.450)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study7/runs/deepseek-v3.2-maas__pay_context_only__shard2of3.json

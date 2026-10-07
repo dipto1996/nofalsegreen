@@ -268,6 +268,20 @@ def main() -> int:
         share[m] = sum(1 for k in unass if k in a and k in b and a[k].verdict.value == "pass") - \
             sum(1 for k in unass if k in a and k in b and b[k].verdict.value == "pass")
     tot = sum(share.values())
+    # per-model effect of each declared contrast (all paired pairs; post hoc, descriptive)
+    def pm(m, b, a, outcome="pass"):
+        vals = []
+        for (ab, vb), (aa, va) in zip(b, a):
+            db, da = preds.get((m, "r0", ab, vb), {}), preds.get((m, "r0", aa, va), {})
+            ks = [k for k in unass if k in db and k in da]
+            if ks:
+                vals.append(sum(ind(db[k], outcome) - ind(da[k], outcome) for k in ks) / len(ks))
+        return round(sum(vals) / len(vals), 4) if vals else None
+    specs = {"H1": ([("proxy", OFF)], [("renamed", OFF)], "pass"), "H2": ([("proxy", OFF)], [("irrelevant", OFF)], "pass"),
+             "H3": ([("adverse", OFF)], [("plain", OFF)], "fail"), "H4": (*main_effect("proxy", "o"), "pass"),
+             "H5": (*main_effect("proxy", "d"), "pass"), "H6": (*main_effect("proxy", "w"), "pass"),
+             "H7": ([("proxy", OFF)], [("proxy", CITE_FIRST)], "pass")}
+    out["per_model_primary_posthoc"] = {h: {m: pm(m, b, a, oc) for m in models} for h, (b, a, oc) in specs.items()}
     out["proxy_minus_renamed_count_share_posthoc"] = {m: {"count_diff": v, "share": round(v / tot, 4) if tot else None}
                                                       for m, v in share.items()}
 

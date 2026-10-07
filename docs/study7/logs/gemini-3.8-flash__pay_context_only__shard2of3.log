@@ -1,0 +1,21 @@
+Study 5 (pay_context_only): 12 firms x 10 pairs
+shard 2/3: ['real-lca-03-study5-pay_context_only', 'real-lca-06-study5-pay_context_only', 'real-lca-09-study5-pay_context_only', 'real-lca-12-study5-pay_context_only']
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['abstain_offered']
+
+      batch 1/1 (0 parsed so far)
+        attempt 1: 2129 output tokens, 17s, finish=stop, ok
+  real-lca-03-study5-pay_context_only FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 1292 output tokens, 9s, finish=stop, ok
+  real-lca-06-study5-pay_context_only FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 1303 output tokens, 9s, finish=stop, ok
+  real-lca-09-study5-pay_context_only FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (1 calls)
+      batch 1/1 (0 parsed so far)
+        attempt 1: 900 output tokens, 6s, finish=stop, ok
+  real-lca-12-study5-pay_context_only FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (1 calls)
+
+  vertex/gemini-3.8-flash#r0::abstain_offered: FGR 0.000 (sd 0.000)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study7/runs/gemini-3.8-flash__pay_context_only__shard2of3.json

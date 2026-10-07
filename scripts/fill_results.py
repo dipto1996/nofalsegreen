@@ -617,7 +617,9 @@ def table_study6() -> str:
     rows.append("")
     rows.append("Effects on the false-green rate (H3: on `fail`), each model weighted equally; Holm-adjusted exact "
                 "sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. "
-                "Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models.")
+                "Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired "
+                "on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's "
+                "contrast averages the remaining models. Per-model directions are in Section 6.7.")
     return "\n".join(rows)
 
 

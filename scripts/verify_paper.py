@@ -518,7 +518,7 @@ def _alloc(arm, cond, verdict):
     return f"{sum(sh) / len(sh):.3f}"
 
 
-_flat = paper.replace("\n", " ")
+_flat = re.sub(r"\s+", " ", paper)
 claim(f"{_alloc('decoy', 'abstain_offered', 'needs_evidence')} of unassessable pairs were answered `needs_evidence`, "
       f"{_alloc('decoy', 'abstain_offered', 'pass')} `pass` and {_alloc('decoy', 'abstain_offered', 'fail')} `fail`" in _flat
       and f"{_alloc('decoy', 'abstain_withheld', 'pass')} were `pass` and {_alloc('decoy', 'abstain_withheld', 'fail')} `fail`" in _flat,
@@ -587,12 +587,12 @@ claim("table-study4" in paper, "Study 4 table is generated")
 _S5 = json.loads((ROOT / "docs" / "study5" / "results.json").read_text())
 _P5, _C5 = _S5["primary"], _S5["cells"]
 _r = {k[:2]: v for k, v in _P5.items()}
-claim(f"raised false greens by {_r['R1']['delta']:.3f} (R1, Holm p = {_r['R1']['p_holm']:.3f})" in _flat
+claim(f"raised false greens by {_r['R1']['delta']:.3f} (R1, Holm p = {_r['R1']['p_holm']:.3f};" in _flat
       and f"rose a further {_r['R2']['delta']:.3f} with it (R2, not\nconfirmed)".replace("\n", " ") in _flat
       and _r["R2"]["outcome"] == "not confirmed"
       and f"raised them by {_r['R3']['delta']:.3f} (R3, Holm p = {_r['R3']['p_holm']:.4f})" in _flat,
       "Study 5: R1-R3")
-claim(f"by {_r['R1']['delta']:.3f} with abstention offered" in _AB, "abstract: Study 5 R1")
+claim(f"raised them by {_r['R1']['delta']:.3f} with abstention offered" in _AB, "abstract: Study 5 R1")
 claim(f"false greens were {_S5['means']['lca_only::abstain_withheld']:.3f} without the pay field" in _flat, "Study 5: dashboard level")
 _g5 = lambda m, a, c: _C5[f"{m}::{a}::{c}"]  # noqa: E731
 claim(all(_g5(m, "lca_only", "abstain_offered")["allocation"] == {"needs_evidence": _g5(m, "lca_only", "abstain_offered")["answered"]}
@@ -626,9 +626,22 @@ claim(f"(+{_q['H2']['delta']:.3f});" in _flat and f"(+{_q['H4']['delta']:.3f});"
       and f"(−{_q['H7']['delta']:.3f});" in _flat and f"raised them by {_q['R1']['delta']:.3f} with abstention offered" in _flat
       and f"raised them by {_q['R3']['delta']:.3f}." in _flat
       and all(_q[k]["outcome"] == "confirmed" for k in ("H2", "H3", "H4", "H6", "H7", "R1", "R3")), "Study 6: replicated tests")
-claim(_q["H1"]["outcome"] == "not confirmed" and f"(H1, {_q['H1']['delta']:.3f})".replace("-", "−") in _flat
-      and _q["H5"]["outcome"] == "confirmed" and _q["H5"]["delta"] > 0 and f"(H5, +{_q['H5']['delta']:.3f})" in _flat
-      and f"(H3, +{_q['H3']['delta']:.3f})" in _flat, "Study 6: H1 not replicated, H5 opposite sign, H3")
+_pm = _S64["per_model_primary_posthoc"]
+claim(_q["H1"]["outcome"] == "not confirmed" and f"did not replicate ({_q['H1']['delta']:.3f})".replace("-", "−") in _flat
+      and _q["H5"]["outcome"] == "confirmed" and _q["H5"]["delta"] > 0 and f"for both models (+{_q['H5']['delta']:.3f})" in _flat
+      and all(v > 0 for v in _pm["H5"].values())
+      and f"suggested a breach (+{_q['H3']['delta']:.3f})" in _flat, "Study 6: H1 not replicated, H5 opposite sign, H3")
+claim(f"raised DeepSeek's false greens by {_pm['H1']['deepseek-v3.2-maas']:.3f}" in _flat
+      and f"lowered GLM-5.2's by {-_pm['H1']['glm-5.2-maas']:.3f}" in _flat
+      and f"came from DeepSeek (+{_pm['H6']['deepseek-v3.2-maas']:.3f}); for GLM-5.2 it was " + f"{_pm['H6']['glm-5.2-maas']:.3f}".replace("-", "−") in _flat,
+      "Study 6: per-model H1 and H6")
+_dc = _S64["cite_first_costs_all_pairs"]
+_do, _df = _dc["proxy::abstain_offered"]["deepseek-v3.2-maas"], _dc["proxy::cite_first"]["deepseek-v3.2-maas"]
+_dg = _S64["cells"]
+claim(f"from {_dg['proxy::abstain_offered::r0']['by_model']['deepseek-v3.2-maas']['fgr']:.3f} to {_dg['proxy::cite_first::r0']['by_model']['deepseek-v3.2-maas']['fgr']:.3f}" in _flat
+      and f"recall from {_do['recall_all_pairs']:.3f} to {_df['recall_all_pairs']:.3f}" in _flat
+      and f"controls from {_do['false_alarm_any_nonpass_all_pairs']:.3f} to {_df['false_alarm_any_nonpass_all_pairs']:.3f}" in _flat,
+      "Study 6: DeepSeek evidence-first cost")
 _gl = _S64["cells"]
 claim(f"called {_gl['renamed::abstain_offered::r0']['by_model']['glm-5.2-maas']['fgr']:.3f} of unassessable pairs compliant from the renamed values" in _flat
       and _gl["renamed::abstain_offered::r0"]["by_model"]["glm-5.2-maas"]["fgr"] > _gl["proxy::abstain_offered::r0"]["by_model"]["glm-5.2-maas"]["fgr"],
@@ -640,6 +653,20 @@ _cov6 = sorted(330 - v["allocation"].get("unanswered", 0) for c in _gl.values() 
 claim(_cov6[0] == 285 and _cov6[1] == 318 and min(v["answered"] for v in _c6.values()) == 110
       and "285 of 330" in _flat and "least 318 of 330" in _flat and "at least 110 of 120" in _flat, "Study 6: coverage")
 claim("table-study6" in paper, "Study 6 table is generated")
+
+# Study 7 (docs/STUDY7_DECLARATION.md)
+_S7 = json.loads((ROOT / "docs" / "study7" / "results.json").read_text())
+_w = {k[:2]: v for k, v in _S7["primary"].items()}
+_p7 = _S7["per_model"]
+claim(f"raised false greens by {_w['W1']['delta']:.3f} (W1, Holm p = {_w['W1']['p_holm']:.3f}, positive in all twelve" in _flat
+      and _w["W1"]["firms_positive"] == 12 and _w["W2"]["outcome"] == "not confirmed"
+      and f"added {_w['W2']['delta']:.3f} (W2, not confirmed)" in _flat, "Study 7: W1, W2")
+_pr = _p7["pay_rate_only - lca_only"]; _sp = _p7["salary - pay_rate_only"]
+claim(f"+{_pr['deepseek-v3.2-maas']:.3f} for DeepSeek V3.2, +{_pr['gemma-4-26b-a4b-it-maas']:.3f} for Gemma 4, +{_pr['gemini-3.8-flash']:.3f} for Gemini 3.8 Flash" in _flat
+      and _pr["gemini-3.1-pro-preview"] == 0 and _pr["glm-5.2-maas"] == 0
+      and f"Flash's false greens by {_sp['gemini-3.8-flash']:.3f} and GLM-5.2's by {_sp['glm-5.2-maas']:.3f}" in _flat
+      and f"answered {_S7['answered']['glm-5.2-maas::pay_rate_only']} of 120 pairs in the `Pay Rate` arm" in _flat,
+      "Study 7: per-model effects and coverage")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))

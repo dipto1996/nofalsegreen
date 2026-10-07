@@ -19,8 +19,9 @@ exact permutation p ≤ 0.0013, Holm). Declared follow-ups locate the
 effect: proxy columns raise false greens more than irrelevant columns do; removing the
 abstaining verdicts (+0.384) or a one-sentence warning (+0.093) raises them; an
 evidence-first prompt lowers them (−0.074); and on 120 real public LCA records a
-salary-of-record column raised them by 0.236 with abstention offered. These replicate on
-DeepSeek V3.2 and GLM-5.2. Two findings on Google's models do not: that the columns' names
+roster's pay fields raised them by 0.236 with abstention offered, most of it from the
+salary-of-record column alone. Averaged over DeepSeek V3.2 and
+GLM-5.2, these replicate. Two findings on Google's models do not: that the columns' names
 drive the effect, and that redefining `pass` does not matter.
 Labels were checked by an independent program, not by attorneys; all data, prompts and
 replies are released.
@@ -78,7 +79,7 @@ overclaiming, distracting context and answer-menu effects. Our contribution is t
 combination where it has consequences: a four-verdict task over a third party's operational
 exports with a stated primary-record standard (§3); a generator that fixes labels before data
 and renders paired firms that differ only in added columns, with labels re-derived by a
-separately written checker (§4); a preregistered study and five declared follow-ups that
+separately written checker (§4); a preregistered study and six declared follow-ups that
 separate the proxy effect into name, value and direction and the schema effect into its parts,
 and replicate it on real public LCA records and on two more developers' models (§6); evidence that a deterministic compliance
 engine acquired the same shortcut (Appendix H); and a release in which every number in the paper is recomputed from retained replies by
@@ -154,9 +155,13 @@ item is absent for the entity, the pair is **unassessable** and any verdict but
 | `unmonitored` | No employer export could evidence it |
 
 **What counts as evidence.** We score a primary-record standard: an obligation is evidenced
-only by the record the law requires the employer to keep. For I-9 timeliness that is the form,
-whose dates the employer must retain and produce for inspection (8 C.F.R. 274a.2(b)(2)); for
-the LCA wage it is the payroll record of wages paid (20 C.F.R. 655.731(b)(1), (c)). An HR
+only by the record the law requires the employer to keep. The standard follows what the
+regulations make inspectable. An I-9 inspection is "an inspection of Forms I-9" on three
+business days' notice (8 C.F.R. 274a.2(b)(2)(ii)), so timeliness is shown by the form's dates.
+The LCA wage "must be paid to the employee, cash in hand, free and clear, when due" (20 C.F.R.
+655.731(c)(1)), and the employer must keep documentation proving it (655.731(b)(1)), so the
+wage is shown by the record of wages paid, not by a salary of record or the LCA's offered
+wage. An HR
 status, onboarding date or salary of record is the employer's statement about those records.
 A monitoring product's green cell implies an inspector would find the record in order, which
 only the record supports. A proxy-accepting standard is defensible for triage, and a reader
@@ -433,14 +438,17 @@ field, a salary of record set to the LCA's offered wage. A third arm adds a payr
 and an actual-wage export, making every pair decidable.
 
 With abstention offered and no pay field, Gemini 3.1 Pro and 3.8 Flash answered
-`needs_evidence` on every pair, while Gemma 4 called 0.825 of them compliant. Adding the salary
-of record raised false greens by 0.236 (R1, Holm p = 0.016): Flash then called half the pairs
+`needs_evidence` on every pair they answered (Flash answered 119 of 120), while Gemma 4 called
+0.825 of them compliant. Adding the
+roster's pay fields raised false greens by 0.236 (R1, Holm p = 0.016; paired on pairs answered
+in both arms, so the firm where Gemma 4 answered no salary-arm pair averages the other two
+models; the equally weighted all-pair rates are 0.275 and 0.469): Flash then called half the pairs
 compliant and cited `Pay Rate` on 40 of its 60, while Pro stayed at zero. Under the dashboard
 schema false greens were 0.861 without the pay field and rose a further 0.108 with it (R2, not
 confirmed); removing the abstaining verdicts raised them by 0.586 (R3, Holm p = 0.0015). Given
 the payroll register, Pro and Flash detected every underpaid worker with no false alarm, so
-their abstention was not indiscriminate; Gemma 4 detected 0.066 of them. On real records the
-wage rule thus shows both effects of Study 3, the proxy effect with abstention offered in two
+their abstention was not indiscriminate; Gemma 4 detected 0.066 of them. With real LCA records inside
+constructed employers, the wage rule thus shows both effects of Study 3, the proxy effect with abstention offered in two
 of three models.
 
 ### 6.6 What models rely on
@@ -471,28 +479,35 @@ falls mostly on the false-green side.
 Studies 3b–5 used only Google's models. Study 6, declared before any call (commit
 `d03c7ee`), ran every declared Study 4 and Study 5 cell, unchanged, on DeepSeek V3.2 and
 GLM-5.2 (Zhipu AI), current models from other developers that Google serves on Vertex as
-pay-per-token models. Seven of the ten declared tests replicated with the same sign
-(Table 6):
+pay-per-token models. Averaged over the two models, as declared, seven of the ten tests
+replicated with the same sign (Table 6):
 
 - proxy columns raised false greens more than irrelevant columns did (+0.118);
 - removing the abstaining verdicts raised them (+0.645);
 - the evidence-first prompt lowered them (−0.097);
-- on the real LCA records, a salary of record raised them by 0.562 with abstention offered,
-  and removing abstention raised them by 0.892.
+- on the real LCA records, the pay fields raised them by 0.562 with abstention offered, and
+  removing abstention raised them by 0.892.
 
-Two findings on Google's models did not generalise:
+Averages can hide disagreement between models:
 
-- **Names.** Renamed proxy values were as persuasive as named ones (H1, −0.009). GLM-5.2
-  called 0.211 of unassessable pairs compliant from the renamed values, more than from the
-  named columns.
-- **Definitions.** Bare definitions *raised* false greens (H5, +0.056), the reverse of the
-  Google models' non-significant −0.039.
+- **Warning (H6).** The warning's effect came from DeepSeek (+0.059); for GLM-5.2 it was
+  −0.005.
+- **Names (H1).** The pooled names advantage did not replicate (−0.009) because the two models
+  went opposite ways. Named proxies raised DeepSeek's false greens by 0.091 over renamed ones
+  and lowered GLM-5.2's by 0.091; GLM-5.2 called 0.211 of unassessable pairs compliant from
+  the renamed values. The pooled null shows that names are not necessary for the effect, not
+  that names and values are equivalent.
+- **Definitions (H5).** Bare definitions *raised* false greens for both models (+0.056), the
+  reverse of the Google models' non-significant −0.039. So the names and the wording of `pass`
+  matter in a model-specific way, while the abstaining verdicts and the proxy columns matter
+  for all five models.
+- **Breach proxies (H3).** Both models moved some unassessable pairs to `fail` when the proxies
+  suggested a breach (+0.064), so their substitution runs in both directions.
+- **Cost of the evidence-first prompt.** For DeepSeek the prompt cut false greens from 0.121 to
+  0.015, but it also cut violation recall from 0.133 to 0.067 and raised false alarms on
+  controls from 0.167 to 0.200. It traded one error for others.
 
-So the names and the wording of `pass` matter in a model-specific way, while the
-abstaining verdicts and the proxy columns matter for all five models. Both models also moved
-some unassessable pairs to `fail` when the proxies suggested a breach (H3, +0.064), so their
-substitution runs in both directions. Given complete records, GLM-5.2 detected every underpaid
-worker and DeepSeek V3.2 none.
+Given complete records, GLM-5.2 detected every underpaid worker and DeepSeek V3.2 none.
 
 **Table 6 — The declared tests of Studies 4 and 5 on two model sets.**
 
@@ -510,8 +525,25 @@ worker and DeepSeek V3.2 none.
 | R2 Salary of record, dashboard (real LCAs) | +0.108 (p 0.219, n.s.) | +0.046 (p 0.188, n.s.) | both n.s. |
 | R3 Dashboard − offered (real LCAs) | +0.586 (p 0.001) | +0.892 (p 0.001) | yes |
 
-Effects on the false-green rate (H3: on `fail`), each model weighted equally; Holm-adjusted exact sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models.
+Effects on the false-green rate (H3: on `fail`), each model weighted equally; Holm-adjusted exact sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's contrast averages the remaining models. Per-model directions are in Section 6.7.
 <!-- END GENERATED: table-study6 -->
+
+### 6.8 Study 7: which pay field
+
+Study 5's salary arm adds three roster fields at once: `Pay Rate`, `Pay Type` and `Pay
+Schedule`. Study 7, declared before any call (commit `75a21a1`), added each part alone to the
+twelve real-LCA firms under the offered schema, on all five models.
+
+- **`Pay Rate` alone** raised false greens by 0.227 (W1, Holm p = 0.001, positive in all twelve
+  firms): +0.775 for DeepSeek V3.2, +0.182 for Gemma 4, +0.160 for Gemini 3.8 Flash, and zero
+  for Gemini 3.1 Pro and GLM-5.2.
+- **Pay type and schedule alone** added 0.067 (W2, not confirmed).
+- **The combination.** For two models it went further than the salary alone: relative to
+  `Pay Rate` alone, all three fields raised Flash's false greens by 0.342 and GLM-5.2's by
+  0.244.
+
+The salary of record therefore carries the effect for most models, and the surrounding pay
+context strengthens it for some. GLM-5.2 answered 100 of 120 pairs in the `Pay Rate` arm.
 
 ## 7. The exploratory study that generated the hypotheses
 
@@ -711,6 +743,10 @@ python3 scripts/score_paraphrase.py             # Study 3b
 python3 scripts/score_study3c.py                # Study 3c
 python3 scripts/score_study4.py                 # Study 4
 python3 scripts/score_study5.py                 # Study 5
+python3 scripts/score_study4.py --study6        # Study 6, Study 4 cells
+python3 scripts/score_study5.py --study6        # Study 6, Study 5 cells
+python3 scripts/score_study7.py                 # Study 7
+python3 scripts/score_ai_pilot.py               # Appendix I
 python3 scripts/labelcheck_compare.py           # generated labels vs the reference checker
 python3 scripts/fill_results.py                 # regenerates every table in this paper
 python3 scripts/make_figures.py                 # regenerates every chart
@@ -726,7 +762,9 @@ Program Disclosure Data, FY2026 Q3* (1,032,736 rows), retrieved 2026-10-06. Rows
 a fixed hash of the row number (3,443), restricted to certified H-1B cases with annual wages
 (1,238), and ordered by a seeded hash of the case number; the first 120 were used. Employer,
 FEIN and contact or attorney names were never extracted. The sample, its selection rule and a
-SHA-256 checksum are in `data/real_lca/`.
+SHA-256 checksum are in `data/real_lca/`, with `extract_in_browser.js`, which repeats the extraction in a
+browser (the site refuses scripted downloads) and prints the same checksum. The workbook itself is not
+redistributed.
 
 ## Appendix B: Prompt and protocol
 

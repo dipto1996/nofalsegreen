@@ -1197,6 +1197,36 @@
    }
   }
  },
+ "per_model_primary_posthoc": {
+  "H1": {
+   "deepseek-v3.2-maas": 0.0909,
+   "glm-5.2-maas": -0.0912
+  },
+  "H2": {
+   "deepseek-v3.2-maas": 0.1212,
+   "glm-5.2-maas": 0.1152
+  },
+  "H3": {
+   "deepseek-v3.2-maas": 0.0758,
+   "glm-5.2-maas": 0.0515
+  },
+  "H4": {
+   "deepseek-v3.2-maas": 0.5636,
+   "glm-5.2-maas": 0.7254
+  },
+  "H5": {
+   "deepseek-v3.2-maas": 0.0455,
+   "glm-5.2-maas": 0.0677
+  },
+  "H6": {
+   "deepseek-v3.2-maas": 0.0591,
+   "glm-5.2-maas": -0.0051
+  },
+  "H7": {
+   "deepseek-v3.2-maas": 0.1061,
+   "glm-5.2-maas": 0.0879
+  }
+ },
  "proxy_minus_renamed_count_share_posthoc": {
   "deepseek-v3.2-maas": {
    "count_diff": 30,

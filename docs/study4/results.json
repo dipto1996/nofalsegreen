@@ -1794,6 +1794,43 @@
    }
   }
  },
+ "per_model_primary_posthoc": {
+  "H1": {
+   "gemini-3.1-pro-preview": 0.0212,
+   "gemini-3.8-flash": 0.1152,
+   "gemma-4-26b-a4b-it-maas": 0.6121
+  },
+  "H2": {
+   "gemini-3.1-pro-preview": 0.0212,
+   "gemini-3.8-flash": 0.1152,
+   "gemma-4-26b-a4b-it-maas": 0.7576
+  },
+  "H3": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.0,
+   "gemma-4-26b-a4b-it-maas": 0.0758
+  },
+  "H4": {
+   "gemini-3.1-pro-preview": 0.5189,
+   "gemini-3.8-flash": 0.444,
+   "gemma-4-26b-a4b-it-maas": 0.188
+  },
+  "H5": {
+   "gemini-3.1-pro-preview": -0.0871,
+   "gemini-3.8-flash": 0.0006,
+   "gemma-4-26b-a4b-it-maas": -0.0274
+  },
+  "H6": {
+   "gemini-3.1-pro-preview": 0.1659,
+   "gemini-3.8-flash": 0.1144,
+   "gemma-4-26b-a4b-it-maas": -0.003
+  },
+  "H7": {
+   "gemini-3.1-pro-preview": 0.0212,
+   "gemini-3.8-flash": 0.0667,
+   "gemma-4-26b-a4b-it-maas": 0.1333
+  }
+ },
  "proxy_minus_renamed_count_share_posthoc": {
   "gemini-3.1-pro-preview": {
    "count_diff": 7,

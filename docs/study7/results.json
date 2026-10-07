@@ -1,0 +1,105 @@
+{
+ "declared": "docs/STUDY7_DECLARATION.md",
+ "primary": {
+  "W1 Pay Rate alone - LCA only": {
+   "n_firms": 12,
+   "delta": 0.2271,
+   "ci95_firm_bootstrap": [
+    0.1733,
+    0.2742
+   ],
+   "p_exact_two_sided": 0.00048828125,
+   "firms_positive": 12,
+   "firms_negative": 0,
+   "p_holm": 0.0009765625,
+   "outcome": "confirmed"
+  },
+  "W2 Pay Type and Schedule alone - LCA only": {
+   "n_firms": 12,
+   "delta": 0.0667,
+   "ci95_firm_bootstrap": [
+    0.0083,
+    0.1233
+   ],
+   "p_exact_two_sided": 0.0625,
+   "firms_positive": 6,
+   "firms_negative": 1,
+   "p_holm": 0.0625,
+   "outcome": "not confirmed"
+  }
+ },
+ "per_model": {
+  "pay_rate_only - lca_only": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.1597,
+   "gemma-4-26b-a4b-it-maas": 0.1818,
+   "deepseek-v3.2-maas": 0.775,
+   "glm-5.2-maas": 0.0
+  },
+  "pay_context_only - lca_only": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.0,
+   "gemma-4-26b-a4b-it-maas": 0.175,
+   "deepseek-v3.2-maas": 0.1583,
+   "glm-5.2-maas": 0.0
+  },
+  "salary - lca_only": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.4958,
+   "gemma-4-26b-a4b-it-maas": 0.1818,
+   "deepseek-v3.2-maas": 0.7479,
+   "glm-5.2-maas": 0.3818
+  },
+  "salary - pay_rate_only": {
+   "gemini-3.1-pro-preview": 0.0,
+   "gemini-3.8-flash": 0.3417,
+   "gemma-4-26b-a4b-it-maas": 0.0,
+   "deepseek-v3.2-maas": -0.0336,
+   "glm-5.2-maas": 0.2444
+  }
+ },
+ "answered": {
+  "gemini-3.1-pro-preview::lca_only": 120,
+  "gemini-3.1-pro-preview::salary": 120,
+  "gemini-3.1-pro-preview::pay_rate_only": 120,
+  "gemini-3.1-pro-preview::pay_context_only": 120,
+  "gemini-3.8-flash::lca_only": 119,
+  "gemini-3.8-flash::salary": 120,
+  "gemini-3.8-flash::pay_rate_only": 120,
+  "gemini-3.8-flash::pay_context_only": 119,
+  "gemma-4-26b-a4b-it-maas::lca_only": 120,
+  "gemma-4-26b-a4b-it-maas::salary": 110,
+  "gemma-4-26b-a4b-it-maas::pay_rate_only": 110,
+  "gemma-4-26b-a4b-it-maas::pay_context_only": 120,
+  "deepseek-v3.2-maas::lca_only": 120,
+  "deepseek-v3.2-maas::salary": 119,
+  "deepseek-v3.2-maas::pay_rate_only": 120,
+  "deepseek-v3.2-maas::pay_context_only": 120,
+  "glm-5.2-maas::lca_only": 120,
+  "glm-5.2-maas::salary": 110,
+  "glm-5.2-maas::pay_rate_only": 100,
+  "glm-5.2-maas::pay_context_only": 120
+ },
+ "fgr_all_pairs": {
+  "gemini-3.1-pro-preview::lca_only": 0.0,
+  "gemini-3.1-pro-preview::salary": 0.0,
+  "gemini-3.1-pro-preview::pay_rate_only": 0.0,
+  "gemini-3.1-pro-preview::pay_context_only": 0.0,
+  "gemini-3.8-flash::lca_only": 0.0,
+  "gemini-3.8-flash::salary": 0.5,
+  "gemini-3.8-flash::pay_rate_only": 0.1583,
+  "gemini-3.8-flash::pay_context_only": 0.0,
+  "gemma-4-26b-a4b-it-maas::lca_only": 0.825,
+  "gemma-4-26b-a4b-it-maas::salary": 0.9083,
+  "gemma-4-26b-a4b-it-maas::pay_rate_only": 0.9083,
+  "gemma-4-26b-a4b-it-maas::pay_context_only": 1.0,
+  "deepseek-v3.2-maas::lca_only": 0.0667,
+  "deepseek-v3.2-maas::salary": 0.8083,
+  "deepseek-v3.2-maas::pay_rate_only": 0.8417,
+  "deepseek-v3.2-maas::pay_context_only": 0.225,
+  "glm-5.2-maas::lca_only": 0.0,
+  "glm-5.2-maas::salary": 0.35,
+  "glm-5.2-maas::pay_rate_only": 0.0,
+  "glm-5.2-maas::pay_context_only": 0.0
+ }
+}
