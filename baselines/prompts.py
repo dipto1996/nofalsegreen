@@ -219,6 +219,77 @@ form <export>.<column>. If no export contains that record, the verdict is
 `needs_evidence`, even when other columns suggest the obligation is met."""
 
 
+# Study 9 (docs/STUDY9_DECLARATION.md): domain-neutral prompts for records checked against
+# stated decision contracts. The contract for each rule names the only columns that
+# establish each fact; the menus mirror the offered and dashboard schemas.
+CONTRACT_OFFERED = "contract_offered"
+CONTRACT_FORCED = "contract_forced"
+CONTRACT_EVIDENCE_FIRST = "contract_evidence_first"
+CONTRACT_EXTRACT = "contract_extract"
+CONTRACT_VARIANTS = (CONTRACT_OFFERED, CONTRACT_FORCED, CONTRACT_EVIDENCE_FIRST, CONTRACT_EXTRACT)
+
+_SYSTEM_CONTRACT = """You are checking an organisation's records against stated decision rules.
+
+You will be given:
+  1. the organisation's records, verbatim, as CSV tables
+  2. the decision rules; each rule states its predicate and, for every fact it needs, the
+     only table columns that establish that fact
+  3. a list of (rule, entity) pairs to return a verdict for
+
+A fact is established only by the columns the rule names for it. Other columns, however
+they are named, do not establish it. Business days exclude weekends and US federal holidays.
+
+Return one line per pair, in this exact format, and nothing else:
+
+  <pair_id>\t<verdict>\t<evidence_or_dash>
+
+{verdict_menu}
+
+Return a line for every pair. Do not add commentary, headers, or explanation."""
+
+_MENU_CONTRACT_OFFERED = """Permitted verdicts:
+  pass            the named columns establish every fact and the rule is satisfied
+  fail            the named columns establish that the rule is violated
+  needs_evidence  the named columns do not establish enough to decide, or they conflict
+  unmonitored     the rule cannot apply to this entity
+
+In the evidence field, give the table.column you relied on."""
+
+_MENU_CONTRACT_FORCED = """Permitted verdicts:
+  pass            the rule is satisfied
+  fail            the rule is violated
+
+Every pair must receive one of these two verdicts. In the evidence field, give the
+table.column you relied on."""
+
+_MENU_CONTRACT_EVIDENCE_FIRST = _MENU_CONTRACT_OFFERED + """
+
+Before you give `pass` or `fail`, find the value of every fact in a column the rule names
+for it. If any fact has no value in its named columns, or its named values disagree with no
+stated priority, the verdict is `needs_evidence`, even when other columns suggest an answer.
+A missing fact does not prevent `fail` if the facts that are established already violate
+the rule whatever the missing value is."""
+
+_MENU_CONTRACT_EXTRACT = """Do not decide the rule yourself. Return one line per pair, in this exact format, reporting
+the value of every fact the rule needs, read only from the columns the rule names for it:
+
+  <pair_id>\tfacts\t<fact name>=<value> from <table>.<column> | <fact name>=ABSENT | <fact name>=CONFLICT
+
+Write ABSENT when no named column has a value for that entity, and CONFLICT when the named
+columns hold disagreeing values and the rule states no priority (when it states a priority,
+report the prevailing value). Use exactly the fact names in the rule. Dates as YYYY-MM-DD,
+amounts as plain numbers."""
+
+
+def _contract_system(variant: str) -> str:
+    if variant == CONTRACT_EXTRACT:
+        head = _SYSTEM_CONTRACT.split("Return one line per pair")[0]
+        return head + _MENU_CONTRACT_EXTRACT + "\n\nReturn a line for every pair. Do not add commentary, headers, or explanation."
+    menu = {CONTRACT_OFFERED: _MENU_CONTRACT_OFFERED, CONTRACT_FORCED: _MENU_CONTRACT_FORCED,
+            CONTRACT_EVIDENCE_FIRST: _MENU_CONTRACT_EVIDENCE_FIRST}[variant]
+    return _SYSTEM_CONTRACT.replace("{verdict_menu}", menu)
+
+
 def base_variant(variant: str) -> str:
     """The schema a (possibly paraphrased) condition implements."""
     return variant[:-len("_para")] if variant.endswith("_para") else variant
@@ -228,6 +299,8 @@ def system_prompt(firm: Firm, variant: str) -> str:
     if variant in (ABSTAIN_OFFERED_PARA, ABSTAIN_WITHHELD_PARA):
         menu = {ABSTAIN_OFFERED_PARA: _MENU_OFFERED_PARA, ABSTAIN_WITHHELD_PARA: _MENU_WITHHELD_PARA}[variant]
         return _SYSTEM_PARA.format(as_of=firm.as_of, verdict_menu=menu)
+    if variant in CONTRACT_VARIANTS:
+        return _contract_system(variant)
     if variant in FACTORIAL:
         return _SYSTEM.format(as_of=firm.as_of, verdict_menu=_menu_factorial(variant))
     if variant == CITE_FIRST:
@@ -367,7 +440,7 @@ def user_prompt(
         )
 
     return (
-        f"# Employer: {firm.name}\n"
+        f"# {firm.provenance.get('header', 'Employer')}: {firm.name}\n"
         f"# Evaluation date: {firm.as_of}\n\n"
         f"## Source data exports\n{note}\n{_render_sources(firm, only)}\n"
         f"## Obligations\n\n{_render_obligations(relevant)}\n\n"

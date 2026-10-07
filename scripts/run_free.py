@@ -32,7 +32,8 @@ from baselines.freetier import (  # noqa: E402
     Quota,
 )
 from baselines.llm import Usage, run_firm  # noqa: E402
-from baselines.prompts import ABSTAIN_OFFERED, ABSTAIN_WITHHELD, CITE_FIRST, FACTORIAL, PROMPT_VERSION  # noqa: E402
+from baselines.prompts import (ABSTAIN_OFFERED, ABSTAIN_WITHHELD, CITE_FIRST, CONTRACT_VARIANTS,  # noqa: E402
+                               FACTORIAL, PROMPT_VERSION)
 from nofalsegreen import northwind  # noqa: E402
 from nofalsegreen.generator import FirmGenerator, GeneratorConfig  # noqa: E402
 from nofalsegreen.metrics import score  # noqa: E402
@@ -50,7 +51,7 @@ def main() -> int:
     ap.add_argument("--variant", default="both",
                     choices=[ABSTAIN_OFFERED, ABSTAIN_WITHHELD, "abstain_removed_only", "abstain_closed",
                              "abstain_offered_para", "abstain_withheld_para", "both",
-                             *FACTORIAL, CITE_FIRST])
+                             *FACTORIAL, CITE_FIRST, *CONTRACT_VARIANTS])
     ap.add_argument("--batch", type=int, default=8,
                     help="pairs per call; reasoning models need a small batch "
                          "so their trace plus verdicts fit the output budget")
@@ -78,6 +79,8 @@ def main() -> int:
                          "(nofalsegreen/study3.py, docs/STUDY3_PREREGISTRATION.md)")
     ap.add_argument("--study3c", default=None,
                     help="evaluate one arm of the declared Study 3c firms (nofalsegreen/study3c.py)")
+    ap.add_argument("--study9", default=None,
+                    help="Study 9 firms: 'A:<workflow>:<familiar|neutral>' or 'B:<workflow>' (nofalsegreen/study9.py)")
     ap.add_argument("--study8", default=None,
                     help="evaluate one arm of the declared Study 8 fresh firms (nofalsegreen/study8.py)")
     ap.add_argument("--study5", default=None,
@@ -128,6 +131,10 @@ def main() -> int:
         from nofalsegreen import study3c
         firms = study3c.load_firms(rb, args.study3c)
         print(f"Study 3c ({args.study3c}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
+    if args.study9:
+        from nofalsegreen import study9
+        firms = study9.load_firms(args.study9)
+        print(f"Study 9 ({args.study9}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
     if args.study8:
         from nofalsegreen import study8
         firms = study8.load_firms(rb, args.study8)
@@ -186,7 +193,11 @@ def main() -> int:
                 continue
             t0 = time.time()
             try:
-                r = run_firm(provider, firm, rb.all_rules(), variant=variant,
+                obls = rb.all_rules()
+                if args.study9:
+                    from nofalsegreen import study9
+                    obls = study9.all_obligations()
+                r = run_firm(provider, firm, obls, variant=variant,
                              batch_size=args.batch, scope_sources=scope, keep_raw=True,
                              progress=True, stop_on_host_failure=not args.finalize,
                              cache_path=Path(args.cache))  # keys carry PROMPT_VERSION
