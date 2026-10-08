@@ -1,0 +1,182 @@
+# Purchase request queue
+# exported by records service; absent keys = not captured
+export:
+  dataset: requisitions
+  entries: 16
+  records:
+    - entry_no: 1
+      subject:
+        order_ref: "PO-30102"
+      money:
+        asked_for:
+          currency: USD
+          cents: 14700000
+      logistics:
+        eta: "2026-03-19"
+      workflow:
+        request_state: "approved"
+    - entry_no: 2
+      subject:
+        order_ref: "PO-30101"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 16200000
+      logistics:
+        eta: "Jun 6 2026"
+    - entry_no: 3
+      subject:
+        order_ref: "PO-30103"
+      logistics:
+        eta: "Mar 13 2026"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 11100000
+    - entry_no: 4
+      subject:
+        order_ref: "PO-30106"
+      logistics:
+        eta: "Jul 7 2026"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 5350000
+    - entry_no: 5
+      subject:
+        order_ref: "PO-30110"
+      money:
+        asked_for:
+          currency: USD
+          cents: 2500000
+      logistics:
+        eta: "2026-04-26"
+      workflow:
+        request_state: "approved"
+    - entry_no: 6
+      subject:
+        order_ref: "PO-30113"
+      money:
+        asked_for:
+          currency: USD
+          cents: 12950000
+      logistics:
+        eta: "2026-07-14"
+      workflow:
+        request_state: "approved"
+    - entry_no: 7
+      subject:
+        order_ref: "PO-30107"
+      money:
+        asked_for:
+          currency: USD
+          cents: 11450000
+      logistics:
+        eta: "Apr 13 2026"
+      workflow:
+        request_state: "approved"
+    - entry_no: 8
+      subject:
+        order_ref: "PO-30108"
+      money:
+        asked_for:
+          currency: USD
+          cents: 6800000
+      logistics:
+        eta: "2026-06-23"
+      workflow:
+        request_state: "approved"
+    - entry_no: 9
+      subject:
+        order_ref: "PO-30109"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 18400000
+      logistics:
+        eta: "Feb 5 2026"
+    - entry_no: 10
+      subject:
+        order_ref: "PO-30112"
+      money:
+        asked_for:
+          currency: USD
+          cents: 9350000
+      logistics:
+        eta: "2026-02-23"
+      workflow:
+        request_state: "approved"
+    - entry_no: 11
+      subject:
+        order_ref: "PO-30115"
+      workflow:
+        request_state: "approved"
+      logistics:
+        eta: "Jul 17 2026"
+      money:
+        asked_for:
+          currency: USD
+          cents: 14400000
+    - entry_no: 12
+      subject:
+        order_ref: "PO-30105"
+      money:
+        asked_for:
+          currency: USD
+          cents: 17150000
+      workflow:
+        request_state: "approved"
+      logistics:
+        eta: "Jul 9 2026"
+    - entry_no: 13
+      subject:
+        order_ref: "PO-30111"
+      logistics:
+        eta: "Mar 19 2026"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 17750000
+    - entry_no: 14
+      subject:
+        order_ref: "PO-30104"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 15650000
+      logistics:
+        eta: "2026-06-27"
+    - entry_no: 15
+      subject:
+        order_ref: "PO-30116"
+      money:
+        asked_for:
+          currency: USD
+          cents: 1900000
+      workflow:
+        request_state: "approved"
+      logistics:
+        eta: "Jan 6 2026"
+    - entry_no: 16
+      subject:
+        order_ref: "PO-30114"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 12100000
+      logistics:
+        eta: "Mar 5 2026"

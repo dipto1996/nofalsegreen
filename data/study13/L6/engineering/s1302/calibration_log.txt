@@ -1,0 +1,29 @@
+RPT-7615   TEST RIG CALIBRATION HISTORY  (calibration_log)
+PAGE 1   RECORDS: 15
+
+SEQ   COMPONENT#   RIG-CAL
+--------------------------
+0001  P-30203      --
+0002  P-30207      13-FEB-2026
+0003  P-30214      01-MAY-2026
+0004  P-30213      10-APR-2026
+0005  P-30206      09-MAY-2026
+0006  P-30210      10-JUL-2026
+0007  P-30202      28-JUN-2026
+0008  P-30201      17-MAR-2026
+0009  P-30212      05-APR-2026
+0010  P-30205      13-JUN-2026
+0011  P-30209      --
+0012  P-30211      31-MAY-2026
+0013  P-30204      21-MAR-2026
+0014  P-30215      23-MAR-2026
+0015  P-30207      19-FEB-2026
+--------------------------
+END OF REPORT - 15 RECORD(S)
+
+LEGEND
+  COMPONENT#    component reference
+  RIG-CAL       day the test rig was calibrated
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

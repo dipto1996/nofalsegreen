@@ -1,0 +1,30 @@
+RPT-5920   EAD CARD REGISTER  (ead_cards)
+PAGE 1   RECORDS: 16
+
+SEQ   WORKER#  CARD-THRU
+------------------------
+0001  E-30212  14-JAN-2027
+0002  E-30216  16-MAR-2027
+0003  E-30205  09-AUG-2026
+0004  E-30206  22-JUL-2026
+0005  E-30201  01-SEP-2026
+0006  E-30213  24-MAR-2027
+0007  E-30204  19-NOV-2026
+0008  E-30202  30-AUG-2026
+0009  E-30208  24-SEP-2026
+0010  E-30203  04-DEC-2026
+0011  E-30210  12-MAY-2027
+0012  E-30215  13-NOV-2026
+0013  E-30214  26-AUG-2026
+0014  E-30209  12-APR-2027
+0015  E-30207  31-OCT-2026
+0016  E-30211  21-FEB-2027
+------------------------
+END OF REPORT - 16 RECORD(S)
+
+LEGEND
+  WORKER#       worker reference
+  CARD-THRU     EAD card good through
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

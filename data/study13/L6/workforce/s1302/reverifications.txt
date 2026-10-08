@@ -1,0 +1,29 @@
+RPT-6032   I-9 RE-CHECK LOG  (reverifications)
+PAGE 1   RECORDS: 15
+
+SEQ   WORKER#  RCHK-DONE
+------------------------
+0001  E-30216  10-JAN-2027
+0002  E-30202  31-AUG-2026
+0003  E-30203  25-JUL-2026
+0004  E-30214  28-AUG-2026
+0005  E-30201  --
+0006  E-30213  12-FEB-2027
+0007  E-30213  24-FEB-2027
+0008  E-30206  22-MAY-2026
+0009  E-30211  04-FEB-2027
+0010  E-30212  26-JAN-2027
+0011  E-30207  30-JUN-2026
+0012  E-30215  08-SEP-2026
+0013  E-30209  16-APR-2027
+0014  E-30208  24-MAY-2026
+0015  E-30204  --
+------------------------
+END OF REPORT - 15 RECORD(S)
+
+LEGEND
+  WORKER#       worker reference
+  RCHK-DONE     day the I-9 re-check was done
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

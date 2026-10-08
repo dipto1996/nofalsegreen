@@ -1,0 +1,32 @@
+RPT-9615   COMPONENT MASTER  (parts)
+PAGE 1   RECORDS: 16
+
+SEQ   COMPONENT#  QA-DISP   TGT-N  TEST-SLOT
+--------------------------------------------
+0001  P-30109     PASSED   442000  24-OCT-2026
+0002  P-30107     PASSED   490000  04-JAN-2027
+0003  P-30106     PASSED    70000  12-APR-2026
+0004  P-30108     PASSED   316000  17-MAR-2027
+0005  P-30111     PASSED   148000  14-JAN-2026
+0006  P-30102     PASSED    70000  24-MAR-2027
+0007  P-30105     PASSED   538000  06-AUG-2026
+0008  P-30110     PASSED   514000  14-JUL-2027
+0009  P-30103     PASSED   268000  06-MAR-2026
+0010  P-30112     PASSED   538000  23-AUG-2026
+0011  P-30114     PASSED   544000  24-MAR-2026
+0012  P-30116     PASSED   322000  07-FEB-2027
+0013  P-30113     PASSED   166000  28-MAR-2026
+0014  P-30104     PASSED   166000  12-JUL-2027
+0015  P-30115     PASSED   154000  10-MAY-2026
+0016  P-30101     PASSED   178000  21-FEB-2027
+--------------------------------------------
+END OF REPORT - 16 RECORD(S)
+
+LEGEND
+  COMPONENT#    component reference
+  QA-DISP       quality disposition
+  TGT-N         design target force, newtons
+  TEST-SLOT     booked test slot
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

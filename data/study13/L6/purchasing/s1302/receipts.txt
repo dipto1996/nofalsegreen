@@ -1,0 +1,31 @@
+RPT-6775   GOODS-IN NOTES  (receipts)
+PAGE 1   RECORDS: 16
+
+SEQ   ORDER#     IN-UNITS   IN-DATE
+-----------------------------------
+0001  PO-30204        292   02-MAR-2026
+0002  PO-30202        325   --
+0003  PO-30209        109   21-JUL-2026
+0004  PO-30216         29   22-FEB-2026
+0005  PO-30212        353   03-MAY-2026
+0006  PO-30203        177   21-MAY-2026
+0007  PO-30208         25   17-FEB-2026
+0008  PO-30207         26   27-JAN-2026
+0009  PO-30201        501   19-JUL-2026
+0010  PO-30208         25   08-FEB-2026
+0011  PO-30213        108   20-JUN-2026
+0012  PO-30205        324   04-JUN-2026
+0013  PO-30211        227   01-MAY-2026
+0014  PO-30210        498   12-MAR-2026
+0015  PO-30206        405   12-MAY-2026
+0016  PO-30214        508   05-MAY-2026
+-----------------------------------
+END OF REPORT - 16 RECORD(S)
+
+LEGEND
+  ORDER#        order reference
+  IN-UNITS      units counted at goods-in
+  IN-DATE       day the goods were booked in
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

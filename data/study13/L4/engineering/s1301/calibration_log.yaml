@@ -1,0 +1,84 @@
+# Test rig calibration history
+# exported by records service; absent keys = not captured
+export:
+  dataset: calibration_log
+  entries: 16
+  records:
+    - entry_no: 1
+      subject:
+        component_ref: "P-30111"
+      rig:
+        calibration_stamp: "Feb 14 2026"
+    - entry_no: 2
+      subject:
+        component_ref: "P-30115"
+    - entry_no: 3
+      subject:
+        component_ref: "P-30112"
+      rig:
+        calibration_stamp: "2026-03-22"
+    - entry_no: 4
+      subject:
+        component_ref: "P-30109"
+      rig:
+        calibration_stamp: "Feb 12 2026"
+    - entry_no: 5
+      subject:
+        component_ref: "P-30107"
+      rig:
+        calibration_stamp: "2026-06-07"
+    - entry_no: 6
+      subject:
+        component_ref: "P-30104"
+      rig:
+        calibration_stamp: "2026-07-20"
+    - entry_no: 7
+      subject:
+        component_ref: "P-30103"
+      rig:
+        calibration_stamp: "2026-02-15"
+    - entry_no: 8
+      subject:
+        component_ref: "P-30101"
+      rig:
+        calibration_stamp: "Mar 15 2026"
+    - entry_no: 9
+      subject:
+        component_ref: "P-30116"
+      rig:
+        calibration_stamp: "Mar 16 2026"
+    - entry_no: 10
+      subject:
+        component_ref: "P-30110"
+      rig:
+        calibration_stamp: "2026-07-16"
+    - entry_no: 11
+      subject:
+        component_ref: "P-30113"
+      rig:
+        calibration_stamp: "Apr 14 2026"
+    - entry_no: 12
+      subject:
+        component_ref: "P-30105"
+      rig:
+        calibration_stamp: "2026-02-13"
+    - entry_no: 13
+      subject:
+        component_ref: "P-30103"
+      rig:
+        calibration_stamp: "Feb 1 2026"
+    - entry_no: 14
+      subject:
+        component_ref: "P-30106"
+      rig:
+        calibration_stamp: "May 8 2026"
+    - entry_no: 15
+      subject:
+        component_ref: "P-30108"
+      rig:
+        calibration_stamp: "Apr 3 2026"
+    - entry_no: 16
+      subject:
+        component_ref: "P-30102"
+      rig:
+        calibration_stamp: "Feb 11 2026"

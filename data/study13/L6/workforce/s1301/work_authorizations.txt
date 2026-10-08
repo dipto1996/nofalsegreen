@@ -1,0 +1,32 @@
+RPT-4150   EMPLOYMENT ELIGIBILITY DOCUMENTS  (work_authorizations)
+PAGE 1   RECORDS: 17
+
+SEQ   WORKER#  AUTH-DOC  AUTH-THRU
+----------------------------------
+0001  E-30115  EAD       28-APR-2027
+0002  E-30108  EAD       12-SEP-2026
+0003  E-30112  EAD       14-SEP-2026
+0004  E-30111  EAD       15-DEC-2026
+0005  E-30110  EAD       07-JUN-2027
+0006  E-30106  EAD       26-NOV-2026
+0007  E-30105  EAD       30-JAN-2027
+0008  E-30111  EAD       30-DEC-2026
+0009  E-30114  EAD       19-DEC-2026
+0010  E-30107  EAD       28-APR-2027
+0011  E-30102  EAD       --
+0012  E-30101  EAD       06-NOV-2026
+0013  E-30116  EAD       14-DEC-2026
+0014  E-30104  EAD       07-SEP-2026
+0015  E-30109  EAD       27-AUG-2026
+0016  E-30113  EAD       06-OCT-2026
+0017  E-30103  EAD       02-AUG-2027
+----------------------------------
+END OF REPORT - 17 RECORD(S)
+
+LEGEND
+  WORKER#       worker reference
+  AUTH-DOC      kind of eligibility document held
+  AUTH-THRU     eligibility document valid until
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

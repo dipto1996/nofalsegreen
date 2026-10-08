@@ -1,0 +1,30 @@
+RPT-5395   SUPPLIER BILLS  (invoices)
+PAGE 1   RECORDS: 14
+
+SEQ   ORDER#    BILL-USDK  BILL-UNITS  PAY-BY
+---------------------------------------------
+0001  PO-30202        198         325  20-JUL-2026
+0002  PO-30216      101.5          34  28-MAR-2026
+0003  PO-30205        121         318  27-JUN-2026
+0004  PO-30212      186.5         353  13-MAY-2026
+0005  PO-30203        163         177  --
+0006  PO-30201       71.5         492  09-AUG-2026
+0007  PO-30208        119          32  07-MAR-2026
+0008  PO-30209        121         117  25-JUL-2026
+0009  PO-30206        4.5         390  --
+0010  PO-30214        4.5         488  22-MAY-2026
+0011  PO-30207         71          32  04-FEB-2026
+0012  PO-30210      126.5         498  24-MAR-2026
+0013  PO-30204      176.5         284  --
+0014  PO-30213        174          98  29-JUN-2026
+---------------------------------------------
+END OF REPORT - 14 RECORD(S)
+
+LEGEND
+  ORDER#        order reference
+  BILL-USDK     supplier bill total, USD thousands
+  BILL-UNITS    units on the supplier bill
+  PAY-BY        settle-by day on the bill
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

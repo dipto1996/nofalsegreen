@@ -1,0 +1,28 @@
+RPT-1669   COMMITTED ORDERS  (purchase_orders)
+PAGE 1   RECORDS: 14
+
+SEQ   ORDER#    CMT-USDK
+------------------------
+0001  PO-30102       147
+0002  PO-30101       162
+0003  PO-30114       121
+0004  PO-30109       184
+0005  PO-30103       111
+0006  PO-30110        25
+0007  PO-30115        --
+0008  PO-30104     156.5
+0009  PO-30107     114.5
+0010  PO-30108        68
+0011  PO-30116        19
+0012  PO-30106      53.5
+0013  PO-30111     177.5
+0014  PO-30105     171.5
+------------------------
+END OF REPORT - 14 RECORD(S)
+
+LEGEND
+  ORDER#        order reference
+  CMT-USDK      committed order value, USD thousands
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

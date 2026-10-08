@@ -1,0 +1,29 @@
+RPT-6920   DESIGN SPECIFICATION EXTRACTS  (spec_sheets)
+PAGE 1   RECORDS: 15
+
+SEQ   COMPONENT#   FLOOR-N
+--------------------------
+0001  P-30207        50000
+0002  P-30204       205000
+0003  P-30202       245000
+0004  P-30203       335000
+0005  P-30214       290000
+0006  P-30209       415000
+0007  P-30216       300000
+0008  P-30212           --
+0009  P-30211       280000
+0010  P-30206       105000
+0011  P-30208       285000
+0012  P-30215       370000
+0013  P-30210       290000
+0014  P-30205       490000
+0015  P-30201       340000
+--------------------------
+END OF REPORT - 15 RECORD(S)
+
+LEGEND
+  COMPONENT#    component reference
+  FLOOR-N       required minimum breaking force, newtons
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

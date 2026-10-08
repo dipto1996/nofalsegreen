@@ -1,0 +1,111 @@
+# Committed orders
+# exported by records service; absent keys = not captured
+export:
+  dataset: purchase_orders
+  entries: 15
+  records:
+    - entry_no: 1
+      subject:
+        order_ref: "PO-30203"
+      money:
+        committed:
+          currency: USD
+          cents: 16300000
+    - entry_no: 2
+      subject:
+        order_ref: "PO-30202"
+      money:
+        committed:
+          currency: USD
+          cents: 19700000
+    - entry_no: 3
+      subject:
+        order_ref: "PO-30209"
+      money:
+        committed:
+          currency: USD
+          cents: 11950000
+    - entry_no: 4
+      subject:
+        order_ref: "PO-30207"
+      money:
+        committed:
+          currency: USD
+          cents: 7350000
+    - entry_no: 5
+      subject:
+        order_ref: "PO-30210"
+      money:
+        committed:
+          currency: USD
+          cents: 12150000
+    - entry_no: 6
+      subject:
+        order_ref: "PO-30212"
+      money:
+        committed:
+          currency: USD
+          cents: 18650000
+    - entry_no: 7
+      subject:
+        order_ref: "PO-30214"
+      money:
+        committed:
+          currency: USD
+          cents: 500000
+    - entry_no: 8
+      subject:
+        order_ref: "PO-30205"
+      money:
+        committed:
+          currency: USD
+          cents: 11650000
+    - entry_no: 9
+      subject:
+        order_ref: "PO-30213"
+      money:
+        committed:
+          currency: USD
+          cents: 17900000
+    - entry_no: 10
+      subject:
+        order_ref: "PO-30216"
+      money:
+        committed:
+          currency: USD
+          cents: 10300000
+    - entry_no: 11
+      subject:
+        order_ref: "PO-30211"
+      money:
+        committed:
+          currency: USD
+          cents: 2700000
+    - entry_no: 12
+      subject:
+        order_ref: "PO-30201"
+      money:
+        committed:
+          currency: USD
+          cents: 7400000
+    - entry_no: 13
+      subject:
+        order_ref: "PO-30204"
+      money:
+        committed:
+          currency: USD
+          cents: 17350000
+    - entry_no: 14
+      subject:
+        order_ref: "PO-30208"
+      money:
+        committed:
+          currency: USD
+          cents: 11550000
+    - entry_no: 15
+      subject:
+        order_ref: "PO-30206"
+      money:
+        committed:
+          currency: USD
+          cents: 950000

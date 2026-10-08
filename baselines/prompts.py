@@ -309,7 +309,70 @@ _MENU_SEM_OFFERED = """Permitted verdicts:
 In the evidence field, give the table.column you relied on."""
 
 
+# Study 13 (docs/STUDY13_DECLARATION.md): held-out contracts on records kept in varied layouts.
+# A rule names the documents (and the item within them) that establish each fact; field names,
+# formats and units differ between layouts, so the prompts name documents, not columns.
+CONTRACT13_EVIDENCE_FIRST = "contract13_evidence_first"
+CONTRACT13_EXTRACT = "contract13_extract"
+CONTRACT13_VARIANTS = (CONTRACT13_EVIDENCE_FIRST, CONTRACT13_EXTRACT)
+
+_SYSTEM_C13 = """You are checking an organisation's records against stated decision rules.
+
+You will be given:
+  1. the organisation's records, verbatim; each document is shown under its name, in the
+     format the organisation keeps it (tables, data files or written records)
+  2. the decision rules; each rule states its predicate and, for every fact it needs, the
+     only documents, and the item within them, that establish that fact
+  3. a list of (rule, entity) pairs to return a verdict for
+
+A fact is established only by the documents the rule names for it. Other documents, however
+they are labelled, do not establish it. When a rule names a fallback document, use it only if
+the first document has no value for that entity. A document may hold several records for one
+entity; if the deciding document's values for that entity disagree, the fact is conflicting.
+Field names, date formats and units differ between documents: read each value exactly and
+convert it to the unit the rule uses. Days are calendar days; business days exclude weekends
+and US federal holidays.
+
+"""
+
+_MENU_C13_EVIDENCE_FIRST = """Return one line per pair, in this exact format, and nothing else:
+
+  <pair_id>\t<verdict>\t<evidence_or_dash>
+
+Permitted verdicts:
+  pass            the named documents establish every fact and the rule is satisfied
+  fail            the named documents establish that the rule is violated
+  needs_evidence  the named documents do not establish enough to decide, or they conflict
+  unmonitored     the rule cannot apply to this entity
+
+In the evidence field, give the documents you relied on.
+
+Before you give `pass` or `fail`, find the value of every fact in a document the rule names
+for it. If any fact has no value in its named documents, or its deciding document's values
+disagree, the verdict is `needs_evidence`, even when other documents suggest an answer. A
+missing fact does not prevent `fail` if the facts that are established already violate the
+rule whatever the missing value is.
+
+Return a line for every pair. Do not add commentary, headers, or explanation."""
+
+_MENU_C13_EXTRACT = """Do not decide the rule yourself. Return one line per pair, in this exact format, and nothing
+else, reporting the value of every fact the rule needs, read only from the documents the rule
+names for it:
+
+  <pair_id>\tfacts\t<fact name>=<value> from <document> | <fact name>=ABSENT | <fact name>=CONFLICT
+
+Write ABSENT when no named document has a value for that entity, and CONFLICT when the
+deciding document holds disagreeing values for it. Use exactly the fact names in the rule.
+Dates as YYYY-MM-DD; amounts as plain numbers in the rule's unit.
+
+Return a line for every pair. Do not add commentary, headers, or explanation."""
+
+
 def _contract_system(variant: str) -> str:
+    if variant == CONTRACT13_EVIDENCE_FIRST:
+        return _SYSTEM_C13 + _MENU_C13_EVIDENCE_FIRST
+    if variant == CONTRACT13_EXTRACT:
+        return _SYSTEM_C13 + _MENU_C13_EXTRACT
     if variant == CONTRACT_SEM_OFFERED:
         return _SYSTEM_SEM.replace("{verdict_menu}", _MENU_SEM_OFFERED)
     if variant == CONTRACT_SEM_MEANING_OFFERED:
@@ -334,7 +397,7 @@ def system_prompt(firm: Firm, variant: str) -> str:
     if variant in (ABSTAIN_OFFERED_PARA, ABSTAIN_WITHHELD_PARA):
         menu = {ABSTAIN_OFFERED_PARA: _MENU_OFFERED_PARA, ABSTAIN_WITHHELD_PARA: _MENU_WITHHELD_PARA}[variant]
         return _SYSTEM_PARA.format(as_of=firm.as_of, verdict_menu=menu)
-    if variant in CONTRACT_VARIANTS:
+    if variant in CONTRACT_VARIANTS or variant in CONTRACT13_VARIANTS:
         return _contract_system(variant)
     if variant == ABSTAIN_OFFERED_NOMATCH:
         nomatch = _SYSTEM.replace("""Two reading rules:
@@ -419,7 +482,8 @@ def _render_sources(
         text = p.read_text()
         if len(text) > max_chars_per_source:
             text = text[:max_chars_per_source] + "\n...(truncated)"
-        out.append(f"### {kind}  ({p.name})\n```csv\n{text}\n```\n")
+        fence = {".csv": "csv", ".json": "json"}.get(p.suffix, "text")  # Study 13 layouts; CSV unchanged
+        out.append(f"### {kind}  ({p.name})\n```{fence}\n{text}\n```\n")
     return "\n".join(out)
 
 

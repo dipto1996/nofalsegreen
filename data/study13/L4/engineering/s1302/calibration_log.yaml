@@ -1,0 +1,77 @@
+# Test rig calibration history
+# exported by records service; absent keys = not captured
+export:
+  dataset: calibration_log
+  entries: 15
+  records:
+    - entry_no: 1
+      subject:
+        component_ref: "P-30203"
+    - entry_no: 2
+      subject:
+        component_ref: "P-30207"
+      rig:
+        calibration_stamp: "2026-02-13"
+    - entry_no: 3
+      subject:
+        component_ref: "P-30214"
+      rig:
+        calibration_stamp: "2026-05-01"
+    - entry_no: 4
+      subject:
+        component_ref: "P-30213"
+      rig:
+        calibration_stamp: "Apr 10 2026"
+    - entry_no: 5
+      subject:
+        component_ref: "P-30206"
+      rig:
+        calibration_stamp: "May 9 2026"
+    - entry_no: 6
+      subject:
+        component_ref: "P-30210"
+      rig:
+        calibration_stamp: "Jul 10 2026"
+    - entry_no: 7
+      subject:
+        component_ref: "P-30202"
+      rig:
+        calibration_stamp: "Jun 28 2026"
+    - entry_no: 8
+      subject:
+        component_ref: "P-30201"
+      rig:
+        calibration_stamp: "Mar 17 2026"
+    - entry_no: 9
+      subject:
+        component_ref: "P-30212"
+      rig:
+        calibration_stamp: "2026-04-05"
+    - entry_no: 10
+      subject:
+        component_ref: "P-30205"
+      rig:
+        calibration_stamp: "Jun 13 2026"
+    - entry_no: 11
+      subject:
+        component_ref: "P-30209"
+    - entry_no: 12
+      subject:
+        component_ref: "P-30211"
+      rig:
+        calibration_stamp: "2026-05-31"
+    - entry_no: 13
+      subject:
+        component_ref: "P-30204"
+      rig:
+        calibration_stamp: "Mar 21 2026"
+    - entry_no: 14
+      subject:
+        component_ref: "P-30215"
+      rig:
+        calibration_stamp: "Mar 23 2026"
+    - entry_no: 15
+      subject:
+        component_ref: "P-30207"
+      rig:
+        calibration_stamp: "2026-02-19"

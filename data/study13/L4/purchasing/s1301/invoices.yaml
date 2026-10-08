@@ -1,0 +1,169 @@
+# Supplier bills
+# exported by records service; absent keys = not captured
+export:
+  dataset: invoices
+  entries: 15
+  records:
+    - entry_no: 1
+      subject:
+        order_ref: "PO-30109"
+      terms:
+        settle_by: "Feb 11 2026"
+      quantity:
+        billed_units: 104
+      money:
+        billed:
+          currency: USD
+          cents: 18550000
+    - entry_no: 2
+      subject:
+        order_ref: "PO-30115"
+      money:
+        billed:
+          currency: USD
+          cents: 14650000
+      quantity:
+        billed_units: 482
+      terms:
+        settle_by: "2026-08-06"
+    - entry_no: 3
+      subject:
+        order_ref: "PO-30101"
+      money:
+        billed:
+          currency: USD
+          cents: 16000000
+      terms:
+        settle_by: "2026-06-19"
+      quantity:
+        billed_units: 363
+    - entry_no: 4
+      subject:
+        order_ref: "PO-30102"
+      quantity:
+        billed_units: 275
+      terms:
+        settle_by: "Mar 29 2026"
+      money:
+        billed:
+          currency: USD
+          cents: 14750000
+    - entry_no: 5
+      subject:
+        order_ref: "PO-30105"
+      money:
+        billed:
+          currency: USD
+          cents: 16700000
+      terms:
+        settle_by: "2026-08-06"
+    - entry_no: 6
+      subject:
+        order_ref: "PO-30114"
+      money:
+        billed:
+          currency: USD
+          cents: 12550000
+      terms:
+        settle_by: "Mar 22 2026"
+      quantity:
+        billed_units: 320
+    - entry_no: 7
+      subject:
+        order_ref: "PO-30104"
+      terms:
+        settle_by: "2026-07-12"
+      money:
+        billed:
+          currency: USD
+          cents: 15450000
+      quantity:
+        billed_units: 221
+    - entry_no: 8
+      subject:
+        order_ref: "PO-30108"
+      terms:
+        settle_by: "2026-07-21"
+      money:
+        billed:
+          currency: USD
+          cents: 6950000
+      quantity:
+        billed_units: 349
+    - entry_no: 9
+      subject:
+        order_ref: "PO-30116"
+      quantity:
+        billed_units: 54
+      terms:
+        settle_by: "Feb 10 2026"
+      money:
+        billed:
+          currency: USD
+          cents: 1650000
+    - entry_no: 10
+      subject:
+        order_ref: "PO-30111"
+      terms:
+        settle_by: "Apr 21 2026"
+      quantity:
+        billed_units: 162
+      money:
+        billed:
+          currency: USD
+          cents: 17350000
+    - entry_no: 11
+      subject:
+        order_ref: "PO-30103"
+      terms:
+        settle_by: "May 6 2026"
+      quantity:
+        billed_units: 52
+      money:
+        billed:
+          currency: USD
+          cents: 10650000
+    - entry_no: 12
+      subject:
+        order_ref: "PO-30113"
+      quantity:
+        billed_units: 59
+      terms:
+        settle_by: "2026-07-28"
+      money:
+        billed:
+          currency: USD
+          cents: 13350000
+    - entry_no: 13
+      subject:
+        order_ref: "PO-30103"
+      money:
+        billed:
+          currency: USD
+          cents: 10650000
+      quantity:
+        billed_units: 52
+      terms:
+        settle_by: "Apr 25 2026"
+    - entry_no: 14
+      subject:
+        order_ref: "PO-30107"
+      quantity:
+        billed_units: 98
+      money:
+        billed:
+          currency: USD
+          cents: 11350000
+      terms:
+        settle_by: "2026-05-07"
+    - entry_no: 15
+      subject:
+        order_ref: "PO-30110"
+      terms:
+        settle_by: "2026-04-26"
+      money:
+        billed:
+          currency: USD
+          cents: 3000000
+      quantity:
+        billed_units: 360

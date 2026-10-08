@@ -1,0 +1,91 @@
+# Dock scanner events
+# exported by records service; absent keys = not captured
+export:
+  dataset: warehouse_scans
+  entries: 17
+  records:
+    - entry_no: 1
+      subject:
+        order_ref: "PO-30109"
+      logistics:
+        dock_scan: "2026-02-08"
+    - entry_no: 2
+      subject:
+        order_ref: "PO-30101"
+      logistics:
+        dock_scan: "Jun 18 2026"
+    - entry_no: 3
+      subject:
+        order_ref: "PO-30103"
+      logistics:
+        dock_scan: "2026-03-18"
+    - entry_no: 4
+      subject:
+        order_ref: "PO-30115"
+      logistics:
+        dock_scan: "Jul 17 2026"
+    - entry_no: 5
+      subject:
+        order_ref: "PO-30116"
+      logistics:
+        dock_scan: "2026-01-10"
+    - entry_no: 6
+      subject:
+        order_ref: "PO-30113"
+      logistics:
+        dock_scan: "2026-07-22"
+    - entry_no: 7
+      subject:
+        order_ref: "PO-30107"
+      logistics:
+        dock_scan: "Apr 15 2026"
+    - entry_no: 8
+      subject:
+        order_ref: "PO-30114"
+      logistics:
+        dock_scan: "2026-03-20"
+    - entry_no: 9
+      subject:
+        order_ref: "PO-30108"
+      logistics:
+        dock_scan: "Jun 29 2026"
+    - entry_no: 10
+      subject:
+        order_ref: "PO-30106"
+      logistics:
+        dock_scan: "Jul 13 2026"
+    - entry_no: 11
+      subject:
+        order_ref: "PO-30111"
+      logistics:
+        dock_scan: "2026-03-28"
+    - entry_no: 12
+      subject:
+        order_ref: "PO-30105"
+      logistics:
+        dock_scan: "Jul 13 2026"
+    - entry_no: 13
+      subject:
+        order_ref: "PO-30102"
+      logistics:
+        dock_scan: "2026-03-29"
+    - entry_no: 14
+      subject:
+        order_ref: "PO-30112"
+      logistics:
+        dock_scan: "Feb 23 2026"
+    - entry_no: 15
+      subject:
+        order_ref: "PO-30114"
+      logistics:
+        dock_scan: "Mar 9 2026"
+    - entry_no: 16
+      subject:
+        order_ref: "PO-30104"
+      logistics:
+        dock_scan: "2026-06-29"
+    - entry_no: 17
+      subject:
+        order_ref: "PO-30110"
+      logistics:
+        dock_scan: "Apr 26 2026"

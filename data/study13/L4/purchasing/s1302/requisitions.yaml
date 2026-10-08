@@ -1,0 +1,182 @@
+# Purchase request queue
+# exported by records service; absent keys = not captured
+export:
+  dataset: requisitions
+  entries: 16
+  records:
+    - entry_no: 1
+      subject:
+        order_ref: "PO-30216"
+      logistics:
+        eta: "2026-02-20"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 10300000
+    - entry_no: 2
+      subject:
+        order_ref: "PO-30202"
+      logistics:
+        eta: "Jul 14 2026"
+      money:
+        asked_for:
+          currency: USD
+          cents: 19700000
+      workflow:
+        request_state: "approved"
+    - entry_no: 3
+      subject:
+        order_ref: "PO-30209"
+      logistics:
+        eta: "Jul 19 2026"
+      money:
+        asked_for:
+          currency: USD
+          cents: 11950000
+      workflow:
+        request_state: "approved"
+    - entry_no: 4
+      subject:
+        order_ref: "PO-30206"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 950000
+      logistics:
+        eta: "May 8 2026"
+    - entry_no: 5
+      subject:
+        order_ref: "PO-30214"
+      workflow:
+        request_state: "approved"
+      logistics:
+        eta: "May 1 2026"
+      money:
+        asked_for:
+          currency: USD
+          cents: 500000
+    - entry_no: 6
+      subject:
+        order_ref: "PO-30204"
+      money:
+        asked_for:
+          currency: USD
+          cents: 17350000
+      logistics:
+        eta: "2026-03-01"
+      workflow:
+        request_state: "approved"
+    - entry_no: 7
+      subject:
+        order_ref: "PO-30215"
+      logistics:
+        eta: "2026-05-24"
+      money:
+        asked_for:
+          currency: USD
+          cents: 2650000
+      workflow:
+        request_state: "approved"
+    - entry_no: 8
+      subject:
+        order_ref: "PO-30208"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 11550000
+      logistics:
+        eta: "Feb 7 2026"
+    - entry_no: 9
+      subject:
+        order_ref: "PO-30205"
+      logistics:
+        eta: "2026-05-27"
+      workflow:
+        request_state: "approved"
+      money:
+        asked_for:
+          currency: USD
+          cents: 11650000
+    - entry_no: 10
+      subject:
+        order_ref: "PO-30203"
+      money:
+        asked_for:
+          currency: USD
+          cents: 16300000
+      logistics:
+        eta: "May 15 2026"
+      workflow:
+        request_state: "approved"
+    - entry_no: 11
+      subject:
+        order_ref: "PO-30213"
+      logistics:
+        eta: "Jun 10 2026"
+      money:
+        asked_for:
+          currency: USD
+          cents: 17900000
+      workflow:
+        request_state: "approved"
+    - entry_no: 12
+      subject:
+        order_ref: "PO-30211"
+      money:
+        asked_for:
+          currency: USD
+          cents: 2700000
+      workflow:
+        request_state: "approved"
+      logistics:
+        eta: "Apr 28 2026"
+    - entry_no: 13
+      subject:
+        order_ref: "PO-30207"
+      workflow:
+        request_state: "approved"
+      logistics:
+        eta: "2026-01-18"
+      money:
+        asked_for:
+          currency: USD
+          cents: 7350000
+    - entry_no: 14
+      subject:
+        order_ref: "PO-30201"
+      money:
+        asked_for:
+          currency: USD
+          cents: 7400000
+      workflow:
+        request_state: "approved"
+      logistics:
+        eta: "2026-07-09"
+    - entry_no: 15
+      subject:
+        order_ref: "PO-30210"
+      logistics:
+        eta: "Mar 9 2026"
+      money:
+        asked_for:
+          currency: USD
+          cents: 12150000
+      workflow:
+        request_state: "approved"
+    - entry_no: 16
+      subject:
+        order_ref: "PO-30212"
+      workflow:
+        request_state: "approved"
+      logistics:
+        eta: "2026-04-25"
+      money:
+        asked_for:
+          currency: USD
+          cents: 18650000

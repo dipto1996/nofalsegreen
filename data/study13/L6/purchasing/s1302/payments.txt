@@ -1,0 +1,30 @@
+RPT-6451   REMITTANCE LEDGER  (payments)
+PAGE 1   RECORDS: 16
+
+SEQ   ORDER#    REMITTED
+------------------------
+0001  PO-30201  02-AUG-2026
+0002  PO-30214  12-MAY-2026
+0003  PO-30203  11-MAY-2026
+0004  PO-30208  31-JAN-2026
+0005  PO-30206  23-MAY-2026
+0006  PO-30207  22-JAN-2026
+0007  PO-30204  15-MAR-2026
+0008  PO-30215  25-MAY-2026
+0009  PO-30202  12-JUL-2026
+0010  PO-30209  23-JUL-2026
+0011  PO-30211  08-MAY-2026
+0012  PO-30213  28-JUN-2026
+0013  PO-30205  28-MAY-2026
+0014  PO-30216  11-MAR-2026
+0015  PO-30201  17-AUG-2026
+0016  PO-30210  --
+------------------------
+END OF REPORT - 16 RECORD(S)
+
+LEGEND
+  ORDER#        order reference
+  REMITTED      day the funds were sent
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

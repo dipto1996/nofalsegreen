@@ -1,0 +1,33 @@
+RPT-8732   STAFF MASTER LIST  (hr_roster)
+PAGE 1   RECORDS: 16
+
+SEQ   WORKER#   I9-RCHK     STAT-THRU     PST-STAT   LCA-TGT
+------------------------------------------------------------
+0001  E-30213   COMPLETED   18-MAY-2027   POSTED     01-APR-2026
+0002  E-30206   COMPLETED   17-APR-2027   POSTED     14-FEB-2026
+0003  E-30210   COMPLETED   10-JUN-2028   POSTED     19-JUL-2026
+0004  E-30205   COMPLETED   03-DEC-2026   POSTED     05-APR-2026
+0005  E-30211   COMPLETED   19-APR-2027   POSTED     17-FEB-2026
+0006  E-30207   COMPLETED   03-APR-2027   POSTED     30-JUL-2026
+0007  E-30209   COMPLETED   14-FEB-2028   POSTED     21-APR-2026
+0008  E-30201   COMPLETED   13-FEB-2027   POSTED     24-JAN-2026
+0009  E-30215   COMPLETED   16-SEP-2027   POSTED     30-JAN-2026
+0010  E-30216   COMPLETED   24-MAY-2027   POSTED     04-APR-2026
+0011  E-30214   COMPLETED   02-JAN-2027   POSTED     08-JUL-2026
+0012  E-30202   COMPLETED   12-JAN-2027   POSTED     28-JUN-2026
+0013  E-30203   COMPLETED   06-NOV-2027   POSTED     21-JAN-2026
+0014  E-30204   COMPLETED   17-AUG-2027   POSTED     06-JUL-2026
+0015  E-30208   COMPLETED   05-AUG-2027   POSTED     17-JUL-2026
+0016  E-30212   COMPLETED   08-OCT-2027   POSTED     12-APR-2026
+------------------------------------------------------------
+END OF REPORT - 16 RECORD(S)
+
+LEGEND
+  WORKER#       worker reference
+  I9-RCHK       state of the I-9 re-check
+  STAT-THRU     immigration status good through
+  PST-STAT      state of the worksite posting
+  LCA-TGT       targeted LCA submission day
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

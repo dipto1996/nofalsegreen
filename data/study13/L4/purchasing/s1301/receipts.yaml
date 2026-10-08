@@ -1,0 +1,107 @@
+# Goods-in notes
+# exported by records service; absent keys = not captured
+export:
+  dataset: receipts
+  entries: 15
+  records:
+    - entry_no: 1
+      subject:
+        order_ref: "PO-30116"
+      quantity:
+        counted_in: 50
+      logistics:
+        arrived: "Jan 10 2026"
+    - entry_no: 2
+      subject:
+        order_ref: "PO-30109"
+      quantity:
+        counted_in: 100
+      logistics:
+        arrived: "Feb 8 2026"
+    - entry_no: 3
+      subject:
+        order_ref: "PO-30106"
+      logistics:
+        arrived: "Jul 13 2026"
+      quantity:
+        counted_in: 227
+    - entry_no: 4
+      subject:
+        order_ref: "PO-30114"
+      quantity:
+        counted_in: 312
+      logistics:
+        arrived: "Mar 9 2026"
+    - entry_no: 5
+      subject:
+        order_ref: "PO-30111"
+      logistics:
+        arrived: "2026-03-28"
+    - entry_no: 6
+      subject:
+        order_ref: "PO-30110"
+      quantity:
+        counted_in: 360
+      logistics:
+        arrived: "2026-05-06"
+    - entry_no: 7
+      subject:
+        order_ref: "PO-30110"
+      quantity:
+        counted_in: 360
+      logistics:
+        arrived: "Apr 26 2026"
+    - entry_no: 8
+      subject:
+        order_ref: "PO-30103"
+      quantity:
+        counted_in: 55
+      logistics:
+        arrived: "2026-03-18"
+    - entry_no: 9
+      subject:
+        order_ref: "PO-30104"
+      quantity:
+        counted_in: 217
+      logistics:
+        arrived: "Jun 29 2026"
+    - entry_no: 10
+      subject:
+        order_ref: "PO-30107"
+      logistics:
+        arrived: "Apr 15 2026"
+      quantity:
+        counted_in: 112
+    - entry_no: 11
+      subject:
+        order_ref: "PO-30101"
+      quantity:
+        counted_in: 374
+      logistics:
+        arrived: "2026-06-09"
+    - entry_no: 12
+      subject:
+        order_ref: "PO-30102"
+      quantity:
+        counted_in: 271
+    - entry_no: 13
+      subject:
+        order_ref: "PO-30105"
+      logistics:
+        arrived: "Jul 13 2026"
+      quantity:
+        counted_in: 328
+    - entry_no: 14
+      subject:
+        order_ref: "PO-30115"
+      logistics:
+        arrived: "2026-07-17"
+      quantity:
+        counted_in: 482
+    - entry_no: 15
+      subject:
+        order_ref: "PO-30113"
+      logistics:
+        arrived: "2026-07-22"
+      quantity:
+        counted_in: 55

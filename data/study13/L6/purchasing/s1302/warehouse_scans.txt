@@ -1,0 +1,31 @@
+RPT-7800   DOCK SCANNER EVENTS  (warehouse_scans)
+PAGE 1   RECORDS: 17
+
+SEQ   ORDER#     DOCK-SCAN
+--------------------------
+0001  PO-30204   02-MAR-2026
+0002  PO-30216   22-FEB-2026
+0003  PO-30215   25-MAY-2026
+0004  PO-30203   21-MAY-2026
+0005  PO-30212   03-MAY-2026
+0006  PO-30211   01-MAY-2026
+0007  PO-30206   12-MAY-2026
+0008  PO-30210   12-MAR-2026
+0009  PO-30208   08-FEB-2026
+0010  PO-30205   04-JUN-2026
+0011  PO-30214   05-MAY-2026
+0012  PO-30201   19-JUL-2026
+0013  PO-30213   20-JUN-2026
+0014  PO-30202   14-JUL-2026
+0015  PO-30209   25-JUL-2026
+0016  PO-30216   04-MAR-2026
+0017  PO-30207   27-JAN-2026
+--------------------------
+END OF REPORT - 17 RECORD(S)
+
+LEGEND
+  ORDER#        order reference
+  DOCK-SCAN     day the dock scanner recorded the delivery
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

@@ -1,0 +1,32 @@
+RPT-2332   PURCHASE REQUEST QUEUE  (requisitions)
+PAGE 1   RECORDS: 16
+
+SEQ   ORDER#    REQ-ST    ASK-USDK  ETA
+---------------------------------------
+0001  PO-30216  APPROVED       103  20-FEB-2026
+0002  PO-30202  APPROVED       197  14-JUL-2026
+0003  PO-30209  APPROVED     119.5  19-JUL-2026
+0004  PO-30206  APPROVED       9.5  08-MAY-2026
+0005  PO-30214  APPROVED         5  01-MAY-2026
+0006  PO-30204  APPROVED     173.5  01-MAR-2026
+0007  PO-30215  APPROVED      26.5  24-MAY-2026
+0008  PO-30208  APPROVED     115.5  07-FEB-2026
+0009  PO-30205  APPROVED     116.5  27-MAY-2026
+0010  PO-30203  APPROVED       163  15-MAY-2026
+0011  PO-30213  APPROVED       179  10-JUN-2026
+0012  PO-30211  APPROVED        27  28-APR-2026
+0013  PO-30207  APPROVED      73.5  18-JAN-2026
+0014  PO-30201  APPROVED        74  09-JUL-2026
+0015  PO-30210  APPROVED     121.5  09-MAR-2026
+0016  PO-30212  APPROVED     186.5  25-APR-2026
+---------------------------------------
+END OF REPORT - 16 RECORD(S)
+
+LEGEND
+  ORDER#        order reference
+  REQ-ST        state of the purchase request
+  ASK-USDK      sum asked for, USD thousands
+  ETA           anticipated arrival
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.

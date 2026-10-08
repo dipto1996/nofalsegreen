@@ -1,0 +1,84 @@
+# Remittance ledger
+# exported by records service; absent keys = not captured
+export:
+  dataset: payments
+  entries: 16
+  records:
+    - entry_no: 1
+      subject:
+        order_ref: "PO-30201"
+      settlement:
+        remitted: "Aug 2 2026"
+    - entry_no: 2
+      subject:
+        order_ref: "PO-30214"
+      settlement:
+        remitted: "2026-05-12"
+    - entry_no: 3
+      subject:
+        order_ref: "PO-30203"
+      settlement:
+        remitted: "May 11 2026"
+    - entry_no: 4
+      subject:
+        order_ref: "PO-30208"
+      settlement:
+        remitted: "Jan 31 2026"
+    - entry_no: 5
+      subject:
+        order_ref: "PO-30206"
+      settlement:
+        remitted: "2026-05-23"
+    - entry_no: 6
+      subject:
+        order_ref: "PO-30207"
+      settlement:
+        remitted: "Jan 22 2026"
+    - entry_no: 7
+      subject:
+        order_ref: "PO-30204"
+      settlement:
+        remitted: "2026-03-15"
+    - entry_no: 8
+      subject:
+        order_ref: "PO-30215"
+      settlement:
+        remitted: "May 25 2026"
+    - entry_no: 9
+      subject:
+        order_ref: "PO-30202"
+      settlement:
+        remitted: "Jul 12 2026"
+    - entry_no: 10
+      subject:
+        order_ref: "PO-30209"
+      settlement:
+        remitted: "Jul 23 2026"
+    - entry_no: 11
+      subject:
+        order_ref: "PO-30211"
+      settlement:
+        remitted: "2026-05-08"
+    - entry_no: 12
+      subject:
+        order_ref: "PO-30213"
+      settlement:
+        remitted: "2026-06-28"
+    - entry_no: 13
+      subject:
+        order_ref: "PO-30205"
+      settlement:
+        remitted: "May 28 2026"
+    - entry_no: 14
+      subject:
+        order_ref: "PO-30216"
+      settlement:
+        remitted: "2026-03-11"
+    - entry_no: 15
+      subject:
+        order_ref: "PO-30201"
+      settlement:
+        remitted: "Aug 17 2026"
+    - entry_no: 16
+      subject:
+        order_ref: "PO-30210"

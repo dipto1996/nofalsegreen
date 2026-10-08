@@ -1,0 +1,166 @@
+# Component master
+# exported by records service; absent keys = not captured
+export:
+  dataset: parts
+  entries: 16
+  records:
+    - entry_no: 1
+      subject:
+        component_ref: "P-30109"
+      schedule:
+        test_slot: "Oct 24 2026"
+      quality:
+        disposition: "passed"
+      load:
+        design_target:
+          kilonewtons: 442
+    - entry_no: 2
+      subject:
+        component_ref: "P-30107"
+      quality:
+        disposition: "passed"
+      schedule:
+        test_slot: "2027-01-04"
+      load:
+        design_target:
+          kilonewtons: 490
+    - entry_no: 3
+      subject:
+        component_ref: "P-30106"
+      load:
+        design_target:
+          kilonewtons: 70
+      schedule:
+        test_slot: "2026-04-12"
+      quality:
+        disposition: "passed"
+    - entry_no: 4
+      subject:
+        component_ref: "P-30108"
+      load:
+        design_target:
+          kilonewtons: 316
+      quality:
+        disposition: "passed"
+      schedule:
+        test_slot: "2027-03-17"
+    - entry_no: 5
+      subject:
+        component_ref: "P-30111"
+      load:
+        design_target:
+          kilonewtons: 148
+      schedule:
+        test_slot: "2026-01-14"
+      quality:
+        disposition: "passed"
+    - entry_no: 6
+      subject:
+        component_ref: "P-30102"
+      load:
+        design_target:
+          kilonewtons: 70
+      quality:
+        disposition: "passed"
+      schedule:
+        test_slot: "Mar 24 2027"
+    - entry_no: 7
+      subject:
+        component_ref: "P-30105"
+      quality:
+        disposition: "passed"
+      load:
+        design_target:
+          kilonewtons: 538
+      schedule:
+        test_slot: "2026-08-06"
+    - entry_no: 8
+      subject:
+        component_ref: "P-30110"
+      schedule:
+        test_slot: "2027-07-14"
+      quality:
+        disposition: "passed"
+      load:
+        design_target:
+          kilonewtons: 514
+    - entry_no: 9
+      subject:
+        component_ref: "P-30103"
+      schedule:
+        test_slot: "Mar 6 2026"
+      quality:
+        disposition: "passed"
+      load:
+        design_target:
+          kilonewtons: 268
+    - entry_no: 10
+      subject:
+        component_ref: "P-30112"
+      quality:
+        disposition: "passed"
+      load:
+        design_target:
+          kilonewtons: 538
+      schedule:
+        test_slot: "2026-08-23"
+    - entry_no: 11
+      subject:
+        component_ref: "P-30114"
+      quality:
+        disposition: "passed"
+      schedule:
+        test_slot: "2026-03-24"
+      load:
+        design_target:
+          kilonewtons: 544
+    - entry_no: 12
+      subject:
+        component_ref: "P-30116"
+      schedule:
+        test_slot: "Feb 7 2027"
+      load:
+        design_target:
+          kilonewtons: 322
+      quality:
+        disposition: "passed"
+    - entry_no: 13
+      subject:
+        component_ref: "P-30113"
+      schedule:
+        test_slot: "Mar 28 2026"
+      load:
+        design_target:
+          kilonewtons: 166
+      quality:
+        disposition: "passed"
+    - entry_no: 14
+      subject:
+        component_ref: "P-30104"
+      schedule:
+        test_slot: "Jul 12 2027"
+      quality:
+        disposition: "passed"
+      load:
+        design_target:
+          kilonewtons: 166
+    - entry_no: 15
+      subject:
+        component_ref: "P-30115"
+      load:
+        design_target:
+          kilonewtons: 154
+      schedule:
+        test_slot: "2026-05-10"
+      quality:
+        disposition: "passed"
+    - entry_no: 16
+      subject:
+        component_ref: "P-30101"
+      quality:
+        disposition: "passed"
+      load:
+        design_target:
+          kilonewtons: 178
+      schedule:
+        test_slot: "2027-02-21"

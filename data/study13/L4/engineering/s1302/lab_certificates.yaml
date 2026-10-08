@@ -1,0 +1,131 @@
+# External laboratory certificates
+# exported by records service; absent keys = not captured
+export:
+  dataset: lab_certificates
+  entries: 16
+  records:
+    - entry_no: 1
+      subject:
+        component_ref: "P-30203"
+      certificate:
+        trial_performed: "Jan 20 2027"
+      load:
+        break_attested:
+          kilonewtons: 401
+    - entry_no: 2
+      subject:
+        component_ref: "P-30208"
+      certificate:
+        trial_performed: "Apr 7 2027"
+      load:
+        break_attested:
+          kilonewtons: 334
+    - entry_no: 3
+      subject:
+        component_ref: "P-30204"
+      certificate:
+        trial_performed: "2026-02-19"
+    - entry_no: 4
+      subject:
+        component_ref: "P-30201"
+      load:
+        break_attested:
+          kilonewtons: 425
+      certificate:
+        trial_performed: "2026-02-18"
+    - entry_no: 5
+      subject:
+        component_ref: "P-30205"
+      load:
+        break_attested:
+          kilonewtons: 582
+      certificate:
+        trial_performed: "2027-08-02"
+    - entry_no: 6
+      subject:
+        component_ref: "P-30206"
+      load:
+        break_attested:
+          kilonewtons: 111
+      certificate:
+        trial_performed: "Apr 20 2026"
+    - entry_no: 7
+      subject:
+        component_ref: "P-30212"
+      certificate:
+        trial_performed: "Apr 5 2026"
+      load:
+        break_attested:
+          kilonewtons: 388
+    - entry_no: 8
+      subject:
+        component_ref: "P-30209"
+      load:
+        break_attested:
+          kilonewtons: 506
+      certificate:
+        trial_performed: "2027-05-11"
+    - entry_no: 9
+      subject:
+        component_ref: "P-30206"
+      load:
+        break_attested:
+          kilonewtons: 111
+      certificate:
+        trial_performed: "2026-04-12"
+    - entry_no: 10
+      subject:
+        component_ref: "P-30210"
+      certificate:
+        trial_performed: "Jun 24 2026"
+      load:
+        break_attested:
+          kilonewtons: 344
+    - entry_no: 11
+      subject:
+        component_ref: "P-30214"
+      load:
+        break_attested:
+          kilonewtons: 346
+      certificate:
+        trial_performed: "May 1 2026"
+    - entry_no: 12
+      subject:
+        component_ref: "P-30215"
+      load:
+        break_attested:
+          kilonewtons: 438
+      certificate:
+        trial_performed: "Mar 14 2026"
+    - entry_no: 13
+      subject:
+        component_ref: "P-30211"
+      certificate:
+        trial_performed: "May 31 2026"
+      load:
+        break_attested:
+          kilonewtons: 326
+    - entry_no: 14
+      subject:
+        component_ref: "P-30216"
+      load:
+        break_attested:
+          kilonewtons: 360
+      certificate:
+        trial_performed: "2027-04-06"
+    - entry_no: 15
+      subject:
+        component_ref: "P-30202"
+      load:
+        break_attested:
+          kilonewtons: 295
+      certificate:
+        trial_performed: "Aug 24 2027"
+    - entry_no: 16
+      subject:
+        component_ref: "P-30207"
+      certificate:
+        trial_performed: "Jun 25 2026"
+      load:
+        break_attested:
+          kilonewtons: 75

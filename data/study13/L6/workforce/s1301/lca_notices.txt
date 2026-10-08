@@ -1,0 +1,30 @@
+RPT-6484   WORKSITE POSTING LOG (LCA)  (lca_notices)
+PAGE 1   RECORDS: 15
+
+SEQ   WORKER#  PUT-UP       TAKEN-DN
+------------------------------------
+0001  E-30109  17-FEB-2026  03-MAR-2026
+0002  E-30112  18-JAN-2026  01-FEB-2026
+0003  E-30103  13-JUL-2026  26-JUL-2026
+0004  E-30114  14-APR-2026  16-MAY-2026
+0005  E-30113  14-JUL-2026  --
+0006  E-30107  11-JUN-2026  15-JUL-2026
+0007  E-30108  15-JAN-2026  27-JAN-2026
+0008  E-30102  27-FEB-2026  28-MAR-2026
+0009  E-30110  03-JUN-2026  13-JUN-2026
+0010  E-30105  16-JUN-2026  28-JUN-2026
+0011  E-30116  --           26-JAN-2026
+0012  E-30115  31-MAY-2026  16-JUN-2026
+0013  E-30101  28-MAY-2026  23-JUN-2026
+0014  E-30111  16-FEB-2026  05-MAR-2026
+0015  E-30104  11-APR-2026  05-MAY-2026
+------------------------------------
+END OF REPORT - 15 RECORD(S)
+
+LEGEND
+  WORKER#       worker reference
+  PUT-UP        day the LCA notice went up
+  TAKEN-DN      day the LCA notice came down
+  Dates are DD-MON-YYYY. USDK columns are in thousands of US dollars (185.5 = $185,500).
+  -N columns are in newtons (1 kN = 1,000 N). '--' means not recorded.
+  Each SEQ line is a separate record; a reference may appear on several lines.
