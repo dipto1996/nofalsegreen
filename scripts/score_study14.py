@@ -215,6 +215,8 @@ def main() -> int:
         v["outcome"] = ("confirmed" if run < 0.05 and want * v["delta"] > 0 else "not confirmed") if want else \
             ("difference" if run < 0.05 else "no detectable difference")
     out: dict = {"declared": "docs/STUDY14_DECLARATION.md", "primary": {k: v for k, (v, _) in tests.items()}}
+    # reported, not tested (added for Study 15's power analysis)
+    out["secondary"] = {"extraction - evidence-first: correct decisions": contrast(EX, EF, "correct_determinate", 5)}
     # declared per-model safety: upper 95% bound of (system - parser) unsupported pass below MARGIN
     out["safety_per_model"] = {}
     for sy in (EX, "hybrid", CG):

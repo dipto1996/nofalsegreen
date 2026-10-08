@@ -128,6 +128,9 @@ CONTRACTS: dict[str, Contract] = {}
 # Per rule, the maps that carry a known value to the comparison points the predicate can
 # reach (the candidate generator also applies their inverses).
 SHIFTS: dict[str, list] = {}
+# Shifts of rules defined elsewhere (Study 15) that reuse this labeller; kept apart from SHIFTS so
+# that this module's CONTRACTS, prompts and obligations are unchanged.
+EXTRA_SHIFTS: dict[str, list] = {}
 
 
 def _add(c: Contract, shifts) -> None:
@@ -221,14 +224,14 @@ def candidates(rule_id: str, kind: str, known: list, n_unknown: int) -> list:
         crit = set()
         for k in known:
             crit.add(k)
-            for typ, n in SHIFTS[rule_id]:
+            for typ, n in SHIFTS.get(rule_id) or EXTRA_SHIFTS.get(rule_id, []):
                 if typ == "scale":
                     crit |= {k * Fraction(str(n)), k / Fraction(str(n))}
         return amount_points(crit, n_unknown)
     pts = set()
     for k in known:
         imgs = {k}
-        for typ, n in SHIFTS[rule_id]:
+        for typ, n in SHIFTS.get(rule_id) or EXTRA_SHIFTS.get(rule_id, []):
             if typ == "days":
                 imgs |= {k + timedelta(days=n), k - timedelta(days=n)}
             if typ == "bdays":

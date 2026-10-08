@@ -54,6 +54,19 @@
    "outcome": "difference"
   }
  },
+ "secondary": {
+  "extraction - evidence-first: correct decisions": {
+   "n_contents": 30,
+   "delta": 0.1753,
+   "ci95_content_bootstrap": [
+    0.1517,
+    0.1989
+   ],
+   "contents_positive": 30,
+   "contents_negative": 0,
+   "p_two_sided": 4.9999750001249995e-06
+  }
+ },
  "safety_per_model": {
   "contract13b_extract::gemini-3.1-pro-preview": {
    "n_contents": 30,

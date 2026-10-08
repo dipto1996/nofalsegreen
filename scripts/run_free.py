@@ -81,6 +81,7 @@ def main() -> int:
                     help="evaluate one arm of the declared Study 3c firms (nofalsegreen/study3c.py)")
     ap.add_argument("--study9", default=None,
                     help="Study 9 firms: 'A:<workflow>:<familiar|neutral>' or 'B:<workflow>' (nofalsegreen/study9.py)")
+    ap.add_argument("--study15", default=None, help="Study 15 firms: '<fda|usa|lca>' (nofalsegreen/study15.py)")
     ap.add_argument("--study14", default=None,
                     help="Study 14 firms: '<workflow>:<layout>' (nofalsegreen/study14.py)")
     ap.add_argument("--study13", default=None,
@@ -139,6 +140,10 @@ def main() -> int:
         from nofalsegreen import study9
         firms = study9.load_firms(args.study9)
         print(f"Study 9 ({args.study9}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
+    if args.study15:
+        from nofalsegreen import study15
+        firms = study15.load_firms(args.study15)
+        print(f"Study 15 ({args.study15}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
     if args.study14:
         from nofalsegreen import study14
         firms = study14.load_firms(args.study14)
@@ -213,6 +218,9 @@ def main() -> int:
                 if args.study13 or args.study14:
                     from nofalsegreen import study13
                     obls = study13.obligations(r2=variant.startswith("contract13b"))
+                if args.study15:
+                    from nofalsegreen import study15
+                    obls = study15.obligations()
                 r = run_firm(provider, firm, obls, variant=variant,
                              batch_size=args.batch, scope_sources=scope, keep_raw=True,
                              progress=True, stop_on_host_failure=not args.finalize,

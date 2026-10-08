@@ -597,3 +597,51 @@ def codegen_prompt(firm: Firm, obligations: list[Obligation]) -> tuple[str, str]
     user = (f"# {firm.provenance.get('header', 'Employer')}: {firm.name}\n\n## Files\n\n{files}\n"
             f"## Decision rules\n\n{rules}\n\n## Pairs ({len(firm.pairs)})\n\n{pairs}")
     return _SYSTEM_CODEGEN, user
+
+
+# Study 15 (docs/STUDY15_DECLARATION.md): the code-generation arm strengthened after review.
+# The program receives the pairs to answer at run time (a manifest), the budget matches
+# extraction's (up to three calls of the same output cap), and a failed or malformed run is
+# returned to the model, without any label, for up to two repairs.
+CODEGEN15 = "codegen15"
+_SYSTEM_CODEGEN15 = """You write data-extraction programs for an organisation's records.
+
+You will be given the organisation's records, verbatim (the file name is shown), decision rules
+that state, for every fact, the only document and field that establish it, and an example
+manifest of the pairs to answer.
+
+Write one Python 3 program, standard library only, run as
+
+    python3 program.py <packet_directory> <manifest.json>
+
+The manifest is a JSON object {"pairs": ["<rule_id>::<entity>", ...], "facts": {"<rule_id>":
+["<fact name>", ...]}}. Print one JSON object to standard output mapping every pair in the
+manifest to an object mapping each fact name of its rule to one of:
+  ["<value>", "<document>"]   the value, and the document (file name without extension) it came from
+  "ABSENT"                     the record has no value for that field
+  "CONFLICT"                   the entity's records hold disagreeing values for that field
+Dates as YYYY-MM-DD; amounts as decimal strings in the rule's unit.
+
+The program will be run on other packets in the same format, with other manifests: read the
+pairs from the manifest and the values from the files; do not copy identifiers or values into
+the program.
+
+Return only the program, in a single ```python block."""
+
+
+def codegen15_prompt(firm: Firm, obligations: list[Obligation], manifest: dict) -> tuple[str, str]:
+    wanted = {p.pair_id.split("::")[0] for p in firm.pairs}
+    rules = _render_obligations([o for o in obligations if o.rule_id in wanted])
+    files = "\n".join(f"### {k}  ({Path(v).name})\n```text\n{Path(v).read_text()}\n```\n"
+                      for k, v in sorted(firm.sources.items()))
+    import json as _json
+    user = (f"# {firm.provenance.get('header', 'Employer')}: {firm.name}\n\n## Files\n\n{files}\n"
+            f"## Decision rules\n\n{rules}\n\n## Example manifest (this packet)\n\n```json\n"
+            f"{_json.dumps(manifest, indent=1)}\n```")
+    return _SYSTEM_CODEGEN15, user
+
+
+def codegen15_repair(user: str, program: str, diagnostics: str) -> str:
+    return (f"{user}\n\n## Your previous program\n\n```python\n{program}\n```\n\n"
+            f"## What happened when it ran on these files with this manifest\n\n{diagnostics}\n\n"
+            "Return a corrected program, in a single ```python block.")
