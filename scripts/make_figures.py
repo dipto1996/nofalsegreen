@@ -439,6 +439,52 @@ def fig_study14() -> None:
     save(fig, "fig_study14")
 
 
+def fig_study15() -> None:
+    r = load("docs/study15/results.json")
+    fig = plt.figure(figsize=(7.0, 3.0))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.1, 1], wspace=0.42, left=0.08, right=0.985, bottom=0.17, top=0.76)
+    ax = fig.add_subplot(gs[0])
+    srcs = [("fda", "openFDA recalls"), ("usa", "USAspending awards"), ("lca", "DOL LCA rows")]
+    systems = [("contract13b_evidence_first", "evidence-first prompt", BRICK),
+               ("contract13b_extract", "extraction + solver", NAVY),
+               ("codegen15", "model-written parser\n(manifest, repair) + solver", TEAL)]
+    w = 0.26
+    for j, (k, lab, c) in enumerate(systems):
+        ys = [r["by_source"][s][k]["correct_determinate"] for s, _ in srcs]
+        ax.bar([i + (j - 1) * w for i in range(3)], ys, width=w, color=c, label=lab)
+    ax.set_xticks(range(3))
+    ax.set_xticklabels([n for _, n in srcs], fontsize=7.3)
+    ax.set_ylim(0, 1.05)
+    ax.grid(axis="x", visible=False)
+    ax.set_ylabel("Correct on decidable pairs", fontsize=7.8)
+    ax.set_title("(a) Correct decisions by source", fontsize=8.2, pad=26, loc="left")
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.01, 0.99), ncol=3, fontsize=6.0, frameon=False,
+              handletextpad=0.3, columnspacing=0.7, borderaxespad=0)
+    ax = fig.add_subplot(gs[1])
+    names = [("gemini-3.1-pro-preview", "Gemini 3.1 Pro"), ("gemini-3.8-flash", "Gemini 3.8 Flash"),
+             ("gemma-4-26b-a4b-it-maas", "Gemma 4 26B"), ("deepseek-v3.2-maas", "DeepSeek V3.2"), ("glm-5.2-maas", "GLM-5.2")]
+    cols = [NAVY, TEAL, GOLD, BRICK, INK2]
+    for (m, n), c in zip(names, cols):
+        for k, mk in (("contract13b_evidence_first", "s"), ("contract13b_extract", "o"), ("codegen15", "D")):
+            a = r["per_model"][m][k]
+            ax.plot([a["unsupported_pos"]], [a["correct_determinate"]], ls="", marker=mk, ms=5.2, mfc=c, mec="white", zorder=3)
+    ax.axvline(0.01, color=FRAME, lw=0.8, ls="--")
+    ax.set_xscale("symlog", linthresh=0.01)
+    ax.set_xlim(-0.001, 0.4)
+    ax.set_xticks([0, 0.01, 0.1])
+    ax.set_xticklabels(["0", "0.01", "0.1"])
+    ax.set_ylim(0.3, 1.03)
+    ax.set_xlabel("Unsupported pass (symmetric log)", fontsize=7.8)
+    ax.set_ylabel("Correct on decidable pairs", fontsize=7.8)
+    ax.set_title("(b) Safety and usefulness by model", fontsize=8.2, pad=26, loc="left")
+    h = [plt.Line2D([], [], ls="", marker=mk, mfc=INK2, mec="white", label=lab) for mk, lab in
+         (("s", "prompt"), ("o", "extraction"), ("D", "model-written parser"))]
+    h += [plt.Line2D([], [], ls="", marker="o", mfc=c, mec="white", label=n.replace("Gemini ", "")) for (m, n), c in zip(names, cols)]
+    ax.legend(handles=h, loc="lower left", bbox_to_anchor=(-0.02, 0.99), ncol=4, fontsize=5.6, frameon=False,
+              handletextpad=0.1, columnspacing=0.5, borderaxespad=0)
+    save(fig, "fig_study15")
+
+
 def anchor_points() -> list[tuple[str, tuple, tuple]]:
     vw = load("docs/views_results.json")["runs"]
     fin = {k for k, v in load("docs/llm_results.json")["runs"].items() if v.get("per_firm")}
@@ -620,5 +666,5 @@ def fig_regime_heatmap() -> None:
 
 if __name__ == "__main__":
     for f in (fig_study3_multiples, fig_forest, fig_i9, fig_separation, fig_verdict_flow,
-              fig_detection_vs_safety, fig_regime_heatmap, fig_study4, fig_study9, fig_study13, fig_study14):
+              fig_detection_vs_safety, fig_regime_heatmap, fig_study4, fig_study9, fig_study13, fig_study14, fig_study15):
         f()

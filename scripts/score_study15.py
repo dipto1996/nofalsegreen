@@ -197,6 +197,7 @@ def main() -> int:
     for (who, m, wf, k), rp in sorted(reports.items()):
         tables = packets[(wf, k)][1]
         t = audit.setdefault(who, Counter())
+        t2 = audit.setdefault(f"{who}::{wf}", Counter())
         for pid in sorted(labels[(wf, k)]):
             rep = rp.get(pid, {})
             rule, e = pid.split("::", 1)
@@ -213,8 +214,11 @@ def main() -> int:
                     except (ValueError, ZeroDivisionError):
                         got = None
                     o = "value, correct" if st_ == "known" and got == val else "value, wrong"
+                    if o == "value, wrong" and st_ == "known":
+                        t2[f"wrong value ({f.kind}), record has one"] += 1
                 t[f"{st_}: {o}"] += 1
-    out["slot_audit"] = {w: {"slots": sum(t.values()), "correct": t["known: value, correct"] + t["unknown: ABSENT"],
+                t2[f"{st_}: {o}"] += 1
+    out["slot_audit"] = {w: {"slots": sum(v for k, v in t.items() if not k.startswith("wrong value")), "correct": t["known: value, correct"] + t["unknown: ABSENT"],
                              "outcomes": dict(sorted(t.items()))} for w, t in sorted(audit.items())}
     tok: dict = {}
     for f in sorted((OUT / "runs").glob("*.json")):

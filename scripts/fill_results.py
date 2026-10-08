@@ -619,7 +619,7 @@ def table_study6() -> str:
                 "sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. "
                 "Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired "
                 "on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's "
-                "contrast averages the remaining models. Per-model effects are in Table 24.")
+                "contrast averages the remaining models. Per-model effects are in Table 26.")
     return "\n".join(rows)
 
 
@@ -865,6 +865,72 @@ def table_study14_safety() -> str:
     return "\n".join(rows)
 
 
+_S15 = {"contract13b_evidence_first": "Evidence-first prompt", "contract13b_extract": "Extraction + solver",
+        "codegen15": "Code generation with manifest and repair + solver", "always abstain": "Always abstain"}
+_SRC15 = {"fda": "openFDA recalls", "usa": "USAspending awards", "lca": "DOL LCA rows"}
+
+
+def table_study15_systems() -> str:
+    f = ROOT / "docs" / "study15" / "results.json"
+    head = ("| System | Unsupported pass | Correct decisions | openFDA | USAspending | DOL LCA | Unnecessary abstention "
+            "| Follow-up share |\n|---|---|---|---|---|---|---|---|")
+    if not f.exists():
+        return head
+    r = json.loads(f.read_text())
+    rows = [head]
+    for k in ("contract13b_evidence_first", "contract13b_extract", "codegen15", "always abstain"):
+        a = r["summary"][k]
+        rows.append(f"| {_S15[k]} | {a['unsupported_pos']:.3f} | {a['correct_determinate']:.3f} | "
+                    + " | ".join(f"{r['by_source'][w][k]['correct_determinate']:.3f}" for w in ("fda", "usa", "lca"))
+                    + f" | {a['unnecessary_abstention']:.3f} | {a['followup_share']:.3f} |")
+    rows.append("")
+    rows.append("Fifty packets of real public records in their publishers' formats; model systems are the mean of five "
+                "models. The three source columns give correct decisions on decidable pairs.")
+    return "\n".join(rows)
+
+
+def table_study15() -> str:
+    f = ROOT / "docs" / "study15" / "results.json"
+    head = "| Test | Effect [95% CI] | Packets + / − | Holm p | Result |\n|---|---|---|---|---|"
+    if not f.exists():
+        return head
+    r = json.loads(f.read_text())
+    lab = {"H1": "Extraction − evidence-first: unsupported pass", "H2": "Extraction − code generation: correct decisions",
+           "H3": "Extraction − evidence-first: correct decisions"}
+    rows = [head]
+    for k, v in r["primary"].items():
+        p = "<0.001" if v["p_holm"] < 0.001 else f"{v['p_holm']:.3f}"
+        res = "confirmed" if v["outcome"] == "confirmed" else ("not confirmed: opposite direction"
+                                                               if v["p_holm"] < 0.05 else "not confirmed")
+        rows.append(f"| {k[:2]} {lab[k[:2]]} | {v['delta']:+.3f} [{v['ci95_packet_bootstrap'][0]:+.3f}, "
+                    f"{v['ci95_packet_bootstrap'][1]:+.3f}] | {v['packets_positive']} / {v['packets_negative']} | {p} | {res} |")
+    rows.append("")
+    rows.append("Fifty packets; five models averaged with equal weight; sign-flip test over packets (200,000 patterns), "
+                "packet bootstrap interval, Holm over H1–H3. Declared before any call.")
+    return "\n".join(rows)
+
+
+def table_study15_safety() -> str:
+    f = ROOT / "docs" / "study15" / "results.json"
+    head = ("| Model | Prompt: unsupported pass | Prompt: correct | Extraction: unsupported pass [95% CI] | Extraction: correct "
+            "| Code generation: unsupported pass | Code generation: correct |\n|---|---|---|---|---|---|---|")
+    if not f.exists():
+        return head
+    r = json.loads(f.read_text())
+    rows = [head]
+    for m, n in _M13.items():
+        pm, sf = r["per_model"][m], r["safety_per_model"]
+        e = sf[f"contract13b_extract::{m}"]
+        rows.append(f"| {n} | {pm['contract13b_evidence_first']['unsupported_pos']:.3f} | "
+                    f"{pm['contract13b_evidence_first']['correct_determinate']:.3f} | {e['rate']:.3f} "
+                    f"[{e['ci95_packet_bootstrap'][0]:.3f}, {e['ci95_packet_bootstrap'][1]:.3f}]{'' if e['meets_margin'] else ' (fails)'} | "
+                    f"{pm['contract13b_extract']['correct_determinate']:.3f} | {pm['codegen15']['unsupported_pos']:.3f} | "
+                    f"{pm['codegen15']['correct_determinate']:.3f} |")
+    rows.append("")
+    rows.append("Study 15, fifty packets. The declared safety criterion is an upper 95% bound below 0.01; it fails where marked.")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -910,6 +976,9 @@ def main() -> int:
         "table-study14": table_study14(),
         "table-study14-systems": table_study14_systems(),
         "table-study14-safety": table_study14_safety(),
+        "table-study15": table_study15(),
+        "table-study15-systems": table_study15_systems(),
+        "table-study15-safety": table_study15_safety(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

@@ -89,6 +89,35 @@ def diagnose(run: dict, man: dict, doc: str) -> list:
     return out
 
 
+def replay() -> int:
+    """Re-execute every final program on its packet and its reuse packet; compare parsed output
+    with the stored record (python3 -I leaves set order random, so raw text can differ)."""
+    def parsed(out):
+        try:
+            return json.loads(out[out.index("{"):out.rindex("}") + 1])
+        except ValueError:
+            return out
+    n = diff = 0
+    for p in sorted(OUT.glob("*.json")):
+        for key, rec in json.loads(p.read_text()).items():
+            if not rec.get("program"):
+                continue
+            fid = key.split("|")[3]
+            wf, k = fid.split("-")[1], int(fid.split("-")[2][1:])
+            for part, kk in (("own", k), ("reuse", rec.get("reuse_packet"))):
+                if kk is None or rec.get(part) is None:
+                    continue
+                r = execute(rec["program"], study15.packet_dir(wf, kk), manifest(study15.firm(wf, kk)))
+                n += 1
+                diff += not (r["returncode"] == rec[part]["returncode"]
+                             and parsed(r["stdout"]) == parsed(rec[part]["stdout"]))
+    print(f"replayed {n} executions; {diff} differ")
+    return 1 if diff else 0
+
+
+if __name__ == "__main__" and "--replay" in sys.argv:
+    raise SystemExit(replay())
+
 if __name__ == "__main__":
     prov, model, wf = sys.argv[1], sys.argv[2], sys.argv[3]
     shard, nshards = map(int, (sys.argv[4] if len(sys.argv) > 4 else "0/1").split("/"))  # throughput only

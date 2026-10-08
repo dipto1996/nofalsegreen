@@ -887,6 +887,38 @@
     "unknown: omitted": 6
    }
   },
+  "codegen::fda": {
+   "slots": 4800,
+   "correct": 4710,
+   "outcomes": {
+    "known: ABSENT": 42,
+    "known: omitted": 42,
+    "known: value, correct": 4081,
+    "unknown: ABSENT": 629,
+    "unknown: omitted": 6
+   }
+  },
+  "codegen::lca": {
+   "slots": 2400,
+   "correct": 2252,
+   "outcomes": {
+    "known: ABSENT": 112,
+    "known: value, correct": 2054,
+    "known: value, wrong": 34,
+    "unknown: ABSENT": 198,
+    "unknown: CONFLICT": 2,
+    "wrong value (amount), record has one": 11,
+    "wrong value (date), record has one": 23
+   }
+  },
+  "codegen::usa": {
+   "slots": 4800,
+   "correct": 4800,
+   "outcomes": {
+    "known: value, correct": 4400,
+    "unknown: ABSENT": 400
+   }
+  },
   "extraction": {
    "slots": 12000,
    "correct": 8828,
@@ -897,6 +929,44 @@
     "known: value, wrong": 641,
     "unknown: ABSENT": 1215,
     "unknown: value, wrong": 20
+   }
+  },
+  "extraction::fda": {
+   "slots": 4800,
+   "correct": 4768,
+   "outcomes": {
+    "known: ABSENT": 9,
+    "known: omitted": 22,
+    "known: value, correct": 4134,
+    "unknown: ABSENT": 634,
+    "unknown: value, wrong": 1
+   }
+  },
+  "extraction::lca": {
+   "slots": 2400,
+   "correct": 1898,
+   "outcomes": {
+    "known: ABSENT": 8,
+    "known: value, correct": 1699,
+    "known: value, wrong": 493,
+    "unknown: ABSENT": 199,
+    "unknown: value, wrong": 1,
+    "wrong value (amount), record has one": 11,
+    "wrong value (date), record has one": 482
+   }
+  },
+  "extraction::usa": {
+   "slots": 4800,
+   "correct": 2162,
+   "outcomes": {
+    "known: ABSENT": 2456,
+    "known: omitted": 16,
+    "known: value, correct": 1780,
+    "known: value, wrong": 148,
+    "unknown: ABSENT": 382,
+    "unknown: value, wrong": 18,
+    "wrong value (amount), record has one": 7,
+    "wrong value (date), record has one": 141
    }
   }
  },

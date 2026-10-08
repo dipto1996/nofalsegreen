@@ -37,7 +37,7 @@ REBUILD = [("score_study3.py",), ("study3_exploratory.py",), ("study3_robustness
            ("analysis.py",), ("labelcheck_compare.py",), ("certify_existing.py",), ("verify_study9_labels.py",),
            ("score_study9.py",), ("score_study10.py",), ("score_study11.py",), ("score_study12.py",),
            ("differential_contracts.py",), ("verify_study13_labels.py",), ("score_study13.py",), ("score_study13.py", "--r2"),
-           ("power_study14.py",), ("score_study14.py",)]
+           ("power_study14.py",), ("score_study14.py",), ("power_study15.py",), ("score_study15.py",)]
 REBUILT = {}
 if "--no-rebuild" not in sys.argv:
     import hashlib
@@ -52,7 +52,7 @@ if "--no-rebuild" not in sys.argv:
                                         "study9/results.json", "study10/results.json", "study11/results.json",
                                         "study12/results.json", "study9/differential.json", "study13/label_check.json",
                                         "study13/results.json", "study13/results_r2.json", "study14/power.json",
-                                        "study14/results.json")]
+                                        "study14/results.json", "study15/power.json", "study15/results.json")]
     import os
     before = {f: hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None for f in outs}
     # A scorer that fails leaves the old file in place, which would hash as "identical";
@@ -762,7 +762,7 @@ _kinds = _C(l.note for f in _s5.build("complete_actual_above") for l in f.labels
 claim(_kinds["greater_of_only"] == 38 and _kinds["below_offered"] == 24
       and "these 38 underpayments and on the 24 below the offered wage" in _flat, "Study 8: G2 denominators")
 
-claim(len(REBUILD) == 29 and "all 29 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
+claim(len(REBUILD) == 31 and "all 31 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
 _ec = json.loads((ROOT / "docs" / "existing_certificates.json").read_text())
 _lv = json.loads((ROOT / "docs" / "study9" / "label_verification.json").read_text())
 claim(_ec["needs_evidence_pairs"] == _ec["certified"] == 3330 and not _ec["failures"]
@@ -972,9 +972,47 @@ claim(sorted(_ok14) == ["gemini-3.1-pro-preview", "gemini-3.8-flash", "glm-5.2-m
       "Study 14: per-model safety criterion")
 claim(f"by\n{-_P14[0]['delta']:.3f} against the strongest prompt".replace("\n", " ") in _AB
       and f"made {_P14[1]['delta']:.3f} more correct" in _AB and f"and {_P14[3]['delta']:.3f} more than" in _AB
-      and "two of five models made more" in _AB, "abstract: Study 14")
+      and "for two of five models it cost some safety" in _AB, "abstract: Study 14")
 claim(f"decided {_s14['parser']['correct_determinate']:.3f} of decidable pairs correctly\nand extraction {_s14[_EX14]['correct_determinate']:.3f}".replace("\n", " ") in _flat,
       "discussion: Study 14")
+
+# Study 15: real public records in native formats
+_r15 = json.loads((ROOT / "docs" / "study15" / "results.json").read_text())
+_pw15 = json.loads((ROOT / "docs" / "study15" / "power.json").read_text())
+_P15 = list(_r15["primary"].values())
+_s15, _b15, _sf15, _cg15, _sa15, _mo15 = (_r15[k] for k in ("summary", "by_source", "safety_per_model", "codegen",
+                                                            "slot_audit", "needs_evidence_by_origin"))
+_ci15 = lambda v: f"[{v['ci95_packet_bootstrap'][0]:+.3f}, {v['ci95_packet_bootstrap'][1]:+.3f}]"
+from collections import Counter as _C15
+_lab15 = sum(sum(v.values()) for v in _r15["label_counts"].values())
+claim(_lab15 == 1200 and "All 1,200 labels agree" in _flat and all(v["n_packets"] == 50 for v in _P15)
+      and [v["outcome"] for v in _P15] == ["confirmed", "not confirmed", "confirmed"]
+      and _P15[1]["delta"] < 0 and _P15[1]["p_holm"] < 0.05, "Study 15: labels and outcomes (H2 reversed)")
+claim(f"by\n  {-_P15[0]['delta']:.3f} {_ci15(_P15[0])}".replace("\n  ", " ") in _flat
+      and f"made {_P15[2]['delta']:.3f} {_ci15(_P15[2])} more correct" in _flat and _P15[2]["packets_positive"] == 50
+      and f"{-_P15[1]['delta']:.3f} {_ci15(_P15[1])} more correct decisions than extraction ({_s15['codegen15']['correct_determinate']:.3f}" in _flat
+      and f"against {_s15['contract13b_extract']['correct_determinate']:.3f}), with no unsupported" in _flat
+      and _s15["codegen15"]["unsupported_pos"] == 0
+      and all(_r15["per_model"][m]["codegen15"]["unsupported_pos"] == 0 for m in _r15["per_model"]), "Study 15: effects in the text")
+claim(f"packets, {_cg15['clean_first_call']} were read cleanly at the first call and {_cg15['clean_final']} after repairs" in _flat
+      and _cg15["packets"] == 250 and f"decided\n  {_cg15['reuse_correct_determinate']:.3f}".replace("\n  ", " ") in _flat,
+      "Study 15: code generation calls and reuse")
+_u15, _l15 = _sa15["extraction::usa"]["outcomes"], _sa15["extraction::lca"]["outcomes"]
+claim(f"reported {_u15['known: ABSENT']:,} of {sum(x for k, x in _u15.items() if k.startswith('known')):,} values" in _flat
+      and f"returned {_l15['known: value, wrong']} of {sum(x for k, x in _l15.items() if k.startswith('known')):,} values wrong" in _flat
+      and f"values wrong, {_l15['wrong value (date), record has one']}\nof them dates".replace("\n", " ") in _flat
+      and f"({_b15['fda']['contract13b_extract']['correct_determinate']:.3f} and {_b15['fda']['codegen15']['correct_determinate']:.3f})" in _flat,
+      "Study 15: where extraction lost")
+_okx15 = sorted(m for m in _r15["per_model"] if _sf15[f"contract13b_extract::{m}"]["meets_margin"])
+claim(all(_sf15[f"codegen15::{m}"]["meets_margin"] for m in _r15["per_model"]) and len(_okx15) == 4
+      and "deepseek-v3.2-maas" not in _okx15
+      and f"({_sf15['contract13b_extract::deepseek-v3.2-maas']['rate']:.3f})" in _flat
+      and f"Gemma 4 ({_sf15['contract13b_evidence_first::gemma-4-26b-a4b-it-maas']['rate']:.3f})" in _flat
+      and f"{_mo15['contract13b_evidence_first']['missing at source']['unsupported_pass']:.3f} on pairs whose evidence was missing at source" in _flat,
+      "Study 15: per-model safety and origin of missing evidence")
+claim(f"(by {-_P15[0]['delta']:.3f})" in _AB and f"still: {_s15['codegen15']['correct_determinate']:.3f} correct decisions" in _AB,
+      "abstract: Study 15")
+claim(_pw15["50"]["H2 (gap halved)"] == 0.985 and _pw15["50"]["H2 (gap quartered)"] == 0.487, "Study 15: power as declared")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
