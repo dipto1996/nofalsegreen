@@ -619,7 +619,7 @@ def table_study6() -> str:
                 "sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. "
                 "Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired "
                 "on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's "
-                "contrast averages the remaining models. Per-model effects are in Table 22.")
+                "contrast averages the remaining models. Per-model effects are in Table 24.")
     return "\n".join(rows)
 
 
@@ -796,6 +796,75 @@ def table_study13_models() -> str:
     return "\n".join(rows)
 
 
+_S14 = {"contract13b_evidence_first": "Evidence-first prompt", "contract13b_extract": "Extraction + solver",
+        "hybrid": "Hybrid: parser, else extraction", "codegen14": "Code generation: model-written parser + solver",
+        "parser": "Rule-based parser + solver", "parser, Study 13": "Study 13 parser + solver",
+        "always abstain": "Always abstain"}
+
+
+def table_study14() -> str:
+    """Study 14: declared tests and every system."""
+    f = ROOT / "docs" / "study14" / "results.json"
+    head = "| Test | Effect [95% CI] | Contents + / − | Holm p | Result |\n|---|---|---|---|---|"
+    if not f.exists():
+        return head
+    r = json.loads(f.read_text())
+    lab = {"H1": "Extraction − evidence-first: unsupported pass", "H2": "Extraction − parser: correct decisions",
+           "H3": "Hybrid − parser: correct decisions", "H4": "Extraction − code generation: correct decisions"}
+    rows = [head]
+    for k, v in r["primary"].items():
+        p = "<0.001" if v["p_holm"] < 0.001 else f"{v['p_holm']:.3f}"
+        out = {"confirmed": "confirmed", "not confirmed": "not confirmed", "difference": "difference (two-sided)",
+               "no detectable difference": "no detectable difference"}[v["outcome"]]
+        rows.append(f"| {k[:2]} {lab[k[:2]]} | {v['delta']:+.3f} [{v['ci95_content_bootstrap'][0]:+.3f}, "
+                    f"{v['ci95_content_bootstrap'][1]:+.3f}] | {v['contents_positive']} / {v['contents_negative']} | {p} | {out} |")
+    rows.append("")
+    rows.append("Thirty contents, each rendered in two of six layouts from three designers; a content's value is the mean "
+                "over its renderings and, for model systems, over five models. Sign-flip test over contents (200,000 "
+                "patterns), content bootstrap interval, Holm over H1–H4. Declared before any call.")
+    return "\n".join(rows)
+
+
+def table_study14_systems() -> str:
+    f = ROOT / "docs" / "study14" / "results.json"
+    head = ("| System | Unsupported pass | Unsupported fail | Correct decisions | Coverage | Unnecessary abstention "
+            "| Follow-up share |\n|---|---|---|---|---|---|---|")
+    if not f.exists():
+        return head
+    r = json.loads(f.read_text())["summary"]
+    rows = [head]
+    for k in ("contract13b_evidence_first", "contract13b_extract", "hybrid", "codegen14", "parser", "parser, Study 13",
+              "always abstain"):
+        a = r[k]
+        rows.append(f"| {_S14[k]} | {a['unsupported_pos']:.3f} | {a['unsupported_neg']:.3f} | {a['correct_determinate']:.3f} | "
+                    f"{a['coverage']:.3f} | {a['unnecessary_abstention']:.3f} | {a['followup_share']:.3f} |")
+    rows.append("")
+    rows.append("All sixty renderings; model systems are the mean of five models. Measures as in Table 8.")
+    return "\n".join(rows)
+
+
+def table_study14_safety() -> str:
+    """Study 14 per model: correct decisions and the declared safety criterion (appendix)."""
+    f = ROOT / "docs" / "study14" / "results.json"
+    head = ("| Model | System | Unsupported pass | Correct decisions | Excess unsupported pass over the parser [95% CI] "
+            "| Meets 0.01 margin |\n|---|---|---|---|---|---|")
+    if not f.exists():
+        return head
+    r = json.loads(f.read_text())
+    rows = [head]
+    for m, n in _M13.items():
+        for k in ("contract13b_extract", "hybrid", "codegen14"):
+            a = r["per_model"][m][k]
+            c = r["safety_per_model"][f"{k}::{m}"]
+            rows.append(f"| {n} | {_S14[k].split(':')[0]} | {a['unsupported_pos']:.3f} | {a['correct_determinate']:.3f} | "
+                        f"{c['delta']:+.3f} [{c['ci95_content_bootstrap'][0]:+.3f}, {c['ci95_content_bootstrap'][1]:+.3f}] | "
+                        f"{'yes' if c['meets_margin'] else 'no'} |")
+    rows.append("")
+    rows.append("Study 14, thirty contents. The declared criterion: the content-bootstrap upper bound of the excess over the "
+                "rule-based parser (unsupported pass 0.003) is below 0.01.")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -838,6 +907,9 @@ def main() -> int:
         "table-study13": table_study13(),
         "table-study13-systems": table_study13_systems(),
         "table-study13-models": table_study13_models(),
+        "table-study14": table_study14(),
+        "table-study14-systems": table_study14_systems(),
+        "table-study14-safety": table_study14_safety(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

@@ -388,6 +388,57 @@ def fig_study13() -> None:
     save(fig, "fig_study13")
 
 
+def fig_study14() -> None:
+    r = load("docs/study14/results.json")
+    fig = plt.figure(figsize=(7.0, 3.0))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.3, 1], wspace=0.42, left=0.08, right=0.985, bottom=0.17, top=0.76)
+    ax = fig.add_subplot(gs[0])
+    lays = ["A1", "A2", "B1", "B2", "C1", "C2"]
+    systems = [("contract13b_evidence_first", "evidence-first prompt", BRICK, "s"),
+               ("parser", "rule-based parser + solver", INK2, "^"),
+               ("codegen14", "model-written parser + solver", GOLD, "v"),
+               ("contract13b_extract", "extraction + solver", NAVY, "o"),
+               ("hybrid", "parser, else extraction", TEAL, "D")]
+    for k, lab, c, mk in systems:
+        ys = [r["by_layout"][l][k]["correct_determinate"] for l in lays]
+        ax.plot(range(6), ys, color=c, lw=1.4, marker=mk, ms=4.4, label=lab)
+    ax.set_xticks(range(6))
+    ax.set_xticklabels(lays, fontsize=7.5)
+    ax.set_xlim(-0.4, 5.4)
+    ax.set_ylim(-0.03, 1.03)
+    ax.set_ylabel("Correct on decidable pairs", fontsize=7.8)
+    ax.set_title("(a) Correct decisions by layout (A, B, C: designers)", fontsize=8.2, pad=26, loc="left")
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.01, 0.99), ncol=3, fontsize=6.2, frameon=False,
+              handletextpad=0.3, columnspacing=0.7, borderaxespad=0)
+    ax = fig.add_subplot(gs[1])
+    names = [("gemini-3.1-pro-preview", "Gemini 3.1 Pro"), ("gemini-3.8-flash", "Gemini 3.8 Flash"),
+             ("gemma-4-26b-a4b-it-maas", "Gemma 4 26B"), ("deepseek-v3.2-maas", "DeepSeek V3.2"), ("glm-5.2-maas", "GLM-5.2")]
+    cols = [NAVY, TEAL, GOLD, BRICK, INK2]
+    for (m, n), c in zip(names, cols):
+        for k, mk in (("contract13b_evidence_first", "s"), ("contract13b_extract", "o"), ("hybrid", "D")):
+            a = r["per_model"][m][k]
+            ax.plot([a["unsupported_pos"]], [a["correct_determinate"]], ls="", marker=mk, ms=5.2, mfc=c, mec="white",
+                    zorder=3)
+    p = r["summary"]["parser"]
+    ax.plot([p["unsupported_pos"]], [p["correct_determinate"]], ls="", marker="^", ms=6, mfc=INK2, mec="white", zorder=3)
+    ax.axvline(p["unsupported_pos"] + 0.01, color=FRAME, lw=0.8, ls="--")
+    ax.set_xscale("symlog", linthresh=0.01)
+    ax.set_xlim(-0.001, 0.6)
+    ax.set_xticks([0, 0.01, 0.1, 0.5])
+    ax.set_xticklabels(["0", "0.01", "0.1", "0.5"])
+    ax.set_ylim(0.1, 1.03)
+    ax.set_xlabel("Unsupported pass (symmetric log)", fontsize=7.8)
+    ax.set_ylabel("Correct on decidable pairs", fontsize=7.8)
+    ax.set_title("(b) Safety and usefulness by model", fontsize=8.2, pad=26, loc="left")
+    h = [plt.Line2D([], [], ls="", marker=mk, mfc=INK2, mec="white", label=lab) for mk, lab in
+         (("s", "prompt"), ("o", "extraction"), ("D", "hybrid"), ("^", "parser"))]
+    h += [plt.Line2D([], [], ls="", marker="o", mfc=c, mec="white", label=n.split(" ")[0] + (" " + n.split(" ")[1] if "Gemini" in n else ""))
+          for (m, n), c in zip(names, cols)]
+    ax.legend(handles=h, loc="lower left", bbox_to_anchor=(-0.02, 0.99), ncol=5, fontsize=5.6, frameon=False,
+              handletextpad=0.1, columnspacing=0.5, borderaxespad=0)
+    save(fig, "fig_study14")
+
+
 def anchor_points() -> list[tuple[str, tuple, tuple]]:
     vw = load("docs/views_results.json")["runs"]
     fin = {k for k, v in load("docs/llm_results.json")["runs"].items() if v.get("per_firm")}
@@ -569,5 +620,5 @@ def fig_regime_heatmap() -> None:
 
 if __name__ == "__main__":
     for f in (fig_study3_multiples, fig_forest, fig_i9, fig_separation, fig_verdict_flow,
-              fig_detection_vs_safety, fig_regime_heatmap, fig_study4, fig_study9, fig_study13):
+              fig_detection_vs_safety, fig_regime_heatmap, fig_study4, fig_study9, fig_study13, fig_study14):
         f()

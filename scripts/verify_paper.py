@@ -36,7 +36,8 @@ REBUILD = [("score_study3.py",), ("study3_exploratory.py",), ("study3_robustness
            ("score_ai_pilot.py",), ("sweep.py", "--firms", "30"), ("score_views.py",), ("score_studies.py",),
            ("analysis.py",), ("labelcheck_compare.py",), ("certify_existing.py",), ("verify_study9_labels.py",),
            ("score_study9.py",), ("score_study10.py",), ("score_study11.py",), ("score_study12.py",),
-           ("differential_contracts.py",), ("verify_study13_labels.py",), ("score_study13.py",), ("score_study13.py", "--r2")]
+           ("differential_contracts.py",), ("verify_study13_labels.py",), ("score_study13.py",), ("score_study13.py", "--r2"),
+           ("power_study14.py",), ("score_study14.py",)]
 REBUILT = {}
 if "--no-rebuild" not in sys.argv:
     import hashlib
@@ -50,7 +51,8 @@ if "--no-rebuild" not in sys.argv:
                                         "existing_certificates.json", "study9/label_verification.json",
                                         "study9/results.json", "study10/results.json", "study11/results.json",
                                         "study12/results.json", "study9/differential.json", "study13/label_check.json",
-                                        "study13/results.json", "study13/results_r2.json")]
+                                        "study13/results.json", "study13/results_r2.json", "study14/power.json",
+                                        "study14/results.json")]
     import os
     before = {f: hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None for f in outs}
     # A scorer that fails leaves the old file in place, which would hash as "identical";
@@ -760,7 +762,7 @@ _kinds = _C(l.note for f in _s5.build("complete_actual_above") for l in f.labels
 claim(_kinds["greater_of_only"] == 38 and _kinds["below_offered"] == 24
       and "these 38 underpayments and on the 24 below the offered wage" in _flat, "Study 8: G2 denominators")
 
-claim(len(REBUILD) == 27 and "all 27 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
+claim(len(REBUILD) == 29 and "all 29 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
 _ec = json.loads((ROOT / "docs" / "existing_certificates.json").read_text())
 _lv = json.loads((ROOT / "docs" / "study9" / "label_verification.json").read_text())
 claim(_ec["needs_evidence_pairs"] == _ec["certified"] == 3330 and not _ec["failures"]
@@ -884,8 +886,7 @@ claim(f"fell by {-_P13[0]['delta']:.3f} {_ci13(_P13[0])}, in all 18 packets" in 
       and f"{_n113['delta']:+.3f} {_ci13(_n113)}" in _flat, "Study 13: declared tests in the text")
 claim(f"({_P013[1]['delta']:+.3f} and {_P013[2]['delta']:+.3f})" in _flat
       and f"gave {_PH13[1]['delta']:+.3f} and {_PH13[2]['delta']:+.3f}" in _flat, "Study 13: first run, declared and post hoc")
-claim(f"by {-_P13[0]['delta']:.3f} against the strongest prompt" in _AB and f"by {_P13[1]['delta']:.3f} over a rule-based parser" in _AB,
-      "abstract: Study 13")
+claim(f"by {-_P13[0]['delta']:.3f} [" in _flat and f"rose by {_P13[1]['delta']:.3f} [" in _flat, "Study 13: effects in the text")
 _ex13 = [_bl13[l][_EX13]["correct_determinate"] for l in ("L4", "L5", "L6")]
 claim(all(_bl13[l]["parser"]["correct_determinate"] == 1.0 for l in ("L1", "L2", "L3"))
       and f"{_bl13['L4']['parser']['correct_determinate']:.3f}, {_bl13['L5']['parser']['correct_determinate']:.3f} and" in _flat
@@ -922,6 +923,45 @@ claim(f"from {_g13[_EF13]['unsupported_pos']:.3f} to {_g13[_EX13]['unsupported_p
               for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash", "glm-5.2-maas"))
       and all(1.5 < _tk13[f"{m}::{_EX13}"]["output"] / _tk13[f"{m}::{_EF13}"]["output"] < 2.5
               for m in ("gemma-4-26b-a4b-it-maas", "deepseek-v3.2-maas")), "Study 13: by model and tokens")
+
+# Study 14: the powered transfer test
+_r14 = json.loads((ROOT / "docs" / "study14" / "results.json").read_text())
+_pw14 = json.loads((ROOT / "docs" / "study14" / "power.json").read_text())
+_P14 = list(_r14["primary"].values())
+_s14, _sf14, _pm14, _bl14 = _r14["summary"], _r14["safety_per_model"], _r14["per_model"], _r14["by_layout"]
+_EX14, _cg14, _lf14 = "contract13b_extract", _r14["codegen"], _r14["layout_families"]
+_ci14 = lambda v: f"[{v['ci95_content_bootstrap'][0]:+.3f}, {v['ci95_content_bootstrap'][1]:+.3f}]"
+_b14 = _lc13["by_study"]["14"]
+claim(all(v["n_contents"] == 30 and v["p_holm"] < 0.001 for v in _P14)
+      and [v["outcome"] for v in _P14] == ["confirmed", "confirmed", "confirmed", "difference"] and _P14[3]["delta"] > 0
+      and "All four declared tests reached Holm p < 0.001 over contents" in _flat
+      and _b14["labels"] == _b14["agree"] == 960 and "All 960 labels agree" in _flat
+      and _pw14["30"]["H2"] == 0.94 and "power 0.94 for the weakest test" in _flat, "Study 14: tests, labels and power")
+claim(f"{-_P14[0]['delta']:.3f} {_ci14(_P14[0])}, in all 30 contents" in _flat and _P14[0]["contents_negative"] == 30
+      and f"{_P14[1]['delta']:.3f} {_ci14(_P14[1])} more correct decisions" in _flat
+      and f"by {_P14[2]['delta']:.3f} {_ci14(_P14[2])}, reaching {_s14['hybrid']['correct_determinate']:.3f}" in _flat
+      and f"made {_P14[3]['delta']:.3f} {_ci14(_P14[3])} more correct" in _flat
+      and f"reached {_s14['parser']['correct_determinate']:.3f} on the new ones" in _flat
+      and f"({_s14['parser, Study 13']['correct_determinate']:.3f})" in _flat
+      and _s14["parser, Study 13"]["correct_determinate"] > _s14["parser"]["correct_determinate"], "Study 14: effects in the text")
+claim(f"Of 300 replies, {_cg14['with_program']} contained a program" in _flat and f"{_cg14['ran_cleanly']} ran without error" in _flat
+      and f"decided {_cg14['reuse_correct_determinate']:.3f} of decidable pairs" in _flat
+      and f"five of six layouts (exact p = {_lf14['extraction - parser']['p_exact_two_sided_over_layouts']:.3f}" in _flat
+      and _lf14["extraction - parser"]["layouts_positive"] == 5 and _lf14["extraction - parser"]["by_layout"]["B1"] < 0
+      and f"from {min(_bl14[l][_EX14]['correct_determinate'] for l in _bl14):.3f} to" in _flat
+      and min(_bl14, key=lambda l: _bl14[l][_EX14]["correct_determinate"]) == "C1", "Study 14: code generation and layouts")
+_ok14 = [m for m in _pm14 if _sf14[f"{_EX14}::{m}"]["meets_margin"]]
+claim(sorted(_ok14) == ["gemini-3.1-pro-preview", "gemini-3.8-flash", "glm-5.2-maas"]
+      and all(_sf14[f"hybrid::{m}"]["meets_margin"] == (m in _ok14) for m in _pm14)
+      and f"({_s14['parser']['unsupported_pos']:.3f})" in _flat
+      and f"excess\n{_sf14[_EX14 + '::gemma-4-26b-a4b-it-maas']['delta']:+.3f} {_ci14(_sf14[_EX14 + '::gemma-4-26b-a4b-it-maas'])}".replace("\n", " ") in _flat
+      and f"{_pm14['gemma-4-26b-a4b-it-maas'][_EX14]['correct_determinate']:.3f} and {_pm14['deepseek-v3.2-maas'][_EX14]['correct_determinate']:.3f}" in _flat,
+      "Study 14: per-model safety criterion")
+claim(f"by\n{-_P14[0]['delta']:.3f} against the strongest prompt".replace("\n", " ") in _AB
+      and f"made {_P14[1]['delta']:.3f} more correct" in _AB and f"and {_P14[3]['delta']:.3f} more than" in _AB
+      and "two of five models made more" in _AB, "abstract: Study 14")
+claim(f"decided {_s14['parser']['correct_determinate']:.3f} of decidable pairs correctly\nand extraction {_s14[_EX14]['correct_determinate']:.3f}".replace("\n", " ") in _flat,
+      "discussion: Study 14")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
