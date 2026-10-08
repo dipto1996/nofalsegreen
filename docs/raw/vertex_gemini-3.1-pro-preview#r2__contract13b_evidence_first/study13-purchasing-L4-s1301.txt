@@ -1,0 +1,38 @@
+pa.three_way_match::PO-30101	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30102	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30103	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30104	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30105	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30106	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30107	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30108	fail	invoices, purchase_orders
+pa.three_way_match::PO-30109	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30110	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30111	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30112	needs_evidence	invoices, purchase_orders, receipts
+
+---
+
+pa.three_way_match::PO-30113	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30114	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30115	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30116	fail	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-30101	fail	invoices, payments, receipts
+pa.paid_in_window::PO-30102	pass	invoices, payments, receipts, warehouse_scans
+pa.paid_in_window::PO-30103	needs_evidence	invoices, payments, receipts
+pa.paid_in_window::PO-30104	pass	invoices, payments, receipts
+pa.paid_in_window::PO-30105	pass	invoices, payments, receipts
+pa.paid_in_window::PO-30106	needs_evidence	invoices, payments, receipts
+pa.paid_in_window::PO-30107	pass	invoices, payments, receipts
+pa.paid_in_window::PO-30108	pass	invoices, payments, receipts, warehouse_scans
+
+---
+
+pa.paid_in_window::PO-30109	fail	invoices, payments, receipts
+pa.paid_in_window::PO-30110	needs_evidence	invoices, payments, receipts
+pa.paid_in_window::PO-30111	pass	invoices, payments, receipts
+pa.paid_in_window::PO-30112	fail	invoices, payments, warehouse_scans
+pa.paid_in_window::PO-30113	fail	invoices, payments, receipts
+pa.paid_in_window::PO-30114	fail	invoices, payments, receipts
+pa.paid_in_window::PO-30115	fail	invoices, payments, receipts
+pa.paid_in_window::PO-30116	pass	invoices, payments, receipts

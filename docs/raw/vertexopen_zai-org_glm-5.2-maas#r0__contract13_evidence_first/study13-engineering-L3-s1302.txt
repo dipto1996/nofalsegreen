@@ -1,0 +1,38 @@
+ea.calibration_current::P-30201	fail	calibration_log, test_reports
+ea.calibration_current::P-30202	needs_evidence	-
+ea.calibration_current::P-30203	needs_evidence	-
+ea.calibration_current::P-30204	fail	calibration_log, test_reports
+ea.calibration_current::P-30205	fail	calibration_log, test_reports
+ea.calibration_current::P-30206	fail	calibration_log, test_reports
+ea.calibration_current::P-30207	needs_evidence	-
+ea.calibration_current::P-30208	needs_evidence	-
+ea.calibration_current::P-30209	needs_evidence	-
+ea.calibration_current::P-30210	fail	calibration_log, test_reports
+ea.calibration_current::P-30211	pass	calibration_log, test_reports
+ea.calibration_current::P-30212	pass	calibration_log, test_reports
+
+---
+
+ea.calibration_current::P-30213	needs_evidence	calibration_log (calibration_log-4); test_reports and lab_certificates have no test date for P-30213
+ea.calibration_current::P-30214	pass	calibration_log (calibration_log-3); test_reports (test_reports-1)
+ea.calibration_current::P-30215	fail	calibration_log (calibration_log-14); test_reports (test_reports-10)
+ea.calibration_current::P-30216	needs_evidence	calibration_log has no calibration date for P-30216; test_reports (test_reports-2)
+ea.load_with_margin::P-30201	pass	lab_certificates (lab_certificates-4); spec_sheets (spec_sheets-15)
+ea.load_with_margin::P-30202	pass	lab_certificates (lab_certificates-15); spec_sheets (spec_sheets-3)
+ea.load_with_margin::P-30203	fail	lab_certificates (lab_certificates-1); spec_sheets (spec_sheets-4)
+ea.load_with_margin::P-30204	fail	lab_certificates has no certified failure load for P-30204; test_reports (test_reports-8); spec_sheets (spec_sheets-2)
+ea.load_with_margin::P-30205	fail	lab_certificates (lab_certificates-5); spec_sheets (spec_sheets-14)
+ea.load_with_margin::P-30206	fail	lab_certificates (lab_certificates-6, lab_certificates-9); spec_sheets (spec_sheets-10)
+ea.load_with_margin::P-30207	pass	lab_certificates (lab_certificates-16); spec_sheets (spec_sheets-1)
+ea.load_with_margin::P-30208	fail	lab_certificates (lab_certificates-2); spec_sheets (spec_sheets-11)
+
+---
+
+ea.load_with_margin::P-30209	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30210	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-30211	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-30212	needs_evidence	-
+ea.load_with_margin::P-30213	needs_evidence	-
+ea.load_with_margin::P-30214	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-30215	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-30216	pass	lab_certificates, spec_sheets

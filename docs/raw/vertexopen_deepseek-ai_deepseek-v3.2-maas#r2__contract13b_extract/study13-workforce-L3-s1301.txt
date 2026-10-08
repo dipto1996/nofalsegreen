@@ -1,0 +1,38 @@
+wf.reverify_window::E-30101	facts	authorization expiry=2026-11-06 from work_authorizations | reverification date=2026-07-24 from reverifications
+wf.reverify_window::E-30102	facts	authorization expiry=ABSENT | reverification date=2027-02-08 from reverifications
+wf.reverify_window::E-30103	facts	authorization expiry=2027-08-02 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-30104	facts	authorization expiry=2026-09-07 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-30105	facts	authorization expiry=2027-01-30 from work_authorizations | reverification date=2027-01-23 from reverifications
+wf.reverify_window::E-30106	facts	authorization expiry=2026-11-26 from work_authorizations | reverification date=2026-07-20 from reverifications
+wf.reverify_window::E-30107	facts	authorization expiry=2027-04-28 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-30108	facts	authorization expiry=2026-09-12 from work_authorizations | reverification date=2026-09-21 from reverifications
+wf.reverify_window::E-30109	facts	authorization expiry=2026-08-27 from work_authorizations | reverification date=2026-06-28 from reverifications
+wf.reverify_window::E-30110	facts	authorization expiry=2027-06-07 from work_authorizations | reverification date=2027-04-03 from reverifications
+wf.reverify_window::E-30111	facts	authorization expiry=CONFLICT | reverification date=2026-10-24 from reverifications
+wf.reverify_window::E-30112	facts	authorization expiry=2026-09-14 from work_authorizations | reverification date=2026-06-03 from reverifications
+
+---
+
+wf.reverify_window::E-30113	facts	authorization expiry=2026-10-06 from work_authorizations | reverification date=2026-05-11 from reverifications
+wf.reverify_window::E-30114	facts	authorization expiry=2026-12-19 from work_authorizations | reverification date=CONFLICT
+wf.reverify_window::E-30115	facts	authorization expiry=2027-04-28 from work_authorizations | reverification date=2027-05-09 from reverifications
+wf.reverify_window::E-30116	facts	authorization expiry=2026-12-14 from work_authorizations | reverification date=2026-10-25 from reverifications
+wf.notice_posting::E-30101	facts	notice posted=2026-05-28 from lca_notices | notice removed=2026-06-23 from lca_notices | LCA filed=2026-05-08 from lca_filings
+wf.notice_posting::E-30102	facts	notice posted=2026-02-27 from lca_notices | notice removed=2026-03-28 from lca_notices | LCA filed=2026-03-22 from lca_filings
+wf.notice_posting::E-30103	facts	notice posted=2026-07-13 from lca_notices | notice removed=2026-07-26 from lca_notices | LCA filed=2026-08-05 from lca_filings
+wf.notice_posting::E-30104	facts	notice posted=2026-04-11 from lca_notices | notice removed=2026-05-05 from lca_notices | LCA filed=2026-04-09 from lca_filings
+wf.notice_posting::E-30105	facts	notice posted=2026-06-16 from lca_notices | notice removed=2026-06-28 from lca_notices | LCA filed=2026-06-26 from lca_filings
+wf.notice_posting::E-30106	facts	notice posted=ABSENT | notice removed=ABSENT | LCA filed=ABSENT
+wf.notice_posting::E-30107	facts	notice posted=2026-06-11 from lca_notices | notice removed=2026-07-15 from lca_notices | LCA filed=2026-07-01 from lca_filings
+wf.notice_posting::E-30108	facts	notice posted=2026-01-15 from lca_notices | notice removed=2026-01-27 from lca_notices | LCA filed=2026-01-26 from lca_filings
+
+---
+
+wf.notice_posting::E-30109	facts	notice posted=2026-02-17 from lca_notices | notice removed=2026-03-03 from lca_notices | LCA filed=2026-02-01 from lca_filings
+wf.notice_posting::E-30110	facts	notice posted=2026-06-03 from lca_notices | notice removed=2026-06-13 from lca_notices | LCA filed=ABSENT
+wf.notice_posting::E-30111	facts	notice posted=2026-02-16 from lca_notices | notice removed=2026-03-05 from lca_notices | LCA filed=2026-02-26 from lca_filings
+wf.notice_posting::E-30112	facts	notice posted=2026-01-18 from lca_notices | notice removed=2026-02-01 from lca_notices | LCA filed=2026-01-31 from lca_filings
+wf.notice_posting::E-30113	facts	notice posted=2026-07-14 from lca_notices | notice removed=ABSENT from lca_notices | LCA filed=2026-07-31 from lca_filings
+wf.notice_posting::E-30114	facts	notice posted=2026-04-14 from lca_notices | notice removed=2026-05-16 from lca_notices | LCA filed=2026-04-11 from lca_filings
+wf.notice_posting::E-30115	facts	notice posted=2026-05-31 from lca_notices | notice removed=2026-06-16 from lca_notices | LCA filed=2026-06-13 from lca_filings
+wf.notice_posting::E-30116	facts	notice posted=ABSENT from lca_notices | notice removed=2026-01-26 from lca_notices | LCA filed=2026-01-16 from lca_filings

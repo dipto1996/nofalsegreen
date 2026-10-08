@@ -1,0 +1,38 @@
+wf.reverify_window::E-30101	pass	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30102	needs_evidence	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30103	needs_evidence	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30104	needs_evidence	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30105	pass	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30106	pass	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30107	needs_evidence	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30108	pass	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30109	pass	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30110	pass	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30111	pass	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30112	pass	reverifications.csv, work_authorizations.csv
+
+---
+
+wf.reverify_window::E-30113	pass	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30114	fail	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30115	fail	reverifications.csv, work_authorizations.csv
+wf.reverify_window::E-30116	fail	reverifications.csv, work_authorizations.csv
+wf.notice_posting::E-30101	pass	lca_notices.csv, lca_filings.csv
+wf.notice_posting::E-30102	pass	lca_notices.csv, lca_filings.csv
+wf.notice_posting::E-30103	pass	lca_notices.csv, lca_filings.csv
+wf.notice_posting::E-30104	pass	lca_notices.csv, lca_filings.csv
+wf.notice_posting::E-30105	pass	lca_notices.csv, lca_filings.csv
+wf.notice_posting::E-30106	needs_evidence	lca_notices.csv, lca_filings.csv
+wf.notice_posting::E-30107	pass	lca_notices.csv, lca_filings.csv
+wf.notice_posting::E-30108	pass	lca_notices.csv, lca_filings.csv
+
+---
+
+wf.notice_posting::E-30109	pass	lca_notices, lca_filings
+wf.notice_posting::E-30110	needs_evidence	lca_notices, lca_filings, dol_receipts
+wf.notice_posting::E-30111	pass	lca_notices, lca_filings
+wf.notice_posting::E-30112	pass	lca_notices, lca_filings
+wf.notice_posting::E-30113	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-30114	pass	lca_notices, lca_filings
+wf.notice_posting::E-30115	pass	lca_notices, lca_filings
+wf.notice_posting::E-30116	needs_evidence	lca_notices, lca_filings

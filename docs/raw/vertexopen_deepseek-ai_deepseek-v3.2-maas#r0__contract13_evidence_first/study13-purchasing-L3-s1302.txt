@@ -1,0 +1,38 @@
+pa.three_way_match::PO-30201	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30202	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30203	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30204	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30205	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30206	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30207	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30208	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30209	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30210	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30211	unmonitored	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30212	pass	invoices,purchase_orders,receipts
+
+---
+
+pa.three_way_match::PO-30213	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30214	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30215	unmonitored	-
+pa.three_way_match::PO-30216	fail	invoices,purchase_orders,receipts
+pa.paid_in_window::PO-30201	needs_evidence	invoices,payments,receipts
+pa.paid_in_window::PO-30202	pass	invoices,payments,receipts
+pa.paid_in_window::PO-30203	needs_evidence	invoices,payments,receipts
+pa.paid_in_window::PO-30204	pass	invoices,payments,receipts
+pa.paid_in_window::PO-30205	pass	invoices,payments,receipts
+pa.paid_in_window::PO-30206	needs_evidence	invoices,payments,receipts
+pa.paid_in_window::PO-30207	pass	invoices,payments,receipts
+pa.paid_in_window::PO-30208	pass	invoices,payments,receipts
+
+---
+
+pa.paid_in_window::PO-30209	pass	invoices-8,payments-10,receipts-3
+pa.paid_in_window::PO-30210	needs_evidence	invoices-12,payments,receipts-14
+pa.paid_in_window::PO-30211	unmonitored	-
+pa.paid_in_window::PO-30212	pass	invoices-4,payments,receipts-5
+pa.paid_in_window::PO-30213	pass	invoices-14,payments-12,receipts-11
+pa.paid_in_window::PO-30214	pass	invoices-10,payments-2,receipts-16
+pa.paid_in_window::PO-30215	unmonitored	-
+pa.paid_in_window::PO-30216	pass	invoices-2,payments-14,receipts-4

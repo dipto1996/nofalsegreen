@@ -1,0 +1,38 @@
+pa.three_way_match::PO-30101	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30102	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30103	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30104	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30105	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30106	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30107	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30108	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30109	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30110	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30111	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30112	needs_evidence	invoices, purchase_orders, receipts
+
+---
+
+pa.three_way_match::PO-30113	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30114	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30115	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30116	pass	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-30101	fail	receipts, payments, invoices
+pa.paid_in_window::PO-30102	fail	receipts, payments, invoices
+pa.paid_in_window::PO-30103	pass	receipts, payments, invoices
+pa.paid_in_window::PO-30104	fail	receipts, payments, invoices
+pa.paid_in_window::PO-30105	fail	receipts, payments, invoices
+pa.paid_in_window::PO-30106	pass	warehouse_scans, payments, invoices
+pa.paid_in_window::PO-30107	pass	receipts, payments, invoices
+pa.paid_in_window::PO-30108	pass	receipts, payments, invoices
+
+---
+
+PO-30109	pass	invoices (Entry 1), payments (Entry 12), receipts (Entry 2)
+PO-30110	pass	invoices (Entry 15), payments (Entry 16), receipts (Entry 7)
+PO-30111	fail	invoices (Entry 10), payments (Entry 13), receipts (Entry 5)
+PO-30112	pass	payments (Entry 15), receipts (Entry 14), warehouse_scans (Entry 14)
+PO-30113	fail	invoices (Entry 12), payments (Entry 1), receipts (Entry 15)
+PO-30114	pass	invoices (Entry 6), payments (Entry 4), receipts (Entry 4)
+PO-30115	fail	invoices (Entry 2), payments (Entry 8), receipts (Entry 14)
+PO-30116	pass	invoices (Entry 9), payments (Entry 14), receipts (Entry 1)

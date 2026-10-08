@@ -54,16 +54,7 @@
 \maketitle
 \thispagestyle{empty}
 \begin{abstract}
-A system that marks a decision satisfied claims that its evidence establishes it. We study when language models make such claims without support, giving \textbf{false greens}, under rules that state which records decide each question. Every label is checked by independently written programs: each ``insufficient evidence'' label that turns on missing values carries two completions of the records with opposite outcomes, and conflict labels are checked by agreement. In employer immigration compliance, adding \textbf{proxy columns} (fields beside the required record, such as an onboarding date beside a missing Form I-9) raised the false-green rate by 0.427 under a pass/fail dashboard schema and by 0.217 when abstention was offered, in a preregistered study of seven models from five developers (0.244 and 0.237 with firms weighted equally; exact permutation p ≤ 0.0013, Holm). Declared follow-ups locate the effect:
-
-\begin{itemize}
-\item proxy columns raise false greens more than irrelevant columns do;
-\item removing the abstaining verdicts (+0.384) or a one-sentence warning (+0.093) raises them;
-\item an evidence-first prompt lowers them (−0.074);
-\item on 120 real public LCA records, a roster's pay fields raised them by 0.236 with abstention offered, and the salary-of-record column alone induced false greens in three of five models.
-\end{itemize}
-
-Averaged over DeepSeek V3.2 and GLM-5.2, these replicate; two findings on Google's models do not. Across three workflows with explicit decision contracts, false greens nearly vanish under an offered abstention verdict. Of four declared explanations, only an instruction to match columns by meaning mattered, and only in part. What reliably removed unsupported decisions was separating reading from deciding: the model extracts each fact with its source, and a solver applies the rule. Averaged over five models, this cut unsupported positives from 0.068 to 0.002 and raised correct decisions from 0.818 to 0.967, beating the strongest prompt and a record-presence gate. On these structured records a program that reads the named columns directly is exact. All data, prompts and replies are released.
+A system that marks a decision satisfied claims that its evidence establishes it. We study when language models make that claim without support, giving \textbf{false greens}, under rules that state which records decide each question, and what removes them. Every label is checked by independently written programs. In employer immigration compliance, adding \textbf{proxy columns} (fields beside a missing required record, such as an onboarding date beside a missing Form I-9) raised the false-green rate by 0.427 under a pass/fail dashboard schema and by 0.217 when abstention was offered, in a preregistered study of seven models from five developers (0.244 and 0.237 with firms weighted equally; exact permutation p ≤ 0.0013, Holm). On 120 real public LCA records, a roster's pay fields raised them by 0.236 with abstention offered, and the salary-of-record column alone induced false greens in three of five models. Removing the abstaining verdicts (+0.384) or a one-sentence warning (+0.093) raised false greens and an evidence-first prompt lowered them (−0.074), but no menu, prompt or explicit decision contract reliably removed them, and declared tests of four explanations found only a partial one. What removed it was separating reading from deciding: the model extracts each fact with its source, and a solver applies the rule. Across three workflows, averaged over five models, this cut unsupported positives from 0.068 to 0.002 and raised correct decisions from 0.818 to 0.967. In a declared transfer test on six held-out rules and three record layouts designed independently of the method and of the baseline, it cut unsupported positives by 0.111 against the strongest prompt, in every packet, and raised correct decisions by 0.295 over a rule-based parser written without those layouts. The parser is exact on the layouts it was written for and slightly safer, and the gains over the prompt come from the two models that accept proxies. All data, prompts and replies are released, and a script recomputes every number.
 
 \end{abstract}
 
@@ -81,9 +72,9 @@ A system that marks a decision as satisfied claims more than a probable answer: 
 \caption{The task and the error. Each panel shows the exports a system is given for one obligation and one worker (values illustrative). With the I-9 record present the record decides (a); with it missing the correct verdict is needs\_evidence (b); with it missing but an onboarding date beside it, a model may answer pass (c). A wrong fail sends the item to review; a wrong pass removes it from review. }\label{fig:fig_overview}
 \end{figure*}
 
-We built an instrument for this error (Figure 1) and report four findings. \textbf{Proxy columns are a large cause:} planting columns that resemble required evidence, with the prompt unchanged, raises the false-green rate by 0.217 to 0.427. Controls show that it is not the number of added columns; for Google's models it is mostly their names; the two Gemini models take a proxy that suggests compliance as evidence while discounting one that suggests a breach, and two other developers' models respond to the values and substitute in both directions. \textbf{Of the output schema, removing the verdicts for ``could not tell'' matters most} for all five models, and removing a one-sentence warning that a missing record is not a record in order also raises false greens; redefining \texttt{\path|pass|} from ``shown to be satisfied'' to ``satisfied'' raised them for two models and not for Google's three. \textbf{Separating reading from deciding works:} under explicit decision contracts in three workflows, a model that only extracts each fact with its source, followed by a deterministic solver, nearly removes unsupported decisions while raising correct ones, which no prompt or presence gate matched. \textbf{High recall does not guarantee safety:} in Study 3, none of the four models that detected at least 0.92 of violations came close to zero false greens on proxy-column firms, although on real LCA records Gemini 3.1 Pro both detected every underpayment and made no false green (§6.5).
+We built an instrument for this error (Figure 1) and report four findings. \textbf{Separating reading from deciding removes it, and transfers.} A model that only extracts each fact with the record it came from, followed by a deterministic solver, nearly removed unsupported decisions while raising correct ones under explicit decision contracts in three workflows, which no prompt or record-presence gate matched. On six rules and three record layouts held out from the method's design, the layouts written by a separate author, it kept that safety and made more correct decisions than a strong rule-based parser that was exact on the layouts it was written for (§6.12). A program still wins when the schema is known; learned reading earns its place when the layout is not. \textbf{Proxy columns are a large cause:} planting columns that resemble required evidence, with the prompt unchanged, raises the false-green rate by 0.217 to 0.427. Controls show that it is not the number of added columns; for Google's models it is mostly their names; the two Gemini models take a proxy that suggests compliance as evidence while discounting one that suggests a breach, and two other developers' models respond to the values and substitute in both directions. \textbf{Of the output schema, removing the verdicts for ``could not tell'' matters most} for all five models, and removing a one-sentence warning that a missing record is not a record in order also raises false greens. \textbf{High recall does not guarantee safety:} in Study 3, none of the four models that detected at least 0.92 of violations came close to zero false greens on proxy-column firms, although on real LCA records Gemini 3.1 Pro both detected every underpayment and made no false green (§6.5).
 
-Each ingredient has precedents (§2): answers for insufficient evidence, directional overclaiming, distracting context and answer-menu effects. Our contribution is their combination where it has consequences: a four-verdict task over a third party's operational exports with a stated primary-record standard (§3); a generator that fixes labels before data and renders paired firms that differ only in added columns, with labels re-derived by a separately written checker (§4); a preregistered study and seven declared follow-ups that separate the proxy effect into name, value and direction and the schema effect into its parts, and replicate it on real public LCA records and on two more developers' models (§6); a three-workflow benchmark of explicit decision contracts with certified labels, four declared mechanism tests and a remedy that improves every error measure at once (§6.10–6.11); evidence that a deterministic compliance engine acquired the same shortcut (Appendix H); and a release in which every number in the paper is recomputed from retained replies by a script.
+Each ingredient has precedents (§2): answers for insufficient evidence, directional overclaiming, distracting context and answer-menu effects. Our contribution is their combination where it has consequences: a four-verdict task over a third party's operational records with a stated primary-record standard (§3); generators that fix labels before data, with every label re-derived by separately written checkers and every ``insufficient evidence'' label certified by two opposite completions (§4); a preregistered study and declared follow-ups that separate the proxy effect into name, value and direction, replicated on real public LCA records and on other developers' models (§6.1–6.9); explicit decision contracts in three workflows with four declared mechanism tests (§6.10–6.11); a declared transfer test on held-out rules and independently designed layouts against a strong parser (§6.12); evidence that a deterministic compliance engine acquired the same shortcut (Appendix H); and a release in which every number in the paper is recomputed from retained replies by a script.
 
 \section{Related work}\label{sec:2}
 \textbf{Legal NLP and compliance.} Legal benchmarks (Guha et al., 2023; Chalkidis et al., 2022; Zheng et al., 2021; Hendrycks et al., 2021; Fei et al., 2024) evaluate reasoning over legal text, rule application (Zhou et al., 2025; Dou et al., 2026) and unsupported statements about the law (Dahl et al., 2024; Magesh et al., 2025). Immigration datasets are petitioner- and text-side (Shportun, 2026; Afsharrad and Mousavi, 2026). Compliance checking predates language models (Zhang and El-Gohary, 2016; Amaral et al., 2022); recent LLM work makes the model the regulated subject (Guldimann et al., 2024) or the assessor of another party's documentation (Marino et al., 2025; Yang et al., 2026; Wang et al., 2025; Sarkar, 2026; Luo et al., 2026). Absent support is already a correct answer over legal text (ContractNLI's NotMentioned, Koreeda and Manning, 2021; unanswerable privacy questions, Ravichander et al., 2019); what is new here is a correct answer for a missing \emph{primary record} when obligations are assessed from a third party's operational exports.
@@ -113,16 +104,16 @@ An instance is a set of records (CSV tables) about entities, a set of rules, and
 
 \textbf{Two ways of stating a contract.} In Studies 3–8 the evidence is \emph{described}: each obligation lists the information it needs, and the model matches columns by meaning, as an employer-records reviewer would. The workforce contracts follow what the regulations make inspectable. An I-9 inspection is ``an inspection of Forms I-9'' on three business days' notice (8 C.F.R. 274a.2(b)(2)(ii)), and ICE's guidance makes ``failure to present the Form I-9 for inspection upon request'' a substantive violation (U.S. Immigration and Customs Enforcement, 2026). The LCA wage ``must be paid to the employee, cash in hand, free and clear, when due'' (20 C.F.R. 655.731(c)(1)), with documentation kept to prove it (655.731(b)(1)). So an HR status, an onboarding date or a salary of record does not establish these facts. In Studies 9 and 10 the evidence is \emph{bound}: each fact names the only columns that establish it, in three workflows (workforce, purchasing and engineering acceptance). Study 10 compares the two forms on identical records.
 
-\textbf{Metrics.} The \textbf{false-green rate} (FGR) is the share of unassessable pairs answered \texttt{\path|pass|}. Answering \texttt{\path|fail|} on such a pair is also wrong, but it triggers review, so it is not counted. A pair with no parsed answer can never be a false green, so every table reports coverage. FGR alone is gameable: \texttt{\path|always_fail|} scores 0 and catches every violation. Violation recall and the false-alarm rate on conforming controls (any verdict but \texttt{\path|pass|}) must therefore be reported with it (Appendix D gives trivial baselines). \texttt{\path|unmonitored|} on an unassessable pair is wrong but not a false green; in practice it acts as a second abstention (Appendix Figure 10).
+\textbf{Metrics.} The \textbf{false-green rate} (FGR) is the share of unassessable pairs answered \texttt{\path|pass|}. Answering \texttt{\path|fail|} on such a pair is also wrong, but it triggers review, so it is not counted. A pair with no parsed answer can never be a false green, so every table reports coverage. FGR alone is gameable: \texttt{\path|always_fail|} scores 0 and catches every violation. Violation recall and the false-alarm rate on conforming controls (any verdict but \texttt{\path|pass|}) must therefore be reported with it (Appendix D gives trivial baselines). \texttt{\path|unmonitored|} on an unassessable pair is wrong but not a false green; in practice it acts as a second abstention (Appendix Figure 11).
 
 \section{The instrument}\label{sec:4}
 \textbf{Rulebook.} 194 obligations across ten US employment-immigration regimes, each with its check, threshold, citation and required information, built from the registry of a commercial compliance engine developed by the author's company, whose citations its maintainers had checked against primary sources. The rulebook defines the task's scope; the experiments test four of its rules.
 
 \textbf{Generator.} Labels precede data: for each pair the generator draws a disposition (a planted violation, a conforming control with a share placed exactly on the legal boundary, or withheld evidence) and then writes records that decide it. It renders four rule families completely: I-9 Section 1 and Section 2 timeliness, reverification before authorisation expires, and the LCA required wage. Evidence is withheld a whole export at a time, since a blank date for a past deadline would read as ``not done'', a violation. A firm has twelve workers and 42 pairs. No generated pair has \texttt{\path|unmonitored|} as its correct verdict, so that verdict is exercised only on the anchor firm.
 
-\textbf{Proxy columns.} For Study 3 the generator can add five roster columns that sit beside a rule's evidence without being it: an I-9 status of ``Complete'', an onboarding date, the current authorisation's end date, a salary of record set at the LCA offered wage, and a pay-band midpoint. They appear whether or not the export they imitate is withheld, and come from a separate random stream, so a plain firm and its proxy twin have identical labels and other exports (Appendix Figure 9). The wage rule has a native proxy even in plain firms: the LCA's offered wage beside a missing actual-wage table.
+\textbf{Proxy columns.} For Study 3 the generator can add five roster columns that sit beside a rule's evidence without being it: an I-9 status of ``Complete'', an onboarding date, the current authorisation's end date, a salary of record set at the LCA offered wage, and a pay-band midpoint. They appear whether or not the export they imitate is withheld, and come from a separate random stream, so a plain firm and its proxy twin have identical labels and other exports (Appendix Figure 10). The wage rule has a native proxy even in plain firms: the LCA's offered wage beside a missing actual-wage table.
 
-\textbf{Certified labels.} Every label is checked by a program written separately from the generator. For determinate labels, a reference checker written from the contracts without access to the generator reproduces all 1,176 distinct generated labels of Studies 3–8, after exposing one generator bug: a year-end observed holiday that touched no study firm. For each \texttt{\path|needs_evidence|} label we publish a \textbf{certificate}: two completions of the visible records with opposite outcomes. Each completion is written out as records and judged by the independent checker. All 3,330 such labels in Studies 3, 3c, 4 and 8 are certified, as are all 227 that turn on missing values in Study 9 (454 completions checked). Study 9's 36 conflict labels, which no completion can certify, and all its 1,008 labels agree with a second, separately written checker (§6.10). Boundary choices are stated with their sensitivity (Appendix G). An expert workbook and two AI pilot runs of it are disclosed in Appendix I; they are not part of the validation argument.
+\textbf{Certified labels.} Every label is checked by a program written separately from the generator. For determinate labels, a reference checker written from the contracts without access to the generator reproduces all 1,176 distinct generated labels of Studies 3–8, after exposing one generator bug: a year-end observed holiday that touched no study firm. For each \texttt{\path|needs_evidence|} label we publish a \textbf{certificate}: two completions of the visible records with opposite outcomes. Each completion is written out as records and judged by the independent checker. All 3,330 such labels in Studies 3, 3c, 4 and 8 are certified, as are all 227 that turn on missing values in Study 9 (454 completions checked). Study 9's 36 conflict labels, which no completion can certify, and all its 1,008 labels agree with a second, separately written checker (§6.10). Agreement on generated packets does not show that two implementations agree everywhere: a review found an input the packets never contain, two disagreeing rows in a prioritised source, on which the generator's resolution depended on row order. Priority now ranks sources, not rows (no label changed), and on 3,000 random packets outside the generator's patterns (23,988 labels with duplicate rows, blank cells and every source combination) the generator and the checker agree on every label, and shuffling rows changes none (\texttt{\path|scripts/differential_contracts.py|}). Boundary choices are stated with their sensitivity (Appendix G). An expert workbook and two AI pilot runs of it are disclosed in Appendix I; they are not part of the validation argument.
 
 \textbf{Anchor firm.} A hand-authored employer of twelve workers with eleven exports and 221 pairs, whose labels were the engine's acceptance gate, where \texttt{\path|fail|} means ``requires action''. It is the weakest component. Two blind AI audits of its 120 evaluated evidence requests overturned 2 and 5 labels with none in common (Cohen's $\kappa$ = −0.024), and the second auditor found only 7 of its 20 violation labels shown by the exports. We use it only as a realism probe for false greens, which do not depend on violation labels (Appendix D).
 
@@ -145,9 +136,11 @@ dashboard & \texttt{pass}, \texttt{fail} & Both verdicts redefined as ``the obli
 \end{tabularx}
 \end{table*}
 
-The step from \emph{offered} to \emph{closed} is the \textbf{abstention effect}; from \emph{closed} to \emph{dashboard}, the \textbf{definition-and-warning effect}, whose two changes Study 4 separates (§6.4). Thirteen models from eight developers were run with temperature 0 and a 32,000-token cap (Appendix Table 9): six free-tier models, and seven on Google's Vertex AI paid from cloud credits. Unparseable lines are never coerced to a verdict (we report the unparseable rate), delivery failures are re-requested, and the commercial engine is not a baseline, since it and the anchor labels were developed together (Appendix C).
+The step from \emph{offered} to \emph{closed} is the \textbf{abstention effect}; from \emph{closed} to \emph{dashboard}, the \textbf{definition-and-warning effect}, whose two changes Study 4 separates (§6.4). Thirteen models from eight developers were run with temperature 0 and a 32,000-token cap (Appendix Table 11): six free-tier models, and seven on Google's Vertex AI paid from cloud credits. Unparseable lines are never coerced to a verdict (we report the unparseable rate), delivery failures are re-requested, and the commercial engine is not a baseline, since it and the anchor labels were developed together (Appendix C).
 
-\section{A preregistered study of schemas and proxy columns}\label{sec:6}
+\section{Experiments: diagnosis, then remedy}\label{sec:6}
+The studies fall into two parts. §6.1–6.9 diagnose the error in one domain: a preregistered study of proxy columns and output schemas (Study 3) and declared follow-ups that take the effects apart, replicate them on fresh firms, real LCA records and other developers' models. §6.10–6.12 test a remedy: explicit decision contracts in three workflows (Study 9), declared tests of why proxies persuade (Studies 10–12), and a declared transfer test of the remedy on held-out rules and layouts against a strong parser (Study 13). The second part carries the paper's main claim; the first establishes the problem it addresses.
+
 \begin{figure*}[t]\centering
 \includegraphics[width=\textwidth]{figures/fig_study3_multiples.pdf}
 \caption{False-green rate on the 180 unassessable pairs of the Study 3 firms under the four schemas (O offered, R removed-only, C closed, D dashboard), for plain firms and the same firms with proxy columns. Shading marks where proxy columns raise the rate. Rates are per cell; the tests in Table 3 are paired.}\label{fig:fig_study3_multiples}
@@ -188,7 +181,7 @@ Study 3 was declared in a file committed before any call (commit \texttt{\path|e
 \subsection{Results}\label{sec:6.2}
 All four were confirmed (Table 3, Figure 2). The bootstrap p-values all sit at its floor (0.002 after correction), so we add an exact sign-flip permutation test, which gives Holm-adjusted p ≤ 0.0013 for all four. Two features of the design temper the headline numbers. The 18 clusters are unbalanced: the I-9 pairs (99) come from only three firms that withhold the I-9 export, and the wage pairs (81) from nine. Weighting the twelve firms equally instead of the pairs, every effect stays positive and significant (exact p from < 0.001 to 0.028), but P3 falls to +0.244, because the large I-9 effect then counts for three firms rather than 99 pairs. Rules within a firm share its records and its withholding draw, so the cluster test treats them as exchangeable where the firm test does not; we read the firm-weighted values as the conservative magnitudes and the pooled ones as specific to this mix of firms. Dropping any one model or any one firm leaves every effect positive.
 
-False greens are not the only wrong answer on an unassessable pair. Averaged over the seven models, on proxy-column firms with abstention offered, 0.517 of unassessable pairs were answered \texttt{\path|needs_evidence|}, 0.395 \texttt{\path|pass|} and 0.045 \texttt{\path|fail|}; under the dashboard schema, where no correct answer exists, 0.713 were \texttt{\path|pass|} and 0.237 \texttt{\path|fail|} (Appendix Figure 10).
+False greens are not the only wrong answer on an unassessable pair. Averaged over the seven models, on proxy-column firms with abstention offered, 0.517 of unassessable pairs were answered \texttt{\path|needs_evidence|}, 0.395 \texttt{\path|pass|} and 0.045 \texttt{\path|fail|}; under the dashboard schema, where no correct answer exists, 0.713 were \texttt{\path|pass|} and 0.237 \texttt{\path|fail|} (Appendix Figure 11).
 
 The models differ (Figure 3). The proxy-column effect under the dashboard schema is significant for all seven, and under the offered schema for five (not Gemini 3.1 Pro or Kimi K2). The abstention effect is significant for five (not Gemma 4 or gpt-oss-120b), the definition-and-warning effect for one (gpt-oss-120b). Removing only \texttt{\path|needs_evidence|} raised false greens by 0.080 pooled (p = 0.004). The declared interaction, a larger definition-and-warning effect on proxy-column firms, was not found (+0.048 [−0.01, 0.10], p = 0.10). On plain firms both schema effects are present but smaller (exploratory: +0.093 and +0.035).
 
@@ -264,7 +257,7 @@ With abstention offered and no pay field, Gemini 3.1 Pro and 3.8 Flash answered 
 \subsection{What models rely on}\label{sec:6.6}
 Every reply line names the evidence field relied on. This is the model's own report, and stated reasons need not be the cause (Turpin et al., 2023); the causal evidence is the paired contrasts of Studies 3, 3c and 4, and the citations only show what models say they used (Table 4). On proxy-column firms, 1,376 of the 2,807 false greens (49\%) cite one of the five planted columns, and for the I-9 rules under the offered schema 118 of 134 (88\%), almost all the onboarding date or the current authorisation's end date. On plain firms, wage-rule false greens most often cite the LCA's offered wage. Under the dashboard schema more false greens cite other fields, consistent with a schema that asks only whether the obligation is satisfied.
 
-Detection does not bring safety. On the proxy-column firms, Gemini 3.1 Pro, Gemini 3.8 Flash, gpt-oss-120b and Kimi K2 detect at least 0.920 of violations with abstention offered, yet call 0.161 to 0.361 of unassessable pairs compliant. Across the seven models recall and false-green rate are negatively related, so higher recall helps, but none of the high-recall models comes near zero (Appendix Figure 11). Proxy columns change the false-alarm rate on conforming controls by at most 0.038 with abstention offered and 0.080 under any schema, so their cost falls mostly on the false-green side.
+Detection does not bring safety. On the proxy-column firms, Gemini 3.1 Pro, Gemini 3.8 Flash, gpt-oss-120b and Kimi K2 detect at least 0.920 of violations with abstention offered, yet call 0.161 to 0.361 of unassessable pairs compliant. Across the seven models recall and false-green rate are negatively related, so higher recall helps, but none of the high-recall models comes near zero (Appendix Figure 12). Proxy columns change the false-alarm rate on conforming controls by at most 0.038 with abstention offered and 0.080 under any schema, so their cost falls mostly on the false-green side.
 
 \subsection{Study 6: two more developers}\label{sec:6.7}
 Studies 3b–5 used only Google's models. Study 6, declared before any call (commit \texttt{\path|d03c7ee|}), ran every declared Study 4 and Study 5 cell, unchanged, on DeepSeek V3.2 and GLM-5.2 (Zhipu AI), current models from other developers that Google serves on Vertex as pay-per-token models. Averaged over the two models, as declared, seven of the ten tests replicated with the same sign (Table 6):
@@ -276,7 +269,7 @@ Studies 3b–5 used only Google's models. Study 6, declared before any call (com
 \item on the real LCA records, the pay fields raised them by 0.562 with abstention offered, and removing abstention raised them by 0.892.
 \end{itemize}
 
-Averages can hide disagreement between models (Table 20 gives every model's effect):
+Averages can hide disagreement between models (Table 22 gives every model's effect):
 
 \begin{itemize}
 \item \textbf{Warning (H6).} The warning's effect came from DeepSeek (+0.059); for GLM-5.2 it was −0.005.
@@ -310,7 +303,7 @@ R3 Dashboard − offered (real LCAs) & +0.586 (p 0.001) & +0.892 (p 0.001) & yes
 \bottomrule
 \end{tabular}
 \end{adjustbox}
-\par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Effects on the false-green rate (H3: on \texttt{fail}), each model weighted equally; Holm-adjusted exact sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's contrast averages the remaining models. Per-model effects are in Table 20.\end{minipage}
+\par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Effects on the false-green rate (H3: on \texttt{fail}), each model weighted equally; Holm-adjusted exact sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's contrast averages the remaining models. Per-model effects are in Table 22.\end{minipage}
 \end{table*}
 
 \subsection{Study 7: which pay field}\label{sec:6.8}
@@ -374,7 +367,7 @@ Each contract names the only columns that establish each fact, and every entity 
 \item \textbf{P4:} neither held-out workflow showed P1.
 \end{itemize}
 
-The coverage of Gemma 4 and GLM-5.2 in Part A was 0.70 and 0.83 after retries (Appendix C.9); contrasts are paired on answered pairs.
+The coverage of Gemma 4 and GLM-5.2 in Part A was 0.70 and 0.83 after retries (Appendix C.9); contrasts are paired on answered pairs, so for these two models a low error rate on answered pairs coexists with substantial incompletion.
 
 \textbf{Part B: harder packets and a remedy.} Sixteen entities per packet, two of each of eight patterns:
 
@@ -413,9 +406,9 @@ All three declared tests were confirmed, and the remedy did better in every pack
 
 The remedy sends more items to follow-up than the prompt (0.658 against 0.629), close to the 0.649 that correct decisions require. The prompt's lower share comes from violations hidden as \texttt{\path|pass|}.
 
-\textbf{Per model,} the gains come mostly from Gemma 4 (unsupported \texttt{\path|pass|} 0.229 to 0.007) and DeepSeek V3.2 (0.108 to 0.002). Gemini 3.8 Flash's correct decisions fell from 1.000 to 0.977, and GLM-5.2's unsupported \texttt{\path|pass|} rose from 0.002 to 0.004 (Table 21).
+\textbf{Per model,} the gains come mostly from Gemma 4 (unsupported \texttt{\path|pass|} 0.229 to 0.007) and DeepSeek V3.2 (0.108 to 0.002). Gemini 3.8 Flash's correct decisions fell from 1.000 to 0.977, and GLM-5.2's unsupported \texttt{\path|pass|} rose from 0.002 to 0.004 (Table 23). The remedy is a safeguard for models that accept proxies; for a model already near the floor it adds little and can cost correct decisions.
 
-\textbf{The decision layer depends on extraction.} The solver checks that a value is attributed to a named column, not that it matches the record. In the retained replies, 5,269 of 5,296 extracted values (99.5\%) equal the record's value, and 3 were reported where the record had none.
+\textbf{The decision layer depends on extraction.} The solver checks that a value is attributed to a named column, not that it matches the record. We therefore audited every fact slot the rules need in the retained replies. Of 6,240 slots, 6,098 were right: the record's value from a column that holds it, \texttt{\path|ABSENT|} where the record has none, or \texttt{\path|CONFLICT|} where it conflicts. Of the errors, 101 concern facts the record establishes (47 omitted, 43 reported absent, 11 reported conflicting), 7 cite a column that does not hold the value, 3 invent a value for a missing fact, and 26 miss a conflict. Gemma 4 recognised 12 of 36 conflicts; the other models 35 or 36. Of the 126 pairs with a slot error, 94 received a wrong verdict.
 
 \textbf{A correction.} The first version of the solver had a defect, found in review: when both dates of a rule were reported absent, a single fallback value made them equal and the rule passed. It produced 24 of the remedy's then 31 unsupported \texttt{\path|pass|} answers (0.011). After the fix, with a regression test, the same retained replies give 0.002. The labels were unaffected.
 
@@ -435,7 +428,7 @@ Study 9 removed most false greens that Studies 3–8 found in abundance. Three d
 \item \textbf{The reading rule (Study 12).} The Studies 3–8 prompt tells the model that ``column names will not match the wording of the obligations'' and to ``match them by meaning''. \emph{Removing} that sentence from the original prompt on the Study 3c proxy-column firms lowered false greens by 0.085 (M2, Holm p = 0.004, all ten firms): Gemma 4 from 0.770 to 0.491, and GLM-5.2 from 0.115 to 0.036. Against a re-run of the original prompt made at the same time, declared as an addendum, the estimate was +0.090 [+0.051, +0.129] (exact p = 0.006, nine of ten firms). \emph{Adding} the sentence to the contract prompts produced no detectable change (M1, +0.002).
 \end{itemize}
 
-The instruction a deployer writes to cope with mismatched column names therefore contributes to proxy acceptance, but it accounts for only part of the difference between the employer-audit framing of Studies 3–8 and the contract framing of Study 9. We do not have a complete account. What reliably removes unsupported decisions in our data is the architectural change of Part B, not a wording.
+Several of these tests ran near a floor of false greens, so a null result is weak evidence that a factor is irrelevant. The instruction a deployer writes to cope with mismatched column names therefore contributes to proxy acceptance, but it accounts for only part of the difference between the employer-audit framing of Studies 3–8 and the contract framing of Study 9. We do not have a complete account. What reliably removes unsupported decisions in our data is the architectural change of Part B, not a wording.
 
 \begin{table*}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
@@ -466,6 +459,81 @@ The instruction a deployer writes to cope with mismatched column names therefore
 \par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Five models (Gemini 3.1 Pro, Gemini 3.8 Flash, Gemma 4 26B, DeepSeek V3.2, GLM-5.2). Unit: the packet (Study 12 M2: the firm); paired contrasts averaged over models with equal weight; exact sign-flip test (Study 9: Monte Carlo above 20 packets), packet bootstrap interval, Holm within each study. All declared before any call of that study.\end{minipage}
 \end{table*}
 
+\subsection{Study 13: held-out rules and record layouts}\label{sec:6.12}
+Study 9's remedy was tested on the rules and layout it was designed with, where a program reading the named columns was exact. Study 13, declared before any call (commit \texttt{\path|527a33d|}), asks whether the remedy transfers to rules and record layouts it was not designed on, and whether reading by a language model adds anything over a strong rule-based parser when the layout is not known in advance.
+
+\textbf{Task.} Six new decision rules, two per workflow, with shapes absent from Studies 9–12: a two-sided 90-day window, a posting deadline with a 10-business-day duration, a four-fact conjunction, a three-date ordering, a 365-day validity window and a 1.2× threshold; five have a prioritised fact. Packets have sixteen entities over twelve patterns, three of them new conflict structures (disagreeing duplicates in a fallback source, which priority resolves; in the deciding source, which it does not; in a single-source fact). All 480 labels agree with a checker written by a separate agent from the specification alone, all 198 certificate completions verify, and on 3,000 random packets outside the generator's patterns the two agree on all 18,000 labels.
+
+\textbf{Layouts.} The same records in six layouts. L1–L3, the development layouts, are a canonical CSV, a CSV with other headers and value formats, and one line per field. L4–L6 were designed by a second separate agent from a brief and kept out of the repository until the parser below was frozen: a nested YAML export, a register of prose entries (``supplier billed USD 185.5 thousand; billed for one hundred and four (104) units''), and a fixed-width report with abbreviated headers, loads in newtons and amounts in thousands. Each test packet (two seeds per workflow) appears in all six, so layouts are paired on content.
+
+\textbf{Baselines.} A third separate agent wrote a rule-based parser from the specification and development packets in L1–L3, asked to be as robust as it could to unseen layouts without a language model. It handles JSON, XML, HTML, spreadsheets, fixed-width and Markdown tables, key–value blocks and prose, with synonym matching, unit conversion and abstention, and is exact on the development packets. Its facts go to the same solver.
+
+\textbf{A defect and a replication.} In the first run the rule statement printed some fact names with their unit (``measured load (kN)''); Gemini 3.1 Pro, Gemini 3.8 Flash and GLM-5.2 copied the unit into the name, the declared scorer matches names exactly, and the solver treated those facts as absent. Under the declared scoring, H1 and the non-inferiority test N1 were confirmed and H2 and H3 were not (+0.093 and +0.037); matching names after removing the unit, post hoc, gave +0.289 and +0.232. We corrected only the statement and declared a replication before any of its calls (commit \texttt{\path|162faa4|}); it is the run reported below, and both runs are in Table 9.
+
+\textbf{Results (held-out layouts, replication).} Separating reading from deciding transferred (Tables 8 and 9, Figure 7):
+
+\begin{table*}[t]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Study 13 replication: every system on the held-out layouts.}
+\label{tab:8}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{System} & \textbf{Unsupported pass} & \textbf{Unsupported fail} & \textbf{Correct decisions} & \textbf{Correct, development layouts} & \textbf{Unnecessary abstention} & \textbf{Follow-up share} \\
+\midrule
+Evidence-first prompt & 0.123 & 0.021 & 0.742 & 0.743 & 0.084 & 0.605 \\
+Extraction + solver & 0.012 & 0.008 & 0.971 & 0.950 & 0.028 & 0.684 \\
+Rule-based parser + solver & 0.002 & 0.016 & 0.677 & 1.000 & 0.307 & 0.793 \\
+Parser, else extraction (exploratory) & 0.013 & 0.010 & 0.987 & 0.994 & 0.011 & 0.678 \\
+Program reading the named columns & 0.000 & 0.000 & 0.000 & 0.333 & 1.000 & 1.000 \\
+Always abstain & 0.000 & 0.000 & 0.000 & 0.000 & 1.000 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Replication run; held-out layouts L4–L6 except the development column (L1–L3). Model systems: mean of five models. Unsupported pass and fail: over all pairs; correct decisions and unnecessary abstention: over decidable pairs; follow-up: share of pairs answered \texttt{fail}, abstaining or unanswered.\end{minipage}
+\end{table*}
+
+\begin{itemize}
+\item \textbf{H1, safety.} Against the evidence-first prompt, unsupported \texttt{\path|pass|} fell by 0.111 [-0.125, -0.097], in all 18 packets (Holm p < 0.001).
+\item \textbf{H2, value of learned reading.} Against the rule-based parser, correct decisions rose by 0.295 [+0.172, +0.419] (Holm p < 0.001), and for every model the per-model interval excludes zero (Table 24). The parser was exact on the development layouts and fell to 0.818, 0.794 and 0.418 on L4, L5 and L6; extraction stayed between 0.958 and 0.980.
+\item \textbf{H3, correct decisions.} Against the prompt, correct decisions rose by 0.230 [+0.212, +0.246], in all 18 packets.
+\item \textbf{N1, safety against the parser.} The parser is safer: unsupported \texttt{\path|pass|} 0.002 against 0.012. The difference, +0.010 [+0.006, +0.014], lies inside the declared margin of +0.02.
+\end{itemize}
+
+\textbf{Where each method fails.} On the development layouts, where it was written, the parser beats extraction by 0.050 in correct decisions; a known schema still favours a program. The models' residual errors are concentrated in conflicts: extraction decided 0.733 of pairs correctly where the deciding source holds disagreeing duplicates and 0.756 where a single-source fact does, against 1.000 and 1.000 for the parser. In a slot audit, 7,452 of 7,680 extracted facts were right. Using the parser where it reports every fact and extraction elsewhere, an exploratory combination, gave 0.987 correct decisions with unsupported \texttt{\path|pass|} of 0.013.
+
+\textbf{By model.} As in Study 9, the gains over the prompt come from the two models that accept proxies. Gemma 4's unsupported \texttt{\path|pass|} fell from 0.392 to 0.043 and DeepSeek V3.2's from 0.222 to 0.016; Gemini 3.1 Pro, Gemini 3.8 Flash and GLM-5.2 made no unsupported \texttt{\path|pass|} under either and reached 1.000 correct decisions with extraction. Extraction used fewer output tokens than the prompt for the three reasoning models (Gemini 3.8 Flash 342 against 1114 per pair) and about twice as many for the two that answer tersely.
+
+\begin{figure*}[t]\centering
+\includegraphics[width=\textwidth]{figures/fig_study13.pdf}
+\caption{Study 13, replication. (a) Correct decisions on decidable pairs by record layout, mean of five models for the model-based systems; L1-L3 were available to the parser's author, L4-L6 were held out from it. (b) Unsupported pass on the held-out layouts for each model under the evidence-first prompt and extraction + solver.}\label{fig:fig_study13}
+\end{figure*}
+
+\begin{table*}[t]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{The declared tests of Study 13.}
+\label{tab:9}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xllll}
+\toprule
+\textbf{Run} & \textbf{Test} & \textbf{Effect [95\% CI]} & \textbf{Packets + / −} & \textbf{Holm p} & \textbf{Result} \\
+\midrule
+First run & H1 Extraction − evidence-first: unsupported pass & -0.114 [-0.125, -0.102] & 0 / 18 & <0.001 & confirmed \\
+First run & H2 Extraction − rule-based parser: correct decisions & +0.093 [-0.070, +0.247] & 12 / 6 & 0.541 & not confirmed \\
+First run & H3 Extraction − evidence-first: correct decisions & +0.037 [-0.027, +0.101] & 11 / 7 & 0.541 & not confirmed \\
+First run & N1 Extraction − parser: unsupported pass, bound < +0.02 & +0.010 [+0.005, +0.013] & 15 / 1 & – & confirmed \\
+First run, post hoc names & H1 Extraction − evidence-first: unsupported pass & -0.113 [-0.124, -0.101] & 0 / 18 & <0.001 & post hoc \\
+First run, post hoc names & H2 Extraction − rule-based parser: correct decisions & +0.289 [+0.159, +0.417] & 12 / 6 & <0.001 & post hoc \\
+First run, post hoc names & H3 Extraction − evidence-first: correct decisions & +0.232 [+0.213, +0.252] & 18 / 0 & <0.001 & post hoc \\
+First run, post hoc names & N1 Extraction − parser: unsupported pass, bound < +0.02 & +0.011 [+0.007, +0.015] & 15 / 1 & – & post hoc \\
+Replication & H1 Extraction − evidence-first: unsupported pass & -0.111 [-0.125, -0.097] & 0 / 18 & <0.001 & confirmed \\
+Replication & H2 Extraction − rule-based parser: correct decisions & +0.295 [+0.172, +0.419] & 12 / 6 & <0.001 & confirmed \\
+Replication & H3 Extraction − evidence-first: correct decisions & +0.230 [+0.212, +0.246] & 18 / 0 & <0.001 & confirmed \\
+Replication & N1 Extraction − parser: unsupported pass, bound < +0.02 & +0.010 [+0.006, +0.014] & 17 / 1 & – & confirmed \\
+\bottomrule
+\end{tabularx}
+\par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Held-out layouts L4–L6, eighteen packets; five models averaged with equal weight; exact sign-flip test, packet bootstrap interval, Holm over H1–H3. N1 is declared non-inferiority (upper bound below +0.02). The first run's rule statement printed some fact names with their unit; the post-hoc rows match names after removing it, and the replication corrected the statement before any call (Section 6.12).\end{minipage}
+\end{table*}
+
 \section{The exploratory study that generated the hypotheses}\label{sec:7}
 \begin{figure*}[t]\centering
 \includegraphics[width=\textwidth]{figures/fig_separation.pdf}
@@ -474,10 +542,10 @@ The instruction a deployer writes to cope with mismatched column names therefore
 
 Before Study 3, all thirteen models were run on a declared 140-pair subset of the anchor firm, not all 221 pairs, for the free-tier budget (every planted violation and 120 evidence requests), most once, three Google models three times (their runs differed in false-green rate by at most 0.142).
 
-With abstention offered the thirteen models report 0.042 to 0.153 of unassessable pairs as satisfied, and 0.131 to 0.589 under the dashboard schema (Figure 7); the dashboard schema raised the rate significantly for eight of the nine models tested for it, and the four added later were run descriptively. Decomposing the schema for the three repeated-run models showed that each failed through a different route: Gemma 4 when \texttt{\path|needs_evidence|} alone was removed, Gemini 3.8 Flash when every non-committal verdict was removed, and Gemini 3.1 Pro only when \texttt{\path|pass|} was redefined; Pro otherwise sent unassessable pairs to \texttt{\path|unmonitored|} or \texttt{\path|fail|}. False greens concentrated where a populated column sat beside the missing evidence. Two of the excerpts selected by a rule fixed before any reply was read: Qwen 3.8 27B and dots.3 cited an unitemized payroll deduction total as evidence that no prohibited fee was charged, and Nemotron 3.5 Lightning and Laguna XS 2.1 inferred the physical examination of I-9 documents from the presence of a document title. These observations are what Study 3 tested.
+With abstention offered the thirteen models report 0.042 to 0.153 of unassessable pairs as satisfied, and 0.131 to 0.589 under the dashboard schema (Figure 8); the dashboard schema raised the rate significantly for eight of the nine models tested for it, and the four added later were run descriptively. Decomposing the schema for the three repeated-run models showed that each failed through a different route: Gemma 4 when \texttt{\path|needs_evidence|} alone was removed, Gemini 3.8 Flash when every non-committal verdict was removed, and Gemini 3.1 Pro only when \texttt{\path|pass|} was redefined; Pro otherwise sent unassessable pairs to \texttt{\path|unmonitored|} or \texttt{\path|fail|}. False greens concentrated where a populated column sat beside the missing evidence. Two of the excerpts selected by a rule fixed before any reply was read: Qwen 3.8 27B and dots.3 cited an unitemized payroll deduction total as evidence that no prohibited fee was charged, and Nemotron 3.5 Lightning and Laguna XS 2.1 inferred the physical examination of I-9 documents from the presence of a document title. These observations are what Study 3 tested.
 
 \section{Discussion}\label{sec:8}
-The experiments establish one remedy firmly and several risks. When a system must decide from records, let the model read and a program decide: in Study 9, averaged over five models, this cut unsupported decisions of both kinds by more than 80\% and raised correct decisions, on packets built to defeat a record-presence check. It sends more items to follow-up, close to what correct decisions require. Prompt wording did not achieve this. Where the records follow a fixed schema, a program applying the rule directly is better still. Two parts of a verdict menu lowered false greens, a verdict for ``could not tell'' and, when that verdict was absent, the warning that a missing record is not a record in order; the wording of \texttt{\path|pass|} mattered for some models and not others; with both in place, false-green rates of 0.04 to 0.15 remain on the anchor firm and 0.16 to 0.84 on proxy-column firms. Export columns whose names resemble required evidence are a hazard that no menu removed, and for Google's models the bias they create runs toward green. An evidence-first prompt lowered false greens for all five models, but left Gemma 4 at 0.636 and cost DeepSeek V3.2 half its violation recall, which suggests checking outside the model that the required record exists before asking for a verdict; our generator cannot test such a check, because its gaps are whole exports. We have not compared such safeguards with human reviewers or on real employer data. That models respond to wording is well known (Sclar et al., 2024); the effects here survive a rewording, replicate on fresh firms, on repeat runs, on real LCA records and on two other developers' models, and the proxy effect involves no change to the prompt. Whether a proxy-based \texttt{\path|pass|} is an error depends on the standard (§3): it is a reasonable triage guess, and a claim made without the record under the standard a monitoring product implies.
+The experiments establish one remedy firmly and several risks. When a system must decide from records, let the model read and a program decide: in Study 9, averaged over five models, this cut unsupported decisions of both kinds by more than 80\% and raised correct decisions, on packets built to defeat a record-presence check. It sends more items to follow-up, close to what correct decisions require. Prompt wording did not achieve this. In Study 13 the same design held on rules and record layouts it had not been designed on, and there it made more correct decisions than a strong rule-based parser, whose accuracy fell by up to 0.582 on layouts its author had not seen. Where the records follow a known schema, a program applying the rule directly is better still, and a parser that defers to the model only when it cannot read a fact did best of all, exploratory as that result is. The remedy's remaining weakness is conflicting records: models often report one of two disagreeing values instead of a conflict. Two parts of a verdict menu lowered false greens, a verdict for ``could not tell'' and, when that verdict was absent, the warning that a missing record is not a record in order; the wording of \texttt{\path|pass|} mattered for some models and not others; with both in place, false-green rates of 0.04 to 0.15 remain on the anchor firm and 0.16 to 0.84 on proxy-column firms. Export columns whose names resemble required evidence are a hazard that no menu removed, and for Google's models the bias they create runs toward green. An evidence-first prompt lowered false greens for all five models, but left Gemma 4 at 0.636 and cost DeepSeek V3.2 half its violation recall, which suggests checking outside the model that the required record exists before asking for a verdict. The Studies 3–8 generator cannot test such a check, because its gaps are whole exports; on Study 9's harder packets a row-level presence gate left unsupported \texttt{\path|pass|} at 0.060 (§6.10). We have not compared such safeguards with human reviewers or on real employer data. That models respond to wording is well known (Sclar et al., 2024); the effects here survive a rewording, replicate on fresh firms, on repeat runs, on real LCA records and on two other developers' models, and the proxy effect involves no change to the prompt. Whether a proxy-based \texttt{\path|pass|} is an error depends on the standard (§3): it is a reasonable triage guess, and a claim made without the record under the standard a monitoring product implies.
 
 \textbf{For practitioners evaluating an AI system's compliance verdicts.} The experiments suggest five questions for counsel and compliance teams that deploy or review such systems:
 
@@ -492,11 +560,10 @@ The experiments establish one remedy firmly and several risks. When a system mus
 \section{Limitations}\label{sec:9}
 \begin{itemize}
 \item \textbf{What the labels claim.} Labels are correct relative to stated decision contracts and are certified by independently written checkers. Whether a contract matches professional practice, for example whether an auditor would accept a particular record as evidence, is outside the claim. No practitioner has assessed the contracts, and no human baseline was run.
-\item \textbf{A narrow, synthetic generator.} Four of the rulebook's rules, whole-export withholding, five proxy columns chosen by us, and no generated pair whose answer is \texttt{\path|unmonitored|}; no partial records, scanned documents or OCR. Study 4's controls cover the I-9 rules only; Study 5's LCAs are real but its rosters and payroll are constructed, and it covers the wage rule only. Study 9 adds partial rows, blank facts, redundant sources and conflicts in three workflows, but its contracts are stipulated by us and each has two facts or three. Two rules simplify the law (a timely extension can allow 240 more days before reverification; ``business day'' is not defined in the handbook).
-\item \textbf{Statistics.} Study 3 has 18 clusters, its I-9 effect three firms (Studies 3c and 4 add ten), and pooled estimates weight particular models equally and depend on the mix of firms. Study 3's cells were run once; repeat runs in Study 4 moved per-model rates by at most 0.100, and Study 8's pooled estimates from two runs on fresh firms agreed to within 0.02 (single models by up to 0.076).
-\item \textbf{Model coverage is narrow.} No closed OpenAI, Anthropic or xAI model was evaluated: on Vertex AI they are sold through Google Cloud Marketplace, which the study's cloud credits do not cover, and the study used no other funds; Studies 3b and 3c use only the three Google models, and Studies 4 and 5 add two other developers' open models (Study 6); Studies 7–12 use those five models; several endpoints are previews that will be retired.
-\item \textbf{One domain.} We conjecture, and do not show, that the failure generalises.
+\item \textbf{A narrow, synthetic generator.} Four of the rulebook's rules, whole-export withholding, five proxy columns chosen by us, and no generated pair whose answer is \texttt{\path|unmonitored|}; no partial records, scanned documents or OCR. Study 4's controls cover the I-9 rules only; Study 5's LCAs are real but its rosters and payroll are constructed, and it covers the wage rule only. Study 9 adds partial rows, blank facts, redundant sources and conflicts in three workflows, and Study 13 six held-out rules of up to four facts in six layouts, but all contracts
 \end{itemize}
+
+are stipulated by us, Study 13's layouts are synthetic renderings from one designer, and it has two packets per workflow and layout. Two rules simplify the law (a timely extension can allow 240 more days before reverification; ``business day'' is not defined in the handbook). - \textbf{Statistics.} Study 3 has 18 clusters, its I-9 effect three firms (Studies 3c and 4 add ten), and pooled estimates weight particular models equally and depend on the mix of firms. Study 3's cells were run once; repeat runs in Study 4 moved per-model rates by at most 0.100, and Study 8's pooled estimates from two runs on fresh firms agreed to within 0.02 (single models by up to 0.076). - \textbf{Model coverage is narrow.} No closed OpenAI, Anthropic or xAI model was evaluated: on Vertex AI they are sold through Google Cloud Marketplace, which the study's cloud credits do not cover, and the study used no other funds; Studies 3b and 3c use only the three Google models, and Studies 4 and 5 add two other developers' open models (Study 6); Studies 7–13 use those five models; several endpoints are previews that will be retired. - \textbf{Domains and records.} Studies 3–8 use one domain, employment immigration, mostly on generated records; Studies 9–13 use three stipulated workflows (workforce, purchasing, engineering acceptance) on synthetic records. We conjecture, and do not show, that the failure and the remedy generalise to other domains and to real operational records, including scanned documents.
 
 \section*{Ethics, competing interests and AI use}
 Every employer record is synthetic except Study 5's LCAs, which are public DOL disclosures used without employer names. A high score does not show a system fit for use, and the labels are not a training set. The author works for Settle AI Inc., which builds commercial compliance software; the anchor labels and the rulebook derive from its engine, which is not evaluated, and the audits that weaken those labels are reported in full. No model provider was consulted. Anthropic's Claude wrote the code, ran the experiments and drafted the text; separate agents performed the first label audit and wrote the reference checker, and Gemini 3.1 Pro performed the second audit, all reported as AI checks. Every number is recomputed from released artifacts by \texttt{\path|scripts/verify_paper.py|}; the author is responsible for the content. Code is released under Apache-2.0 and data under CC-BY-4.0.
@@ -620,8 +687,8 @@ Zhou, R., Hua, W., Pan, L., Cheng, S., Wu, X., Yu, E. and Wang, W. Y. (2025). Ru
 \section{Reproduction}\label{app:A}
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize,frame=single,framerule=0.3pt,rulecolor=\color{fggray}]
 python3 tests/test_benchmark.py; python3 tests/test_llm_harness.py; python3 tests/test_freetier.py
-python3 scripts/sweep.py --firms 30            # Table 8 (trivial baselines)
-python3 scripts/score_views.py                  # anchor study, label views, Table 13
+python3 scripts/sweep.py --firms 30            # Table 10 (trivial baselines)
+python3 scripts/score_views.py                  # anchor study, label views, Table 15
 python3 scripts/score_studies.py                # repeated-run study and Study 2
 python3 scripts/score_study3.py                 # Study 3, the declared analysis
 python3 scripts/study3_exploratory.py           # Section 6.6 (exploratory)
@@ -640,13 +707,18 @@ python3 scripts/score_study9.py                 # Study 9
 python3 scripts/score_study10.py                # Study 10
 python3 scripts/score_study11.py                # Study 11
 python3 scripts/score_study12.py                # Study 12
+python3 scripts/differential_contracts.py       # Study 9 labeller vs checker on random packets
+python3 scripts/verify_study13_labels.py        # Study 13 labels, certificates, random packets
+python3 baselines/study13_parser.py --dev       # the rule-based parser on its development packets
+python3 scripts/score_study13.py                # Study 13, first run (declared and post hoc)
+python3 scripts/score_study13.py --r2           # Study 13, replication
 python3 scripts/labelcheck_compare.py           # generated labels vs the reference checker
 python3 scripts/fill_results.py                 # regenerates every table in this paper
 python3 scripts/make_figures.py                 # regenerates every chart
 python3 scripts/verify_paper.py                 # recomputes every number in the text
 \end{Verbatim}
 
-No step makes an API call: every score is rebuilt from the retained replies in \texttt{\path|docs/**/cache/|} and \texttt{\path|docs/raw/|}. \texttt{\path|verify_paper.py|} re-runs every scorer above and requires all 23 derived results files to come out byte-identical; the two remaining inputs, \texttt{\path|docs/llm_results.json|} and \texttt{\path|docs/label_audit_second.json|}, are records of model calls rather than derived files. Re-running the models uses \texttt{\path|scripts/run_free.py|}, \texttt{\path|scripts/run_vertex.py|} and the \texttt{\path|scripts/run_study*.py|} launchers.
+No step makes an API call: every score is rebuilt from the retained replies in \texttt{\path|docs/**/cache/|} and \texttt{\path|docs/raw/|}. \texttt{\path|verify_paper.py|} re-runs every scorer above and requires all 27 derived results files to come out byte-identical; the two remaining inputs, \texttt{\path|docs/llm_results.json|} and \texttt{\path|docs/label_audit_second.json|}, are records of model calls rather than derived files. Re-running the models uses \texttt{\path|scripts/run_free.py|}, \texttt{\path|scripts/run_vertex.py|} and the \texttt{\path|scripts/run_study*.py|} launchers.
 
 \textbf{Real LCA records (Study 5).} The 120 rows come from the Department of Labor's public \emph{LCA Program Disclosure Data, FY2026 Q3} (1,032,736 rows), retrieved 2026-10-06. Rows were kept by a fixed hash of the row number (3,443), restricted to certified H-1B cases with annual wages (1,238), and ordered by a seeded hash of the case number; the first 120 were used. Employer, FEIN and contact or attorney names were never extracted. The sample, its selection rule and a SHA-256 checksum are in \texttt{\path|data/real_lca/|}, with \texttt{\path|extract_in_browser.js|}, which repeats the extraction in a browser (the site refuses scripted downloads) and prints the same checksum. The workbook itself is not redistributed.
 
@@ -774,14 +846,14 @@ A first version emitted a label for every pair in the 194-obligation rulebook bu
 Both were declared before any call (\texttt{\path|docs/STUDY3B_PARAPHRASE.md|}, \texttt{\path|docs/STUDY3C_DECLARATION.md|}) and run on the three Google models through Vertex AI, one process per model, rendering and condition; Gemini 3.1 Pro and 3.8 Flash were later split into three firm shards each, every shard starting from its condition's cache so no answered batch was requested twice.
 
 \subsection{Study 4}\label{sec:C.9}
-Declared in \texttt{\path|docs/STUDY4_DECLARATION.md|} (commit \texttt{\path|0c874fc|}) before any call. The 96 (model, run, rendering, schema) processes ran in parallel; 25 were stopped by a session time limit and resumed from their checkpoints, sharded three ways, with finished batches served from cache. Every cell covers all ten firms. Some replies omitted lines: the lowest coverage was 274 of 330 unassessable pairs (Gemma 4, plain firms, menu without abstaining verdicts or warning); re-requesting returned the cached replies, and omitted lines are never coerced to a verdict. The control renderings were checked to carry labels identical to the plain firms. In Studies 9–12, requests to Gemma 4 and GLM-5.2 were repeatedly refused by rate limits; after a retry pass, their Study 9 Part A coverage was 0.70 and 0.83, every other model answered every pair, and all contrasts are paired on answered pairs. In Study 6, GLM-5.2 repeatedly exceeded its 32,000-token output budget on some batches; after three-way sharding and retries, one cell (renamed rendering, dashboard schema) was stopped with 285 of 330 unassessable pairs answered; every other Study 6 cell built on Study 4 answered at least 318 of 330, and every cell built on Study 5 at least 110 of 120.
+Declared in \texttt{\path|docs/STUDY4_DECLARATION.md|} (commit \texttt{\path|0c874fc|}) before any call. The 96 (model, run, rendering, schema) processes ran in parallel; 25 were stopped by a session time limit and resumed from their checkpoints, sharded three ways, with finished batches served from cache. Every cell covers all ten firms. Some replies omitted lines: the lowest coverage was 274 of 330 unassessable pairs (Gemma 4, plain firms, menu without abstaining verdicts or warning); re-requesting returned the cached replies, and omitted lines are never coerced to a verdict. The control renderings were checked to carry labels identical to the plain firms. In Studies 9–12, requests to Gemma 4 and GLM-5.2 were repeatedly refused by rate limits; after a retry pass, their Study 9 Part A coverage was 0.70 and 0.83, every other model answered every pair, and all contrasts are paired on answered pairs, so for these two models a low error rate on answered pairs coexists with substantial incompletion. In Study 6, GLM-5.2 repeatedly exceeded its 32,000-token output budget on some batches; after three-way sharding and retries, one cell (renamed rendering, dashboard schema) was stopped with 285 of 330 unassessable pairs answered; every other Study 6 cell built on Study 4 answered at least 318 of 330, and every cell built on Study 5 at least 110 of 120.
 
 \section{The anchor firm's labels and per-model results}\label{app:D}
 \subsection{Trivial baselines and all thirteen models}\label{sec:D.0}
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Trivial baselines. Across 31 firms (the anchor and 30 generated), averaged over the firms in which each rate is defined.}
-\label{tab:8}
+\label{tab:10}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrrlrr}
 \toprule
@@ -802,7 +874,7 @@ Declared in \texttt{\path|docs/STUDY4_DECLARATION.md|} (commit \texttt{\path|0c8
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{All thirteen models on the anchor subset.}
-\label{tab:9}
+\label{tab:11}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{llrrrrrrl}
 \toprule
@@ -880,12 +952,12 @@ The strict view's ten violations include three duplicated facts (D.2), so they d
 \subsection{Per-model results of the single-run models}\label{sec:D.4}
 Six free models were evaluated on the declared 140-pair subset of the anchor firm under prompt v1.1.0, each under both output schemas: Nemotron 3 Ultra 550B, Nemotron 3 Super 120B and Nemotron 3.5 Lightning (NVIDIA), Laguna XS 2.1 (Poolside), Qwen 3.8 27B (Alibaba), and dots.3 Note Preview (dots-studio), the last two replacing withdrawn models (Appendix C.2). Tables are generated from the retained replies (\texttt{\path|scripts/fill_results.py|}); the coverage and answered-only columns were added after the first results, when the coverage effect of Section 3.3 was found.
 
-\textbf{Uncertainty.} Bracketed figures are 95\% percentile intervals from a bootstrap that resamples \emph{obligations} (2,000 draws, fixed seed), since pairs under one obligation share a rule text and records. At 140 pairs most differences \emph{between} models are not resolved, so we do not rank models and list them alphabetically. The comparison the study is built for is \emph{within} a model across schemas: the paired difference on withheld pairs both runs answered, Holm-corrected across the six models. All six remain significant at 0.05 (Table 13).
+\textbf{Uncertainty.} Bracketed figures are 95\% percentile intervals from a bootstrap that resamples \emph{obligations} (2,000 draws, fixed seed), since pairs under one obligation share a rule text and records. At 140 pairs most differences \emph{between} models are not resolved, so we do not rank models and list them alphabetically. The comparison the study is built for is \emph{within} a model across schemas: the paired difference on withheld pairs both runs answered, Holm-corrected across the six models. All six remain significant at 0.05 (Table 15).
 
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Single-run models on the anchor subset, offered schema. One row per model on the 140-pair subset, with the trivial baselines as reference rows. The false-alarm column is 0.000 by construction, since the subset has no conforming pair.}
-\label{tab:10}
+\label{tab:12}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrrrrrrrrrr}
 \toprule
@@ -909,7 +981,7 @@ Qwen 3.8 27B & \textbf{0.142} [0.06, 0.25] & 0.142 & 0.350 [0.14, 0.67] & 0.875 
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Strict label view. The same runs scored under the strict view (D.3). Alerts: the verdicts given on the five future deadlines the strict view removes.}
-\label{tab:11}
+\label{tab:13}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{llrrrrr}
 \toprule
@@ -937,7 +1009,7 @@ The strict view moves false-green rates by at most 0.021 and raises recall for e
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Audited label view. The two withheld pairs the first audit overturned are removed; the scored denominator is in every row.}
-\label{tab:12}
+\label{tab:14}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{llrrrr}
 \toprule
@@ -965,7 +1037,7 @@ Removing the two I-9 signature pairs lowers the false-green rate by 0.008 to 0.0
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Offered versus dashboard schema, single-run models.}
-\label{tab:13}
+\label{tab:15}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrrrrrr}
 \toprule
@@ -988,7 +1060,7 @@ Qwen 3.8 27B & 120 of 120 & 0.142 & 0.417 & +0.275 [+0.13, +0.43] & 0.003 & 0 of
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{False-green rate by regime, offered schema. In parentheses, the regime's scored pairs of any label.}
-\label{tab:14}
+\label{tab:16}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrrrrrr}
 \toprule
@@ -1008,11 +1080,11 @@ Qwen 3.8 27B & 120 of 120 & 0.142 & 0.417 & +0.275 [+0.13, +0.43] & 0.003 & 0 of
 \par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Cells are the false-green rate over the regime's unassessable pairs; in parentheses, the regime's scored pairs of any label.\end{minipage}
 \end{table}
 
-Three regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost every false green; H-1B status and FDNS site visits have none. Figure 8 shows the same data as a heatmap.
+Three regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost every false green; H-1B status and FDNS site visits have none. Figure 9 shows the same data as a heatmap.
 
 \begin{figure}[t]\centering
 \includegraphics[width=\textwidth]{figures/fig_regime_heatmap.pdf}
-\caption{False-green rate by regime and model on the anchor subset, offered schema (the data of Table 14). False greens concentrate in the regimes whose exports carry a populated column next to the missing evidence.}\label{fig:fig_regime_heatmap}
+\caption{False-green rate by regime and model on the anchor subset, offered schema (the data of Table 16). False greens concentrate in the regimes whose exports carry a populated column next to the missing evidence.}\label{fig:fig_regime_heatmap}
 \end{figure}
 
 \subsection{Further declared analyses}\label{sec:D.5}
@@ -1023,11 +1095,11 @@ Three regimes, I-9 and E-Verify, prevailing wage, and the LCA rules, hold almost
 \textbf{Qualitative failure cases.} To keep excerpts from being the worst lines picked out of thousands, the rule was fixed in code before any was read: for each model, under \texttt{\path|abstain_offered|}, the first \texttt{\path|pass|} on a withheld pair whose reply cites an evidence field. Applied as declared, it selected the same line for four of the six free models: a \texttt{\path|pass|} on the Section 2 employer signature citing \texttt{\path|section2_signed_date|}, the label the audit later overturned. Four models independently reading a populated signed-date column as a signature suggests the label was at fault (D.3), and the prompt's own example of matching columns by meaning names that column. Applying the rule again while skipping overturned pairs, a step added after the first result was seen, gives the excerpts in Section 7.
 
 \section{Study 2, six generated firms without proxy columns}\label{app:E}
-Study 2 runs the same protocol on all 252 pairs of six generated firms (Section 4.2), which carry what the anchor firm lacks: conforming controls, a third of them near-miss cases on the legal boundary. Firms were fixed in \texttt{\path|nofalsegreen/study2.py|} before any call. Results come from the three repeated-run models, three runs each, in the Study 2 rows of Table 16. The declared free-tier sweep was stopped after one model, superseded by Study 3 (Section 6), which runs four models from other developers on fresh firms.
+Study 2 runs the same protocol on all 252 pairs of six generated firms (Section 4.2), which carry what the anchor firm lacks: conforming controls, a third of them near-miss cases on the legal boundary. Firms were fixed in \texttt{\path|nofalsegreen/study2.py|} before any call. Results come from the three repeated-run models, three runs each, in the Study 2 rows of Table 18. The declared free-tier sweep was stopped after one model, superseded by Study 3 (Section 6), which runs four models from other developers on fresh firms.
 
-\textbf{A scoping defect, and what it touches.} While preparing Study 3 we found that the scoped prompt for the wage rule never carried a generated firm's \texttt{\path|actual_wage_system|} export, which the rule needs. In Study 2 every wage pair was therefore sent without it. The 27 withheld wage pairs are unaffected, since their evidence was missing either way. The 27 decidable wage pairs (three firms, labelled \texttt{\path|pass|} or \texttt{\path|fail|}) were not decidable from what the models saw, and are excluded from every Study 2 metric. False-green rates and the Table 17 contrasts do not change. Detection and false-alarm figures do, and one reading in an earlier version of this paper was wrong: we attributed Gemini 3.1 Pro's near-miss false alarms (0.162) to caution about evidence that was present. They were requests for the missing actual-wage export, which was correct. The defect is fixed for Study 3.
+\textbf{A scoping defect, and what it touches.} While preparing Study 3 we found that the scoped prompt for the wage rule never carried a generated firm's \texttt{\path|actual_wage_system|} export, which the rule needs. In Study 2 every wage pair was therefore sent without it. The 27 withheld wage pairs are unaffected, since their evidence was missing either way. The 27 decidable wage pairs (three firms, labelled \texttt{\path|pass|} or \texttt{\path|fail|}) were not decidable from what the models saw, and are excluded from every Study 2 metric. False-green rates and the Table 19 contrasts do not change. Detection and false-alarm figures do, and one reading in an earlier version of this paper was wrong: we attributed Gemini 3.1 Pro's near-miss false alarms (0.162) to caution about evidence that was present. They were requests for the missing actual-wage export, which was correct. The defect is fixed for Study 3.
 
-\textbf{Schema contrasts.} On these firms no contrast survives correction (Table 17), consistent with firms that carry no proxy columns.
+\textbf{Schema contrasts.} On these firms no contrast survives correction (Table 19), consistent with firms that carry no proxy columns.
 
 \textbf{Generated firms are easier.} With abstention offered, the three models report 0.021 to 0.071 of unassessable pairs as compliant, below their anchor-firm rates. Gemini 3.1 Pro and 3.8 Flash detect every violation and raise no false alarm on a conforming control, near-miss controls included, in three of the four schemas. Gemma 4 detects 0.346 of violations and, with abstention offered, raises 0.074 near-miss false alarms. The generated exports are clean, with no populated column next to a missing one, which is the gap Study 3 fills. Excluding the reverification pairs, whose violation labels assume no extension was filed (Section 9), changes no conclusion; no false green fell on them.
 
@@ -1050,7 +1122,7 @@ Study 2 runs the same protocol on all 252 pairs of six generated firms (Section 
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Schema contrasts on plain and proxy-column firms (exploratory).}
-\label{tab:15}
+\label{tab:17}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrr}
 \toprule
@@ -1067,7 +1139,7 @@ Definition and warning: closed → dashboard & +0.035 [+0.01, +0.06], p = 0.008 
 \begin{sidewaystable}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{The three repeated-run models, both studies, four schemas. Mean of three runs, with the minimum and maximum in brackets.}
-\label{tab:16}
+\label{tab:18}
 \begin{adjustbox}{max width=\textheight}
 \begin{tabular}{lrlrrrlrr}
 \toprule
@@ -1106,7 +1178,7 @@ Gemma 4 26B & 2 & dashboard & 0.175 [0.175, 0.175] & 0.175 & 0.370 [0.370, 0.370
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Paired schema contrasts, repeated-run models.}
-\label{tab:17}
+\label{tab:19}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrlrrr}
 \toprule
@@ -1147,7 +1219,7 @@ Gemma 4 26B & 2 & offered → dashboard & 126 & +0.103 [+0.02, +0.24] & 0.102 \\
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Study 3, false-green rate by model, firm rendering and schema.}
-\label{tab:18}
+\label{tab:20}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{llrrrrrrr}
 \toprule
@@ -1176,7 +1248,7 @@ Kimi K2 Thinking & proxy & 0.161 & 0.339 & 0.489 & 0.583 & 0.977 & 0.034 & 456/5
 \begin{sidewaystable}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Study 3, the declared tests.}
-\label{tab:19}
+\label{tab:21}
 \begin{adjustbox}{max width=\textheight}
 \begin{tabular}{lrrrr}
 \toprule
@@ -1201,7 +1273,7 @@ Kimi K2 Thinking & +0.333 [+0.20, +0.49] p=0.014 ** & +0.187 [+0.06, +0.31] p=0.
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Per-model effects of the declared tests of Studies 4–7.}
-\label{tab:20}
+\label{tab:22}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrrrrr}
 \toprule
@@ -1228,7 +1300,7 @@ W2 Pay type and schedule & +0.000 & +0.000 & +0.175 & +0.158 & +0.000 \\
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{Study 9 Part B by model.}
-\label{tab:21}
+\label{tab:23}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrrrrrr}
 \toprule
@@ -1243,6 +1315,26 @@ GLM-5.2 & 0.002 & 0.004 & 0.946 & 0.944 & 0.658 & 0.663 \\
 \end{tabular}
 \end{adjustbox}
 \par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Study 9 Part B, eighteen packets. Correct: correct decisions on decidable pairs. Follow-up: share of all pairs answered \texttt{fail}, abstaining or unanswered. After the solver correction described in Section 6.10.\end{minipage}
+\end{table}
+
+\begin{table}[t]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Study 13 by model.}
+\label{tab:24}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Model} & \textbf{Unsupported pass: prompt} & \textbf{Unsupported pass: extraction} & \textbf{Correct: prompt} & \textbf{Correct: extraction} & \textbf{Extraction − parser, correct [95\% CI]} \\
+\midrule
+Gemini 3.1 Pro & 0.000 & 0.000 & 1.000 & 1.000 & +0.323 [+0.191, +0.451] \\
+Gemini 3.8 Flash & 0.000 & 0.000 & 1.000 & 1.000 & +0.323 [+0.191, +0.451] \\
+Gemma 4 26B & 0.392 & 0.043 & 0.408 & 0.935 & +0.259 [+0.143, +0.368] \\
+DeepSeek V3.2 & 0.222 & 0.016 & 0.321 & 0.921 & +0.244 [+0.117, +0.376] \\
+GLM-5.2 & 0.000 & 0.000 & 0.979 & 1.000 & +0.323 [+0.191, +0.451] \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\par\vspace{3pt}\begin{minipage}{\textwidth}\scriptsize Study 13 replication, held-out layouts, eighteen packets; intervals are packet bootstrap per model.\end{minipage}
 \end{table}
 
 \section{Interpretive choices of the reference checker}\label{app:G}

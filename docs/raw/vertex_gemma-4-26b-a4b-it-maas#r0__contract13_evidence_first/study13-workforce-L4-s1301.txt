@@ -1,0 +1,38 @@
+E-30101	pass	ead_cards, reverifications
+E-30102	needs_evidence	work_authorizations, reverifications
+E-30103	needs_evidence	work_authorizations, reverifications
+E-30104	needs_evidence	work_authorizations, reverifications
+E-30105	pass	work_authorizations, reverifications
+E-30106	needs_evidence	work_authorizations, reverifications
+E-30107	needs_evidence	work_authorizations, reverifications
+E-30108	pass	work_authorizations, reverifications
+E-30109	needs_evidence	work_authorizations, reverifications
+E-30110	pass	work_authorizations, reverifications
+E-30111	pass	work_authorizations, reverifications
+E-30112	pass	work_authorizations, reverifications
+
+---
+
+wf.reverify_window::E-30113	fail	reverifications: E-30113 (2026-05-11), work_authorizations: E-30113 (2026-10-06)
+wf.reverify_window::E-30114	fail	reverifications: E-30114 (2027-01-10), work_authorizations: E-30114 (2026-12-19)
+wf.reverify_window::E-30115	fail	reverifications: E-30115 (2027-05-09), work_authorizations: E-30115 (2027-04-28)
+wf.reverify_window::E-30116	fail	reverifications: E-30116 (2026-10-25), work_authorizations: E-30116 (2026-12-14)
+wf.notice_posting::E-30101	pass	lca_notices: E-30101 (put_up: 2026-05-28, taken_down: 2026-06-23), lca_filings: E-30101 (2026-05-08)
+wf.notice_posting::E-30102	pass	lca_notices: E-30102 (put_up: 2026-02-27, taken_down: 2026-03-28), lca_filings: E-30102 (2026-03-22)
+wf.notice_posting::E-30103	pass	lca_notices: E-30103 (put_up: 2026-07-13, taken_down: 2026-07-26), lca_filings: E-30103 (2026-08-05)
+wf.notice_posting::E-30104	pass	lca_notices: E-30104 (put_up: 2026-04-11, taken_down: 2026-05-05), lca_filings: E-30104 (2026-04-09)
+wf.notice_posting::E-30105	pass	lca_notices: E-30105 (put_up: 2026-06-16, taken_down: 2026-06-28), lca_filings: E-30105 (2026-06-26)
+wf.notice_posting::E-30106	needs_evidence	lca_notices: E-30106 (no value)
+wf.notice_posting::E-30107	pass	lca_notices: E-30107 (put_up: 2026-06-11, taken_down: 2026-07-15), lca_filings: E-30107 (no value), dol_receipts: E-30107 (2026-07-01)
+wf.notice_posting::E-30108	pass	lca_notices: E-30108 (put_up: 2026-01-15, taken_down: 2026-01-27), lca_filings: E-30108 (2026-01-26)
+
+---
+
+wf.notice_posting::E-30109	pass	lca_notices, lca_filings
+wf.notice_posting::E-30110	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-30111	pass	lca_notices, lca_filings
+wf.notice_posting::E-30112	pass	lca_notices, lca_filings
+wf.notice_posting::E-30113	pass	lca_notices, lca_filings
+wf.notice_posting::E-30114	pass	lca_notices, lca_filings
+wf.notice_posting::E-30115	pass	lca_notices, lca_filings
+wf.notice_posting::E-30116	needs_evidence	lca_notices, dol_receipts

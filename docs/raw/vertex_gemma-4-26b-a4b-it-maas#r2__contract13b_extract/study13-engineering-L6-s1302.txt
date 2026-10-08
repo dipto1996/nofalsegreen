@@ -1,0 +1,40 @@
+ea.calibration_current::P-30201	calibration date=2026-03-17 from calibration_log | test date=2026-02-18 from test_reports
+ea.calibration_current::P-30202	calibration date=2026-06-28 from calibration_log | test date=2027-09-03 from test_reports
+ea.calibration_current::P-30202	calibration date=2026-06-28 from calibration_log | test date=2027-08-24 from test_reports
+ea.calibration_current::P-30203	calibration date=ABSENT from calibration_log | test date=2027-01-20 from test_reports
+ea.calibration_current::P-30204	calibration date=2026-03-21 from calibration_log | test date=2026-02-19 from test_reports
+ea.calibration_current::P-30205	calibration date=2026-06-13 from calibration_log | test date=2027-08-02 from test_reports
+ea.calibration_current::P-30206	calibration date=2026-05-09 from calibration_log | test date=2026-04-12 from test_reports
+ea.calibration_current::P-30207	calibration date=2026-02-13 from calibration_log | test date=2026-06-25 from test_reports
+ea.calibration_current::P-30207	calibration date=2026-02-19 from calibration_log | test date=2026-06-25 from test_reports
+ea.calibration_current::P-30208	calibration date=ABSENT from calibration_log | test date=2027-04-07 from test_reports
+ea.calibration_current::P-30209	calibration date=ABSENT from calibration_log | test date=2027-05-11 from test_reports
+ea.calibration_current::P-30210	calibration date=2026-07-10 from calibration_log | test date=2026-06-24 from test_reports
+ea.calibration_current::P-30211	calibration date=2026-05-31 from calibration_log | test date=2026-05-31 from test_reports
+ea.calibration_current::P-30212	calibration date=2026-04-05 from calibration_log | test date=2026-04-05 from test_reports
+
+---
+
+ea.calibration_current::P-30213	calibration date=ABSENT from calibration_log | test date=ABSENT from test_reports
+ea.calibration_current::P-30214	calibration date=2026-05-01 from calibration_log | test date=2026-05-01 from test_reports
+ea.calibration_current::P-30215	calibration date=2026-03-23 from calibration_log | test date=2026-03-03 from test_reports
+ea.calibration_current::P-30216	calibration date=ABSENT from calibration_log | test date=2027-04-06 from test_reports
+ea.load_with_margin::P-30201	measured load=425 from lab_certificates | specified minimum=340 from spec_sheets
+ea.load_with_margin::P-30202	measured load=295 from lab_certificates | specified minimum=245 from spec_sheets
+ea.load_with_margin::P-30203	measured load=401 from lab_certificates | specified minimum=335 from spec_sheets
+ea.load_with_margin::P-30204	measured load=245 from test_reports | specified minimum=205 from spec_sheets
+ea.load_with_margin::P-30205	measured load=582 from lab_certificates | specified minimum=490 from spec_sheets
+ea.load_with_margin::P-30206	measured load=111 from lab_certificates | specified minimum=105 from spec_sheets
+ea.load_with_margin::P-30207	measured load=75 from lab_certificates | specified minimum=50 from spec_sheets
+ea.load_with_margin::P-30208	measured load=334 from lab_certificates | specified minimum=285 from spec_sheets
+
+---
+
+ea.load_with_margin::P-30209	measured load=506 kN from lab_certificates | specified minimum=415 kN from spec_sheets
+ea.load_with_margin::P-30210	measured load=344 kN from lab_certificates | specified minimum=290 kN from spec_sheets
+ea.load_with_margin::P-30211	measured load=326 kN from lab_certificates | specified minimum=280 kN from spec_sheets
+ea.load_with_margin::P-30212	measured load=388 kN from lab_certificates | specified minimum=ABSENT from spec_sheets
+ea.load_with_margin::P-30213	measured load=ABSENT from lab_certificates | measured load=ABSENT from test_reports | specified minimum=ABSENT from spec_sheets
+ea.load_with_margin::P-30214	measured load=346 kN from lab_certificates | specified minimum=290 kN from spec_sheets
+ea.load_with_margin::P-30215	measured load=438 kN from lab_certificates | specified minimum=370 kN from spec_sheets
+ea.load_with_margin::P-30216	measured load=360 kN from lab_certificates | specified minimum=300 kN from spec_sheets

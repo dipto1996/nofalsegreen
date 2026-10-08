@@ -35,7 +35,8 @@ REBUILD = [("score_study3.py",), ("study3_exploratory.py",), ("study3_robustness
            ("score_study5.py",), ("score_study5.py", "--study6"), ("score_study7.py",), ("score_study8.py",),
            ("score_ai_pilot.py",), ("sweep.py", "--firms", "30"), ("score_views.py",), ("score_studies.py",),
            ("analysis.py",), ("labelcheck_compare.py",), ("certify_existing.py",), ("verify_study9_labels.py",),
-           ("score_study9.py",), ("score_study10.py",), ("score_study11.py",), ("score_study12.py",)]
+           ("score_study9.py",), ("score_study10.py",), ("score_study11.py",), ("score_study12.py",),
+           ("differential_contracts.py",), ("verify_study13_labels.py",), ("score_study13.py",), ("score_study13.py", "--r2")]
 REBUILT = {}
 if "--no-rebuild" not in sys.argv:
     import hashlib
@@ -48,7 +49,8 @@ if "--no-rebuild" not in sys.argv:
                                         "analysis_results.json", "labelcheck_results.json",
                                         "existing_certificates.json", "study9/label_verification.json",
                                         "study9/results.json", "study10/results.json", "study11/results.json",
-                                        "study12/results.json")]
+                                        "study12/results.json", "study9/differential.json", "study13/label_check.json",
+                                        "study13/results.json", "study13/results_r2.json")]
     import os
     before = {f: hashlib.sha256(f.read_bytes()).hexdigest() if f.exists() else None for f in outs}
     # A scorer that fails leaves the old file in place, which would hash as "identical";
@@ -758,7 +760,7 @@ _kinds = _C(l.note for f in _s5.build("complete_actual_above") for l in f.labels
 claim(_kinds["greater_of_only"] == 38 and _kinds["below_offered"] == 24
       and "these 38 underpayments and on the 24 below the offered wage" in _flat, "Study 8: G2 denominators")
 
-claim(len(REBUILD) == 23 and "all 23 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
+claim(len(REBUILD) == 27 and "all 27 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
 _ec = json.loads((ROOT / "docs" / "existing_certificates.json").read_text())
 _lv = json.loads((ROOT / "docs" / "study9" / "label_verification.json").read_text())
 claim(_ec["needs_evidence_pairs"] == _ec["certified"] == 3330 and not _ec["failures"]
@@ -802,9 +804,21 @@ claim(f"(unsupported `pass` {_e9['gemma-4-26b-a4b-it-maas']['unsupported_pos']:.
       and f"from {_e9['gemini-3.8-flash']['correct_determinate']:.3f} to {_x9['gemini-3.8-flash']['correct_determinate']:.3f}" in _flat
       and f"rose from {_e9['glm-5.2-maas']['unsupported_pos']:.3f} to {_x9['glm-5.2-maas']['unsupported_pos']:.3f}" in _flat,
       "Study 9: per-model trade-offs")
-_fd = _R[9]["extraction_fidelity"]
-claim(f"{_fd['match']:,} of {_fd['values']:,} extracted values ({_fd['match'] / _fd['values']:.1%})" in _flat
-      and f"and {_fd['reported_where_record_absent']} were reported where" in _flat, "Study 9: extraction fidelity")
+_sa = _R[9]["extraction_slots"]["pooled"]
+_so = _sa["outcomes"]
+_sm = _R[9]["extraction_slots"]["per_model"]
+_sp = _R[9]["extraction_slots"]["pairs"]
+claim(f"Of {_sa['slots']:,} slots, {_sa['correct']:,} were right" in _flat
+      and f"{_sa['known_slots'] - _sa['known_correct'] - _so['known: value, correct, cited column does not hold it']} concern facts the record establishes ({_so['known: omitted or unparseable']} omitted, {_so['known: ABSENT']} reported absent and {_so['known: CONFLICT']}".replace(" and ", ", ") in _flat.replace(" and ", ", ")
+      and f"{_so['known: value, correct, cited column does not hold it']} cite a column" in _flat
+      and f"{_so['unknown: value, wrong']} invent a value" in _flat
+      and f"{_sa['conflict_slots'] - _sa['conflict_correct']} miss a conflict" in _flat
+      and f"Gemma 4 recognised {_sm['gemma-4-26b-a4b-it-maas']['conflict_correct']} of {_sm['gemma-4-26b-a4b-it-maas']['conflict_slots']} conflicts" in _flat
+      and f"Of the {_sp['with_slot_error']} pairs with a slot error, {_sp['with_slot_error_and_wrong_verdict']} received" in _flat,
+      "Study 9: slot-level extraction audit")
+_dc = json.loads((ROOT / "docs" / "study9" / "differential.json").read_text())
+claim(f"({_dc['labels']:,} labels" in _flat and _dc["n_disagreements"] == 0 and _dc["permutation_changes"] == 0
+      and f"on {_dc['packets']:,} random packets" in _flat, "Study 9: differential test against the independent checker")
 _pre = json.loads((ROOT / "docs" / "study9" / "solver_correction.json").read_text())
 claim(f"It produced {_pre['caused_by_defect']} of the remedy's then {_pre['before_unsupported_pass_count']} unsupported `pass` answers ({_pre['before_rate']:.3f})" in _flat
       and f"give {_ex['unsupported_pos']:.3f}" in _flat, "Study 9: solver correction disclosed")
@@ -842,10 +856,62 @@ _cm = _R[12]["M2_contemporaneous_baseline_addendum"]
 claim(f"the estimate was +{_cm['delta']:.3f} [+{_cm['ci95_packet_bootstrap'][0]:.3f}, +{_cm['ci95_packet_bootstrap'][1]:.3f}] (exact p = {_cm['p_exact_two_sided']:.3f}, nine of ten firms)" in _flat
       and _cm["packets_positive"] == 9, "Study 12: contemporaneous baseline")
 
+# Study 13: held-out rules and layouts (declared, with a declared replication)
+_r13 = json.loads((ROOT / "docs" / "study13" / "results.json").read_text())
+_q13 = json.loads((ROOT / "docs" / "study13" / "results_r2.json").read_text())
+_lc13 = json.loads((ROOT / "docs" / "study13" / "label_check.json").read_text())
+_P13, _P013, _PH13 = (list(x.values()) for x in (_q13["primary"], _r13["primary"], _r13["posthoc_name_normalised"]["primary"]))
+_EF13, _EX13 = "contract13b_evidence_first", "contract13b_extract"
+_h13, _bl13, _pm13 = _q13["summary_heldout"], _q13["by_layout"], _q13["per_model_heldout"]
+_ci13 = lambda v: f"[{v['ci95_packet_bootstrap'][0]:+.3f}, {v['ci95_packet_bootstrap'][1]:+.3f}]"
+_n113 = _q13["N1 non-inferiority: extraction + solver - parser, unsupported pass, upper bound < +0.02"]
+claim(_lc13["labels"] == _lc13["agree"] == 480 and _lc13["certificates"] == _lc13["certificates_verified"] == 198
+      and _lc13["fuzz_disagreements"] == 0 and _lc13["fuzz_permutation_changes"] == 0 and _lc13["fuzz_labels"] == 18000
+      and "All 480 labels agree" in _flat and "all 198 certificate completions verify" in _flat
+      and "agree on all 18,000 labels" in _flat, "Study 13: labels, certificates and random packets")
+claim(all(v["outcome"] == "confirmed" for v in _P13) and _n113["outcome"] == "confirmed"
+      and _P013[0]["outcome"] == "confirmed" and _P013[1]["outcome"] == _P013[2]["outcome"] == "not confirmed",
+      "Study 13: outcomes as stated (replication H1-H3, N1 confirmed; first run H2, H3 not)")
+claim(f"fell by {-_P13[0]['delta']:.3f} {_ci13(_P13[0])}, in all 18 packets" in _flat and _P13[0]["packets_negative"] == 18
+      and f"rose by {_P13[1]['delta']:.3f} {_ci13(_P13[1])}" in _flat
+      and f"rose by {_P13[2]['delta']:.3f} {_ci13(_P13[2])}, in all 18 packets" in _flat and _P13[2]["packets_positive"] == 18
+      and all(_pm13[m]["H2"]["ci95_packet_bootstrap"][0] > 0 for m in _pm13)
+      and f"{_n113['delta']:+.3f} {_ci13(_n113)}" in _flat, "Study 13: declared tests in the text")
+claim(f"({_P013[1]['delta']:+.3f} and {_P013[2]['delta']:+.3f})" in _flat
+      and f"gave {_PH13[1]['delta']:+.3f} and {_PH13[2]['delta']:+.3f}" in _flat, "Study 13: first run, declared and post hoc")
+claim(f"by {-_P13[0]['delta']:.3f} against the strongest prompt" in _AB and f"by {_P13[1]['delta']:.3f} over a rule-based parser" in _AB,
+      "abstract: Study 13")
+_ex13 = [_bl13[l][_EX13]["correct_determinate"] for l in ("L4", "L5", "L6")]
+claim(all(_bl13[l]["parser"]["correct_determinate"] == 1.0 for l in ("L1", "L2", "L3"))
+      and f"{_bl13['L4']['parser']['correct_determinate']:.3f}, {_bl13['L5']['parser']['correct_determinate']:.3f} and" in _flat
+      and f"{_bl13['L6']['parser']['correct_determinate']:.3f} on L4, L5 and L6" in _flat
+      and f"between {min(_ex13):.3f} and {max(_ex13):.3f}" in _flat
+      and f"fell by up to {1 - _bl13['L6']['parser']['correct_determinate']:.3f}" in _flat, "Study 13: parser by layout")
+_sa13 = _q13["slot_audit"]["models::heldout"]
+_bp13 = _q13["correct_by_pattern_heldout"]
+claim(f"{_h13['parser']['unsupported_pos']:.3f} against {_h13[_EX13]['unsupported_pos']:.3f}" in _flat
+      and f"beats extraction by {-_q13['development_layouts']['extraction - parser: correct decisions']['delta']:.3f}" in _flat
+      and f"decided {_bp13[_EX13]['conflict_top_dup']:.3f} of pairs" in _flat
+      and f"and {_bp13[_EX13]['conflict_unresolved']:.3f} where" in _flat
+      and f"against {_bp13['parser']['conflict_top_dup']:.3f} and {_bp13['parser']['conflict_unresolved']:.3f} for the parser" in _flat
+      and f"{_sa13['correct']:,} of {_sa13['slots']:,} extracted facts" in _flat
+      and f"gave\n{_h13['hybrid']['correct_determinate']:.3f}".replace("\n", " ") in _flat
+      and f"of {_h13['hybrid']['unsupported_pos']:.3f}." in _flat, "Study 13: failures, audit and hybrid")
+_g13, _d13 = _pm13["gemma-4-26b-a4b-it-maas"], _pm13["deepseek-v3.2-maas"]
+_tk13 = _q13["tokens_per_pair"]
+claim(f"from {_g13[_EF13]['unsupported_pos']:.3f} to {_g13[_EX13]['unsupported_pos']:.3f}" in _flat
+      and f"from {_d13[_EF13]['unsupported_pos']:.3f} to {_d13[_EX13]['unsupported_pos']:.3f}" in _flat
+      and all(_pm13[m][s]["unsupported_pos"] == 0 and _pm13[m][_EX13]["correct_determinate"] == 1.0
+              for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash", "glm-5.2-maas") for s in (_EF13, _EX13))
+      and f"{_tk13['gemini-3.8-flash::' + _EX13]['output']:.0f} against {_tk13['gemini-3.8-flash::' + _EF13]['output']:.0f} per pair" in _flat
+      and all(_tk13[f"{m}::{_EX13}"]["output"] < _tk13[f"{m}::{_EF13}"]["output"]
+              for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash", "glm-5.2-maas"))
+      and all(1.5 < _tk13[f"{m}::{_EX13}"]["output"] / _tk13[f"{m}::{_EF13}"]["output"] < 2.5
+              for m in ("gemma-4-26b-a4b-it-maas", "deepseek-v3.2-maas")), "Study 13: by model and tokens")
+
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))
-_fd0 = json.loads((ROOT / "docs" / "study9" / "results.json").read_text())["extraction_fidelity"]
-claim(pcts <= {f"{_nw / _np:.1%}", f"{_fd0['match'] / _fd0['values']:.1%}"}, f"only verified percentages appear (found {sorted(pcts)})")
+claim(pcts <= {f"{_nw / _np:.1%}"}, f"only verified percentages appear (found {sorted(pcts)})")
 
 # The status header states how many claims this script confirms. Rather than
 # asking a human to keep that in sync, the script writes it, so the number can

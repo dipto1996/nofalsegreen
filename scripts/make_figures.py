@@ -337,6 +337,57 @@ def fig_study9() -> None:
 
 # ---------- the separation plot (anchor firm, thirteen models) ----------
 
+def fig_study13() -> None:
+    r = load("docs/study13/results_r2.json")
+    fig = plt.figure(figsize=(7.0, 3.0))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.3, 1], wspace=0.42, left=0.08, right=0.985, bottom=0.17, top=0.76)
+    ax = fig.add_subplot(gs[0])
+    lays = ["L1", "L2", "L3", "L4", "L5", "L6"]
+    systems = [("contract13b_evidence_first", "evidence-first prompt", BRICK, "s"),
+               ("parser", "rule-based parser + solver", INK2, "^"),
+               ("contract13b_extract", "extraction + solver", NAVY, "o"),
+               ("hybrid", "parser, else extraction", TEAL, "D")]
+    for k, lab, c, mk in systems:
+        ys = [r["by_layout"][l][k]["correct_determinate"] for l in lays]
+        ax.plot(range(6), ys, color=c, lw=1.5, marker=mk, ms=4.4, label=lab)
+    ax.axvspan(2.5, 5.5, color=GRID, alpha=0.6, zorder=0)
+    ax.text(4, 0.33, "held out", ha="center", fontsize=7.2, color=INK2)
+    ax.text(1, 0.33, "development", ha="center", fontsize=7.2, color=INK2)
+    ax.set_xticks(range(6))
+    ax.set_xticklabels(lays, fontsize=7.5)
+    ax.set_xlim(-0.4, 5.4)
+    ax.set_ylim(0.28, 1.03)
+    ax.set_ylabel("Correct on decidable pairs", fontsize=7.8)
+    ax.set_title("(a) Correct decisions by record layout", fontsize=8.2, pad=26, loc="left")
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.01, 0.99), ncol=2, fontsize=6.6, frameon=False,
+              handletextpad=0.3, columnspacing=0.8, borderaxespad=0)
+    ax = fig.add_subplot(gs[1])
+    pm = r["per_model_heldout"]
+    names = [("gemini-3.1-pro-preview", "Gemini 3.1 Pro"), ("gemini-3.8-flash", "Gemini 3.8 Flash"),
+             ("gemma-4-26b-a4b-it-maas", "Gemma 4 26B"), ("deepseek-v3.2-maas", "DeepSeek V3.2"), ("glm-5.2-maas", "GLM-5.2")]
+    for i, (m, n) in enumerate(names):
+        a = pm[m]["contract13b_evidence_first"]["unsupported_pos"]
+        b = pm[m]["contract13b_extract"]["unsupported_pos"]
+        ax.plot([b, a], [i, i], color=LIGHT, lw=2.2, zorder=1)
+        ax.plot([a], [i], ls="", marker="s", ms=5.5, mfc=BRICK, mec="white", zorder=3)
+        ax.plot([b], [i], ls="", marker="o", ms=5.5, mfc=NAVY, mec="white", zorder=3)
+    ax.set_yticks(range(5))
+    ax.set_yticklabels([n for _, n in names], fontsize=7.3)
+    ax.set_ylim(4.6, -0.6)
+    ax.set_xlim(-0.02, 0.45)
+    ax.grid(axis="y", visible=False)
+    ax.set_xlabel("Unsupported pass, held-out layouts", fontsize=7.8)
+    ax.set_title("(b) By model: prompt and extraction", fontsize=8.2, pad=26, loc="left")
+    h = [plt.Line2D([], [], ls="", marker="s", mfc=BRICK, mec="white", label="evidence-first prompt"),
+         plt.Line2D([], [], ls="", marker="o", mfc=NAVY, mec="white", label="extraction + solver")]
+    ax.legend(handles=h, loc="lower left", bbox_to_anchor=(-0.02, 0.99), ncol=2, fontsize=6.6, frameon=False,
+              handletextpad=0.2, columnspacing=0.8, borderaxespad=0)
+    for i, (m, _) in enumerate(names):
+        if pm[m]["contract13b_evidence_first"]["unsupported_pos"] == pm[m]["contract13b_extract"]["unsupported_pos"] == 0:
+            ax.text(0.014, i, "both 0", va="center", fontsize=6.4, color=INK2)
+    save(fig, "fig_study13")
+
+
 def anchor_points() -> list[tuple[str, tuple, tuple]]:
     vw = load("docs/views_results.json")["runs"]
     fin = {k for k, v in load("docs/llm_results.json")["runs"].items() if v.get("per_firm")}
@@ -518,5 +569,5 @@ def fig_regime_heatmap() -> None:
 
 if __name__ == "__main__":
     for f in (fig_study3_multiples, fig_forest, fig_i9, fig_separation, fig_verdict_flow,
-              fig_detection_vs_safety, fig_regime_heatmap, fig_study4, fig_study9):
+              fig_detection_vs_safety, fig_regime_heatmap, fig_study4, fig_study9, fig_study13):
         f()

@@ -1,0 +1,38 @@
+ea.calibration_current::P-30201	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30202	fail	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30203	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30204	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30205	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30206	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30207	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30208	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30209	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30210	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30211	pass	test_reports.txt, calibration_log.txt
+ea.calibration_current::P-30212	pass	test_reports.txt, calibration_log.txt
+
+---
+
+ea.calibration_current::P-30213	needs_evidence	calibration_log
+ea.calibration_current::P-30214	pass	calibration_log, test_reports
+ea.calibration_current::P-30215	pass	calibration_log, test_reports
+ea.calibration_current::P-30216	needs_evidence	calibration_log, test_reports
+ea.load_with_margin::P-30201	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30202	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30203	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30204	fail	test_reports, spec_sheets
+ea.load_with_margin::P-30205	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30206	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30207	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30208	pass	lab_certificates, spec_sheets
+
+---
+
+ea.load_with_margin::P-30209	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30210	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30211	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30212	needs_evidence	lab_certificates, spec_sheets
+ea.load_with_margin::P-30213	unmonitored	
+ea.load_with_margin::P-30214	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30215	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30216	pass	lab_certificates, spec_sheets

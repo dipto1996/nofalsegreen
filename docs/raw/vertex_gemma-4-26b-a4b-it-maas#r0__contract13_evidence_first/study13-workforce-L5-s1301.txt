@@ -1,0 +1,38 @@
+E-30101	pass	reverifications.txt, work_authorizations.txt
+E-30102	needs_evidence	reverifications.txt, work_authorizations.txt
+E-30103	needs_evidence	reverifications.txt, work_authorizations.txt
+E-30104	needs_evidence	reverifications.txt, work_authorizations.txt
+E-30105	pass	reverifications.txt, work_authorizations.txt
+E-30106	pass	reverifications.txt, work_authorizations.txt
+E-30107	needs_evidence	reverifications.txt, work_authorizations.txt
+E-30108	pass	reverifications.txt, work_authorizations.txt
+E-30109	pass	reverifications.txt, work_authorizations.txt
+E-30110	pass	reverifications.txt, work_authorizations.txt
+E-30111	pass	reverifications.txt, work_authorizations.txt
+E-30112	pass	reverifications.txt, work_authorizations.txt
+
+---
+
+wf.reverify_window::E-30113	fail	reverifications, work_authorizations
+wf.reverify_window::E-30114	pass	reverifications, work_authorizations
+wf.reverify_window::E-30115	pass	reverifications, work_authorizations
+wf.reverify_window::E-30116	fail	reverifications, work_authorizations
+wf.notice_posting::E-30101	pass	lca_notices, lca_filings
+wf.notice_posting::E-30102	pass	lca_notices, lca_filings
+wf.notice_posting::E-30103	pass	lca_notices, lca_filings
+wf.notice_posting::E-30104	pass	lca_notices, lca_filings
+wf.notice_posting::E-30105	pass	lca_notices, lca_filings
+wf.notice_posting::E-30106	needs_evidence	lca_notices
+wf.notice_posting::E-30107	pass	lca_notices, lca_filings
+wf.notice_posting::E-30108	pass	lca_notices, lca_filings
+
+---
+
+wf.notice_posting::E-30109	pass	lca_notices, lca_filings
+wf.notice_posting::E-30110	needs_evidence	lca_notices, lca_filings, dol_receipts
+wf.notice_posting::E-30111	pass	lca_notices, lca_filings
+wf.notice_posting::E-30112	pass	lca_notices, lca_filings
+wf.notice_posting::E-30113	pass	lca_notices, lca_filings
+wf.notice_posting::E-30114	pass	lca_notices, lca_filings
+wf.notice_posting::E-30115	pass	lca_notices, lca_filings
+wf.notice_posting::E-30116	needs_evidence	lca_notices, lca_filings

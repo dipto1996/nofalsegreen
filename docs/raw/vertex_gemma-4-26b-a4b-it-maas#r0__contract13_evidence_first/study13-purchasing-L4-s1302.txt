@@ -1,0 +1,38 @@
+pa.three_way_match::PO-30201	fail	invoices: entry_no: 6, purchase_orders: entry_no: 12, receipts: entry_no: 9
+pa.three_way_match::PO-30202	pass	invoices: entry_no: 1, purchase_orders: entry_no: 2, receipts: entry_no: 2
+pa.three_way_match::PO-30203	pass	invoices: entry_no: 5, purchase_orders: entry_no: 1, receipts: entry_no: 6
+pa.three_way_match::PO-30204	pass	invoices: entry_no: 13, purchase_orders: entry_no: 13, receipts: entry_no: 1
+pa.three_way_match::PO-30205	pass	invoices: entry_no: 3, purchase_orders: entry_no: 8, receipts: entry_no: 12
+pa.three_way_match::PO-30206	fail	invoices: entry_no: 9, purchase_orders: entry_no: 15, receipts: entry_no: 15
+pa.three_way_match::PO-30207	needs_evidence	invoices: entry_no: 11, purchase_orders: entry_no: 4, receipts: entry_no: 8
+pa.three_way_match::PO-30208	fail	invoices: entry_no: 7, purchase_orders: entry_no: 14, receipts: entry_no: 7
+pa.three_way_match::PO-30209	fail	invoices: entry_no: 8, purchase_orders: entry_no: 3, receipts: entry_no: 3
+pa.three_way_match::PO-30210	pass	invoices: entry_no: 12, purchase_orders: entry_no: 5, receipts: entry_no: 14
+pa.three_way_match::PO-30211	needs_evidence	invoices: -, purchase_orders: entry_no: 11, receipts: entry_no: 13
+pa.three_way_match::PO-30212	pass	invoices: entry_no: 4, purchase_orders: entry_no: 6, receipts: entry_no: 5
+
+---
+
+pa.three_way_match::PO-30213	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30214	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30215	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-30216	fail	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-30201	fail	receipts, payments, invoices
+pa.paid_in_window::PO-30202	pass	receipts, payments, invoices
+pa.paid_in_window::PO-30203	pass	receipts, payments, invoices
+pa.paid_in_window::PO-30204	pass	receipts, payments, invoices
+pa.paid_in_window::PO-30205	pass	receipts, payments, invoices
+pa.paid_in_window::PO-30206	needs_evidence	receipts, payments, invoices
+pa.paid_in_window::PO-30207	pass	receipts, payments, invoices
+pa.paid_in_window::PO-30208	pass	receipts, payments, invoices
+
+---
+
+pa.paid_in_window::PO-30209	fail	invoices, payments, receipts
+pa.paid_in_window::PO-30210	needs_evidence	invoices, payments, receipts
+pa.paid_in_window::PO-30211	needs_evidence	payments, receipts
+pa.paid_in_window::PO-30212	needs_evidence	invoices, receipts
+pa.paid_in_window::PO-30213	fail	invoices, payments, receipts
+pa.paid_in_window::PO-30214	pass	invoices, payments, receipts
+pa.paid_in_window::PO-30215	unmonitored	payments
+pa.paid_in_window::PO-30216	pass	invoices, payments, receipts

@@ -1,0 +1,38 @@
+E-30201	needs_evidence	-
+E-30202	pass	work_authorizations-1, reverifications-2
+E-30203	pass	work_authorizations-7, reverifications-3
+E-30204	needs_evidence	-
+E-30205	needs_evidence	-
+E-30206	pass	work_authorizations-10, reverifications-8
+E-30207	pass	work_authorizations-3, reverifications-11
+E-30208	pass	work_authorizations-9, reverifications-14
+E-30209	pass	work_authorizations-5, reverifications-13
+E-30210	needs_evidence	-
+E-30211	pass	work_authorizations-12, reverifications-9
+E-30212	pass	work_authorizations-8, reverifications-10
+
+---
+
+wf.reverify_window::E-30213	needs_evidence	reverifications-6, reverifications-7, work_authorizations-4
+wf.reverify_window::E-30214	pass	reverifications-4, work_authorizations-11
+wf.reverify_window::E-30215	pass	reverifications-12, work_authorizations-13
+wf.reverify_window::E-30216	pass	reverifications-1, work_authorizations-15
+wf.notice_posting::E-30201	pass	lca_notices-5, lca_filings-12
+wf.notice_posting::E-30202	pass	lca_notices-7, dol_receipts-1
+wf.notice_posting::E-30203	pass	lca_notices-15, lca_filings-13
+wf.notice_posting::E-30204	pass	lca_notices-10, lca_filings-11
+wf.notice_posting::E-30205	pass	lca_notices-1, lca_filings-10
+wf.notice_posting::E-30206	pass	lca_notices-12, lca_filings-15
+wf.notice_posting::E-30207	pass	lca_notices-11, dol_receipts-1
+wf.notice_posting::E-30208	needs_evidence	lca_notices, lca_filings
+
+---
+
+wf.notice_posting::E-30209	pass	lca_notices-2, lca_filings-7
+wf.notice_posting::E-30210	pass	lca_notices-4, lca_filings-6
+wf.notice_posting::E-30211	pass	lca_notices-6, lca_filings-16
+wf.notice_posting::E-30212	pass	lca_notices-14, lca_filings-1
+wf.notice_posting::E-30213	pass	lca_notices-8, lca_filings-14
+wf.notice_posting::E-30214	needs_evidence	lca_notices-3, lca_filings-4
+wf.notice_posting::E-30215	pass	lca_notices-9, lca_filings-8
+wf.notice_posting::E-30216	pass	lca_notices-13, lca_filings-3

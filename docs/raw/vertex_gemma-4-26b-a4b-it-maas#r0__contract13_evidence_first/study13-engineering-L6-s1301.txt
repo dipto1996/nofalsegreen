@@ -1,0 +1,38 @@
+ea.calibration_current::P-30101	pass	test_reports, calibration_log
+ea.calibration_current::P-30102	pass	test_reports, calibration_log
+ea.calibration_current::P-30103	pass	test_reports, calibration_log
+ea.calibration_current::P-30104	pass	test_reports, calibration_log
+ea.calibration_current::P-30105	pass	test_reports, calibration_log
+ea.calibration_current::P-30106	pass	test_reports, calibration_log
+ea.calibration_current::P-30107	pass	test_reports, calibration_log
+ea.calibration_current::P-30108	pass	test_reports, calibration_log
+ea.calibration_current::P-30109	pass	test_reports, calibration_log
+ea.calibration_current::P-30110	pass	test_reports, calibration_log
+ea.calibration_current::P-30111	pass	test_reports, calibration_log
+ea.calibration_current::P-30112	pass	test_reports, calibration_log
+
+---
+
+ea.calibration_current::P-30113	pass	calibration_log, test_reports
+ea.calibration_current::P-30114	unmonitored	-
+ea.calibration_current::P-30115	needs_evidence	calibration_log, test_reports
+ea.calibration_current::P-30116	pass	calibration_log, test_reports
+ea.load_with_margin::P-30101	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30102	needs_evidence	lab_certificates, spec_sheets
+ea.load_with_margin::P-30103	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30104	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30105	pass	test_reports, spec_sheets
+ea.load_with_margin::P-30106	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30107	needs_evidence	lab_certificates, spec_sheets
+ea.load_with_margin::P-30108	pass	lab_certificates, spec_sheets
+
+---
+
+ea.load_with_margin::P-30109	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30110	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30111	needs_evidence	spec_sheets
+ea.load_with_margin::P-30112	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30113	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-30114	needs_evidence	spec_sheets
+ea.load_with_margin::P-30115	pass	test_reports, spec_sheets
+ea.load_with_margin::P-30116	pass	lab_certificates, spec_sheets

@@ -1,0 +1,38 @@
+wf.reverify_window::E-30201	needs_evidence	work_authorizations, reverifications
+wf.reverify_window::E-30202	fail	work_authorizations, reverifications
+wf.reverify_window::E-30203	fail	work_authorizations, reverifications
+wf.reverify_window::E-30204	needs_evidence	work_authorizations, reverifications
+wf.reverify_window::E-30205	needs_evidence	work_authorizations, reverifications
+wf.reverify_window::E-30206	pass	work_authorizations, reverifications
+wf.reverify_window::E-30207	fail	work_authorizations, reverifications
+wf.reverify_window::E-30208	fail	work_authorizations, reverifications
+wf.reverify_window::E-30209	fail	work_authorizations, reverifications
+wf.reverify_window::E-30210	needs_evidence	work_authorizations, reverifications
+wf.reverify_window::E-30211	pass	work_authorizations, reverifications
+wf.reverify_window::E-30212	fail	work_authorizations, reverifications
+
+---
+
+wf.reverify_window::E-30213	needs_evidence	reverifications (conflicting dates: 12 Feb 2027 and 24 Feb 2027); work_authorizations
+wf.reverify_window::E-30214	fail	work_authorizations (expiry 2026-08-26); reverifications (2026-08-28, after expiry)
+wf.reverify_window::E-30215	pass	work_authorizations (expiry 2026-11-13); reverifications (2026-09-08)
+wf.reverify_window::E-30216	pass	work_authorizations (expiry 2027-03-16); reverifications (2027-01-10)
+wf.notice_posting::E-30201	pass	lca_notices (posted 2026-01-23, removed 2026-02-06); lca_filings (filed 2026-01-23)
+wf.notice_posting::E-30202	fail	lca_notices (posted 2026-06-26, removed 2026-07-12); dol_receipts (filed 2026-07-08)
+wf.notice_posting::E-30203	fail	lca_notices (posted 2026-01-16, removed 2026-02-01); lca_filings (filed 2026-02-04)
+wf.notice_posting::E-30204	pass	lca_notices (posted 2026-06-09, removed 2026-06-29); lca_filings (filed 2026-06-12)
+wf.notice_posting::E-30205	pass	lca_notices (posted 2026-04-01, removed 2026-05-03); lca_filings (filed 2026-04-13)
+wf.notice_posting::E-30206	pass	lca_notices (posted 2026-01-18, removed 2026-02-06); lca_filings (filed 2026-01-20)
+wf.notice_posting::E-30207	needs_evidence	lca_notices (posted 2026-07-12, removed 2026-07-21); lca_filings (no value); dol_receipts (no value)
+wf.notice_posting::E-30208	needs_evidence	lca_notices (no entry); lca_filings (no entry); dol_receipts (no entry)
+
+---
+
+wf.notice_posting::E-30209	pass	lca_notices, lca_filings
+wf.notice_posting::E-30210	fail	lca_notices, lca_filings
+wf.notice_posting::E-30211	pass	lca_notices, lca_filings
+wf.notice_posting::E-30212	needs_evidence	lca_filings
+wf.notice_posting::E-30213	fail	lca_notices, lca_filings
+wf.notice_posting::E-30214	needs_evidence	lca_notices
+wf.notice_posting::E-30215	pass	lca_notices, lca_filings
+wf.notice_posting::E-30216	fail	lca_notices, lca_filings

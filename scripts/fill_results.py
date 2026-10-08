@@ -619,7 +619,7 @@ def table_study6() -> str:
                 "sign-flip p over firms (ten for H, twelve for R), Holm within each study and model set as declared. "
                 "Study 6 ran the declared Study 4 and 5 cells unchanged on two more developers' models. Contrasts are paired "
                 "on pairs answered in both cells; where a model answered none of a firm's pairs in a cell, that firm's "
-                "contrast averages the remaining models. Per-model effects are in Table 20.")
+                "contrast averages the remaining models. Per-model effects are in Table 22.")
     return "\n".join(rows)
 
 
@@ -707,6 +707,85 @@ def table_study9_models() -> str:
     return "\n".join(rows)
 
 
+_S13 = {"contract13_evidence_first": "Evidence-first prompt", "contract13_extract": "Extraction + solver",
+        "contract13b_evidence_first": "Evidence-first prompt", "contract13b_extract": "Extraction + solver",
+        "hybrid": "Parser, else extraction (exploratory)", "parser": "Rule-based parser + solver",
+        "named columns": "Program reading the named columns", "always abstain": "Always abstain"}
+_M13 = {"gemini-3.1-pro-preview": "Gemini 3.1 Pro", "gemini-3.8-flash": "Gemini 3.8 Flash",
+        "gemma-4-26b-a4b-it-maas": "Gemma 4 26B", "deepseek-v3.2-maas": "DeepSeek V3.2", "glm-5.2-maas": "GLM-5.2"}
+
+
+def table_study13() -> str:
+    """Study 13 declared tests: first run (declared scoring, and post hoc) and the replication."""
+    d = ROOT / "docs" / "study13"
+    head = "| Run | Test | Effect [95% CI] | Packets + / − | Holm p | Result |\n|---|---|---|---|---|---|"
+    if not (d / "results.json").exists() or not (d / "results_r2.json").exists():
+        return head
+    r0, r2 = json.loads((d / "results.json").read_text()), json.loads((d / "results_r2.json").read_text())
+    lab = {"H1": "Extraction − evidence-first: unsupported pass", "H2": "Extraction − rule-based parser: correct decisions",
+           "H3": "Extraction − evidence-first: correct decisions"}
+    n1 = "N1 non-inferiority: extraction + solver - parser, unsupported pass, upper bound < +0.02"
+    rows = [head]
+    for run, res in (("First run", r0), ("First run, post hoc names", r0["posthoc_name_normalised"]), ("Replication", r2)):
+        for k, v in res["primary"].items():
+            p = "<0.001" if v["p_holm"] < 0.001 else f"{v['p_holm']:.3f}"
+            out = "confirmed" if v["outcome"] == "confirmed" else "not confirmed"
+            rows.append(f"| {run} | {k[:2]} {lab[k[:2]]} | {v['delta']:+.3f} [{v['ci95_packet_bootstrap'][0]:+.3f}, "
+                        f"{v['ci95_packet_bootstrap'][1]:+.3f}] | {v['packets_positive']} / {v['packets_negative']} | {p} | "
+                        f"{out if 'post hoc' not in run else 'post hoc'} |")
+        v = res[n1]
+        rows.append(f"| {run} | N1 Extraction − parser: unsupported pass, bound < +0.02 | {v['delta']:+.3f} "
+                    f"[{v['ci95_packet_bootstrap'][0]:+.3f}, {v['ci95_packet_bootstrap'][1]:+.3f}] | "
+                    f"{v['packets_positive']} / {v['packets_negative']} | – | "
+                    f"{('confirmed' if v['outcome'] == 'confirmed' else 'not confirmed') if 'post hoc' not in run else 'post hoc'} |")
+    rows.append("")
+    rows.append("Held-out layouts L4–L6, eighteen packets; five models averaged with equal weight; exact sign-flip test, "
+                "packet bootstrap interval, Holm over H1–H3. N1 is declared non-inferiority (upper bound below +0.02). "
+                "The first run's rule statement printed some fact names with their unit; the post-hoc rows match names "
+                "after removing it, and the replication corrected the statement before any call (Section 6.12).")
+    return "\n".join(rows)
+
+
+def table_study13_systems() -> str:
+    """Study 13 replication: every system on held-out and development layouts."""
+    f = ROOT / "docs" / "study13" / "results_r2.json"
+    head = ("| System | Unsupported pass | Unsupported fail | Correct decisions | Correct, development layouts "
+            "| Unnecessary abstention | Follow-up share |\n|---|---|---|---|---|---|---|")
+    if not f.exists():
+        return head
+    r = json.loads(f.read_text())
+    h, dv = r["summary_heldout"], r["summary_development"]
+    rows = [head]
+    for k in ("contract13b_evidence_first", "contract13b_extract", "parser", "hybrid", "named columns", "always abstain"):
+        a = h[k]
+        rows.append(f"| {_S13[k]} | {a['unsupported_pos']:.3f} | {a['unsupported_neg']:.3f} | {a['correct_determinate']:.3f} | "
+                    f"{dv[k]['correct_determinate']:.3f} | {a['unnecessary_abstention']:.3f} | {a['followup_share']:.3f} |")
+    rows.append("")
+    rows.append("Replication run; held-out layouts L4–L6 except the development column (L1–L3). Model systems: mean of five "
+                "models. Unsupported pass and fail: over all pairs; correct decisions and unnecessary abstention: over "
+                "decidable pairs; follow-up: share of pairs answered `fail`, abstaining or unanswered.")
+    return "\n".join(rows)
+
+
+def table_study13_models() -> str:
+    """Study 13 replication per model (appendix)."""
+    f = ROOT / "docs" / "study13" / "results_r2.json"
+    head = ("| Model | Unsupported pass: prompt | Unsupported pass: extraction | Correct: prompt | Correct: extraction "
+            "| Extraction − parser, correct [95% CI] |\n|---|---|---|---|---|---|")
+    if not f.exists():
+        return head
+    pm = json.loads(f.read_text())["per_model_heldout"]
+    rows = [head]
+    for m, n in _M13.items():
+        a, b, h2 = pm[m]["contract13b_evidence_first"], pm[m]["contract13b_extract"], pm[m]["H2"]
+        rows.append(f"| {n} | {a['unsupported_pos']:.3f} | {b['unsupported_pos']:.3f} | {a['correct_determinate']:.3f} | "
+                    f"{b['correct_determinate']:.3f} | {h2['delta']:+.3f} [{h2['ci95_packet_bootstrap'][0]:+.3f}, "
+                    f"{h2['ci95_packet_bootstrap'][1]:+.3f}] |")
+    rows.append("")
+    rows.append("Study 13 replication, held-out layouts, eighteen packets; intervals are packet bootstrap per model.")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -746,6 +825,9 @@ def main() -> int:
         "table-per-model": table_per_model(),
         "table-study9": table_study9(),
         "table-study9-models": table_study9_models(),
+        "table-study13": table_study13(),
+        "table-study13-systems": table_study13_systems(),
+        "table-study13-models": table_study13_models(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

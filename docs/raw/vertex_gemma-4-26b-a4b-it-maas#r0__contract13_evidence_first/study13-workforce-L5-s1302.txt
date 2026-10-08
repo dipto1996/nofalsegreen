@@ -1,0 +1,38 @@
+wf.reverify_window::E-30201	needs_evidence	reverifications
+wf.reverify_window::E-30202	pass	work_authorizations, reverifications
+wf.reverify_window::E-30203	pass	work_authorizations, reverifications
+wf.reverify_window::E-30204	needs_evidence	reverifications
+wf.reverify_window::E-30205	needs_evidence	reverifications
+wf.reverify_window::E-30206	pass	work_authorizations, reverifications
+wf.reverify_window::E-30207	pass	work_authorizations, reverifications
+wf.reverify_window::E-30208	pass	work_authorizations, reverifications
+wf.reverify_window::E-30209	pass	work_authorizations, reverifications
+wf.reverify_window::E-30210	needs_evidence	reverifications
+wf.reverify_window::E-30211	pass	work_authorizations, reverifications
+wf.reverify_window::E-30212	pass	work_authorizations, reverifications
+
+---
+
+wf.reverify_window::E-30213	pass	work_authorizations: Entry 4, reverifications: Entry 6, Entry 7
+wf.reverify_window::E-30214	pass	work_authorizations: Entry 11, reverifications: Entry 4
+wf.reverify_window::E-30215	pass	work_authorizations: Entry 13, reverifications: Entry 12
+wf.reverify_window::E-30216	pass	work_authorizations: Entry 15, reverifications: Entry 1
+wf.notice_posting::E-30201	pass	lca_notices: Entry 5, lca_filings: Entry 12
+wf.notice_posting::E-30202	needs_evidence	lca_notices: Entry 7, lca_filings: Entry 5
+wf.notice_posting::E-30203	pass	lca_notices: Entry 15, lca_filings: Entry 13
+wf.notice_posting::E-30204	pass	lca_notices: Entry 10, lca_filings: Entry 11
+wf.notice_posting::E-30205	pass	lca_notices: Entry 1, lca_filings: Entry 10
+wf.notice_posting::E-30206	pass	lca_notices: Entry 12, lca_filings: Entry 15
+wf.notice_posting::E-30207	needs_evidence	lca_notices: Entry 11, lca_filings: Entry 9
+wf.notice_posting::E-30208	needs_evidence	lca_notices: -, lca_filings: -
+
+---
+
+wf.notice_posting::E-30209	pass	lca_notices, lca_filings
+wf.notice_posting::E-30210	fail	lca_notices, lca_filings
+wf.notice_posting::E-30211	pass	lca_notices, lca_filings
+wf.notice_posting::E-30212	pass	lca_notices, lca_filings
+wf.notice_posting::E-30213	pass	lca_notices, lca_filings
+wf.notice_posting::E-30214	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-30215	pass	lca_notices, lca_filings
+wf.notice_posting::E-30216	pass	lca_notices, lca_filings

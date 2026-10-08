@@ -1,0 +1,38 @@
+pa.three_way_match::PO-30201	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30202	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30203	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30204	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30205	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30206	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30207	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30208	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30209	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30210	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30211	unmonitored	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30212	pass	invoices,purchase_orders,receipts
+
+---
+
+pa.three_way_match::PO-30213	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30214	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-30215	unmonitored	-
+pa.three_way_match::PO-30216	pass	invoices,purchase_orders,receipts
+pa.paid_in_window::PO-30201	needs_evidence	-
+pa.paid_in_window::PO-30202	needs_evidence	-
+pa.paid_in_window::PO-30203	needs_evidence	-
+pa.paid_in_window::PO-30204	needs_evidence	-
+pa.paid_in_window::PO-30205	needs_evidence	-
+pa.paid_in_window::PO-30206	needs_evidence	-
+pa.paid_in_window::PO-30207	needs_evidence	-
+pa.paid_in_window::PO-30208	needs_evidence	-
+
+---
+
+pa.paid_in_window::PO-30209	pass	receipts,payments,invoices
+pa.paid_in_window::PO-30210	needs_evidence	payments
+pa.paid_in_window::PO-30211	unmonitored	-
+pa.paid_in_window::PO-30212	pass	receipts,payments,invoices
+pa.paid_in_window::PO-30213	pass	receipts,payments,invoices
+pa.paid_in_window::PO-30214	pass	receipts,payments,invoices
+pa.paid_in_window::PO-30215	unmonitored	-
+pa.paid_in_window::PO-30216	pass	receipts,payments,invoices
