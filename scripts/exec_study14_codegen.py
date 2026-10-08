@@ -47,6 +47,40 @@ def reuse_target(wf: str, lay: str, seed: int):
     return (later or others or [None])[0]
 
 
+def _parsed(out: str):
+    try:
+        return json.loads(out[out.index("{"):out.rindex("}") + 1])
+    except ValueError:
+        return out
+
+
+def replay() -> int:
+    """Re-execute every retained program and compare with the stored record (added after review)."""
+    done = json.loads(OUT.read_text())
+    caches = {}
+    for p in sorted((ROOT / "docs" / "study14" / "codegen_cache").glob("*.json")):
+        caches.update(json.loads(p.read_text()))
+    diff = 0
+    for key, rec in sorted(done.items()):
+        code = program(caches[key].get("text", ""))
+        if not code:
+            continue
+        _, wf, lay, s = key.split("|")[3].split("-")
+        for part, seed in (("own", int(s[1:])), ("reuse", rec.get("reuse_seed"))):
+            if seed is None:
+                continue
+            r = run(code, study14.packet_dir(wf, lay, seed))
+            # compare parsed output: a program that iterates a set prints in hash order, which
+            # python3 -I leaves random, so the same facts can be printed in another order
+            same = r["returncode"] == rec[part]["returncode"] and _parsed(r["stdout"]) == _parsed(rec[part]["stdout"])
+            diff += not same
+    print(f"replayed {len(done)} records; {diff} executions differ")
+    return 1 if diff else 0
+
+
+if __name__ == "__main__" and "--replay" in sys.argv:
+    raise SystemExit(replay())
+
 if __name__ == "__main__":
     caches = {}
     for p in sorted((ROOT / "docs" / "study14" / "codegen_cache").glob("*.json")):

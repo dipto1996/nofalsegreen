@@ -71,8 +71,14 @@ def codegen_facts(stdout: str, ids: set) -> dict:
 
 
 def signflip(xs: list, seed: int) -> float:
+    """Exact enumeration up to 20 units (corrected after review: the six-layout check had been
+    Monte Carlo), otherwise 200,000 random sign patterns."""
     n = len(xs)
     obs = abs(sum(xs)) / n
+    if n <= 20:
+        import itertools
+        vals = [abs(sum(s * x for s, x in zip(sg, xs))) / n for sg in itertools.product((1, -1), repeat=n)]
+        return sum(v >= obs - 1e-12 for v in vals) / len(vals)
     rng = random.Random(seed)
     hits = sum(abs(sum(x if rng.random() < 0.5 else -x for x in xs)) / n >= obs - 1e-12 for _ in range(MC))
     return (hits + 1) / (MC + 1)
@@ -268,6 +274,27 @@ def main() -> int:
         for (wf, lay, s, t), d in dd.items():
             rr.append(measures(d, labels[(wf, t)])["correct_determinate"])
     cg["reuse_correct_determinate"] = round(sum(rr) / len(rr), 4) if rr else None
+    # reuse outcomes by kind (added after review): the program did not run; it ran but answered
+    # only the original packet's pairs (the prompt listed them, and no list is given at run time,
+    # so programs copied or regenerated that list); or it answered the new packet's pairs
+    br = Counter()
+    for key, rec in exe.items():
+        if not rec.get("has_program") or rec.get("reuse_seed") is None:
+            br["no program"] += 1
+            continue
+        ru = rec.get("reuse", {})
+        if ru.get("returncode") != 0:
+            br["did not run"] += 1
+            continue
+        _, wf, lay, s_ = key.split("|")[3].split("-")
+        new_ids = set(labels[(wf, rec["reuse_seed"])])
+        old_ids = set(labels[(wf, int(s_[1:]))])
+        got = set(codegen_facts(ru.get("stdout", ""), new_ids | old_ids))
+        br["answered the new packet's pairs" if got & new_ids else "answered only the original packet's pairs" if got & old_ids else "no usable output"] += 1
+    cg["reuse_breakdown"] = dict(sorted(br.items()))
+    cg["programs_with_literal_entity_ids"] = sum(
+        1 for key, v in cgc.items() if any(e in (re.findall(r"```python\s*\n(.*?)```", v.get("text", ""), flags=re.S) or [""])[0]
+                                           for e in packets[(key.split("|")[3].split("-")[1], int(key.split("|")[3].split("-")[3][1:]))].entities))
     out["codegen"] = cg
     # slot audit of reported facts
     audit: dict = {}

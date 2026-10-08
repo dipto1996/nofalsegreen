@@ -936,7 +936,7 @@ claim(all(v["n_contents"] == 30 and v["p_holm"] < 0.001 for v in _P14)
       and [v["outcome"] for v in _P14] == ["confirmed", "confirmed", "confirmed", "difference"] and _P14[3]["delta"] > 0
       and "All four declared tests reached Holm p < 0.001 over contents" in _flat
       and _b14["labels"] == _b14["agree"] == 960 and "All 960 labels agree" in _flat
-      and _pw14["30"]["H2"] == 0.94 and "power 0.94 for the weakest test" in _flat, "Study 14: tests, labels and power")
+      and min(_pw14["30"][h] for h in ("H1", "H2", "H3")) == 0.94 and "power was at least 0.94 for H1–H3" in _flat, "Study 14: tests, labels and power")
 claim(f"{-_P14[0]['delta']:.3f} {_ci14(_P14[0])}, in all 30 contents" in _flat and _P14[0]["contents_negative"] == 30
       and f"{_P14[1]['delta']:.3f} {_ci14(_P14[1])} more correct decisions" in _flat
       and f"by {_P14[2]['delta']:.3f} {_ci14(_P14[2])}, reaching {_s14['hybrid']['correct_determinate']:.3f}" in _flat
@@ -944,6 +944,19 @@ claim(f"{-_P14[0]['delta']:.3f} {_ci14(_P14[0])}, in all 30 contents" in _flat a
       and f"reached {_s14['parser']['correct_determinate']:.3f} on the new ones" in _flat
       and f"({_s14['parser, Study 13']['correct_determinate']:.3f})" in _flat
       and _s14["parser, Study 13"]["correct_determinate"] > _s14["parser"]["correct_determinate"], "Study 14: effects in the text")
+_cgc14 = {}
+for _f in sorted((ROOT / "docs" / "study14" / "codegen_cache").glob("*.json")):
+    _cgc14.update(json.loads(_f.read_text()))
+_len14 = sum(v["finish_reason"] == "length" for k, v in _cgc14.items() if "glm-5.2" in k)
+_rb14 = _cg14["reuse_breakdown"]
+_fl14 = _pm14["gemini-3.8-flash"]
+claim(f"({'ten' if _len14 == 10 else _len14} GLM-5.2 replies reached it)" in _flat
+      and sum(v["finish_reason"] == "length" for v in _cgc14.values()) == _len14
+      and f"so {_rb14['answered only the original packet' + chr(39) + 's pairs']} of the programs answered the original" in _flat
+      and f"({_cg14['programs_with_literal_entity_ids']} had copied its identifiers) and only {_rb14['answered the new packet' + chr(39) + 's pairs']} answered" in _flat
+      and f"made no unsupported `pass`\nand decided {_fl14['contract13b_evidence_first']['correct_determinate']:.3f}".replace("\n", " ") in _flat
+      and _fl14["contract13b_evidence_first"]["unsupported_pos"] == _fl14[_EX14]["unsupported_pos"] == 0
+      and f"against {_fl14[_EX14]['correct_determinate']:.3f} with extraction" in _flat, "Study 14: H4 scope, reuse breakdown, Flash")
 claim(f"Of 300 replies, {_cg14['with_program']} contained a program" in _flat and f"{_cg14['ran_cleanly']} ran without error" in _flat
       and f"decided {_cg14['reuse_correct_determinate']:.3f} of decidable pairs" in _flat
       and f"five of six layouts (exact p = {_lf14['extraction - parser']['p_exact_two_sided_over_layouts']:.3f}" in _flat

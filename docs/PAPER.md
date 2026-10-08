@@ -930,8 +930,8 @@ Held-out layouts L4–L6, eighteen packets; five models averaged with equal weig
 
 Study 13's inference rested on six contents and its layouts on one designer. Study 14, declared
 before any call (commit `58adb04`), tests the same claims on 30 fresh contents, ten per
-workflow, sized by a power analysis from Study 13 (power 0.94 for the weakest test with the
-effects halved). The rules, solver and prompts are Study 13's, frozen.
+workflow, sized by a power analysis from Study 13: with its effects halved and modelled as
+normal, power was at least 0.94 for H1–H3; H4 had no Study 13 counterpart and was not powered. The rules, solver and prompts are Study 13's, frozen.
 
 **Layouts and baselines.** Six new layouts came from three designers who worked separately from
 one another and from us, each with a different direction: public and standard formats (a
@@ -973,8 +973,12 @@ All sixty renderings; model systems are the mean of five models. Measures as in 
   parser by 0.565 [+0.448, +0.670], reaching 0.914.
 - **H4, a model-written parser.** Extraction made 0.172 [+0.127, +0.219] more correct
   decisions than code generation. Of 300 replies, 290 contained a program and
-  268 ran without error; a program reused on another packet in the same layout
-  decided 0.341 of decidable pairs correctly.
+  268 ran without error. H4 compares extraction with this configuration only: one program per
+  packet under a 32,000-token cap (ten GLM-5.2 replies reached it), with no repair after
+  execution. A program reused on another packet in the same layout decided 0.341 of decidable
+  pairs correctly, but that figure mixes reading with an interface defect: the prompt listed the
+  pairs and no list was supplied at run time, so 160 of the programs answered the original
+  packet's pairs (102 had copied its identifiers) and only 102 answered the new packet's.
 
 **By layout.** Extraction beat the parser in five of six layouts (exact p = 0.062
 over layouts, a check rather than a test). The exception was B1, the HTML form sheets,
@@ -989,7 +993,9 @@ decisions (0.003). Extraction met the declared margin (an excess below
 extraction decided between 0.994 and
 0.999 of decidable pairs correctly; for Gemma 4 and DeepSeek V3.2,
 0.704 and 0.769. Code generation was safer
-for those two models but decided fewer pairs correctly.
+for those two models but decided fewer pairs correctly. For a model that already reads well the
+architecture adds little: Gemini 3.8 Flash under the prompt alone made no unsupported `pass`
+and decided 0.999 of decidable pairs correctly, against 0.994 with extraction.
 
 **Where errors remain.** As in Study 13, conflicts: extraction decided
 0.743 of pairs correctly where the deciding source holds disagreeing
@@ -1276,7 +1282,8 @@ python3 baselines/study13_parser.py --dev       # the rule-based parser on its d
 python3 scripts/score_study13.py                # Study 13, first run (declared and post hoc)
 python3 scripts/score_study13.py --r2           # Study 13, replication
 python3 scripts/power_study14.py                # Study 14 power analysis
-python3 scripts/exec_study14_codegen.py         # Study 14: runs the model-written parsers, sandboxed (cached)
+python3 scripts/exec_study14_codegen.py         # Study 14: runs the model-written parsers, sandboxed
+python3 scripts/exec_study14_codegen.py --replay  # re-executes every program; checks the stored record
 python3 scripts/score_study14.py                # Study 14
 python3 scripts/labelcheck_compare.py           # generated labels vs the reference checker
 python3 scripts/fill_results.py                 # regenerates every table in this paper
@@ -1288,7 +1295,8 @@ No step makes an API call: every score is rebuilt from the retained replies in
 `docs/**/cache/` and `docs/raw/`. `verify_paper.py` re-runs every scorer above and requires all
 29 derived results files to come out byte-identical; the two remaining inputs,
 `docs/llm_results.json` and `docs/label_audit_second.json`, are records of model calls rather
-than derived files. Re-running the models uses `scripts/run_free.py`,
+than derived files, and so is `docs/study14/codegen_exec.json`, the sandboxed executions of the
+model-written programs, which the `--replay` command re-executes and compares. Re-running the models uses `scripts/run_free.py`,
 `scripts/run_vertex.py` and the `scripts/run_study*.py` launchers.
 
 **Real LCA records (Study 5).** The 120 rows come from the Department of Labor's public *LCA

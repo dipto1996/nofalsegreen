@@ -232,7 +232,7 @@
     "C2": 0.8326
    },
    "layouts_positive": 5,
-   "p_exact_two_sided_over_layouts": 0.06248968755156224
+   "p_exact_two_sided_over_layouts": 0.0625
   },
   "hybrid - parser": {
    "by_layout": {
@@ -244,7 +244,7 @@
     "C2": 0.8326
    },
    "layouts_positive": 5,
-   "p_exact_two_sided_over_layouts": 0.06248968755156224
+   "p_exact_two_sided_over_layouts": 0.0625
   }
  },
  "summary": {
@@ -904,7 +904,15 @@
   "with_program": 290,
   "ran_cleanly": 268,
   "timeouts": 0,
-  "reuse_correct_determinate": 0.3408
+  "reuse_correct_determinate": 0.3408,
+  "reuse_breakdown": {
+   "answered only the original packet's pairs": 160,
+   "answered the new packet's pairs": 102,
+   "did not run": 13,
+   "no program": 10,
+   "no usable output": 15
+  },
+  "programs_with_literal_entity_ids": 102
  },
  "slot_audit": {
   "codegen": {

@@ -33,8 +33,9 @@ def main() -> int:
         k = [x for x in r["primary"] if x.startswith(m)][0]
         per[m] = r["primary"][k]
     # Rendering-level contrasts are modelled as normal, with the observed mean halved and the SD
-    # implied by the 18-packet bootstrap interval. H4 (hybrid vs parser) is assumed no larger
-    # than H2, so H2's power bounds the design. Alpha 0.05/4 (Holm's strictest step).
+    # implied by the 18-packet bootstrap interval, and a content's two renderings drawn
+    # independently. Only H1-H3 are simulated (Study 13 has no code-generation arm, so H4 was not
+    # powered). Alpha 0.05/4 (Holm's strictest step).
     out = {"assumption": "effects halved; SD from Study 13 replication packet bootstrap intervals"}
     rng = random.Random(SEED)
     for n in (8, 12, 16, 20, 24, 30):
