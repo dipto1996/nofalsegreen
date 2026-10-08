@@ -1,0 +1,29 @@
+  study15-fda-p03 call 1: 796 out, finish=stop, clean
+  study15-fda-p07 call 1: 804 out, finish=stop, clean
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+  study15-fda-p11 call 1: 693 out, finish=stop, 1 problem(s)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+  study15-fda-p11 call 2: 971 out, finish=stop, clean
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+  study15-fda-p15 call 1: 822 out, finish=stop, 1 problem(s)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+  study15-fda-p15 call 2: 1128 out, finish=stop, clean
+  study15-fda-p19 call 1: 740 out, finish=stop, 1 problem(s)
+  study15-fda-p19 call 2: 1156 out, finish=stop, clean
+done 5

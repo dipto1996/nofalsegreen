@@ -1,0 +1,15 @@
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 7s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 0s
+  study15-lca-p03 call 1: 3750 out, finish=stop, clean
+  study15-lca-p07 call 1: 1161 out, finish=stop, clean
+done 2

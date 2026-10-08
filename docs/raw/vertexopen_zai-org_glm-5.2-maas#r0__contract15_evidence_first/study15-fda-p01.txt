@@ -1,0 +1,27 @@
+fda.classified_30d::F-2022-2019	pass	fda_enforcement_reports
+fda.classified_30d::F-1047-2019	fail	fda_enforcement_reports
+fda.classified_30d::F-1651-2022	fail	fda_enforcement_reports
+fda.classified_30d::F-1403-2019	needs_evidence	fda_enforcement_reports
+fda.classified_30d::F-0524-2021	pass	fda_enforcement_reports
+fda.classified_30d::F-1765-2022	fail	fda_enforcement_reports
+fda.classified_30d::F-0372-2021	needs_evidence	fda_enforcement_reports
+fda.classified_30d::F-0256-2022	fail	fda_enforcement_reports
+fda.classified_30d::F-1178-2022	fail	fda_enforcement_reports
+fda.classified_30d::F-0153-2021	fail	fda_enforcement_reports
+fda.classified_30d::F-1615-2019	fail	fda_enforcement_reports
+fda.classified_30d::F-0459-2021	pass	fda_enforcement_reports
+
+---
+
+fda.terminated_180d::F-2022-2019	needs_evidence	fda_enforcement_reports (termination_date empty)
+fda.terminated_180d::F-1047-2019	fail	fda_enforcement_reports (recall_initiation_date=20190111, termination_date=20190916; 248 days > 180)
+fda.terminated_180d::F-1651-2022	fail	fda_enforcement_reports (recall_initiation_date=20220722, termination_date=20240725; >180 days)
+fda.terminated_180d::F-1403-2019	pass	fda_enforcement_reports (recall_initiation_date=20190409, termination_date=20191003; 177 days <= 180)
+fda.terminated_180d::F-0524-2021	fail	fda_enforcement_reports (recall_initiation_date=20210427, termination_date=20220209; 288 days > 180)
+fda.terminated_180d::F-1765-2022	pass	fda_enforcement_reports (recall_initiation_date=20220729, termination_date=20220923; 56 days <= 180)
+fda.terminated_180d::F-0372-2021	needs_evidence	fda_enforcement_reports (recall_initiation_date empty)
+fda.terminated_180d::F-0256-2022	fail	fda_enforcement_reports (recall_initiation_date=20211029, termination_date=20230828; >180 days)
+fda.terminated_180d::F-1178-2022	fail	fda_enforcement_reports (recall_initiation_date=20220428, termination_date=20221103; 189 days > 180)
+fda.terminated_180d::F-0153-2021	fail	fda_enforcement_reports (recall_initiation_date=20201021, termination_date=20210809; 292 days > 180)
+fda.terminated_180d::F-1615-2019	needs_evidence	fda_enforcement_reports (termination_date empty)
+fda.terminated_180d::F-0459-2021	fail	fda_enforcement_reports (recall_initiation_date=20210412, termination_date=20220303; 325 days > 180)

@@ -1,0 +1,12 @@
+  study15-fda-p02 call 1: 1176 out, finish=stop, clean
+  study15-fda-p06 call 1: 737 out, finish=stop, 1 problem(s)
+  study15-fda-p06 call 2: 1166 out, finish=stop, clean
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+  study15-fda-p10 call 1: 859 out, finish=stop, clean
+  study15-fda-p14 call 1: 905 out, finish=stop, clean
+  study15-fda-p18 call 1: 888 out, finish=stop, 1 problem(s)
+  study15-fda-p18 call 2: 1166 out, finish=stop, clean
+done 5

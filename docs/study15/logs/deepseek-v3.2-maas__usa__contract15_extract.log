@@ -1,0 +1,133 @@
+Study 15 (usa): 20 firms x 24 pairs
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract15_extract']
+
+      batch 1/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 726 output tokens, 24s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: URLError: <urlopen error [Errno 60] Operation timed out> after 72s
+        attempt 1: 694 output tokens, 17s, finish=stop, ok
+  study15-usa-p00        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 726 output tokens, 22s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 700 output tokens, 13s, finish=stop, ok
+  study15-usa-p01        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 730 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 697 output tokens, 11s, finish=stop, ok
+  study15-usa-p02        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 726 output tokens, 17s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 694 output tokens, 17s, finish=stop, ok
+  study15-usa-p03        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 737 output tokens, 19s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 699 output tokens, 19s, finish=stop, ok
+  study15-usa-p04        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 725 output tokens, 18s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 701 output tokens, 13s, finish=stop, ok
+  study15-usa-p05        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 722 output tokens, 17s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 688 output tokens, 17s, finish=stop, ok
+  study15-usa-p06        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 727 output tokens, 19s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 693 output tokens, 21s, finish=stop, ok
+  study15-usa-p07        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 732 output tokens, 17s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 697 output tokens, 20s, finish=stop, ok
+  study15-usa-p08        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 726 output tokens, 24s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 699 output tokens, 15s, finish=stop, ok
+  study15-usa-p09        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 728 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 702 output tokens, 19s, finish=stop, ok
+  study15-usa-p10        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 734 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 700 output tokens, 12s, finish=stop, ok
+  study15-usa-p11        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 710 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 698 output tokens, 17s, finish=stop, ok
+  study15-usa-p12        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 730 output tokens, 19s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 702 output tokens, 19s, finish=stop, ok
+  study15-usa-p13        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 729 output tokens, 16s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 687 output tokens, 15s, finish=stop, ok
+  study15-usa-p14        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 735 output tokens, 21s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 690 output tokens, 18s, finish=stop, ok
+  study15-usa-p15        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 725 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 696 output tokens, 15s, finish=stop, ok
+  study15-usa-p16        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 728 output tokens, 20s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 701 output tokens, 19s, finish=stop, ok
+  study15-usa-p17        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 725 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 702 output tokens, 13s, finish=stop, ok
+  study15-usa-p18        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 725 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 697 output tokens, 11s, finish=stop, ok
+  study15-usa-p19        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract15_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 20 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/deepseek-v3.2-maas__usa__contract15_extract.json

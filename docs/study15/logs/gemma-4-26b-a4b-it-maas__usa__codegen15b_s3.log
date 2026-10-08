@@ -1,0 +1,40 @@
+  study15-usa-p03 call 1: 625 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+  study15-usa-p07 call 1: 931 out, finish=stop, 1 problem(s)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+  study15-usa-p07 call 2: 979 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+  study15-usa-p11 call 1: 950 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+  study15-usa-p15 call 1: 744 out, finish=stop, clean
+  study15-usa-p19 call 1: 761 out, finish=stop, 1 problem(s)
+  study15-usa-p19 call 2: 953 out, finish=stop, clean
+done 5

@@ -1,0 +1,23 @@
+  study15-fda-p00 call 1: 914 out, finish=stop, clean
+  study15-fda-p04 call 1: 901 out, finish=stop, 1 problem(s)
+  study15-fda-p04 call 2: 1024 out, finish=stop, clean
+  study15-fda-p08 call 1: 963 out, finish=stop, clean
+  study15-fda-p12 call 1: 907 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+  study15-fda-p16 call 1: 811 out, finish=stop, clean
+done 5

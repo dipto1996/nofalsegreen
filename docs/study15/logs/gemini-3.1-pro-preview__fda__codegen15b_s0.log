@@ -1,0 +1,10 @@
+  study15-fda-p00 call 1: 4568 out, finish=stop, clean
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 19s
+  study15-fda-p04 call 1: 3710 out, finish=stop, clean
+  study15-fda-p08 call 1: 3088 out, finish=stop, clean
+  study15-fda-p12 call 1: 4074 out, finish=stop, clean
+  study15-fda-p16 call 1: 3608 out, finish=stop, clean
+done 5

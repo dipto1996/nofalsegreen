@@ -1,0 +1,23 @@
+  study15-usa-p02 call 1: 683 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+  study15-usa-p06 call 1: 811 out, finish=stop, 1 problem(s)
+  study15-usa-p06 call 2: 863 out, finish=stop, clean
+  study15-usa-p10 call 1: 729 out, finish=stop, clean
+  study15-usa-p14 call 1: 759 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+  study15-usa-p18 call 1: 869 out, finish=stop, clean
+done 5

@@ -1,0 +1,61 @@
+Study 15 (lca): 10 firms x 24 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['contract15_evidence_first']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1676 output tokens, 22s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 32000 output tokens, 375s, finish=length, CAP
+        attempt 2: 3827 output tokens, 40s, finish=stop, ok
+  study15-lca-p00        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)  TRUNCATED 1
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1224 output tokens, 13s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3927 output tokens, 36s, finish=stop, ok
+  study15-lca-p01        FGR 0.000  recall 1.000  absF1 0.800  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1172 output tokens, 11s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 32000 output tokens, 319s, finish=length, CAP
+        attempt 2: 32000 output tokens, 371s, finish=length, CAP
+        attempt 3: 32000 output tokens, 315s, finish=length, CAP
+  study15-lca-p02        FGR 0.000  recall 0.700  absF1 0.667  unparsed 0  (4 calls)  TRUNCATED 3
+      batch 1/2 (0 parsed so far)
+        attempt 1: 992 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3410 output tokens, 34s, finish=stop, ok
+  study15-lca-p03        FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1435 output tokens, 17s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3205 output tokens, 34s, finish=stop, ok
+  study15-lca-p04        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1392 output tokens, 12s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1287 output tokens, 14s, finish=stop, ok
+  study15-lca-p05        FGR 0.000  recall 0.857  absF1 0.800  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1853 output tokens, 22s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 4148 output tokens, 33s, finish=stop, ok
+  study15-lca-p06        FGR 0.000  recall 1.000  absF1 0.889  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1152 output tokens, 22s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 4345 output tokens, 42s, finish=stop, ok
+  study15-lca-p07        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1042 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2360 output tokens, 35s, finish=stop, ok
+  study15-lca-p08        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1359 output tokens, 17s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1986 output tokens, 18s, finish=stop, ok
+  study15-lca-p09        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract15_evidence_first: FGR 0.000 (sd 0.000)  recall 0.956  over 10 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/glm-5.2-maas__lca__contract15_evidence_first.json

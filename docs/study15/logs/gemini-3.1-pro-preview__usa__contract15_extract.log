@@ -1,0 +1,112 @@
+Study 15 (usa): 20 firms x 24 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract15_extract']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3973 output tokens, 54s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 1966 output tokens, 34s, finish=stop, ok
+  study15-usa-p00        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 4583 output tokens, 58s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2694 output tokens, 39s, finish=stop, ok
+  study15-usa-p01        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3715 output tokens, 62s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3118 output tokens, 49s, finish=stop, ok
+  study15-usa-p02        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3059 output tokens, 38s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2697 output tokens, 43s, finish=stop, ok
+  study15-usa-p03        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3788 output tokens, 42s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3120 output tokens, 38s, finish=stop, ok
+  study15-usa-p04        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3750 output tokens, 27s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2714 output tokens, 33s, finish=stop, ok
+  study15-usa-p05        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 1s
+        attempt 1: 3574 output tokens, 39s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2941 output tokens, 22s, finish=stop, ok
+  study15-usa-p06        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3353 output tokens, 25s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2696 output tokens, 24s, finish=stop, ok
+  study15-usa-p07        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3063 output tokens, 26s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2671 output tokens, 19s, finish=stop, ok
+  study15-usa-p08        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 4025 output tokens, 37s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3114 output tokens, 31s, finish=stop, ok
+  study15-usa-p09        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3995 output tokens, 42s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2709 output tokens, 41s, finish=stop, ok
+  study15-usa-p10        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3255 output tokens, 21s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2736 output tokens, 59s, finish=stop, ok
+  study15-usa-p11        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3858 output tokens, 46s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3128 output tokens, 20s, finish=stop, ok
+  study15-usa-p12        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3050 output tokens, 45s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2581 output tokens, 22s, finish=stop, ok
+  study15-usa-p13        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3529 output tokens, 22s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2793 output tokens, 41s, finish=stop, ok
+  study15-usa-p14        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 4128 output tokens, 55s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3417 output tokens, 21s, finish=stop, ok
+  study15-usa-p15        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3994 output tokens, 34s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2664 output tokens, 28s, finish=stop, ok
+  study15-usa-p16        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 4052 output tokens, 24s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2793 output tokens, 27s, finish=stop, ok
+  study15-usa-p17        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3004 output tokens, 18s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2384 output tokens, 22s, finish=stop, ok
+  study15-usa-p18        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3045 output tokens, 18s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2377 output tokens, 32s, finish=stop, ok
+  study15-usa-p19        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract15_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 20 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/gemini-3.1-pro-preview__usa__contract15_extract.json

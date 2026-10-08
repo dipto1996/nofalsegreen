@@ -1,0 +1,109 @@
+Study 15 (fda): 20 firms x 24 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract15_evidence_first']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2919 output tokens, 24s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2606 output tokens, 17s, finish=stop, ok
+  study15-fda-p00        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2633 output tokens, 17s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1429 output tokens, 10s, finish=stop, ok
+  study15-fda-p01        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1473 output tokens, 11s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1524 output tokens, 11s, finish=stop, ok
+  study15-fda-p02        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1522 output tokens, 11s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2859 output tokens, 17s, finish=stop, ok
+  study15-fda-p03        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2946 output tokens, 19s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2751 output tokens, 17s, finish=stop, ok
+  study15-fda-p04        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2542 output tokens, 16s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3737 output tokens, 23s, finish=stop, ok
+  study15-fda-p05        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2620 output tokens, 17s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3391 output tokens, 21s, finish=stop, ok
+  study15-fda-p06        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2392 output tokens, 15s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3181 output tokens, 20s, finish=stop, ok
+  study15-fda-p07        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1314 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2348 output tokens, 15s, finish=stop, ok
+  study15-fda-p08        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2415 output tokens, 14s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2586 output tokens, 16s, finish=stop, ok
+  study15-fda-p09        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2456 output tokens, 15s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2664 output tokens, 17s, finish=stop, ok
+  study15-fda-p10        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: URLError: <urlopen error [Errno 60] Operation timed out> after 73s
+        attempt 1: 2771 output tokens, 18s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2172 output tokens, 14s, finish=stop, ok
+  study15-fda-p11        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1508 output tokens, 10s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3399 output tokens, 21s, finish=stop, ok
+  study15-fda-p12        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1563 output tokens, 11s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1862 output tokens, 13s, finish=stop, ok
+  study15-fda-p13        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2623 output tokens, 18s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2639 output tokens, 17s, finish=stop, ok
+  study15-fda-p14        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2692 output tokens, 18s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2429 output tokens, 16s, finish=stop, ok
+  study15-fda-p15        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2907 output tokens, 19s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2497 output tokens, 16s, finish=stop, ok
+  study15-fda-p16        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2534 output tokens, 16s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2452 output tokens, 16s, finish=stop, ok
+  study15-fda-p17        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1586 output tokens, 11s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2735 output tokens, 17s, finish=stop, ok
+  study15-fda-p18        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2537 output tokens, 16s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1889 output tokens, 13s, finish=stop, ok
+  study15-fda-p19        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract15_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 20 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/gemini-3.1-pro-preview__fda__contract15_evidence_first.json

@@ -1,0 +1,26 @@
+  study15-fda-p02 call 1: 764 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 0s
+  study15-fda-p06 call 1: 1075 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+  study15-fda-p10 call 1: 804 out, finish=stop, clean
+  study15-fda-p14 call 1: 849 out, finish=stop, clean
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+  study15-fda-p18 call 1: 778 out, finish=stop, clean
+done 5

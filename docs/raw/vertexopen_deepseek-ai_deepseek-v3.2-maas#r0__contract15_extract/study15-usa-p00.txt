@@ -1,0 +1,27 @@
+usa.period_3y::CONT_AWD_0001_2036_TFSAFSABPA15002_2036	facts	performance start=2017-09-25 from usaspending_awards | performance end=ABSENT from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_N0017815D8295_9700	facts	performance start=2015-04-05 from usaspending_awards | performance end=ABSENT from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_N6247314D3604_9700	facts	performance start=2014-07-01 from usaspending_awards | performance end=2015-12-01 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_N0017814D7539_9700	facts	performance start=2013-11-19 from usaspending_awards | performance end=2019-04-24 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_N0017814D7844_9700	facts	performance start=2013-11-19 from usaspending_awards | performance end=2019-12-31 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_5000_SECHQ116D0016_5000	facts	performance start=2016-10-17 from usaspending_awards | performance end=2021-10-16 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_N0017812D6999_9700	facts	performance start=2012-07-15 from usaspending_awards | performance end=2019-12-31 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_FA811815D0053_9700	facts	performance start=2015-09-18 from usaspending_awards | performance end=2025-12-01 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_HQ000604D0001_9700	facts	performance start=2004-02-11 from usaspending_awards | performance end=2007-05-31 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_HQ003414A0006_9700	facts	performance start=2014-12-15 from usaspending_awards | performance end=2021-07-26 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_FA870215D0001_9700	facts	performance start=2015-04-28 from usaspending_awards | performance end=2030-02-28 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_W15QKN17D1013_9700	facts	performance start=2017-01-31 from usaspending_awards | performance end=2018-03-29 from usaspending_awards
+
+---
+
+usa.obligated_95::CONT_AWD_0001_2036_TFSAFSABPA15002_2036	facts	amount obligated=511237.59 from usaspending_awards | potential value=511237.59 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N0017815D8295_9700	facts	amount obligated=0.0 from usaspending_awards | potential value=2501.0 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N6247314D3604_9700	facts	amount obligated=807885.82 from usaspending_awards | potential value=807885.82 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N0017814D7539_9700	facts	amount obligated=0.0 from usaspending_awards | potential value=0.0 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N0017814D7844_9700	facts	amount obligated=0.0 from usaspending_awards | potential value=0.0 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_5000_SECHQ116D0016_5000	facts	amount obligated=1287713.29 from usaspending_awards | potential value=1607713.29 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N0017812D6999_9700	facts	amount obligated=ABSENT from usaspending_awards | potential value=0.0 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_FA811815D0053_9700	facts	amount obligated=37845.57 from usaspending_awards | potential value=0.0 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_HQ000604D0001_9700	facts	amount obligated=858161.43 from usaspending_awards | potential value=0.0 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_HQ003414A0006_9700	facts	amount obligated=3370835.77 from usaspending_awards | potential value=3370835.77 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_FA870215D0001_9700	facts	amount obligated=430241591.22 from usaspending_awards | potential value=668822834.34 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_W15QKN17D1013_9700	facts	amount obligated=392050.0 from usaspending_awards | potential value=392050.0 from usaspending_awards

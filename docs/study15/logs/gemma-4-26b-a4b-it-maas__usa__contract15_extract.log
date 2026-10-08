@@ -1,0 +1,255 @@
+Study 15 (usa): 20 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract15_extract']
+
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 2s
+        attempt 1: 954 output tokens, 23s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 890 output tokens, 21s, finish=stop, ok
+  study15-usa-p00        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 946 output tokens, 27s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 899 output tokens, 20s, finish=stop, ok
+  study15-usa-p01        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 951 output tokens, 29s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 888 output tokens, 26s, finish=stop, ok
+  study15-usa-p02        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 945 output tokens, 23s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 894 output tokens, 25s, finish=stop, ok
+  study15-usa-p03        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 963 output tokens, 25s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 898 output tokens, 22s, finish=stop, ok
+  study15-usa-p04        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 927 output tokens, 24s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 913 output tokens, 29s, finish=stop, ok
+  study15-usa-p05        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 944 output tokens, 24s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: URLError: <urlopen error [Errno 60] Operation timed out> after 74s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 851 output tokens, 27s, finish=stop, ok
+  study15-usa-p06        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 936 output tokens, 24s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 878 output tokens, 23s, finish=stop, ok
+  study15-usa-p07        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 936 output tokens, 23s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 883 output tokens, 20s, finish=stop, ok
+  study15-usa-p08        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 951 output tokens, 27s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 901 output tokens, 20s, finish=stop, ok
+  study15-usa-p09        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 949 output tokens, 19s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 2s
+        attempt 1: 916 output tokens, 26s, finish=stop, ok
+  study15-usa-p10        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 926 output tokens, 24s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 3s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 895 output tokens, 99s, finish=stop, ok
+  study15-usa-p11        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 937 output tokens, 20s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 917 output tokens, 23s, finish=stop, ok
+  study15-usa-p12        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 941 output tokens, 37s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 918 output tokens, 62s, finish=stop, ok
+  study15-usa-p13        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 960 output tokens, 76s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 860 output tokens, 55s, finish=stop, ok
+  study15-usa-p14        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 961 output tokens, 25s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 2s
+        attempt 1: 878 output tokens, 25s, finish=stop, ok
+  study15-usa-p15        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 939 output tokens, 33s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 889 output tokens, 23s, finish=stop, ok
+  study15-usa-p16        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 936 output tokens, 21s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 894 output tokens, 31s, finish=stop, ok
+  study15-usa-p17        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 923 output tokens, 30s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 894 output tokens, 76s, finish=stop, ok
+  study15-usa-p18        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 798 output tokens, 27s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 898 output tokens, 24s, finish=stop, ok
+  study15-usa-p19        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract15_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 20 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/gemma-4-26b-a4b-it-maas__usa__contract15_extract.json

@@ -1,0 +1,108 @@
+Study 15 (usa): 20 firms x 24 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract15_evidence_first']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 13870 output tokens, 91s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 21982 output tokens, 282s, finish=stop, ok
+  study15-usa-p00        FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 4060 output tokens, 21s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2749 output tokens, 17s, finish=stop, ok
+  study15-usa-p01        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3011 output tokens, 19s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3198 output tokens, 21s, finish=stop, ok
+  study15-usa-p02        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 6419 output tokens, 42s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 26017 output tokens, 190s, finish=stop, ok
+  study15-usa-p03        FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2696 output tokens, 15s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3199 output tokens, 18s, finish=stop, ok
+  study15-usa-p04        FGR 0.000  recall 1.000  absF1 0.667  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 9314 output tokens, 58s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 4197 output tokens, 23s, finish=stop, ok
+  study15-usa-p05        FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2674 output tokens, 16s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 4560 output tokens, 30s, finish=stop, ok
+  study15-usa-p06        FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 7249 output tokens, 47s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 8511 output tokens, 53s, finish=stop, ok
+  study15-usa-p07        FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2370 output tokens, 14s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 7762 output tokens, 51s, finish=stop, ok
+  study15-usa-p08        FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 5534 output tokens, 34s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3636 output tokens, 20s, finish=stop, ok
+  study15-usa-p09        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3999 output tokens, 25s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2642 output tokens, 15s, finish=stop, ok
+  study15-usa-p10        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2900 output tokens, 17s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 7030 output tokens, 50s, finish=stop, ok
+  study15-usa-p11        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3222 output tokens, 20s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3106 output tokens, 18s, finish=stop, ok
+  study15-usa-p12        FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3248 output tokens, 18s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3353 output tokens, 20s, finish=stop, ok
+  study15-usa-p13        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 4337 output tokens, 26s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3186 output tokens, 18s, finish=stop, ok
+  study15-usa-p14        FGR 0.000  recall 1.000  absF1 0.667  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2484 output tokens, 15s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 8573 output tokens, 52s, finish=stop, ok
+  study15-usa-p15        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3467 output tokens, 19s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 7355 output tokens, 45s, finish=stop, ok
+  study15-usa-p16        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3615 output tokens, 19s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 4563 output tokens, 27s, finish=stop, ok
+  study15-usa-p17        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3108 output tokens, 18s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 6038 output tokens, 36s, finish=stop, ok
+  study15-usa-p18        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 7896 output tokens, 50s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3173 output tokens, 17s, finish=stop, ok
+  study15-usa-p19        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertex/gemini-3.8-flash#r0::contract15_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 20 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/gemini-3.8-flash__usa__contract15_evidence_first.json

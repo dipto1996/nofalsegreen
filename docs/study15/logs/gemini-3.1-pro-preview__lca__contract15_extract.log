@@ -1,0 +1,58 @@
+Study 15 (lca): 10 firms x 24 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['contract15_extract']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2976 output tokens, 25s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 8783 output tokens, 52s, finish=stop, ok
+  study15-lca-p00        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2343 output tokens, 25s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 9435 output tokens, 56s, finish=stop, ok
+  study15-lca-p01        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2229 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 7223 output tokens, 67s, finish=stop, ok
+  study15-lca-p02        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3472 output tokens, 21s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 7432 output tokens, 48s, finish=stop, ok
+  study15-lca-p03        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3026 output tokens, 18s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 7748 output tokens, 46s, finish=stop, ok
+  study15-lca-p04        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3161 output tokens, 41s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 7697 output tokens, 44s, finish=stop, ok
+  study15-lca-p05        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2712 output tokens, 17s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 5832 output tokens, 36s, finish=stop, ok
+  study15-lca-p06        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2284 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 11244 output tokens, 69s, finish=stop, ok
+  study15-lca-p07        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2680 output tokens, 17s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 6014 output tokens, 38s, finish=stop, ok
+  study15-lca-p08        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3448 output tokens, 21s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 9807 output tokens, 58s, finish=stop, ok
+  study15-lca-p09        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract15_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 10 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/gemini-3.1-pro-preview__lca__contract15_extract.json

@@ -1,0 +1,103 @@
+Study 15 (lca): 10 firms x 24 pairs
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['contract15_extract']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 504 output tokens, 19s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 561 output tokens, 15s, finish=stop, ok
+  study15-lca-p00        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 508 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 572 output tokens, 16s, finish=stop, ok
+  study15-lca-p01        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 504 output tokens, 8s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 580 output tokens, 11s, finish=stop, ok
+  study15-lca-p02        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 510 output tokens, 19s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 584 output tokens, 12s, finish=stop, ok
+  study15-lca-p03        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 516 output tokens, 19s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 580 output tokens, 13s, finish=stop, ok
+  study15-lca-p04        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 506 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 477 output tokens, 10s, finish=stop, ok
+  study15-lca-p05        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 506 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 576 output tokens, 13s, finish=stop, ok
+  study15-lca-p06        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: URLError: <urlopen error [Errno 60] Operation timed out> after 75s
+        attempt 1: 504 output tokens, 7s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 580 output tokens, 15s, finish=stop, ok
+  study15-lca-p07        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 509 output tokens, 11s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 580 output tokens, 14s, finish=stop, ok
+  study15-lca-p08        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 509 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 584 output tokens, 15s, finish=stop, ok
+  study15-lca-p09        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract15_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 10 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/deepseek-v3.2-maas__lca__contract15_extract.json

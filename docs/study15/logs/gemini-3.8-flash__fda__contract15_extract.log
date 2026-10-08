@@ -1,0 +1,109 @@
+Study 15 (fda): 20 firms x 24 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract15_extract']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2153 output tokens, 19s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2170 output tokens, 12s, finish=stop, ok
+  study15-fda-p00        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2015 output tokens, 11s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 1756 output tokens, 10s, finish=stop, ok
+  study15-fda-p01        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3039 output tokens, 17s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2092 output tokens, 14s, finish=stop, ok
+  study15-fda-p02        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2648 output tokens, 16s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2580 output tokens, 14s, finish=stop, ok
+  study15-fda-p03        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2099 output tokens, 12s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2941 output tokens, 15s, finish=stop, ok
+  study15-fda-p04        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2564 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2769 output tokens, 17s, finish=stop, ok
+  study15-fda-p05        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2743 output tokens, 17s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3353 output tokens, 21s, finish=stop, ok
+  study15-fda-p06        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2793 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2550 output tokens, 16s, finish=stop, ok
+  study15-fda-p07        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2499 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2062 output tokens, 13s, finish=stop, ok
+  study15-fda-p08        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2261 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2527 output tokens, 15s, finish=stop, ok
+  study15-fda-p09        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1917 output tokens, 11s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2665 output tokens, 16s, finish=stop, ok
+  study15-fda-p10        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2136 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2824 output tokens, 16s, finish=stop, ok
+  study15-fda-p11        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemini-3.8-flash#r0: URLError: <urlopen error [Errno 60] Operation timed out> after 74s
+        attempt 1: 3041 output tokens, 18s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2791 output tokens, 17s, finish=stop, ok
+  study15-fda-p12        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2756 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2648 output tokens, 13s, finish=stop, ok
+  study15-fda-p13        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2021 output tokens, 11s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2517 output tokens, 15s, finish=stop, ok
+  study15-fda-p14        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2338 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3856 output tokens, 21s, finish=stop, ok
+  study15-fda-p15        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2219 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 1715 output tokens, 11s, finish=stop, ok
+  study15-fda-p16        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2808 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2821 output tokens, 16s, finish=stop, ok
+  study15-fda-p17        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2707 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2647 output tokens, 15s, finish=stop, ok
+  study15-fda-p18        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2446 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2196 output tokens, 16s, finish=stop, ok
+  study15-fda-p19        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+
+  vertex/gemini-3.8-flash#r0::contract15_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 20 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/gemini-3.8-flash__fda__contract15_extract.json

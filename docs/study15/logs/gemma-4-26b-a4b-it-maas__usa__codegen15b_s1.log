@@ -1,0 +1,13 @@
+  study15-usa-p01 call 1: 758 out, finish=stop, clean
+  study15-usa-p05 call 1: 712 out, finish=stop, clean
+  study15-usa-p09 call 1: 818 out, finish=stop, clean
+  study15-usa-p13 call 1: 813 out, finish=stop, clean
+  study15-usa-p17 call 1: 741 out, finish=stop, 1 problem(s)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+  study15-usa-p17 call 2: 855 out, finish=stop, 1 problem(s)
+done 5

@@ -1,0 +1,117 @@
+Study 15 (fda): 20 firms x 24 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract15_extract']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2223 output tokens, 21s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2278 output tokens, 15s, finish=stop, ok
+  study15-fda-p00        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2263 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2850 output tokens, 18s, finish=stop, ok
+  study15-fda-p01        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2007 output tokens, 13s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3397 output tokens, 21s, finish=stop, ok
+  study15-fda-p02        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2363 output tokens, 108s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 500: {
+  "error": {
+    "code": 500,
+    "message": "Internal error encountered.",
+    "status": "INTERNAL"
+  }
+}
+ after 24s
+        attempt 1: 2453 output tokens, 16s, finish=stop, ok
+  study15-fda-p03        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2542 output tokens, 16s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2624 output tokens, 16s, finish=stop, ok
+  study15-fda-p04        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2374 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3694 output tokens, 34s, finish=stop, ok
+  study15-fda-p05        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2264 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertex/gemini-3.1-pro-preview#r0: URLError: <urlopen error [Errno 60] Operation timed out> after 75s
+        attempt 1: 3254 output tokens, 20s, finish=stop, ok
+  study15-fda-p06        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2220 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3595 output tokens, 22s, finish=stop, ok
+  study15-fda-p07        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2371 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2187 output tokens, 14s, finish=stop, ok
+  study15-fda-p08        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2201 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 1880 output tokens, 13s, finish=stop, ok
+  study15-fda-p09        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2208 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2924 output tokens, 27s, finish=stop, ok
+  study15-fda-p10        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2256 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2145 output tokens, 14s, finish=stop, ok
+  study15-fda-p11        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2330 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3289 output tokens, 21s, finish=stop, ok
+  study15-fda-p12        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3949 output tokens, 24s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 1847 output tokens, 12s, finish=stop, ok
+  study15-fda-p13        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2226 output tokens, 21s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 4060 output tokens, 24s, finish=stop, ok
+  study15-fda-p14        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2265 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2080 output tokens, 14s, finish=stop, ok
+  study15-fda-p15        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2239 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2317 output tokens, 15s, finish=stop, ok
+  study15-fda-p16        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2396 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 3204 output tokens, 21s, finish=stop, ok
+  study15-fda-p17        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2222 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2244 output tokens, 14s, finish=stop, ok
+  study15-fda-p18        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2276 output tokens, 14s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 2187 output tokens, 14s, finish=stop, ok
+  study15-fda-p19        FGR 0.000  recall 0.000  absF1 0.000  unparsed 24  (2 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract15_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 20 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/gemini-3.1-pro-preview__fda__contract15_extract.json
