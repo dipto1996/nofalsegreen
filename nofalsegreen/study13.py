@@ -593,10 +593,24 @@ def statement(c: Contract) -> str:
     return "\n".join(lines)
 
 
-def obligations() -> list[Obligation]:
+def statement_r2(c: Contract) -> str:
+    """The replication's statement (docs/STUDY13_DECLARATION.md, addendum): each fact name is
+    quoted on its own, with its unit stated apart from it, so a reply cannot take the unit for
+    part of the name."""
+    lines = [f"Decision rule: {c.predicate_text}"]
+    for f in c.facts:
+        srcs = [f"the {META[(s.table, s.column)][3]} in `{s.table}`" for s in f.sources]
+        txt = srcs[0] + "".join(f"; if `{f.sources[0].table}` has no value for the entity, {x}" for x in srcs[1:])
+        unit = META[(f.sources[0].table, f.sources[0].column)][2]
+        lines.append(f"  - Fact name `{f.name}`: established only by {txt}. No other document establishes it."
+                     + (f" Report it in {unit}." if unit else ""))
+    return "\n".join(lines)
+
+
+def obligations(r2: bool = False) -> list[Obligation]:
     return [Obligation(rule_id=c.rule_id, regime="contract", citation="stated decision rule",
                        summary=c.predicate_text, applies_to="entity", evidence_required=(),
-                       data_needed=statement(c)) for c in CONTRACTS.values()]
+                       data_needed=(statement_r2 if r2 else statement)(c)) for c in CONTRACTS.values()]
 
 
 def firm(wf: str, layout: str, seed: int) -> Firm:

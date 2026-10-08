@@ -1,0 +1,38 @@
+{
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract13_evidence_first|study13-workforce-L5-s1301|wf.reverify_window::E-30101|12": {
+  "text": "wf.reverify_window::E-30101\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30102\tpass\tead_cards, reverifications\nwf.reverify_window::E-30103\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30104\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30105\tpass\twork_authorizations, reverifications\nwf.reverify_window::E-30106\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30107\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30108\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30109\tpass\twork_authorizations, reverifications\nwf.reverify_window::E-30110\tpass\twork_authorizations, reverifications\nwf.reverify_window::E-30111\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30112\tfail\twork_authorizations, reverifications",
+  "output_tokens": 2816,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract13_evidence_first|study13-workforce-L5-s1301|wf.reverify_window::E-30113|12": {
+  "text": "wf.reverify_window::E-30113\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30114\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30115\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30116\tpass\twork_authorizations, reverifications\nwf.notice_posting::E-30101\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30102\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30103\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30104\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30105\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30106\tneeds_evidence\tlca_notices, lca_filings, dol_receipts\nwf.notice_posting::E-30107\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30108\tfail\tlca_notices, lca_filings",
+  "output_tokens": 9600,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract13_evidence_first|study13-workforce-L5-s1301|wf.notice_posting::E-30109|8": {
+  "text": "wf.notice_posting::E-30109\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30110\tneeds_evidence\tlca_notices, lca_filings, dol_receipts\nwf.notice_posting::E-30111\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30112\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30113\tneeds_evidence\tlca_notices, lca_filings\nwf.notice_posting::E-30114\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30115\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30116\tneeds_evidence\tlca_notices, lca_filings",
+  "output_tokens": 6159,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract13_evidence_first|study13-workforce-L5-s1302|wf.reverify_window::E-30201|12": {
+  "text": "wf.reverify_window::E-30201\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30202\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30203\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30204\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30205\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30206\tpass\twork_authorizations, reverifications\nwf.reverify_window::E-30207\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30208\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30209\tfail\twork_authorizations, reverifications\nwf.reverify_window::E-30210\tneeds_evidence\twork_authorizations, reverifications\nwf.reverify_window::E-30211\tpass\twork_authorizations, reverifications\nwf.reverify_window::E-30212\tfail\twork_authorizations, reverifications",
+  "output_tokens": 3716,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract13_evidence_first|study13-workforce-L5-s1302|wf.reverify_window::E-30213|12": {
+  "text": "wf.reverify_window::E-30213\tneeds_evidence\treverifications (conflicting dates: 12 Feb 2027 and 24 Feb 2027); work_authorizations\nwf.reverify_window::E-30214\tfail\twork_authorizations (expiry 2026-08-26); reverifications (2026-08-28, after expiry)\nwf.reverify_window::E-30215\tpass\twork_authorizations (expiry 2026-11-13); reverifications (2026-09-08)\nwf.reverify_window::E-30216\tpass\twork_authorizations (expiry 2027-03-16); reverifications (2027-01-10)\nwf.notice_posting::E-30201\tpass\tlca_notices (posted 2026-01-23, removed 2026-02-06); lca_filings (filed 2026-01-23)\nwf.notice_posting::E-30202\tfail\tlca_notices (posted 2026-06-26, removed 2026-07-12); dol_receipts (filed 2026-07-08)\nwf.notice_posting::E-30203\tfail\tlca_notices (posted 2026-01-16, removed 2026-02-01); lca_filings (filed 2026-02-04)\nwf.notice_posting::E-30204\tpass\tlca_notices (posted 2026-06-09, removed 2026-06-29); lca_filings (filed 2026-06-12)\nwf.notice_posting::E-30205\tpass\tlca_notices (posted 2026-04-01, removed 2026-05-03); lca_filings (filed 2026-04-13)\nwf.notice_posting::E-30206\tpass\tlca_notices (posted 2026-01-18, removed 2026-02-06); lca_filings (filed 2026-01-20)\nwf.notice_posting::E-30207\tneeds_evidence\tlca_notices (posted 2026-07-12, removed 2026-07-21); lca_filings (no value); dol_receipts (no value)\nwf.notice_posting::E-30208\tneeds_evidence\tlca_notices (no entry); lca_filings (no entry); dol_receipts (no entry)",
+  "output_tokens": 7944,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertexopen/zai-org/glm-5.2-maas#r0|contract13_evidence_first|study13-workforce-L5-s1302|wf.notice_posting::E-30209|8": {
+  "text": "wf.notice_posting::E-30209\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30210\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30211\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30212\tneeds_evidence\tlca_filings\nwf.notice_posting::E-30213\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30214\tneeds_evidence\tlca_notices\nwf.notice_posting::E-30215\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30216\tfail\tlca_notices, lca_filings",
+  "output_tokens": 9716,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

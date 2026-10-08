@@ -21,7 +21,9 @@ from nofalsegreen import study4, study6  # noqa: E402
 from nofalsegreen import study13 as S  # noqa: E402
 
 MODELS = [m.split("/")[-1] for m in (*study4.MODELS, *study6.MODELS)]
-EF, EX = "contract13_evidence_first", "contract13_extract"
+R2 = "--r2" in sys.argv  # the replication of the declaration addendum
+EF, EX = (("contract13b_evidence_first", "contract13b_extract") if R2
+          else ("contract13_evidence_first", "contract13_extract"))
 ABSTAIN = {"needs_evidence", "unmonitored"}
 OUT = ROOT / "docs" / "study13"
 FACT_RE = re.compile(r"^\s*(?P<name>[^=|]+?)\s*=\s*(?P<val>[^|]*?)(?:\s+from\s+(?P<src>[^|]+?))?\s*$")
@@ -46,6 +48,20 @@ def load_cache() -> dict:
     return idx
 
 
+NORMALISE = False  # set for the disclosed post-hoc rescoring (fact names as the prompt displayed them)
+
+
+def _name(n: str, pid: str) -> str:
+    """Declared scoring matches fact names exactly. The prompt displayed some names with their unit
+    ("measured load (kN)"), and some replies copied that form or used snake_case; the post-hoc
+    rescoring maps a name to the rule's fact when they agree after removing a trailing
+    parenthesised unit, case and underscores."""
+    if not NORMALISE:
+        return n
+    key = re.sub(r"\s*\([^)]*\)\s*$", "", n).replace("_", " ").strip().lower()
+    return next((f.name for f in S.CONTRACTS[pid.split("::")[0]].facts if f.name.lower() == key), n)
+
+
 def slots(text: str, ids: set) -> dict:
     """pair -> {fact: (value, document) | 'ABSENT' | 'CONFLICT'} as the reply states them."""
     out: dict = {}
@@ -60,10 +76,11 @@ def slots(text: str, ids: set) -> dict:
             if not m:
                 continue
             v = m.group("val").strip().strip("`")
+            name = _name(m.group("name").strip(), pid)
             if v.upper() in ("ABSENT", "CONFLICT"):
-                rep[m.group("name").strip()] = v.upper()
+                rep[name] = v.upper()
             elif m.group("src"):
-                rep[m.group("name").strip()] = (v, m.group("src").strip())
+                rep[name] = (v, m.group("src").strip())
         out[pid] = rep
     return out
 
@@ -96,7 +113,8 @@ def boot(per: dict, seed: int) -> list:
     return [round(bs[49], 4), round(bs[1949], 4)]
 
 
-def main() -> int:
+def main(nested: bool = False):
+    global NORMALISE
     idx = load_cache()
     labels, pats = {}, {}
     for wf in S.WORKFLOWS:
@@ -287,10 +305,20 @@ def main() -> int:
     out["coverage_by_model"] = {f"{m}::{v}": round(sum(len(d) for d in dd.values()) / (len(PACKETS) * 32), 4)
                                 for (m, v), dd in sorted(pred.items()) if v in (EF, EX)}
     out["label_counts"] = dict(Counter(labels.values()))
+    if NORMALISE:
+        return out
+    NORMALISE = True
+    out["posthoc_name_normalised"] = {k: main_out for k, main_out in main(nested=True).items()
+                                      if k in ("primary", "N1 non-inferiority: extraction + solver - parser, unsupported pass, upper bound < +0.02",
+                                               "development_layouts", "summary_heldout", "summary_development",
+                                               "by_layout", "per_model_heldout", "correct_by_pattern_heldout", "slot_audit")}
+    NORMALISE = False
     OUT.mkdir(exist_ok=True)
-    (OUT / "results.json").write_text(json.dumps(out, indent=1))
+    (OUT / ("results_r2.json" if R2 else "results.json")).write_text(json.dumps(out, indent=1))
     for k, v in out["primary"].items():
         print(k, v)
+    for k, v in out["posthoc_name_normalised"]["primary"].items():
+        print("post hoc", k, v)
     print("N1", n1)
     for sy, row in out["summary_heldout"].items():
         print(f"{sy:28s}", row)

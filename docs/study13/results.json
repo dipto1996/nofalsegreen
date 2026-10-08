@@ -1,0 +1,1850 @@
+{
+ "declared": "docs/STUDY13_DECLARATION.md",
+ "primary": {
+  "H1 extraction + solver - evidence-first: unsupported pass": {
+   "n_packets": 18,
+   "delta": -0.1135,
+   "ci95_packet_bootstrap": [
+    -0.1247,
+    -0.1021
+   ],
+   "p_exact_two_sided": 7.62939453125e-06,
+   "packets_positive": 0,
+   "packets_negative": 18,
+   "p_holm": 2.288818359375e-05,
+   "outcome": "confirmed"
+  },
+  "H2 extraction + solver - rule-based parser: correct decisions": {
+   "n_packets": 18,
+   "delta": 0.0933,
+   "ci95_packet_bootstrap": [
+    -0.0702,
+    0.2469
+   ],
+   "p_exact_two_sided": 0.2705841064453125,
+   "packets_positive": 12,
+   "packets_negative": 6,
+   "p_holm": 0.541168212890625,
+   "outcome": "not confirmed"
+  },
+  "H3 extraction + solver - evidence-first: correct decisions": {
+   "n_packets": 18,
+   "delta": 0.0366,
+   "ci95_packet_bootstrap": [
+    -0.0272,
+    0.1012
+   ],
+   "p_exact_two_sided": 0.2963409423828125,
+   "packets_positive": 11,
+   "packets_negative": 7,
+   "p_holm": 0.541168212890625,
+   "outcome": "not confirmed"
+  }
+ },
+ "N1 non-inferiority: extraction + solver - parser, unsupported pass, upper bound < +0.02": {
+  "n_packets": 18,
+  "delta": 0.0097,
+  "ci95_packet_bootstrap": [
+   0.0049,
+   0.0135
+  ],
+  "p_exact_two_sided": 0.001434326171875,
+  "packets_positive": 15,
+  "packets_negative": 1,
+  "outcome": "confirmed"
+ },
+ "development_layouts": {
+  "extraction - evidence-first: unsupported pass": {
+   "n_packets": 18,
+   "delta": -0.109,
+   "ci95_packet_bootstrap": [
+    -0.1233,
+    -0.0958
+   ],
+   "p_exact_two_sided": 7.62939453125e-06,
+   "packets_positive": 0,
+   "packets_negative": 18
+  },
+  "extraction - parser: correct decisions": {
+   "n_packets": 18,
+   "delta": -0.1903,
+   "ci95_packet_bootstrap": [
+    -0.2664,
+    -0.1208
+   ],
+   "p_exact_two_sided": 3.0517578125e-05,
+   "packets_positive": 0,
+   "packets_negative": 16
+  },
+  "extraction - evidence-first: correct decisions": {
+   "n_packets": 18,
+   "delta": 0.0733,
+   "ci95_packet_bootstrap": [
+    -0.0047,
+    0.1466
+   ],
+   "p_exact_two_sided": 0.08127593994140625,
+   "packets_positive": 12,
+   "packets_negative": 6
+  }
+ },
+ "summary_heldout": {
+  "contract13_evidence_first": {
+   "unsupported_pos": 0.125,
+   "unsupported_neg": 0.0208,
+   "correct_determinate": 0.7334,
+   "coverage": 0.9819,
+   "unnecessary_abstention": 0.0877,
+   "followup_share": 0.6045
+  },
+  "contract13_extract": {
+   "unsupported_pos": 0.0115,
+   "unsupported_neg": 0.0066,
+   "correct_determinate": 0.77,
+   "coverage": 0.9972,
+   "unnecessary_abstention": 0.227,
+   "followup_share": 0.7389
+  },
+  "hybrid": {
+   "unsupported_pos": 0.0128,
+   "unsupported_neg": 0.0083,
+   "correct_determinate": 0.9246,
+   "coverage": 0.9972,
+   "unnecessary_abstention": 0.0706,
+   "followup_share": 0.6969
+  },
+  "parser": {
+   "unsupported_pos": 0.0017,
+   "unsupported_neg": 0.0156,
+   "correct_determinate": 0.6767,
+   "coverage": 1.0,
+   "unnecessary_abstention": 0.3071,
+   "followup_share": 0.7934
+  },
+  "named columns": {
+   "unsupported_pos": 0.0,
+   "unsupported_neg": 0.0,
+   "correct_determinate": 0.0,
+   "coverage": 1.0,
+   "unnecessary_abstention": 1.0,
+   "followup_share": 1.0
+  },
+  "always abstain": {
+   "unsupported_pos": 0.0,
+   "unsupported_neg": 0.0,
+   "correct_determinate": 0.0,
+   "coverage": 1.0,
+   "unnecessary_abstention": 1.0,
+   "followup_share": 1.0
+  }
+ },
+ "summary_development": {
+  "contract13_evidence_first": {
+   "unsupported_pos": 0.1198,
+   "unsupported_neg": 0.0236,
+   "correct_determinate": 0.7364,
+   "coverage": 0.9778,
+   "unnecessary_abstention": 0.0801,
+   "followup_share": 0.6128
+  },
+  "contract13_extract": {
+   "unsupported_pos": 0.0108,
+   "unsupported_neg": 0.0059,
+   "correct_determinate": 0.8097,
+   "coverage": 0.9972,
+   "unnecessary_abstention": 0.1856,
+   "followup_share": 0.7302
+  },
+  "hybrid": {
+   "unsupported_pos": 0.0094,
+   "unsupported_neg": 0.0059,
+   "correct_determinate": 0.9912,
+   "coverage": 0.9972,
+   "unnecessary_abstention": 0.006,
+   "followup_share": 0.6788
+  },
+  "parser": {
+   "unsupported_pos": 0.0,
+   "unsupported_neg": 0.0,
+   "correct_determinate": 1.0,
+   "coverage": 1.0,
+   "unnecessary_abstention": 0.0,
+   "followup_share": 0.6875
+  },
+  "named columns": {
+   "unsupported_pos": 0.0,
+   "unsupported_neg": 0.0,
+   "correct_determinate": 0.3333,
+   "coverage": 1.0,
+   "unnecessary_abstention": 0.6667,
+   "followup_share": 0.8958
+  },
+  "always abstain": {
+   "unsupported_pos": 0.0,
+   "unsupported_neg": 0.0,
+   "correct_determinate": 0.0,
+   "coverage": 1.0,
+   "unnecessary_abstention": 1.0,
+   "followup_share": 1.0
+  }
+ },
+ "by_layout": {
+  "L1": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.1146,
+    "unsupported_neg": 0.0292,
+    "correct_determinate": 0.7421,
+    "coverage": 0.9792,
+    "unnecessary_abstention": 0.0667,
+    "followup_share": 0.6146
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0146,
+    "unsupported_neg": 0.0083,
+    "correct_determinate": 0.7947,
+    "coverage": 0.9917,
+    "unnecessary_abstention": 0.1912,
+    "followup_share": 0.7302
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0104,
+    "unsupported_neg": 0.0083,
+    "correct_determinate": 0.9861,
+    "coverage": 0.9917,
+    "unnecessary_abstention": 0.0056,
+    "followup_share": 0.6792
+   },
+   "parser": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 1.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0,
+    "followup_share": 0.6875
+   },
+   "named columns": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 1.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0,
+    "followup_share": 0.6875
+   },
+   "always abstain": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   }
+  },
+  "L2": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.1208,
+    "unsupported_neg": 0.0156,
+    "correct_determinate": 0.712,
+    "coverage": 0.9625,
+    "unnecessary_abstention": 0.0938,
+    "followup_share": 0.6167
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0104,
+    "unsupported_neg": 0.0042,
+    "correct_determinate": 0.8137,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1863,
+    "followup_share": 0.726
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0104,
+    "unsupported_neg": 0.0042,
+    "correct_determinate": 0.9931,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0069,
+    "followup_share": 0.6771
+   },
+   "parser": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 1.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0,
+    "followup_share": 0.6875
+   },
+   "named columns": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   },
+   "always abstain": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   }
+  },
+  "L3": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.124,
+    "unsupported_neg": 0.026,
+    "correct_determinate": 0.755,
+    "coverage": 0.9917,
+    "unnecessary_abstention": 0.0797,
+    "followup_share": 0.6073
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0073,
+    "unsupported_neg": 0.0052,
+    "correct_determinate": 0.8206,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1794,
+    "followup_share": 0.7344
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0073,
+    "unsupported_neg": 0.0052,
+    "correct_determinate": 0.9944,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0056,
+    "followup_share": 0.6802
+   },
+   "parser": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 1.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0,
+    "followup_share": 0.6875
+   },
+   "named columns": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   },
+   "always abstain": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   }
+  },
+  "L4": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.1208,
+    "unsupported_neg": 0.025,
+    "correct_determinate": 0.7468,
+    "coverage": 0.9875,
+    "unnecessary_abstention": 0.0806,
+    "followup_share": 0.6104
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0104,
+    "unsupported_neg": 0.0052,
+    "correct_determinate": 0.7643,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.2342,
+    "followup_share": 0.7438
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0094,
+    "unsupported_neg": 0.0052,
+    "correct_determinate": 0.9537,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0463,
+    "followup_share": 0.6885
+   },
+   "parser": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.8176,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1824,
+    "followup_share": 0.7344
+   },
+   "named columns": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   },
+   "always abstain": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   }
+  },
+  "L5": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.1187,
+    "unsupported_neg": 0.0187,
+    "correct_determinate": 0.7216,
+    "coverage": 0.9792,
+    "unnecessary_abstention": 0.1112,
+    "followup_share": 0.6146
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0135,
+    "unsupported_neg": 0.0063,
+    "correct_determinate": 0.7614,
+    "coverage": 0.9917,
+    "unnecessary_abstention": 0.2325,
+    "followup_share": 0.7417
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0135,
+    "unsupported_neg": 0.0115,
+    "correct_determinate": 0.9426,
+    "coverage": 0.9917,
+    "unnecessary_abstention": 0.0444,
+    "followup_share": 0.6948
+   },
+   "parser": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0052,
+    "correct_determinate": 0.7942,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1989,
+    "followup_share": 0.7708
+   },
+   "named columns": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   },
+   "always abstain": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   }
+  },
+  "L6": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.1354,
+    "unsupported_neg": 0.0187,
+    "correct_determinate": 0.7319,
+    "coverage": 0.9792,
+    "unnecessary_abstention": 0.0712,
+    "followup_share": 0.5885
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0104,
+    "unsupported_neg": 0.0083,
+    "correct_determinate": 0.7844,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.2142,
+    "followup_share": 0.7313
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0156,
+    "unsupported_neg": 0.0083,
+    "correct_determinate": 0.8775,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1211,
+    "followup_share": 0.7073
+   },
+   "parser": {
+    "unsupported_pos": 0.0052,
+    "unsupported_neg": 0.0417,
+    "correct_determinate": 0.4184,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.5399,
+    "followup_share": 0.875
+   },
+   "named columns": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   },
+   "always abstain": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   }
+  }
+ },
+ "per_model_heldout": {
+  "gemini-3.1-pro-preview": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.9954,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0046,
+    "followup_share": 0.6875
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.7889,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.2111,
+    "followup_share": 0.7396
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0017,
+    "unsupported_neg": 0.0017,
+    "correct_determinate": 0.9315,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0662,
+    "followup_share": 0.7031
+   },
+   "H1": {
+    "n_packets": 18,
+    "delta": 0.0,
+    "ci95_packet_bootstrap": [
+     0.0,
+     0.0
+    ],
+    "p_exact_two_sided": 1.0,
+    "packets_positive": 0,
+    "packets_negative": 0
+   },
+   "H2": {
+    "n_packets": 18,
+    "delta": 0.1122,
+    "ci95_packet_bootstrap": [
+     -0.099,
+     0.2963
+    ],
+    "p_exact_two_sided": 0.270263671875,
+    "packets_positive": 10,
+    "packets_negative": 5
+   },
+   "H3": {
+    "n_packets": 18,
+    "delta": -0.2064,
+    "ci95_packet_bootstrap": [
+     -0.3288,
+     -0.096
+    ],
+    "p_exact_two_sided": 0.00390625,
+    "packets_positive": 1,
+    "packets_negative": 9
+   }
+  },
+  "gemini-3.8-flash": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.9861,
+    "coverage": 0.9861,
+    "unnecessary_abstention": 0.0,
+    "followup_share": 0.691
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.8768,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.1232,
+    "followup_share": 0.7153
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0017,
+    "unsupported_neg": 0.0017,
+    "correct_determinate": 0.9808,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0169,
+    "followup_share": 0.6927
+   },
+   "H1": {
+    "n_packets": 18,
+    "delta": 0.0,
+    "ci95_packet_bootstrap": [
+     0.0,
+     0.0
+    ],
+    "p_exact_two_sided": 1.0,
+    "packets_positive": 0,
+    "packets_negative": 0
+   },
+   "H2": {
+    "n_packets": 18,
+    "delta": 0.2001,
+    "ci95_packet_bootstrap": [
+     0.004,
+     0.3681
+    ],
+    "p_exact_two_sided": 0.044342041015625,
+    "packets_positive": 11,
+    "packets_negative": 5
+   },
+   "H3": {
+    "n_packets": 18,
+    "delta": -0.1093,
+    "ci95_packet_bootstrap": [
+     -0.2126,
+     -0.0199
+    ],
+    "p_exact_two_sided": 0.078125,
+    "packets_positive": 1,
+    "packets_negative": 6
+   }
+  },
+  "gemma-4-26b-a4b-it-maas": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.3976,
+    "unsupported_neg": 0.0521,
+    "correct_determinate": 0.4073,
+    "coverage": 0.9236,
+    "unnecessary_abstention": 0.0498,
+    "followup_share": 0.3542
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0365,
+    "unsupported_neg": 0.0191,
+    "correct_determinate": 0.5378,
+    "coverage": 0.9861,
+    "unnecessary_abstention": 0.4497,
+    "followup_share": 0.7778
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0382,
+    "unsupported_neg": 0.0208,
+    "correct_determinate": 0.7767,
+    "coverage": 0.9861,
+    "unnecessary_abstention": 0.2085,
+    "followup_share": 0.7153
+   },
+   "H1": {
+    "n_packets": 18,
+    "delta": -0.3611,
+    "ci95_packet_bootstrap": [
+     -0.4045,
+     -0.3194
+    ],
+    "p_exact_two_sided": 7.62939453125e-06,
+    "packets_positive": 0,
+    "packets_negative": 18
+   },
+   "H2": {
+    "n_packets": 18,
+    "delta": -0.1389,
+    "ci95_packet_bootstrap": [
+     -0.2929,
+     0.0142
+    ],
+    "p_exact_two_sided": 0.0988616943359375,
+    "packets_positive": 4,
+    "packets_negative": 13
+   },
+   "H3": {
+    "n_packets": 18,
+    "delta": 0.1305,
+    "ci95_packet_bootstrap": [
+     0.014,
+     0.2682
+    ],
+    "p_exact_two_sided": 0.0634765625,
+    "packets_positive": 9,
+    "packets_negative": 4
+   }
+  },
+  "deepseek-v3.2-maas": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.2274,
+    "unsupported_neg": 0.0521,
+    "correct_determinate": 0.2971,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.3654,
+    "followup_share": 0.6024
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0208,
+    "unsupported_neg": 0.0122,
+    "correct_determinate": 0.9168,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0808,
+    "followup_share": 0.684
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0208,
+    "unsupported_neg": 0.0139,
+    "correct_determinate": 0.9647,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.033,
+    "followup_share": 0.6736
+   },
+   "H1": {
+    "n_packets": 18,
+    "delta": -0.2066,
+    "ci95_packet_bootstrap": [
+     -0.2535,
+     -0.1615
+    ],
+    "p_exact_two_sided": 7.62939453125e-06,
+    "packets_positive": 0,
+    "packets_negative": 18
+   },
+   "H2": {
+    "n_packets": 18,
+    "delta": 0.2401,
+    "ci95_packet_bootstrap": [
+     0.1036,
+     0.3705
+    ],
+    "p_exact_two_sided": 0.00286865234375,
+    "packets_positive": 12,
+    "packets_negative": 5
+   },
+   "H3": {
+    "n_packets": 18,
+    "delta": 0.6197,
+    "ci95_packet_bootstrap": [
+     0.5749,
+     0.6593
+    ],
+    "p_exact_two_sided": 7.62939453125e-06,
+    "packets_positive": 18,
+    "packets_negative": 0
+   }
+  },
+  "glm-5.2-maas": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.9813,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0187,
+    "followup_share": 0.6875
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0017,
+    "correct_determinate": 0.7299,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.2701,
+    "followup_share": 0.7778
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0017,
+    "unsupported_neg": 0.0035,
+    "correct_determinate": 0.9692,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0285,
+    "followup_share": 0.6997
+   },
+   "H1": {
+    "n_packets": 18,
+    "delta": 0.0,
+    "ci95_packet_bootstrap": [
+     0.0,
+     0.0
+    ],
+    "p_exact_two_sided": 1.0,
+    "packets_positive": 0,
+    "packets_negative": 0
+   },
+   "H2": {
+    "n_packets": 18,
+    "delta": 0.0532,
+    "ci95_packet_bootstrap": [
+     -0.1894,
+     0.2695
+    ],
+    "p_exact_two_sided": 0.6512451171875,
+    "packets_positive": 10,
+    "packets_negative": 7
+   },
+   "H3": {
+    "n_packets": 18,
+    "delta": -0.2514,
+    "ci95_packet_bootstrap": [
+     -0.389,
+     -0.1188
+    ],
+    "p_exact_two_sided": 0.001953125,
+    "packets_positive": 4,
+    "packets_negative": 10
+   }
+  }
+ },
+ "correct_by_pattern_heldout": {
+  "contract13_evidence_first": {
+   "adverse_with_proxy": 0.65,
+   "all_gap": 0.7444,
+   "blank_fact": 0.9222,
+   "complete": 0.7522,
+   "conflict_lower_dup": 0.7778,
+   "conflict_resolved": 0.7222,
+   "conflict_top_dup": 0.7778,
+   "conflict_unresolved": 0.7889,
+   "missing_row": 0.7722,
+   "proxy_only": 0.8889,
+   "redundant": 0.6667,
+   "violation_despite_gap": 0.65
+  },
+  "contract13_extract": {
+   "adverse_with_proxy": 0.8333,
+   "all_gap": 1.0,
+   "blank_fact": 1.0,
+   "complete": 0.7761,
+   "conflict_lower_dup": 0.9111,
+   "conflict_resolved": 0.8667,
+   "conflict_top_dup": 0.7667,
+   "conflict_unresolved": 0.7444,
+   "missing_row": 0.9389,
+   "proxy_only": 0.9889,
+   "redundant": 0.4778,
+   "violation_despite_gap": 0.8083
+  },
+  "parser": {
+   "adverse_with_proxy": 0.6667,
+   "all_gap": 1.0,
+   "blank_fact": 0.9444,
+   "complete": 0.673,
+   "conflict_lower_dup": 0.7778,
+   "conflict_resolved": 0.7778,
+   "conflict_top_dup": 1.0,
+   "conflict_unresolved": 1.0,
+   "missing_row": 0.9444,
+   "proxy_only": 0.9444,
+   "redundant": 0.9444,
+   "violation_despite_gap": 0.6667
+  }
+ },
+ "slot_audit": {
+  "models::development": {
+   "slots": 7680,
+   "correct": 6484,
+   "outcomes": {
+    "conflict: CONFLICT": 125,
+    "conflict: omitted": 12,
+    "conflict: value, wrong": 43,
+    "known: ABSENT": 51,
+    "known: CONFLICT": 5,
+    "known: omitted": 824,
+    "known: value, correct, deciding document": 5592,
+    "known: value, correct, other named document": 3,
+    "known: value, correct, unnamed document": 83,
+    "known: value, wrong": 42,
+    "unknown: ABSENT": 767,
+    "unknown: omitted": 128,
+    "unknown: value, wrong": 5
+   }
+  },
+  "models::heldout": {
+   "slots": 7680,
+   "correct": 6097,
+   "outcomes": {
+    "conflict: CONFLICT": 118,
+    "conflict: omitted": 17,
+    "conflict: value, wrong": 45,
+    "known: ABSENT": 48,
+    "known: CONFLICT": 16,
+    "known: omitted": 1188,
+    "known: value, correct, deciding document": 5251,
+    "known: value, correct, other named document": 15,
+    "known: value, wrong": 82,
+    "unknown: ABSENT": 728,
+    "unknown: omitted": 163,
+    "unknown: value, wrong": 9
+   }
+  },
+  "parser::development": {
+   "slots": 1536,
+   "correct": 1536,
+   "outcomes": {
+    "conflict: CONFLICT": 36,
+    "known: value, correct, deciding document": 1320,
+    "unknown: ABSENT": 180
+   }
+  },
+  "parser::heldout": {
+   "slots": 1536,
+   "correct": 1159,
+   "outcomes": {
+    "conflict: ABSENT": 1,
+    "conflict: CONFLICT": 35,
+    "known: ABSENT": 283,
+    "known: CONFLICT": 38,
+    "known: value, correct, deciding document": 948,
+    "known: value, wrong": 51,
+    "unknown: ABSENT": 176,
+    "unknown: value, wrong": 4
+   }
+  }
+ },
+ "tokens_per_pair": {
+  "deepseek-v3.2-maas::contract13_evidence_first": {
+   "input": 345.3,
+   "output": 23.9
+  },
+  "deepseek-v3.2-maas::contract13_extract": {
+   "input": 339.6,
+   "output": 44.1
+  },
+  "gemini-3.1-pro-preview::contract13_evidence_first": {
+   "input": 445.9,
+   "output": 541.1
+  },
+  "gemini-3.1-pro-preview::contract13_extract": {
+   "input": 439.8,
+   "output": 407.6
+  },
+  "gemini-3.8-flash::contract13_evidence_first": {
+   "input": 455.4,
+   "output": 1296.7
+  },
+  "gemini-3.8-flash::contract13_extract": {
+   "input": 439.2,
+   "output": 344.8
+  },
+  "gemma-4-26b-a4b-it-maas::contract13_evidence_first": {
+   "input": 447.6,
+   "output": 27.8
+  },
+  "gemma-4-26b-a4b-it-maas::contract13_extract": {
+   "input": 441.5,
+   "output": 56.6
+  },
+  "glm-5.2-maas::contract13_evidence_first": {
+   "input": 376.2,
+   "output": 625.1
+  },
+  "glm-5.2-maas::contract13_extract": {
+   "input": 367.0,
+   "output": 425.7
+  }
+ },
+ "coverage_by_model": {
+  "deepseek-v3.2-maas::contract13_evidence_first": 1.0,
+  "deepseek-v3.2-maas::contract13_extract": 1.0,
+  "gemini-3.1-pro-preview::contract13_evidence_first": 1.0,
+  "gemini-3.1-pro-preview::contract13_extract": 1.0,
+  "gemini-3.8-flash::contract13_evidence_first": 0.9826,
+  "gemini-3.8-flash::contract13_extract": 1.0,
+  "gemma-4-26b-a4b-it-maas::contract13_evidence_first": 0.9167,
+  "gemma-4-26b-a4b-it-maas::contract13_extract": 0.9861,
+  "glm-5.2-maas::contract13_evidence_first": 1.0,
+  "glm-5.2-maas::contract13_extract": 1.0
+ },
+ "label_counts": {
+  "fail": 80,
+  "pass": 60,
+  "needs_evidence": 52
+ },
+ "posthoc_name_normalised": {
+  "primary": {
+   "H1 extraction + solver - evidence-first: unsupported pass": {
+    "n_packets": 18,
+    "delta": -0.1125,
+    "ci95_packet_bootstrap": [
+     -0.1236,
+     -0.101
+    ],
+    "p_exact_two_sided": 7.62939453125e-06,
+    "packets_positive": 0,
+    "packets_negative": 18,
+    "p_holm": 2.288818359375e-05,
+    "outcome": "confirmed"
+   },
+   "H2 extraction + solver - rule-based parser: correct decisions": {
+    "n_packets": 18,
+    "delta": 0.2887,
+    "ci95_packet_bootstrap": [
+     0.1587,
+     0.4172
+    ],
+    "p_exact_two_sided": 0.00048828125,
+    "packets_positive": 12,
+    "packets_negative": 6,
+    "p_holm": 0.00048828125,
+    "outcome": "confirmed"
+   },
+   "H3 extraction + solver - evidence-first: correct decisions": {
+    "n_packets": 18,
+    "delta": 0.232,
+    "ci95_packet_bootstrap": [
+     0.213,
+     0.252
+    ],
+    "p_exact_two_sided": 7.62939453125e-06,
+    "packets_positive": 18,
+    "packets_negative": 0,
+    "p_holm": 2.288818359375e-05,
+    "outcome": "confirmed"
+   }
+  },
+  "N1 non-inferiority: extraction + solver - parser, unsupported pass, upper bound < +0.02": {
+   "n_packets": 18,
+   "delta": 0.0108,
+   "ci95_packet_bootstrap": [
+    0.0066,
+    0.0146
+   ],
+   "p_exact_two_sided": 0.000457763671875,
+   "packets_positive": 15,
+   "packets_negative": 1,
+   "outcome": "confirmed"
+  },
+  "development_layouts": {
+   "extraction - evidence-first: unsupported pass": {
+    "n_packets": 18,
+    "delta": -0.1083,
+    "ci95_packet_bootstrap": [
+     -0.1226,
+     -0.0948
+    ],
+    "p_exact_two_sided": 7.62939453125e-06,
+    "packets_positive": 0,
+    "packets_negative": 18
+   },
+   "extraction - parser: correct decisions": {
+    "n_packets": 18,
+    "delta": -0.0507,
+    "ci95_packet_bootstrap": [
+     -0.0739,
+     -0.0307
+    ],
+    "p_exact_two_sided": 3.0517578125e-05,
+    "packets_positive": 0,
+    "packets_negative": 16
+   },
+   "extraction - evidence-first: correct decisions": {
+    "n_packets": 18,
+    "delta": 0.2129,
+    "ci95_packet_bootstrap": [
+     0.1796,
+     0.2451
+    ],
+    "p_exact_two_sided": 7.62939453125e-06,
+    "packets_positive": 18,
+    "packets_negative": 0
+   }
+  },
+  "summary_heldout": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.125,
+    "unsupported_neg": 0.0208,
+    "correct_determinate": 0.7334,
+    "coverage": 0.9819,
+    "unnecessary_abstention": 0.0877,
+    "followup_share": 0.6045
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0125,
+    "unsupported_neg": 0.008,
+    "correct_determinate": 0.9654,
+    "coverage": 0.9972,
+    "unnecessary_abstention": 0.0311,
+    "followup_share": 0.6847
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0139,
+    "unsupported_neg": 0.0094,
+    "correct_determinate": 0.9872,
+    "coverage": 0.9972,
+    "unnecessary_abstention": 0.008,
+    "followup_share": 0.6781
+   },
+   "parser": {
+    "unsupported_pos": 0.0017,
+    "unsupported_neg": 0.0156,
+    "correct_determinate": 0.6767,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.3071,
+    "followup_share": 0.7934
+   },
+   "named columns": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   },
+   "always abstain": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   }
+  },
+  "summary_development": {
+   "contract13_evidence_first": {
+    "unsupported_pos": 0.1198,
+    "unsupported_neg": 0.0236,
+    "correct_determinate": 0.7364,
+    "coverage": 0.9778,
+    "unnecessary_abstention": 0.0801,
+    "followup_share": 0.6128
+   },
+   "contract13_extract": {
+    "unsupported_pos": 0.0115,
+    "unsupported_neg": 0.0066,
+    "correct_determinate": 0.9493,
+    "coverage": 0.9972,
+    "unnecessary_abstention": 0.046,
+    "followup_share": 0.6927
+   },
+   "hybrid": {
+    "unsupported_pos": 0.0101,
+    "unsupported_neg": 0.0066,
+    "correct_determinate": 0.9935,
+    "coverage": 0.9972,
+    "unnecessary_abstention": 0.0037,
+    "followup_share": 0.6781
+   },
+   "parser": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 1.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.0,
+    "followup_share": 0.6875
+   },
+   "named columns": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.3333,
+    "coverage": 1.0,
+    "unnecessary_abstention": 0.6667,
+    "followup_share": 0.8958
+   },
+   "always abstain": {
+    "unsupported_pos": 0.0,
+    "unsupported_neg": 0.0,
+    "correct_determinate": 0.0,
+    "coverage": 1.0,
+    "unnecessary_abstention": 1.0,
+    "followup_share": 1.0
+   }
+  },
+  "by_layout": {
+   "L1": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.1146,
+     "unsupported_neg": 0.0292,
+     "correct_determinate": 0.7421,
+     "coverage": 0.9792,
+     "unnecessary_abstention": 0.0667,
+     "followup_share": 0.6146
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0156,
+     "unsupported_neg": 0.0094,
+     "correct_determinate": 0.9502,
+     "coverage": 0.9917,
+     "unnecessary_abstention": 0.0356,
+     "followup_share": 0.6875
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0115,
+     "unsupported_neg": 0.0094,
+     "correct_determinate": 0.9889,
+     "coverage": 0.9917,
+     "unnecessary_abstention": 0.0028,
+     "followup_share": 0.6781
+    },
+    "parser": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 1.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "named columns": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 1.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "always abstain": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    }
+   },
+   "L2": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.1208,
+     "unsupported_neg": 0.0156,
+     "correct_determinate": 0.712,
+     "coverage": 0.9625,
+     "unnecessary_abstention": 0.0938,
+     "followup_share": 0.6167
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0104,
+     "unsupported_neg": 0.0052,
+     "correct_determinate": 0.98,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.02,
+     "followup_share": 0.6823
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0104,
+     "unsupported_neg": 0.0052,
+     "correct_determinate": 0.9972,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0028,
+     "followup_share": 0.6771
+    },
+    "parser": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 1.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "named columns": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    },
+    "always abstain": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    }
+   },
+   "L3": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.124,
+     "unsupported_neg": 0.026,
+     "correct_determinate": 0.755,
+     "coverage": 0.9917,
+     "unnecessary_abstention": 0.0797,
+     "followup_share": 0.6073
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0083,
+     "unsupported_neg": 0.0052,
+     "correct_determinate": 0.9177,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0823,
+     "followup_share": 0.7083
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0083,
+     "unsupported_neg": 0.0052,
+     "correct_determinate": 0.9944,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0056,
+     "followup_share": 0.6792
+    },
+    "parser": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 1.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "named columns": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    },
+    "always abstain": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    }
+   },
+   "L4": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.1208,
+     "unsupported_neg": 0.025,
+     "correct_determinate": 0.7468,
+     "coverage": 0.9875,
+     "unnecessary_abstention": 0.0806,
+     "followup_share": 0.6104
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0115,
+     "unsupported_neg": 0.0052,
+     "correct_determinate": 0.9592,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0394,
+     "followup_share": 0.6865
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0104,
+     "unsupported_neg": 0.0052,
+     "correct_determinate": 0.9915,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0085,
+     "followup_share": 0.6781
+    },
+    "parser": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.8176,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.1824,
+     "followup_share": 0.7344
+    },
+    "named columns": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    },
+    "always abstain": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    }
+   },
+   "L5": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.1187,
+     "unsupported_neg": 0.0187,
+     "correct_determinate": 0.7216,
+     "coverage": 0.9792,
+     "unnecessary_abstention": 0.1112,
+     "followup_share": 0.6146
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0146,
+     "unsupported_neg": 0.0104,
+     "correct_determinate": 0.9599,
+     "coverage": 0.9917,
+     "unnecessary_abstention": 0.0326,
+     "followup_share": 0.6854
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0146,
+     "unsupported_neg": 0.0146,
+     "correct_determinate": 0.9828,
+     "coverage": 0.9917,
+     "unnecessary_abstention": 0.0042,
+     "followup_share": 0.6833
+    },
+    "parser": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0052,
+     "correct_determinate": 0.7942,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.1989,
+     "followup_share": 0.7708
+    },
+    "named columns": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    },
+    "always abstain": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    }
+   },
+   "L6": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.1354,
+     "unsupported_neg": 0.0187,
+     "correct_determinate": 0.7319,
+     "coverage": 0.9792,
+     "unnecessary_abstention": 0.0712,
+     "followup_share": 0.5885
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0115,
+     "unsupported_neg": 0.0083,
+     "correct_determinate": 0.9772,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0214,
+     "followup_share": 0.6823
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0167,
+     "unsupported_neg": 0.0083,
+     "correct_determinate": 0.9872,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0114,
+     "followup_share": 0.6729
+    },
+    "parser": {
+     "unsupported_pos": 0.0052,
+     "unsupported_neg": 0.0417,
+     "correct_determinate": 0.4184,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.5399,
+     "followup_share": 0.875
+    },
+    "named columns": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    },
+    "always abstain": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 1.0,
+     "followup_share": 1.0
+    }
+   }
+  },
+  "per_model_heldout": {
+   "gemini-3.1-pro-preview": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.9954,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0046,
+     "followup_share": 0.6875
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 1.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0017,
+     "unsupported_neg": 0.0017,
+     "correct_determinate": 0.9977,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "H1": {
+     "n_packets": 18,
+     "delta": 0.0,
+     "ci95_packet_bootstrap": [
+      0.0,
+      0.0
+     ],
+     "p_exact_two_sided": 1.0,
+     "packets_positive": 0,
+     "packets_negative": 0
+    },
+    "H2": {
+     "n_packets": 18,
+     "delta": 0.3233,
+     "ci95_packet_bootstrap": [
+      0.1913,
+      0.4512
+     ],
+     "p_exact_two_sided": 0.00048828125,
+     "packets_positive": 12,
+     "packets_negative": 0
+    },
+    "H3": {
+     "n_packets": 18,
+     "delta": 0.0046,
+     "ci95_packet_bootstrap": [
+      0.0,
+      0.0116
+     ],
+     "p_exact_two_sided": 0.5,
+     "packets_positive": 2,
+     "packets_negative": 0
+    }
+   },
+   "gemini-3.8-flash": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.9861,
+     "coverage": 0.9861,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.691
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 1.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0017,
+     "unsupported_neg": 0.0017,
+     "correct_determinate": 0.9977,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "H1": {
+     "n_packets": 18,
+     "delta": 0.0,
+     "ci95_packet_bootstrap": [
+      0.0,
+      0.0
+     ],
+     "p_exact_two_sided": 1.0,
+     "packets_positive": 0,
+     "packets_negative": 0
+    },
+    "H2": {
+     "n_packets": 18,
+     "delta": 0.3233,
+     "ci95_packet_bootstrap": [
+      0.1913,
+      0.4512
+     ],
+     "p_exact_two_sided": 0.00048828125,
+     "packets_positive": 12,
+     "packets_negative": 0
+    },
+    "H3": {
+     "n_packets": 18,
+     "delta": 0.0139,
+     "ci95_packet_bootstrap": [
+      0.0,
+      0.0417
+     ],
+     "p_exact_two_sided": 1.0,
+     "packets_positive": 1,
+     "packets_negative": 0
+    }
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.3976,
+     "unsupported_neg": 0.0521,
+     "correct_determinate": 0.4073,
+     "coverage": 0.9236,
+     "unnecessary_abstention": 0.0498,
+     "followup_share": 0.3542
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0417,
+     "unsupported_neg": 0.026,
+     "correct_determinate": 0.9103,
+     "coverage": 0.9861,
+     "unnecessary_abstention": 0.0748,
+     "followup_share": 0.6771
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0434,
+     "unsupported_neg": 0.026,
+     "correct_determinate": 0.9782,
+     "coverage": 0.9861,
+     "unnecessary_abstention": 0.0069,
+     "followup_share": 0.6545
+    },
+    "H1": {
+     "n_packets": 18,
+     "delta": -0.3559,
+     "ci95_packet_bootstrap": [
+      -0.3976,
+      -0.316
+     ],
+     "p_exact_two_sided": 7.62939453125e-06,
+     "packets_positive": 0,
+     "packets_negative": 18
+    },
+    "H2": {
+     "n_packets": 18,
+     "delta": 0.2335,
+     "ci95_packet_bootstrap": [
+      0.0866,
+      0.373
+     ],
+     "p_exact_two_sided": 0.005462646484375,
+     "packets_positive": 12,
+     "packets_negative": 4
+    },
+    "H3": {
+     "n_packets": 18,
+     "delta": 0.5029,
+     "ci95_packet_bootstrap": [
+      0.4343,
+      0.5766
+     ],
+     "p_exact_two_sided": 7.62939453125e-06,
+     "packets_positive": 18,
+     "packets_negative": 0
+    }
+   },
+   "deepseek-v3.2-maas": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.2274,
+     "unsupported_neg": 0.0521,
+     "correct_determinate": 0.2971,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.3654,
+     "followup_share": 0.6024
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0208,
+     "unsupported_neg": 0.0122,
+     "correct_determinate": 0.9168,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0808,
+     "followup_share": 0.684
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0208,
+     "unsupported_neg": 0.0139,
+     "correct_determinate": 0.9647,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.033,
+     "followup_share": 0.6736
+    },
+    "H1": {
+     "n_packets": 18,
+     "delta": -0.2066,
+     "ci95_packet_bootstrap": [
+      -0.2535,
+      -0.1615
+     ],
+     "p_exact_two_sided": 7.62939453125e-06,
+     "packets_positive": 0,
+     "packets_negative": 18
+    },
+    "H2": {
+     "n_packets": 18,
+     "delta": 0.2401,
+     "ci95_packet_bootstrap": [
+      0.1036,
+      0.3705
+     ],
+     "p_exact_two_sided": 0.00286865234375,
+     "packets_positive": 12,
+     "packets_negative": 5
+    },
+    "H3": {
+     "n_packets": 18,
+     "delta": 0.6197,
+     "ci95_packet_bootstrap": [
+      0.5749,
+      0.6593
+     ],
+     "p_exact_two_sided": 7.62939453125e-06,
+     "packets_positive": 18,
+     "packets_negative": 0
+    }
+   },
+   "glm-5.2-maas": {
+    "contract13_evidence_first": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0,
+     "correct_determinate": 0.9813,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0187,
+     "followup_share": 0.6875
+    },
+    "contract13_extract": {
+     "unsupported_pos": 0.0,
+     "unsupported_neg": 0.0017,
+     "correct_determinate": 1.0,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "hybrid": {
+     "unsupported_pos": 0.0017,
+     "unsupported_neg": 0.0035,
+     "correct_determinate": 0.9977,
+     "coverage": 1.0,
+     "unnecessary_abstention": 0.0,
+     "followup_share": 0.6875
+    },
+    "H1": {
+     "n_packets": 18,
+     "delta": 0.0,
+     "ci95_packet_bootstrap": [
+      0.0,
+      0.0
+     ],
+     "p_exact_two_sided": 1.0,
+     "packets_positive": 0,
+     "packets_negative": 0
+    },
+    "H2": {
+     "n_packets": 18,
+     "delta": 0.3233,
+     "ci95_packet_bootstrap": [
+      0.1913,
+      0.4512
+     ],
+     "p_exact_two_sided": 0.00048828125,
+     "packets_positive": 12,
+     "packets_negative": 0
+    },
+    "H3": {
+     "n_packets": 18,
+     "delta": 0.0187,
+     "ci95_packet_bootstrap": [
+      0.0093,
+      0.0305
+     ],
+     "p_exact_two_sided": 0.015625,
+     "packets_positive": 7,
+     "packets_negative": 0
+    }
+   }
+  },
+  "correct_by_pattern_heldout": {
+   "contract13_evidence_first": {
+    "adverse_with_proxy": 0.65,
+    "all_gap": 0.7444,
+    "blank_fact": 0.9222,
+    "complete": 0.7522,
+    "conflict_lower_dup": 0.7778,
+    "conflict_resolved": 0.7222,
+    "conflict_top_dup": 0.7778,
+    "conflict_unresolved": 0.7889,
+    "missing_row": 0.7722,
+    "proxy_only": 0.8889,
+    "redundant": 0.6667,
+    "violation_despite_gap": 0.65
+   },
+   "contract13_extract": {
+    "adverse_with_proxy": 0.9833,
+    "all_gap": 1.0,
+    "blank_fact": 1.0,
+    "complete": 0.9736,
+    "conflict_lower_dup": 0.9667,
+    "conflict_resolved": 0.9778,
+    "conflict_top_dup": 0.7333,
+    "conflict_unresolved": 0.7444,
+    "missing_row": 0.9556,
+    "proxy_only": 0.9833,
+    "redundant": 0.7333,
+    "violation_despite_gap": 0.9917
+   },
+   "parser": {
+    "adverse_with_proxy": 0.6667,
+    "all_gap": 1.0,
+    "blank_fact": 0.9444,
+    "complete": 0.673,
+    "conflict_lower_dup": 0.7778,
+    "conflict_resolved": 0.7778,
+    "conflict_top_dup": 1.0,
+    "conflict_unresolved": 1.0,
+    "missing_row": 0.9444,
+    "proxy_only": 0.9444,
+    "redundant": 0.9444,
+    "violation_despite_gap": 0.6667
+   }
+  },
+  "slot_audit": {
+   "models::development": {
+    "slots": 7680,
+    "correct": 7376,
+    "outcomes": {
+     "conflict: CONFLICT": 134,
+     "conflict: omitted": 1,
+     "conflict: value, wrong": 45,
+     "known: ABSENT": 51,
+     "known: CONFLICT": 5,
+     "known: omitted": 37,
+     "known: value, correct, deciding document": 6355,
+     "known: value, correct, other named document": 25,
+     "known: value, correct, unnamed document": 83,
+     "known: value, wrong": 44,
+     "unknown: ABSENT": 887,
+     "unknown: omitted": 6,
+     "unknown: value, wrong": 7
+    }
+   },
+   "models::heldout": {
+    "slots": 7680,
+    "correct": 7393,
+    "outcomes": {
+     "conflict: CONFLICT": 131,
+     "conflict: omitted": 1,
+     "conflict: value, wrong": 48,
+     "known: ABSENT": 48,
+     "known: CONFLICT": 16,
+     "known: omitted": 43,
+     "known: value, correct, deciding document": 6379,
+     "known: value, correct, other named document": 28,
+     "known: value, wrong": 86,
+     "unknown: ABSENT": 883,
+     "unknown: omitted": 4,
+     "unknown: value, wrong": 13
+    }
+   },
+   "parser::development": {
+    "slots": 1536,
+    "correct": 1536,
+    "outcomes": {
+     "conflict: CONFLICT": 36,
+     "known: value, correct, deciding document": 1320,
+     "unknown: ABSENT": 180
+    }
+   },
+   "parser::heldout": {
+    "slots": 1536,
+    "correct": 1159,
+    "outcomes": {
+     "conflict: ABSENT": 1,
+     "conflict: CONFLICT": 35,
+     "known: ABSENT": 283,
+     "known: CONFLICT": 38,
+     "known: value, correct, deciding document": 948,
+     "known: value, wrong": 51,
+     "unknown: ABSENT": 176,
+     "unknown: value, wrong": 4
+    }
+   }
+  }
+ }
+}

@@ -314,7 +314,11 @@ In the evidence field, give the table.column you relied on."""
 # formats and units differ between layouts, so the prompts name documents, not columns.
 CONTRACT13_EVIDENCE_FIRST = "contract13_evidence_first"
 CONTRACT13_EXTRACT = "contract13_extract"
-CONTRACT13_VARIANTS = (CONTRACT13_EVIDENCE_FIRST, CONTRACT13_EXTRACT)
+# The replication (declaration addendum) uses the same system prompts; only the rule statement
+# changes (nofalsegreen/study13.statement_r2), so fact names cannot absorb their units.
+CONTRACT13B_EVIDENCE_FIRST = "contract13b_evidence_first"
+CONTRACT13B_EXTRACT = "contract13b_extract"
+CONTRACT13_VARIANTS = (CONTRACT13_EVIDENCE_FIRST, CONTRACT13_EXTRACT, CONTRACT13B_EVIDENCE_FIRST, CONTRACT13B_EXTRACT)
 
 _SYSTEM_C13 = """You are checking an organisation's records against stated decision rules.
 
@@ -369,9 +373,9 @@ Return a line for every pair. Do not add commentary, headers, or explanation."""
 
 
 def _contract_system(variant: str) -> str:
-    if variant == CONTRACT13_EVIDENCE_FIRST:
+    if variant in (CONTRACT13_EVIDENCE_FIRST, CONTRACT13B_EVIDENCE_FIRST):
         return _SYSTEM_C13 + _MENU_C13_EVIDENCE_FIRST
-    if variant == CONTRACT13_EXTRACT:
+    if variant in (CONTRACT13_EXTRACT, CONTRACT13B_EXTRACT):
         return _SYSTEM_C13 + _MENU_C13_EXTRACT
     if variant == CONTRACT_SEM_OFFERED:
         return _SYSTEM_SEM.replace("{verdict_menu}", _MENU_SEM_OFFERED)

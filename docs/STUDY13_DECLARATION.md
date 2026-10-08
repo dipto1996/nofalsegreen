@@ -95,3 +95,23 @@ that uses the parser where it reports every fact and the model elsewhere.
 
 Every outcome is reported. Delivery failures follow the rule of Appendix C.4: retries, then
 coverage is reported and missing pairs count as unanswered.
+
+## Addendum: replication with a corrected rule statement
+
+Declared 2026-10-07, after the first run had been scored and before any replication call.
+
+**What went wrong.** The first run's rule statement printed some fact names with their unit
+("measured load (kN)"), while the extraction prompt asks for "exactly the fact names in the
+rule". Gemini 3.1 Pro, Gemini 3.8 Flash and GLM-5.2 copied the unit or wrote names in
+snake_case, the declared scorer matches names exactly, and those facts were therefore
+treated as absent, so the solver abstained. Under the declared scoring H1 and N1 were
+confirmed and H2 and H3 were not. A post-hoc rescoring that matches names after removing a
+trailing unit, case and underscores is reported beside it, marked as post hoc.
+
+**Replication.** The same 36 packets and the same system prompts, with the rule statement
+changed only so that each fact name is quoted on its own and its unit stated in a separate
+sentence (`study13.statement_r2`; variants `contract13b_evidence_first` and
+`contract13b_extract`; run tag `#r2`). Both prompts are launched together for each model.
+H1–H3 and N1 are tested exactly as declared above, with the declared exact-name scoring, Holm
+within the replication (`python3 scripts/score_study13.py --r2`, writing
+`docs/study13/results_r2.json`). The first run's results are reported in full beside it.

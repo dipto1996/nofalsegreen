@@ -206,7 +206,7 @@ def main() -> int:
                             else study9.all_obligations())
                 if args.study13:
                     from nofalsegreen import study13
-                    obls = study13.obligations()
+                    obls = study13.obligations(r2=variant.startswith("contract13b"))
                 r = run_firm(provider, firm, obls, variant=variant,
                              batch_size=args.batch, scope_sources=scope, keep_raw=True,
                              progress=True, stop_on_host_failure=not args.finalize,
