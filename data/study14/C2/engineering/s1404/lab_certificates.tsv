@@ -1,0 +1,12 @@
+# cross-tab export 839002: external lab certificates (dataset lab_certificates)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 15
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15
+component.key	P-40405	P-40402	P-40414	P-40407	P-40404	P-40408	P-40411	P-40415	P-40416	P-40410	P-40413	P-40406	P-40412	P-40409	P-40401
+lab.break.wk	2026-W36-2	2027-W26-4	2026-W04-3	2027-W17-2	2026-W41-6	2026-W10-6	2026-W34-3	2027-W22-1	2026-W37-2	2027-W31-3	2026-W15-1	2026-W01-3	2027-W13-5	2027-W11-4	2026-W08-4
+lab.break.kn	446	137	443	324	233	464	349	288	388	226	404	425	361	95	525

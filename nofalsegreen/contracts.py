@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import csv
 import itertools
+from fractions import Fraction
 import random
 from dataclasses import dataclass, field
 from datetime import date, timedelta
@@ -143,7 +144,7 @@ def _resolve(fact: Fact, tables: dict, entity: str):
         vals = [r[s.column] for r in tables.get(s.table, [])
                 if r.get(s.key) == entity and r.get(s.column) not in (None, "")]
         if vals:
-            per_source.append([float(x) if fact.kind == "amount" else _d(x) for x in vals])
+            per_source.append([amount(x) if fact.kind == "amount" else _d(x) for x in vals])
     if not per_source:
         return "unknown", None
     if fact.priority:
@@ -156,10 +157,27 @@ def _resolve(fact: Fact, tables: dict, entity: str):
     return ("known", conv[0]) if len(set(conv)) == 1 else ("conflict", conv)
 
 
-def _witness(kind: str, anchors: list) -> list:
+def amount(x) -> Fraction:
+    """Amounts are exact rationals: 0.12 is 12/100, never a binary float."""
+    return x if isinstance(x, Fraction) else Fraction(str(x).replace(",", "").replace("$", "").strip())
+
+
+def amount_points(critical, n_unknown: int) -> list:
+    """Exact candidate amounts (domain >= 0) that realise every order relative to the critical
+    points: each point, every midpoint between neighbours, a point below the smallest, and a
+    ladder of distinct points above the largest, enough for several unknowns to take every
+    relative order among themselves. Correction after review, 2026-10-08: candidates were
+    +-1 from integers, which misses the gap between two decimals closer than 1."""
+    c = sorted({amount(x) for x in critical if amount(x) >= 0} | {Fraction(0)})
+    pts = set(c) | {(a + b) / 2 for a, b in zip(c, c[1:])}
+    top = c[-1]
+    pts |= {top + Fraction(i + 1) * (top + 1) for i in range(max(n_unknown, 1) + 2)}
+    return sorted(pts)
+
+
+def _witness(kind: str, anchors: list, n_unknown: int = 1) -> list:
     if kind == "amount":
-        pts = {a + d for a in anchors for d in (-1.0, 0.0, 1.0)} or {0.0, 1.0}
-        return sorted(p for p in pts if p >= 0)
+        return amount_points(anchors, n_unknown)
     pts = set()
     for a in anchors:
         for k in (1, 3, 5):
@@ -194,12 +212,12 @@ def label(contract: Contract, tables: dict, entity: str) -> Certified:
         return Certified("pass" if contract.predicate(known) else "fail", "determinate")
     domains = []
     for f in unknown:
-        anchors = [v for k, v in known.items() if isinstance(v, float if f.kind == "amount" else date)]
+        anchors = [v for k, v in known.items() if isinstance(v, Fraction if f.kind == "amount" else date)]
         anchors += [c for c in contract.constants]
         if f.kind == "date":
             # the business-day predicate compares a date with first-day + 3: include that point too
             anchors += [add_business_days(a, 3) for a in list(anchors)]
-        domains.append([(f.name, x) for x in _witness(f.kind, anchors)])
+        domains.append([(f.name, x) for x in _witness(f.kind, anchors, sum(g.kind == f.kind for g in unknown))])
     wp = wf = None
     for combo in itertools.product(*domains):
         v = {**known, **dict(combo)}
@@ -425,8 +443,8 @@ def verdict_from_facts(contract: Contract, reported: dict, names: dict) -> str:
         if src.strip().strip("`").lower() not in allowed:
             continue
         try:
-            v = float(str(value).replace(",", "").replace("$", "")) if f.kind == "amount" else _d(str(value).strip())
-        except ValueError:
+            v = amount(value) if f.kind == "amount" else _d(str(value).strip())
+        except (ValueError, ZeroDivisionError):
             continue
         s0 = f.sources[0]
         tables.setdefault(s0.table, []).append({s0.key: "X", s0.column: v.isoformat() if f.kind == "date" else v})

@@ -125,8 +125,8 @@ def slot_audit(idx: dict, canon: dict, contracts: dict, labels: dict) -> dict:
                         else:
                             _, v, src = r
                             try:
-                                got = float(v.replace(",", "").replace("$", "")) if fact.kind == "amount" else C._d(v)
-                            except ValueError:
+                                got = C.amount(v) if fact.kind == "amount" else C._d(v)
+                            except (ValueError, ZeroDivisionError):
                                 got = None
                             t_, _, col = src.strip().strip("`").partition(".")
                             allowed = {(x.table, x.column) for x in fact.sources}
@@ -134,7 +134,7 @@ def slot_audit(idx: dict, canon: dict, contracts: dict, labels: dict) -> dict:
                                 rr.get(fact.sources[0].key if (t_, col) == (fact.sources[0].table, fact.sources[0].column)
                                        else next(x.key for x in fact.sources if (x.table, x.column) == (t_, col))) == e
                                 and rr.get(col) not in (None, "")
-                                and (float(rr[col]) if fact.kind == "amount" else C._d(rr[col])) == got
+                                and (C.amount(rr[col]) if fact.kind == "amount" else C._d(rr[col])) == got
                                 for rr in p_.tables.get(t_, []))
                             out_ = ("value, correct, cited column holds it" if st == "known" and got == val and holds
                                     else "value, correct, cited column does not hold it" if st == "known" and got == val
@@ -386,8 +386,8 @@ def main() -> int:
                                 st, val = C._resolve(fact, p_.tables, e)
                                 fid["values"] += 1
                                 try:
-                                    got = float(mm.group("val").replace(",", "")) if fact.kind == "amount" else C._d(mm.group("val").strip())
-                                except ValueError:
+                                    got = C.amount(mm.group("val")) if fact.kind == "amount" else C._d(mm.group("val").strip())
+                                except (ValueError, ZeroDivisionError):
                                     continue
                                 if st == "known" and got == val:
                                     fid["match"] += 1

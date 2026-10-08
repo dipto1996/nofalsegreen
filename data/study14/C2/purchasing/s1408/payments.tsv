@@ -1,0 +1,11 @@
+# cross-tab export 269249: remittance ledger (dataset payments)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 16
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15	rec.16
+order.key	PO-40806	PO-40804	PO-40807	PO-40808	PO-40813	PO-40801	PO-40812	PO-40815	PO-40816	PO-40810	PO-40803	PO-40811	PO-40814	PO-40805	PO-40802	PO-40809
+funds.out.wk	2026-W26-3	2026-W21-2	2026-W05-6	2026-W12-7	2026-W12-3	~	2026-W10-2	~	2026-W10-3	2026-W24-6	2026-W06-4	2026-W11-7	2026-W16-3	2026-W22-1	2026-W29-3	2026-W29-5

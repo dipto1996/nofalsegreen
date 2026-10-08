@@ -817,6 +817,9 @@ claim(f"Of {_sa['slots']:,} slots, {_sa['correct']:,} were right" in _flat
       and f"Of the {_sp['with_slot_error']} pairs with a slot error, {_sp['with_slot_error_and_wrong_verdict']} received" in _flat,
       "Study 9: slot-level extraction audit")
 _dc = json.loads((ROOT / "docs" / "study9" / "differential.json").read_text())
+_dcx = json.loads((ROOT / "docs" / "study9" / "decimal_correction.json").read_text())
+claim(f"disagreed with the checkers on\n{_dcx['disagreements_before']['study9_random_packets']} Study 9 labels and {_dcx['disagreements_before']['study13_random_packets']} Study 13 labels".replace("\n", " ") in _flat
+      and _dcx["published_labels_changed"] == 0, "decimal correction disclosed with its counts")
 claim(f"({_dc['labels']:,} labels" in _flat and _dc["n_disagreements"] == 0 and _dc["permutation_changes"] == 0
       and f"on {_dc['packets']:,} random packets" in _flat, "Study 9: differential test against the independent checker")
 _pre = json.loads((ROOT / "docs" / "study9" / "solver_correction.json").read_text())
@@ -865,7 +868,9 @@ _EF13, _EX13 = "contract13b_evidence_first", "contract13b_extract"
 _h13, _bl13, _pm13 = _q13["summary_heldout"], _q13["by_layout"], _q13["per_model_heldout"]
 _ci13 = lambda v: f"[{v['ci95_packet_bootstrap'][0]:+.3f}, {v['ci95_packet_bootstrap'][1]:+.3f}]"
 _n113 = _q13["N1 non-inferiority: extraction + solver - parser, unsupported pass, upper bound < +0.02"]
-claim(_lc13["labels"] == _lc13["agree"] == 480 and _lc13["certificates"] == _lc13["certificates_verified"] == 198
+_b13 = _lc13["by_study"]["13"]
+claim(_lc13["labels"] == _lc13["agree"] and _lc13["certificates"] == _lc13["certificates_verified"]
+      and _b13["labels"] == _b13["agree"] == 480 and _b13["completions"] == _b13["completions_verified"] == 198
       and _lc13["fuzz_disagreements"] == 0 and _lc13["fuzz_permutation_changes"] == 0 and _lc13["fuzz_labels"] == 18000
       and "All 480 labels agree" in _flat and "all 198 certificate completions verify" in _flat
       and "agree on all 18,000 labels" in _flat, "Study 13: labels, certificates and random packets")
@@ -897,6 +902,15 @@ claim(f"{_h13['parser']['unsupported_pos']:.3f} against {_h13[_EX13]['unsupporte
       and f"{_sa13['correct']:,} of {_sa13['slots']:,} extracted facts" in _flat
       and f"gave\n{_h13['hybrid']['correct_determinate']:.3f}".replace("\n", " ") in _flat
       and f"of {_h13['hybrid']['unsupported_pos']:.3f}." in _flat, "Study 13: failures, audit and hybrid")
+_cc13 = _q13["content_clustered_posthoc"]
+_ps13 = _q13["per_model_safety_vs_parser"]
+claim(all(_cc13[h]["n_contents"] == 6 and _cc13[h]["p_exact_two_sided"] == 0.03125 and abs(_cc13[h]["p_holm"] - 0.09375) < 1e-12
+          for h in ("H1", "H2", "H3"))
+      and _cc13["H1"]["contents_negative"] == _cc13["H2"]["contents_positive"] == _cc13["H3"]["contents_positive"] == 6
+      and "after Holm\ncorrection p = 0.094 for each".replace("\n", " ") in _flat and "smallest attainable exact p is 0.031" in _flat
+      and _cc13["N1"]["ci95_content_bootstrap"][1] < 0.02
+      and _ps13["gemma-4-26b-a4b-it-maas"]["delta"] > 0 and _ps13["deepseek-v3.2-maas"]["delta"] > 0,
+      "Study 13: content-clustered correction as stated")
 _g13, _d13 = _pm13["gemma-4-26b-a4b-it-maas"], _pm13["deepseek-v3.2-maas"]
 _tk13 = _q13["tokens_per_pair"]
 claim(f"from {_g13[_EF13]['unsupported_pos']:.3f} to {_g13[_EX13]['unsupported_pos']:.3f}" in _flat

@@ -1,0 +1,12 @@
+# cross-tab export 176669: goods-in notes (dataset receipts)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 14
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14
+order.key	PO-40804	PO-40811	PO-40816	PO-40810	PO-40807	PO-40815	PO-40808	PO-40803	PO-40813	PO-40809	PO-40813	PO-40812	PO-40801	PO-40805
+goodsin.day.wk	2026-W20-3	2026-W13-4	2026-W11-6	~	2026-W07-7	2026-W03-6	2026-W12-1	2026-W06-7	2026-W10-7	2026-W26-7	2026-W09-2	2026-W12-2	2026-W25-4	2026-W18-6
+goodsin.units	430	208	275	116	304	87	32	278	341	405	341	61	257	356

@@ -738,11 +738,21 @@ def table_study13() -> str:
                     f"[{v['ci95_packet_bootstrap'][0]:+.3f}, {v['ci95_packet_bootstrap'][1]:+.3f}] | "
                     f"{v['packets_positive']} / {v['packets_negative']} | – | "
                     f"{('confirmed' if v['outcome'] == 'confirmed' else 'not confirmed') if 'post hoc' not in run else 'post hoc'} |")
+    for k, v in r2["content_clustered_posthoc"].items():
+        if k == "N1":
+            continue
+        p = f"{v['p_holm']:.3f}"
+        rows.append(f"| Replication, by content (post hoc) | {k} {lab[k]} | {v['delta']:+.3f} "
+                    f"[{v['ci95_content_bootstrap'][0]:+.3f}, {v['ci95_content_bootstrap'][1]:+.3f}] | "
+                    f"{v['contents_positive']} / {v['contents_negative']} | {p} | "
+                    f"{'confirmed' if v['p_holm'] < 0.05 else 'not confirmed'} |")
     rows.append("")
     rows.append("Held-out layouts L4–L6, eighteen packets; five models averaged with equal weight; exact sign-flip test, "
                 "packet bootstrap interval, Holm over H1–H3. N1 is declared non-inferiority (upper bound below +0.02). "
                 "The first run's rule statement printed some fact names with their unit; the post-hoc rows match names "
-                "after removing it, and the replication corrected the statement before any call (Section 6.12).")
+                "after removing it, and the replication corrected the statement before any call (Section 6.12). The "
+                "last rows treat each of the six contents as one unit (its three layouts averaged), a correction "
+                "made after review.")
     return "\n".join(rows)
 
 

@@ -81,6 +81,8 @@ def main() -> int:
                     help="evaluate one arm of the declared Study 3c firms (nofalsegreen/study3c.py)")
     ap.add_argument("--study9", default=None,
                     help="Study 9 firms: 'A:<workflow>:<familiar|neutral>' or 'B:<workflow>' (nofalsegreen/study9.py)")
+    ap.add_argument("--study14", default=None,
+                    help="Study 14 firms: '<workflow>:<layout>' (nofalsegreen/study14.py)")
     ap.add_argument("--study13", default=None,
                     help="Study 13 firms: '<workflow>:<layout>' (nofalsegreen/study13.py)")
     ap.add_argument("--study8", default=None,
@@ -137,6 +139,10 @@ def main() -> int:
         from nofalsegreen import study9
         firms = study9.load_firms(args.study9)
         print(f"Study 9 ({args.study9}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
+    if args.study14:
+        from nofalsegreen import study14
+        firms = study14.load_firms(args.study14)
+        print(f"Study 14 ({args.study14}): {len(firms)} firms x {len(firms[0].pairs)} pairs")
     if args.study13:
         from nofalsegreen import study13
         firms = study13.load_firms(args.study13)
@@ -204,7 +210,7 @@ def main() -> int:
                     from nofalsegreen import study9
                     obls = (study9.semantic_obligations() if variant.startswith("contract_sem")
                             else study9.all_obligations())
-                if args.study13:
+                if args.study13 or args.study14:
                     from nofalsegreen import study13
                     obls = study13.obligations(r2=variant.startswith("contract13b"))
                 r = run_firm(provider, firm, obls, variant=variant,

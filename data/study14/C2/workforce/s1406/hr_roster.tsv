@@ -1,0 +1,14 @@
+# cross-tab export 685818: staff master (dataset hr_roster)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 16
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15	rec.16
+worker.key	E-40611	E-40603	E-40615	E-40616	E-40608	E-40610	E-40601	E-40605	E-40606	E-40604	E-40609	E-40612	E-40613	E-40607	E-40614	E-40602
+i9.redo.state	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete	Complete
+lca.lodge.intended.wk	2026-W04-4	2026-W06-6	2026-W07-3	2026-W13-2	2026-W14-2	2026-W20-2	2026-W14-5	2026-W20-6	2026-W32-6	2026-W30-2	2026-W16-1	2026-W30-3	2026-W15-2	2026-W21-6	2026-W17-2	2026-W19-7
+lca.board.state	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted	Posted
+immigration.lapse.wk	2027-W30-6	2026-W44-3	2027-W41-4	2026-W53-7	2027-W35-5	2027-W28-7	2027-W38-1	2026-W38-3	2028-W05-6	2027-W42-5	2027-W23-4	2027-W51-6	2027-W33-1	2027-W38-3	2027-W39-3	2027-W39-7

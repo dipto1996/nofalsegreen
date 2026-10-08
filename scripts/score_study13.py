@@ -200,6 +200,24 @@ def main(nested: bool = False):
                 "p_exact_two_sided": exact(xs) if len(xs) <= 18 else None,
                 "packets_positive": sum(x > 1e-12 for x in xs), "packets_negative": sum(x < -1e-12 for x in xs)}
 
+    def clustered(a, b, metric, layouts, seed, models=MODELS):
+        """Correction after review (2026-10-08): the declared tests treat each rendering as a
+        packet, but the three held-out layouts render the same six contents. Here each content
+        (workflow, seed) is one unit: its layouts are averaged, then an exact sign-flip test
+        over contents and a content bootstrap."""
+        pa, pb = per_packet(a, metric, layouts, models), per_packet(b, metric, layouts, models)
+        by: dict = {}
+        for k in sorted(set(pa) & set(pb)):
+            wf, lay, sd = k.split("-")
+            by.setdefault(f"{wf}-{sd}", []).append(pa[k] - pb[k])
+        diff = {k: sum(v) / len(v) for k, v in by.items()}
+        if not diff:
+            return {"n_contents": 0}
+        xs = [diff[k] for k in sorted(diff)]
+        return {"n_contents": len(xs), "delta": round(sum(xs) / len(xs), 4), "ci95_content_bootstrap": boot(diff, seed),
+                "p_exact_two_sided": exact(xs), "contents_positive": sum(x > 1e-12 for x in xs),
+                "contents_negative": sum(x < -1e-12 for x in xs)}
+
     H = S.HELDOUT_LAYOUTS
     out: dict = {"declared": "docs/STUDY13_DECLARATION.md", "primary": {
         "H1 extraction + solver - evidence-first: unsupported pass": contrast(EX, EF, "unsupported_pos", H, 1),
@@ -215,6 +233,15 @@ def main(nested: bool = False):
     n1 = contrast(EX, "parser", "unsupported_pos", H, 4)
     n1["outcome"] = "confirmed" if n1.get("n_packets") and n1["ci95_packet_bootstrap"][1] < 0.02 else "not confirmed"
     out["N1 non-inferiority: extraction + solver - parser, unsupported pass, upper bound < +0.02"] = n1
+    cl = {"H1": clustered(EX, EF, "unsupported_pos", H, 21), "H2": clustered(EX, "parser", "correct_determinate", H, 22),
+          "H3": clustered(EX, EF, "correct_determinate", H, 23)}
+    run = 0.0
+    for i, k in enumerate(sorted(cl, key=lambda k: cl[k]["p_exact_two_sided"])):
+        run = max(run, min(1.0, (len(cl) - i) * cl[k]["p_exact_two_sided"]))
+        cl[k]["p_holm"] = run
+    cl["N1"] = clustered(EX, "parser", "unsupported_pos", H, 24)
+    out["content_clustered_posthoc"] = cl
+    out["per_model_safety_vs_parser"] = {m: clustered(EX, "parser", "unsupported_pos", H, 25, [m]) for m in MODELS}
     out["development_layouts"] = {
         "extraction - evidence-first: unsupported pass": contrast(EX, EF, "unsupported_pos", S.DEV_LAYOUTS, 5),
         "extraction - parser: correct decisions": contrast(EX, "parser", "correct_determinate", S.DEV_LAYOUTS, 6),
@@ -269,8 +296,8 @@ def main(nested: bool = False):
                 else:
                     v, doc = r
                     try:
-                        got = float(str(v).replace(",", "").replace("$", "")) if f.kind == "amount" else S._d(str(v).strip())
-                    except ValueError:
+                        got = S.amount(v) if f.kind == "amount" else S._d(str(v).strip())
+                    except (ValueError, ZeroDivisionError):
                         got = None
                     doc = str(doc).strip().strip("`").split(".")[0].lower()
                     srcs = [x.table for x in f.sources]
@@ -313,7 +340,8 @@ def main(nested: bool = False):
     out["posthoc_name_normalised"] = {k: main_out for k, main_out in main(nested=True).items()
                                       if k in ("primary", "N1 non-inferiority: extraction + solver - parser, unsupported pass, upper bound < +0.02",
                                                "development_layouts", "summary_heldout", "summary_development",
-                                               "by_layout", "per_model_heldout", "correct_by_pattern_heldout", "slot_audit")}
+                                               "by_layout", "per_model_heldout", "correct_by_pattern_heldout", "slot_audit",
+                                               "content_clustered_posthoc", "per_model_safety_vs_parser")}
     NORMALISE = False
     OUT.mkdir(exist_ok=True)
     (OUT / ("results_r2.json" if R2 else "results.json")).write_text(json.dumps(out, indent=1))

@@ -1,0 +1,11 @@
+# cross-tab export 960378: committed orders (dataset purchase_orders)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 15
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15
+order.key	PO-40802	PO-40805	PO-40809	PO-40811	PO-40807	PO-40813	PO-40812	PO-40814	PO-40803	PO-40808	PO-40816	PO-40810	PO-40804	PO-40815	PO-40801
+order.commit.usd	86500	141500	101500	20000	64000	102000	159500	138500	152000	105000	184500	70500	168000	192000	101000

@@ -1,0 +1,13 @@
+# cross-tab export 875897: component master (dataset parts)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 16
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15	rec.16
+component.key	P-40910	P-40902	P-40911	P-40909	P-40908	P-40903	P-40905	P-40907	P-40901	P-40916	P-40904	P-40912	P-40913	P-40914	P-40906	P-40915
+qa.verdict	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass	Pass
+design.force.kn	130	412	424	208	478	232	520	586	70	136	154	562	454	130	310	244
+rig.booking.wk	2027-W21-5	2026-W25-5	2026-W37-4	2026-W22-7	2025-W52-1	2027-W09-7	2027-W12-1	2026-W48-2	2027-W22-1	2026-W51-1	2027-W05-3	2027-W15-1	2027-W22-7	2027-W10-3	2027-W01-6	2026-W21-7

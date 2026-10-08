@@ -80,8 +80,8 @@ decisions while raising correct ones under explicit decision contracts in three 
 which no prompt or record-presence gate matched. On six rules and three record layouts held out
 from the method's design, the layouts written by a separate author, it kept that safety and
 made more correct decisions than a strong rule-based parser that was exact on the layouts it
-was written for (§6.12). A program still wins when the schema is known; learned reading earns
-its place when the layout is not. **Proxy columns are a large cause:** planting columns that
+was written for (§6.12–6.13). A program still wins when the schema is known; on the synthetic
+layouts we tested, learned reading earned its place when the layout was not known in advance. **Proxy columns are a large cause:** planting columns that
 resemble required evidence, with the prompt unchanged, raises the false-green rate by 0.217 to
 0.427. Controls show that it is not the number of added columns; for Google's models it is
 mostly their names; the two Gemini models take a proxy that suggests compliance as evidence
@@ -98,7 +98,8 @@ overclaiming, distracting context and answer-menu effects. Our contribution is t
 combination where it has consequences: a four-verdict task over a third party's operational
 records with a stated primary-record standard (§3); generators that fix labels before data,
 with every label re-derived by separately written checkers and every "insufficient evidence"
-label certified by two opposite completions (§4); a preregistered study and declared follow-ups
+label that turns on missing values certified by two opposite completions, conflict labels by
+agreement (§4); a preregistered study and declared follow-ups
 that separate the proxy effect into name, value and direction, replicated on real public LCA
 records and on other developers' models (§6.1–6.9); explicit decision contracts in three
 workflows with four declared mechanism tests (§6.10–6.11); a declared transfer test on held-out
@@ -242,9 +243,14 @@ separately written checker (§6.10). Agreement on generated packets does not sho
 implementations agree everywhere: a review found an input the packets never contain, two
 disagreeing rows in a prioritised source, on which the generator's resolution depended on row
 order. Priority now ranks sources, not rows (no label changed), and on 3,000 random packets
-outside the generator's patterns (23,988 labels with duplicate rows, blank cells and every
-source combination) the generator and the checker agree on every label, and shuffling rows
-changes none (`scripts/differential_contracts.py`). Boundary choices are stated with their sensitivity (Appendix G). An expert workbook
+outside the generator's patterns (23,994 labels with duplicate rows, blank cells, decimal
+amounts and every source combination) the generator and the checker agree on every label, and
+shuffling rows changes none (`scripts/differential_contracts.py`). A second review found that
+amounts were compared as binary floating point and that candidate values stepped by one, which
+misjudges decimals closer than one apart (0.12 against 1.2 × 0.10). Amounts are now exact
+rationals; on the random packets with decimals, the earlier code disagreed with the checkers on
+121 Study 9 labels and 3 Study 13 labels, and the corrected code on none. No published label
+involves a decimal, and none changed. Boundary choices are stated with their sensitivity (Appendix G). An expert workbook
 and two AI pilot runs of it are disclosed in Appendix I; they are not part of the validation
 argument.
 
@@ -859,6 +865,15 @@ Replication run; held-out layouts L4–L6 except the development column (L1–L3
   0.002 against 0.012. The difference,
   +0.010 [+0.006, +0.014], lies inside the declared margin of +0.02.
 
+**These tests overstate the independent evidence.** The eighteen held-out inputs are six
+contents, each rendered in three layouts, and the declared tests treated renderings as
+independent. Clustered by content, all three effects point the predicted way in all six
+contents, but with six units the smallest attainable exact p is 0.031, and after Holm
+correction p = 0.094 for each: the replication is suggestive, not confirmed, at the level of
+contents. The pooled safety criterion still holds clustered by content, but not per model:
+Gemma 4 and DeepSeek V3.2 made more unsupported `pass` decisions than the parser. Study 14 was
+designed to settle these points.
+
 **Where each method fails.** On the development layouts, where it was written, the parser
 beats extraction by 0.050 in correct decisions; a known schema
 still favours a program. The models' residual errors are concentrated in conflicts: extraction
@@ -898,8 +913,11 @@ the two that answer tersely.
 | Replication | H2 Extraction − rule-based parser: correct decisions | +0.295 [+0.172, +0.419] | 12 / 6 | <0.001 | confirmed |
 | Replication | H3 Extraction − evidence-first: correct decisions | +0.230 [+0.212, +0.246] | 18 / 0 | <0.001 | confirmed |
 | Replication | N1 Extraction − parser: unsupported pass, bound < +0.02 | +0.010 [+0.006, +0.014] | 17 / 1 | – | confirmed |
+| Replication, by content (post hoc) | H1 Extraction − evidence-first: unsupported pass | -0.111 [-0.129, -0.094] | 0 / 6 | 0.094 | not confirmed |
+| Replication, by content (post hoc) | H2 Extraction − rule-based parser: correct decisions | +0.295 [+0.210, +0.380] | 6 / 0 | 0.094 | not confirmed |
+| Replication, by content (post hoc) | H3 Extraction − evidence-first: correct decisions | +0.230 [+0.211, +0.248] | 6 / 0 | 0.094 | not confirmed |
 
-Held-out layouts L4–L6, eighteen packets; five models averaged with equal weight; exact sign-flip test, packet bootstrap interval, Holm over H1–H3. N1 is declared non-inferiority (upper bound below +0.02). The first run's rule statement printed some fact names with their unit; the post-hoc rows match names after removing it, and the replication corrected the statement before any call (Section 6.12).
+Held-out layouts L4–L6, eighteen packets; five models averaged with equal weight; exact sign-flip test, packet bootstrap interval, Holm over H1–H3. N1 is declared non-inferiority (upper bound below +0.02). The first run's rule statement printed some fact names with their unit; the post-hoc rows match names after removing it, and the replication corrected the statement before any call (Section 6.12). The last rows treat each of the six contents as one unit (its three layouts averaged), a correction made after review.
 <!-- END GENERATED: table-study13 -->
 
 ## 7. The exploratory study that generated the hypotheses

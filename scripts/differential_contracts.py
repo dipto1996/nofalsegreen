@@ -33,6 +33,8 @@ D0 = date(2026, 1, 2)  # a Friday before Martin Luther King Day: business-day ed
 def _value(rng, col):
     if any(w in col for w in ("date", "_on", "first_day")):
         return (D0 + timedelta(days=rng.randint(0, 12))).isoformat()
+    if rng.random() < 0.3:  # decimals closer than 1 apart (added after review, 2026-10-08)
+        return rng.choice(["0.1", "0.10", "0.12", "0.125", "99999.5", "100000.25", "100000.5", "79.9", "80.05"])
     return str(rng.choice([90, 99, 100, 101, 110, 120]) * 1000) if "wage" in col or "gross" in col \
         else str(rng.choice([8, 9, 10, 11, 12]) * (10 if "kn" in col else 1000))
 

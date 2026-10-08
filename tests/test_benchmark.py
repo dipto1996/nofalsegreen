@@ -298,6 +298,25 @@ for _r, _c in _C.CONTRACTS.items():
           f"solver: all facts absent gives needs_evidence for {_r}")
     check(_C.label(_c, {}, "X").label == "needs_evidence", f"labeller: empty packet gives needs_evidence for {_r}")
 
+# Exact decimal arithmetic (regression for the float comparison found in review, 2026-10-08)
+from nofalsegreen import study13 as _S13  # noqa: E402
+_lm = _S13.CONTRACTS["ea.load_with_margin"]
+check(_S13.label(_lm, {"lab_certificates": [{"part_id": "X", "certified_load_kn": "0.12"}],
+                       "spec_sheets": [{"part_id": "X", "min_load_kn": "0.10"}]}, "X").label == "pass",
+      "labeller: 0.12 >= 1.2 x 0.10 passes exactly")
+check(_S13.verdict_from_facts(_lm, {"measured load": ("0.12", "lab_certificates"),
+                                    "specified minimum": ("0.10", "spec_sheets")}) == "pass",
+      "solver: 0.12 >= 1.2 x 0.10 passes exactly")
+check(_S13.label(_lm, {"lab_certificates": [{"part_id": "X", "certified_load_kn": "0.119"}],
+                       "spec_sheets": [{"part_id": "X", "min_load_kn": "0.10"}]}, "X").label == "fail",
+      "labeller: 0.119 < 1.2 x 0.10 fails")
+_wa = _C.CONTRACTS["pa.within_approval"]
+check(_C.label(_wa, {"purchase_orders": [{"po_id": "X", "po_amount": "0.12"}]}, "X").label == "needs_evidence",
+      "labeller: an unknown amount near a decimal stays undecided")
+check(_C.label(_wa, {"purchase_orders": [{"po_id": "X", "po_amount": "0.125"}],
+                     "signed_approvals": [{"po_id": "X", "approved_amount": "0.12"}]}, "X").label == "fail",
+      "labeller: 0.125 > 0.12 fails exactly")
+
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)
 

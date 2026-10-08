@@ -1,0 +1,13 @@
+# cross-tab export 559433: purchase request queue (dataset requisitions)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 16
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15	rec.16
+order.key	PO-40212	PO-40209	PO-40202	PO-40210	PO-40215	PO-40214	PO-40211	PO-40207	PO-40216	PO-40205	PO-40204	PO-40213	PO-40203	PO-40208	PO-40206	PO-40201
+request.phase	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved	Approved
+request.eta.wk	2026-W09-5	2026-W02-2	2026-W22-6	2026-W02-6	2026-W09-6	2026-W13-2	2026-W05-6	2026-W30-3	2026-W27-5	2026-W17-7	2026-W23-4	2026-W21-5	2026-W23-6	2026-W16-7	2026-W17-5	2026-W15-1
+request.ask.usd	12000	126500	102000	172500	84500	22000	76000	106500	100000	184500	107000	195500	49500	91000	16000	199000

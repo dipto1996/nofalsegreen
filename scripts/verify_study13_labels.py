@@ -1,4 +1,4 @@
-"""Study 13 labels against the independent checker (labelcheck/study13_checker.py).
+"""Study 13 and Study 14 labels against the independent checker (labelcheck/study13_checker.py).
 
 1. Every label of every test and parser-development packet agrees with the checker.
 2. Every needs_evidence certificate: both completions, written as records, are judged by the
@@ -43,7 +43,7 @@ def completion(c, values, key):
     for f in c.facts:
         s = f.sources[0]
         v = values[f.name]
-        tables.setdefault(s.table, {})[s.column] = v.isoformat() if isinstance(v, date) else repr(float(v))
+        tables.setdefault(s.table, {})[s.column] = v.isoformat() if isinstance(v, date) else str(v)
     return {t: [{key: "X", **cols}] for t, cols in tables.items()}
 
 
@@ -55,7 +55,10 @@ def labels(tables, wf):
 def fuzz_value(rng, kind, col):
     if kind == "date":
         return (date(2026, 6, 26) + timedelta(days=rng.choice([0, 1, 2, 5, 9, 14, 15, 89, 90, 91, 364, 365, 366]))).isoformat()
-    return str(rng.choice([0, 5, 6, 10, 12, 50, 60, 100, 120]))
+    # integers and decimals, including pairs on the 1.2x boundary (0.10 / 0.12, 12.5 / 15) and
+    # equal values written differently (0.1 / 0.10); added after review, 2026-10-08
+    return rng.choice(["0", "5", "6", "10", "12", "50", "60", "100", "120",
+                       "0.1", "0.10", "0.12", "0.119", "0.121", "12.5", "15", "15.0", "0.05", "0.06"])
 
 
 def main() -> int:
@@ -65,13 +68,17 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
         for wf in S.WORKFLOWS:
-            for seed in S.SEEDS + S.PARSER_DEV_SEEDS:
+            for seed in S.SEEDS + S.PARSER_DEV_SEEDS + tuple(range(1401, 1411)):  # Study 14 contents too
                 p = S.make_packet(wf, seed)
                 d = tmp / f"{wf}-{seed}"
                 write(p.tables, wf, d)
                 theirs = K.check(wf, str(d))
+                st = out.setdefault("by_study", {}).setdefault("14" if seed >= 1401 else "13", Counter())
                 for k, cert in sorted(p.labels.items()):
                     out["labels"] += 1
+                    st["labels"] += 1
+                    st["agree"] += theirs.get(k) == cert.label
+                    st["missing_value_certificates"] += cert.kind == "unknown"
                     out["kinds"][cert.kind] += 1
                     if theirs.get(k) == cert.label:
                         out["agree"] += 1
@@ -87,6 +94,8 @@ def main() -> int:
                             res.append(K.check(wf, str(dd)).get(f"{c.rule_id}::X") == want)
                         out["certificates"] += 2
                         out["certificates_verified"] += sum(res)
+                        st["completions"] += 2
+                        st["completions_verified"] += sum(res)
         rng = random.Random(SEED)
         for i in range(N_FUZZ):
             wf = S.WORKFLOWS[i % 3]
@@ -110,6 +119,7 @@ def main() -> int:
                 if theirs.get(k) != v.label and len(out["disagreements"]) < 20:
                     out["disagreements"].append({"fuzz": i, "pair": k, "labeller": v.label, "checker": theirs.get(k)})
     out["kinds"], out["fuzz_label_counts"] = dict(out["kinds"]), dict(sorted(out["fuzz_label_counts"].items()))
+    out["by_study"] = {k: dict(sorted(v.items())) for k, v in sorted(out["by_study"].items())}
     (ROOT / "docs" / "study13").mkdir(parents=True, exist_ok=True)
     (ROOT / "docs" / "study13" / "label_check.json").write_text(json.dumps(out, indent=1))
     print({k: v for k, v in out.items() if k != "disagreements"})

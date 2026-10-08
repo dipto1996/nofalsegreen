@@ -1,0 +1,11 @@
+# cross-tab export 602514: I-9 re-check events (dataset reverifications)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 15
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15
+worker.key	E-40512	E-40516	E-40508	E-40507	E-40507	E-40510	E-40501	E-40504	E-40511	E-40509	E-40506	E-40505	E-40502	E-40514	E-40513
+i9.redo.done.wk	2026-W28-7	2026-W48-5	2026-W04-2	2027-W13-6	2027-W12-4	2026-W26-2	2027-W28-1	2027-W02-1	~	2026-W27-6	2027-W06-5	~	2027-W10-1	2026-W51-7	2026-W42-4

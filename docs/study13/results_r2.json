@@ -53,6 +53,112 @@
   "packets_negative": 1,
   "outcome": "confirmed"
  },
+ "content_clustered_posthoc": {
+  "H1": {
+   "n_contents": 6,
+   "delta": -0.1111,
+   "ci95_content_bootstrap": [
+    -0.1285,
+    -0.0938
+   ],
+   "p_exact_two_sided": 0.03125,
+   "contents_positive": 0,
+   "contents_negative": 6,
+   "p_holm": 0.09375
+  },
+  "H2": {
+   "n_contents": 6,
+   "delta": 0.2946,
+   "ci95_content_bootstrap": [
+    0.2102,
+    0.3799
+   ],
+   "p_exact_two_sided": 0.03125,
+   "contents_positive": 6,
+   "contents_negative": 0,
+   "p_holm": 0.09375
+  },
+  "H3": {
+   "n_contents": 6,
+   "delta": 0.2298,
+   "ci95_content_bootstrap": [
+    0.2109,
+    0.2485
+   ],
+   "p_exact_two_sided": 0.03125,
+   "contents_positive": 6,
+   "contents_negative": 0,
+   "p_holm": 0.09375
+  },
+  "N1": {
+   "n_contents": 6,
+   "delta": 0.0101,
+   "ci95_content_bootstrap": [
+    0.0062,
+    0.0149
+   ],
+   "p_exact_two_sided": 0.03125,
+   "contents_positive": 6,
+   "contents_negative": 0
+  }
+ },
+ "per_model_safety_vs_parser": {
+  "gemini-3.1-pro-preview": {
+   "n_contents": 6,
+   "delta": -0.0017,
+   "ci95_content_bootstrap": [
+    -0.0052,
+    0.0
+   ],
+   "p_exact_two_sided": 1.0,
+   "contents_positive": 0,
+   "contents_negative": 1
+  },
+  "gemini-3.8-flash": {
+   "n_contents": 6,
+   "delta": -0.0017,
+   "ci95_content_bootstrap": [
+    -0.0052,
+    0.0
+   ],
+   "p_exact_two_sided": 1.0,
+   "contents_positive": 0,
+   "contents_negative": 1
+  },
+  "gemma-4-26b-a4b-it-maas": {
+   "n_contents": 6,
+   "delta": 0.0417,
+   "ci95_content_bootstrap": [
+    0.033,
+    0.0521
+   ],
+   "p_exact_two_sided": 0.03125,
+   "contents_positive": 6,
+   "contents_negative": 0
+  },
+  "deepseek-v3.2-maas": {
+   "n_contents": 6,
+   "delta": 0.0139,
+   "ci95_content_bootstrap": [
+    0.0017,
+    0.0313
+   ],
+   "p_exact_two_sided": 0.25,
+   "contents_positive": 3,
+   "contents_negative": 0
+  },
+  "glm-5.2-maas": {
+   "n_contents": 6,
+   "delta": -0.0017,
+   "ci95_content_bootstrap": [
+    -0.0052,
+    0.0
+   ],
+   "p_exact_two_sided": 1.0,
+   "contents_positive": 0,
+   "contents_negative": 1
+  }
+ },
  "development_layouts": {
   "extraction - evidence-first: unsupported pass": {
    "n_packets": 18,
@@ -1003,6 +1109,112 @@
    "packets_positive": 17,
    "packets_negative": 1,
    "outcome": "confirmed"
+  },
+  "content_clustered_posthoc": {
+   "H1": {
+    "n_contents": 6,
+    "delta": -0.1111,
+    "ci95_content_bootstrap": [
+     -0.1285,
+     -0.0938
+    ],
+    "p_exact_two_sided": 0.03125,
+    "contents_positive": 0,
+    "contents_negative": 6,
+    "p_holm": 0.09375
+   },
+   "H2": {
+    "n_contents": 6,
+    "delta": 0.2946,
+    "ci95_content_bootstrap": [
+     0.2102,
+     0.3799
+    ],
+    "p_exact_two_sided": 0.03125,
+    "contents_positive": 6,
+    "contents_negative": 0,
+    "p_holm": 0.09375
+   },
+   "H3": {
+    "n_contents": 6,
+    "delta": 0.2298,
+    "ci95_content_bootstrap": [
+     0.2109,
+     0.2485
+    ],
+    "p_exact_two_sided": 0.03125,
+    "contents_positive": 6,
+    "contents_negative": 0,
+    "p_holm": 0.09375
+   },
+   "N1": {
+    "n_contents": 6,
+    "delta": 0.0101,
+    "ci95_content_bootstrap": [
+     0.0062,
+     0.0149
+    ],
+    "p_exact_two_sided": 0.03125,
+    "contents_positive": 6,
+    "contents_negative": 0
+   }
+  },
+  "per_model_safety_vs_parser": {
+   "gemini-3.1-pro-preview": {
+    "n_contents": 6,
+    "delta": -0.0017,
+    "ci95_content_bootstrap": [
+     -0.0052,
+     0.0
+    ],
+    "p_exact_two_sided": 1.0,
+    "contents_positive": 0,
+    "contents_negative": 1
+   },
+   "gemini-3.8-flash": {
+    "n_contents": 6,
+    "delta": -0.0017,
+    "ci95_content_bootstrap": [
+     -0.0052,
+     0.0
+    ],
+    "p_exact_two_sided": 1.0,
+    "contents_positive": 0,
+    "contents_negative": 1
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "n_contents": 6,
+    "delta": 0.0417,
+    "ci95_content_bootstrap": [
+     0.033,
+     0.0521
+    ],
+    "p_exact_two_sided": 0.03125,
+    "contents_positive": 6,
+    "contents_negative": 0
+   },
+   "deepseek-v3.2-maas": {
+    "n_contents": 6,
+    "delta": 0.0139,
+    "ci95_content_bootstrap": [
+     0.0017,
+     0.0313
+    ],
+    "p_exact_two_sided": 0.25,
+    "contents_positive": 3,
+    "contents_negative": 0
+   },
+   "glm-5.2-maas": {
+    "n_contents": 6,
+    "delta": -0.0017,
+    "ci95_content_bootstrap": [
+     -0.0052,
+     0.0
+    ],
+    "p_exact_two_sided": 1.0,
+    "contents_positive": 0,
+    "contents_negative": 1
+   }
   },
   "development_layouts": {
    "extraction - evidence-first: unsupported pass": {

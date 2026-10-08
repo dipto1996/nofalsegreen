@@ -1,0 +1,11 @@
+# cross-tab export 295325: design spec extracts (dataset spec_sheets)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 16
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15	rec.16
+component.key	P-40913	P-40902	P-40907	P-40905	P-40901	P-40909	P-40903	P-40910	P-40914	P-40908	P-40903	P-40911	P-40916	P-40915	P-40906	P-40904
+floor.force.kn	370	335	480	425	50	165	185	100	100	390	194	345	105	195	250	120

@@ -1,21 +1,37 @@
 {
- "labels": 480,
- "agree": 480,
+ "labels": 1440,
+ "agree": 1440,
  "disagreements": [],
- "certificates": 198,
- "certificates_verified": 198,
+ "certificates": 588,
+ "certificates_verified": 588,
  "kinds": {
-  "determinate": 351,
-  "unknown": 99,
-  "conflict": 30
+  "determinate": 1056,
+  "unknown": 294,
+  "conflict": 90
  },
  "fuzz_packets": 3000,
  "fuzz_labels": 18000,
  "fuzz_disagreements": 0,
  "fuzz_permutation_changes": 0,
  "fuzz_label_counts": {
-  "fail": 2703,
-  "needs_evidence": 13875,
-  "pass": 1422
+  "fail": 2611,
+  "needs_evidence": 14023,
+  "pass": 1366
+ },
+ "by_study": {
+  "13": {
+   "agree": 480,
+   "completions": 198,
+   "completions_verified": 198,
+   "labels": 480,
+   "missing_value_certificates": 99
+  },
+  "14": {
+   "agree": 960,
+   "completions": 390,
+   "completions_verified": 390,
+   "labels": 960,
+   "missing_value_certificates": 195
+  }
  }
 }

@@ -26,9 +26,10 @@ import itertools
 import random
 from dataclasses import dataclass
 from datetime import date, timedelta
+from fractions import Fraction
 from pathlib import Path
 
-from .contracts import Certified, Contract, Fact, Source
+from .contracts import Certified, Contract, Fact, Source, amount, amount_points
 from .generator import add_business_days
 from .schema import Entity, Firm, Label, Obligation, Pair, Verdict
 
@@ -184,7 +185,7 @@ RULES = {w: [c for c in CONTRACTS.values() if c.workflow == w] for w in WORKFLOW
 
 # ---------------------------------------------------------------- the labeller
 def _value(kind, raw):
-    return float(raw) if kind == "amount" else _d(raw)
+    return amount(raw) if kind == "amount" else _d(raw)
 
 
 def resolve(fact: Fact, tables: dict, entity: str):
@@ -210,30 +211,32 @@ def _bd_back(d: date, n: int) -> date:
 def candidates(rule_id: str, kind: str, known: list, n_unknown: int) -> list:
     """Values for one unknown fact: every critical point of the predicate on both sides.
 
-    Amounts: each known value, its images under the rule's scale and inverse scale, each
-    +-0.5 (values are integers, so no comparison point lies strictly between), plus a
-    ladder of distinct values so several unknowns can take every relative order. Dates:
-    each known date and its images under the rule's day and business-day shifts and their
-    inverses, each +-1 day, plus a ladder. A business-day shift is a non-decreasing step
-    function, so its inverse image is bracketed by _bd_back and the day after."""
+    Amounts (exact rationals): each known value and its images under the rule's scale and
+    inverse scale, with every midpoint between neighbours, a point below and a ladder above
+    (contracts.amount_points). Dates: each known date and its images under the rule's day
+    and business-day shifts and their inverses, each +-1 day (dates are integers), plus a
+    ladder. A business-day shift is a non-decreasing step function, so its inverse image is
+    bracketed by _bd_back and the day after."""
+    if kind == "amount":
+        crit = set()
+        for k in known:
+            crit.add(k)
+            for typ, n in SHIFTS[rule_id]:
+                if typ == "scale":
+                    crit |= {k * Fraction(str(n)), k / Fraction(str(n))}
+        return amount_points(crit, n_unknown)
     pts = set()
     for k in known:
         imgs = {k}
         for typ, n in SHIFTS[rule_id]:
-            if kind == "amount" and typ == "scale":
-                imgs |= {k * n, k / n}
-            if kind == "date" and typ == "days":
+            if typ == "days":
                 imgs |= {k + timedelta(days=n), k - timedelta(days=n)}
-            if kind == "date" and typ == "bdays":
+            if typ == "bdays":
                 b = _bd_back(k, n)
                 imgs |= {add_business_days(k, n), b, b + timedelta(days=1)}
         for x in imgs:
-            pts |= ({x - 0.5, x, x + 0.5} if kind == "amount" else {x - timedelta(days=1), x, x + timedelta(days=1)})
+            pts |= {x - timedelta(days=1), x, x + timedelta(days=1)}
     m = max(n_unknown, 1) + 1
-    if kind == "amount":
-        top = max([0.0, *known])
-        pts |= {0.0, *(top * 3 + 1000.0 * (i + 1) * 3 for i in range(m))}
-        return sorted(p for p in pts if p >= 0)
     ref = min(known) if known else date(2026, 1, 5)
     hi = max(known) if known else ref
     pts |= {ref - timedelta(days=1000 * (i + 1)) for i in range(m)} | {hi + timedelta(days=1000 * (i + 1)) for i in range(m)}
@@ -287,8 +290,8 @@ def verdict_from_facts(contract: Contract, reported: dict) -> str:
         if s is None:
             continue
         try:
-            v = float(str(value).replace(",", "").replace("$", "")) if f.kind == "amount" else _d(str(value).strip())
-        except ValueError:
+            v = amount(value) if f.kind == "amount" else _d(str(value).strip())
+        except (ValueError, ZeroDivisionError):
             continue
         tables.setdefault(s.table, []).append({s.key: "X", s.column: v.isoformat() if f.kind == "date" else v})
     return label(contract, tables, "X").label

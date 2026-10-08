@@ -1,0 +1,8 @@
+{
+ "found": "review, 2026-10-08: ea.load_with_margin compared 5*M >= 6*N in binary floating point (0.12 vs 1.2 x 0.10 failed); Study 9 candidate amounts stepped by +-1, missing gaps between decimals closer than 1",
+ "fix": "amounts as exact rationals (contracts.amount, contracts.amount_points: midpoints between critical points)",
+ "measured_by": "the decimal versions of scripts/differential_contracts.py and scripts/verify_study13_labels.py run against the code at commit c6e86a0 (before the fix) and after it",
+ "disagreements_before": {"study9_random_packets": 121, "study13_random_packets": 3},
+ "disagreements_after": {"study9_random_packets": 0, "study13_random_packets": 0},
+ "published_labels_changed": 0
+}

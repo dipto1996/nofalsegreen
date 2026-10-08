@@ -1,0 +1,13 @@
+# cross-tab export 906245: supplier bills (dataset invoices)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 16
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15	rec.16
+order.key	PO-40812	PO-40808	PO-40815	PO-40807	PO-40813	PO-40816	PO-40805	PO-40801	PO-40811	PO-40810	PO-40812	PO-40809	PO-40802	PO-40804	PO-40814	PO-40803
+bill.qty.units	61	25	85	286	349	270	351	257	194	121	61	390	445	433	360	278
+bill.value.usd	159500	108500	187000	60500	102000	179500	140500	104500	19500	70000	159500	99500	83500	171000	138500	152500
+bill.deadline.wk	2026-W15-2	2026-W12-4	2026-W04-1	2026-W10-3	2026-W10-7	2026-W15-1	2026-W21-4	2026-W27-6	~	2026-W27-1	2026-W13-1	2026-W32-2	2026-W31-7	~	2026-W13-7	2026-W09-6

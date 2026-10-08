@@ -1,0 +1,12 @@
+# cross-tab export 825041: worksite notice postings (dataset lca_notices)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 15
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15
+worker.key	E-40506	E-40509	E-40505	E-40504	E-40515	E-40508	E-40503	E-40512	E-40501	E-40516	E-40513	E-40507	E-40510	E-40514	E-40511
+board.unpinned.wk	2026-W30-4	2026-W29-4	2026-W09-5	2026-W14-3	2026-W26-6	2026-W05-1	2026-W09-5	~	2026-W30-1	2026-W33-1	2026-W19-1	2026-W27-5	2026-W20-1	2026-W17-5	2026-W25-7
+board.pinned.wk	2026-W26-4	2026-W27-4	2026-W06-3	2026-W10-7	2026-W23-3	2026-W03-3	2026-W07-4	2026-W12-1	2026-W27-4	2026-W30-4	2026-W16-7	2026-W25-5	2026-W17-5	2026-W13-7	2026-W23-7

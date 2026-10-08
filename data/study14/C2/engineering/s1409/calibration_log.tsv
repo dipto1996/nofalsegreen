@@ -1,0 +1,11 @@
+# cross-tab export 176604: rig calibration history (dataset calibration_log)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 14
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14
+component.key	P-40902	P-40914	P-40905	P-40912	P-40915	P-40903	P-40908	P-40916	P-40910	P-40907	P-40909	P-40911	P-40901	P-40913
+rig.cal.wk	2026-W10-1	~	2026-W06-7	2026-W09-6	2026-W26-6	2026-W24-2	2026-W05-1	2026-W07-5	2026-W18-4	~	2026-W27-6	2026-W16-6	2026-W16-1	~

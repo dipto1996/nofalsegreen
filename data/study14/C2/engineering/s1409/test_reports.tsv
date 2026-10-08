@@ -1,0 +1,12 @@
+# cross-tab export 276737: in-house break tests (dataset test_reports)
+# orientation: each COLUMN after the first is one record (rec.NN, in extract order);
+#   each ROW is one attribute. A key may head several columns; every column is a separate record.
+# *.wk  = ISO 8601 week date YYYY-Www-D (ISO week-numbering year, week 01-53, D 1=Mon..7=Sun);
+#         e.g. 2026-W01-4 = Thursday 1 January 2026
+# *.usd = US dollars, plain decimal; *.kn = kilonewtons; *.units = unit count
+# ~ = not recorded (never zero). Fields are TAB-separated.
+# records: 15
+attribute	rec.01	rec.02	rec.03	rec.04	rec.05	rec.06	rec.07	rec.08	rec.09	rec.10	rec.11	rec.12	rec.13	rec.14	rec.15
+component.key	P-40910	P-40901	P-40916	P-40909	P-40914	P-40908	P-40902	P-40905	P-40903	P-40915	P-40911	P-40912	P-40904	P-40913	P-40907
+inhouse.break.wk	2027-W22-7	2027-W23-3	2026-W51-6	~	2027-W10-6	2026-W01-4	2026-W26-4	2027-W13-1	2027-W10-3	2026-W22-6	2026-W38-6	2027-W15-5	2027-W05-4	2027-W24-3	2026-W49-4
+inhouse.break.kn	114	48	108	199	137	454	401	510	228	239	407	567	128	444	582

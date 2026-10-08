@@ -559,3 +559,41 @@ def user_prompt(
         f"## Pairs to evaluate ({len(pair_ids)})\n\n"
         + "\n".join(pair_lines)
     )
+
+
+# Study 14 (docs/STUDY14_DECLARATION.md): a second learned baseline. The model writes a parser
+# for the packet in front of it; the program is executed (sandboxed: no network, no writes)
+# and its facts go to the same solver. One call per packet rendering.
+CODEGEN14 = "codegen14"
+_SYSTEM_CODEGEN = """You write data-extraction programs for an organisation's records.
+
+You will be given the organisation's records, verbatim, one document per file (the file names
+are shown), and decision rules that state, for every fact, the only documents and the item
+within them that establish it, with a fallback document where one is named.
+
+Write one Python 3 program, standard library only, that takes a directory path as its only
+argument, reads the files in it (named exactly as shown), and prints one JSON object to
+standard output. For every pair listed, the object maps the pair id to an object mapping each
+fact name of that rule to one of:
+  ["<value>", "<document>"]   the value, and the document it was read from
+  "ABSENT"                     no named document has a value for that entity
+  "CONFLICT"                   the deciding document holds disagreeing values for that entity
+
+Read a fact from the first listed document that has a value for the entity; use a fallback
+document only when the first has none. Dates as YYYY-MM-DD; amounts as decimal strings in the
+rule's unit. The program must parse the values from the files: do not copy values from the
+records into the program. It will be run on these files and on other packets kept in the
+same format.
+
+Return only the program, in a single ```python block."""
+
+
+def codegen_prompt(firm: Firm, obligations: list[Obligation]) -> tuple[str, str]:
+    wanted = {p.pair_id.split("::")[0] for p in firm.pairs}
+    rules = _render_obligations([o for o in obligations if o.rule_id in wanted])
+    files = "\n".join(f"### {k}  ({Path(v).name})\n```text\n{Path(v).read_text()}\n```\n"
+                      for k, v in sorted(firm.sources.items()))
+    pairs = "\n".join(p.pair_id for p in firm.pairs)
+    user = (f"# {firm.provenance.get('header', 'Employer')}: {firm.name}\n\n## Files\n\n{files}\n"
+            f"## Decision rules\n\n{rules}\n\n## Pairs ({len(firm.pairs)})\n\n{pairs}")
+    return _SYSTEM_CODEGEN, user
