@@ -31,11 +31,12 @@ public records in their publishers' formats it again cut unsupported positives a
 prompt (by 0.094) and raised correct decisions (by 0.171), in every packet; a model
 that wrote a parser, given the pairs to answer and the diagnostics of failed runs, showed no
 detectable difference in accuracy (0.972 against 0.964), with opposite differences for
-different models, and made no unsupported positive in 6,000 decisions. A first run of that
+different models, and made no unsupported positive in 6,000 evaluated pairs. A first run of that
 study had truncated some records for two of its arms; we report the correction. Keeping the
 decision itself out of the model sharply reduces unsupported decisions on these contracts; it
-does not guarantee their elimination, since a reader can still misread or suppress a fact. All data, prompts and replies are released
-(Study 15's defective first run kept only the final code-generation programs), and a script
+does not guarantee their elimination, since a reader can still misread or suppress a fact. All data, prompts and scored replies are released
+(16 capped Study 15 completions that were re-requested are counted but not kept, and Study
+15's defective first run kept only its final code-generation programs), and a script
 recomputes every number.
 
 ---
@@ -1172,7 +1173,7 @@ unsupported `pass` decisions than the parser made, so the choice of model matter
 the architecture. Study 15 tested the remedy on real records in
 their native formats: extraction and a model-written parser, given the pairs to answer and the
 diagnostics of failed runs, showed no detectable pooled difference in accuracy (0.964 and
-0.972), and the parser made no unsupported `pass` in 6,000 decisions. That is a trade-off, not
+0.972), and the parser made no unsupported `pass` in 6,000 evaluated pairs. That is a trade-off, not
 dominance: for GLM-5.2 the programs answered only 0.900 of pairs, against
 1.000 for extraction, and with fifty packets the exact 95% bound on the chance of any
 unsupported `pass` in a packet is still 0.058. Its first run had looked like a large win for code generation; the cause was our

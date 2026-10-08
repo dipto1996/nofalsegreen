@@ -1032,7 +1032,8 @@ claim(f"generation was ahead by {-_h2m15[_g15]['delta']:.3f} {_neg(_h2m15[_g15])
       and f"code generation was ahead by {-_h2x15['delta']:.3f}\n  {_neg(_h2x15)} (post hoc)".replace("\n  ", " ") in _flat,
       "Study 15: per-model H2 and the matched-resource sensitivity")
 claim(f"(by {-_P15[0]['delta']:.3f}) and raised correct decisions (by {_P15[2]['delta']:.3f})" in _AB
-      and "no unsupported positive in 6,000 decisions" in _AB
+      and "no unsupported positive in 6,000 evaluated pairs" in _AB and "6,000 decisions" not in _flat
+      and f"({_capped15} capped Study 15 completions that were re-requested are counted but not kept" in _AB
       and sum(_zb15[f"{_CG15}::{m}"]["pairs"] for m in _r15["per_model"]) == 6000
       and f"({_s15[_CG15]['correct_determinate']:.3f} against {_s15[_EX15]['correct_determinate']:.3f})" in _AB
       and "equally accurate" not in _flat and "as accurate" not in _AB, "abstract: Study 15, no equivalence claim")
