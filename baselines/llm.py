@@ -21,6 +21,7 @@ replies are parsed at face value and counted in `off_schema`.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -301,7 +302,13 @@ def run_firm(
                   f"({len(preds)} parsed so far)", flush=True)
         user = user_prompt(firm, obligations, batch, scope_sources=scope_sources)
         ck = cache_key(batch)
+        # Added after review (2026-10-08): entries record a hash of the exact prompt, and an
+        # entry whose recorded hash differs from this prompt is never reused. Older entries
+        # carry no hash and keep their keys, so earlier studies rebuild unchanged.
+        prompt_sha = hashlib.sha256((system + "\x00" + user).encode()).hexdigest()
         cached = cache.get(ck)
+        if isinstance(cached, dict) and cached.get("prompt_sha256") not in (None, prompt_sha):
+            cached = None
         if isinstance(cached, dict):
             cached = cached.get("text")
         if cached is not None:
@@ -392,8 +399,9 @@ def run_firm(
         # Never cache a reply that was cut off or empty: a cached truncation
         # would be replayed forever instead of re-requested with more budget.
         if cache_path is not None and text.strip() and not hit_cap:
-            cache[ck] = {"text": text, "output_tokens": u.output_tokens,
-                         "max_tokens": max_tokens, "finish_reason": u.finish_reason}
+            cache[ck] = {"text": text, "output_tokens": u.output_tokens, "input_tokens": u.input_tokens,
+                         "max_tokens": max_tokens, "finish_reason": u.finish_reason,
+                         "prompt_sha256": prompt_sha, "user_chars": len(user)}
             cache_path.parent.mkdir(parents=True, exist_ok=True)
             cache_path.write_text(json.dumps(cache, indent=1))
 

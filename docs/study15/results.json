@@ -163,6 +163,128 @@
    "meets_margin": true
   }
  },
+ "zero_event_bounds": {
+  "contract13b_extract::gemini-3.1-pro-preview": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "contract13b_extract::gemini-3.8-flash": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "contract13b_extract::gemma-4-26b-a4b-it-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 1,
+   "unsupported_pass_events": 1,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": null,
+   "upper95_per_pair_if_zero": null
+  },
+  "contract13b_extract::deepseek-v3.2-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 12,
+   "unsupported_pass_events": 37,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": null,
+   "upper95_per_pair_if_zero": null
+  },
+  "contract13b_extract::glm-5.2-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 1,
+   "unsupported_pass_events": 1,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": null,
+   "upper95_per_pair_if_zero": null
+  },
+  "codegen15::gemini-3.1-pro-preview": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "codegen15::gemini-3.8-flash": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "codegen15::gemma-4-26b-a4b-it-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "codegen15::deepseek-v3.2-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "codegen15::glm-5.2-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "contract13b_evidence_first::gemini-3.1-pro-preview": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "contract13b_evidence_first::gemini-3.8-flash": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  },
+  "contract13b_evidence_first::gemma-4-26b-a4b-it-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 48,
+   "unsupported_pass_events": 270,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": null,
+   "upper95_per_pair_if_zero": null
+  },
+  "contract13b_evidence_first::deepseek-v3.2-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 42,
+   "unsupported_pass_events": 160,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": null,
+   "upper95_per_pair_if_zero": null
+  },
+  "contract13b_evidence_first::glm-5.2-maas": {
+   "packets": 50,
+   "packets_with_unsupported_pass": 0,
+   "unsupported_pass_events": 0,
+   "pairs": 1200,
+   "upper95_per_packet_if_zero": 0.0582,
+   "upper95_per_pair_if_zero": 0.0025
+  }
+ },
  "summary": {
   "contract13b_evidence_first": {
    "unsupported_pos": 0.0717,
@@ -828,36 +950,36 @@
  "needs_evidence_by_origin": {
   "contract13b_evidence_first": {
    "withheld": {
-    "pairs": 945,
-    "unsupported_pass": 0.0328,
-    "unsupported_fail": 0.0011
+    "pairs": 1125,
+    "unsupported_pass": 0.0364,
+    "unsupported_fail": 0.0027
    },
    "missing at source": {
-    "pairs": 230,
-    "unsupported_pass": 0.0522,
-    "unsupported_fail": 0.0087
+    "pairs": 50,
+    "unsupported_pass": 0.04,
+    "unsupported_fail": 0.0
    }
   },
   "contract13b_extract": {
    "withheld": {
-    "pairs": 945,
-    "unsupported_pass": 0.0095,
-    "unsupported_fail": 0.0042
+    "pairs": 1125,
+    "unsupported_pass": 0.008,
+    "unsupported_fail": 0.0036
    },
    "missing at source": {
-    "pairs": 230,
+    "pairs": 50,
     "unsupported_pass": 0.0,
     "unsupported_fail": 0.0
    }
   },
   "codegen15": {
    "withheld": {
-    "pairs": 945,
+    "pairs": 1125,
     "unsupported_pass": 0.0,
     "unsupported_fail": 0.0
    },
    "missing at source": {
-    "pairs": 230,
+    "pairs": 50,
     "unsupported_pass": 0.0,
     "unsupported_fail": 0.0
    }

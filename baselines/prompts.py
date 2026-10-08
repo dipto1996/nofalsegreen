@@ -318,7 +318,12 @@ CONTRACT13_EXTRACT = "contract13_extract"
 # changes (nofalsegreen/study13.statement_r2), so fact names cannot absorb their units.
 CONTRACT13B_EVIDENCE_FIRST = "contract13b_evidence_first"
 CONTRACT13B_EXTRACT = "contract13b_extract"
-CONTRACT13_VARIANTS = (CONTRACT13_EVIDENCE_FIRST, CONTRACT13_EXTRACT, CONTRACT13B_EVIDENCE_FIRST, CONTRACT13B_EXTRACT)
+# Study 15's corrected run (declaration addendum): the same prompts as contract13b_*, under new
+# names so that no reply from the truncated first run can be reused.
+CONTRACT15_EVIDENCE_FIRST = "contract15_evidence_first"
+CONTRACT15_EXTRACT = "contract15_extract"
+CONTRACT13_VARIANTS = (CONTRACT13_EVIDENCE_FIRST, CONTRACT13_EXTRACT, CONTRACT13B_EVIDENCE_FIRST, CONTRACT13B_EXTRACT,
+                       CONTRACT15_EVIDENCE_FIRST, CONTRACT15_EXTRACT)
 
 _SYSTEM_C13 = """You are checking an organisation's records against stated decision rules.
 
@@ -373,9 +378,9 @@ Return a line for every pair. Do not add commentary, headers, or explanation."""
 
 
 def _contract_system(variant: str) -> str:
-    if variant in (CONTRACT13_EVIDENCE_FIRST, CONTRACT13B_EVIDENCE_FIRST):
+    if variant in (CONTRACT13_EVIDENCE_FIRST, CONTRACT13B_EVIDENCE_FIRST, CONTRACT15_EVIDENCE_FIRST):
         return _SYSTEM_C13 + _MENU_C13_EVIDENCE_FIRST
-    if variant in (CONTRACT13_EXTRACT, CONTRACT13B_EXTRACT):
+    if variant in (CONTRACT13_EXTRACT, CONTRACT13B_EXTRACT, CONTRACT15_EXTRACT):
         return _SYSTEM_C13 + _MENU_C13_EXTRACT
     if variant == CONTRACT_SEM_OFFERED:
         return _SYSTEM_SEM.replace("{verdict_menu}", _MENU_SEM_OFFERED)
@@ -466,7 +471,7 @@ def sources_for_regimes(firm: Firm, regimes: set[str]) -> list[str]:
 
 
 def _render_sources(
-    firm: Firm, only: list[str] | None = None, max_chars_per_source: int = 40_000
+    firm: Firm, only: list[str] | None = None, max_chars_per_source: int | None = None
 ) -> str:
     out = []
     items = sorted(firm.sources.items())
@@ -484,8 +489,11 @@ def _render_sources(
             # and the reply would be scored as if it had seen the records.
             raise FileNotFoundError(f"source export {kind!r} not found at {p}")
         text = p.read_text()
-        if len(text) > max_chars_per_source:
-            text = text[:max_chars_per_source] + "\n...(truncated)"
+        # Never truncate. Until 2026-10-08 sources were cut at 40,000 characters; no source of
+        # Studies 1-14 reached that, but every USAspending packet of Study 15's first run did,
+        # so its prompts lost about half the records (found in review). A cap now refuses.
+        if max_chars_per_source is not None and len(text) > max_chars_per_source:
+            raise ValueError(f"source {kind!r} has {len(text):,} characters, over the cap of {max_chars_per_source:,}")
         fence = {".csv": "csv", ".json": "json"}.get(p.suffix, "text")  # Study 13 layouts; CSV unchanged
         out.append(f"### {kind}  ({p.name})\n```{fence}\n{text}\n```\n")
     return "\n".join(out)

@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT))
 from nofalsegreen import study4, study6, study15  # noqa: E402
 
 OUT = ROOT / "docs" / "study15"
+R2 = "--r2" in sys.argv  # the corrected run (declaration addendum)
 
 if __name__ == "__main__":
     for d in ("cache", "runs", "logs"):
@@ -21,7 +22,8 @@ if __name__ == "__main__":
     for prov, model in models:
         short = model.split("/")[-1]
         for wf in study15.WORKFLOWS:
-            for var in ("contract13b_evidence_first", "contract13b_extract"):
+            for var in (("contract15_evidence_first", "contract15_extract") if R2
+                        else ("contract13b_evidence_first", "contract13b_extract")):
                 t = f"{short}__{wf}__{var}"
                 cmd = [sys.executable, "-u", str(ROOT / "scripts" / "run_free.py"), "--provider", prov,
                        "--model", f"{prov}/{model}#r0", "--firms", "0", "--variant", var, "--batch", "12",
@@ -33,8 +35,8 @@ if __name__ == "__main__":
                 n += 1
             for sh in range(4):
                 cmd = [sys.executable, "-u", str(ROOT / "scripts" / "run_study15_codegen.py"), prov,
-                       f"{prov}/{model}#r0", wf, f"{sh}/4"]
-                subprocess.Popen(cmd, cwd=ROOT, stdout=(OUT / "logs" / f"{short}__{wf}__codegen15_s{sh}.log").open("a"),
+                       f"{prov}/{model}#r0", wf, f"{sh}/4"] + (["--r2"] if R2 else [])
+                subprocess.Popen(cmd, cwd=ROOT, stdout=(OUT / "logs" / f"{short}__{wf}__codegen15{'b' if R2 else ''}_s{sh}.log").open("a"),
                                  stderr=subprocess.STDOUT, start_new_session=True)
                 n += 1
     print("started", n)

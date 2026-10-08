@@ -23,8 +23,13 @@ from baselines.prompts import PROMPT_VERSION, codegen15_prompt, codegen15_repair
 from exec_study14_codegen import program as extract_program  # noqa: E402
 from nofalsegreen import study15  # noqa: E402
 
-OUT = ROOT / "docs" / "study15" / "codegen_cache"
-MAX_TOKENS, MAX_CALLS = 32000, 3
+# --r2: the corrected run of the declaration addendum. Two calls at most (extraction makes two
+# calls of 32,000 output tokens for a 24-pair packet), and every reply and every intermediate
+# program is kept, so the repair sequence can be replayed.
+R2 = "--r2" in sys.argv
+OUT = ROOT / "docs" / "study15" / ("codegen_cache_r2" if R2 else "codegen_cache")
+MAX_TOKENS, MAX_CALLS = 32000, (2 if R2 else 3)
+VARIANT = "codegen15b" if R2 else "codegen15"
 PROFILE = "(version 1)(allow default)(deny network*)(deny file-write*)"
 
 
@@ -119,8 +124,9 @@ if __name__ == "__main__" and "--replay" in sys.argv:
     raise SystemExit(replay())
 
 if __name__ == "__main__":
-    prov, model, wf = sys.argv[1], sys.argv[2], sys.argv[3]
-    shard, nshards = map(int, (sys.argv[4] if len(sys.argv) > 4 else "0/1").split("/"))  # throughput only
+    args = [a for a in sys.argv[1:] if a != "--r2"]
+    prov, model, wf = args[0], args[1], args[2]
+    shard, nshards = map(int, (args[3] if len(args) > 3 else "0/1").split("/"))  # throughput only
     OUT.mkdir(parents=True, exist_ok=True)
     short = model.split("/")[-1].split("#")[0]
     path = OUT / f"{short}__{wf}__s{shard}of{nshards}.json"
@@ -131,7 +137,7 @@ if __name__ == "__main__":
         if k % nshards != shard:
             continue
         f = study15.firm(wf, k)
-        key = f"{PROMPT_VERSION}|{model}|codegen15|{f.firm_id}"
+        key = f"{PROMPT_VERSION}|{model}|{VARIANT}|{f.firm_id}"
         if key in cache:
             continue
         man = manifest(f)
@@ -152,6 +158,10 @@ if __name__ == "__main__":
             new = extract_program(text)
             rec = {"output_tokens": u.output_tokens, "input_tokens": u.input_tokens, "finish_reason": u.finish_reason,
                    "has_program": new is not None}
+            if R2:
+                import hashlib
+                rec.update({"reply": text, "program": new, "prompt_sha256":
+                            hashlib.sha256((system + "\x00" + user).encode()).hexdigest()})
             if new is None:
                 calls.append(rec)
                 diag = ["The reply contained no ```python block."]

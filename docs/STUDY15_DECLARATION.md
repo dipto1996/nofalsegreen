@@ -73,3 +73,30 @@ unsupported `pass` rate, with a packet-bootstrap upper 95% bound below 0.01.
 All measures by source and by model; unsupported decisions on pairs whose evidence we withheld
 versus pairs missing at source; code generation's calls, repairs, capped replies and reuse;
 a slot audit; tokens per pair for every model system.
+
+## Addendum: corrected run (declared 2026-10-08, after review, before any corrected call)
+
+**What went wrong.** The shared prompt renderer cut every source at 40,000 characters. Every
+USAspending packet (93,630–96,725 characters) was truncated for the evidence-first prompt and
+extraction, so about half of its records never reached those requests, while code generation
+read the full file. No source of Studies 1–14 reached the cap. Two further defects: the
+"budget" was not matched (a 24-pair packet takes two extraction calls; code generation was
+allowed three), and repair trajectories were not kept. Separately, the scorer tagged a withheld
+field only against the rule it was drawn for.
+
+**Corrections.** The renderer no longer truncates (a cap now refuses). Every new cache entry
+records a SHA-256 of its exact prompt and is reused only for that prompt;
+`scripts/audit_study15_inputs.py` regenerates every request of the corrected run, checks that
+each request contains every record of its packet in full, and matches the recorded hashes.
+Code generation is capped at two calls of 32,000 output tokens (extraction's allowance for
+these packets), and every reply and intermediate program is kept
+(`docs/study15/codegen_cache_r2`). Withholding now marks every rule with a fact read from the
+withheld field. Safety with zero observed events is also reported as an exact one-sided 95%
+upper bound (packets as units), since a bootstrap of all-zero packets is [0, 0].
+
+**Corrected run.** All three systems on all 50 packets, launched together, with new variant
+names (`contract15_evidence_first`, `contract15_extract`, `codegen15b`), so no reply of the
+first run can be reused. Prompts, solver, packets, labels and rules unchanged. H1–H3, the
+per-model safety criterion and the reported analyses are as declared above
+(`python3 scripts/score_study15.py --r2`, writing `docs/study15/results_r2.json`). The
+corrected run is the primary Study 15 result; the first run is reported as defective.

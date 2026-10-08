@@ -24,7 +24,9 @@ from nofalsegreen import study13 as S  # noqa: E402
 from score_study14 import codegen_facts, slots  # noqa: E402
 
 MODELS = [m.split("/")[-1] for m in (*study4.MODELS, *study6.MODELS)]
-EF, EX, CG = "contract13b_evidence_first", "contract13b_extract", "codegen15"
+R2 = "--r2" in sys.argv  # the corrected run (declaration addendum): complete inputs, matched call cap
+EF, EX, CG = (("contract15_evidence_first", "contract15_extract", "codegen15b") if R2
+              else ("contract13b_evidence_first", "contract13b_extract", "codegen15"))
 ABSTAIN = {"needs_evidence", "unmonitored"}
 OUT = ROOT / "docs" / "study15"
 MARGIN, MC = 0.01, 200000
@@ -59,12 +61,15 @@ def main() -> int:
             idx.setdefault((parts[3], parts[2]), []).append(
                 (parts[1].split("/")[-1].split("#")[0], v.get("text", "") if isinstance(v, dict) else v))
     cg: dict = {}
-    for p in sorted((OUT / "codegen_cache").glob("*.json")):
+    for p in sorted((OUT / ("codegen_cache_r2" if R2 else "codegen_cache")).glob("*.json")):
         cg.update(json.loads(p.read_text()))
 
     packets = {(wf, k): study15.make_packet(wf, k) for wf, k in study15.contents()}
     labels = {c: {k: v.label for k, v in p[3].items()} for c, p in packets.items()}
-    withheld = {c: {f"{r}::{e}" for e, r, _ in p[4]} for c, p in packets.items()}
+    # A withheld field affects every rule with a fact read from it, not only the rule it was drawn
+    # for (corrected after review: withholding an initiation date affects both FDA rules).
+    withheld = {c: {f"{r.rule_id}::{e}" for e, _, col in p[4] for r in study15.RULES[c[0]]
+                    if any(f.sources[0].column == col for f in r.facts)} for c, p in packets.items()}
     pred: dict = {}
     reports: dict = {}
     for (wf, k), (recs, tables, ents, labs, wh) in packets.items():
@@ -140,6 +145,24 @@ def main() -> int:
             out["safety_per_model"][f"{sy}::{m}"] = {"rate": round(sum(r.values()) / len(r), 4),
                                                      "ci95_packet_bootstrap": boot(r, 40 + MODELS.index(m)),
                                                      "meets_margin": boot(r, 40 + MODELS.index(m))[1] < MARGIN}
+    # Zero observed events (added after review): a bootstrap of all-zero packets is [0, 0] and says
+    # nothing about unseen failures. Report the exact one-sided 95% upper bound (Clopper-Pearson,
+    # 1 - 0.05^(1/n)) treating packets as independent units, for the per-packet chance of any
+    # unsupported pass, and the same bound per pair under (unwarranted) pair independence.
+    def zero_bound(n):
+        return round(1 - 0.05 ** (1 / n), 4)
+    zb = {}
+    for sy in (EX, CG, EF):
+        for m in MODELS:
+            dd = pred.get((sy, m), {})
+            pk = [any(d.get(k) == "pass" and v != "pass" for k, v in labels[c].items()) for c, d in dd.items()]
+            ev = sum(d.get(k) == "pass" and v != "pass" for c, d in dd.items() for k, v in labels[c].items())
+            npairs = sum(len(labels[c]) for c in dd)
+            zb[f"{sy}::{m}"] = {"packets": len(pk), "packets_with_unsupported_pass": sum(pk),
+                                "unsupported_pass_events": ev, "pairs": npairs,
+                                "upper95_per_packet_if_zero": zero_bound(len(pk)) if pk and not any(pk) else None,
+                                "upper95_per_pair_if_zero": zero_bound(npairs) if npairs and not ev else None}
+    out["zero_event_bounds"] = zb
     METRICS = ("unsupported_pos", "unsupported_neg", "correct_determinate", "coverage", "unnecessary_abstention",
                "followup_share")
 
@@ -240,7 +263,7 @@ def main() -> int:
                               for k, a in sorted(tok.items()) if a[2]}
     out["label_counts"] = {wf: dict(Counter(v for (w, _), d in labels.items() if w == wf for v in d.values()))
                            for wf in study15.WORKFLOWS}
-    (OUT / "results.json").write_text(json.dumps(out, indent=1, default=str))
+    (OUT / ("results_r2.json" if R2 else "results.json")).write_text(json.dumps(out, indent=1, default=str))
     for k, v in out["primary"].items():
         print(k, v)
     for sy, row in out["summary"].items():
