@@ -159,14 +159,14 @@ def main() -> int:
         prim[f"P4 P1 on held-out workflow: {wf}"] = exact(
             per_packet(lambda m, w, s: paired(m, w, s, OFF, fg, U, True, False), wfs=(wf,)), 9104)
     # ---------------- Part B
-    def metrics(get):
+    def metrics(get, models=MODELS):
         """get(m, wf, s) -> {pair: verdict}; returns per-packet dicts of each metric (mean over models)."""
         res = {k: {} for k in ("unsupported_pos", "unsupported_neg", "correct_determinate", "coverage",
-                                "unnecessary_abstention", "review_burden")}
+                                "unnecessary_abstention", "review_burden", "followup_share")}
         for wf in study9.WORKFLOWS:
             for s in study9.B_SEEDS:
                 acc = {k: [] for k in res}
-                for m in MODELS:
+                for m in models:
                     d = get(m, wf, s)
                     if d is None:
                         continue
@@ -179,10 +179,25 @@ def main() -> int:
                     acc["coverage"].append(sum(k in d for k in labs) / n)
                     acc["unnecessary_abstention"].append(sum(d.get(k) in ABSTAIN for k, v in labs.items() if v != "needs_evidence") / max(1, nd))
                     acc["review_burden"].append(sum(d.get(k) in ABSTAIN for k in labs) / n)
+                    # every item a person must look at: abstentions, fails and unanswered items
+                    acc["followup_share"].append(sum(d.get(k) in ABSTAIN or d.get(k) == "fail" or k not in d for k in labs) / n)
                 for k in res:
                     if acc[k]:
                         res[k][f"{wf}-{s}"] = sum(acc[k]) / len(acc[k])
         return res
+
+    sys.path.insert(0, str(ROOT / "labelcheck"))
+    from contract_checker import check as _independent  # noqa: E402
+    import tempfile as _tf
+    _detcache: dict = {}
+
+    def _det(wf, s):
+        """The independent checker applied directly to the packet: a program reading the named columns."""
+        if (wf, s) not in _detcache:
+            d = Path(_tf.mkdtemp())
+            C.write_canonical(canon[(wf, s)], d)
+            _detcache[(wf, s)] = _independent(wf, str(d))
+        return _detcache[(wf, s)]
 
     canon = {}
     for wf in study9.WORKFLOWS:
@@ -209,6 +224,7 @@ def main() -> int:
         "extraction + solver": lambda m, wf, s: pred.get((m, "B", wf, s, True, EX)),
         "presence gate + offered prompt": gate(lambda m, wf, s: pred.get((m, "B", wf, s, True, OFF))),
         "presence gate + evidence-first prompt": gate(lambda m, wf, s: pred.get((m, "B", wf, s, True, EF))),
+        "deterministic reading of named columns": lambda m, wf, s: _det(wf, s),
         "always abstain": lambda m, wf, s: {pid: "needs_evidence" for (pt, w, sd, pid) in labels if pt == "B" and w == wf and sd == s},
     }
     met = {name: metrics(g) for name, g in getters.items()}
@@ -250,9 +266,40 @@ def main() -> int:
     out["partA_per_model"] = {
         "P1": {m: (lambda r: round(sum(r.values()) / len(r), 4) if r else None)(per_packet(lambda mm, wf, s: paired(mm, wf, s, OFF, fg, U, True, False), models=[m])) for m in MODELS},
         "P2": {m: (lambda r: round(sum(r.values()) / len(r), 4) if r else None)(per_packet(lambda mm, wf, s: paired(mm, wf, s, OFF, ab, D, False, True), models=[m])) for m in MODELS}}
-    out["partB_per_model"] = {name: {m: {k: round(sum(v.values()) / len(v), 4) if v else None
-                                         for k, v in (lambda g: {kk: {x: y for x, y in vv.items()} for kk, vv in metrics(lambda mm, wf, s, g=g, m=m: g(m, wf, s) if mm == MODELS[0] else None).items()})(g).items()}
-                                     for m in MODELS} for name, g in getters.items() if name != "always abstain"}
+    out["partB_per_model"] = {name: {m: {k: (round(sum(v.values()) / len(v), 4) if v else None)
+                                         for k, v in metrics(g, models=[m]).items()} for m in MODELS}
+                               for name, g in getters.items() if name not in ("always abstain", "deterministic reading of named columns")}
+    # extraction fidelity: extracted values attributed to a named column, compared with the record
+    fid = {"values": 0, "match": 0, "reported_where_record_absent": 0}
+    for wf in study9.WORKFLOWS:
+        for s_ in study9.B_SEEDS:
+            p_ = canon[(wf, s_)]
+            f_ = study9.firm("B", wf, s_, True)
+            for m, text in idx.get((f_.firm_id, EX), []):
+                for raw in text.splitlines():
+                    for pid in {pr.pair_id for pr in f_.pairs}:
+                        if pid in raw:
+                            rule, e = pid.split("::", 1)
+                            c = contracts[rule]
+                            for chunk in raw.split(pid, 1)[1].split("|"):
+                                mm = FACT_RE.match(re.sub(r"^\s*facts\s*", "", chunk.strip(), flags=re.I))
+                                if not mm or not mm.group("src") or mm.group("val").upper() in ("ABSENT", "CONFLICT"):
+                                    continue
+                                fact = next((x for x in c.facts if x.name == mm.group("name").strip()), None)
+                                if fact is None:
+                                    continue
+                                st, val = C._resolve(fact, p_.tables, e)
+                                fid["values"] += 1
+                                try:
+                                    got = float(mm.group("val").replace(",", "")) if fact.kind == "amount" else C._d(mm.group("val").strip())
+                                except ValueError:
+                                    continue
+                                if st == "known" and got == val:
+                                    fid["match"] += 1
+                                if st == "unknown":
+                                    fid["reported_where_record_absent"] += 1
+                            break
+    out["extraction_fidelity"] = fid
     pats = Counter()
     for wf in study9.WORKFLOWS:
         for s in study9.B_SEEDS:

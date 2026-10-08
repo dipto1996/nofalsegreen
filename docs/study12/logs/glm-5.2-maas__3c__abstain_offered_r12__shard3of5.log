@@ -1,0 +1,27 @@
+Study 3c (proxy): 10 firms x 42 pairs
+shard 3/5: ['synthetic-002023-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertexopen/zai-org/glm-5.2-maas#r12 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r12 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 6419 output tokens, 47s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 8861 output tokens, 67s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 8399 output tokens, 61s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 4331 output tokens, 36s, finish=stop, ok
+  synthetic-002023-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 5895 output tokens, 48s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 12774 output tokens, 97s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 12859 output tokens, 99s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3756 output tokens, 28s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 0.152  recall 1.000  absF1 0.918  unparsed 0  (4 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r12::abstain_offered: FGR 0.076 (sd 0.107)  recall 1.000  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study12/runs/glm-5.2-maas__3c__abstain_offered_r12__shard3of5.json

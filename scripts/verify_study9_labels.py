@@ -27,7 +27,8 @@ def write(tables, wf, d: Path):
 
 
 def main() -> int:
-    out = {"labels": 0, "agree": 0, "disagreements": [], "certificates": 0, "certificates_verified": 0, "certificate_failures": []}
+    out = {"labels": 0, "agree": 0, "disagreements": [], "certificates": 0, "certificates_verified": 0, "certificate_failures": [],
+           "witness_labels": 0, "conflict_labels": 0}
     tmp = Path(tempfile.mkdtemp())
     for part, seeds in (("A", study9.A_SEEDS), ("B", study9.B_SEEDS)):
         for wf in study9.WORKFLOWS:
@@ -43,8 +44,11 @@ def main() -> int:
                     else:
                         out["disagreements"].append({"packet": f"{part}-{wf}-{s}", "pair": key, "ours": cert.label,
                                                      "checker": ref.get(key), "kind": cert.kind})
+                    if cert.kind == "conflict":
+                        out["conflict_labels"] += 1
                     if cert.kind != "unknown":
                         continue
+                    out["witness_labels"] += 1
                     rule, e = key.split("::", 1)
                     c = C.CONTRACTS[rule]
                     for want, w in (("pass", cert.witness_pass), ("fail", cert.witness_fail)):

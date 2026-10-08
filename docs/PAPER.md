@@ -8,9 +8,9 @@ Diptopal Roy, Settle AI Inc. (diptopal@joinsettle.info)
 
 A system that marks a decision satisfied claims that its evidence establishes it. We study
 when language models make such claims without support, giving **false greens**, under rules
-that state which records decide each question. Every label is certified: each "insufficient
-evidence" label carries two completions of the records with opposite outcomes, checked by
-independently written programs. In employer immigration compliance, adding **proxy
+that state which records decide each question. Every label is checked by independently written programs: each "insufficient evidence"
+label that turns on missing values carries two completions of the records with opposite
+outcomes, and conflict labels are checked by agreement. In employer immigration compliance, adding **proxy
 columns** (fields beside the required record, such as an onboarding date beside a missing
 Form I-9) raised the false-green rate by 0.427 under a pass/fail dashboard schema and by 0.217
 when abstention was offered, in a preregistered study of seven models from five developers
@@ -28,9 +28,10 @@ not. Across three workflows with explicit decision contracts, false greens nearl
 under an offered abstention verdict. Of four declared explanations, only an instruction to
 match columns by meaning mattered, and only in part. What reliably removed unsupported
 decisions was separating reading from deciding: the model extracts each fact with its
-source, and a solver applies the rule. This cut unsupported positives from 0.068 to 0.011 and
-raised correct decisions from 0.818 to 0.968, beating the strongest prompt and a
-record-presence gate. All data, prompts and replies are released.
+source, and a solver applies the rule. Averaged over five models, this cut unsupported
+positives from 0.068 to 0.002 and raised correct decisions from 0.818 to 0.967, beating the
+strongest prompt and a record-presence gate. On these structured records a program that
+reads the named columns directly is exact. All data, prompts and replies are released.
 
 ---
 
@@ -153,7 +154,9 @@ adding "I don't know" to multiple-choice medical questions *increased* wrong ans
 al., 2026); here the abstaining verdicts are defined by whether the required record is
 present, and offering them lowers false greens (§6), so the effect of an abstention option
 depends on its definition. Our schema conditions place these effects in a compliance
-interface and vary the menu's parts one at a time.
+interface and vary the menu's parts one at a time. Pairing a language model with a symbolic
+solver or executor is established for logical reasoning and tables (Pan et al., 2023; Cheng
+et al., 2023); our remedy applies that design to evidence-bound decisions.
 
 ---
 
@@ -235,8 +238,9 @@ exposing one generator bug: a year-end observed holiday that touched no study fi
 `needs_evidence` label we publish a **certificate**: two completions of the visible records
 with opposite outcomes. Each completion is written out as records and judged by the
 independent checker. All 3,330 such labels in Studies 3, 3c, 4 and 8 are certified, as are all
-454 in Study 9, whose 1,008 labels also agree with a second, separately written checker
-(§6.10). Boundary choices are stated with their sensitivity (Appendix G). An expert workbook
+227 that turn on missing values in Study 9 (454 completions checked). Study 9's 36 conflict
+labels, which no completion can certify, and all its 1,008 labels agree with a second,
+separately written checker (§6.10). Boundary choices are stated with their sensitivity (Appendix G). An expert workbook
 and two AI pilot runs of it are disclosed in Appendix I; they are not part of the validation
 argument.
 
@@ -628,8 +632,9 @@ decision contract and moves to three workflows:
 Each contract names the only columns that establish each fact, and every entity carries
 reassuring non-authoritative columns: an approval status of "Approved", a QA status of
 "Pass", a target load, an onboarding date. All 2,304 labels of Studies 9 and 11 agree with a
-second checker written independently from a plain-language specification, and all 454
-`needs_evidence` certificates of Study 9 were verified by it (§4).
+second checker written independently from a plain-language specification. Study 9's 227
+missing-value labels each have two completions with opposite outcomes, all 454 of them
+verified by that checker; its 36 conflict labels are checked by agreement (§4).
 
 **Part A: names and menus.** Six packets per workflow, each rendered with familiar or neutral
 table and column names (identical values), under the offered or forced menu. Once the contract
@@ -657,23 +662,53 @@ patterns:
 - a conflict resolved by stated priority;
 - a conflict with no resolution.
 
+Where a workflow cannot express a pattern, the slot holds complete records: the
+violation-despite-a-gap slots in purchasing and engineering, and the redundant-source and
+resolved-conflict slots in engineering, whose facts each have a single source.
+
 The remedy separates reading from deciding. The model reports each fact with the column it
 came from, and a deterministic solver accepts a value only from a column the contract names
 and applies the rule. Against the evidence-first prompt (Table 7, Figure 6), it:
 
-| Measure | Evidence-first prompt | Extraction + solver |
-|---|---|---|
-| Unsupported `pass` (I1) | 0.068 | 0.011 |
-| Correct decisions on decidable pairs (I2) | 0.818 | 0.968 |
-| Unsupported `fail` | 0.034 | 0.006 |
-| Coverage | 0.978 | 0.997 |
-| Unnecessary abstention | 0.053 | 0.029 |
-| Share sent to review | 0.283 | 0.278 |
+| Measure | Evidence-first prompt | Extraction + solver | Program reading the named columns |
+|---|---|---|---|
+| Unsupported `pass` (I1) | 0.068 | 0.002 | 0.000 |
+| Correct decisions on decidable pairs (I2) | 0.818 | 0.967 | 1.000 |
+| Unsupported `fail` | 0.034 | 0.006 | 0.000 |
+| Coverage | 0.978 | 0.997 | 1.000 |
+| Unnecessary abstention | 0.053 | 0.031 | 0.000 |
+| Share needing follow-up (`fail`, abstain or unanswered) | 0.629 | 0.658 | 0.649 |
 
-Both I1 and I2 were confirmed, and the remedy did better in 17 of 18 packets. It also beat a
-row-level presence gate added to the same prompt by 0.172 in correct decisions (I3). The gate
-lowered unsupported `pass` only to 0.060, because unresolved conflicts and redundant sources
-defeat a presence check. Always abstaining scores zero correct decisions.
+All three declared tests were confirmed, and the remedy did better in every packet on
+unsupported `pass` and in 17 of 18 on correct decisions. It also beat a row-level presence
+gate added to the same prompt by 0.171 in correct decisions (I3). The gate lowered unsupported
+`pass` only to 0.060, because unresolved conflicts and redundant sources defeat a presence
+check.
+
+The remedy sends more items to follow-up than the prompt (0.658 against 0.629), close to the
+0.649 that correct decisions require. The prompt's lower share comes from violations hidden as
+`pass`.
+
+**Per model,** the gains come mostly from Gemma 4 (unsupported `pass` 0.229 to 0.007) and
+DeepSeek V3.2 (0.108 to 0.002). Gemini 3.8 Flash's correct decisions fell from 1.000 to 0.977,
+and GLM-5.2's unsupported `pass` rose from 0.002 to 0.004 (Table 21).
+
+**The decision layer depends on extraction.** The solver checks that a value is attributed to
+a named column, not that it matches the record. In the retained replies, 5,269 of 5,296
+extracted values (99.5%) equal the record's value, and 3 were reported where the record had
+none.
+
+**A correction.** The first version of the solver had a defect, found in review: when both
+dates of a rule were reported absent, a single fallback value made them equal and the rule
+passed. It produced 24 of the remedy's then 31 unsupported `pass` answers (0.011). After the
+fix, with a regression test, the same retained replies give 0.002. The labels were unaffected.
+
+**What this shows and what it does not.** A program reading the named columns, here the
+independent checker, is exact on these packets, because their schema is known. The comparison
+therefore shows how to structure a language-model system that must decide from records, not
+that a language model is needed when a fixed schema allows a program. The approach follows
+earlier work that pairs a language model with a symbolic executor (Pan et al., 2023; Cheng et
+al., 2023).
 
 <!-- FIGURE: fig_study9 | wide | (a) Study 9 Part B, harder packets: unsupported pass over all pairs and correct decisions on decidable pairs, mean of five models, for each safeguard. (b) Study 11: unsupported pass on the same missing-evidence pairs when the deciding records are a blank cell, a missing row or an absent table; lines are models, the diamond the mean. -->
 
@@ -685,8 +720,9 @@ packets, with the same five models.
 
 - **Binding versus describing (Study 10).** The rules listed the information needed instead
   of naming columns, with the binding sentence removed. Unsupported `pass` rose by only 0.002
-  under the offered menu and 0.043 under the forced menu (B1–B3, none confirmed). Binding
-  evidence to named columns is not what suppressed false greens.
+  under the offered menu and 0.043 under the forced menu (B1–B3, none confirmed; the
+  forced-menu interval, [+0.013, +0.073], excludes zero before correction). Binding does not
+  explain the offered-menu result; a smaller role under forced choice is not ruled out.
 - **Visibility of the gap (Study 11).** The deciding records were removed as blank cells, as
   missing rows or as an absent table. All three forms produced almost no false greens (G1–G3,
   at most +0.018, none confirmed). A missing table alone does not explain Studies 3–8.
@@ -694,7 +730,10 @@ packets, with the same five models.
   will not match the wording of the obligations" and to "match them by meaning". *Removing*
   that sentence from the original prompt on the Study 3c proxy-column firms lowered false
   greens by 0.085 (M2, Holm p = 0.004, all ten firms): Gemma 4 from 0.770 to 0.491, and
-  GLM-5.2 from 0.115 to 0.036. *Adding* it to the contract prompts changed nothing (M1).
+  GLM-5.2 from 0.115 to 0.036. Against a re-run of the original prompt made at the same time,
+  declared as an addendum, the estimate was +0.090 [+0.051, +0.129] (exact p = 0.006, nine of
+  ten firms). *Adding* the sentence to the contract prompts produced no detectable change (M1,
+  +0.002).
 
 The instruction a deployer writes to cope with mismatched column names therefore contributes
 to proxy acceptance, but it accounts for only part of the difference between the
@@ -712,9 +751,9 @@ architectural change of Part B, not a wording.
 | 9 | P3 Forced − offered menu: familiarity effect | -0.056 [-0.119, +0.004] | 4 / 11 | 0.362 | not confirmed |
 | 9 | P4 P1 on a held-out workflow (purchasing) | -0.011 [-0.022, +0.000] | 0 / 2 | 0.638 | not confirmed |
 | 9 | P4 P1 on a held-out workflow (engineering) | -0.036 [-0.053, -0.019] | 0 / 5 | 0.273 | not confirmed |
-| 9 | I1 Extraction + solver − evidence-first: unsupported pass | -0.057 [-0.078, -0.040] | 0 / 17 | <0.001 | confirmed |
-| 9 | I2 Extraction + solver − evidence-first: correct decisions | +0.150 [+0.114, +0.189] | 17 / 0 | <0.001 | confirmed |
-| 9 | I3 Extraction + solver − row gate + evidence-first: correct decisions | +0.172 [+0.127, +0.216] | 17 / 0 | <0.001 | confirmed |
+| 9 | I1 Extraction + solver − evidence-first: unsupported pass | -0.065 [-0.087, -0.049] | 0 / 18 | <0.001 | confirmed |
+| 9 | I2 Extraction + solver − evidence-first: correct decisions | +0.149 [+0.113, +0.188] | 17 / 0 | <0.001 | confirmed |
+| 9 | I3 Extraction + solver − row gate + evidence-first: correct decisions | +0.171 [+0.126, +0.215] | 17 / 0 | <0.001 | confirmed |
 | 10 | B1 Described − bound evidence, offered | +0.002 [+0.000, +0.006] | 1 / 0 | 1.000 | not confirmed |
 | 10 | B2 Described − bound evidence, forced | +0.043 [+0.013, +0.073] | 10 / 2 | 0.067 | not confirmed |
 | 10 | B3 Described − bound, held-out workflows | +0.003 [+0.000, +0.008] | 1 / 0 | 1.000 | not confirmed |
@@ -754,10 +793,11 @@ from the presence of a document title. These observations are what Study 3 teste
 ## 8. Discussion
 
 The experiments establish one remedy firmly and several risks. When a system must decide from
-records, let the model read and a program decide: in Study 9 this cut unsupported decisions
-of both kinds by more than 80% and raised correct decisions, without sending more items to
-review, on packets built to defeat a record-presence check. Prompt wording did not achieve
-this. Two parts of a verdict menu
+records, let the model read and a program decide: in Study 9, averaged over five models, this
+cut unsupported decisions of both kinds by more than 80% and raised correct decisions, on
+packets built to defeat a record-presence check. It sends more items to follow-up, close to
+what correct decisions require. Prompt wording did not achieve this. Where the records follow a
+fixed schema, a program applying the rule directly is better still. Two parts of a verdict menu
 lowered false greens, a verdict for "could not tell" and, when that verdict was absent, the
 warning that a missing record is not a record in order; the wording of `pass` mattered for some models and not others; with both in place, false-green
 rates of 0.04 to 0.15 remain on the anchor firm and 0.16 to 0.84 on proxy-column firms. Export
@@ -844,6 +884,8 @@ Amaral, O., Abualhaija, S., Torre, D., Sabetzadeh, M. and Briand, L. C. (2022). 
 
 Chalkidis, I., Jana, A., Hartung, D., Bommarito, M., Androutsopoulos, I., Katz, D. M. and Aletras, N. (2022). LexGLUE: A Benchmark Dataset for Legal Language Understanding in English. Proceedings of ACL 2022. https://aclanthology.org/2022.acl-long.297
 
+Cheng, Z., Xie, T., Shi, P., Li, C., Nadkarni, R., Hu, Y., Xiong, C., Radev, D., Ostendorf, M., Zettlemoyer, L., Smith, N. A. and Yu, T. (2023). Binding Language Models in Symbolic Languages. ICLR 2023. https://arxiv.org/abs/2210.02875
+
 Chow, C. (1970). On optimum recognition error and reject tradeoff. IEEE Transactions on Information Theory 16(1):41-46. https://doi.org/10.1109/TIT.1970.1054406
 
 Dahl, M., Magesh, V., Suzgun, M. and Ho, D. E. (2024). Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models. Journal of Legal Analysis 16(1):64-93. https://arxiv.org/abs/2401.01301
@@ -889,6 +931,8 @@ Madhusudhan, N., Madhusudhan, S. T., Yadav, V. and Hashemi, M. (2025). Do LLMs K
 Magesh, V., Surani, F., Dahl, M., Suzgun, M., Manning, C. D. and Ho, D. E. (2025). Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools. Journal of Empirical Legal Studies 22(2). https://doi.org/10.1111/jels.12413
 
 Marino, B., Hunter, R., Schnabl, C., Jamali, Z., Kalpakos, M. E., Kashyap, M., Hinton, I., Hanson, A., Nazir, M., Steffek, F., Wen, H. and Lane, N. D. (2025). AIReg-Bench: Benchmarking Language Models That Assess AI Regulation Compliance. arXiv preprint arXiv:2510.01474. https://arxiv.org/abs/2510.01474
+
+Pan, L., Albalak, A., Wang, X. and Wang, W. Y. (2023). Logic-LM: Empowering Large Language Models with Symbolic Solvers for Faithful Logical Reasoning. Findings of EMNLP 2023. https://aclanthology.org/2023.findings-emnlp.248
 
 Rajpurkar, P., Jia, R. and Liang, P. (2018). Know What You Don't Know: Unanswerable Questions for SQuAD. Proceedings of ACL 2018. https://aclanthology.org/P18-2124
 
@@ -963,6 +1007,7 @@ python3 scripts/verify_study9_labels.py         # Study 9/11 labels and certific
 python3 scripts/score_study9.py                 # Study 9
 python3 scripts/score_study10.py                # Study 10
 python3 scripts/score_study11.py                # Study 11
+python3 scripts/score_study12.py                # Study 12
 python3 scripts/labelcheck_compare.py           # generated labels vs the reference checker
 python3 scripts/fill_results.py                 # regenerates every table in this paper
 python3 scripts/make_figures.py                 # regenerates every chart
@@ -971,7 +1016,7 @@ python3 scripts/verify_paper.py                 # recomputes every number in the
 
 No step makes an API call: every score is rebuilt from the retained replies in
 `docs/**/cache/` and `docs/raw/`. `verify_paper.py` re-runs every scorer above and requires all
-22 derived results files to come out byte-identical; the two remaining inputs,
+23 derived results files to come out byte-identical; the two remaining inputs,
 `docs/llm_results.json` and `docs/label_audit_second.json`, are records of model calls rather
 than derived files. Re-running the models uses `scripts/run_free.py`,
 `scripts/run_vertex.py` and the `scripts/run_study*.py` launchers.
@@ -1756,6 +1801,20 @@ Difference in false-green rate on unassessable pairs answered in both cells, [95
 
 Each model's effect on the false-green rate (H3: on `fail`), paired on pairs answered in both cells and pooled over firms; descriptive, computed after the results. Tests in Tables 5 and 6 and Section 6.8.
 <!-- END GENERATED: table-per-model -->
+
+**Table 21 — Study 9 Part B by model.**
+
+<!-- BEGIN GENERATED: table-study9-models -->
+| Model | Unsupported pass: prompt | Unsupported pass: extraction | Correct: prompt | Correct: extraction | Follow-up: prompt | Follow-up: extraction |
+|---|---|---|---|---|---|---|
+| Gemini 3.1 Pro | 0.000 | 0.000 | 1.000 | 1.000 | 0.649 | 0.649 |
+| Gemini 3.8 Flash | 0.000 | 0.000 | 1.000 | 0.977 | 0.649 | 0.653 |
+| Gemma 4 26B | 0.229 | 0.007 | 0.572 | 0.951 | 0.507 | 0.667 |
+| DeepSeek V3.2 | 0.108 | 0.002 | 0.573 | 0.961 | 0.682 | 0.660 |
+| GLM-5.2 | 0.002 | 0.004 | 0.946 | 0.944 | 0.658 | 0.663 |
+
+Study 9 Part B, eighteen packets. Correct: correct decisions on decidable pairs. Follow-up: share of all pairs answered `fail`, abstaining or unanswered. After the solver correction described in Section 6.10.
+<!-- END GENERATED: table-study9-models -->
 
 ## Appendix G: Interpretive choices of the reference checker
 

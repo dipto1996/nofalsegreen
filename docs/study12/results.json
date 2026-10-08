@@ -44,6 +44,17 @@
    "glm-5.2-maas": 0.0788
   }
  },
+ "M2_contemporaneous_baseline_addendum": {
+  "n_packets": 10,
+  "delta": 0.0905,
+  "ci95_packet_bootstrap": [
+   0.0509,
+   0.1292
+  ],
+  "p_exact_two_sided": 0.005859375,
+  "packets_positive": 9,
+  "packets_negative": 1
+ },
  "unsupported_pass_rate": {
   "gemini-3.1-pro-preview::abstain_offered": 0.0212,
   "gemini-3.1-pro-preview::abstain_offered_nomatch": 0.0121,

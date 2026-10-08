@@ -1,0 +1,54 @@
+Study 3c (proxy): 10 firms x 42 pairs
+shard 0/2: ['synthetic-002003-study3c-proxy', 'synthetic-002009-study3c-proxy', 'synthetic-002026-study3c-proxy', 'synthetic-002040-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r12 via vertexopen  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r12 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 5  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 253 output tokens, 9s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 253 output tokens, 8s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 268 output tokens, 8s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 157 output tokens, 4s, finish=stop, ok
+  synthetic-002003-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 241 output tokens, 5s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 253 output tokens, 6s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 268 output tokens, 8s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 157 output tokens, 7s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.121  recall 0.000  absF1 0.935  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 264 output tokens, 9s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 253 output tokens, 7s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 299 output tokens, 9s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 157 output tokens, 6s, finish=stop, ok
+  synthetic-002026-study3c-proxy FGR 0.000  recall 0.000  absF1 0.985  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 256 output tokens, 5s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 253 output tokens, 5s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 268 output tokens, 7s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 157 output tokens, 5s, finish=stop, ok
+  synthetic-002040-study3c-proxy FGR 0.121  recall 0.000  absF1 0.935  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 229 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 253 output tokens, 6s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 299 output tokens, 8s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 157 output tokens, 6s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 0.242  recall 0.000  absF1 0.842  unparsed 0  (4 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r12::abstain_offered: FGR 0.097 (sd 0.101)  recall 0.200  over 5 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study12/runs/deepseek-v3.2-maas__3c__abstain_offered_r12__shard0of2.json

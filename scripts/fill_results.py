@@ -685,6 +685,28 @@ def table_study9() -> str:
     return "\n".join(rows)
 
 
+def table_study9_models() -> str:
+    """Study 9 Part B per model: evidence-first prompt vs extraction + solver (appendix)."""
+    f = ROOT / "docs" / "study9" / "results.json"
+    head = ("| Model | Unsupported pass: prompt | Unsupported pass: extraction | Correct: prompt | Correct: extraction "
+            "| Follow-up: prompt | Follow-up: extraction |\n|---|---|---|---|---|---|---|")
+    if not f.exists():
+        return head
+    pm = json.loads(f.read_text())["partB_per_model"]
+    ef, ex = pm["evidence-first prompt"], pm["extraction + solver"]
+    names = {"gemini-3.1-pro-preview": "Gemini 3.1 Pro", "gemini-3.8-flash": "Gemini 3.8 Flash",
+             "gemma-4-26b-a4b-it-maas": "Gemma 4 26B", "deepseek-v3.2-maas": "DeepSeek V3.2", "glm-5.2-maas": "GLM-5.2"}
+    rows = [head]
+    for m, n in names.items():
+        a, b = ef[m], ex[m]
+        rows.append(f"| {n} | {a['unsupported_pos']:.3f} | {b['unsupported_pos']:.3f} | {a['correct_determinate']:.3f} | "
+                    f"{b['correct_determinate']:.3f} | {a['followup_share']:.3f} | {b['followup_share']:.3f} |")
+    rows.append("")
+    rows.append("Study 9 Part B, eighteen packets. Correct: correct decisions on decidable pairs. Follow-up: share of all pairs "
+                "answered `fail`, abstaining or unanswered. After the solver correction described in Section 6.10.")
+    return "\n".join(rows)
+
+
 def splice(text: str, name: str, body: str) -> tuple[str, bool]:
     b, e = BEGIN.format(name=name), END.format(name=name)
     block = f"{b}\n{body}\n{e}"
@@ -723,6 +745,7 @@ def main() -> int:
         "table-study6": table_study6(),
         "table-per-model": table_per_model(),
         "table-study9": table_study9(),
+        "table-study9-models": table_study9_models(),
         "table2-main": table_main(runs),
         "table2b-strict": table_views(),
         "table2c-audited": table_audited(),

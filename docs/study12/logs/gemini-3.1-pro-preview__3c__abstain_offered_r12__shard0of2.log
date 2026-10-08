@@ -1,0 +1,54 @@
+Study 3c (proxy): 10 firms x 42 pairs
+shard 0/2: ['synthetic-002003-study3c-proxy', 'synthetic-002009-study3c-proxy', 'synthetic-002026-study3c-proxy', 'synthetic-002040-study3c-proxy', 'synthetic-002048-study3c-proxy']
+vertex/gemini-3.1-pro-preview#r12 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r12 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 5  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1249 output tokens, 11s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 2122 output tokens, 16s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 5494 output tokens, 37s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2635 output tokens, 17s, finish=stop, ok
+  synthetic-002003-study3c-proxy FGR 0.030  recall 1.000  absF1 0.985  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2079 output tokens, 15s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 5160 output tokens, 39s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 3679 output tokens, 24s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2672 output tokens, 16s, finish=stop, ok
+  synthetic-002009-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 1746 output tokens, 12s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 4679 output tokens, 33s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 6658 output tokens, 46s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3144 output tokens, 19s, finish=stop, ok
+  synthetic-002026-study3c-proxy FGR 0.030  recall 1.000  absF1 0.985  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2580 output tokens, 17s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 1685 output tokens, 13s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4744 output tokens, 33s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 3036 output tokens, 19s, finish=stop, ok
+  synthetic-002040-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 2035 output tokens, 15s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 3202 output tokens, 23s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 4127 output tokens, 28s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 2186 output tokens, 15s, finish=stop, ok
+  synthetic-002048-study3c-proxy FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)
+
+  vertex/gemini-3.1-pro-preview#r12::abstain_offered: FGR 0.012 (sd 0.017)  recall 1.000  over 5 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study12/runs/gemini-3.1-pro-preview__3c__abstain_offered_r12__shard0of2.json

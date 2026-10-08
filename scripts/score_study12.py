@@ -23,8 +23,12 @@ def idx_of(dirs):
             for key, v in json.loads(vc.read_text()).items():
                 parts = key.split("|")
                 if len(parts) == 6:
-                    idx.setdefault((parts[3], parts[2]), []).append((parts[1].split("/")[-1].split("#")[0],
-                                                                      v.get("text", "") if isinstance(v, dict) else v))
+                    run = parts[1].split("#")[-1] if "#" in parts[1] else "r0"
+                    var = parts[2] + ("@r12" if run == "r12" else "")
+                    if run not in ("r0", "r12"):
+                        continue
+                    idx.setdefault((parts[3], var), []).append((parts[1].split("/")[-1].split("#")[0],
+                                                                v.get("text", "") if isinstance(v, dict) else v))
     return idx
 
 
@@ -66,18 +70,18 @@ def main() -> int:
         s = f.provenance["seed"]
         for l in f.labels:
             lab2[(s, l.pair_id)] = l.verdict.value
-        for var in ("abstain_offered", "abstain_offered_nomatch"):
+        for var in ("abstain_offered", "abstain_offered_nomatch", "abstain_offered@r12"):
             for m, text in idx.get((f.firm_id, var), []):
                 d = pred2.setdefault((m, s, var), {})
-                for p in parse_response(text, ids, var)[0]:
+                for p in parse_response(text, ids, var.split("@")[0])[0]:
                     d[p.pair_id] = (p.verdict.value, " ".join(p.evidence_fields))
 
-    def m2(models=MODELS):
+    def m2(models=MODELS, base="abstain_offered"):
         res = {}
         for s in study3c.SEEDS:
             vals = []
             for m in models:
-                a, b = pred2.get((m, s, "abstain_offered"), {}), pred2.get((m, s, "abstain_offered_nomatch"), {})
+                a, b = pred2.get((m, s, base), {}), pred2.get((m, s, "abstain_offered_nomatch"), {})
                 ks = [pid for (sd, pid), lab in lab2.items() if sd == s and lab == "needs_evidence" and pid in a and pid in b]
                 if ks:
                     vals.append(sum((a[k][0] == "pass") - (b[k][0] == "pass") for k in ks) / len(ks))
@@ -93,8 +97,11 @@ def main() -> int:
         prim[k]["p_holm"] = run
         prim[k]["outcome"] = "confirmed" if run < 0.05 else "not confirmed"
     avg = lambda r: round(sum(r.values()) / len(r), 4) if r else None  # noqa: E731
+    contemp = m2(base="abstain_offered@r12")
     out = {"declared": "docs/STUDY12_DECLARATION.md", "primary": prim,
-           "per_model": {"M1": {m: avg(m1([m])) for m in MODELS}, "M2": {m: avg(m2([m])) for m in MODELS}}}
+           "per_model": {"M1": {m: avg(m1([m])) for m in MODELS}, "M2": {m: avg(m2([m])) for m in MODELS}},
+           "M2_contemporaneous_baseline_addendum": exact(contemp, 12103) if len(contemp) == len(study3c.SEEDS) else
+           {"n_firms": len(contemp), "note": "contemporaneous re-run incomplete"}}
     rates = {}
     for m in MODELS:
         for var in ("abstain_offered", "abstain_offered_nomatch"):

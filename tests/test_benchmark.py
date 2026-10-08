@@ -290,6 +290,14 @@ check("actual_wage_system" in user_prompt(_b, rb.all_rules(),
       [x.pair_id for x in _b.pairs if x.pair_id.startswith("lca.wage")][:3], scope_sources=True),
       "a scoped wage-rule prompt carries the actual-wage export when the firm has one")
 
+# Study 9 solver: every fact ABSENT must never decide a rule (regression for the
+# single-value date fallback found in review, 2026-10-07)
+from nofalsegreen import contracts as _C  # noqa: E402
+for _r, _c in _C.CONTRACTS.items():
+    check(_C.verdict_from_facts(_c, {f.name: "ABSENT" for f in _c.facts}, {}) == "needs_evidence",
+          f"solver: all facts absent gives needs_evidence for {_r}")
+    check(_C.label(_c, {}, "X").label == "needs_evidence", f"labeller: empty packet gives needs_evidence for {_r}")
+
 print(f"\n{'PASS' if failed == 0 else 'FAIL'} — {passed} ok, {failed} failed")
 sys.exit(1 if failed else 0)
 

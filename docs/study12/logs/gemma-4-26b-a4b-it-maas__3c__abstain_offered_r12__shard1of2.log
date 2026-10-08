@@ -1,0 +1,68 @@
+Study 3c (proxy): 10 firms x 42 pairs
+shard 1/2: ['synthetic-002007-study3c-proxy', 'synthetic-002023-study3c-proxy', 'synthetic-002037-study3c-proxy', 'synthetic-002041-study3c-proxy', 'synthetic-002069-study3c-proxy']
+vertex/gemma-4-26b-a4b-it-maas#r12 via vertex  quota {'rpm': 10, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r12 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 5  variants ['abstain_offered']
+
+      batch 1/4 (0 parsed so far)
+        attempt 1: 268 output tokens, 8s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 268 output tokens, 11s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 320 output tokens, 10s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 228 output tokens, 6s, finish=stop, ok
+  synthetic-002007-study3c-proxy FGR 0.758  recall 0.000  absF1 0.390  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r12: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 2s
+        attempt 1: 268 output tokens, 7s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 268 output tokens, 7s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 383 output tokens, 14s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 270 output tokens, 10s, finish=stop, ok
+  synthetic-002023-study3c-proxy FGR 0.758  recall 0.000  absF1 0.390  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 268 output tokens, 5s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 268 output tokens, 5s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 320 output tokens, 9s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 228 output tokens, 6s, finish=stop, ok
+  synthetic-002037-study3c-proxy FGR 0.758  recall 0.000  absF1 0.390  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 268 output tokens, 5s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 268 output tokens, 9s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 320 output tokens, 10s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r12: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 228 output tokens, 7s, finish=stop, ok
+  synthetic-002041-study3c-proxy FGR 0.758  recall 0.000  absF1 0.390  unparsed 0  (4 calls)
+      batch 1/4 (0 parsed so far)
+        attempt 1: 268 output tokens, 6s, finish=stop, ok
+      batch 2/4 (12 parsed so far)
+        attempt 1: 268 output tokens, 5s, finish=stop, ok
+      batch 3/4 (24 parsed so far)
+        attempt 1: 320 output tokens, 9s, finish=stop, ok
+      batch 4/4 (36 parsed so far)
+        attempt 1: 246 output tokens, 6s, finish=stop, ok
+  synthetic-002069-study3c-proxy FGR 0.758  recall 0.000  absF1 0.390  unparsed 0  (4 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r12::abstain_offered: FGR 0.758 (sd 0.000)  recall 0.000  over 5 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study12/runs/gemma-4-26b-a4b-it-maas__3c__abstain_offered_r12__shard1of2.json

@@ -163,7 +163,10 @@ def _witness(kind: str, anchors: list) -> list:
             pts.add(add_business_days(a, k))
             pts.add(a - timedelta(days=7 * k))
         pts.update({a - timedelta(days=1), a, a + timedelta(days=1)})
-    return sorted(pts) or [date(2026, 1, 1)]
+    # With no anchor at all (every date in the predicate unknown), a single fallback value
+    # would make two unknown dates equal and decide the predicate by accident; three
+    # distinct dates realise every order between them. (Bug found in review, 2026-10-07.)
+    return sorted(pts) or [date(2026, 1, 1), date(2026, 1, 2), date(2026, 12, 31)]
 
 
 @dataclass
