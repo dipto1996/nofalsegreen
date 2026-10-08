@@ -1,0 +1,27 @@
+{
+ "seed": 20261007,
+ "packets": 3000,
+ "labels": 23988,
+ "disagreements": [],
+ "permutation_changes": 0,
+ "label_counts": {
+  "fail": 2429,
+  "needs_evidence": 18008,
+  "pass": 3551
+ },
+ "cases": {
+  "0 unknown, 0 conflicting": 5796,
+  "0 unknown, 1 conflicting": 6049,
+  "0 unknown, 2 conflicting": 2622,
+  "0 unknown, 3 conflicting": 73,
+  "1 unknown, 0 conflicting": 4792,
+  "1 unknown, 1 conflicting": 2912,
+  "1 unknown, 2 conflicting": 234,
+  "2 unknown, 0 conflicting": 1247,
+  "2 unknown, 1 conflicting": 207,
+  "3 unknown, 0 conflicting": 56,
+  "duplicate rows in a source": 14013,
+  "single rows": 9975
+ },
+ "n_disagreements": 0
+}

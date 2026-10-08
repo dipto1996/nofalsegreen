@@ -138,19 +138,22 @@ _add(Contract(
 
 def _resolve(fact: Fact, tables: dict, entity: str):
     """('known', value) | ('unknown', None) | ('conflict', values)."""
-    vals = []
+    per_source = []
     for s in fact.sources:
-        for r in tables.get(s.table, []):
-            if r.get(s.key) == entity and r.get(s.column) not in (None, ""):
-                vals.append(r[s.column])
-    if not vals:
+        vals = [r[s.column] for r in tables.get(s.table, [])
+                if r.get(s.key) == entity and r.get(s.column) not in (None, "")]
+        if vals:
+            per_source.append([float(x) if fact.kind == "amount" else _d(x) for x in vals])
+    if not per_source:
         return "unknown", None
-    conv = [float(x) if fact.kind == "amount" else _d(x) for x in vals]
-    if len(set(conv)) == 1:
-        return "known", conv[0]
     if fact.priority:
-        return "known", conv[0]  # vals were gathered in source-priority order
-    return "conflict", conv
+        # Priority ranks sources, not rows: the highest-priority source holding a value decides,
+        # and disagreeing rows within it are a conflict, whatever their order. (Reconciled with
+        # the independent checker after review, 2026-10-07.)
+        top = per_source[0]
+        return ("known", top[0]) if len(set(top)) == 1 else ("conflict", top)
+    conv = [v for vs in per_source for v in vs]
+    return ("known", conv[0]) if len(set(conv)) == 1 else ("conflict", conv)
 
 
 def _witness(kind: str, anchors: list) -> list:

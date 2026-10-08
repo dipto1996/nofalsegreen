@@ -38,7 +38,9 @@ a holiday on a Saturday is observed the Friday before, and one on a Sunday the M
 
 1. **Gather each fact's value.** For each fact, collect every non-empty value from its listed
    sources for that entity.
-   - If two or more values disagree, apply the stated priority.
+   - If two or more values disagree, apply the stated priority. Priority ranks sources, not
+     rows: the highest-priority source holding a value decides, and if that source's own rows
+     disagree, the fact is **conflicting**, whatever the row order.
    - If the fact has a single listed source and its values disagree (for example, two
      different rows), the fact is **conflicting**.
 2. **Conflicting fact.** If any fact is conflicting, the verdict is `needs_evidence`.

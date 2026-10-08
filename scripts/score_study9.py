@@ -67,6 +67,101 @@ def parse_extract(text: str, ids: set, contracts: dict, names: dict) -> dict:
     return out
 
 
+def _slots(text: str, ids: set) -> dict:
+    """pair -> {fact name: ('value', raw, src) | 'ABSENT' | 'CONFLICT'} as the reply states them."""
+    out: dict = {}
+    for raw in text.splitlines():
+        line = raw.strip()
+        pid = next((t for t in re.split(r"\t+|\s{2,}", line) if t.strip() in ids), None) if "::" in line else None
+        if pid is None or pid in out:
+            continue
+        rep = {}
+        for chunk in re.sub(r"^\s*facts\s*", "", line.split(pid, 1)[1].strip(), flags=re.I).split("|"):
+            m = FACT_RE.match(chunk.strip())
+            if m:
+                v = m.group("val").strip()
+                rep[m.group("name").strip()] = v.upper() if v.upper() in ("ABSENT", "CONFLICT") else \
+                    ("value", v, m.group("src")) if m.group("src") else None
+        out[pid] = rep
+    return out
+
+
+def slot_audit(idx: dict, canon: dict, contracts: dict, labels: dict) -> dict:
+    """Every required fact slot in every retained extraction reply (Part B), against the record.
+
+    Record status per slot is the contract's resolution: a value, absent, or conflicting. A
+    reported value is correct only if it equals the resolved value AND the cited column holds
+    that value for that entity (provenance). Everything else is counted as its failure mode,
+    including slots the reply omitted."""
+    tally: dict = {}
+    pairs = {"with_slot_error": 0, "with_slot_error_and_wrong_verdict": 0, "total": 0}
+    for wf in study9.WORKFLOWS:
+        for s_ in study9.B_SEEDS:
+            p_ = canon[(wf, s_)]
+            f_ = study9.firm("B", wf, s_, True)
+            ids = {pr.pair_id for pr in f_.pairs}
+            replies: dict = {}  # a model's replies for one packet each cover a shard of its pairs
+            for m, text in idx.get((f_.firm_id, EX), []):
+                replies.setdefault(m, []).append(text)
+            for m, texts in sorted(replies.items()):
+                rep_all, verdicts = {}, {}
+                for text in texts:
+                    for k, v in _slots(text, ids).items():
+                        rep_all.setdefault(k, v)
+                    for k, v in parse_extract(text, ids, contracts, {}).items():
+                        verdicts.setdefault(k, v)
+                for pid in sorted(ids):
+                    rule, e = pid.split("::", 1)
+                    c, rep, err = contracts[rule], rep_all.get(pid, {}), False
+                    for fact in c.facts:
+                        st, val = C._resolve(fact, p_.tables, e)
+                        r = rep.get(fact.name)
+                        if r is None:
+                            out_ = "omitted or unparseable"
+                        elif r == "ABSENT":
+                            out_ = "ABSENT"
+                        elif r == "CONFLICT":
+                            out_ = "CONFLICT"
+                        else:
+                            _, v, src = r
+                            try:
+                                got = float(v.replace(",", "").replace("$", "")) if fact.kind == "amount" else C._d(v)
+                            except ValueError:
+                                got = None
+                            t_, _, col = src.strip().strip("`").partition(".")
+                            allowed = {(x.table, x.column) for x in fact.sources}
+                            holds = (t_, col) in allowed and any(
+                                rr.get(fact.sources[0].key if (t_, col) == (fact.sources[0].table, fact.sources[0].column)
+                                       else next(x.key for x in fact.sources if (x.table, x.column) == (t_, col))) == e
+                                and rr.get(col) not in (None, "")
+                                and (float(rr[col]) if fact.kind == "amount" else C._d(rr[col])) == got
+                                for rr in p_.tables.get(t_, []))
+                            out_ = ("value, correct, cited column holds it" if st == "known" and got == val and holds
+                                    else "value, correct, cited column does not hold it" if st == "known" and got == val
+                                    else "value, wrong")
+                        ok = (st, out_) in {("known", "value, correct, cited column holds it"),
+                                            ("unknown", "ABSENT"), ("conflict", "CONFLICT")}
+                        err |= not ok
+                        tally.setdefault(m, Counter())[f"{st}: {out_}"] += 1
+                    pairs["total"] += 1
+                    if err:
+                        pairs["with_slot_error"] += 1
+                        if verdicts.get(pid) != labels[("B", wf, s_, pid)]:
+                            pairs["with_slot_error_and_wrong_verdict"] += 1
+    pooled = Counter()
+    for t in tally.values():
+        pooled.update(t)
+
+    def summary(t):
+        by = {st: sum(v for k, v in t.items() if k.startswith(st + ":")) for st in ("known", "unknown", "conflict")}
+        good = {"known": t["known: value, correct, cited column holds it"], "unknown": t["unknown: ABSENT"],
+                "conflict": t["conflict: CONFLICT"]}
+        return {"slots": sum(by.values()), "correct": sum(good.values()),
+                **{f"{st}_slots": by[st] for st in by}, **{f"{st}_correct": good[st] for st in by}}
+    return {"pooled": {**summary(pooled), "outcomes": dict(sorted(pooled.items()))},
+            "per_model": {m: summary(t) for m, t in sorted(tally.items())}, "pairs": pairs}
+
+
 def exact(per: dict, seed: int) -> dict:
     keys = sorted(per)
     xs = [per[k] for k in keys]
@@ -300,6 +395,7 @@ def main() -> int:
                                     fid["reported_where_record_absent"] += 1
                             break
     out["extraction_fidelity"] = fid
+    out["extraction_slots"] = slot_audit(idx, canon, contracts, labels)
     pats = Counter()
     for wf in study9.WORKFLOWS:
         for s in study9.B_SEEDS:

@@ -511,6 +511,88 @@
   "match": 5269,
   "reported_where_record_absent": 3
  },
+ "extraction_slots": {
+  "pooled": {
+   "slots": 6240,
+   "correct": 6098,
+   "known_slots": 5370,
+   "unknown_slots": 690,
+   "conflict_slots": 180,
+   "known_correct": 5262,
+   "unknown_correct": 682,
+   "conflict_correct": 154,
+   "outcomes": {
+    "conflict: CONFLICT": 154,
+    "conflict: omitted or unparseable": 2,
+    "conflict: value, wrong": 24,
+    "known: ABSENT": 43,
+    "known: CONFLICT": 11,
+    "known: omitted or unparseable": 47,
+    "known: value, correct, cited column does not hold it": 7,
+    "known: value, correct, cited column holds it": 5262,
+    "unknown: ABSENT": 682,
+    "unknown: omitted or unparseable": 5,
+    "unknown: value, wrong": 3
+   }
+  },
+  "per_model": {
+   "deepseek-v3.2-maas": {
+    "slots": 1248,
+    "correct": 1223,
+    "known_slots": 1074,
+    "unknown_slots": 138,
+    "conflict_slots": 36,
+    "known_correct": 1050,
+    "unknown_correct": 138,
+    "conflict_correct": 35
+   },
+   "gemini-3.1-pro-preview": {
+    "slots": 1248,
+    "correct": 1248,
+    "known_slots": 1074,
+    "unknown_slots": 138,
+    "conflict_slots": 36,
+    "known_correct": 1074,
+    "unknown_correct": 138,
+    "conflict_correct": 36
+   },
+   "gemini-3.8-flash": {
+    "slots": 1248,
+    "correct": 1238,
+    "known_slots": 1074,
+    "unknown_slots": 138,
+    "conflict_slots": 36,
+    "known_correct": 1064,
+    "unknown_correct": 138,
+    "conflict_correct": 36
+   },
+   "gemma-4-26b-a4b-it-maas": {
+    "slots": 1248,
+    "correct": 1188,
+    "known_slots": 1074,
+    "unknown_slots": 138,
+    "conflict_slots": 36,
+    "known_correct": 1041,
+    "unknown_correct": 135,
+    "conflict_correct": 12
+   },
+   "glm-5.2-maas": {
+    "slots": 1248,
+    "correct": 1201,
+    "known_slots": 1074,
+    "unknown_slots": 138,
+    "conflict_slots": 36,
+    "known_correct": 1033,
+    "unknown_correct": 133,
+    "conflict_correct": 35
+   }
+  },
+  "pairs": {
+   "with_slot_error": 126,
+   "with_slot_error_and_wrong_verdict": 94,
+   "total": 2880
+  }
+ },
  "partB_pattern_counts": {
   "complete": 36,
   "proxy_only": 36,
