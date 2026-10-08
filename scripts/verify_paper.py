@@ -993,8 +993,8 @@ claim(_lab15 == 1200 and "All 1,200 labels agree" in _flat and all(v["n_packets"
       and [v["outcome"] for v in _P15] == ["confirmed", "not confirmed", "confirmed"] and _P15[1]["p_holm"] > 0.05
       and _P15a[1]["delta"] < 0 and _P15a[1]["p_holm"] < 0.05, "Study 15: outcomes (corrected H2 null; first run reversed)")
 claim(_au15["requests"] == _au15["hash_match"] == _au15["full_document"] == _au15["all_records"]
-      and _au15["codegen"]["calls"] == _au15["codegen"]["full_document"]
-      and f"all {_au15['requests']} prompt requests and all {_au15['codegen']['calls']} code-generation calls" in _flat
+      and _au15["codegen"]["calls"] == _au15["codegen"]["full_document"] == _au15["codegen"]["hash_match"]
+      and f"all {_au15['requests']} retained prompt requests and all {_au15['codegen']['calls']} code-generation calls, the {_au15['codegen']['repair_calls']} repair prompts" in _flat
       and f"code generation ahead by {-_P15a[1]['delta']:.3f}" in _flat, "Study 15: input audit and the defect disclosed")
 claim(f"by\n  {-_P15[0]['delta']:.3f} {_ci15(_P15[0])}, in all 50 packets".replace("\n  ", " ") in _flat
       and _P15[0]["packets_negative"] == 50 and _P15[2]["packets_positive"] == 50
@@ -1010,14 +1010,35 @@ claim(all(_r15["per_model"][m][_CG15]["unsupported_pos"] == 0 for m in _r15["per
       and f"{_sf15[_EX15 + '::' + _g15]['rate']:.3f} for Gemma 4 and" in _flat and not _sf15[_EX15 + "::" + _g15]["meets_margin"]
       and not _sf15[_EX15 + "::" + _d15]["meets_margin"]
       and f"where {_l15['wrong value (date), record has one']} of {sum(x for k, x in _l15.items() if k.startswith('known')):,} values" in _flat
-      and f"{_cg15['clean_first_call']} programs ran cleanly at the first call and {_cg15['clean_final']} after one repair" in _flat
+      and f"{_cg15['clean_first_call']} programs ran cleanly at the first call and {_cg15['clean_final']} after a second call" in _flat
       and f"decided\n{_cg15['reuse_correct_determinate']:.3f}".replace("\n", " ") in _flat
       and f"unsafe for Gemma 4 ({_sf15[_EF15 + '::' + _g15]['rate']:.3f})" in _flat
       and f"{_mo15[_EF15]['missing at source']['unsupported_pass']:.3f} where evidence was missing at source (ten items)" in _flat
       and _mo15[_EF15]["missing at source"]["pairs"] == 50, "Study 15: safety, LCA dates, repair and origin")
+_cp15 = _au15["completions"]
+_glx, _glc = _cp15["glm-5.2-maas::contract15_extract"], _cp15["glm-5.2-maas::codegen15b"]
+_capped15 = sum(v["capped_completions"] for k, v in _cp15.items() if "contract15" in k)
+claim(f"The {_capped15} prompt completions that reached the output cap" in _flat
+      and f"made {_glx['completions']} completions for {_glx['planned_batches']} batches, retrying {_glx['capped_completions']} capped" in _flat
+      and f"while {_glc['capped_completions']} of its {_glc['completions']} code-generation calls reached the cap" in _flat
+      and all(v["capped_completions"] == 0 for k, v in _cp15.items() if not k.startswith("glm-5.2")),
+      "Study 15: completion accounting and the GLM-5.2 asymmetry")
+_h2m15, _h2x15, _pmc15 = _r15["h2_per_model"], _r15["h2_without_capped_models"], _r15["per_model"]
+_neg = lambda v: f"[{-v['ci95_packet_bootstrap'][1]:+.3f}, {-v['ci95_packet_bootstrap'][0]:+.3f}]"
+claim(f"generation was ahead by {-_h2m15[_g15]['delta']:.3f} {_neg(_h2m15[_g15])} for Gemma 4, extraction by" in _flat
+      and f"{_h2m15['glm-5.2-maas']['delta']:.3f} for GLM-5.2, whose programs answered only {_pmc15['glm-5.2-maas'][_CG15]['coverage']:.3f}" in _flat
+      and all(_h2m15[m]["delta"] == 0 for m in ("gemini-3.1-pro-preview", "gemini-3.8-flash"))
+      and _h2x15["excluded"] == ["glm-5.2-maas"]
+      and f"code generation was ahead by {-_h2x15['delta']:.3f}\n  {_neg(_h2x15)} (post hoc)".replace("\n  ", " ") in _flat,
+      "Study 15: per-model H2 and the matched-resource sensitivity")
 claim(f"(by {-_P15[0]['delta']:.3f}) and raised correct decisions (by {_P15[2]['delta']:.3f})" in _AB
-      and f"({_s15[_CG15]['correct_determinate']:.3f} against {_s15[_EX15]['correct_determinate']:.3f})" in _AB, "abstract: Study 15")
-claim(_pw15["50"]["H2 (gap quartered)"] == 0.487 and "gave 0.49 for a\ngap".replace("\n", " ") in _flat, "Study 15: power as declared")
+      and "no unsupported positive in 6,000 decisions" in _AB
+      and sum(_zb15[f"{_CG15}::{m}"]["pairs"] for m in _r15["per_model"]) == 6000
+      and f"({_s15[_CG15]['correct_determinate']:.3f} against {_s15[_EX15]['correct_determinate']:.3f})" in _AB
+      and "equally accurate" not in _flat and "as accurate" not in _AB, "abstract: Study 15, no equivalence claim")
+claim(_pw15["50"]["H2 (gap quartered)"] == 0.487 and "the power analysis gave 0.49 for a gap a quarter" in _flat
+      and f"answered only {_pmc15['glm-5.2-maas'][_CG15]['coverage']:.3f} of pairs, against\n{_pmc15['glm-5.2-maas'][_EX15]['coverage']:.3f} for extraction".replace("\n", " ") in _flat,
+      "Study 15: power and the coverage trade-off in the discussion")
 
 # no stray percentages that we have not verified
 pcts = set(re.findall(r"\b\d+\.\d\s?%", paper))

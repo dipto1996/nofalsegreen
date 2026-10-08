@@ -13,9 +13,89 @@
    500
   ]
  },
+ "completions": {
+  "deepseek-v3.2-maas::codegen15b": {
+   "planned_batches": 50,
+   "completions": 59,
+   "capped_completions": 0
+  },
+  "deepseek-v3.2-maas::contract15_evidence_first": {
+   "planned_batches": 100,
+   "completions": 100,
+   "capped_completions": 0
+  },
+  "deepseek-v3.2-maas::contract15_extract": {
+   "planned_batches": 100,
+   "completions": 100,
+   "capped_completions": 0
+  },
+  "gemini-3.1-pro-preview::codegen15b": {
+   "planned_batches": 50,
+   "completions": 50,
+   "capped_completions": 0
+  },
+  "gemini-3.1-pro-preview::contract15_evidence_first": {
+   "planned_batches": 100,
+   "completions": 100,
+   "capped_completions": 0
+  },
+  "gemini-3.1-pro-preview::contract15_extract": {
+   "planned_batches": 100,
+   "completions": 100,
+   "capped_completions": 0
+  },
+  "gemini-3.8-flash::codegen15b": {
+   "planned_batches": 50,
+   "completions": 50,
+   "capped_completions": 0
+  },
+  "gemini-3.8-flash::contract15_evidence_first": {
+   "planned_batches": 100,
+   "completions": 100,
+   "capped_completions": 0
+  },
+  "gemini-3.8-flash::contract15_extract": {
+   "planned_batches": 100,
+   "completions": 100,
+   "capped_completions": 0
+  },
+  "gemma-4-26b-a4b-it-maas::codegen15b": {
+   "planned_batches": 50,
+   "completions": 58,
+   "capped_completions": 0
+  },
+  "gemma-4-26b-a4b-it-maas::contract15_evidence_first": {
+   "planned_batches": 100,
+   "completions": 100,
+   "capped_completions": 0
+  },
+  "gemma-4-26b-a4b-it-maas::contract15_extract": {
+   "planned_batches": 100,
+   "completions": 100,
+   "capped_completions": 0
+  },
+  "glm-5.2-maas::codegen15b": {
+   "planned_batches": 50,
+   "completions": 65,
+   "capped_completions": 20
+  },
+  "glm-5.2-maas::contract15_evidence_first": {
+   "planned_batches": 100,
+   "completions": 105,
+   "capped_completions": 6
+  },
+  "glm-5.2-maas::contract15_extract": {
+   "planned_batches": 100,
+   "completions": 110,
+   "capped_completions": 10
+  }
+ },
  "codegen": {
+  "packets": 250,
   "calls": 282,
-  "full_document": 282
+  "hash_match": 282,
+  "full_document": 282,
+  "repair_calls": 17
  },
  "prompt_version": "1.1.0"
 }

@@ -18,7 +18,7 @@ LCA records, a roster's pay fields raised them by 0.236 with abstention offered,
 salary-of-record column alone induced false greens in three of five models. Removing the
 abstaining verdicts (+0.384) or a one-sentence warning (+0.093) raised false greens and an
 evidence-first prompt lowered them (−0.074), but no menu, prompt or explicit decision contract
-reliably removed them, and declared tests of four explanations found only a partial one. What removed it was separating
+reliably removed them, and declared tests of four explanations found only a partial one. What sharply reduced it was separating
 reading from deciding: the model extracts each fact with its source, and a solver applies the
 rule. Across three workflows, averaged over five models, this cut unsupported positives from
 0.068 to 0.002 and raised correct decisions from 0.818 to 0.967. In a declared, powered transfer
@@ -29,11 +29,12 @@ decisions than a rule-based parser developed on six other layouts and 0.172 more
 parsers the models wrote themselves; for two of five models it cost some safety. On 600 real
 public records in their publishers' formats it again cut unsupported positives against the
 prompt (by 0.094) and raised correct decisions (by 0.171), in every packet; a model
-that wrote a parser, given the pairs to answer and the diagnostics of failed runs, was as
-accurate (0.972 against 0.964) and made no unsupported positive. A
-first run of that study had truncated some records for two of its arms; we report the
-correction. What removes unsupported decisions is keeping the decision itself out of the
-model. All data, prompts and replies are released
+that wrote a parser, given the pairs to answer and the diagnostics of failed runs, showed no
+detectable difference in accuracy (0.972 against 0.964), with opposite differences for
+different models, and made no unsupported positive in 6,000 decisions. A first run of that
+study had truncated some records for two of its arms; we report the correction. Keeping the
+decision itself out of the model sharply reduces unsupported decisions on these contracts; it
+does not guarantee their elimination, since a reader can still misread or suppress a fact. All data, prompts and replies are released
 (Study 15's defective first run kept only the final code-generation programs), and a script
 recomputes every number.
 
@@ -47,7 +48,7 @@ asserts that an obligation was checked against the record and found met. When th
 was not there, the system can say so or render the cell green anyway, and a mostly green
 dashboard looks like a working product. We call the second choice a **false green**: an
 unsupported positive decision. This paper asks when language models make it, given rules
-that state which evidence decides each question, and what removes it.
+that state which evidence decides each question, and what reduces it.
 
 **A false green is not the mirror image of a false alarm.** A false alarm costs review time
 and is corrected by the review it triggers; a false green triggers nothing, and the review it
@@ -82,7 +83,7 @@ engineers behave.
 <!-- TEXFIGURE: fig_overview | The task and the error. Each panel shows the exports a system is given for one obligation and one worker (values illustrative). With the I-9 record present the record decides (a); with it missing the correct verdict is needs_evidence (b); with it missing but an onboarding date beside it, a model may answer pass (c). A wrong fail sends the item to review; a wrong pass removes it from review. -->
 
 We built an instrument for this error (Figure 1) and report four findings. **Separating
-reading from deciding removes it, and transfers.** A model that only extracts each fact with
+reading from deciding sharply reduces it, and transfers.** A model that only extracts each fact with
 the record it came from, followed by a deterministic solver, nearly removed unsupported
 decisions while raising correct ones under explicit decision contracts in three workflows,
 which no prompt or record-presence gate matched. On six rules and three record layouts held out
@@ -92,9 +93,10 @@ was written for (§6.12). A powered test on 30 fresh record sets in six layouts 
 independent designers confirmed this against an improved parser and against parsers the models
 wrote themselves, while showing that for two of five models the gain costs some safety
 (§6.13). On real public records in their native formats, extraction and a model-written
-parser, given the pairs to answer and the diagnostics of failed runs, were equally accurate,
-and the parser made no unsupported decision (§6.14). Across all of them, the decision itself
-belonged to a program. **Proxy columns are a large cause:** planting columns that
+parser, given the pairs to answer and the diagnostics of failed runs, showed no detectable
+difference in pooled accuracy, with large differences in both directions for particular
+models, and the parser made no unsupported decision (§6.14). In every successful design, the
+decision itself belonged to a program. **Proxy columns are a large cause:** planting columns that
 resemble required evidence, with the prompt unchanged, raises the false-green rate by 0.217 to
 0.427. Controls show that it is not the number of added columns; for Google's models it is
 mostly their names; the two Gemini models take a proxy that suggests compliance as evidence
@@ -780,7 +782,7 @@ Several of these tests ran near a floor of false greens, so a null result is wea
 a factor is irrelevant. The instruction a deployer writes to cope with mismatched column names therefore contributes
 to proxy acceptance, but it accounts for only part of the difference between the
 employer-audit framing of Studies 3–8 and the contract framing of Study 9. We do not have a
-complete account. What reliably removes unsupported decisions in our data is the
+complete account. What reliably reduces unsupported decisions in our data is the
 architectural change of Part B, not a wording.
 
 **Table 7 — The declared tests of Studies 9–12.**
@@ -1055,11 +1057,16 @@ and extraction arms saw only about half of its records while code generation rea
 file; code generation could also make three calls where extraction made two. That run found
 code generation ahead by 0.241 in correct decisions, almost all of it on USAspending, and
 we first read it as extraction losing values in long records. Review found the cause. No
-source of Studies 1–14 reached the cap. We removed the truncation, gave code generation the
-same two calls as extraction, kept every reply and intermediate program, and declared a
-corrected run before any of its calls (commit `551ff48`). An audit regenerated every request:
-all 999 prompt requests and all 282 code-generation calls contained the whole document and
-matched the hash recorded with their reply. The corrected run is the result reported here; both
+source of Studies 1–14 reached the cap. We removed the truncation, capped code generation at
+two calls per packet (extraction makes two batch requests per packet), kept every reply and
+intermediate program, and declared a corrected run before any of its calls (commit `551ff48`).
+An audit regenerated every request: all 999 retained prompt requests and all 282
+code-generation calls, the 17 repair prompts included, contained the whole document and matched
+the hash recorded with their reply. The 16 prompt completions that reached the output cap and
+were re-requested are counted but not kept. That re-request makes the arms unequal for one
+model: GLM-5.2's extraction made 110 completions for 100 batches, retrying 10 capped
+replies, while 20 of its 65 code-generation calls reached the cap with no retry. No other
+model reached the cap in either arm. The corrected run is the result reported here; both
 runs are in Table 13.
 
 **Table 12 — Study 15 (corrected run): every system, real records.**
@@ -1083,8 +1090,14 @@ Corrected run: fifty packets of real public records in their publishers' formats
   decisions, in all 50 packets.
 - **H2, against code generation: no detectable difference.** Extraction decided
   0.964 of decidable pairs correctly and the model-written parsers 0.972
-  (difference -0.008 [-0.030, +0.014], Holm p = 0.48). The power analysis gave 0.49 for a
-  gap a quarter of Study 14's, so this does not establish equivalence.
+  (difference -0.008 [-0.030, +0.014], Holm p = 0.48). The interval allows a meaningful
+  difference either way, and the power analysis gave 0.49 for a gap a quarter of Study 14's,
+  so this does not establish equivalence. The pooled figure hides opposite effects: code
+  generation was ahead by 0.121 [+0.056, +0.181] for Gemma 4, extraction by
+  0.093 for GLM-5.2, whose programs answered only 0.900 of pairs, and the two Gemini
+  models were perfect under both. Without GLM-5.2, the one model whose capped replies were
+  treated differently by the two arms, code generation was ahead by 0.033
+  [+0.015, +0.051] (post hoc).
 
 **Where they differ.** Code generation made no unsupported `pass` for any model (with none in
 1,200 pairs per model, the exact one-sided 95% bound is 0.0025 per pair if pairs are
@@ -1093,7 +1106,7 @@ independent, 0.058 per packet). Extraction made a few, 0.007 for Gemma 4 and
 (Table 30). Extraction was weakest on the LCA rows, where 452 of 2,200 values it read
 were dates converted wrongly from the file's serial day numbers; a program does that arithmetic
 exactly. On openFDA and USAspending the two were within 0.013 of each other. Of 250 packets,
-218 programs ran cleanly at the first call and 243 after one repair, and the
+218 programs ran cleanly at the first call and 243 after a second call, and the
 final programs, run on the next packet of the same source with its pairs, decided
 0.990 of decidable pairs correctly.
 
@@ -1158,9 +1171,11 @@ and extraction 0.893. For two of five models the gain came with more
 unsupported `pass` decisions than the parser made, so the choice of model matters as much as
 the architecture. Study 15 tested the remedy on real records in
 their native formats: extraction and a model-written parser, given the pairs to answer and the
-diagnostics of failed runs, were equally accurate (0.964 and 0.972), and the parser
-made no unsupported `pass`, so where a deployment can run a model's program, that is the safer
-reader. Its first run had looked like a large win for code generation; the cause was our
+diagnostics of failed runs, showed no detectable pooled difference in accuracy (0.964 and
+0.972), and the parser made no unsupported `pass` in 6,000 decisions. That is a trade-off, not
+dominance: for GLM-5.2 the programs answered only 0.900 of pairs, against
+1.000 for extraction, and with fifty packets the exact 95% bound on the chance of any
+unsupported `pass` in a packet is still 0.058. Its first run had looked like a large win for code generation; the cause was our
 renderer truncating records for the other arms, which a review found. Both designs keep the
 decision in a program. Where the records follow a known schema, a program applying
 the rule directly is better still, and a parser that defers to the model only when it cannot

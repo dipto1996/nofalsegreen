@@ -137,6 +137,22 @@ def main() -> int:
         v["p_holm"] = run
         v["outcome"] = "confirmed" if run < 0.05 and want * v["delta"] > 0 else "not confirmed"
     out: dict = {"declared": "docs/STUDY15_DECLARATION.md", "primary": {k: v for k, (v, _) in tests.items()}}
+    # Added after review (reported, not tested): H2 per model, and without the models that had any
+    # capped completion (the harness retries a capped extraction batch, while code generation's
+    # cap counts against its two calls), so the comparison is resource-matched.
+    out["h2_per_model"] = {m: contrast(EX, CG, "correct_determinate", 60 + MODELS.index(m), [m]) for m in MODELS}
+    capped = set()
+    for f_ in sorted((OUT / "runs").glob("*.json")):
+        if f_.name.startswith("."):
+            continue
+        for r_ in json.loads(f_.read_text()).get("runs", {}).values():
+            if r_["variant"] in (EF, EX) and sum(x.get("n_truncated_calls", 0) for x in r_["per_firm"]):
+                capped.add(r_["model"].split("/")[-1].split("#")[0])
+    for key, rec in cg.items():
+        if any(c.get("finish_reason") == "length" for c in rec.get("calls", [])):
+            capped.add(key.split("|")[1].split("/")[-1].split("#")[0])
+    keep = [m for m in MODELS if m not in capped]
+    out["h2_without_capped_models"] = {"excluded": sorted(capped), **contrast(EX, CG, "correct_determinate", 70, keep)}
     # declared per-model safety: upper 95% packet-bootstrap bound of unsupported pass below 0.01
     out["safety_per_model"] = {}
     for sy in (EX, CG, EF):

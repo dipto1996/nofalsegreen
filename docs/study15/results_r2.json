@@ -41,6 +41,77 @@
    "outcome": "confirmed"
   }
  },
+ "h2_per_model": {
+  "gemini-3.1-pro-preview": {
+   "n_packets": 50,
+   "delta": 0.0,
+   "ci95_packet_bootstrap": [
+    0.0,
+    0.0
+   ],
+   "packets_positive": 0,
+   "packets_negative": 0,
+   "p_two_sided": 1.0
+  },
+  "gemini-3.8-flash": {
+   "n_packets": 50,
+   "delta": 0.0,
+   "ci95_packet_bootstrap": [
+    0.0,
+    0.0
+   ],
+   "packets_positive": 0,
+   "packets_negative": 0,
+   "p_two_sided": 1.0
+  },
+  "gemma-4-26b-a4b-it-maas": {
+   "n_packets": 50,
+   "delta": -0.1208,
+   "ci95_packet_bootstrap": [
+    -0.1815,
+    -0.0562
+   ],
+   "packets_positive": 1,
+   "packets_negative": 31,
+   "p_two_sided": 0.00033999830000849997
+  },
+  "deepseek-v3.2-maas": {
+   "n_packets": 50,
+   "delta": -0.012,
+   "ci95_packet_bootstrap": [
+    -0.034,
+    0.002
+   ],
+   "packets_positive": 1,
+   "packets_negative": 4,
+   "p_two_sided": 0.31271343643281785
+  },
+  "glm-5.2-maas": {
+   "n_packets": 50,
+   "delta": 0.093,
+   "ci95_packet_bootstrap": [
+    0.016,
+    0.18
+   ],
+   "packets_positive": 5,
+   "packets_negative": 2,
+   "p_two_sided": 0.06218968905155474
+  }
+ },
+ "h2_without_capped_models": {
+  "excluded": [
+   "glm-5.2-maas"
+  ],
+  "n_packets": 50,
+  "delta": -0.0332,
+  "ci95_packet_bootstrap": [
+   -0.0514,
+   -0.0149
+  ],
+  "packets_positive": 1,
+  "packets_negative": 31,
+  "p_two_sided": 0.00025499872500637496
+ },
  "safety_per_model": {
   "contract15_extract::gemini-3.1-pro-preview": {
    "rate": 0.0,
