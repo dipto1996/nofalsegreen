@@ -1,0 +1,23 @@
+Study 13 (purchasing:L3): 2 firms x 32 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract13_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 32000 output tokens, 317s, finish=length, CAP
+        attempt 2: 1506 output tokens, 13s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 1961 output tokens, 15s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 1517 output tokens, 12s, finish=stop, ok
+  study13-purchasing-L3-s1301 FGR 0.000  recall 0.857  absF1 0.889  unparsed 0  (4 calls)  TRUNCATED 1
+      batch 1/3 (0 parsed so far)
+        attempt 1: 2459 output tokens, 18s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 6710 output tokens, 53s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 1830 output tokens, 15s, finish=stop, ok
+  study13-purchasing-L3-s1302 FGR 0.000  recall 0.917  absF1 0.952  unparsed 0  (3 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13_evidence_first: FGR 0.000 (sd 0.000)  recall 0.887  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study13/runs/glm-5.2-maas__purchasing-L3__contract13_evidence_first.json

@@ -1,0 +1,22 @@
+Study 13 (purchasing:L4): 2 firms x 32 pairs
+vertex/gemini-3.1-pro-preview#r2 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract13b_extract']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6155 output tokens, 81s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 5956 output tokens, 36s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 4064 output tokens, 24s, finish=stop, ok
+  study13-purchasing-L4-s1301 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4798 output tokens, 29s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 7206 output tokens, 44s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 4111 output tokens, 26s, finish=stop, ok
+  study13-purchasing-L4-s1302 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+
+  vertex/gemini-3.1-pro-preview#r2::contract13b_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study13/runs/gemini-3.1-pro-preview__purchasing-L4__contract13b_extract__r2.json

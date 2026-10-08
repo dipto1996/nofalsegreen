@@ -1,0 +1,21 @@
+Study 13 (workforce:L6): 2 firms x 32 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract13_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 13060 output tokens, 145s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 20100 output tokens, 123s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+  study13-workforce-L6-s1301 INCOMPLETE: 24/32 pairs, 0 unrecovered + 1 failed batches; resume later
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4168 output tokens, 23s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 21547 output tokens, 131s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 26212 output tokens, 165s, finish=stop, ok
+  study13-workforce-L6-s1302 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertex/gemini-3.8-flash#r0::contract13_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 1 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study13/runs/gemini-3.8-flash__workforce-L6__contract13_evidence_first.json

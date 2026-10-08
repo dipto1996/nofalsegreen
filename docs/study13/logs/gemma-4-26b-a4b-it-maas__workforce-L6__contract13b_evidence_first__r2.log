@@ -1,0 +1,27 @@
+Study 13 (workforce:L6): 2 firms x 32 pairs
+vertex/gemma-4-26b-a4b-it-maas#r2 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r2 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r2: URLError: <urlopen error [Errno 60] Operation timed out> after 114s
+        attempt 1: 306 output tokens, 9s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 320 output tokens, 8s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 233 output tokens, 7s, finish=stop, ok
+  study13-workforce-L6-s1301 FGR 0.250  recall 0.000  absF1 0.714  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r2: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request KQTHaqfLIJin4PoPxOGe-AY is throttled due to too many requests. Please try again later. Ple after 1s
+        attempt 1: 290 output tokens, 5s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 314 output tokens, 5s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 226 output tokens, 6s, finish=stop, ok
+  study13-workforce-L6-s1302 FGR 0.250  recall 0.077  absF1 0.706  unparsed 0  (3 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r2::contract13b_evidence_first: FGR 0.250 (sd 0.000)  recall 0.038  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study13/runs/gemma-4-26b-a4b-it-maas__workforce-L6__contract13b_evidence_first__r2.json

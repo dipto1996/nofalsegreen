@@ -1,0 +1,22 @@
+Study 13 (engineering:L1): 2 firms x 32 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract13_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 240 output tokens, 71s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 307 output tokens, 6s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 208 output tokens, 4s, finish=stop, ok
+  study13-engineering-L1-s1301 FGR 0.222  recall 0.364  absF1 0.714  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 290 output tokens, 10s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 296 output tokens, 6s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 212 output tokens, 5s, finish=stop, ok
+  study13-engineering-L1-s1302 FGR 0.000  recall 0.133  absF1 0.875  unparsed 0  (3 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract13_evidence_first: FGR 0.111 (sd 0.157)  recall 0.248  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study13/runs/gemma-4-26b-a4b-it-maas__engineering-L1__contract13_evidence_first.json

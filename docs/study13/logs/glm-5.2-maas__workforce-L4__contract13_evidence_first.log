@@ -1,0 +1,24 @@
+Study 13 (workforce:L4): 2 firms x 32 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract13_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 32000 output tokens, 303s, finish=length, CAP
+        attempt 2: 17777 output tokens, 138s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 6025 output tokens, 46s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 6261 output tokens, 48s, finish=stop, ok
+  study13-workforce-L4-s1301 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)  TRUNCATED 1
+      batch 1/3 (0 parsed so far)
+        attempt 1: 32000 output tokens, 232s, finish=length, CAP
+        attempt 2: 5772 output tokens, 47s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 8524 output tokens, 66s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 8366 output tokens, 59s, finish=stop, ok
+  study13-workforce-L4-s1302 FGR 0.000  recall 0.923  absF1 0.941  unparsed 0  (4 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13_evidence_first: FGR 0.000 (sd 0.000)  recall 0.962  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study13/runs/glm-5.2-maas__workforce-L4__contract13_evidence_first.json
