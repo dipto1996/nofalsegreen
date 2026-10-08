@@ -1,0 +1,38 @@
+wf.reverify_window::E-40901	facts	authorization expiry=20753 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40902	facts	authorization expiry=20861 from work_authorizations | reverification date=CONFLICT
+wf.reverify_window::E-40903	facts	authorization expiry=20677 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40904	facts	authorization expiry=20649 from work_authorizations | reverification date=20567 from reverifications
+wf.reverify_window::E-40905	facts	authorization expiry=20855 from work_authorizations | reverification date=20827 from reverifications
+wf.reverify_window::E-40906	facts	authorization expiry=20802 from work_authorizations | reverification date=20815 from reverifications
+wf.reverify_window::E-40907	facts	authorization expiry=20766 from work_authorizations | reverification date=20680 from reverifications
+wf.reverify_window::E-40908	facts	authorization expiry=CONFLICT | reverification date=20727 from reverifications
+wf.reverify_window::E-40909	facts	authorization expiry=20865 from work_authorizations | reverification date=20875 from reverifications
+wf.reverify_window::E-40910	facts	authorization expiry=20935 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40911	facts	authorization expiry=20755 from work_authorizations | reverification date=20628 from reverifications
+wf.reverify_window::E-40912	facts	authorization expiry=20783 from work_authorizations | reverification date=20807 from reverifications
+
+---
+
+wf.reverify_window::E-40913	facts	authorization expiry=20960 from work_authorizations | reverification date=20965 from reverifications
+wf.reverify_window::E-40914	facts	authorization expiry=20809 from work_authorizations | reverification date=20719 from reverifications
+wf.reverify_window::E-40915	facts	authorization expiry=20604 from work_authorizations | reverification date=20604 from reverifications
+wf.reverify_window::E-40916	facts	authorization expiry=ABSENT | reverification date=20768 from reverifications
+wf.notice_posting::E-40901	facts	notice posted=20636 from lca_notices | notice removed=20650 from lca_notices | LCA filed=20659 from lca_filings
+wf.notice_posting::E-40902	facts	notice posted=20637 from lca_notices | notice removed=20659 from lca_notices | LCA filed=20655 from lca_filings
+wf.notice_posting::E-40903	facts	notice posted=20562 from lca_notices | notice removed=20590 from lca_notices | LCA filed=20548 from lca_filings
+wf.notice_posting::E-40904	facts	notice posted=ABSENT | notice removed=20612 from lca_notices | LCA filed=20590 from lca_filings
+wf.notice_posting::E-40905	facts	notice posted=20541 from lca_notices | notice removed=20548 from lca_notices | LCA filed=20556 from lca_filings
+wf.notice_posting::E-40906	facts	notice posted=20487 from lca_notices | notice removed=20517 from lca_notices | LCA filed=20512 from lca_filings
+wf.notice_posting::E-40907	facts	notice posted=20557 from lca_notices | notice removed=20586 from lca_notices | LCA filed=CONFLICT
+wf.notice_posting::E-40908	facts	notice posted=20602 from lca_notices | notice removed=20616 from lca_notices | LCA filed=20602 from lca_filings
+
+---
+
+wf.notice_posting::E-40909	facts	notice posted=ABSENT | notice removed=ABSENT | LCA filed=20618 from lca_filings
+wf.notice_posting::E-40910	facts	notice posted=20647 from lca_notices | notice removed=20679 from lca_notices | LCA filed=20666 from lca_filings
+wf.notice_posting::E-40911	facts	notice posted=20527 from lca_notices | notice removed=20546 from lca_notices | LCA filed=20530 from lca_filings
+wf.notice_posting::E-40912	facts	notice posted=20537 from lca_notices | notice removed=20565 from lca_notices | LCA filed=20538 from lca_filings
+wf.notice_posting::E-40913	facts	notice posted=20647 from lca_notices | notice removed=20659 from lca_notices | LCA filed=ABSENT
+wf.notice_posting::E-40914	facts	notice posted=20571 from lca_notices | notice removed=20585 from lca_notices | LCA filed=20571 from lca_filings
+wf.notice_posting::E-40915	facts	notice posted=ABSENT | notice removed=ABSENT | LCA filed=ABSENT
+wf.notice_posting::E-40916	facts	notice posted=20608 from lca_notices | notice removed=20625 from lca_notices | LCA filed=20623 from lca_filings

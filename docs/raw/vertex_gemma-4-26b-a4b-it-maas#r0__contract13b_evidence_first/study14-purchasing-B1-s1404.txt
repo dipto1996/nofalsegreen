@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40401	pass	invoices (sheet 5), purchase_orders (sheet 14)
+pa.three_way_match::PO-40402	needs_evidence	invoices (sheet 9), purchase_orders (sheet 13), receipts (sheet 3)
+pa.three_way_match::PO-40403	pass	invoices (sheet 2, sheet 14), purchase_orders (sheet 11), receipts (sheet 6)
+pa.three_way_match::PO-40404	pass	invoices (sheet 10), purchase_orders (sheet 7), receipts (sheet 14)
+pa.three_way_match::PO-40405	pass	invoices (sheet 3), purchase_orders (sheet 3), receipts (sheet 11)
+pa.three_way_match::PO-40406	pass	invoices (sheet 8), purchase_orders (sheet 2), receipts (sheet 8)
+pa.three_way_match::PO-40407	unmonitored	-
+pa.three_way_match::PO-40408	pass	invoices (sheet 3), purchase_orders (sheet 15), receipts (sheet 12, sheet 13)
+pa.three_way_match::PO-40409	pass	invoices (sheet 12), purchase_orders (sheet 10), receipts (sheet 7)
+pa.three_way_match::PO-40410	pass	invoices (sheet 6), purchase_orders (sheet 12), receipts (sheet 16)
+pa.three_way_match::PO-40411	pass	invoices (sheet 11), purchase_orders (sheet 6), receipts (sheet 9)
+pa.three_way_match::PO-40412	pass	invoices (sheet 4), purchase_orders (sheet 1), receipts (sheet 2)
+
+---
+
+pa.three_way_match::PO-40413	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40414	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40415	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40416	pass	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-40401	pass	payments, invoices, warehouse_scans
+pa.paid_in_window::PO-40402	pass	payments, invoices, receipts
+pa.paid_in_window::PO-40403	pass	payments, invoices, receipts
+pa.paid_in_window::PO-40404	pass	payments, invoices, receipts
+pa.paid_in_window::PO-40405	pass	payments, invoices, receipts
+pa.paid_in_window::PO-40406	pass	payments, invoices, receipts
+pa.paid_in_window::PO-40407	unmonitored	-
+pa.paid_in_window::PO-40408	pass	payments, invoices, receipts
+
+---
+
+pa.paid_in_window::PO-40409	needs_evidence	invoices (sheet 12), payments (sheet 6), warehouse_scans (sheet 9)
+pa.paid_in_window::PO-40410	fail	invoices (sheet 6), payments (sheet 10), warehouse_scans (sheet 16)
+pa.paid_in_window::PO-40411	fail	invoices (sheet 11), payments (sheet 8), warehouse_scans (sheet 11)
+pa.paid_in_window::PO-40412	fail	invoices (sheet 4), payments (sheet 12), warehouse_scans (sheet 4)
+pa.paid_in_window::PO-40413	fail	invoices (sheet 7), payments (sheet 7), warehouse_scans (sheet 5)
+pa.paid_in_window::PO-40414	fail	purchase_orders (sheet 5), payments (sheet 11), warehouse_scans (sheet 10)
+pa.paid_in_window::PO-40415	fail	invoices (sheet 1), payments (sheet 4), warehouse_scans (sheet 5)
+pa.paid_in_window::PO-40416	pass	invoices (sheet 13), payments (sheet 2), warehouse_scans (sheet 12)

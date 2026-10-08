@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40601	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40602	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40603	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40604	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40605	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40606	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40607	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40608	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40609	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40610	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40611	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40612	pass	invoices,purchase_orders,receipts
+
+---
+
+pa.three_way_match::PO-40613	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40614	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40615	unmonitored	-
+pa.three_way_match::PO-40616	needs_evidence	invoices,purchase_orders,receipts
+pa.paid_in_window::PO-40601	fail	invoices,payments,receipts,warehouse_scans
+pa.paid_in_window::PO-40602	pass	invoices,payments,receipts,warehouse_scans
+pa.paid_in_window::PO-40603	needs_evidence	invoices,payments,receipts,warehouse_scans
+pa.paid_in_window::PO-40604	pass	invoices,payments,receipts,warehouse_scans
+pa.paid_in_window::PO-40605	pass	invoices,payments,receipts,warehouse_scans
+pa.paid_in_window::PO-40606	pass	invoices,payments,receipts,warehouse_scans
+pa.paid_in_window::PO-40607	pass	invoices,payments,receipts,warehouse_scans
+pa.paid_in_window::PO-40608	pass	invoices,payments,receipts,warehouse_scans
+
+---
+
+pa.paid_in_window::PO-40609	needs_evidence	invoices, receipts, payments, warehouse_scans
+pa.paid_in_window::PO-40610	needs_evidence	invoices, receipts, payments, warehouse_scans
+pa.paid_in_window::PO-40611	needs_evidence	invoices, receipts, payments, warehouse_scans
+pa.paid_in_window::PO-40612	pass	invoices, receipts, payments, warehouse_scans
+pa.paid_in_window::PO-40613	needs_evidence	invoices, receipts, payments, warehouse_scans
+pa.paid_in_window::PO-40614	needs_evidence	invoices, receipts, payments, warehouse_scans
+pa.paid_in_window::PO-40615	unmonitored	-
+pa.paid_in_window::PO-40616	needs_evidence	invoices, receipts, payments, warehouse_scans

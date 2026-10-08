@@ -1,0 +1,38 @@
+ea.calibration_current::P-40601	fail	calibration_log,test_reports
+ea.calibration_current::P-40602	pass	calibration_log,test_reports
+ea.calibration_current::P-40603	needs_evidence	calibration_log,test_reports,lab_certificates
+ea.calibration_current::P-40604	needs_evidence	calibration_log,test_reports
+ea.calibration_current::P-40605	needs_evidence	calibration_log,test_reports
+ea.calibration_current::P-40606	needs_evidence	calibration_log,test_reports,lab_certificates
+ea.calibration_current::P-40607	needs_evidence	calibration_log,test_reports,lab_certificates
+ea.calibration_current::P-40608	pass	calibration_log,test_reports
+ea.calibration_current::P-40609	pass	calibration_log,test_reports
+ea.calibration_current::P-40610	needs_evidence	calibration_log,test_reports,lab_certificates
+ea.calibration_current::P-40611	pass	calibration_log,test_reports
+ea.calibration_current::P-40612	needs_evidence	calibration_log,test_reports
+
+---
+
+ea.calibration_current::P-40613	needs_evidence	calibration_log, test_reports
+ea.calibration_current::P-40614	pass	calibration_log, test_reports
+ea.calibration_current::P-40615	unmonitored	-
+ea.calibration_current::P-40616	needs_evidence	calibration_log, lab_certificates
+ea.load_with_margin::P-40601	needs_evidence	spec_sheets, lab_certificates
+ea.load_with_margin::P-40602	pass	spec_sheets, test_reports
+ea.load_with_margin::P-40603	pass	spec_sheets, lab_certificates
+ea.load_with_margin::P-40604	needs_evidence	spec_sheets, lab_certificates
+ea.load_with_margin::P-40605	needs_evidence	spec_sheets, lab_certificates
+ea.load_with_margin::P-40606	pass	spec_sheets, lab_certificates
+ea.load_with_margin::P-40607	needs_evidence	spec_sheets, lab_certificates
+ea.load_with_margin::P-40608	pass	spec_sheets, lab_certificates
+
+---
+
+ea.load_with_margin::P-40609	pass	lab_certificates,spec_sheets
+ea.load_with_margin::P-40610	needs_evidence	lab_certificates,spec_sheets
+ea.load_with_margin::P-40611	pass	lab_certificates,spec_sheets
+ea.load_with_margin::P-40612	pass	lab_certificates,spec_sheets
+ea.load_with_margin::P-40613	needs_evidence	spec_sheets
+ea.load_with_margin::P-40614	pass	lab_certificates,spec_sheets
+ea.load_with_margin::P-40615	unmonitored	-
+ea.load_with_margin::P-40616	pass	lab_certificates,spec_sheets

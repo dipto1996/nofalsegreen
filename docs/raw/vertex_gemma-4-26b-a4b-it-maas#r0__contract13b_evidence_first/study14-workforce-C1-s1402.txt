@@ -1,0 +1,38 @@
+E-40201	pass	work_authorizations, reverifications
+E-40202	pass	work_authorizations, reverifications
+E-40203	pass	ead_cards, reverifications
+E-40204	pass	work_authorizations, reverifications
+E-40205	pass	work_authorizations, reverifications
+E-40206	pass	work_authorizations, reverifications
+E-40207	needs_evidence	ead_cards, reverifications
+E-40208	pass	work_authorizations, reverifications
+E-40209	needs_evidence	work_authorizations, reverifications
+E-40210	needs_evidence	work_authorizations, reverifications
+E-40211	pass	work_authorizations, reverifications
+E-40212	pass	work_authorizations, reverifications
+
+---
+
+wf.reverify_window::E-40213	pass	reverifications, work_authorizations
+wf.reverify_window::E-40214	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40215	pass	reverifications, work_authorizations
+wf.reverify_window::E-40216	pass	reverifications, work_authorizations
+wf.notice_posting::E-40201	fail	lca_notices, lca_filings
+wf.notice_posting::E-40202	pass	lca_notices, lca_filings
+wf.notice_posting::E-40203	pass	lca_notices, lca_filings
+wf.notice_posting::E-40204	pass	lca_notices, lca_filings
+wf.notice_posting::E-40205	pass	lca_notices, lca_filings
+wf.notice_posting::E-40206	pass	lca_notices, lca_filings
+wf.notice_posting::E-40207	pass	lca_notices, lca_filings
+wf.notice_posting::E-40208	pass	lca_notices, lca_filings
+
+---
+
+wf.notice_posting::E-40209	pass	lca_notices, lca_filings
+wf.notice_posting::E-40210	pass	lca_notices, lca_filings
+wf.notice_posting::E-40211	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-40212	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-40213	pass	lca_notices, lca_filings
+wf.notice_posting::E-40214	pass	lca_notices, lca_filings
+wf.notice_posting::E-40215	pass	lca_notices, lca_filings
+wf.notice_posting::E-40216	pass	lca_notices, lca_filings

@@ -1,0 +1,56 @@
+{
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1404|pa.three_way_match::PO-40401|12": {
+  "text": "pa.three_way_match::PO-40401\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40402\tneeds_evidence\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40403\tfail\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40404\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40405\tunmonitored\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40406\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40407\tunmonitored\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40408\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40409\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40410\tneeds_evidence\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40411\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40412\tpass\tinvoices, purchase_orders, receipts",
+  "output_tokens": 334,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1404|pa.three_way_match::PO-40413|12": {
+  "text": "pa.three_way_match::PO-40413\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40414\tneeds_evidence\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40415\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40416\tpass\tinvoices, purchase_orders, receipts\npa.paid_in_window::PO-40401\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-40402\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-40403\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-40404\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-40405\tneeds_evidence\treceipts, payments, invoices\npa.paid_in_window::PO-40406\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-40407\tunmonitored\treceipts, payments, invoices\npa.paid_in_window::PO-40408\tpass\treceipts, payments, invoices",
+  "output_tokens": 315,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1404|pa.paid_in_window::PO-40409|8": {
+  "text": "pa.paid_in_window::PO-40409\tneeds_evidence\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40410\tfail\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40411\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40412\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40413\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40414\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40415\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40416\tpass\tinvoices, payments, receipts, warehouse_scans",
+  "output_tokens": 242,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1405|pa.three_way_match::PO-40501|12": {
+  "text": "pa.three_way_match::PO-40501\tneeds_evidence\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40502\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40503\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40504\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40505\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40506\tunmonitored\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40507\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40508\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40509\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40510\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40511\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40512\tpass\tinvoices, purchase_orders, receipts",
+  "output_tokens": 329,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1405|pa.three_way_match::PO-40513|12": {
+  "text": "pa.three_way_match::PO-40513\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40514\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40515\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-40516\tpass\tinvoices, purchase_orders, receipts\npa.paid_in_window::PO-40501\tneeds_evidence\tpayments, receipts, invoices\npa.paid_in_window::PO-40502\tneeds_evidence\tpayments, receipts, invoices\npa.paid_in_window::PO-40503\tpass\tpayments, receipts, invoices\npa.paid_in_window::PO-40504\tpass\tpayments, receipts, invoices\npa.paid_in_window::PO-40505\tpass\tpayments, receipts, invoices\npa.paid_in_window::PO-40506\tunmonitored\t-\npa.paid_in_window::PO-40507\tpass\tpayments, receipts, invoices\npa.paid_in_window::PO-40508\tpass\tpayments, receipts, invoices",
+  "output_tokens": 303,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1405|pa.paid_in_window::PO-40509|8": {
+  "text": "pa.paid_in_window::PO-40509\tneeds_evidence\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40510\tfail\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40511\tfail\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40512\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40513\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40514\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40515\tpass\tinvoices, payments, receipts, warehouse_scans\npa.paid_in_window::PO-40516\tpass\tinvoices, payments, receipts, warehouse_scans",
+  "output_tokens": 242,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1410|pa.three_way_match::PO-41001|12": {
+  "text": "pa.three_way_match::PO-41001\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41002\tneeds_evidence\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41003\tunmonitored\t\npa.three_way_match::PO-41004\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41005\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41006\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41007\tneeds_evidence\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41008\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41009\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41010\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41011\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql\npa.three_way_match::PO-41012\tpass\tinvoices.sql, purchase_orders.sql, receipts.sql, invoices.sql",
+  "output_tokens": 433,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1410|pa.three_way_match::PO-41013|12": {
+  "text": "pa.three_way_match::PO-41013\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-41014\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-41015\tpass\tinvoices, purchase_orders, receipts\npa.three_way_match::PO-41016\tpass\tinvoices, purchase_orders, receipts\npa.paid_in_window::PO-41001\tneeds_evidence\tpayments, receipts\npa.paid_in_window::PO-41002\tpass\tpayments, receipts\npa.paid_in_window::PO-41003\tneeds_evidence\tpayments, warehouse_scans\npa.paid_in_window::PO-41004\tpass\tpayments, receipts\npa.paid_in_window::PO-41005\tpass\tpayments, receipts\npa.paid_in_window::PO-41006\tpass\tpayments, receipts\npa.paid_in_window::PO-41007\tneeds_evidence\tpayments, receipts\npa.paid_in_window::PO-41008\tpass\tpayments, receipts",
+  "output_tokens": 293,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-purchasing-C1-s1410|pa.paid_in_window::PO-41009|8": {
+  "text": "pa.paid_in_window::PO-41009\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-41010\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-41011\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-41012\tneeds_evidence\treceipts, payments, invoices\npa.paid_in_window::PO-41013\tneeds_evidence\treceipts, payments, invoices\npa.paid_in_window::PO-41014\tpass\treceipts, payments, invoices\npa.paid_in_window::PO-41015\tneeds_evidence\treceipts, payments, invoices\npa.paid_in_window::PO-41016\tpass\treceipts, payments, invoices",
+  "output_tokens": 206,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

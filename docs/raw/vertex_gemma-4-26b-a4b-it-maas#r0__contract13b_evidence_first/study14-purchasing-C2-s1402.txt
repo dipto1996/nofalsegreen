@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40201	pass	invoices: rec.06, purchase_orders: rec.03, receipts: rec.12, invoices: rec.06
+pa.three_way_match::PO-40202	pass	invoices: rec.10, purchase_orders: rec.06, receipts: rec.04, invoices: rec.10
+pa.three_way_match::PO-40203	pass	invoices: rec.11, purchase_orders: rec.09, receipts: rec.10, invoices: rec.11
+pa.three_way_match::PO-40204	pass	invoices: rec.14, purchase_orders: rec.01, receipts: rec.08, invoices: rec.14
+pa.three_way_match::PO-40205	pass	invoices: rec.07, purchase_orders: rec.15, receipts: rec.15, invoices: rec.07
+pa.three_way_match::PO-40206	pass	invoices: rec.03, purchase_orders: rec.10, receipts: rec.01, invoices: rec.03
+pa.three_way_match::PO-40207	pass	invoices: rec.13, purchase_orders: rec.08, receipts: rec.05, invoices: rec.13
+pa.three_way_match::PO-40208	needs_evidence	invoices: rec.11, purchase_orders: rec.07, receipts: rec.13, invoices: rec.11
+pa.three_way_match::PO-40209	pass	invoices: rec.08, purchase_orders: rec.04, receipts: rec.02, invoices: rec.08
+pa.three_way_match::PO-40210	pass	invoices: rec.02, purchase_orders: rec.12, receipts: rec.03, invoices: rec.02
+pa.three_way_match::PO-40211	needs_evidence	invoices: rec.02, purchase_orders: rec.13, receipts: rec.16, invoices: rec.02
+pa.three_way_match::PO-40212	pass	invoices: rec.04, purchase_orders: rec.05, receipts: rec.11, invoices: rec.04
+
+---
+
+pa.three_way_match::PO-40213	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40214	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40215	needs_evidence	purchase_orders
+pa.three_way_match::PO-40216	pass	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-40201	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40202	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40203	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40204	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40205	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40206	needs_evidence	payments, invoices
+pa.paid_in_window::PO-40207	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40208	pass	receipts, payments, invoices
+
+---
+
+pa.paid_in_window::PO-40209	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40210	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40211	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40212	needs_evidence	receipts, payments, invoices
+pa.paid_in_window::PO-40213	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40214	needs_evidence	receipts, payments, invoices
+pa.paid_in_window::PO-40215	unmonitored	
+pa.paid_in_window::PO-40216	pass	receipts, payments, invoices

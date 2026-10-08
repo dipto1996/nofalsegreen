@@ -1,0 +1,36 @@
+Study 14 (workforce:C1): 4 firms x 32 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 7847 output tokens, 172s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 18906 output tokens, 122s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 14026 output tokens, 89s, finish=stop, ok
+  study14-workforce-C1-s1402 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 10491 output tokens, 61s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 28165 output tokens, 197s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 6620 output tokens, 40s, finish=stop, ok
+  study14-workforce-C1-s1403 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6755 output tokens, 40s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 17114 output tokens, 112s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 7974 output tokens, 49s, finish=stop, ok
+  study14-workforce-C1-s1408 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4395 output tokens, 31s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 9143 output tokens, 54s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 15750 output tokens, 83s, finish=stop, ok
+  study14-workforce-C1-s1409 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertex/gemini-3.8-flash#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemini-3.8-flash__workforce-C1__contract13b_evidence_first.json

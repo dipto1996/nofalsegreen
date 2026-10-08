@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40301	pass	invoices (sheet 11), purchase_orders (sheet 7), receipts (sheet 15)
+pa.three_way_match::PO-40302	pass	invoices (sheet 3), purchase_orders (sheet 16), receipts (sheet 1)
+pa.three_way_match::PO-40303	pass	invoices (sheet 9), purchase_orders (sheet 15), receipts (sheet 7)
+pa.three_way_match::PO-40304	needs_evidence	invoices (sheet 2), purchase_orders (sheet 2), receipts (sheet 10)
+pa.three_way_match::PO-40305	pass	invoices (sheet 10), purchase_orders (sheet 12), receipts (sheet 15)
+pa.three_way_match::PO-40306	needs_evidence	invoices (sheet 8), purchase_orders (sheet 9), receipts (sheet 11)
+pa.three_way_match::PO-40307	pass	invoices (sheet 6), purchase_orders (sheet 1), receipts (sheet 5)
+pa.three_way_match::PO-40308	pass	invoices (sheet 1), purchase_orders (sheet 8), receipts (sheet 5)
+pa.three_way_match::PO-40309	pass	invoices (sheet 4), purchase_orders (sheet 3), receipts (sheet 14)
+pa.three_way_match::PO-40310	pass	invoices (sheet 14), purchase_orders (sheet 13), receipts (sheet 3)
+pa.three_way_match::PO-40311	pass	invoices (sheet 7), purchase_orders (sheet 11), receipts (sheet 12)
+pa.three_way_match::PO-40312	pass	invoices (sheet 3), purchase_orders (sheet 14), receipts (sheet 2)
+
+---
+
+pa.three_way_match::PO-40313	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40314	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40315	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40316	pass	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-40301	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40302	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40303	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40304	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40305	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40306	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40307	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40308	pass	receipts, payments, invoices
+
+---
+
+PO-40309	pass	invoices (sheet 4), payments (sheet 8), receipts (sheet 14)
+PO-40310	pass	invoices (sheet 14), payments (sheet 13), receipts (sheet 3)
+PO-40311	needs_evidence	invoices (sheet 7), receipts (sheet 12)
+PO-40312	pass	invoices (sheet 3), payments (sheet 9), receipts (sheet 2)
+PO-40313	pass	payments (sheet 1), warehouse_scans (sheet 4)
+PO-40314	unmonitored	-
+PO-40315	pass	invoices (sheet 12), payments (sheet 10), receipts (sheet 4)
+PO-40316	pass	invoices (sheet 5), payments (sheet 7), receipts (sheet 13)

@@ -1,0 +1,38 @@
+wf.reverify_window::E-40401	needs_evidence	-
+wf.reverify_window::E-40402	needs_evidence	-
+wf.reverify_window::E-40403	pass	ead_cards, reverifications
+wf.reverify_window::E-40404	needs_evidence	-
+wf.reverify_window::E-40405	pass	reverifications, work_authorizations
+wf.reverify_window::E-40406	fail	reverifications, work_authorizations
+wf.reverify_window::E-40407	fail	reverifications, work_authorizations
+wf.reverify_window::E-40408	pass	reverifications, work_authorizations
+wf.reverify_window::E-40409	fail	reverifications, work_authorizations
+wf.reverify_window::E-40410	fail	reverifications, work_authorizations
+wf.reverify_window::E-40411	needs_evidence	-
+wf.reverify_window::E-40412	pass	reverifications, work_authorizations
+
+---
+
+wf.reverify_window::E-40413	fail	reverifications, work_authorizations
+wf.reverify_window::E-40414	fail	reverifications, work_authorizations
+wf.reverify_window::E-40415	fail	reverifications, work_authorizations
+wf.reverify_window::E-40416	fail	reverifications, work_authorizations
+wf.notice_posting::E-40401	fail	lca_filings, lca_notices
+wf.notice_posting::E-40402	fail	lca_filings, lca_notices
+wf.notice_posting::E-40403	pass	lca_filings, lca_notices
+wf.notice_posting::E-40404	fail	lca_filings, lca_notices
+wf.notice_posting::E-40405	needs_evidence	-
+wf.notice_posting::E-40406	pass	lca_filings, lca_notices
+wf.notice_posting::E-40407	needs_evidence	-
+wf.notice_posting::E-40408	needs_evidence	-
+
+---
+
+wf.notice_posting::E-40409	needs_evidence	-
+wf.notice_posting::E-40410	fail	lca_filings, lca_notices
+wf.notice_posting::E-40411	pass	lca_filings, lca_notices
+wf.notice_posting::E-40412	fail	lca_notices
+wf.notice_posting::E-40413	fail	lca_filings, lca_notices
+wf.notice_posting::E-40414	fail	lca_filings, lca_notices
+wf.notice_posting::E-40415	pass	lca_filings, lca_notices
+wf.notice_posting::E-40416	pass	lca_filings, lca_notices

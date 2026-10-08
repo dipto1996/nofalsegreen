@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40901	facts	invoice amount=41500 from invoices | order amount=39500 from purchase_orders | quantity received=ABSENT | quantity invoiced=14 from invoices
+pa.three_way_match::PO-40902	facts	invoice amount=44500 from invoices | order amount=47000 from purchase_orders | quantity received=481 from receipts | quantity invoiced=463 from invoices
+pa.three_way_match::PO-40903	facts	invoice amount=30000 from invoices | order amount=33000 from purchase_orders | quantity received=304 from receipts | quantity invoiced=286 from invoices
+pa.three_way_match::PO-40904	facts	invoice amount=99500 from invoices | order amount=102000 from purchase_orders | quantity received=119 from receipts | quantity invoiced=116 from invoices
+pa.three_way_match::PO-40905	facts	invoice amount=ABSENT | order amount=18000 from purchase_orders | quantity received=39 from receipts | quantity invoiced=23 from invoices
+pa.three_way_match::PO-40906	facts	invoice amount=193500 from invoices | order amount=197500 from purchase_orders | quantity received=ABSENT | quantity invoiced=360 from invoices
+pa.three_way_match::PO-40907	facts	invoice amount=ABSENT | order amount=108000 from purchase_orders | quantity received=413 from receipts | quantity invoiced=ABSENT
+pa.three_way_match::PO-40908	facts	invoice amount=ABSENT | order amount=47500 from purchase_orders | quantity received=ABSENT | quantity invoiced=ABSENT
+pa.three_way_match::PO-40909	facts	invoice amount=110000 from invoices | order amount=105500 from purchase_orders | quantity received=425 from receipts | quantity invoiced=418 from invoices
+pa.three_way_match::PO-40910	facts	invoice amount=139000 from invoices | order amount=140500 from purchase_orders | quantity received=438 from receipts | quantity invoiced=436 from invoices
+pa.three_way_match::PO-40911	facts	invoice amount=115000 from invoices | order amount=110000 from purchase_orders | quantity received=175 from receipts | quantity invoiced=180 from invoices
+pa.three_way_match::PO-40912	facts	invoice amount=173000 from invoices | order amount=178000 from purchase_orders | quantity received=73 from receipts | quantity invoiced=53 from invoices
+
+---
+
+pa.three_way_match::PO-40913	facts	invoice amount=148000.00 from invoices | order amount=144500.00 from purchase_orders | quantity received=318 from receipts | quantity invoiced=305 from invoices
+pa.three_way_match::PO-40914	facts	invoice amount=CONFLICT from invoices | order amount=98500.00 from purchase_orders | quantity received=383 from receipts | quantity invoiced=389 from invoices
+pa.three_way_match::PO-40915	facts	invoice amount=37000.00 from invoices | order amount=35500.00 from purchase_orders | quantity received=ABSENT from receipts | quantity invoiced=324 from invoices
+pa.three_way_match::PO-40916	facts	invoice amount=111000.00 from invoices | order amount=111000.00 from purchase_orders | quantity received=323 from receipts | quantity invoiced=323 from invoices
+pa.paid_in_window::PO-40901	facts	goods received=ABSENT from receipts,warehouse_scans | payment date=2026-01-27 from payments | payment due=2026-02-16 from invoices
+pa.paid_in_window::PO-40902	facts	goods received=CONFLICT from receipts,warehouse_scans | payment date=2026-05-10 from payments | payment due=2026-05-03 from invoices
+pa.paid_in_window::PO-40903	facts	goods received=2026-03-05 from receipts,warehouse_scans | payment date=2026-03-14 from payments | payment due=2026-03-21 from invoices
+pa.paid_in_window::PO-40904	facts	goods received=2026-01-11 from receipts,warehouse_scans | payment date=ABSENT from payments | payment due=2026-02-08 from invoices
+pa.paid_in_window::PO-40905	facts	goods received=2026-06-03 from receipts,warehouse_scans | payment date=2026-06-11 from payments | payment due=2026-06-06 from invoices
+pa.paid_in_window::PO-40906	facts	goods received=2026-04-10 from receipts,warehouse_scans | payment date=2026-04-20 from payments | payment due=2026-05-03 from invoices
+pa.paid_in_window::PO-40907	facts	goods received=2026-04-01 from receipts,warehouse_scans | payment date=2026-04-26 from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-40908	facts	goods received=ABSENT from receipts,warehouse_scans | payment date=ABSENT from payments | payment due=ABSENT from invoices
+
+---
+
+pa.paid_in_window::PO-40909	facts	goods received=2026-05-18 from receipts | payment date=2026-05-11 from payments | payment due=2026-06-16 from invoices
+pa.paid_in_window::PO-40910	facts	goods received=2026-02-22 from receipts | payment date=2026-02-18 from payments | payment due=2026-02-28 from invoices
+pa.paid_in_window::PO-40911	facts	goods received=2026-06-17 from receipts | payment date=2026-06-30 from payments | payment due=2026-06-21 from invoices
+pa.paid_in_window::PO-40912	facts	goods received=2026-06-13 from receipts | payment date=2026-07-08 from payments | payment due=2026-06-18 from invoices
+pa.paid_in_window::PO-40913	facts	goods received=2026-07-17 from receipts | payment date=2026-07-18 from payments | payment due=2026-08-04 from invoices
+pa.paid_in_window::PO-40914	facts	goods received=2026-05-10 from receipts | payment date=2026-05-10 from payments | payment due=2026-05-10 from invoices
+pa.paid_in_window::PO-40915	facts	goods received=2026-05-19 from warehouse_scans | payment date=2026-05-15 from payments | payment due=2026-05-29 from invoices
+pa.paid_in_window::PO-40916	facts	goods received=2026-01-11 from receipts | payment date=2026-01-11 from payments | payment due=2026-01-11 from invoices

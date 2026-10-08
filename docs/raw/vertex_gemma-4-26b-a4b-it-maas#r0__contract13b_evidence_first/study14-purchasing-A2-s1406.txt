@@ -1,0 +1,221 @@
+pa.three_way_match::PO-40601	pass	invoices: TDS*19000000, purchase_orders: AMT*TT*190000.00, receipts: QTY*RC*306, invoices: QTY*D1*313. Wait, quantity received (306) is less than quantity invoiced (313). Let me re-check.
+Correction:
+pa.three_way_match::PO-40601	fail	invoices: TDS*19000000, purchase_orders: AMT*TT*190000.00, receipts: QTY*RC*306, invoices: QTY*D1*313
+pa.three_way_match::PO-40602	fail	invoices: TDS*6000000, purchase_orders: AMT*TT*65000.00, receipts: QTY*RC*267, invoices: QTY*D1*260. Wait, 60000 <= 65000 and 267 >= 260. This is a pass.
+Correction:
+pa.three_way_match::PO-40602	pass	invoices: TDS*6000000, purchase_orders: AMT*TT*65000.00, receipts: QTY*RC*267, invoices: QTY*D1*260
+pa.three_way_match::PO-40603	pass	invoices: TDS*1800000, purchase_orders: AMT*TT*18000.00, receipts: QTY*RC*342, invoices: QTY*D1*342
+pa.three_way_match::PO-40604	pass	invoices: TDS*2850000, purchase_orders: AMT*TT*31500.00, receipts: QTY*RC*119, invoices: QTY*D1*110. Wait, 28500 <= 31500 and 119 >= 110. This is a pass.
+Correction:
+pa.three_way_match::PO-40604	pass	invoices: TDS*2850000, purchase_orders: AMT*TT*31500.00, receipts: QTY*RC*119, invoices: QTY*D1*110
+pa.three_way_match::PO-40605	pass	invoices: TDS*8100000, purchase_orders: AMT*TT*82500.00, receipts: QTY*RC*83, invoices: QTY*D1*76
+pa.three_way_match::PO-40606	pass	invoices: TDS*3350000, purchase_orders: AMT*TT*30000.00, receipts: QTY*RC*505, invoices: QTY*D1*486. Wait, 33500 > 30000. This is a fail.
+Correction:
+pa.three_way_match::PO-40606	fail	invoices: TDS*3350000, purchase_orders: AMT*TT*30000.00, receipts: QTY*RC*505, invoices: QTY*D1*486
+pa.three_way_match::PO-40607	pass	invoices: TDS*16750000, purchase_orders: AMT*TT*169500.00, receipts: QTY*RC*384, invoices: QTY*D1*393. Wait, 384 < 393. This is a fail.
+Correction:
+pa.three_way_match::PO-40607	fail	invoices: TDS*16750000, purchase_orders: AMT*TT*169500.00, receipts: QTY*RC*384, invoices: QTY*D1*393
+pa.three_way_match::PO-40608	pass	invoices: TDS*850000, purchase_orders: AMT*TT*10500.00, receipts: QTY*RC*206, invoices: QTY*D1*190
+pa.three_way_match::PO-40609	pass	invoices: TDS*3000000, purchase_orders: AMT*TT*31500.00, receipts: QTY*RC*231, invoices: QTY*D1*213
+pa.three_way_match::PO-40610	pass	invoices: TDS*20100000, purchase_orders: AMT*TT*198000.00, receipts: QTY*RC*459, invoices: QTY*D1*418. Wait, 20100000 > 198000. This is a fail.
+Correction:
+pa.three_way_match::PO-40610	fail	invoices: TDS*20100000, purchase_orders: AMT*TT*198000.00, receipts: QTY*RC*459, invoices: QTY*D1*418
+pa.three_way_match::PO-40611	pass	invoices: TDS*14500000, purchase_orders: AMT*TT*148000.00, receipts: QTY*RC*410, invoices: QTY*D1*418. Wait, 410 < 418. This is a fail.
+Correction:
+pa.three_way_match::PO-40611	fail	invoices: TDS*14500000, purchase_orders: AMT*TT*148000.00, receipts: QTY*RC*410, invoices: QTY*D1*418
+pa.three_way_match::PO-40612	pass	invoices: TDS*17350000, purchase_orders: AMT*TT*173000.00, receipts: QTY*RC*267, invoices: QTY*D1*440. Wait, 17350000 > 173000. This is a fail.
+Correction:
+pa.three_way_match::PO-40612	fail	invoices: TDS*17350000, purchase_orders: AMT*TT*173000.00, receipts: QTY*RC*267, invoices: QTY*D1*440
+
+Final check of the list:
+PO-40601: fail (306 < 313)
+PO-40602: pass (60000 <= 65000, 267 >= 260)
+PO-40603: pass (18000 <= 18000, 342 >= 342)
+PO-40604: pass (28500 <= 31500, 119 >= 110)
+PO-40605: pass (81000 <= 82500, 83 >= 76)
+PO-40606: fail (33500 > 30000)
+PO-40607: fail (384 < 393)
+PO-40608: pass (8500 <= 10500, 206 >= 190)
+PO-40609: pass (30000 <= 31500, 231 >= 213)
+PO-40610: fail (201000 > 198000)
+PO-40611: fail (410 < 418)
+PO-40612: fail (173500 > 173000)
+
+Wait, I need to output in the exact format.
+
+pa.three_way_match::PO-40601	fail	invoices: TDS*6000000, purchase_orders: AMT*TT*65000.00, receipts: QTY*RC*267, invoices: QTY*D1*260. Wait, I am looking at the wrong PO.
+Let's re-do carefully.
+
+PO-40601:
+invoices: TDS*19000000, QTY*D1*313
+purchase_orders: AMT*TT*190000.00
+receipts: QTY*RC*306
+Result: fail (306 < 313)
+
+PO-40602:
+invoices: TDS*6000000, QTY*D1*260
+purchase_orders: AMT*TT*65000.00 (from LX*3) AND AMT*TT*68250.00 (from LX*9).
+Wait, the rule says: "if the deciding document's values for that entity disagree, the fact is conflicting."
+The purchase_orders document has two entries for PO-40602.
+LX*3: AMT*TT*65000.00
+LX*9: AMT*TT*68250.00
+This means the order amount is conflicting.
+Verdict: needs_evidence.
+
+PO-40603:
+invoices: TDS*1800000, QTY*D1*342
+purchase_orders: AMT*TT*18000.00
+receipts: QTY*RC*342
+Result: pass
+
+PO-40604:
+invoices: TDS*2850000, QTY*D1*110
+purchase_orders: AMT*TT*31500.00
+receipts: QTY*RC*119
+Result: pass
+
+PO-40605:
+invoices: TDS*8100000, QTY*D1*76
+purchase_orders: AMT*TT*82500.00
+receipts: QTY*RC*83
+Result: pass
+
+PO-40606:
+invoices: TDS*3350000, QTY*D1*486
+purchase_orders: AMT*TT*30000.00
+receipts: QTY*RC*505
+Result: fail (33500 > 30000)
+
+PO-40607:
+invoices: TDS*16750000, QTY*D1*393
+purchase_orders: AMT*TT*169500.00
+receipts: QTY*RC*384
+Result: fail (384 < 393)
+
+PO-40608:
+invoices: TDS*850000, QTY*D1*190
+purchase_orders: AMT*TT*10500.00
+receipts: QTY*RC*206
+Result: pass
+
+PO-40609:
+invoices: TDS*3000000, QTY*D1*213
+purchase_orders: AMT*TT*31500.00
+receipts: QTY*RC*231
+Result: pass
+
+PO-40610:
+invoices: TDS*20100000, QTY*D1*418
+purchase_orders: AMT*TT*198000.00
+receipts: QTY*RC*459
+Result: fail (20100000 > 198000)
+
+PO-40611:
+invoices: TDS*14500000, QTY*D1*418
+purchase_orders: AMT*TT*148000.00
+receipts: QTY*RC*410
+Result: fail (410 < 418)
+
+PO-40612:
+invoices: TDS*17350000, QTY*D1*440
+purchase_orders: AMT*TT*173000.00
+receipts: QTY*RC*267
+Result: fail (17350000 > 173000)
+
+Wait, let me re-check PO-40602 in purchase_orders.
+LX*3: REF*PO*PO-40602, N1*VN*KESTREL INDUSTRIAL INC, AMT*TT*65000.00
+LX*9: REF*PO*PO-40602, N1*VN*OAKLINE DISTRIBUTION LLC, AMT*TT*68250.00
+Yes, it's conflicting.
+
+Let me re-check PO-40601 in purchase_orders.
+LX*12: REF*PO*PO-40601, N1*VN*FERRO SUPPLY CO, AMT*TT*190000.00
+Only one entry.
+
+Let me re-check PO-40612 in purchase_orders.
+LX*16: REF*PO*PO-40612, N1*VN*KESTREL INDUSTRIAL INC, AMT*TT*173000.00
+Only one entry.
+
+Let me re-check PO-40611 in purchase_orders.
+LX*10: REF*PO*PO-40611, N1*VN*FERRO SUPPLY CO, AMT*TT*148000.00
+Only one entry.
+
+Let me re-check PO-40610 in purchase_orders.
+LX*8: REF*PO*PO-40610, N1*VN*FERRO SUPPLY CO, AMT*TT*198000.00
+Only one entry.
+
+Let me re-check PO-40609 in purchase_orders.
+LX*17: REF*PO*PO-40609, N1*VN*KESTREL INDUSTRIAL INC, AMT*TT*31500.00
+Only one entry.
+
+Let me re-check PO-40608 in purchase_orders.
+LX*1: REF*PO*PO-40608, N1*VN*KESTREL INDUSTRIAL INC, AMT*TT*10500.00
+Only one entry.
+
+Let me re-check PO-40607 in purchase_orders.
+LX*13: REF*PO*PO-40607, N1*VN*KESTREL INDUSTRIAL INC, AMT*TT*169500.00
+Only one entry.
+
+Let me re-check PO-40606 in purchase_orders.
+LX*11: REF*PO*PO-40606, N1*VN*FERRO SUPPLY CO, AMT*TT*30000.00
+Only one entry.
+
+Let me re-check PO-40605 in purchase_orders.
+LX*2: REF*PO*PO-40605, N1*VN*KESTREL INDUSTRIAL INC, AMT*TT*82500.00
+Only one entry.
+
+Let me re-check PO-40604 in purchase_orders.
+LX*7: REF*PO*PO-40604, N1*VN*KESTREL INDUSTRIAL INC, AMT*TT*31500.00
+Only one entry.
+
+Let me re-check PO-40603 in purchase_orders.
+LX*5: REF*PO*PO-40603, N1*VN*OAKLINE DISTRIBUTION LLC, AMT*TT*18000.00
+Only one entry.
+
+One more check on PO-40602 in invoices.
+LX*1: PO-40602, TDS*6000000, QTY*D1*260
+Only one entry.
+
+One more check on PO-40602 in receipts.
+LX*11: PO-40602, QTY*RC*267
+Only one entry.
+
+Okay, the list is ready.
+
+pa.three_way_match::PO-40601	fail	invoices: TDS*19000000, purchase_orders: AMT*TT*190000.00, receipts: QTY*RC*306, invoices: QTY*D1*313
+pa.three_way_match::PO-40602	needs_evidence	invoices: TDS*6000000, purchase_orders: AMT*TT*65000.00, purchase_orders: AMT*TT*68250.00, receipts: QTY*RC*267, invoices: QTY*D1*260
+pa.three_way_match::PO-40603	pass	invoices: TDS*1800000, purchase_orders: AMT*TT*18000.00, receipts: QTY*RC*342, invoices: QTY*D1*342
+pa.three_way_match::PO-40604	pass	invoices: TDS*2850000, purchase_orders: AMT*TT*31500.00, receipts: QTY*RC*119, invoices: QTY*D1*110
+pa.three_way_match::PO-40605	pass	invoices: TDS*8100000, purchase_orders: AMT*TT*82500.00, receipts: QTY*RC*83, invoices: QTY*D1*76
+pa.three_way_match::PO-40606	fail	invoices: TDS*3350000, purchase_orders: AMT*TT*30000.00, receipts: QTY*RC*505, invoices: QTY*D1*486
+pa.three_way_match::PO-40607	fail	invoices: TDS*16750000, purchase_orders: AMT*TT*169500.00, receipts: QTY*RC*384, invoices: QTY*D1*393
+pa.three_way_match::PO-40608	pass	invoices: TDS*850000, purchase_orders: AMT*TT*10500.00, receipts: QTY*RC*206, invoices: QTY*D1*190
+pa.three_way_match::PO-40609	pass	invoices: TDS*3000000, purchase_orders: AMT*TT*31500.00, receipts: QTY*RC*231, invoices: QTY*D1*213
+pa.three_way_match::PO-40610	fail	invoices: TDS*20100000, purchase_orders: AMT*TT*198000.00, receipts: QTY*RC*459, invoices: QTY*D1*418
+pa.three_way_match::PO-40611	fail	invoices: TDS*14500000, purchase_orders: AMT*TT*148000.00, receipts: QTY*RC*410, invoices: QTY*D1*418
+pa.three_way_match::PO-40612	fail	invoices: TDS*17350000, purchase_orders: AMT*TT*173000.00, receipts: QTY*RC*267, invoices: QTY*D1*440
+
+---
+
+pa.three_way_match::PO-40613	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40614	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40615	needs_evidence	invoices, purchase_orders
+pa.three_way_match::PO-40616	pass	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-40601	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40602	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40603	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40604	pass	warehouse_scans, payments, invoices
+pa.paid_in_window::PO-40605	pass	warehouse_scans, payments, invoices
+pa.paid_in_window::PO-40606	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40607	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40608	pass	receipts, payments, invoices
+
+---
+
+pa.paid_in_window::PO-40609	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40610	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40611	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40612	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40613	needs_evidence	receipts, invoices
+pa.paid_in_window::PO-40614	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40615	needs_evidence	invoices
+pa.paid_in_window::PO-40616	pass	receipts, payments, invoices

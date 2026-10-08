@@ -1,0 +1,41 @@
+Study 14 (engineering:A1): 3 firms x 32 pairs
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract13b_extract']
+
+      batch 1/3 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 123s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 477 output tokens, 26s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 412 output tokens, 24s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 258 output tokens, 7s, finish=stop, ok
+  study14-engineering-A1-s1404 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 480 output tokens, 18s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 424 output tokens, 18s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 239 output tokens, 8s, finish=stop, ok
+  study14-engineering-A1-s1405 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 492 output tokens, 22s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 405 output tokens, 23s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 249 output tokens, 11s, finish=stop, ok
+  study14-engineering-A1-s1410 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract13b_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/deepseek-v3.2-maas__engineering-A1__contract13b_extract.json

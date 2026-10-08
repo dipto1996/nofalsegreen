@@ -1,0 +1,38 @@
+wf.reverify_window::E-40501	pass	ead_cards, reverifications, work_authorizations
+wf.reverify_window::E-40502	fail	reverifications, work_authorizations
+wf.reverify_window::E-40503	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40504	fail	reverifications, work_authorizations
+wf.reverify_window::E-40505	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40506	pass	reverifications, work_authorizations
+wf.reverify_window::E-40507	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40508	fail	reverifications, work_authorizations
+wf.reverify_window::E-40509	pass	reverifications, work_authorizations
+wf.reverify_window::E-40510	fail	reverifications, work_authorizations
+wf.reverify_window::E-40511	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40512	fail	reverifications, work_authorizations
+
+---
+
+wf.reverify_window::E-40513	fail	work_authorizations, reverifications
+wf.reverify_window::E-40514	fail	work_authorizations, reverifications
+wf.reverify_window::E-40515	needs_evidence	work_authorizations, ead_cards, reverifications
+wf.reverify_window::E-40516	fail	work_authorizations, reverifications
+wf.notice_posting::E-40501	pass	lca_notices, lca_filings
+wf.notice_posting::E-40502	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-40503	pass	lca_notices, lca_filings
+wf.notice_posting::E-40504	fail	lca_notices, lca_filings
+wf.notice_posting::E-40505	pass	lca_notices, lca_filings
+wf.notice_posting::E-40506	fail	lca_notices, lca_filings
+wf.notice_posting::E-40507	fail	lca_notices, lca_filings
+wf.notice_posting::E-40508	needs_evidence	lca_notices, lca_filings
+
+---
+
+wf.notice_posting::E-40509	needs_evidence	dol_receipts, lca_filings, lca_notices
+wf.notice_posting::E-40510	pass	lca_filings, lca_notices
+wf.notice_posting::E-40511	fail	lca_filings, lca_notices
+wf.notice_posting::E-40512	needs_evidence	lca_filings, lca_notices
+wf.notice_posting::E-40513	fail	lca_filings, lca_notices
+wf.notice_posting::E-40514	fail	lca_filings, lca_notices
+wf.notice_posting::E-40515	pass	lca_filings, lca_notices
+wf.notice_posting::E-40516	pass	lca_filings, lca_notices

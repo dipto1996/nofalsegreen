@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40301	invoice amount=14500.0 from invoices | order amount=9500.0 from purchase_orders | quantity received=468 from receipts | quantity invoiced=468 from invoices
+pa.three_way_match::PO-40302	invoice amount=ABSENT from invoices | order amount=42500.0 from purchase_orders | quantity received=412 from receipts | quantity invoiced=ABSENT from invoices
+pa.three_way_match::PO-40303	invoice amount=92500.0 from invoices | order amount=95000.0 from purchase_orders | quantity received=160 from receipts | quantity invoiced=165 from invoices
+pa.three_way_match::PO-40304	invoice amount=88000.0 from invoices | order amount=ABSENT from purchase_orders | quantity received=127 from receipts | quantity invoiced=132 from invoices
+pa.three_way_match::PO-40305	invoice amount=CONFLICT from invoices | order amount=200000.0 from purchase_orders | quantity received=300 from receipts | quantity invoiced=CONFLICT from invoices
+pa.three_way_match::PO-40306	invoice amount=8500.0 from invoices | order amount=ABSENT from purchase_orders | quantity received=165 from receipts | quantity invoiced=165 from invoices
+pa.three_way_match::PO-40307	invoice amount=145000.0 from invoices | order amount=150000.0 from purchase_orders | quantity received=30 from receipts | quantity invoiced=13 from invoices
+pa.three_way_match::PO-40308	invoice amount=109500.0 from invoices | order amount=105500.0 from purchase_orders | quantity received=ABSENT from receipts | quantity invoiced=109 from invoices
+pa.three_way_match::PO-40309	invoice amount=64000.0 from invoices | order amount=63000.0 from purchase_orders | quantity received=112 from receipts | quantity invoiced=113 from invoices
+pa.three_way_match::PO-40310	invoice amount=186500.0 from invoices | order amount=183500.0 from purchase_orders | quantity received=180 from receipts | quantity invoiced=184 from invoices
+pa.three_way_match::PO-40311	invoice amount=78000.0 from invoices | order amount=74500.0 from purchase_orders | quantity received=ABSENT from receipts | quantity invoiced=176 from invoices
+pa.three_way_match::PO-40312	invoice amount=54500.0 from invoices | order amount=57000.0 from purchase_orders | quantity received=423 from receipts | quantity invoiced=429 from invoices
+
+---
+
+pa.three_way_match::PO-40313	invoice amount=ABSENT from invoices | order amount=150500.0 from purchase_orders | quantity received=ABSENT from receipts | quantity invoiced=ABSENT from invoices
+pa.three_way_match::PO-40314	invoice amount=ABSENT from invoices | order amount=129000.0 from purchase_orders | quantity received=ABSENT from receipts | quantity invoiced=ABSENT from invoices
+pa.three_way_match::PO-40315	invoice amount=74000.0 from invoices | order amount=ABSENT from purchase_orders | quantity received=251 from receipts | quantity invoiced=249 from invoices
+pa.three_way_match::PO-40316	invoice amount=155000.0 from invoices | order amount=155000.0 from purchase_orders | quantity received=93 from receipts | quantity invoiced=93 from invoices
+pa.paid_in_window::PO-40301	goods received=2026-04-25 from warehouse_scans | payment date=2026-05-11 from payments | payment due=2026-04-28 from invoices
+pa.paid_in_window::PO-40302	goods received=2026-01-25 from receipts | payment date=ABSENT from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-40303	goods received=2026-05-19 from receipts | payment date=2026-06-07 from payments | payment due=2026-06-09 from invoices
+pa.paid_in_window::PO-40304	goods received=2026-03-31 from receipts | payment date=2026-03-19 from payments | payment due=2026-04-09 from invoices
+pa.paid_in_window::PO-40305	goods received=2026-01-07 from receipts | payment date=2026-01-26 from payments | payment due=2026-01-17 from invoices
+pa.paid_in_window::PO-40306	goods received=2026-03-30 from receipts | payment date=2026-04-19 from payments | payment due=2026-04-18 from invoices
+pa.paid_in_window::PO-40307	goods received=2026-02-06 from receipts | payment date=ABSENT from payments | payment due=2026-02-07 from invoices
+pa.paid_in_window::PO-40308	goods received=ABSENT from receipts | payment date=2026-07-10 from payments | payment due=2026-07-13 from invoices
+
+---
+
+pa.paid_in_window::PO-40309	goods received=2026-05-23 from receipts | payment date=2026-06-10 from payments | payment due=2026-05-26 from invoices
+pa.paid_in_window::PO-40310	goods received=2026-05-23 from receipts | payment date=2026-05-29 from payments | payment due=2026-05-31 from invoices
+pa.paid_in_window::PO-40311	goods received=ABSENT from receipts | payment date=ABSENT from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-40312	goods received=2026-04-27 from receipts | payment date=2026-06-02 from payments | payment due=2026-05-16 from invoices
+pa.paid_in_window::PO-40313	goods received=2026-07-20 from receipts | payment date=2026-07-11 from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-40314	goods received=ABSENT from receipts | payment date=ABSENT from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-40315	goods received=2026-06-05 from receipts | payment date=2026-05-23 from payments | payment due=2026-07-02 from invoices
+pa.paid_in_window::PO-40316	goods received=2026-04-22 from receipts | payment date=2026-04-27 from payments | payment due=2026-04-25 from invoices

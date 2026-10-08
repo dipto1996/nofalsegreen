@@ -1,0 +1,38 @@
+pa.three_way_match::PO-41001	invoice amount=74500.0 from invoices | order amount=72000.0 from purchase_orders | quantity received=ABSENT from receipts | quantity invoiced=107 from invoices
+pa.three_way_match::PO-41002	invoice amount=148500.0 from invoices | order amount=ABSENT from purchase_orders | quantity received=3 from receipts | quantity invoiced=10 from invoices
+pa.three_way_match::PO-41003	invoice amount=ABSENT from invoices | order amount=ABSENT from purchase_orders | quantity received=ABSENT from receipts | quantity invoiced=ABSENT from invoices
+pa.three_way_match::PO-41004	invoice amount=121500.0 from invoices | order amount=124000.0 from purchase_orders | quantity received=285 from receipts | quantity invoiced=278 from invoices
+pa.three_way_match::PO-41005	invoice amount=132000.0 from invoices | order amount=133500.0 from purchase_orders | quantity received=107 from receipts | quantity invoiced=100 from invoices
+pa.three_way_match::PO-41006	invoice amount=192500.0 from invoices | order amount=192500.0 from purchase_orders | quantity received=12 from receipts | quantity invoiced=12 from invoices
+pa.three_way_match::PO-41007	invoice amount=126000.0 from invoices | order amount=130500.0 from purchase_orders | quantity received=97 from receipts | quantity invoiced=101 from invoices
+pa.three_way_match::PO-41008	invoice amount=7500.0 from invoices | order amount=10000.0 from purchase_orders | quantity received=13 from receipts | quantity invoiced=19 from invoices
+pa.three_way_match::PO-41009	invoice amount=15000.0 from invoices | order amount=15000.0 from purchase_orders | quantity received=83 from receipts | quantity invoiced=90 from invoices
+pa.three_way_match::PO-41010	invoice amount=186000.0 from invoices | order amount=181000.0 from purchase_orders | quantity received=396 from receipts | quantity invoiced=396 from invoices
+pa.three_way_match::PO-41011	invoice amount=150500.0 from invoices | order amount=155500.0 from purchase_orders | quantity received=433 from receipts | quantity invoiced=441 from invoices
+pa.three_way_match::PO-41012	invoice amount=133000.0 from invoices | order amount=138000.0 from purchase_orders | quantity received=156 from receipts | quantity invoiced=164 from invoices
+
+---
+
+pa.three_way_match::PO-41013	invoice amount=16500.0 from invoices | order amount=20000.0 from purchase_orders | quantity received=508 from receipts | quantity invoiced=496 from invoices
+pa.three_way_match::PO-41014	invoice amount=4000.0 from invoices | order amount=8500.0 from purchase_orders | quantity received=231 from receipts | quantity invoiced=219 from invoices
+pa.three_way_match::PO-41015	invoice amount=191500.0 from invoices | order amount=190500.0 from purchase_orders | quantity received=83 from receipts | quantity invoiced=87 from invoices
+pa.three_way_match::PO-41016	invoice amount=53500.0 from invoices | order amount=55500.0 from purchase_orders | quantity received=139 from receipts | quantity invoiced=125 from invoices
+pa.paid_in_window::PO-41001	goods received=20637 from warehouse_scans | payment date=20644 from payments | payment due=20652 from invoices
+pa.paid_in_window::PO-41002	goods received=20585 from receipts | payment date=20592 from payments | payment due=20607 from invoices
+pa.paid_in_window::PO-41003	goods received=20584 from warehouse_scans | payment date=20595 from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-41004	goods received=20473 from receipts | payment date=20463 from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-41005	goods received=20493 from receipts | payment date=20506 from payments | payment due=20533 from invoices
+pa.paid_in_window::PO-41006	goods received=20576 from receipts | payment date=20585 from payments | payment due=20576 from invoices
+pa.paid_in_window::PO-41007	goods received=20587 from receipts | payment date=20618 from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-41008	goods received=20573 from receipts | payment date=20564 from payments | payment due=20595 from invoices
+
+---
+
+pa.paid_in_window::PO-41009	goods received=20558 from receipts | payment date=20558 from payments | payment due=20558 from invoices
+pa.paid_in_window::PO-41010	goods received=20524 from receipts | payment date=20546 from payments | payment due=20540 from invoices
+pa.paid_in_window::PO-41011	goods received=20529 from receipts | payment date=20531 from payments | payment due=20547 from invoices
+pa.paid_in_window::PO-41012	goods received=20586 from receipts | payment date=20602 from payments | payment due=ABSENT from invoices
+pa.paid_in_window::PO-41013	goods received=20483 from receipts | payment date=ABSENT from payments | payment due=20493 from invoices
+pa.paid_in_window::PO-41014	goods received=20513 from receipts | payment date=20503 from payments | payment due=20519 from invoices
+pa.paid_in_window::PO-41015	goods received=ABSENT from receipts | payment date=20535 from payments | payment due=20572 from invoices
+pa.paid_in_window::PO-41016	goods received=20517 from receipts | payment date=20537 from payments | payment due=20525 from invoices

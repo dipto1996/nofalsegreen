@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40201	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40202	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40203	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40204	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40205	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40206	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40207	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40208	unmonitored	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40209	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40210	needs_evidence	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40211	unmonitored	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40212	needs_evidence	invoices,purchase_orders,receipts
+
+---
+
+pa.three_way_match::PO-40213	fail	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40214	pass	invoices,purchase_orders,receipts
+pa.three_way_match::PO-40215	unmonitored	-
+pa.three_way_match::PO-40216	fail	invoices,purchase_orders,receipts
+pa.paid_in_window::PO-40201	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40202	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40203	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40204	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40205	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40206	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40207	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40208	needs_evidence	receipts,payments,invoices
+
+---
+
+pa.paid_in_window::PO-40209	fail	receipts,payments,invoices
+pa.paid_in_window::PO-40210	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40211	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40212	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40213	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40214	needs_evidence	receipts,payments,invoices
+pa.paid_in_window::PO-40215	unmonitored	-
+pa.paid_in_window::PO-40216	pass	receipts,payments,invoices

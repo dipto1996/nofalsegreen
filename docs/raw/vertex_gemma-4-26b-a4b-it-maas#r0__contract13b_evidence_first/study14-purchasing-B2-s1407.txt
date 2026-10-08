@@ -1,0 +1,42 @@
+pa.three_way_match::PO-40701	pass	invoices: 123,500, 384 units; purchase_orders: 123,500; receipts: 384 units
+pa.three_way_match::PO-40702	pass	invoices: 116,000, 260 units; purchase_orders: 116,000; receipts: needs_evidence
+pa.three_way_match::PO-40703	needs_evidence	invoices: 180,500, 235 units; purchase_orders: 178,500; receipts: no count
+pa.three_way_match::PO-40704	pass	invoices: 5,000, 165 units; purchase_orders: 8,500; receipts: 176 units
+pa.three_way_match::PO-40705	pass	invoices: 191,500, 256 units; purchase_orders: 193,000; receipts: 250 units (Note: quantity received 250 is less than 256, but rule says quantity received must be at least quantity invoiced. Wait, 250 < 256. Let me re-check. 250 < 256. So it fails.)
+pa.three_way_match::PO-40705	fail	invoices: 191,500, 256 units; purchase_orders: 193,000; receipts: 250 units
+pa.three_way_match::PO-40706	pass	invoices: 183,000, 316 units; purchase_orders: 183,500; receipts: 337 units
+pa.three_way_match::PO-40707	pass	invoices: 101,500, 169 units; purchase_orders: 101,500; receipts: 163 units (Wait, 163 < 169. So it fails.)
+pa.three_way_match::PO-40707	fail	invoices: 101,500, 169 units; purchase_orders: 101,500; receipts: 163 units
+pa.three_way_match::PO-40708	pass	invoices: 10,000, 297 units; purchase_orders: 10,000; receipts: 297 units
+pa.three_way_match::PO-40709	pass	invoices: needs_evidence (total not on copy), 407 units; purchase_orders: 181,000; receipts: 425 units
+pa.three_way_match::PO-40709	needs_evidence	invoices: total not on copy, 407 units; purchase_orders: 181,000; receipts: 425 units
+pa.three_way_match::PO-40710	unmonitored	invoices: no record
+pa.three_way_match::PO-40711	fail	invoices: 16,000, 378 units; purchase_orders: 11,500; receipts: 391 units (Wait, invoice 16,000 > PO 11,500. So it fails.)
+pa.three_way_match::PO-40711	fail	invoices: 16,000, 378 units; purchase_orders: 11,500; receipts: 391 units
+pa.three_way_match::PO-40712	pass	invoices: 26,000, 352 units; purchase_orders: 27,500; receipts: 362 units
+
+---
+
+pa.three_way_match::PO-40713	needs_evidence	invoices
+pa.three_way_match::PO-40714	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40715	needs_evidence	invoices
+pa.three_way_match::PO-40716	fail	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-40701	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40702	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40703	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40704	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40705	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40706	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40707	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40708	pass	warehouse_scans, payments, invoices
+
+---
+
+pa.paid_in_window::PO-40709	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40710	needs_evidence	invoices, payments
+pa.paid_in_window::PO-40711	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40712	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40713	pass	warehouse_scans, payments, invoices
+pa.paid_in_window::PO-40714	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40715	pass	warehouse_scans, payments, invoices
+pa.paid_in_window::PO-40716	pass	receipts, payments, invoices

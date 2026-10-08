@@ -1,0 +1,38 @@
+E-40801	wf.reverify_window	authorization expiry=2026-12-22 from work_authorizations | reverification date=2026-09-23 from reverifications
+E-40802	wf.reverify_window	authorization expiry=2027-03-07 from work_authorizations | reverification date=ABSENT
+E-40803	wf.reverify_window	authorization expiry=2026-11-19 from work_authorizations | reverification date=2026-10-13 from reverifications
+E-40804	wf.reverify_window	authorization expiry=2027-04-23 from work_authorizations | reverification date=ABSENT
+E-40805	wf.reverify_window	authorization expiry=ABSENT from work_authorizations | reverification date=2026-08-31 from reverifications
+E-40806	wf.reverify_window	authorization expiry=2026-12-08 from work_authorizations | reverification date=2026-12-06 from reverifications
+E-40807	wf.reverify_window	authorization expiry=2026-11-07 from work_authorizations | reverification date=2026-11-08 from reverifications
+E-40808	wf.reverify_window	authorization expiry=2026-12-21 from work_authorizations | reverification date=2026-12-29 from reverifications
+E-40809	wf.reverify_window	authorization expiry=2026-08-04 from work_authorizations | reverification date=2026-08-15 from reverifications
+E-40810	wf.reverify_window	authorization expiry=2026-11-17 from work_authorizations | reverification date=2026-07-26 from reverifications
+E-40811	wf.reverify_window	authorization expiry=2026-05-30 from work_authorizations | reverification date=2026-02-02 from reverifications
+E-40812	wf.reverify_window	authorization expiry=2026-05-11 from work_authorizations | reverification date=2026-05-01 from reverifications
+
+---
+
+wf.reverify_window::E-40813	authorization expiry=2026-08-30 from ead_cards | reverification date=2026-09-16 from reverifications
+wf.reverify_window::E-40814	authorization expiry=2026-12-15 from ead_cards | reverification date=2026-07-19 from reverifications
+wf.reverify_window::E-40815	authorization expiry=2026-07-31 from ead_cards | reverification date=ABSENT from reverifications
+wf.reverify_window::E-40816	authorization expiry=2026-08-21 from ead_cards | reverification date=ABSENT from reverifications
+wf.notice_posting::E-40801	notice posted=2026-01-22 from lca_notices | notice removed=2026-02-05 from lca_notices | LCA filed=2026-01-22 from lca_filings
+wf.notice_posting::E-40802	notice posted=2026-03-10 from lca_notices | notice removed=2026-04-03 from lca_notices | LCA filed=2026-02-27 from lca_filings
+wf.notice_posting::E-40803	notice posted=2026-05-21 from lca_notices | notice removed=2026-06-24 from lca_notices | LCA filed=2026-06-04 from lca_filings
+wf.notice_posting::E-40804	notice posted=2026-06-03 from lca_notices | notice removed=2026-06-15 from lca_notices | LCA filed=2026-06-15 from lca_filings
+wf.notice_posting::E-40805	notice posted=2026-01-31 from lca_notices | notice removed=2026-02-26 from lca_notices | LCA filed=2026-02-21 from lca_filings
+wf.notice_posting::E-40806	notice posted=2026-06-07 from lca_notices | notice removed=2026-07-10 from lca_notices | LCA filed=2026-07-01 from lca_filings
+wf.notice_posting::E-40807	notice posted=2026-02-11 from lca_notices | notice removed=2026-02-24 from lca_notices | LCA filed=ABSENT from lca_filings
+wf.notice_posting::E-40808	notice posted=2026-04-29 from lca_notices | notice removed=2026-05-17 from lca_notices | LCA filed=2026-05-01 from lca_filings
+
+---
+
+E-40809	notice posted=ABSENT | notice removed=ABSENT | LCA filed=ABSENT
+E-40810	notice posted=2026-02-19 from lca_notices | notice removed=2026-03-05 from lca_notices | LCA filed=2026-02-19 from lca_filings
+E-40811	notice posted=2026-03-21 from lca_notices | notice removed=2026-04-01 from lca_notices | LCA filed=2026-03-26 from lca_filings
+E-40812	notice posted=2026-03-02 from lca_notices | notice removed=ABSENT | LCA filed=2026-02-17 from lca_filings
+E-40813	notice posted=2026-06-03 from lca_notices | notice removed=2026-06-22 from lca_notices | LCA filed=2026-06-08 from lca_filings
+E-40814	notice posted=2026-01-14 from lca_notices | notice removed=2026-02-03 from lca_notices | LCA filed=2026-01-18 from lca_filings
+E-40815	notice posted=2026-05-10 from lca_notices | notice removed=2026-05-19 from lca_notices | LCA filed=2026-05-31 from lca_filings
+E-40816	notice posted=2026-01-24 from lca_notices | notice removed=2026-02-22 from lca_notices | LCA filed=2026-01-17 from lca_filings

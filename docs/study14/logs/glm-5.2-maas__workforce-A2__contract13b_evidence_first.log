@@ -1,0 +1,36 @@
+Study 14 (workforce:A2): 4 firms x 32 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6282 output tokens, 168s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 8261 output tokens, 66s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 6071 output tokens, 48s, finish=stop, ok
+  study14-workforce-A2-s1403 FGR 0.000  recall 0.938  absF1 0.941  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 7736 output tokens, 63s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 11065 output tokens, 91s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 7272 output tokens, 58s, finish=stop, ok
+  study14-workforce-A2-s1404 FGR 0.000  recall 0.933  absF1 0.941  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 8482 output tokens, 69s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 12731 output tokens, 96s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 4478 output tokens, 34s, finish=stop, ok
+  study14-workforce-A2-s1409 FGR 0.000  recall 0.900  absF1 0.941  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4899 output tokens, 40s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 6777 output tokens, 53s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 11443 output tokens, 84s, finish=stop, ok
+  study14-workforce-A2-s1410 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 0.943  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/glm-5.2-maas__workforce-A2__contract13b_evidence_first.json

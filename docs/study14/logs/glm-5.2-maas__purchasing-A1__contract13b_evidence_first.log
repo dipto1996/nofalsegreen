@@ -1,0 +1,40 @@
+Study 14 (purchasing:A1): 4 firms x 32 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 32000 output tokens, 391s, finish=length, CAP
+        attempt 2: 32000 output tokens, 255s, finish=length, CAP
+        attempt 3: 4460 output tokens, 37s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 4868 output tokens, 42s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 4649 output tokens, 35s, finish=stop, ok
+  study14-purchasing-A1-s1402 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (5 calls)  TRUNCATED 2
+      batch 1/3 (0 parsed so far)
+        attempt 1: 1748 output tokens, 13s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 6129 output tokens, 44s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 32000 output tokens, 241s, finish=length, CAP
+        attempt 2: 8398 output tokens, 62s, finish=stop, ok
+  study14-purchasing-A1-s1403 FGR 0.000  recall 0.882  absF1 0.900  unparsed 0  (4 calls)  TRUNCATED 1
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4814 output tokens, 34s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 8829 output tokens, 63s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 5569 output tokens, 42s, finish=stop, ok
+  study14-purchasing-A1-s1408 FGR 0.000  recall 1.000  absF1 0.857  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4732 output tokens, 34s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 24529 output tokens, 186s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 32000 output tokens, 235s, finish=length, CAP
+        attempt 2: 5145 output tokens, 37s, finish=stop, ok
+  study14-purchasing-A1-s1409 FGR 0.000  recall 1.000  absF1 0.941  unparsed 0  (4 calls)  TRUNCATED 1
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 0.971  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/glm-5.2-maas__purchasing-A1__contract13b_evidence_first.json

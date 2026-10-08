@@ -1,0 +1,167 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertex/gemini-3.1-pro-preview#r0::contract13b_evidence_first": {
+      "model": "vertex/gemini-3.1-pro-preview#r0",
+      "provider": "vertex",
+      "variant": "contract13b_evidence_first",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 6,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "study14-purchasing-B2-s1401",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 10,
+          "violation_recall": 1.0,
+          "violation_precision": 0.9375,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 0.9,
+          "abstention_f1": 0.9473684210526316,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 25
+            }
+          }
+        },
+        {
+          "firm_id": "study14-purchasing-B2-s1406",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 8,
+          "violation_recall": 1.0,
+          "violation_precision": 0.9166666666666666,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 0.875,
+          "abstention_f1": 0.9333333333333333,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 19
+            }
+          }
+        },
+        {
+          "firm_id": "study14-purchasing-B2-s1407",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 1.0,
+          "violation_precision": 1.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 1.0,
+          "abstention_f1": 1.0,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 23
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 162216,
+        "output_tokens": 57908,
+        "calls": 9,
+        "wall_seconds": 471.4
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 3
+        },
+        "violation_recall": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 3
+        },
+        "violation_precision": {
+          "mean": 0.9514,
+          "stdev": 0.0434,
+          "min": 0.9167,
+          "max": 1.0,
+          "n_firms": 3
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 3
+        },
+        "abstention_precision": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 3
+        },
+        "abstention_recall": {
+          "mean": 0.925,
+          "stdev": 0.0661,
+          "min": 0.875,
+          "max": 1.0,
+          "n_firms": 3
+        },
+        "abstention_f1": {
+          "mean": 0.9602,
+          "stdev": 0.0351,
+          "min": 0.9333,
+          "max": 1.0,
+          "n_firms": 3
+        }
+      },
+      "n_pairs": 96,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    }
+  }
+}

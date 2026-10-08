@@ -1,0 +1,38 @@
+wf.reverify_window::E-40101	authorization expiry=2027-02-03 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40102	authorization expiry=2026-09-28 from work_authorizations | reverification date=2026-10-01 from reverifications
+wf.reverify_window::E-40103	authorization expiry=2026-12-31 from work_authorizations | reverification date=2026-08-31 from reverifications
+wf.reverify_window::E-40104	authorization expiry=2027-03-22 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40105	authorization expiry=2026-10-21 from work_authorizations | reverification date=2026-08-19 from reverifications
+wf.reverify_window::E-40106	authorization expiry=2026-06-16 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40107	authorization expiry=2026-04-03 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40108	authorization expiry=2027-02-27 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40109	authorization expiry=2026-11-08 from work_authorizations | reverification date=2026-08-10 from reverifications
+wf.reverify_window::E-40110	authorization expiry=ABSENT | reverification date=ABSENT
+wf.reverify_window::E-40111	authorization expiry=2027-03-25 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40112	authorization expiry=2027-08-07 from work_authorizations | reverification date=ABSENT
+
+---
+
+wf.reverify_window::E-40113	authorization expiry=2027-05-27 from hr_roster | reverification date=ABSENT
+wf.reverify_window::E-40114	authorization expiry=2026-06-28 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40115	authorization expiry=2027-03-02 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40116	authorization expiry=2027-01-20 from work_authorizations | reverification date=ABSENT
+wf.notice_posting::E-40101	notice posted=ABSENT | notice removed=ABSENT | LCA filed=ABSENT
+wf.notice_posting::E-40102	notice posted=2026-03-11 from lca_notices | notice removed=2026-03-27 from lca_notices | LCA filed=2026-03-02 from lca_filings
+wf.notice_posting::E-40103	notice posted=ABSENT | notice removed=ABSENT | LCA filed=2026-02-02 from lca_filings
+wf.notice_posting::E-40104	notice posted=2026-04-17 from lca_notices | notice removed=2026-05-03 from lca_notices | LCA filed=2026-04-19 from lca_filings
+wf.notice_posting::E-40105	notice posted=2026-06-21 from lca_notices | notice removed=2026-07-09 from lca_notices | LCA filed=2026-06-20 from lca_filings
+wf.notice_posting::E-40106	notice posted=2026-01-30 from lca_notices | notice removed=2026-02-21 from lca_notices | LCA filed=2026-02-14 from lca_filings
+wf.notice_posting::E-40107	notice posted=2026-01-11 from lca_notices | notice removed=2026-02-07 from lca_notices | LCA filed=2026-01-04 from lca_filings
+wf.notice_posting::E-40108	notice posted=ABSENT | notice removed=ABSENT | LCA filed=2026-07-08 from lca_filings
+
+---
+
+wf.notice_posting::E-40109	notice posted=03/05/2026 from lca_notices | notice removed=03/17/2026 from lca_notices | LCA filed=03/11/2026 from dol_receipts
+wf.notice_posting::E-40110	notice posted=ABSENT from lca_notices | notice removed=ABSENT from lca_notices | LCA filed=03/31/2026 from lca_filings
+wf.notice_posting::E-40111	notice posted=06/14/2026 from lca_notices | notice removed=06/29/2026 from lca_notices | LCA filed=06/14/2026 from lca_filings
+wf.notice_posting::E-40112	notice posted=07/18/2026 from lca_notices | notice removed=08/11/2026 from lca_notices | LCA filed=07/20/2026 from dol_receipts
+wf.notice_posting::E-40113	notice posted=ABSENT from lca_notices | notice removed=ABSENT from lca_notices | LCA filed=02/17/2026 from lca_filings
+wf.notice_posting::E-40114	notice posted=01/23/2026 from lca_notices | notice removed=02/23/2026 from lca_notices | LCA filed=02/07/2026 from lca_filings
+wf.notice_posting::E-40115	notice posted=02/01/2026 from lca_notices | notice removed=02/11/2026 from lca_notices | LCA filed=ABSENT from lca_filings | LCA filed=07/08/2026 from dol_receipts
+wf.notice_posting::E-40116	notice posted=ABSENT from lca_notices | notice removed=ABSENT from lca_notices | LCA filed=03/27/2026 from lca_filings

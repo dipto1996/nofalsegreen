@@ -1,0 +1,36 @@
+Study 14 (purchasing:B1): 4 firms x 32 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4503 output tokens, 151s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 7681 output tokens, 50s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 3673 output tokens, 24s, finish=stop, ok
+  study14-purchasing-B1-s1403 FGR 0.000  recall 1.000  absF1 0.941  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6128 output tokens, 38s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 7883 output tokens, 48s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 4390 output tokens, 27s, finish=stop, ok
+  study14-purchasing-B1-s1404 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 5182 output tokens, 32s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 5199 output tokens, 33s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 5036 output tokens, 29s, finish=stop, ok
+  study14-purchasing-B1-s1409 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6421 output tokens, 40s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 4659 output tokens, 28s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 5852 output tokens, 39s, finish=stop, ok
+  study14-purchasing-B1-s1410 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemini-3.1-pro-preview__purchasing-B1__contract13b_evidence_first.json

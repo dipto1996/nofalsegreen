@@ -1,0 +1,38 @@
+wf.reverify_window::E-40901	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40902	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40903	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40904	pass	reverifications, work_authorizations
+wf.reverify_window::E-40905	pass	reverifications, work_authorizations
+wf.reverify_window::E-40906	fail	reverifications, work_authorizations
+wf.reverify_window::E-40907	pass	reverifications, work_authorizations
+wf.reverify_window::E-40908	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40909	fail	reverifications, work_authorizations
+wf.reverify_window::E-40910	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40911	fail	reverifications, work_authorizations
+wf.reverify_window::E-40912	fail	reverifications, work_authorizations
+
+---
+
+wf.reverify_window::E-40913	fail	work_authorizations, reverifications
+wf.reverify_window::E-40914	pass	work_authorizations, reverifications
+wf.reverify_window::E-40915	pass	work_authorizations, reverifications
+wf.reverify_window::E-40916	fail	work_authorizations, ead_cards, reverifications
+wf.notice_posting::E-40901	fail	lca_notices, lca_filings
+wf.notice_posting::E-40902	pass	lca_notices, lca_filings
+wf.notice_posting::E-40903	fail	lca_notices, lca_filings
+wf.notice_posting::E-40904	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-40905	fail	lca_notices, lca_filings
+wf.notice_posting::E-40906	pass	lca_notices, lca_filings
+wf.notice_posting::E-40907	pass	lca_notices, lca_filings
+wf.notice_posting::E-40908	pass	lca_notices, lca_filings
+
+---
+
+wf.notice_posting::E-40909	needs_evidence	lca_filings, lca_notices
+wf.notice_posting::E-40910	pass	lca_filings, lca_notices
+wf.notice_posting::E-40911	pass	lca_filings, lca_notices
+wf.notice_posting::E-40912	pass	lca_filings, lca_notices
+wf.notice_posting::E-40913	needs_evidence	dol_receipts, lca_filings, lca_notices
+wf.notice_posting::E-40914	pass	lca_filings, lca_notices
+wf.notice_posting::E-40915	needs_evidence	dol_receipts, lca_filings, lca_notices
+wf.notice_posting::E-40916	pass	lca_filings, lca_notices

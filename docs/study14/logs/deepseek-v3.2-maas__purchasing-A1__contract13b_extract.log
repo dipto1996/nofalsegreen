@@ -1,0 +1,48 @@
+Study 14 (purchasing:A1): 4 firms x 32 pairs
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_extract']
+
+      batch 1/3 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 123s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 602 output tokens, 24s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 568 output tokens, 27s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 350 output tokens, 14s, finish=stop, ok
+  study14-purchasing-A1-s1402 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 608 output tokens, 21s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 585 output tokens, 23s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 362 output tokens, 21s, finish=stop, ok
+  study14-purchasing-A1-s1403 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 598 output tokens, 25s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 567 output tokens, 21s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 371 output tokens, 17s, finish=stop, ok
+  study14-purchasing-A1-s1408 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 601 output tokens, 16s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 569 output tokens, 18s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 394 output tokens, 10s, finish=stop, ok
+  study14-purchasing-A1-s1409 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract13b_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/deepseek-v3.2-maas__purchasing-A1__contract13b_extract.json

@@ -1,0 +1,50 @@
+pa.three_way_match::PO-40101	pass	invoices: 155500, purchase_orders: 159500, receipts: 150, invoices: 143
+pa.three_way_match::PO-40102	pass	invoices: 44000, purchase_orders: 48500, receipts: 30, invoices: 24
+pa.three_way_match::PO-40103	pass	invoices: 199500, purchase_orders: 197000, receipts: 219, invoices: 201
+pa.three_way_match::PO-40104	needs_evidence	invoices: no value, purchase_orders: 16500, receipts: no value, invoices: no value
+pa.three_way_match::PO-40105	pass	invoices: 118000, purchase_orders: 119000, receipts: 328, invoices: 327
+pa.three_way_match::PO-40106	pass	invoices: 16500, purchase_orders: 20000, receipts: 465, invoices: 447
+pa.three_way_match::PO-40107	fail	invoices: 117500, purchase_orders: 114500, receipts: 111, invoices: 115
+pa.three_way_match::PO-40108	pass	invoices: 162000, purchase_orders: 160000, receipts: 104, invoices: 97
+pa.three_way_match::PO-40109	pass	invoices: 112500, purchase_orders: 107500, receipts: 278, invoices: 281
+pa.three_way_match::PO-40110	needs_evidence	invoices: no value, purchase_orders: 94000, receipts: 253, invoices: 251
+pa.three_way_match::PO-40111	pass	invoices: 80500, purchase_orders: 84500, receipts: 321, invoices: 311
+pa.three_way_match::PO-40112	pass	invoices: 85500, purchase_orders: 81000, receipts: 322, invoices: 326
+
+---
+
+pa.three_way_match::PO-40113	pass	invoices: PO-40113 (81,500, 386 units), purchase_orders: PO-40113 (79,500), receipts: PO-40113 (385 units) -> needs_evidence
+pa.three_way_match::PO-40113	needs_evidence	invoices: PO-40113 (81,500, 386 units), purchase_orders: PO-40113 (79,500), receipts: PO-40113 (385 units)
+pa.three_way_match::PO-40114	pass	invoices: PO-40114 (186,000, 108 units), purchase_orders: PO-40114 (187,000), receipts: PO-40114 (101 units) -> needs_evidence
+pa.three_way_match::PO-40114	needs_evidence	invoices: PO-40114 (186,000, 108 units), purchase_orders: PO-40114 (187,000), receipts: PO-40114 (101 units)
+pa.three_way_match::PO-40115	pass	invoices: PO-40115 (no amount), purchase_orders: PO-40115 (44,000), receipts: PO-40115 (297 units) -> needs_evidence
+pa.three_way_match::PO-40115	needs_evidence	invoices: PO-40115 (no amount), purchase_orders: PO-40115 (44,000), receipts: PO-40115 (297 units)
+pa.three_way_match::PO-40116	pass	invoices: PO-40116 (124,500, 488 units), purchase_orders: PO-40116 (122,000), receipts: PO-40116 (486 units) -> fail
+pa.three_way_match::PO-40116	fail	invoices: PO-40116 (124,500, 488 units), purchase_orders: PO-40116 (122,000), receipts: PO-40116 (486 units)
+pa.paid_in_window::PO-40101	pass	receipts: PO-40101 (19th Feb 2026), payments: PO-40101 (March 2nd, 2026), invoices: PO-40101 (no deadline) -> needs_evidence
+pa.paid_in_window::PO-40101	needs_evidence	receipts: PO-40101 (19th Feb 2026), payments: PO-40101 (March 2nd, 2026), invoices: PO-40101 (no deadline)
+pa.paid_in_window::PO-40102	pass	receipts: PO-40102 (30th Jun 2026), payments: PO-40102 (June 27th, 2026), invoices: PO-40102 (3rd Aug 2026) -> fail
+pa.paid_in_window::PO-40102	fail	receipts: PO-40102 (30th Jun 2026), payments: PO-40102 (June 27th, 2026), invoices: PO-40102 (3rd Aug 2026)
+pa.paid_in_window::PO-40103	pass	receipts: PO-40103 (June 21st, 2026), payments: PO-40103 (July 18th, 2026), invoices: PO-40103 (July 8th, 2026) -> fail
+pa.paid_in_window::PO-40103	fail	receipts: PO-40103 (June 21st, 2026), payments: PO-40103 (July 18th, 2026), invoices: PO-40103 (July 8th, 2026)
+pa.paid_in_window::PO-40104	pass	receipts: no value, warehouse_scans: PO-40104 (February 16th, 2026), payments: PO-40104 (March 5th, 2026), invoices: no value -> needs_evidence
+pa.paid_in_window::PO-40104	needs_evidence	receipts: no value, warehouse_scans: PO-40104 (February 16th, 2026), payments: PO-40104 (March 5th, 2026), invoices: no value
+pa.paid_in_window::PO-40105	pass	receipts: PO-40105 (July 8th, 2026), payments: PO-40105 (July 20th, 2026), invoices: PO-40105 (11th Jul 2026) -> fail
+pa.paid_in_window::PO-40105	fail	receipts: PO-40105 (July 8th, 2026), payments: PO-40105 (July 20th, 2026), invoices: PO-40105 (11th Jul 2026)
+pa.paid_in_window::PO-40106	pass	receipts: PO-40106 (May 21st, 2026), payments: PO-40106 (13th Jun 2026), invoices: PO-40106 (May 30th, 2026) -> fail
+pa.paid_in_window::PO-40106	fail	receipts: PO-40106 (May 21st, 2026), payments: PO-40106 (13th Jun 2026), invoices: PO-40106 (May 30th, 2026)
+pa.paid_in_window::PO-40107	pass	receipts: PO-40107 (9th Jan 2026), payments: no value, invoices: PO-40107 (25th Jan 2026) -> needs_evidence
+pa.paid_in_window::PO-40107	needs_evidence	receipts: PO-40107 (9th Jan 2026), payments: no value, invoices: PO-40107 (25th Jan 2026)
+pa.paid_in_window::PO-40108	pass	receipts: PO-40108 (February 7th, 2026), payments: PO-40108 (February 24th, 2026), invoices: PO-40108 (no deadline) -> needs_evidence
+pa.paid_in_window::PO-40108	needs_evidence	receipts: PO-40108 (February 7th, 2026), payments: PO-40108 (February 24th, 2026), invoices: PO-40108 (no deadline)
+
+---
+
+pa.paid_in_window::PO-40109	fail	invoices, payments, receipts
+pa.paid_in_window::PO-40110	pass	invoices, payments, receipts
+pa.paid_in_window::PO-40111	pass	invoices, payments, receipts
+pa.paid_in_window::PO-40112	pass	invoices, payments, receipts
+pa.paid_in_window::PO-40113	pass	invoices, payments, receipts
+pa.paid_in_window::PO-40114	fail	invoices, payments, receipts
+pa.paid_in_window::PO-40115	pass	invoices, payments, receipts
+pa.paid_in_window::PO-40116	pass	invoices, payments, receipts

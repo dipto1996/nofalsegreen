@@ -1,0 +1,22 @@
+Study 14 (purchasing:A2): 2 firms x 32 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 20439 output tokens, 230s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 31000 output tokens, 196s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 30912 output tokens, 216s, finish=stop, ok
+  study14-purchasing-A2-s1405 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 31019 output tokens, 203s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 16578 output tokens, 97s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 5105 output tokens, 28s, finish=stop, ok
+  study14-purchasing-A2-s1406 FGR 0.000  recall 1.000  absF1 0.933  unparsed 0  (3 calls)
+
+  vertex/gemini-3.8-flash#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemini-3.8-flash__purchasing-A2__contract13b_evidence_first.json

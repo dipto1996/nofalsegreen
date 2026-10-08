@@ -1,0 +1,195 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract13b_evidence_first": {
+      "model": "vertexopen/deepseek-ai/deepseek-v3.2-maas#r0",
+      "provider": "vertexopen",
+      "variant": "contract13b_evidence_first",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 6,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "study14-engineering-C2-s1403",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 0.07692307692307693,
+          "violation_precision": 0.3333333333333333,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.20833333333333334,
+          "abstention_recall": 0.5555555555555556,
+          "abstention_f1": 0.30303030303030304,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.07692307692307693,
+              "false_green_rate": 0.0,
+              "n_pairs": 22
+            }
+          }
+        },
+        {
+          "firm_id": "study14-engineering-C2-s1404",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.25,
+          "abstention_recall": 0.7777777777777778,
+          "abstention_f1": 0.3783783783783784,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 18
+            }
+          }
+        },
+        {
+          "firm_id": "study14-engineering-C2-s1409",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.1111111111111111,
+          "n_false_green": 1,
+          "n_withheld": 9,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.2608695652173913,
+          "abstention_recall": 0.6666666666666666,
+          "abstention_f1": 0.37500000000000006,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.1111111111111111,
+              "n_pairs": 22
+            }
+          }
+        },
+        {
+          "firm_id": "study14-engineering-C2-s1410",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 0.13333333333333333,
+          "violation_precision": 0.5,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.3333333333333333,
+          "abstention_recall": 0.7777777777777778,
+          "abstention_f1": 0.4666666666666666,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.13333333333333333,
+              "false_green_rate": 0.0,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 38292,
+        "output_tokens": 3202,
+        "calls": 12,
+        "wall_seconds": 551.5
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0278,
+          "stdev": 0.0556,
+          "min": 0.0,
+          "max": 0.1111,
+          "n_firms": 4
+        },
+        "violation_recall": {
+          "mean": 0.0526,
+          "stdev": 0.0649,
+          "min": 0.0,
+          "max": 0.1333,
+          "n_firms": 4
+        },
+        "violation_precision": {
+          "mean": 0.2083,
+          "stdev": 0.25,
+          "min": 0.0,
+          "max": 0.5,
+          "n_firms": 4
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "abstention_precision": {
+          "mean": 0.2631,
+          "stdev": 0.052,
+          "min": 0.2083,
+          "max": 0.3333,
+          "n_firms": 4
+        },
+        "abstention_recall": {
+          "mean": 0.6944,
+          "stdev": 0.1064,
+          "min": 0.5556,
+          "max": 0.7778,
+          "n_firms": 4
+        },
+        "abstention_f1": {
+          "mean": 0.3808,
+          "stdev": 0.067,
+          "min": 0.303,
+          "max": 0.4667,
+          "n_firms": 4
+        }
+      },
+      "n_pairs": 128,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 0
+    }
+  }
+}

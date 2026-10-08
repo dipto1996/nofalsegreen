@@ -1,0 +1,29 @@
+Study 14 (workforce:B2): 3 firms x 32 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4270 output tokens, 152s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 15198 output tokens, 100s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 6727 output tokens, 39s, finish=stop, ok
+  study14-workforce-B2-s1404 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6687 output tokens, 41s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 31026 output tokens, 185s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 29224 output tokens, 190s, finish=stop, ok
+  study14-workforce-B2-s1405 FGR 0.000  recall 0.933  absF1 0.941  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 3675 output tokens, 22s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 20847 output tokens, 132s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 14058 output tokens, 102s, finish=stop, ok
+  study14-workforce-B2-s1410 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertex/gemini-3.8-flash#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 0.978  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemini-3.8-flash__workforce-B2__contract13b_evidence_first.json

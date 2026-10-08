@@ -1,0 +1,38 @@
+ea.calibration_current::P-40301	needs_evidence	-
+ea.calibration_current::P-40302	needs_evidence	-
+ea.calibration_current::P-40303	needs_evidence	-
+ea.calibration_current::P-40304	needs_evidence	-
+ea.calibration_current::P-40305	needs_evidence	-
+ea.calibration_current::P-40306	needs_evidence	-
+ea.calibration_current::P-40307	needs_evidence	-
+ea.calibration_current::P-40308	needs_evidence	-
+ea.calibration_current::P-40309	needs_evidence	-
+ea.calibration_current::P-40310	needs_evidence	-
+ea.calibration_current::P-40311	needs_evidence	-
+ea.calibration_current::P-40312	needs_evidence	-
+
+---
+
+ea.calibration_current::P-40313	needs_evidence	calibration_log, test_reports
+ea.calibration_current::P-40314	needs_evidence	calibration_log, test_reports
+ea.calibration_current::P-40315	needs_evidence	calibration_log, test_reports
+ea.calibration_current::P-40316	needs_evidence	calibration_log, test_reports
+ea.load_with_margin::P-40301	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40302	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40303	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40304	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40305	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40306	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40307	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-40308	pass	lab_certificates, spec_sheets
+
+---
+
+ea.load_with_margin::P-40309	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40310	needs_evidence	parts
+ea.load_with_margin::P-40311	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40312	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40313	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40314	fail	lab_certificates, parts
+ea.load_with_margin::P-40315	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40316	pass	lab_certificates, spec_sheets

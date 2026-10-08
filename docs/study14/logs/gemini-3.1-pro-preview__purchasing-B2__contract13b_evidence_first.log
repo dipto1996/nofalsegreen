@@ -1,0 +1,29 @@
+Study 14 (purchasing:B2): 3 firms x 32 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 3616 output tokens, 135s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 10561 output tokens, 63s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 5145 output tokens, 31s, finish=stop, ok
+  study14-purchasing-B2-s1401 FGR 0.000  recall 1.000  absF1 0.947  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6605 output tokens, 41s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 8166 output tokens, 52s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 4979 output tokens, 33s, finish=stop, ok
+  study14-purchasing-B2-s1406 FGR 0.000  recall 1.000  absF1 0.933  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 5943 output tokens, 37s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 8762 output tokens, 53s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 4131 output tokens, 27s, finish=stop, ok
+  study14-purchasing-B2-s1407 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemini-3.1-pro-preview__purchasing-B2__contract13b_evidence_first.json

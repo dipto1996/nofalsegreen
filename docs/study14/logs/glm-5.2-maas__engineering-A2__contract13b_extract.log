@@ -1,0 +1,38 @@
+Study 14 (engineering:A2): 4 firms x 32 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_extract']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 32000 output tokens, 389s, finish=length, CAP
+        attempt 2: 3731 output tokens, 31s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 4058 output tokens, 32s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 1979 output tokens, 16s, finish=stop, ok
+  study14-engineering-A2-s1401 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (4 calls)  TRUNCATED 1
+      batch 1/3 (0 parsed so far)
+        attempt 1: 5105 output tokens, 40s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 7045 output tokens, 52s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 1665 output tokens, 14s, finish=stop, ok
+  study14-engineering-A2-s1402 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 32000 output tokens, 248s, finish=length, CAP
+        attempt 2: 7429 output tokens, 62s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 4197 output tokens, 33s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 2801 output tokens, 23s, finish=stop, ok
+  study14-engineering-A2-s1407 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (4 calls)  TRUNCATED 1
+      batch 1/3 (0 parsed so far)
+        attempt 1: 1674 output tokens, 15s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 3885 output tokens, 28s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 2124 output tokens, 18s, finish=stop, ok
+  study14-engineering-A2-s1408 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13b_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/glm-5.2-maas__engineering-A2__contract13b_extract.json

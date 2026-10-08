@@ -1,0 +1,38 @@
+pa.three_way_match::PO-41001	fail	invoices (sheet 4), purchase_orders (sheet 5), receipts (sheet 10)
+pa.three_way_match::PO-41002	needs_evidence	invoices (sheet 13), purchase_orders (sheet 12), receipts (sheet 11)
+pa.three_way_match::PO-41003	needs_evidence	invoices (sheet 3), purchase_orders (sheet 2), receipts (sheet 7)
+pa.three_way_match::PO-41004	pass	invoices (sheet 9), purchase_orders (sheet 2), receipts (sheet 13)
+pa.three_way_match::PO-41005	fail	invoices (sheet 1), purchase_orders (sheet 1), receipts (sheet 1)
+pa.three_way_match::PO-41006	pass	invoices (sheet 2), purchase_orders (sheet 14), receipts (sheet 5)
+pa.three_way_match::PO-41007	needs_evidence	invoices (sheet 14), purchase_orders (sheet 10), receipts (sheet 8)
+pa.three_way_match::PO-41008	needs_evidence	invoices (sheet 5), purchase_orders (sheet 11), receipts (sheet 15)
+pa.three_way_match::PO-41009	needs_evidence	invoices (sheet 12), purchase_orders (sheet 9), receipts (sheet 6)
+pa.three_way_match::PO-41010	pass	invoices (sheet 11), purchase_orders (sheet 4), receipts (sheet 7)
+pa.three_way_match::PO-41011	pass	invoices (sheet 10), purchase_orders (sheet 12), receipts (sheet 14)
+pa.three_way_match::PO-41012	needs_evidence	invoices (sheet 3), purchase_orders (sheet 13), receipts (sheet 2)
+
+---
+
+pa.three_way_match::PO-41013	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-41014	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-41015	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-41016	pass	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-41001	fail	payments, invoices, warehouse_scans
+pa.paid_in_window::PO-41002	pass	payments, invoices, receipts
+pa.paid_in_window::PO-41003	pass	payments, invoices, receipts
+pa.paid_in_window::PO-41004	pass	payments, invoices, receipts
+pa.paid_in_window::PO-41005	pass	payments, invoices, receipts
+pa.paid_in_window::PO-41006	pass	payments, invoices, receipts
+pa.paid_in_window::PO-41007	pass	payments, invoices, receipts
+pa.paid_in_window::PO-41008	pass	payments, invoices, receipts
+
+---
+
+PO-41009	pass	payments: sheet 1, receipts: sheet 6, invoices: sheet 12
+PO-41010	pass	payments: sheet 3, receipts: sheet 7, invoices: sheet 11
+PO-41011	pass	payments: sheet 6, receipts: sheet 14, invoices: sheet 10
+PO-41012	fail	payments: sheet 8, receipts: sheet 2, invoices: sheet 3
+PO-41013	needs_evidence	payments: sheet 10, receipts: sheet 3, invoices: sheet 15
+PO-41014	pass	payments: sheet 9, receipts: sheet 12, invoices: sheet 16
+PO-41015	pass	payments: sheet 16, receipts: sheet 12, invoices: sheet 6
+PO-41016	pass	payments: sheet 11, receipts: sheet 4, invoices: sheet 8

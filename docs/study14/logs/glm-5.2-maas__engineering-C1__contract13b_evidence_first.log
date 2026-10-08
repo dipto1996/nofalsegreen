@@ -1,0 +1,29 @@
+Study 14 (engineering:C1): 3 firms x 32 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 10999 output tokens, 209s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 2548 output tokens, 19s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 1618 output tokens, 13s, finish=stop, ok
+  study14-engineering-C1-s1401 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 1867 output tokens, 15s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 4331 output tokens, 38s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 1208 output tokens, 10s, finish=stop, ok
+  study14-engineering-C1-s1406 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 1962 output tokens, 22s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 1909 output tokens, 15s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 2863 output tokens, 29s, finish=stop, ok
+  study14-engineering-C1-s1407 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/glm-5.2-maas__engineering-C1__contract13b_evidence_first.json

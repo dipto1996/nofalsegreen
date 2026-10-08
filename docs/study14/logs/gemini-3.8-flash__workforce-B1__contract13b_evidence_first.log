@@ -1,0 +1,36 @@
+Study 14 (workforce:B1): 4 firms x 32 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 8017 output tokens, 177s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 17629 output tokens, 106s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 14556 output tokens, 95s, finish=stop, ok
+  study14-workforce-B1-s1401 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 18935 output tokens, 132s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 18289 output tokens, 120s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 12186 output tokens, 80s, finish=stop, ok
+  study14-workforce-B1-s1402 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 11893 output tokens, 75s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 31032 output tokens, 216s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 7077 output tokens, 41s, finish=stop, ok
+  study14-workforce-B1-s1407 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 11140 output tokens, 64s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 22565 output tokens, 139s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 8259 output tokens, 47s, finish=stop, ok
+  study14-workforce-B1-s1408 FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)
+
+  vertex/gemini-3.8-flash#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemini-3.8-flash__workforce-B1__contract13b_evidence_first.json

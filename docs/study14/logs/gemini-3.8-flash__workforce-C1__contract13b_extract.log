@@ -1,0 +1,36 @@
+Study 14 (workforce:C1): 4 firms x 32 pairs
+vertex/gemini-3.8-flash#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.8-flash#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_extract']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 8570 output tokens, 169s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 10181 output tokens, 54s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 6767 output tokens, 41s, finish=stop, ok
+  study14-workforce-C1-s1402 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 7898 output tokens, 43s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 9622 output tokens, 54s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 7321 output tokens, 39s, finish=stop, ok
+  study14-workforce-C1-s1403 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 9927 output tokens, 60s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 8738 output tokens, 48s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 5778 output tokens, 30s, finish=stop, ok
+  study14-workforce-C1-s1408 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6095 output tokens, 32s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 10218 output tokens, 51s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 6279 output tokens, 39s, finish=stop, ok
+  study14-workforce-C1-s1409 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+
+  vertex/gemini-3.8-flash#r0::contract13b_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemini-3.8-flash__workforce-C1__contract13b_extract.json

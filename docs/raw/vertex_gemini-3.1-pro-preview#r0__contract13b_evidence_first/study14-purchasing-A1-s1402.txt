@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40201	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40202	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40203	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40204	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40205	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40206	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40207	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40208	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40209	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40210	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40211	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40212	pass	invoices, purchase_orders, receipts
+
+---
+
+pa.three_way_match::PO-40213	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40214	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40215	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40216	fail	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-40201	needs_evidence	invoices, payments, receipts
+pa.paid_in_window::PO-40202	fail	invoices, payments, receipts
+pa.paid_in_window::PO-40203	fail	invoices, payments, receipts
+pa.paid_in_window::PO-40204	fail	invoices, payments, receipts
+pa.paid_in_window::PO-40205	pass	invoices, payments, receipts, warehouse_scans
+pa.paid_in_window::PO-40206	needs_evidence	invoices, payments, receipts
+pa.paid_in_window::PO-40207	fail	invoices, payments, receipts
+pa.paid_in_window::PO-40208	needs_evidence	invoices, payments, receipts
+
+---
+
+pa.paid_in_window::PO-40209	pass	invoices, payments, receipts
+pa.paid_in_window::PO-40210	pass	invoices, payments, receipts
+pa.paid_in_window::PO-40211	fail	payments, receipts
+pa.paid_in_window::PO-40212	needs_evidence	invoices, payments, receipts
+pa.paid_in_window::PO-40213	fail	payments, receipts
+pa.paid_in_window::PO-40214	needs_evidence	invoices, payments, receipts
+pa.paid_in_window::PO-40215	needs_evidence	invoices, payments, receipts, warehouse_scans
+pa.paid_in_window::PO-40216	fail	invoices, payments, receipts

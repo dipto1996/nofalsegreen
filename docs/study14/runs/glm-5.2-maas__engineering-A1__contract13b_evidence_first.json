@@ -1,0 +1,167 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertexopen/zai-org/glm-5.2-maas#r0::contract13b_evidence_first": {
+      "model": "vertexopen/zai-org/glm-5.2-maas#r0",
+      "provider": "vertexopen",
+      "variant": "contract13b_evidence_first",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 6,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "study14-engineering-A1-s1404",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 1.0,
+          "violation_precision": 1.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 1.0,
+          "abstention_f1": 1.0,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 18
+            }
+          }
+        },
+        {
+          "firm_id": "study14-engineering-A1-s1405",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 1,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 1,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 1.0,
+          "violation_precision": 1.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 1.0,
+          "abstention_f1": 1.0,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 20
+            }
+          }
+        },
+        {
+          "firm_id": "study14-engineering-A1-s1410",
+          "n_pairs": 32,
+          "n_parsed": 32,
+          "n_unparseable": 0,
+          "n_off_schema": 0,
+          "n_truncated_calls": 1,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 1,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 1.0,
+          "violation_precision": 1.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 1.0,
+          "abstention_recall": 1.0,
+          "abstention_f1": 1.0,
+          "n_missing": 0,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 1.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 24
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 78470,
+        "output_tokens": 128446,
+        "calls": 11,
+        "wall_seconds": 1126.7
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 3
+        },
+        "violation_recall": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 3
+        },
+        "violation_precision": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 3
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 3
+        },
+        "abstention_precision": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 3
+        },
+        "abstention_recall": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 3
+        },
+        "abstention_f1": {
+          "mean": 1.0,
+          "stdev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n_firms": 3
+        }
+      },
+      "n_pairs": 96,
+      "n_unparseable": 0,
+      "n_off_schema": 0,
+      "n_truncated_calls": 2
+    }
+  }
+}

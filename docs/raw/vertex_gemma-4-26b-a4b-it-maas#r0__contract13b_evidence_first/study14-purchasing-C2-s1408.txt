@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40801	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40802	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40803	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40804	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40805	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40806	unmonitored	
+pa.three_way_match::PO-40807	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40808	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40809	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40810	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40811	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40812	pass	invoices, purchase_orders, receipts
+
+---
+
+pa.three_way_match::PO-40813	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40814	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40815	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40816	pass	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-40801	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40802	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40803	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40804	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40805	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40806	needs_evidence	payments, warehouse_scans
+pa.paid_in_window::PO-40807	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40808	pass	receipts, payments, invoices
+
+---
+
+pa.paid_in_window::PO-40809	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40810	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40811	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40812	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40813	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40814	needs_evidence	receipts, payments, invoices
+pa.paid_in_window::PO-40815	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40816	pass	receipts, payments, invoices

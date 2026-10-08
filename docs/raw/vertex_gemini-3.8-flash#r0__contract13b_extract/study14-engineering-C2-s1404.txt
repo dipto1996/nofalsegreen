@@ -1,0 +1,38 @@
+ea.calibration_current::P-40401	facts	calibration date=2026-01-26 from calibration_log | test date=2026-02-19 from test_reports
+ea.calibration_current::P-40402	facts	calibration date=2026-07-12 from calibration_log | test date=2027-07-01 from lab_certificates
+ea.calibration_current::P-40403	facts	calibration date=2026-01-19 from calibration_log | test date=ABSENT
+ea.calibration_current::P-40404	facts	calibration date=2026-07-22 from calibration_log | test date=2026-10-10 from test_reports
+ea.calibration_current::P-40405	facts	calibration date=2026-02-28 from calibration_log | test date=2026-09-01 from test_reports
+ea.calibration_current::P-40406	facts	calibration date=2026-01-23 from calibration_log | test date=CONFLICT
+ea.calibration_current::P-40407	facts	calibration date=2026-04-11 from calibration_log | test date=2027-04-27 from test_reports
+ea.calibration_current::P-40408	facts	calibration date=ABSENT | test date=2026-03-07 from test_reports
+ea.calibration_current::P-40409	facts	calibration date=ABSENT | test date=2027-03-18 from test_reports
+ea.calibration_current::P-40410	facts	calibration date=2026-07-07 from calibration_log | test date=2027-08-04 from test_reports
+ea.calibration_current::P-40411	facts	calibration date=2026-02-15 from calibration_log | test date=2026-08-19 from test_reports
+ea.calibration_current::P-40412	facts	calibration date=2026-04-03 from calibration_log | test date=2027-04-02 from test_reports
+
+---
+
+ea.calibration_current::P-40413	facts	calibration date=2026-04-29 from calibration_log | test date=2026-04-06 from test_reports
+ea.calibration_current::P-40414	facts	calibration date=2026-01-29 from calibration_log | test date=2026-01-21 from test_reports
+ea.calibration_current::P-40415	facts	calibration date=2026-06-19 from calibration_log | test date=2027-05-31 from test_reports
+ea.calibration_current::P-40416	facts	calibration date=2026-01-12 from calibration_log | test date=2026-08-28 from test_reports
+ea.load_with_margin::P-40401	facts	measured load=525 from lab_certificates | specified minimum=430 from spec_sheets
+ea.load_with_margin::P-40402	facts	measured load=137 from lab_certificates | specified minimum=105 from spec_sheets
+ea.load_with_margin::P-40403	facts	measured load=ABSENT | specified minimum=ABSENT
+ea.load_with_margin::P-40404	facts	measured load=233 from lab_certificates | specified minimum=210 from spec_sheets
+ea.load_with_margin::P-40405	facts	measured load=446 from lab_certificates | specified minimum=385 from spec_sheets
+ea.load_with_margin::P-40406	facts	measured load=425 from lab_certificates | specified minimum=340 from spec_sheets
+ea.load_with_margin::P-40407	facts	measured load=324 from lab_certificates | specified minimum=ABSENT
+ea.load_with_margin::P-40408	facts	measured load=464 from lab_certificates | specified minimum=385 from spec_sheets
+
+---
+
+ea.load_with_margin::P-40409	facts	measured load=95 from lab_certificates | specified minimum=95 from spec_sheets
+ea.load_with_margin::P-40410	facts	measured load=226 from lab_certificates | specified minimum=200 from spec_sheets
+ea.load_with_margin::P-40411	facts	measured load=349 from lab_certificates | specified minimum=CONFLICT
+ea.load_with_margin::P-40412	facts	measured load=361 from lab_certificates | specified minimum=290 from spec_sheets
+ea.load_with_margin::P-40413	facts	measured load=404 from lab_certificates | specified minimum=ABSENT
+ea.load_with_margin::P-40414	facts	measured load=443 from lab_certificates | specified minimum=ABSENT
+ea.load_with_margin::P-40415	facts	measured load=288 from lab_certificates | specified minimum=235 from spec_sheets
+ea.load_with_margin::P-40416	facts	measured load=388 from lab_certificates | specified minimum=325 from spec_sheets

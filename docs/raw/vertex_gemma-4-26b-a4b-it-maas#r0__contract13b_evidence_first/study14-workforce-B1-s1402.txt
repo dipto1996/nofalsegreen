@@ -1,0 +1,38 @@
+E-40201	pass	ead_cards, reverifications
+E-40202	pass	ead_cards, reverifications
+E-40203	fail	ead_cards, reverifications
+E-40204	needs_evidence	ead_cards, reverifications
+E-40205	pass	ead_cards, reverifications
+E-40206	pass	ead_cards, reverifications
+E-40207	needs_evidence	ead_cards, reverifications
+E-40208	pass	ead_cards, reverifications
+E-40209	needs_evidence	ead_cards, reverifications
+E-40210	needs_evidence	ead_cards, reverifications
+E-40211	pass	ead_cards, reverifications
+E-40212	needs_evidence	ead_cards, reverifications
+
+---
+
+wf.reverify_window::E-40213	pass	reverifications: sheet 5, work_authorizations: sheet 11
+wf.reverify_window::E-40214	pass	reverifications: sheet 14, ead_cards: sheet 9
+wf.reverify_window::E-40215	pass	reverifications: sheet 4, ead_cards: sheet 11
+wf.reverify_window::E-40216	pass	reverifications: sheet 13, ead_cards: sheet 2
+wf.notice_posting::E-40201	pass	lca_notices: sheet 14, lca_filings: sheet 6
+wf.notice_posting::E-40202	pass	lca_notices: sheet 11, lca_filings: sheet 4
+wf.notice_posting::E-40203	pass	lca_notices: (no value), lca_filings: sheet 2
+wf.notice_posting::E-40204	pass	lca_notices: sheet 2, lca_filings: sheet 3
+wf.notice_posting::E-40205	pass	lca_notices: sheet 4, lca_filings: sheet 7
+wf.notice_posting::E-40206	pass	lca_notices: sheet 13, lca_filings: sheet 15
+wf.notice_posting::E-40207	pass	lca_notices: sheet 10, lca_filings: sheet 8
+wf.notice_posting::E-40208	pass	lca_notices: sheet 6, lca_filings: sheet 13
+
+---
+
+wf.notice_posting::E-40209	pass	lca_notices, lca_filings
+wf.notice_posting::E-40210	pass	lca_notices, lca_filings
+wf.notice_posting::E-40211	pass	lca_notices, lca_filings
+wf.notice_posting::E-40212	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-40213	pass	lca_notices, lca_filings
+wf.notice_posting::E-40214	pass	lca_notices, lca_filings
+wf.notice_posting::E-40215	pass	lca_notices, lca_filings
+wf.notice_posting::E-40216	pass	lca_notices, lca_filings

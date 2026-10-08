@@ -1,0 +1,38 @@
+{
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-engineering-B1-s1405|ea.calibration_current::P-40501|12": {
+  "text": "ea.calibration_current::P-40501\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40502\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40503\tpass\tcalibration_log, test_reports\nea.calibration_current::P-40504\tpass\tcalibration_log, test_reports\nea.calibration_current::P-40505\tpass\tcalibration_log, lab_certificates\nea.calibration_current::P-40506\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40507\tpass\tcalibration_log, test_reports\nea.calibration_current::P-40508\tpass\tcalibration_log, test_reports\nea.calibration_current::P-40509\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40510\tpass\tcalibration_log, test_reports\nea.calibration_current::P-40511\tfail\tcalibration_log, lab_certificates\nea.calibration_current::P-40512\tfail\tcalibration_log, lab_certificates",
+  "output_tokens": 288,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-engineering-B1-s1405|ea.calibration_current::P-40513|12": {
+  "text": "ea.calibration_current::P-40513\tneeds_evidence\t[calibration_log, lab_certificates]\nea.calibration_current::P-40514\tneeds_evidence\t[calibration_log, lab_certificates]\nea.calibration_current::P-40515\tneeds_evidence\t[calibration_log, lab_certificates]\nea.calibration_current::P-40516\tneeds_evidence\t[calibration_log, lab_certificates]\nea.load_with_margin::P-40501\tpass\t[lab_certificates, spec_sheets]\nea.load_with_margin::P-40502\tfail\t[lab_certificates, spec_sheets]\nea.load_with_margin::P-40503\tpass\t[lab_certificates, spec_sheets]\nea.load_with_margin::P-40504\tpass\t[lab_certificates, spec_sheets]\nea.load_with_margin::P-40505\tpass\t[lab_certificates, spec_sheets]\nea.load_with_margin::P-40506\tpass\t[lab_certificates, spec_sheets]\nea.load_with_margin::P-40507\tpass\t[lab_certificates, spec_sheets]\nea.load_with_margin::P-40508\tpass\t[lab_certificates, spec_sheets]",
+  "output_tokens": 336,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-engineering-B1-s1405|ea.load_with_margin::P-40509|8": {
+  "text": "ea.load_with_margin::P-40509\tneeds_evidence\tlab_certificates, spec_sheets\nea.load_with_margin::P-40510\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40511\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40512\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40513\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40514\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40515\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40516\tneeds_evidence\tlab_certificates, spec_sheets",
+  "output_tokens": 212,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-engineering-B1-s1406|ea.calibration_current::P-40601|12": {
+  "text": "ea.calibration_current::P-40601\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40602\tpass\tcalibration_log, test_reports\nea.calibration_current::P-40603\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40604\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40605\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40606\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40607\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40608\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40609\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40610\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40611\tfail\tcalibration_log, test_reports\nea.calibration_current::P-40612\tpass\tcalibration_log, test_reports",
+  "output_tokens": 288,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-engineering-B1-s1406|ea.calibration_current::P-40613|12": {
+  "text": "ea.calibration_current::P-40613\tpass\tcalibration_log, test_reports\nea.calibration_current::P-40614\tneeds_evidence\tcalibration_log, lab_certificates\nea.calibration_current::P-40615\tneeds_evidence\tcalibration_log, test_reports\nea.calibration_current::P-40616\tneeds_evidence\tcalibration_log, lab_certificates\nea.load_with_margin::P-40601\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40602\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40603\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40604\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40605\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40606\tpass\ttest_reports, spec_sheets\nea.load_with_margin::P-40607\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40608\tpass\tlab_certificates, spec_sheets",
+  "output_tokens": 310,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r0|contract13b_evidence_first|study14-engineering-B1-s1406|ea.load_with_margin::P-40609|8": {
+  "text": "ea.load_with_margin::P-40609\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40610\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40611\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40612\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40613\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40614\tpass\tlab_certificates, spec_sheets\nea.load_with_margin::P-40615\tneeds_evidence\tlab_certificates, spec_sheets\nea.load_with_margin::P-40616\tpass\tlab_certificates, spec_sheets",
+  "output_tokens": 210,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}

@@ -1,0 +1,38 @@
+wf.reverify_window::E-40301	facts	authorization expiry=ABSENT | reverification date=ABSENT
+wf.reverify_window::E-40302	facts	authorization expiry=21016 from ead_cards | reverification date=ABSENT
+wf.reverify_window::E-40303	facts	authorization expiry=20718 from work_authorizations | reverification date=20602 from reverifications
+wf.reverify_window::E-40304	facts	authorization expiry=20819 from work_authorizations | reverification date=20774 from reverifications
+wf.reverify_window::E-40305	facts	authorization expiry=20660 from work_authorizations | reverification date=CONFLICT
+wf.reverify_window::E-40306	facts	authorization expiry=20902 from work_authorizations | reverification date=20912 from reverifications
+wf.reverify_window::E-40307	facts	authorization expiry=20717 from work_authorizations | reverification date=20706 from reverifications
+wf.reverify_window::E-40308	facts	authorization expiry=20883 from work_authorizations | reverification date=20849 from reverifications
+wf.reverify_window::E-40309	facts	authorization expiry=ABSENT | reverification date=20837 from reverifications
+wf.reverify_window::E-40310	facts	authorization expiry=20950 from work_authorizations | reverification date=20815 from reverifications
+wf.reverify_window::E-40311	facts	authorization expiry=20957 from work_authorizations | reverification date=ABSENT
+wf.reverify_window::E-40312	facts	authorization expiry=20725 from work_authorizations | reverification date=ABSENT
+
+---
+
+wf.reverify_window::E-40313	facts	authorization expiry=20862 from work_authorizations | reverification date=20769 from reverifications
+wf.reverify_window::E-40314	facts	authorization expiry=20739 from work_authorizations | reverification date=20697 from reverifications
+wf.reverify_window::E-40315	facts	authorization expiry=CONFLICT from work_authorizations | reverification date=20875 from reverifications
+wf.reverify_window::E-40316	facts	authorization expiry=20724 from work_uthorizations | reverification date=ABSENT from reverifications
+wf.notice_posting::E-40301	facts	notice posted=20512 from lca_notices | notice removed=20528 from lca_notices | LCA filed=20526 from lca_filings
+wf.notice_posting::E-40302	facts	notice posted=20626 from lca_notices | notice removed=20656 from lca_notices | LCA filed=20609 from lca_filings
+wf.notice_posting::E-40303	facts	notice posted=20546 from lca_notices | notice removed=20580 from lca_notices | LCA filed=20566 from lca_filings
+wf.notice_posting::E-40304	facts	notice posted=20653 from lca_notices | notice removed=20660 from lca_notices | LCA filed=ABSENT from lca_filings
+wf.notice_posting::E-40305	facts	notice posted=20480 from lca_notices | notice removed=20493 from lca_notices | LCA filed=20497 from lca_filings
+wf.notice_posting::E-40306	facts	notice posted=20584 from lca_notices | notice removed=20613 from lca_notices | LCA filed=20587 from lca_filings
+wf.notice_posting::E-40307	facts	notice posted=20596 from lca_notices | notice removed=20627 from lca_notices | LCA filed=20579 from lca_filings
+wf.notice_posting::E-40308	facts	notice posted=20483 from lca_notices | notice removed=ABSENT from lca_notices | LCA filed=20485 from lca_filings
+
+---
+
+wf.notice_posting::E-40309	facts	notice posted=20566 from lca_notices | notice removed=20599 from lca_notices | LCA filed=20552 from lca_filings
+wf.notice_posting::E-40310	facts	notice posted=20604 from lca_notices | notice removed=20621 from lca_notices | LCA filed=20601 from lca_filings
+wf.notice_posting::E-40311	facts	notice posted=20638 from lca_notices | notice removed=20664 from lca_notices | LCA filed=20635 from lca_filings
+wf.notice_posting::E-40312	facts	notice posted=20627 from lca_notices | notice removed=20647 from lca_notices | LCA filed=20609 from lca_filings
+wf.notice_posting::E-40313	facts	notice posted=20653 from lca_notices | notice removed=20681 from lca_notices | LCA filed=20640 from lca_filings
+wf.notice_posting::E-40314	facts	notice posted=20502 from lca_notices | notice removed=20513 from lca_notices | LCA filed=20507 from lca_filings
+wf.notice_posting::E-40315	facts	notice posted=20649 from lca_notices | notice removed=20677 from lca_notices | LCA filed=20639 from lca_filings
+wf.notice_posting::E-40316	facts	notice posted=20497 from lca_notices | notice removed=20531 from lca_notices | LCA filed=20493 from lca_filings

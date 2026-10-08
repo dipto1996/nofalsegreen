@@ -1,0 +1,38 @@
+ea.calibration_current::P-40201	fail	calibration_log, test_reports
+ea.calibration_current::P-40202	fail	calibration_log, test_reports
+ea.calibration_current::P-40203	fail	calibration_log, test_reports
+ea.calibration_current::P-40204	fail	calibration_log, test_reports
+ea.calibration_current::P-40205	fail	calibration_log, test_reports
+ea.calibration_current::P-40206	fail	calibration_log, test_reports
+ea.calibration_current::P-40207	fail	calibration_log, test_reports
+ea.calibration_current::P-40208	needs_evidence	calibration_log, test_reports
+ea.calibration_current::P-40209	fail	calibration_log, test_reports
+ea.calibration_current::P-40210	fail	calibration_log, test_reports
+ea.calibration_current::P-40211	fail	calibration_log, test_reports
+ea.calibration_current::P-40212	fail	calibration_log, test_reports
+
+---
+
+ea.calibration_current::P-40213	fail	calibration_log.edi
+ea.calibration_current::P-40214	fail	calibration_log.edi
+ea.calibration_current::P-40215	fail	calibration_log.edi
+ea.calibration_current::P-40216	fail	calibration_log.edi
+ea.load_with_margin::P-40201	pass	lab_certificates.edi, spec_sheets.edi
+ea.load_with_margin::P-40202	pass	lab_certificates.edi, spec_sheets.edi
+ea.load_with_margin::P-40203	pass	lab_certificates.edi, spec_sheets.edi
+ea.load_with_margin::P-40204	pass	lab_certificates.edi, spec_sheets.edi
+ea.load_with_margin::P-40205	pass	lab_certificates.edi, spec_sheets.edi
+ea.load_with_margin::P-40206	pass	lab_certificates.edi, spec_sheets.edi
+ea.load_with_margin::P-40207	pass	lab_certificates.edi, spec_sheets.edi
+ea.load_with_margin::P-40208	needs_evidence	spec_sheets.edi
+
+---
+
+ea.load_with_margin::P-40209	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40210	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40211	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40212	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-40213	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40214	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-40215	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-40216	pass	lab_certificates, spec_sheets

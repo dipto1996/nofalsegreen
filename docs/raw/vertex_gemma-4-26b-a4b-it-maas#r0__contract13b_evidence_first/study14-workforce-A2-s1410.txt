@@ -1,0 +1,38 @@
+E-41001	fail	work_authorizations, reverifications
+E-41002	pass	work_authorizations, reverifications
+E-41003	fail	work_authorizations, reverifications
+E-41004	pass	work_authorizations, reverifications
+E-41005	pass	work_authorizations, reverifications
+E-41006	needs_evidence	work_authorizations, reverifications
+E-41007	pass	work_authorizations, reverifications
+E-41008	pass	work_authorizations, reverifications
+E-41009	needs_evidence	work_authorizations, reverifications
+E-41010	pass	work_authorizations, reverifications
+E-41011	pass	work_authorizations, reverifications
+E-41012	needs_evidence	work_authorizations, reverifications
+
+---
+
+wf.reverify_window::E-41013	pass	reverifications, work_authorizations
+wf.reverify_window::E-41014	pass	reverifications, work_authorizations
+wf.reverify_window::E-41015	pass	reverifications, work_authorizations
+wf.reverify_window::E-41016	pass	reverifications, work_authorizations
+wf.notice_posting::E-41001	pass	lca_filings, lca_notices
+wf.notice_posting::E-41002	needs_evidence	lca_filings, lca_notices
+wf.notice_posting::E-41003	pass	lca_filings, lca_notices
+wf.notice_posting::E-41004	pass	lca_filings, lca_notices
+wf.notice_posting::E-41005	pass	lca_filings, lca_notices
+wf.notice_posting::E-41006	pass	lca_filings, lca_notices
+wf.notice_posting::E-41007	pass	lca_filings, lca_notices
+wf.notice_posting::E-41008	pass	lca_filings, lca_notices
+
+---
+
+wf.notice_posting::E-41009	fail	lca_notices, lca_filings
+wf.notice_posting::E-41010	pass	lca_notices, lca_filings
+wf.notice_posting::E-41011	pass	lca_notices, lca_filings
+wf.notice_posting::E-41012	fail	lca_notices, lca_filings
+wf.notice_posting::E-41013	pass	lca_notices, lca_filings
+wf.notice_posting::E-41014	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-41015	pass	lca_notices, lca_filings
+wf.notice_posting::E-41016	pass	lca_notices, lca_filings

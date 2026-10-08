@@ -1,0 +1,38 @@
+ea.calibration_current::P-40301	calibration date=ABSENT | test date=2027-03-12 from test_reports
+ea.calibration_current::P-40302	calibration date=ABSENT | test date=2027-03-05 from test_reports
+ea.calibration_current::P-40303	calibration date=ABSENT | test date=2026-05-11 from test_reports
+ea.calibration_current::P-40304	calibration date=ABSENT | test date=2027-03-13 from test_reports
+ea.calibration_current::P-40305	calibration date=ABSENT | test date=2025-12-31 from test_reports
+ea.calibration_current::P-40306	calibration date=ABSENT | test date=2026-04-21 from test_reports
+ea.calibration_current::P-40307	calibration date=2026-05-10 from calibration_log | test date=2026-09-13 from test_reports
+ea.calibration_current::P-40308	calibration date=ABSENT | test date=ABSENT from test_reports
+ea.calibration_current::P-40309	calibration date=ABSENT | test date=2026-05-30 from test_reports
+ea.calibration_current::P-40310	calibration date=ABSENT | test date=ABSENT from test_reports
+ea.calibration_current::P-40311	calibration date=ABSENT | test date=2026-05-23 from test_reports
+ea.calibration_current::P-40312	calibration date=ABSENT | test date=2026-06-29 from test_reports
+
+---
+
+ea.calibration_current::P-40313	calibration date=ABSENT | test date=2026-07-27 from test_reports
+ea.calibration_current::P-40314	calibration date=ABSENT | test date=2027-06-10 from test_reports
+ea.calibration_current::P-40315	calibration date=ABSENT | test date=2027-04-20 from test_reports
+ea.calibration_current::P-40316	calibration date=2026-02-08 from calibration_log | test date=2027-02-23 from test_reports
+ea.load_with_margin::P-40301	measured load=513 from lab_certificates | specified minimum=435 from spec_sheets
+ea.load_with_margin::P-40302	measured load=337 from lab_certificates | specified minimum=275 from spec_sheets
+ea.load_with_margin::P-40303	measured load=396 from lab_certificates | specified minimum=325 from spec_sheets
+ea.load_with_margin::P-40304	measured load=593 from lab_certificates | specified minimum=495 from spec_sheets
+ea.load_with_margin::P-40305	measured load=446 from lab_certificates | specified minimum=380 from spec_sheets
+ea.load_with_margin::P-40306	measured load=604 from lab_certificates | specified minimum=500 from spec_sheets
+ea.load_with_margin::P-40307	measured load=472 from lab_certificates | specified minimum=405 from spec_sheets
+ea.load_with_margin::P-40308	measured load=147 from lab_certificates | specified minimum=135 from spec_sheets
+
+---
+
+ea.load_with_margin::P-40309	measured load=169 from lab_certificates.txt | specified minimum=140 from spec_sheets.txt
+ea.load_with_margin::P-40310	measured load=ABSENT from lab_certificates.txt | specified minimum=268 from parts.txt
+ea.load_with_margin::P-40311	measured load=390 from lab_certificates.txt | specified minimum=341 from spec_sheets.txt
+ea.load_with_margin::P-40312	measured load=193 from lab_certificates.txt | specified minimum=145 from spec_sheets.txt
+ea.load_with_margin::P-40313	measured load=77 from lab_certificates.txt | specified minimum=70 from spec_sheets.txt
+ea.load_with_margin::P-40314	measured load=559 from lab_certificates.txt | specified minimum=ABSENT from spec_sheets.txt
+ea.load_with_margin::P-40315	measured load=109 from lab_certificates.txt | specified minimum=95 from spec_sheets.txt
+ea.load_with_margin::P-40316	measured load=277 from lab_certificates.txt | specified minimum=235 from spec_sheets.txt

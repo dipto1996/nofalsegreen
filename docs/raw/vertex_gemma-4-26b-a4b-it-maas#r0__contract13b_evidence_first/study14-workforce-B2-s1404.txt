@@ -1,0 +1,38 @@
+wf.reverify_window::E-40401	needs_evidence	-
+wf.reverify_window::E-40402	needs_evidence	-
+wf.reverify_window::E-40403	needs_evidence	-
+wf.reverify_window::E-40404	needs_evidence	-
+wf.reverify_window::E-40405	pass	work_authorizations, reverifications
+wf.reverify_window::E-40406	pass	work_authorizations, reverifications
+wf.reverify_window::E-40407	pass	work_authorizations, reverifications
+wf.reverify_window::E-40408	pass	work_authorizations, reverifications
+wf.reverify_window::E-40409	pass	work_authorizations, reverifications
+wf.reverify_window::E-40410	pass	work_authorizations, reverifications
+wf.reverify_window::E-40411	pass	work_authorizations, reverifications
+wf.reverify_window::E-40412	pass	work_authorizations, reverifications
+
+---
+
+wf.reverify_window::E-40413	pass	reverifications: 19th Jul 2026, work_authorizations: 16th Nov 2026
+wf.reverify_window::E-40414	pass	reverifications: December 26th, 2026, work_authorizations: 9th Apr 2027
+wf.reverify_window::E-40415	pass	reverifications: February 18th, 2027, work_authorizations: January 23rd, 2027
+wf.reverify_window::E-40416	fail	reverifications: September 25th, 2026, work_authorizations: 2nd Feb 2027
+wf.notice_posting::E-40401	pass	lca_notices: July 1st, 2026 to July 22nd, 2026, lca_filings: 26th Jun 2026
+wf.notice_posting::E-40402	pass	lca_notices: 4th Mar 2026 to 17th Mar 2026, lca_filings: March 13th, 2026
+wf.notice_posting::E-40403	pass	lca_notices: May 25th, 2026 to June 8th, 2026, lca_filings: 25th May 2026
+wf.notice_posting::E-40404	pass	lca_notices: 1st Jun 2026 to June 10th, 2026, lca_filings: June 11th, 2026
+wf.notice_posting::E-40405	pass	lca_notices: no value, lca_filings: April 4th, 2026
+wf.notice_posting::E-40406	pass	lca_notices: 11th Mar 2026 to 14th Apr 2026, lca_filings: 25th Mar 2026
+wf.notice_posting::E-40407	pass	lca_notices: 1st May 2026 to 4th Jun 2026, lca_filings: 4th May 2026
+wf.notice_posting::E-40408	needs_evidence	lca_notices: no value, lca_filings: June 5th, 2026
+
+---
+
+wf.notice_posting::E-40409	pass	lca_notices, lca_filings
+wf.notice_posting::E-40410	pass	lca_notices, lca_filings
+wf.notice_posting::E-40411	pass	lca_notices, lca_filings
+wf.notice_posting::E-40412	pass	lca_notices, lca_filings
+wf.notice_posting::E-40413	fail	lca_notices, lca_filings
+wf.notice_posting::E-40414	pass	lca_notices, lca_filings
+wf.notice_posting::E-40415	pass	lca_notices, lca_filings
+wf.notice_posting::E-40416	pass	lca_notices, lca_filings

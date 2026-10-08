@@ -1,0 +1,37 @@
+Study 14 (purchasing:B1): 4 firms x 32 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_extract']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 32000 output tokens, 382s, finish=length, CAP
+        attempt 2: 2871 output tokens, 24s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 6979 output tokens, 80s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 3927 output tokens, 31s, finish=stop, ok
+  study14-purchasing-B1-s1403 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (4 calls)  TRUNCATED 1
+      batch 1/3 (0 parsed so far)
+        attempt 1: 3770 output tokens, 32s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 3882 output tokens, 36s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 2463 output tokens, 21s, finish=stop, ok
+  study14-purchasing-B1-s1404 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4730 output tokens, 40s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 4406 output tokens, 37s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 3205 output tokens, 24s, finish=stop, ok
+  study14-purchasing-B1-s1409 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 2689 output tokens, 21s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 5735 output tokens, 45s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 1838 output tokens, 15s, finish=stop, ok
+  study14-purchasing-B1-s1410 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13b_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/glm-5.2-maas__purchasing-B1__contract13b_extract.json

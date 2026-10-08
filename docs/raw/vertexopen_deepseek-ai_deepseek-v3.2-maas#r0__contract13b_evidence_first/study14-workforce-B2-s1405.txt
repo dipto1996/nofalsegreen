@@ -1,0 +1,38 @@
+wf.reverify_window::E-40501	needs_evidence	work_authorizations,reverifications
+wf.reverify_window::E-40502	pass	work_authorizations,reverifications
+wf.reverify_window::E-40503	pass	work_authorizations,reverifications
+wf.reverify_window::E-40504	pass	work_authorizations,reverifications
+wf.reverify_window::E-40505	needs_evidence	work_authorizations,reverifications
+wf.reverify_window::E-40506	needs_evidence	work_authorizations,reverifications
+wf.reverify_window::E-40507	needs_evidence	work_authorizations,reverifications
+wf.reverify_window::E-40508	pass	work_authorizations,reverifications
+wf.reverify_window::E-40509	pass	work_authorizations,reverifications
+wf.reverify_window::E-40510	pass	work_authorizations,reverifications
+wf.reverify_window::E-40511	needs_evidence	work_authorizations,reverifications
+wf.reverify_window::E-40512	pass	work_authorizations,reverifications
+
+---
+
+wf.reverify_window::E-40513	needs_evidence	reverifications,work_authorizations,ead_cards
+wf.reverify_window::E-40514	needs_evidence	reverifications,work_authorizations,ead_cards
+wf.reverify_window::E-40515	unmonitored	-
+wf.reverify_window::E-40516	needs_evidence	reverifications,work_authorizations,ead_cards
+wf.notice_posting::E-40501	pass	lca_notices,lca_filings
+wf.notice_posting::E-40502	pass	lca_notices,lca_filings
+wf.notice_posting::E-40503	pass	lca_notices,lca_filings
+wf.notice_posting::E-40504	pass	lca_notices,lca_filings
+wf.notice_posting::E-40505	needs_evidence	lca_notices,lca_filings
+wf.notice_posting::E-40506	needs_evidence	lca_notices,lca_filings
+wf.notice_posting::E-40507	needs_evidence	lca_notices,lca_filings
+wf.notice_posting::E-40508	needs_evidence	lca_notices,lca_filings
+
+---
+
+wf.notice_posting::E-40509	needs_evidence	dol_receipts,lca_filings,lca_notices
+wf.notice_posting::E-40510	pass	lca_filings,lca_notices
+wf.notice_posting::E-40511	needs_evidence	lca_filings,lca_notices
+wf.notice_posting::E-40512	needs_evidence	lca_filings,lca_notices
+wf.notice_posting::E-40513	pass	lca_filings,lca_notices
+wf.notice_posting::E-40514	pass	lca_filings,lca_notices
+wf.notice_posting::E-40515	pass	lca_filings,lca_notices
+wf.notice_posting::E-40516	pass	lca_filings,lca_notices

@@ -1,0 +1,41 @@
+Study 14 (purchasing:C1): 3 firms x 32 pairs
+vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/deepseek-ai/deepseek-v3.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 307 output tokens, 130s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 284 output tokens, 15s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 176 output tokens, 7s, finish=stop, ok
+  study14-purchasing-C1-s1404 FGR 0.000  recall 0.333  absF1 0.421  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 314 output tokens, 16s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 275 output tokens, 14s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 113 output tokens, 6s, finish=stop, ok
+  study14-purchasing-C1-s1405 FGR 0.286  recall 0.000  absF1 0.222  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+        attempt 1: 308 output tokens, 16s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 318 output tokens, 14s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 191 output tokens, 9s, finish=stop, ok
+  study14-purchasing-C1-s1410 FGR 0.000  recall 0.067  absF1 0.333  unparsed 0  (3 calls)
+
+  vertexopen/deepseek-ai/deepseek-v3.2-maas#r0::contract13b_evidence_first: FGR 0.095 (sd 0.165)  recall 0.133  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/deepseek-v3.2-maas__purchasing-C1__contract13b_evidence_first.json

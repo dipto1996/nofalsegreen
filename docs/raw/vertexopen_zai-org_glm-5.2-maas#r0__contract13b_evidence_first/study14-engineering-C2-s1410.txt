@@ -1,0 +1,38 @@
+ea.calibration_current::P-41001	pass	calibration_log, test_reports
+ea.calibration_current::P-41002	pass	calibration_log, test_reports
+ea.calibration_current::P-41003	needs_evidence	calibration_log
+ea.calibration_current::P-41004	fail	calibration_log, test_reports
+ea.calibration_current::P-41005	pass	calibration_log, lab_certificates
+ea.calibration_current::P-41006	needs_evidence	calibration_log
+ea.calibration_current::P-41007	needs_evidence	calibration_log
+ea.calibration_current::P-41008	fail	calibration_log, test_reports
+ea.calibration_current::P-41009	pass	calibration_log, test_reports
+ea.calibration_current::P-41010	needs_evidence	calibration_log
+ea.calibration_current::P-41011	needs_evidence	calibration_log, test_reports
+ea.calibration_current::P-41012	pass	calibration_log, test_reports
+
+---
+
+ea.calibration_current::P-41013	fail	calibration_log, test_reports
+ea.calibration_current::P-41014	fail	calibration_log, test_reports
+ea.calibration_current::P-41015	needs_evidence	calibration_log, test_reports, lab_certificates
+ea.calibration_current::P-41016	needs_evidence	calibration_log, test_reports
+ea.load_with_margin::P-41001	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-41002	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-41003	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-41004	needs_evidence	lab_certificates, spec_sheets
+ea.load_with_margin::P-41005	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-41006	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-41007	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-41008	fail	lab_certificates, spec_sheets
+
+---
+
+ea.load_with_margin::P-41009	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-41010	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-41011	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-41012	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-41013	fail	lab_certificates, spec_sheets
+ea.load_with_margin::P-41014	pass	lab_certificates, spec_sheets
+ea.load_with_margin::P-41015	needs_evidence	-
+ea.load_with_margin::P-41016	fail	lab_certificates, spec_sheets

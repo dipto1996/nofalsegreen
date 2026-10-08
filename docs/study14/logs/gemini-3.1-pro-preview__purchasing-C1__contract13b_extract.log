@@ -1,0 +1,29 @@
+Study 14 (purchasing:C1): 3 firms x 32 pairs
+vertex/gemini-3.1-pro-preview#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemini-3.1-pro-preview#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 3  variants ['contract13b_extract']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6663 output tokens, 165s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 7666 output tokens, 46s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 7910 output tokens, 44s, finish=stop, ok
+  study14-purchasing-C1-s1404 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 3746 output tokens, 23s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 13117 output tokens, 76s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 5429 output tokens, 33s, finish=stop, ok
+  study14-purchasing-C1-s1405 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 4740 output tokens, 27s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 5719 output tokens, 34s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 5163 output tokens, 31s, finish=stop, ok
+  study14-purchasing-C1-s1410 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+
+  vertex/gemini-3.1-pro-preview#r0::contract13b_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 3 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemini-3.1-pro-preview__purchasing-C1__contract13b_extract.json

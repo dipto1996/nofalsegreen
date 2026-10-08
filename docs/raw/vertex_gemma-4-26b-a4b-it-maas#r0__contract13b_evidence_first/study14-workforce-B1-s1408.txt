@@ -1,0 +1,38 @@
+wf.reverify_window::E-40801	pass	reverifications: HR-19-783873, work_authorizations: HR-12-747548
+wf.reverify_window::E-40802	needs_evidence	reverifications: (no record), work_authorizations: HR-12-234952
+wf.reverify_window::E-40803	pass	reverifications: HR-19-234563, work_authorizations: HR-12-1
+wf.reverify_window::E-40804	needs_evidence	reverifications: (no record), work_authorizations: HR-12-10
+wf.reverify_window::E-40805	pass	reverifications: HR-19-402188, work_authorizations: HR-12-12
+wf.reverify_window::E-40806	needs_evidence	reverifications: HR-19-342505, work_authorizations: HR-12-5
+wf.reverify_window::E-40807	pass	reverifications: HR-19-261437, work_authorizations: HR-12-16
+wf.reverify_window::E-40808	pass	reverifications: HR-19-705585, work_authorizations: HR-12-15
+wf.reverify_window::E-40809	needs_evidence	reverifications: HR-19-464891, work_authorizations: HR-12-17
+wf.reverify_window::E-40810	pass	reverifications: HR-19-184111, work_authorizations: HR-12-6
+wf.reverify_window::E-40811	pass	reverifications: HR-19-386951, work_authorizations: HR-12-3
+wf.reverify_window::E-40812	pass	reverifications: HR-19-110233, work_authorizations: HR-12-9
+
+---
+
+wf.reverify_window::E-40813	pass	reverifications: sheet 11, work_authorizations: sheet 14
+wf.reverify_window::E-40814	pass	reverifications: sheet 10, work_authorizations: sheet 13
+wf.reverify_window::E-40815	needs_evidence	reverifications: sheet 5, work_authorizations: sheet 3
+wf.reverify_window::E-40816	pass	reverifications: sheet 4, work_authorizations: sheet 4
+wf.notice_posting::E-40801	pass	lca_notices: sheet 11, lca_filings: sheet 3
+wf.notice_posting::E-40802	pass	lca_notices: sheet 4, lca_filings: sheet 4
+wf.notice_posting::E-40803	pass	lca_notices: sheet 5, lca_filings: sheet 6
+wf.notice_posting::E-40804	pass	lca_notices: sheet 1, lca_filings: sheet 8
+wf.notice_posting::E-40805	pass	lca_notices: sheet 3, lca_filings: sheet 13
+wf.notice_posting::E-40806	pass	lca_notices: sheet 6, lca_filings: sheet 9
+wf.notice_posting::E-40807	needs_evidence	lca_notices: sheet 2, lca_filings: sheet 7
+wf.notice_posting::E-40808	pass	lca_notices: sheet 8, lca_filings: sheet 12
+
+---
+
+E-40809	fail	lca_notices, lca_filings
+E-40810	pass	lca_notices, lca_filings
+E-40811	pass	lca_notices, lca_filings
+E-40812	pass	lca_notices, lca_filings
+E-40813	fail	lca_notices, lca_filings
+E-40814	pass	lca_notices, lca_filings
+E-40815	pass	lca_notices, lca_filings
+E-40816	pass	lca_notices, lca_filings

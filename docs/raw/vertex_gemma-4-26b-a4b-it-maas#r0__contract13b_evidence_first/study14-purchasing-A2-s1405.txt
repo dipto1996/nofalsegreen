@@ -1,0 +1,49 @@
+pa.three_way_match::PO-40501	pass	invoices: 5900000, purchase_orders: [no value], receipts: 450, invoices: 458
+pa.three_way_match::PO-40501	needs_evidence	invoices: 5900000, purchase_orders: [no value], receipts: 450, invoices: 458
+pa.three_way_match::PO-40502	pass	invoices: 43500.00, purchase_orders: 40500.00, receipts: 281, invoices: 266
+pa.three_way_match::PO-40502	fail	invoices: 43500.00, purchase_orders: 40500.00, receipts: 281, invoices: 266
+pa.three_way_match::PO-40503	pass	invoices: 6600000, purchase_orders: 69000.00, receipts: 423, invoices: 408
+pa.three_way_match::PO-40503	pass	invoices: 6600000, purchase_orders: 69000.00, receipts: 423, invoices: 408
+pa.three_way_match::PO-40504	pass	invoices: 17550000, purchase_orders: 178000.00, receipts: 650, invoices: 328
+pa.three_way_match::PO-40504	pass	invoices: 17550000, purchase_orders: 178000.00, receipts: 650, invoices: 328
+pa.three_way_match::PO-40505	pass	invoices: 18900000, purchase_orders: 192000.00, receipts: 235, invoices: 241
+pa.three_way_match::PO-40505	fail	invoices: 18900000, purchase_orders: 192000.00, receipts: 235, invoices: 241
+pa.three_way_match::PO-40506	needs_evidence	invoices: [no value], purchase_orders: 83500.00, receipts: [no value], invoices: [no value]
+pa.three_way_match::PO-40507	pass	invoices: 6950000, purchase_orders: 64500.00, receipts: [no value], invoices: 247
+pa.three_way_match::PO-40507	needs_evidence	invoices: 6950000, purchase_orders: 64500.00, receipts: [no value], invoices: 247
+pa.three_way_match::PO-40508	pass	invoices: 12700000, purchase_orders: 128500.00, receipts: 378, invoices: 380
+pa.three_way_match::PO-40508	fail	invoices: 12700000, purchase_orders: 128500.00, receipts: 378, invoices: 380
+pa.three_way_match::PO-40509	pass	invoices: 6400000, purchase_orders: 64000.00, receipts: 41, invoices: 41
+pa.three_way_match::PO-40509	pass	invoices: 6400000, purchase_orders: 64000.00, receipts: 41, invoices: 41
+pa.three_way_match::PO-40510	pass	invoices: 2550000, purchase_orders: 25500.00, receipts: 128, invoices: 128
+pa.three_way_match::PO-40510	pass	invoices: 2550000, purchase_orders: 25500.00, receipts: 128, invoices: 128
+pa.three_way_match::PO-40511	pass	invoices: 14900000, purchase_orders: 153000.00, receipts: 139, invoices: 123
+pa.three_way_match::PO-40511	pass	invoices: 14900000, purchase_orders: 153000.00, receipts: 139, invoices: 123
+pa.three_way_match::PO-40512	pass	invoices: 0, purchase_orders: 3500.00, receipts: 402, invoices: 406
+pa.three_way_match::PO-40512	fail	invoices: 0, purchase_orders: 3500.00, receipts: 402, invoices: 406
+
+---
+
+pa.three_way_match::PO-40513	pass	invoices: TDS*6772500, purchase_orders: AMT*TT*69500.00, receipts: QTY*RC*451, invoices: QTY*D1*460
+pa.three_way_match::PO-40514	fail	invoices: TDS*2000000, purchase_orders: AMT*TT*19000.00, receipts: QTY*RC*397, invoices: QTY*D1*397
+pa.three_way_match::PO-40515	fail	invoices: TDS*13750000, purchase_orders: AMT*TT*142000.00, receipts: QTY*RC*235, invoices: QTY*D1*492
+pa.three_way_match::PO-40516	pass	invoices: TDS*17200000, purchase_orders: AMT*TT*173500.00, receipts: QTY*RC*306, invoices: QTY*D1*292
+pa.paid_in_window::PO-40501	fail	receipts: DTP*050*D8*20260627, payments: DTP*234*D8*20260628, invoices: DTP*481*D8*20260629
+pa.paid_in_window::PO-40502	pass	receipts: DTP*050*D8*20260704, payments: DTP*234*D8*20260717, invoices: DTP*481*D8*20260718
+pa.paid_in_window::PO-40503	pass	receipts: DTP*050*D8*20260407, payments: DTP*234*D8*20260324, invoices: DTP*481*D8*20260603
+pa.paid_in_window::PO-40504	pass	receipts: DTP*050*D8*20260305, payments: DTP*234*D8*20260319, invoices: DTP*481*D8*20260331
+pa.paid_in_window::PO-40505	pass	receipts: DTP*050*D8*20260713, payments: DTP*234*D8*20260728, invoices: DTP*481*D8*20260809
+pa.paid_in_window::PO-40506	needs_evidence	receipts: (no value), warehouse_scans: (no value)
+pa.paid_in_window::PO-40507	pass	receipts: DTP*050*D8*20260425, payments: DTP*234*D8*20260421, invoices: DTP*481*D8*20260523
+pa.paid_in_window::PO-40508	pass	receipts: DTP*050*D8*20260209, payments: DTP*234*D8*20260221, invoices: DTP*481*D8*20260921
+
+---
+
+pa.paid_in_window::PO-40509	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40510	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40511	needs_evidence	receipts, payments, invoices
+pa.paid_in_window::PO-40512	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40513	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40514	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40515	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40516	pass	receipts, payments, invoices

@@ -1,0 +1,38 @@
+pa.three_way_match::PO-40701	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40702	needs_evidence	-
+pa.three_way_match::PO-40703	fail	invoices, purchase_orders
+pa.three_way_match::PO-40704	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40705	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40706	needs_evidence	-
+pa.three_way_match::PO-40707	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40708	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40709	needs_evidence	-
+pa.three_way_match::PO-40710	needs_evidence	-
+pa.three_way_match::PO-40711	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40712	pass	invoices, purchase_orders, receipts
+
+---
+
+pa.three_way_match::PO-40713	needs_evidence	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40714	fail	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40715	pass	invoices, purchase_orders, receipts
+pa.three_way_match::PO-40716	fail	invoices, purchase_orders, receipts
+pa.paid_in_window::PO-40701	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40702	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40703	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40704	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40705	needs_evidence	receipts, payments, invoices
+pa.paid_in_window::PO-40706	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40707	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40708	fail	receipts, payments, invoices
+
+---
+
+pa.paid_in_window::PO-40709	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40710	needs_evidence	-
+pa.paid_in_window::PO-40711	needs_evidence	receipts, invoices
+pa.paid_in_window::PO-40712	fail	receipts, payments, invoices
+pa.paid_in_window::PO-40713	needs_evidence	receipts, payments
+pa.paid_in_window::PO-40714	pass	receipts, payments, invoices
+pa.paid_in_window::PO-40715	pass	warehouse_scans, payments, invoices
+pa.paid_in_window::PO-40716	pass	receipts, payments, invoices

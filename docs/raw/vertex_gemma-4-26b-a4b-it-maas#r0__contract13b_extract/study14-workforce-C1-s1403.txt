@@ -1,0 +1,39 @@
+wf.reverify_window::E-40301	facts	authorization expiry=ABSENT from work_authorizations | authorization expiry=ABSENT from ead_cards | reverification date=ABSENT from reverifications
+wf.reverify_window::E-40302	facts	authorization expiry=21016 from work_authorizations | reverification date=ABSENT from reverifications
+wf.reverify_window::E-40303	facts	authorization expiry=20718 from work_authorizations | reverification date=20602 from reverifications
+wf.reverify_window::E-40304	facts	authorization expiry=20819 from work_authorizations | reverification date=20774 from reverifications
+wf.reverify_window::E-40305	facts	authorization expiry=20660 from work_authorizations | reverification date=20637 from reverifications
+wf.reverify_window::E-40305	facts	authorization expiry=20660 from work_authorizations | reverification date=20629 from reverifications
+wf.reverify_window::E-40306	facts	authorization expiry=20902 from work_authorizations | reverification date=20912 from reverifications
+wf.reverify_window::E-40307	facts	authorization expiry=20717 from work_authorizations | reverification date=20706 from reverifications
+wf.reverify_window::E-40308	facts	authorization expiry=20883 from work_authorizations | reverification date=20849 from reverifications
+wf.reverify_window::E-40309	facts	authorization expiry=ABSENT from work_authorizations | authorization expiry=ABSENT from ead_cards | reverification date=20837 from reverifications
+wf.reverify_window::E-40310	facts	authorization expiry=20950 from work_authorizations | reverification date=20815 from reverifications
+wf.reverify_window::E-40311	facts	authorization expiry=20957 from work_authorizations | reverification date=ABSENT from reverifications
+wf.reverify_window::E-40312	facts	authorization expiry=20725 from work_authorizations | reverification date=ABSENT from reverifications
+
+---
+
+wf.reverify_window::E-40313	authorization expiry=2028-02-25 from work_authorizations | reverification date=2027-03-24 from reverifications
+wf.reverify_window::E-40314	authorization expiry=2027-07-18 from work_authorizations | reverification date=2027-01-26 from reverifications
+wf.reverify_window::E-40315	authorization expiry=2027-03-25 from work_authorizations | reverification date=2027-04-14 from reverifications
+wf.reverify_window::E-40316	authorization expiry=2027-07-18 from work_authorizations | reverification date=ABSENT from reverifications
+wf.notice_posting::E-40301	notice posted=2025-05-12 from lca_notices | notice removed=2025-05-14 from lca_notices | LCA filed=2025-05-26 from lca_filings
+wf.notice_posting::E-40302	notice posted=2025-09-15 from lca_notices | notice removed=2025-09-18 from lca_notices | LCA filed=2025-09-11 from lca_filings
+wf.notice_posting::E-40303	notice posted=2025-05-14 from lca_notices | notice removed=2025-05-31 from lca_notices | LCA filed=2025-05-26 from lca_filings
+wf.notice_posting::E-40304	notice posted=2025-07-07 from lca_notices | notice removed=2025-07-14 from lca_notices | LCA filed=ABSENT from lca_filings | LCA filed=ABSENT from dol_receipts
+wf.notice_posting::E-40305	notice posted=2025-04-19 from lca_notices | notice removed=2025-04-20 from lca_notices | LCA filed=2025-04-17 from lca_filings
+wf.notice_posting::E-40306	notice posted=2025-07-03 from lca_notices | notice removed=2025-07-14 from lca_notices | LCA filed=2025-07-11 from lca_filings
+wf.notice_posting::E-40307	notice posted=2025-07-25 from lca_notices | notice removed=2025-08-05 from lca_notices | LCA filed=2025-07-18 from lca_filings
+wf.notice_posting::E-40308	notice posted=2025-04-23 from lca_notices | notice removed=ABSENT from lca_notices | LCA filed=2025-04-25 from lca_filings
+
+---
+
+wf.notice_posting::E-40309	notice posted=20566 from lca_notices | notice removed=20599 from lca_notices | LCA filed=20552 from lca_filings
+wf.notice_posting::E-40310	notice posted=20604 from lca_notices | notice removed=20621 from lca_notices | LCA filed=20601 from lca_filings
+wf.notice_posting::E-40311	notice posted=20638 from lca_notices | notice removed=20664 from lca_notices | LCA filed=20635 from lca_filings
+wf.notice_posting::E-40312	notice posted=20627 from lca_notices | notice removed=20647 from lca_notices | LCA filed=20609 from lca_filings
+wf.notice_posting::E-40313	notice posted=20653 from lca_notices | notice removed=20681 from lca_notices | LCA filed=20640 from lca_filings
+wf.notice_posting::E-40314	notice posted=20502 from lca_notices | notice removed=20513 from lca_notices | LCA filed=20507 from lca_filings
+wf.notice_posting::E-40315	notice posted=20649 from lca_notices | notice removed=20677 from lca_notices | LCA filed=20639 from lca_filings
+wf.notice_posting::E-40316	notice posted=20497 from lca_notices | notice removed=20531 from lca_notices | LCA filed=20493 from lca_filings

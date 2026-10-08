@@ -1,0 +1,36 @@
+Study 14 (purchasing:C2): 4 firms x 32 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 323 output tokens, 134s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 312 output tokens, 7s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 202 output tokens, 5s, finish=stop, ok
+  study14-purchasing-C2-s1401 FGR 0.500  recall 0.067  absF1 0.533  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 592 output tokens, 12s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 304 output tokens, 6s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 201 output tokens, 5s, finish=stop, ok
+  study14-purchasing-C2-s1402 FGR 0.300  recall 0.000  absF1 0.750  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 565 output tokens, 13s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 312 output tokens, 8s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 204 output tokens, 5s, finish=stop, ok
+  study14-purchasing-C2-s1407 FGR 0.222  recall 0.286  absF1 0.706  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 321 output tokens, 5s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 310 output tokens, 5s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 202 output tokens, 4s, finish=stop, ok
+  study14-purchasing-C2-s1408 FGR 0.875  recall 0.000  absF1 0.000  unparsed 0  (3 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract13b_evidence_first: FGR 0.474 (sd 0.292)  recall 0.088  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemma-4-26b-a4b-it-maas__purchasing-C2__contract13b_evidence_first.json

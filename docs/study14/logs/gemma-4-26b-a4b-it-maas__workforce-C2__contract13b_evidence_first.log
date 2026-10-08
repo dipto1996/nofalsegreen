@@ -1,0 +1,22 @@
+Study 14 (workforce:C2): 2 firms x 32 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 2  variants ['contract13b_evidence_first']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 304 output tokens, 137s, finish=stop, ok
+      batch 2/3 (12 parsed so far)
+        attempt 1: 326 output tokens, 6s, finish=stop, ok
+      batch 3/3 (24 parsed so far)
+        attempt 1: 226 output tokens, 7s, finish=stop, ok
+  study14-workforce-C2-s1405 FGR 0.375  recall 0.067  absF1 0.667  unparsed 0  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 228 output tokens, 7s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 331 output tokens, 6s, finish=stop, ok
+      batch 3/3 (12 parsed so far)
+        attempt 1: 226 output tokens, 6s, finish=stop, ok
+  study14-workforce-C2-s1406 FGR 0.000  recall 0.077  absF1 0.545  unparsed 0  (3 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract13b_evidence_first: FGR 0.188 (sd 0.265)  recall 0.072  over 2 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/gemma-4-26b-a4b-it-maas__workforce-C2__contract13b_evidence_first.json

@@ -1,0 +1,36 @@
+Study 14 (workforce:B1): 4 firms x 32 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 4  variants ['contract13b_extract']
+
+      batch 1/3 (0 parsed so far)
+        attempt 1: 2603 output tokens, 142s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 3071 output tokens, 26s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 1802 output tokens, 16s, finish=stop, ok
+  study14-workforce-B1-s1401 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 6988 output tokens, 67s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 4290 output tokens, 36s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 2493 output tokens, 21s, finish=stop, ok
+  study14-workforce-B1-s1402 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 3053 output tokens, 27s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 5771 output tokens, 46s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 3872 output tokens, 33s, finish=stop, ok
+  study14-workforce-B1-s1407 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+      batch 1/3 (0 parsed so far)
+        attempt 1: 2732 output tokens, 21s, finish=stop, ok
+      batch 2/3 (0 parsed so far)
+        attempt 1: 2798 output tokens, 24s, finish=stop, ok
+      batch 3/3 (0 parsed so far)
+        attempt 1: 2637 output tokens, 21s, finish=stop, ok
+  study14-workforce-B1-s1408 FGR 0.000  recall 0.000  absF1 0.000  unparsed 32  (3 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13b_extract: FGR 0.000 (sd 0.000)  recall 0.000  over 4 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study14/runs/glm-5.2-maas__workforce-B1__contract13b_extract.json

@@ -1,0 +1,38 @@
+wf.reverify_window::E-40701	needs_evidence	-
+wf.reverify_window::E-40702	pass	reverifications,work_authorizations
+wf.reverify_window::E-40703	pass	reverifications,work_authorizations
+wf.reverify_window::E-40704	pass	reverifications,work_authorizations
+wf.reverify_window::E-40705	pass	reverifications,work_authorizations
+wf.reverify_window::E-40706	pass	reverifications,work_authorizations
+wf.reverify_window::E-40707	pass	reverifications,work_authorizations
+wf.reverify_window::E-40708	needs_evidence	reverifications
+wf.reverify_window::E-40709	needs_evidence	-
+wf.reverify_window::E-40710	pass	reverifications,work_authorizations
+wf.reverify_window::E-40711	pass	reverifications,work_authorizations
+wf.reverify_window::E-40712	needs_evidence	-
+
+---
+
+wf.reverify_window::E-40713	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40714	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40715	needs_evidence	reverifications, work_authorizations
+wf.reverify_window::E-40716	needs_evidence	reverifications, work_authorizations
+wf.notice_posting::E-40701	pass	lca_notices, lca_filings
+wf.notice_posting::E-40702	pass	lca_notices, lca_filings
+wf.notice_posting::E-40703	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-40704	pass	lca_notices, lca_filings
+wf.notice_posting::E-40705	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-40706	pass	lca_notices, lca_filings
+wf.notice_posting::E-40707	pass	lca_notices, dol_receipts
+wf.notice_posting::E-40708	pass	lca_notices, lca_filings
+
+---
+
+wf.notice_posting::E-40709	fail	lca_notices
+wf.notice_posting::E-40710	needs_evidence	lca_notices
+wf.notice_posting::E-40711	pass	lca_filings,lca_notices
+wf.notice_posting::E-40712	pass	lca_filings,lca_notices
+wf.notice_posting::E-40713	pass	lca_filings,lca_notices
+wf.notice_posting::E-40714	pass	lca_filings,lca_notices
+wf.notice_posting::E-40715	pass	lca_filings,lca_notices
+wf.notice_posting::E-40716	pass	lca_filings,lca_notices

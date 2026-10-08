@@ -1,0 +1,38 @@
+wf.reverify_window::E-41001	fail	work_authorizations,reverifications
+wf.reverify_window::E-41002	fail	work_authorizations,reverifications
+wf.reverify_window::E-41003	fail	work_authorizations,reverifications
+wf.reverify_window::E-41004	fail	work_authorizations,reverifications
+wf.reverify_window::E-41005	fail	work_authorizations,reverifications
+wf.reverify_window::E-41006	needs_evidence	work_authorizations,reverifications
+wf.reverify_window::E-41007	fail	work_authorizations,reverifications
+wf.reverify_window::E-41008	fail	work_authorizations,reverifications
+wf.reverify_window::E-41009	fail	work_authorizations,reverifications
+wf.reverify_window::E-41010	fail	work_authorizations,reverifications
+wf.reverify_window::E-41011	fail	work_authorizations,reverifications
+wf.reverify_window::E-41012	fail	work_authorizations,reverifications
+
+---
+
+wf.reverify_window::E-41013	needs_evidence	reverifications,work_authorizations,ead_cards
+wf.reverify_window::E-41014	needs_evidence	reverifications,work_authorizations,ead_cards
+wf.reverify_window::E-41015	needs_evidence	reverifications,work_authorizations,ead_cards
+wf.reverify_window::E-41016	needs_evidence	reverifications,work_authorizations,ead_cards
+wf.notice_posting::E-41001	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41002	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41003	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41004	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41005	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41006	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41007	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41008	needs_evidence	lca_notices,lca_filings,dol_receipts
+
+---
+
+wf.notice_posting::E-41009	pass	lca_notices,lca_filings
+wf.notice_posting::E-41010	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41011	needs_evidence	lca_notices,lca_filings
+wf.notice_posting::E-41012	pass	lca_notices,lca_filings
+wf.notice_posting::E-41013	needs_evidence	lca_notices,lca_filings
+wf.notice_posting::E-41014	unmonitored	-
+wf.notice_posting::E-41015	needs_evidence	lca_notices,lca_filings,dol_receipts
+wf.notice_posting::E-41016	pass	lca_notices,lca_filings

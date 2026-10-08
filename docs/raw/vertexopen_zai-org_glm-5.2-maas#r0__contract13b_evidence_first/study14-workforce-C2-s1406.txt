@@ -1,0 +1,38 @@
+wf.reverify_window::E-40601	fail	work_authorizations, reverifications
+wf.reverify_window::E-40602	fail	work_authorizations, reverifications
+wf.reverify_window::E-40603	pass	work_authorizations, reverifications
+wf.reverify_window::E-40604	fail	work_authorizations, reverifications
+wf.reverify_window::E-40605	needs_evidence	reverifications
+wf.reverify_window::E-40606	needs_evidence	reverifications
+wf.reverify_window::E-40607	fail	work_authorizations, reverifications
+wf.reverify_window::E-40608	pass	work_authorizations, reverifications
+wf.reverify_window::E-40609	needs_evidence	reverifications
+wf.reverify_window::E-40610	pass	work_authorizations, reverifications
+wf.reverify_window::E-40611	pass	work_authorizations, reverifications
+wf.reverify_window::E-40612	needs_evidence	work_authorizations
+
+---
+
+wf.reverify_window::E-40613	pass	work_authorizations, reverifications
+wf.reverify_window::E-40614	fail	work_authorizations, reverifications
+wf.reverify_window::E-40615	fail	work_authorizations, reverifications
+wf.reverify_window::E-40616	pass	work_authorizations, reverifications
+wf.notice_posting::E-40601	fail	lca_notices, lca_filings
+wf.notice_posting::E-40602	fail	lca_notices, lca_filings
+wf.notice_posting::E-40603	needs_evidence	lca_notices, lca_filings
+wf.notice_posting::E-40604	pass	lca_notices, lca_filings
+wf.notice_posting::E-40605	pass	lca_notices, lca_filings
+wf.notice_posting::E-40606	pass	lca_notices, lca_filings
+wf.notice_posting::E-40607	fail	lca_notices, dol_receipts
+wf.notice_posting::E-40608	needs_evidence	lca_notices, lca_filings, dol_receipts
+
+---
+
+wf.notice_posting::E-40609	fail	lca_notices, lca_filings
+wf.notice_posting::E-40610	pass	lca_notices, lca_filings
+wf.notice_posting::E-40611	fail	lca_notices, lca_filings
+wf.notice_posting::E-40612	pass	lca_notices, lca_filings
+wf.notice_posting::E-40613	fail	lca_notices, lca_filings
+wf.notice_posting::E-40614	pass	lca_notices, lca_filings
+wf.notice_posting::E-40615	fail	lca_notices, lca_filings, dol_receipts
+wf.notice_posting::E-40616	needs_evidence	lca_notices, lca_filings

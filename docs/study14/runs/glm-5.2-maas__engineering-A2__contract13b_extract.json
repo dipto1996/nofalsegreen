@@ -1,0 +1,195 @@
+{
+  "prompt_version": "1.1.0",
+  "runs": {
+    "vertexopen/zai-org/glm-5.2-maas#r0::contract13b_extract": {
+      "model": "vertexopen/zai-org/glm-5.2-maas#r0",
+      "provider": "vertexopen",
+      "variant": "contract13b_extract",
+      "prompt_version": "1.1.0",
+      "batch_size": 12,
+      "scope_sources": true,
+      "quota": {
+        "rpm": 6,
+        "rpd": 100000,
+        "tpm": null,
+        "label": "vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)"
+      },
+      "free_tier": true,
+      "per_firm": [
+        {
+          "firm_id": "study14-engineering-A2-s1401",
+          "n_pairs": 32,
+          "n_parsed": 0,
+          "n_unparseable": 32,
+          "n_off_schema": 0,
+          "n_truncated_calls": 1,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 1,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 32,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 21
+            }
+          }
+        },
+        {
+          "firm_id": "study14-engineering-A2-s1402",
+          "n_pairs": 32,
+          "n_parsed": 0,
+          "n_unparseable": 32,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 32,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 18
+            }
+          }
+        },
+        {
+          "firm_id": "study14-engineering-A2-s1407",
+          "n_pairs": 32,
+          "n_parsed": 0,
+          "n_unparseable": 32,
+          "n_off_schema": 0,
+          "n_truncated_calls": 1,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 1,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 32,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 21
+            }
+          }
+        },
+        {
+          "firm_id": "study14-engineering-A2-s1408",
+          "n_pairs": 32,
+          "n_parsed": 0,
+          "n_unparseable": 32,
+          "n_off_schema": 0,
+          "n_truncated_calls": 0,
+          "finalized_incomplete": false,
+          "n_incomplete_calls": 0,
+          "n_unrecovered_batches": 0,
+          "false_green_rate": 0.0,
+          "n_false_green": 0,
+          "n_withheld": 9,
+          "violation_recall": 0.0,
+          "violation_precision": 0.0,
+          "false_alarm_rate": 0.0,
+          "abstention_precision": 0.0,
+          "abstention_recall": 0.0,
+          "abstention_f1": 0.0,
+          "n_missing": 32,
+          "per_regime": {
+            "unknown": {
+              "violation_recall": 0.0,
+              "false_green_rate": 0.0,
+              "n_pairs": 23
+            }
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 128663,
+        "output_tokens": 109693,
+        "calls": 14,
+        "wall_seconds": 1002.3
+      },
+      "aggregate": {
+        "false_green_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "violation_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "violation_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "false_alarm_rate": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "abstention_precision": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "abstention_recall": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        },
+        "abstention_f1": {
+          "mean": 0.0,
+          "stdev": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n_firms": 4
+        }
+      },
+      "n_pairs": 128,
+      "n_unparseable": 128,
+      "n_off_schema": 0,
+      "n_truncated_calls": 2
+    }
+  }
+}
