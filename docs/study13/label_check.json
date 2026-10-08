@@ -1,0 +1,21 @@
+{
+ "labels": 480,
+ "agree": 480,
+ "disagreements": [],
+ "certificates": 198,
+ "certificates_verified": 198,
+ "kinds": {
+  "determinate": 351,
+  "unknown": 99,
+  "conflict": 30
+ },
+ "fuzz_packets": 3000,
+ "fuzz_labels": 18000,
+ "fuzz_disagreements": 0,
+ "fuzz_permutation_changes": 0,
+ "fuzz_label_counts": {
+  "fail": 2703,
+  "needs_evidence": 13875,
+  "pass": 1422
+ }
+}
