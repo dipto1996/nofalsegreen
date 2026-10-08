@@ -1,0 +1,38 @@
+{
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|contract13b_evidence_first|study13-workforce-L5-s1301|wf.reverify_window::E-30101|12": {
+  "text": "E-30101\tpass\treverifications: Entry 7, work_authorizations: Entry 12\nE-30102\tneeds_evidence\treverifications: Entry 5, work_authorizations: Entry 11\nE-30103\tneeds_evidence\treverifications: (no entry), work_authorizations: Entry 17\nE-30104\tneeds_evidence\treverifications: Entry 14, work_authorizations: Entry 14\nE-30105\tpass\treverifications: Entry 8, work_authorizations: Entry 7\nE-30106\tpass\treverifications: Entry 15, work_authorizations: Entry 6\nE-30107\tneeds_evidence\treverifications: (no entry), work_authorizations: Entry 10\nE-30108\tpass\treverifications: Entry 3, work_authorizations: Entry 2\nE-30109\tpass\treverifications: Entry 9, work_authorizations: Entry 15\nE-30110\tpass\treverifications: Entry 10, work_authorizations: Entry 5\nE-30111\tpass\treverifications: Entry 13, work_authorizations: Entry 4\nE-30112\tpass\treverifications: Entry 4, work_authorizations: Entry 3",
+  "output_tokens": 342,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|contract13b_evidence_first|study13-workforce-L5-s1301|wf.reverify_window::E-30113|12": {
+  "text": "wf.reverify_window::E-30113\tfail\treverifications, work_authorizations\nwf.reverify_window::E-30114\tfail\treverifications, work_authorizations\nwf.reverify_window::E-30115\tpass\treverifications, work_authorizations\nwf.reverify_window::E-30116\tfail\treverifications, work_authorizations\nwf.notice_posting::E-30101\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30102\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30103\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30104\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30105\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30106\tneeds_evidence\tlca_notices\nwf.notice_posting::E-30107\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30108\tpass\tlca_notices, lca_filings",
+  "output_tokens": 324,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|contract13b_evidence_first|study13-workforce-L5-s1301|wf.notice_posting::E-30109|8": {
+  "text": "wf.notice_posting::E-30109\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30110\tneeds_evidence\tlca_notices, dol_receipts\nwf.notice_posting::E-30111\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30112\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30113\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30114\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30115\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30116\tneeds_evidence\tlca_notices, lca_filings",
+  "output_tokens": 227,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|contract13b_evidence_first|study13-workforce-L5-s1302|wf.reverify_window::E-30201|12": {
+  "text": "E-30201\tneeds_evidence\treverifications\nE-30202\tpass\twork_authorizations, reverifications\nE-30203\tpass\twork_authorizations, reverifications\nE-30204\tneeds_evidence\treverifications\nE-30205\tneeds_evidence\treverifications\nE-30206\tpass\twork_authorizations, reverifications\nE-30207\tneeds_evidence\treverifications\nE-30208\tpass\twork_authorizations, reverifications\nE-30209\tpass\twork_authorizations, reverifications\nE-30210\tneeds_evidence\treverifications\nE-30211\tpass\twork_authorizations, reverifications\nE-30212\tpass\twork_authorizations, reverifications",
+  "output_tokens": 206,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|contract13b_evidence_first|study13-workforce-L5-s1302|wf.reverify_window::E-30213|12": {
+  "text": "wf.reverify_window::E-30213\tpass\twork_authorizations, reverifications\nwf.reverify_window::E-30214\tpass\twork_authorizations, reverifications\nwf.reverify_window::E-30215\tpass\twork_authorizations, reverifications\nwf.reverify_window::E-30216\tpass\twork_authorizations, reverifications\nwf.notice_posting::E-30201\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30202\tneeds_evidence\tlca_notices, lca_filings\nwf.notice_posting::E-30203\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30204\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30205\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30206\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30207\tneeds_evidence\tlca_notices, lca_filings\nwf.notice_posting::E-30208\tneeds_evidence\tlca_notices, lca_filings",
+  "output_tokens": 330,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ },
+ "1.1.0|vertex/gemma-4-26b-a4b-it-maas#r2|contract13b_evidence_first|study13-workforce-L5-s1302|wf.notice_posting::E-30209|8": {
+  "text": "wf.notice_posting::E-30209\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30210\tfail\tlca_notices, lca_filings\nwf.notice_posting::E-30211\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30212\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30213\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30214\tneeds_evidence\tlca_notices, lca_filings\nwf.notice_posting::E-30215\tpass\tlca_notices, lca_filings\nwf.notice_posting::E-30216\tpass\tlca_notices, lca_filings",
+  "output_tokens": 226,
+  "max_tokens": 32000,
+  "finish_reason": "stop"
+ }
+}
