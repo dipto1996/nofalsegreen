@@ -32,7 +32,7 @@ from baselines.freetier import (  # noqa: E402
     Quota,
 )
 from baselines.llm import Usage, run_firm  # noqa: E402
-from baselines.prompts import (ABSTAIN_OFFERED, ABSTAIN_WITHHELD, CITE_FIRST, CONTRACT_VARIANTS,  # noqa: E402
+from baselines.prompts import (ABSTAIN_OFFERED, ABSTAIN_WITHHELD, CITE_FIRST, CONTRACT_VARIANTS, CONTRACT13_VARIANTS,  # noqa: E402
                                FACTORIAL, PROMPT_VERSION)
 from nofalsegreen import northwind  # noqa: E402
 from nofalsegreen.generator import FirmGenerator, GeneratorConfig  # noqa: E402
@@ -51,7 +51,7 @@ def main() -> int:
     ap.add_argument("--variant", default="both",
                     choices=[ABSTAIN_OFFERED, ABSTAIN_WITHHELD, "abstain_removed_only", "abstain_closed",
                              "abstain_offered_para", "abstain_withheld_para", "both",
-                             *FACTORIAL, CITE_FIRST, *CONTRACT_VARIANTS, "abstain_offered_nomatch"])
+                             *FACTORIAL, CITE_FIRST, *CONTRACT_VARIANTS, *CONTRACT13_VARIANTS, "abstain_offered_nomatch"])
     ap.add_argument("--batch", type=int, default=8,
                     help="pairs per call; reasoning models need a small batch "
                          "so their trace plus verdicts fit the output budget")
