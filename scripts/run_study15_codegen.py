@@ -118,6 +118,7 @@ if __name__ == "__main__":
                     print(f"  {f.firm_id} call {call} delivery {attempt}: {type(e).__name__} {str(e)[:100]}", flush=True)
                     time.sleep(30 * attempt)
             if text is None:
+                calls = None  # delivery failure: nothing is recorded, so a rerun retries the packet
                 break
             new = extract_program(text)
             rec = {"output_tokens": u.output_tokens, "input_tokens": u.input_tokens, "finish_reason": u.finish_reason,
@@ -137,6 +138,9 @@ if __name__ == "__main__":
                 break
             if call < MAX_CALLS and code is not None:
                 user = codegen15_repair(user0, code, "\n\n".join(diag))
+        if calls is None or not calls:
+            print(f"  {f.firm_id}: not delivered; left for a rerun", flush=True)
+            continue
         entry = {"calls": calls, "program": code, "own": last}
         if code is not None:
             nxt = (k + 1) % study15.PACKETS[wf]
