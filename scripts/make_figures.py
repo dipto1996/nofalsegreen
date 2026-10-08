@@ -440,14 +440,14 @@ def fig_study14() -> None:
 
 
 def fig_study15() -> None:
-    r = load("docs/study15/results.json")
+    r = load("docs/study15/results_r2.json")
     fig = plt.figure(figsize=(7.0, 3.0))
     gs = fig.add_gridspec(1, 2, width_ratios=[1.1, 1], wspace=0.42, left=0.08, right=0.985, bottom=0.17, top=0.76)
     ax = fig.add_subplot(gs[0])
     srcs = [("fda", "openFDA recalls"), ("usa", "USAspending awards"), ("lca", "DOL LCA rows")]
-    systems = [("contract13b_evidence_first", "evidence-first prompt", BRICK),
-               ("contract13b_extract", "extraction + solver", NAVY),
-               ("codegen15", "model-written parser\n(manifest, repair) + solver", TEAL)]
+    systems = [("contract15_evidence_first", "evidence-first prompt", BRICK),
+               ("contract15_extract", "extraction + solver", NAVY),
+               ("codegen15b", "model-written parser\n(manifest, repair) + solver", TEAL)]
     w = 0.26
     for j, (k, lab, c) in enumerate(systems):
         ys = [r["by_source"][s][k]["correct_determinate"] for s, _ in srcs]
@@ -465,7 +465,7 @@ def fig_study15() -> None:
              ("gemma-4-26b-a4b-it-maas", "Gemma 4 26B"), ("deepseek-v3.2-maas", "DeepSeek V3.2"), ("glm-5.2-maas", "GLM-5.2")]
     cols = [NAVY, TEAL, GOLD, BRICK, INK2]
     for (m, n), c in zip(names, cols):
-        for k, mk in (("contract13b_evidence_first", "s"), ("contract13b_extract", "o"), ("codegen15", "D")):
+        for k, mk in (("contract15_evidence_first", "s"), ("contract15_extract", "o"), ("codegen15b", "D")):
             a = r["per_model"][m][k]
             ax.plot([a["unsupported_pos"]], [a["correct_determinate"]], ls="", marker=mk, ms=5.2, mfc=c, mec="white", zorder=3)
     ax.axvline(0.01, color=FRAME, lw=0.8, ls="--")

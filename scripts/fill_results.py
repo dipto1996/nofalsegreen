@@ -865,69 +865,77 @@ def table_study14_safety() -> str:
     return "\n".join(rows)
 
 
-_S15 = {"contract13b_evidence_first": "Evidence-first prompt", "contract13b_extract": "Extraction + solver",
-        "codegen15": "Code generation with manifest and repair + solver", "always abstain": "Always abstain"}
-_SRC15 = {"fda": "openFDA recalls", "usa": "USAspending awards", "lca": "DOL LCA rows"}
+_S15 = {"contract15_evidence_first": "Evidence-first prompt", "contract15_extract": "Extraction + solver",
+        "codegen15b": "Code generation with manifest and repair + solver", "always abstain": "Always abstain"}
+_K15 = {"contract13b_evidence_first": "contract15_evidence_first", "contract13b_extract": "contract15_extract",
+        "codegen15": "codegen15b"}
 
 
 def table_study15_systems() -> str:
-    f = ROOT / "docs" / "study15" / "results.json"
+    f = ROOT / "docs" / "study15" / "results_r2.json"
     head = ("| System | Unsupported pass | Correct decisions | openFDA | USAspending | DOL LCA | Unnecessary abstention "
             "| Follow-up share |\n|---|---|---|---|---|---|---|---|")
     if not f.exists():
         return head
     r = json.loads(f.read_text())
     rows = [head]
-    for k in ("contract13b_evidence_first", "contract13b_extract", "codegen15", "always abstain"):
+    for k in ("contract15_evidence_first", "contract15_extract", "codegen15b", "always abstain"):
         a = r["summary"][k]
         rows.append(f"| {_S15[k]} | {a['unsupported_pos']:.3f} | {a['correct_determinate']:.3f} | "
                     + " | ".join(f"{r['by_source'][w][k]['correct_determinate']:.3f}" for w in ("fda", "usa", "lca"))
                     + f" | {a['unnecessary_abstention']:.3f} | {a['followup_share']:.3f} |")
     rows.append("")
-    rows.append("Fifty packets of real public records in their publishers' formats; model systems are the mean of five "
-                "models. The three source columns give correct decisions on decidable pairs.")
+    rows.append("Corrected run: fifty packets of real public records in their publishers' formats, every request audited "
+                "to contain the whole document; model systems are the mean of five models. The source columns give "
+                "correct decisions on decidable pairs.")
     return "\n".join(rows)
 
 
 def table_study15() -> str:
-    f = ROOT / "docs" / "study15" / "results.json"
-    head = "| Test | Effect [95% CI] | Packets + / − | Holm p | Result |\n|---|---|---|---|---|"
-    if not f.exists():
+    d = ROOT / "docs" / "study15"
+    head = "| Run | Test | Effect [95% CI] | Packets + / − | Holm p | Result |\n|---|---|---|---|---|---|"
+    if not (d / "results.json").exists() or not (d / "results_r2.json").exists():
         return head
-    r = json.loads(f.read_text())
     lab = {"H1": "Extraction − evidence-first: unsupported pass", "H2": "Extraction − code generation: correct decisions",
            "H3": "Extraction − evidence-first: correct decisions"}
     rows = [head]
-    for k, v in r["primary"].items():
-        p = "<0.001" if v["p_holm"] < 0.001 else f"{v['p_holm']:.3f}"
-        res = "confirmed" if v["outcome"] == "confirmed" else ("not confirmed: opposite direction"
-                                                               if v["p_holm"] < 0.05 else "not confirmed")
-        rows.append(f"| {k[:2]} {lab[k[:2]]} | {v['delta']:+.3f} [{v['ci95_packet_bootstrap'][0]:+.3f}, "
-                    f"{v['ci95_packet_bootstrap'][1]:+.3f}] | {v['packets_positive']} / {v['packets_negative']} | {p} | {res} |")
+    for run, f in (("First run (defective inputs)", "results.json"), ("Corrected run", "results_r2.json")):
+        for k, v in json.loads((d / f).read_text())["primary"].items():
+            p = "<0.001" if v["p_holm"] < 0.001 else f"{v['p_holm']:.3f}"
+            res = "confirmed" if v["outcome"] == "confirmed" else ("opposite direction" if v["p_holm"] < 0.05
+                                                                   else "not confirmed")
+            rows.append(f"| {run} | {k[:2]} {lab[k[:2]]} | {v['delta']:+.3f} [{v['ci95_packet_bootstrap'][0]:+.3f}, "
+                        f"{v['ci95_packet_bootstrap'][1]:+.3f}] | {v['packets_positive']} / {v['packets_negative']} | {p} | {res} |")
     rows.append("")
     rows.append("Fifty packets; five models averaged with equal weight; sign-flip test over packets (200,000 patterns), "
-                "packet bootstrap interval, Holm over H1–H3. Declared before any call.")
+                "packet bootstrap interval, Holm over H1–H3. In the first run the prompt and extraction arms received "
+                "the USAspending files truncated at 40,000 characters, and code generation could make three calls; the "
+                "corrected run gives every arm the whole document and code generation two calls (Section 6.14).")
     return "\n".join(rows)
 
 
 def table_study15_safety() -> str:
-    f = ROOT / "docs" / "study15" / "results.json"
+    f = ROOT / "docs" / "study15" / "results_r2.json"
     head = ("| Model | Prompt: unsupported pass | Prompt: correct | Extraction: unsupported pass [95% CI] | Extraction: correct "
-            "| Code generation: unsupported pass | Code generation: correct |\n|---|---|---|---|---|---|---|")
+            "| Code generation: unsupported pass (95% upper bound) | Code generation: correct |\n|---|---|---|---|---|---|---|")
     if not f.exists():
         return head
     r = json.loads(f.read_text())
     rows = [head]
     for m, n in _M13.items():
-        pm, sf = r["per_model"][m], r["safety_per_model"]
-        e = sf[f"contract13b_extract::{m}"]
-        rows.append(f"| {n} | {pm['contract13b_evidence_first']['unsupported_pos']:.3f} | "
-                    f"{pm['contract13b_evidence_first']['correct_determinate']:.3f} | {e['rate']:.3f} "
+        pm, sf, zb = r["per_model"][m], r["safety_per_model"], r["zero_event_bounds"]
+        e = sf[f"contract15_extract::{m}"]
+        c = zb[f"codegen15b::{m}"]
+        cg = (f"{pm['codegen15b']['unsupported_pos']:.3f} (≤{c['upper95_per_pair_if_zero']:.4f} per pair)"
+              if c["upper95_per_pair_if_zero"] is not None else f"{pm['codegen15b']['unsupported_pos']:.3f}")
+        rows.append(f"| {n} | {pm['contract15_evidence_first']['unsupported_pos']:.3f} | "
+                    f"{pm['contract15_evidence_first']['correct_determinate']:.3f} | {e['rate']:.3f} "
                     f"[{e['ci95_packet_bootstrap'][0]:.3f}, {e['ci95_packet_bootstrap'][1]:.3f}]{'' if e['meets_margin'] else ' (fails)'} | "
-                    f"{pm['contract13b_extract']['correct_determinate']:.3f} | {pm['codegen15']['unsupported_pos']:.3f} | "
-                    f"{pm['codegen15']['correct_determinate']:.3f} |")
+                    f"{pm['contract15_extract']['correct_determinate']:.3f} | {cg} | {pm['codegen15b']['correct_determinate']:.3f} |")
     rows.append("")
-    rows.append("Study 15, fifty packets. The declared safety criterion is an upper 95% bound below 0.01; it fails where marked.")
+    rows.append("Study 15, corrected run, fifty packets. The declared criterion is a packet-bootstrap upper 95% bound below "
+                "0.01. With no event observed, the exact one-sided 95% bound is shown instead, per pair; it assumes "
+                "independent pairs, and per packet it is 0.058.")
     return "\n".join(rows)
 
 

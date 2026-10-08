@@ -247,6 +247,8 @@ def main() -> int:
     for f in sorted((OUT / "runs").glob("*.json")):
         doc = json.loads(f.read_text())
         for r in doc.get("runs", {}).values():
+            if r["variant"] not in (EF, EX):
+                continue
             k = f"{r['model'].split('/')[-1].split('#')[0]}::{r['variant']}"
             a = tok.setdefault(k, [0, 0, 0])
             u = r.get("usage", {})

@@ -28,12 +28,14 @@ who worked independently of us and of the baselines, it lowered unsupported posi
 decisions than a rule-based parser developed on six other layouts and 0.172 more than
 parsers the models wrote themselves; for two of five models it cost some safety. On 600 real
 public records in their publishers' formats it again cut unsupported positives against the
-prompt (by 0.065), but there a model that wrote a parser, given the pairs to answer and
-the diagnostics of failed runs, did better still: 0.982 correct decisions and no
-unsupported positive for any model, where direct extraction missed values in long nested
-records. What removes unsupported decisions is keeping the decision out of the model; the best
-way for the model to read depends on the records. All data, prompts and replies are released,
-and a script recomputes every number.
+prompt (by 0.094) and raised correct decisions (by 0.171), in every packet; a model
+that wrote a parser, given the pairs to answer and the diagnostics of failed runs, was as
+accurate (0.972 against 0.964) and made no unsupported positive. A
+first run of that study had truncated some records for two of its arms; we report the
+correction. What removes unsupported decisions is keeping the decision itself out of the
+model. All data, prompts and replies are released
+(Study 15's defective first run kept only the final code-generation programs), and a script
+recomputes every number.
 
 ---
 
@@ -89,9 +91,9 @@ made more correct decisions than a strong rule-based parser that was exact on th
 was written for (§6.12). A powered test on 30 fresh record sets in six layouts from three
 independent designers confirmed this against an improved parser and against parsers the models
 wrote themselves, while showing that for two of five models the gain costs some safety
-(§6.13). On real public records in their native formats, a model that wrote a parser, with the
-pairs to answer and the diagnostics of failed runs, beat direct extraction, which lost values
-in long nested records and in date arithmetic (§6.14). Across all of them, the decision itself
+(§6.13). On real public records in their native formats, extraction and a model-written
+parser, given the pairs to answer and the diagnostics of failed runs, were equally accurate,
+and the parser made no unsupported decision (§6.14). Across all of them, the decision itself
 belonged to a program. **Proxy columns are a large cause:** planting columns that
 resemble required evidence, with the prompt unchanged, raises the false-green rate by 0.217 to
 0.427. Controls show that it is not the number of added columns; for Google's models it is
@@ -1043,63 +1045,78 @@ altered, and other fields are missing at source. All 1,200 labels agree with a c
 by a separate agent that reads the native files directly.
 
 The code-generation arm was strengthened as the review of Study 14 asked: the program receives
-the pairs to answer at run time, the model has extraction's budget for the packet (up to three
-calls), and a run that fails or prints malformed output is returned with its diagnostics,
-never a label, for up to two repairs. Study 13's parsers know only Study 13's rules and do not
-apply.
+the pairs to answer at run time, and a run that fails or prints malformed output is returned
+with its diagnostics, never a label, for repair. Study 13's parsers know only Study 13's rules
+and do not apply.
 
-**Table 12 — Study 15: every system, real records.**
+**A defect, and the corrected run.** In the first run the shared prompt renderer cut every
+source at 40,000 characters. Every USAspending packet is longer (about 95,000), so the prompt
+and extraction arms saw only about half of its records while code generation read the whole
+file; code generation could also make three calls where extraction made two. That run found
+code generation ahead by 0.241 in correct decisions, almost all of it on USAspending, and
+we first read it as extraction losing values in long records. Review found the cause. No
+source of Studies 1–14 reached the cap. We removed the truncation, gave code generation the
+same two calls as extraction, kept every reply and intermediate program, and declared a
+corrected run before any of its calls (commit `551ff48`). An audit regenerated every request:
+all 999 prompt requests and all 282 code-generation calls contained the whole document and
+matched the hash recorded with their reply. The corrected run is the result reported here; both
+runs are in Table 13.
+
+**Table 12 — Study 15 (corrected run): every system, real records.**
 
 <!-- BEGIN GENERATED: table-study15-systems -->
 | System | Unsupported pass | Correct decisions | openFDA | USAspending | DOL LCA | Unnecessary abstention | Follow-up share |
 |---|---|---|---|---|---|---|---|
-| Evidence-first prompt | 0.072 | 0.611 | 0.836 | 0.313 | 0.757 | 0.275 | 0.617 |
-| Extraction + solver | 0.006 | 0.741 | 0.991 | 0.422 | 0.877 | 0.235 | 0.653 |
-| Code generation with manifest and repair + solver | 0.000 | 0.982 | 0.980 | 1.000 | 0.950 | 0.014 | 0.534 |
+| Evidence-first prompt | 0.096 | 0.793 | 0.829 | 0.791 | 0.726 | 0.061 | 0.491 |
+| Extraction + solver | 0.003 | 0.964 | 0.990 | 0.977 | 0.886 | 0.020 | 0.543 |
+| Code generation with manifest and repair + solver | 0.000 | 0.972 | 0.980 | 0.990 | 0.920 | 0.008 | 0.536 |
 | Always abstain | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 1.000 | 1.000 |
 
-Fifty packets of real public records in their publishers' formats; model systems are the mean of five models. The three source columns give correct decisions on decidable pairs.
+Corrected run: fifty packets of real public records in their publishers' formats, every request audited to contain the whole document; model systems are the mean of five models. The source columns give correct decisions on decidable pairs.
 <!-- END GENERATED: table-study15-systems -->
 
-**Results (Table 13, Figure 9).**
+**Results (corrected run; Table 13, Figure 9).**
 
 - **H1, safety.** Against the evidence-first prompt, extraction lowered unsupported `pass` by
-  0.065 [-0.080, -0.051] (Holm p < 0.001).
-- **H3, correct decisions.** It also made 0.130 [+0.116, +0.143] more correct
+  0.094 [-0.106, -0.082], in all 50 packets (Holm p < 0.001).
+- **H3, correct decisions.** It also made 0.171 [+0.153, +0.188] more correct
   decisions, in all 50 packets.
-- **H2 failed in the opposite direction.** The model-written parsers made
-  0.241 [-0.324, -0.163] more correct decisions than extraction (0.982
-  against 0.741), with no unsupported `pass` for any model. Of 250
-  packets, 214 were read cleanly at the first call and 248 after repairs;
-  the final programs, run on the next packet of the same source with its pairs, decided
-  0.985 of decidable pairs correctly.
+- **H2, against code generation: no detectable difference.** Extraction decided
+  0.964 of decidable pairs correctly and the model-written parsers 0.972
+  (difference -0.008 [-0.030, +0.014], Holm p = 0.48). The power analysis gave 0.49 for a
+  gap a quarter of Study 14's, so this does not establish equivalence.
 
-**Why extraction lost.** The slot audit locates it. On the USAspending awards, whose records
-are long nested objects, extraction reported 2,456 of 4,400 values that were present as
-absent, which is safe but useless; on the LCA rows it returned 493 of 2,200 values wrong, 482
-of them dates, most a few days off: errors in converting the file's serial day numbers. A program does both reliably. On the
-openFDA reports, short records with readable dates, extraction and the programs were equally
-good (0.991 and 0.980).
+**Where they differ.** Code generation made no unsupported `pass` for any model (with none in
+1,200 pairs per model, the exact one-sided 95% bound is 0.0025 per pair if pairs are
+independent, 0.058 per packet). Extraction made a few, 0.007 for Gemma 4 and
+0.005 for DeepSeek V3.2, whose bootstrap bounds exceed the declared 0.01 criterion
+(Table 30). Extraction was weakest on the LCA rows, where 452 of 2,200 values it read
+were dates converted wrongly from the file's serial day numbers; a program does that arithmetic
+exactly. On openFDA and USAspending the two were within 0.013 of each other. Of 250 packets,
+218 programs ran cleanly at the first call and 243 after one repair, and the
+final programs, run on the next packet of the same source with its pairs, decided
+0.990 of decidable pairs correctly.
 
-**Per model (declared safety criterion).** Code generation met the criterion for all five
-models; extraction for four, failing for DeepSeek V3.2
-(0.031); the prompt alone failed for Gemma 4 (0.225)
-and DeepSeek V3.2 (0.133) (Table 30). Under the prompt, unsupported `pass` was
-0.052 on pairs whose evidence was missing at source and
-0.033 where we had withheld it.
+**By model.** As before, the prompt alone was safe for Gemini 3.1 Pro, Gemini 3.8 Flash and
+GLM-5.2 and unsafe for Gemma 4 (0.314) and DeepSeek V3.2 (0.167). Under the prompt,
+unsupported `pass` was 0.040 where evidence was missing at source (ten items) and
+0.055 where we had withheld it; with ten natural items, the two cannot be told apart.
 
-<!-- FIGURE: fig_study15 | wide | Study 15, real public records. (a) Correct decisions on decidable pairs by source, mean of five models. (b) For each model, unsupported pass against correct decisions under the prompt, extraction and model-written parsers; the dashed line marks the declared safety criterion, 0.01. -->
+<!-- FIGURE: fig_study15 | wide | Study 15, corrected run, real public records. (a) Correct decisions on decidable pairs by source, mean of five models. (b) For each model, unsupported pass against correct decisions under the prompt, extraction and model-written parsers; the dashed line marks the declared safety criterion, 0.01. -->
 
-**Table 13 — The declared tests of Study 15.**
+**Table 13 — The declared tests of Study 15, first and corrected runs.**
 
 <!-- BEGIN GENERATED: table-study15 -->
-| Test | Effect [95% CI] | Packets + / − | Holm p | Result |
-|---|---|---|---|---|
-| H1 Extraction − evidence-first: unsupported pass | -0.065 [-0.080, -0.051] | 4 / 45 | <0.001 | confirmed |
-| H2 Extraction − code generation: correct decisions | -0.241 [-0.324, -0.163] | 3 / 33 | <0.001 | not confirmed: opposite direction |
-| H3 Extraction − evidence-first: correct decisions | +0.130 [+0.116, +0.143] | 50 / 0 | <0.001 | confirmed |
+| Run | Test | Effect [95% CI] | Packets + / − | Holm p | Result |
+|---|---|---|---|---|---|
+| First run (defective inputs) | H1 Extraction − evidence-first: unsupported pass | -0.065 [-0.080, -0.051] | 4 / 45 | <0.001 | confirmed |
+| First run (defective inputs) | H2 Extraction − code generation: correct decisions | -0.241 [-0.324, -0.163] | 3 / 33 | <0.001 | opposite direction |
+| First run (defective inputs) | H3 Extraction − evidence-first: correct decisions | +0.130 [+0.116, +0.143] | 50 / 0 | <0.001 | confirmed |
+| Corrected run | H1 Extraction − evidence-first: unsupported pass | -0.094 [-0.106, -0.082] | 0 / 50 | <0.001 | confirmed |
+| Corrected run | H2 Extraction − code generation: correct decisions | -0.008 [-0.030, +0.014] | 6 / 28 | 0.482 | not confirmed |
+| Corrected run | H3 Extraction − evidence-first: correct decisions | +0.171 [+0.153, +0.188] | 50 / 0 | <0.001 | confirmed |
 
-Fifty packets; five models averaged with equal weight; sign-flip test over packets (200,000 patterns), packet bootstrap interval, Holm over H1–H3. Declared before any call.
+Fifty packets; five models averaged with equal weight; sign-flip test over packets (200,000 patterns), packet bootstrap interval, Holm over H1–H3. In the first run the prompt and extraction arms received the USAspending files truncated at 40,000 characters, and code generation could make three calls; the corrected run gives every arm the whole document and code generation two calls (Section 6.14).
 <!-- END GENERATED: table-study15 -->
 
 ## 7. The exploratory study that generated the hypotheses
@@ -1139,12 +1156,13 @@ layouts its author had not seen; Study 14 confirmed this on 30 independent recor
 more layouts, where the improved parser decided 0.349 of decidable pairs correctly
 and extraction 0.893. For two of five models the gain came with more
 unsupported `pass` decisions than the parser made, so the choice of model matters as much as
-the architecture. Study 15 qualified the remedy itself: on real records in their native
-formats, a model that wrote a parser, given the pairs to answer and the diagnostics of failed
-runs, decided 0.982 of decidable pairs correctly with no unsupported `pass`, against
-0.741 for extraction. Because Study 14's code-generation arm lacked the pairs list and
-repair, and its records were different, we cannot say whether the reversal comes from the arm,
-from the records or both. Both winning designs keep the decision in a program. Where the records follow a known schema, a program applying
+the architecture. Study 15 tested the remedy on real records in
+their native formats: extraction and a model-written parser, given the pairs to answer and the
+diagnostics of failed runs, were equally accurate (0.964 and 0.972), and the parser
+made no unsupported `pass`, so where a deployment can run a model's program, that is the safer
+reader. Its first run had looked like a large win for code generation; the cause was our
+renderer truncating records for the other arms, which a review found. Both designs keep the
+decision in a program. Where the records follow a known schema, a program applying
 the rule directly is better still, and a parser that defers to the model only when it cannot
 read a fact did best of all, exploratory as that result is. The remedy's remaining weakness is
 conflicting records: models often report one of two disagreeing values instead of a conflict. Two parts of a verdict menu
@@ -1210,8 +1228,9 @@ synthetic renderings of generated records, and each study tests one rule-based p
   other developers' open models (Study 6); Studies 7–15 use those five models; several endpoints are
   previews that will be retired.
 - **Real records.** Study 15 uses real records from three public sources, but we chose its rules
-  and thresholds, withheld its missing evidence ourselves in part, and compared two
-  code-generation arms only across different studies.
+  and thresholds and withheld most of its missing evidence ourselves; its code-generation arm
+  differs from Study 14's in the run-time pairs list and repair, so the two studies do not
+  isolate either change.
 - **Domains and records.** Studies 3–8 use one domain, employment immigration, mostly on
   generated records; Studies 9–13 use three stipulated workflows (workforce, purchasing,
   engineering acceptance) on synthetic records. We conjecture, and do not show, that the failure
@@ -1380,7 +1399,10 @@ python3 scripts/score_study14.py                # Study 14
 python3 scripts/fetch_study15.py                # Study 15 records (already fetched; checksums in data/study15)
 python3 scripts/power_study15.py                # Study 15 power analysis
 python3 scripts/run_study15_codegen.py --replay # re-executes the model-written programs; checks the record
-python3 scripts/score_study15.py                # Study 15
+python3 scripts/score_study15.py                # Study 15, first run (defective inputs)
+python3 scripts/audit_study15_inputs.py         # Study 15 corrected run: every request held the whole document
+python3 scripts/run_study15_codegen.py --replay --r2  # re-executes the corrected run's programs
+python3 scripts/score_study15.py --r2           # Study 15, corrected run
 python3 scripts/labelcheck_compare.py           # generated labels vs the reference checker
 python3 scripts/fill_results.py                 # regenerates every table in this paper
 python3 scripts/make_figures.py                 # regenerates every chart
@@ -1389,11 +1411,12 @@ python3 scripts/verify_paper.py                 # recomputes every number in the
 
 No step makes an API call: every score is rebuilt from the retained replies in
 `docs/**/cache/` and `docs/raw/`. `verify_paper.py` re-runs every scorer above and requires all
-31 derived results files to come out byte-identical; the two remaining inputs,
+33 derived results files to come out byte-identical; the two remaining inputs,
 `docs/llm_results.json` and `docs/label_audit_second.json`, are records of model calls rather
 than derived files, and so is `docs/study14/codegen_exec.json`, the sandboxed executions of the
-model-written programs, which the `--replay` command re-executes and compares, as does
-`docs/study15/codegen_cache/`, which holds Study 15's programs and their executions. Re-running the models uses `scripts/run_free.py`,
+model-written programs, which the `--replay` command re-executes and compares, as do
+`docs/study15/codegen_cache/` and `codegen_cache_r2/`, which hold Study 15's programs and their
+executions (the corrected run keeps every reply and intermediate program). Re-running the models uses `scripts/run_free.py`,
 `scripts/run_vertex.py` and the `scripts/run_study*.py` launchers.
 
 **Real LCA records (Study 5).** The 120 rows come from the Department of Labor's public *LCA
@@ -2233,15 +2256,15 @@ Study 14, thirty contents. The declared criterion: the content-bootstrap upper b
 **Table 30 — Study 15 by model.**
 
 <!-- BEGIN GENERATED: table-study15-safety -->
-| Model | Prompt: unsupported pass | Prompt: correct | Extraction: unsupported pass [95% CI] | Extraction: correct | Code generation: unsupported pass | Code generation: correct |
+| Model | Prompt: unsupported pass | Prompt: correct | Extraction: unsupported pass [95% CI] | Extraction: correct | Code generation: unsupported pass (95% upper bound) | Code generation: correct |
 |---|---|---|---|---|---|---|
-| Gemini 3.1 Pro | 0.000 | 0.754 | 0.000 [0.000, 0.000] | 0.762 | 0.000 | 1.000 |
-| Gemini 3.8 Flash | 0.000 | 0.753 | 0.000 [0.000, 0.000] | 0.763 | 0.000 | 1.000 |
-| Gemma 4 26B | 0.225 | 0.422 | 0.001 [0.000, 0.003] | 0.635 | 0.000 | 0.932 |
-| DeepSeek V3.2 | 0.133 | 0.374 | 0.031 [0.014, 0.050] (fails) | 0.783 | 0.000 | 0.998 |
-| GLM-5.2 | 0.000 | 0.753 | 0.001 [0.000, 0.003] | 0.760 | 0.000 | 0.980 |
+| Gemini 3.1 Pro | 0.000 | 0.990 | 0.000 [0.000, 0.000] | 1.000 | 0.000 (≤0.0025 per pair) | 1.000 |
+| Gemini 3.8 Flash | 0.000 | 0.990 | 0.000 [0.000, 0.000] | 1.000 | 0.000 (≤0.0025 per pair) | 1.000 |
+| Gemma 4 26B | 0.314 | 0.505 | 0.007 [0.003, 0.011] (fails) | 0.841 | 0.000 (≤0.0025 per pair) | 0.962 |
+| DeepSeek V3.2 | 0.167 | 0.509 | 0.005 [0.001, 0.011] (fails) | 0.986 | 0.000 (≤0.0025 per pair) | 0.998 |
+| GLM-5.2 | 0.000 | 0.974 | 0.001 [0.000, 0.003] | 0.993 | 0.000 (≤0.0025 per pair) | 0.900 |
 
-Study 15, fifty packets. The declared safety criterion is an upper 95% bound below 0.01; it fails where marked.
+Study 15, corrected run, fifty packets. The declared criterion is a packet-bootstrap upper 95% bound below 0.01. With no event observed, the exact one-sided 95% bound is shown instead, per pair; it assumes independent pairs, and per packet it is 0.058.
 <!-- END GENERATED: table-study15-safety -->
 
 ## Appendix G: Interpretive choices of the reference checker
