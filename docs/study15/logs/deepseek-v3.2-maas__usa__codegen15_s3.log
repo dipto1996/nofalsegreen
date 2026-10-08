@@ -1,0 +1,18 @@
+  study15-usa-p03 call 1 delivery 1: CalledProcessError Command '['gcloud', 'auth', 'print-access-token']' returned non-zero exit status 1.
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 9s
+  study15-usa-p03 call 1: 943 out, finish=stop, 1 problem(s)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+  study15-usa-p03 call 2: 977 out, finish=stop, clean
+  study15-usa-p07 call 1: 922 out, finish=stop, 1 problem(s)
+  study15-usa-p07 call 2: 922 out, finish=stop, 1 problem(s)
+  study15-usa-p07 call 3: 992 out, finish=stop, clean
+  study15-usa-p11 call 1: 967 out, finish=stop, clean
+  study15-usa-p15 call 1: 970 out, finish=stop, clean
+  study15-usa-p19 call 1: 1230 out, finish=stop, clean
+done 5

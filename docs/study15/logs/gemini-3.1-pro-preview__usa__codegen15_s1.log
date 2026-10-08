@@ -1,0 +1,15 @@
+  study15-usa-p01 call 1 delivery 1: CalledProcessError Command '['gcloud', 'auth', 'print-access-token']' returned non-zero exit status 1.
+  study15-usa-p01 call 1: 3404 out, finish=stop, clean
+  study15-usa-p05 call 1: 3948 out, finish=stop, clean
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "TPM quota exhausted. No spare capacity is currently available to serve over-limit requests. Please try after 1s
+  study15-usa-p09 call 1: 3759 out, finish=stop, clean
+  study15-usa-p13 call 1: 4643 out, finish=stop, clean
+      retry vertex/gemini-3.1-pro-preview#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generat after 1s
+  study15-usa-p17 call 1: 4148 out, finish=stop, clean
+done 5

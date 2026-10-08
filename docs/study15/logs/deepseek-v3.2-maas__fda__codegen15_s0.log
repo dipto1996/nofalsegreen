@@ -1,0 +1,17 @@
+  study15-fda-p00 call 1 delivery 1: CalledProcessError Command '['gcloud', 'auth', 'print-access-token']' returned non-zero exit status 1.
+  study15-fda-p00 call 1: 961 out, finish=stop, 1 problem(s)
+  study15-fda-p00 call 2: 1217 out, finish=stop, clean
+  study15-fda-p04 call 1: 1228 out, finish=stop, clean
+  study15-fda-p08 call 1: 791 out, finish=stop, clean
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+  study15-fda-p12 call 1: 761 out, finish=stop, clean
+  study15-fda-p16 call 1: 738 out, finish=stop, 1 problem(s)
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 1s
+  study15-fda-p16 call 2: 996 out, finish=stop, clean
+done 5

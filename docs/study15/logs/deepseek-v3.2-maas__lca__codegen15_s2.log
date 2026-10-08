@@ -1,0 +1,8 @@
+  study15-lca-p02 call 1 delivery 1: CalledProcessError Command '['gcloud', 'auth', 'print-access-token']' returned non-zero exit status 1.
+      retry vertexopen/deepseek-ai/deepseek-v3.2-maas#r0: RuntimeError: HTTP 429: [{
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/genera after 9s
+  study15-lca-p02 call 1: 1334 out, finish=stop, clean
+  study15-lca-p06 call 1: 1090 out, finish=stop, clean
+done 2

@@ -1,0 +1,362 @@
+Study 15 (fda): 20 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract13b_evidence_first']
+
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (0 parsed so far)
+  study15-fda-p00        INCOMPLETE: 0/24 pairs, 0 unrecovered + 2 failed batches; resume later
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (0 parsed so far)
+  study15-fda-p01        INCOMPLETE: 0/24 pairs, 0 unrecovered + 2 failed batches; resume later
+      batch 1/2 (0 parsed so far)
+Study 15 (fda): 20 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract13b_evidence_first']
+
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 8s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+        attempt 1: 258 output tokens, 6s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+        attempt 1: 362 output tokens, 5s, finish=stop, ok
+  study15-fda-p00        FGR 0.200  recall 0.556  absF1 0.333  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+        attempt 1: 352 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 364 output tokens, 11s, finish=stop, ok
+  study15-fda-p01        FGR 0.200  recall 0.143  absF1 0.889  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 354 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 364 output tokens, 9s, finish=stop, ok
+  study15-fda-p02        FGR 0.167  recall 0.200  absF1 0.909  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 354 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 364 output tokens, 15s, finish=stop, ok
+  study15-fda-p03        FGR 0.286  recall 0.000  absF1 0.833  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 350 output tokens, 12s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 472 output tokens, 13s, finish=stop, ok
+  study15-fda-p04        FGR 0.400  recall 0.333  absF1 0.750  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 354 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 364 output tokens, 10s, finish=stop, ok
+  study15-fda-p05        FGR 0.444  recall 0.000  absF1 0.714  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 256 output tokens, 15s, finish=stop, ok
+      batch 2/2 (0 parsed so far)
+        attempt 1: 366 output tokens, 8s, finish=stop, ok
+  study15-fda-p06        FGR 0.167  recall 0.000  absF1 0.667  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 354 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 368 output tokens, 9s, finish=stop, ok
+  study15-fda-p07        FGR 0.125  recall 0.000  absF1 0.933  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 352 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 366 output tokens, 10s, finish=stop, ok
+  study15-fda-p08        FGR 0.167  recall 0.000  absF1 0.909  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 354 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+        attempt 1: 364 output tokens, 7s, finish=stop, ok
+  study15-fda-p09        FGR 0.286  recall 0.000  absF1 0.833  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 356 output tokens, 11s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 364 output tokens, 8s, finish=stop, ok
+  study15-fda-p10        FGR 0.000  recall 0.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 352 output tokens, 11s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 366 output tokens, 25s, finish=stop, ok
+  study15-fda-p11        FGR 0.167  recall 0.250  absF1 0.909  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request kO3HaufOEaaxk8sPldS2gAw is throttled due to too many requests. Please try again later. Ple after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      batch 2/2 (0 parsed so far)
+        attempt 1: 362 output tokens, 6s, finish=stop, ok
+  study15-fda-p12        INCOMPLETE: 12/24 pairs, 0 unrecovered + 1 failed batches; resume later
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request gu_HasOjLsGnk8sP2uS0qA4 is throttled due to too many requests. Please try again later. Ple after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request l-_Hav2WIorK4PoPv6b9WA is throttled due to too many requests. Please try again later. Plea after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 352 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 362 output tokens, 8s, finish=stop, ok
+  study15-fda-p13        FGR 0.600  recall 0.000  absF1 0.500  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 354 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 474 output tokens, 10s, finish=stop, ok
+  study15-fda-p14        FGR 0.143  recall 0.143  absF1 0.923  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 352 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 366 output tokens, 8s, finish=stop, ok
+  study15-fda-p15        FGR 0.286  recall 0.100  absF1 0.833  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 352 output tokens, 9s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 364 output tokens, 10s, finish=stop, ok
+  study15-fda-p16        FGR 0.333  recall 0.000  absF1 0.800  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 356 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 366 output tokens, 9s, finish=stop, ok
+  study15-fda-p17        FGR 0.000  recall 0.167  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 352 output tokens, 13s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 364 output tokens, 9s, finish=stop, ok
+  study15-fda-p18        FGR 0.200  recall 0.333  absF1 0.889  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+        attempt 1: 352 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+        attempt 1: 362 output tokens, 10s, finish=stop, ok
+  study15-fda-p19        FGR 0.500  recall 0.000  absF1 0.667  unparsed 0  (2 calls)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract13b_evidence_first: FGR 0.246 (sd 0.157)  recall 0.117  over 19 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/gemma-4-26b-a4b-it-maas__fda__contract13b_evidence_first.json
+Study 15 (fda): 20 firms x 24 pairs
+vertex/gemma-4-26b-a4b-it-maas#r0 via vertex  quota {'rpm': 3, 'rpd': 100000, 'tpm': None, 'label': 'vertex/gemma-4-26b-a4b-it-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 20  variants ['contract13b_evidence_first']
+
+  study15-fda-p00        skip (done)
+  study15-fda-p01        skip (done)
+  study15-fda-p02        skip (done)
+  study15-fda-p03        skip (done)
+  study15-fda-p04        skip (done)
+  study15-fda-p05        skip (done)
+  study15-fda-p06        skip (done)
+  study15-fda-p07        skip (done)
+  study15-fda-p08        skip (done)
+  study15-fda-p09        skip (done)
+  study15-fda-p10        skip (done)
+  study15-fda-p11        skip (done)
+      batch 1/2 (0 parsed so far)
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 0s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request queue is full.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+ after 1s
+      retry vertex/gemma-4-26b-a4b-it-maas#r0: RuntimeError: HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "The request is throttled due to too many concurrent requests.",
+    "status": "RESOURCE_EXHAUSTED"
+  } after 1s
+      batch 2/2 (0 parsed so far)
+  study15-fda-p12        INCOMPLETE: 12/24 pairs, 0 unrecovered + 1 failed batches; resume later
+  study15-fda-p13        skip (done)
+  study15-fda-p14        skip (done)
+  study15-fda-p15        skip (done)
+  study15-fda-p16        skip (done)
+  study15-fda-p17        skip (done)
+  study15-fda-p18        skip (done)
+  study15-fda-p19        skip (done)
+
+  vertex/gemma-4-26b-a4b-it-maas#r0::contract13b_evidence_first: FGR 0.246 (sd 0.157)  recall 0.117  over 19 firm(s)
+
+wrote docs/study15/runs/gemma-4-26b-a4b-it-maas__fda__contract13b_evidence_first.json

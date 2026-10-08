@@ -1,0 +1,72 @@
+Study 15 (lca): 10 firms x 24 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['contract13b_evidence_first']
+
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (0 parsed so far)
+  study15-lca-p00        INCOMPLETE: 0/24 pairs, 0 unrecovered + 2 failed batches; resume later
+      batch 1/2 (0 parsed so far)
+      batch 2/2 (0 parsed so far)
+  study15-lca-p01        INCOMPLETE: 0/24 pairs, 0 unrecovered + 2 failed batches; resume later
+      batch 1/2 (0 parsed so far)
+Study 15 (lca): 10 firms x 24 pairs
+vertexopen/zai-org/glm-5.2-maas#r0 via vertexopen  quota {'rpm': 6, 'rpd': 100000, 'tpm': None, 'label': 'vertexopen/zai-org/glm-5.2-maas#r0 (assumed) (overridden)'}
+batch 12  scoped_sources True  firms 10  variants ['contract13b_evidence_first']
+
+      batch 1/2 (0 parsed so far)
+        attempt 1: 1259 output tokens, 18s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 32000 output tokens, 253s, finish=length, CAP
+        attempt 2: 2819 output tokens, 21s, finish=stop, ok
+  study15-lca-p00        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (3 calls)  TRUNCATED 1
+      batch 1/2 (0 parsed so far)
+        attempt 1: 4576 output tokens, 33s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 32000 output tokens, 243s, finish=length, CAP
+        attempt 2: 32000 output tokens, 240s, finish=length, CAP
+        attempt 3: 3399 output tokens, 29s, finish=stop, ok
+  study15-lca-p01        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (4 calls)  TRUNCATED 2
+      batch 1/2 (0 parsed so far)
+        attempt 1: 5000 output tokens, 35s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3007 output tokens, 25s, finish=stop, ok
+  study15-lca-p02        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 2003 output tokens, 17s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 3742 output tokens, 31s, finish=stop, ok
+  study15-lca-p03        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 968 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2526 output tokens, 19s, finish=stop, ok
+  study15-lca-p04        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 3871 output tokens, 28s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1318 output tokens, 10s, finish=stop, ok
+  study15-lca-p05        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 941 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1633 output tokens, 13s, finish=stop, ok
+  study15-lca-p06        FGR 0.000  recall 1.000  absF1 0.889  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 990 output tokens, 8s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2438 output tokens, 19s, finish=stop, ok
+  study15-lca-p07        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 954 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 1552 output tokens, 11s, finish=stop, ok
+  study15-lca-p08        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+      batch 1/2 (0 parsed so far)
+        attempt 1: 980 output tokens, 7s, finish=stop, ok
+      batch 2/2 (12 parsed so far)
+        attempt 1: 2522 output tokens, 20s, finish=stop, ok
+  study15-lca-p09        FGR 0.000  recall 1.000  absF1 1.000  unparsed 0  (2 calls)
+
+  vertexopen/zai-org/glm-5.2-maas#r0::contract13b_evidence_first: FGR 0.000 (sd 0.000)  recall 1.000  over 10 firm(s)
+
+wrote /Users/roydi/Desktop/nofalsegreen/docs/study15/runs/glm-5.2-maas__lca__contract13b_evidence_first.json

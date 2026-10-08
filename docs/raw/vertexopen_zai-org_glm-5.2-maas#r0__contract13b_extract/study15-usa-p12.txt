@@ -1,0 +1,27 @@
+usa.period_3y::CONT_AWD_0001_9700_SPE4A616D0302_9700	facts	performance start=2017-08-16 from usaspending_awards | performance end=2019-07-16 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_N6600115D0058_9700	facts	performance start=2015-05-27 from usaspending_awards | performance end=ABSENT
+usa.period_3y::CONT_AWD_0001_9700_N0017815D8480_9700	facts	performance start=2015-04-05 from usaspending_awards | performance end=2019-12-31 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_2800_SS00164C065_2800	facts	performance start=2016-06-01 from usaspending_awards | performance end=2017-05-31 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_N6833507G0013_9700	facts	performance start=2007-09-20 from usaspending_awards | performance end=2008-08-19 from usaspending_awards
+usa.period_3y::CONT_AWD_0001_9700_N4008514D8403_9700	facts	performance start=ABSENT | performance end=ABSENT
+usa.period_3y::CONT_AWD_0001_5000_SECHQ114D0020_5000	facts	performance start=ABSENT | performance end=ABSENT
+usa.period_3y::CONT_AWD_0001_6800_EPW11055_6800	facts	performance start=ABSENT | performance end=ABSENT
+usa.period_3y::CONT_AWD_0001_9700_FA701416D1000_9700	facts	performance start=ABSENT | performance end=ABSENT
+usa.period_3y::CONT_AWD_0001_9700_FA460012D0001_9700	facts	performance start=ABSENT | performance end=ABSENT
+usa.period_3y::CONT_AWD_0001_9700_N6523613D5847_9700	facts	performance start=ABSENT | performance end=ABSENT
+usa.period_3y::CONT_AWD_0001_9700_N0010417DAD01_9700	facts	performance start=ABSENT | performance end=ABSENT
+
+---
+
+usa.obligated_95::CONT_AWD_0001_9700_SPE4A616D0302_9700	facts	amount obligated=5972 from usaspending_awards | potential value=5972 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N6600115D0058_9700	facts	amount obligated=341902.06 from usaspending_awards | potential value=341902.06 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N0017815D8480_9700	facts	amount obligated=ABSENT | potential value=0 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_2800_SS00164C065_2800	facts	amount obligated=75887.5 from usaspending_awards | potential value=75887.5 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N6833507G0013_9700	facts	amount obligated=453602.77 from usaspending_awards | potential value=453602.77 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_9700_N4008514D8403_9700	facts	amount obligated=ABSENT | potential value=4492217.04 from usaspending_awards
+usa.obligated_95::CONT_AWD_0001_5000_SECHQ114D0020_5000	facts	amount obligated=ABSENT | potential value=ABSENT
+usa.obligated_95::CONT_AWD_0001_6800_EPW11055_6800	facts	amount obligated=ABSENT | potential value=ABSENT
+usa.obligated_95::CONT_AWD_0001_9700_FA701416D1000_9700	facts	amount obligated=ABSENT | potential value=ABSENT
+usa.obligated_95::CONT_AWD_0001_9700_FA460012D0001_9700	facts	amount obligated=ABSENT | potential value=ABSENT
+usa.obligated_95::CONT_AWD_0001_9700_N6523613D5847_9700	facts	amount obligated=ABSENT | potential value=ABSENT
+usa.obligated_95::CONT_AWD_0001_9700_N0010417DAD01_9700	facts	amount obligated=ABSENT | potential value=ABSENT
