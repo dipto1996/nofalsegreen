@@ -1401,7 +1401,8 @@ python3 scripts/make_figures.py                 # regenerates every chart
 python3 scripts/verify_paper.py                 # recomputes every number in the text
 ```
 
-No step makes an API call: every score is rebuilt from the retained replies in
+Code, data and every retained reply are at https://github.com/dipto1996/nofalsegreen (release
+`v1.0-paper`). No step makes an API call: every score is rebuilt from the retained replies in
 `docs/**/cache/` and `docs/raw/`. `verify_paper.py` re-runs every scorer above and requires all
 32 derived results files to come out byte-identical; the two remaining inputs,
 `docs/llm_results.json` and `docs/label_audit_second.json`, are records of model calls rather

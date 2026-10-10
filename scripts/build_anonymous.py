@@ -19,6 +19,8 @@ from build_latex import convert  # noqa: E402
 
 OUT = ROOT / "paper_anon"
 SUBS = [
+    (r"https://github\.com/dipto1996/nofalsegreen \(release\n`v1\.0-paper`\)",
+     "the anonymous supplementary archive\n(snapshot of release `v1.0-paper`)"),
     (r"Diptopal Roy, Independent researcher \(diptopal@joinsettle\.info\)",
      "Anonymous authors, Paper under double-blind review (anonymous@review.invalid)"),
     (r"This is the author's personal research\. The author is a co-founder of\nSettle AI Inc\., which builds",
