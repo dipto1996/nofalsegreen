@@ -1,6 +1,6 @@
 # No False Green: Evidence Sufficiency and Unsupported Decisions in Language Models
 
-Diptopal Roy, Independent researcher (diptopal@joinsettle.info)
+Diptopal Roy, Independent researcher (roydiptopal1996@gmail.com)
 
 ---
 
