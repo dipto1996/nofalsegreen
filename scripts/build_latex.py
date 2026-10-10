@@ -205,13 +205,17 @@ def convert(md: str) -> str:
             out.append(inline(" ".join(s.strip() for s in para)) + "\n")
             para = []
 
+    author_at = next((j for j in range(1, len(lines)) if lines[j].strip() == "---"
+                      or (lines[j].strip() and not lines[j].lstrip().startswith("#"))), None)
+    if author_at is not None and lines[author_at].strip() == "---":
+        author_at = None
     i = 1
     while i < len(lines):
         ln = lines[i]
         s = ln.strip()
 
-        # author line
-        if not author and s and not s.startswith("#") and s != "---" and "Settle AI" in s:
+        # the author line: the first plain line after the title, before the first rule
+        if i == author_at:
             author = s
             i += 1
             continue

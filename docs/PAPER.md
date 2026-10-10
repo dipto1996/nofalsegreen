@@ -1,6 +1,6 @@
 # No False Green: Evidence Sufficiency and Unsupported Decisions in Language Models
 
-Diptopal Roy, Settle AI Inc. (diptopal@joinsettle.info)
+Diptopal Roy, Independent researcher (diptopal@joinsettle.info)
 
 ---
 
@@ -1234,9 +1234,10 @@ synthetic renderings of generated records, and each study tests one rule-based p
 ## Ethics, competing interests and AI use
 
 Every employer record is synthetic except Study 5's LCAs, which are public DOL disclosures used without employer names. A high score does not show a system fit for use, and the labels
-are not a training set. The author works for Settle AI Inc., which builds commercial
-compliance software; the anchor labels and the rulebook derive from its engine, which is not
-evaluated, and the audits that weaken those labels are reported in full. No model provider was
+are not a training set. This is the author's personal research. The author is a co-founder of
+Settle AI Inc., which builds commercial compliance software; the anchor labels and the rulebook
+derive from its engine, which is not evaluated, the audits that weaken those labels are reported
+in full, and the model runs used Settle AI's cloud credits. No model provider was
 consulted. Anthropic's Claude wrote the code, ran the experiments and drafted the text;
 separate agents performed the first label audit and wrote the reference checker, and Gemini
 3.1 Pro performed the second audit, all reported as AI checks. Every number is recomputed

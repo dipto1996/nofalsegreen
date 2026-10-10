@@ -7,18 +7,39 @@ green and red states. The dangerous error is not a wrong red. It is a **false gr
 an obligation reported as satisfied when the evidence needed to assess it was never
 present. This benchmark measures that error directly.
 
+The paper is `docs/PAPER.md` (PDF: `docs/PAPER.pdf`): *No False Green: Evidence Sufficiency and
+Unsupported Decisions in Language Models*. Cite it with `CITATION.cff`.
+
+## Reproducing the paper
+
+Every number in the paper is recomputed from the retained model replies; no step makes an API
+call.
+
+```bash
+python3 tests/test_benchmark.py; python3 tests/test_llm_harness.py; python3 tests/test_freetier.py
+python3 scripts/verify_paper.py      # re-runs all 32 scorers, requires byte-identical results,
+                                     # then checks every number in docs/PAPER.md (312 checks)
+python3 scripts/fill_results.py      # regenerates the tables in docs/PAPER.md
+python3 scripts/make_figures.py      # regenerates the figures (needs matplotlib)
+python3 scripts/build_latex.py       # typesets docs/PAPER.pdf (needs Tectonic)
+```
+
+Appendix A of the paper lists every scorer, audit and replay command. Study declarations are in
+`docs/STUDY*_DECLARATION.md`; replies are in `docs/**/cache/` and `docs/raw/`. Re-running the
+models uses `scripts/run_free.py` and the `scripts/run_study*.py` launchers.
+
+## Using the benchmark
+
 ```bash
 python3 -m nofalsegreen.cli describe
 python3 -m nofalsegreen.cli score --firm northwind --baseline always_pass
 python3 -m nofalsegreen.cli generate --seed 7 --out data/firms/synthetic-000007
-python3 tests/test_benchmark.py          # 52 assertions
-python3 tests/test_llm_harness.py        # 54 assertions
 python3 scripts/sweep.py --firms 30      # trivial baselines
 python3 scripts/cost_probe.py --firms 30 # token cost, no API calls
 ```
 
-No dependencies beyond the Python 3.10+ standard library. Provider SDKs are imported
-only when a real model is actually called.
+No dependencies beyond the Python 3.9+ standard library (matplotlib for figures). Provider
+SDKs are imported only when a real model is actually called.
 
 ## Evaluating a language model
 
@@ -158,7 +179,10 @@ seven declared tests were confirmed. **Studies 9–12** (`docs/STUDY9_DECLARATIO
 restate the task as explicit decision contracts in three workflows (workforce, purchasing,
 engineering acceptance) with certified labels (`labelcheck/contract_checker.py`,
 `scripts/verify_study9_labels.py`, `scripts/certify_existing.py`), test four explanations of
-proxy acceptance, and evaluate an extraction-plus-solver remedy.
+proxy acceptance, and evaluate an extraction-plus-solver remedy. **Studies 13–15** test that remedy
+on held-out rules and independently designed record layouts against strong parsers
+(`docs/STUDY13_DECLARATION.md`, `docs/STUDY14_DECLARATION.md`) and on 600 real public records in
+their publishers' formats (`docs/STUDY15_DECLARATION.md`).
 
 ## Where the labels come from
 
@@ -204,14 +228,19 @@ expert; `docs/expert_labelling/` is a blind kit for anyone who wants to.
 
 ## Data statement
 
-Every record is synthetic. No real person's data is present, and nothing is sampled
-from a real employer. Names are drawn combinatorially from generic pools to make CSV
-joins legible; they are not intended to depict anyone. The anchor firm's 11 exports
-were hand-authored against a written test plan.
+Most records are synthetic: names are drawn combinatorially from generic pools to make CSV
+joins legible and are not intended to depict anyone, and the anchor firm's 11 exports were
+hand-authored against a written test plan. Two studies use real public records: Study 5 uses
+120 rows of the US Department of Labor's public LCA disclosure file (employer, FEIN and contact
+or attorney names never extracted; `data/real_lca/`), and Study 15 uses records from the openFDA
+food enforcement API and the USAspending award API (`data/study15/`, with checksums), all public
+government data.
 
 ## Limitations
 
-- **One jurisdiction, one domain.** United States employment-based immigration only.
+- **One jurisdiction, stipulated contracts.** Studies 3–8 cover United States employment-based
+  immigration only; Studies 9–15 add purchasing and engineering workflows whose decision
+  contracts are stipulated by the author.
 - **The anchor firm is small** (12 workers) and its expectations were authored by the
   same people who built the reference engine it was first used to test. The generated
   firms exist to address the scale problem, not the independence problem.
@@ -223,4 +252,11 @@ were hand-authored against a written test plan.
 
 ## Licence
 
-Code: Apache-2.0. Data and rulebook: CC-BY-4.0.
+Code: Apache-2.0 (`LICENSE`). Data and rulebook: CC-BY-4.0 (`LICENSE-NOTICE.md`).
+
+## Author and disclosure
+
+Diptopal Roy, independent researcher. This is the author's personal research. The author is a
+co-founder of Settle AI Inc., which builds commercial compliance software; the rulebook and the
+anchor firm's labels derive from its engine, which is not evaluated, and the model runs used
+Settle AI's cloud credits.
