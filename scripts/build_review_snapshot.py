@@ -19,6 +19,8 @@ DROP = ["CITATION.cff", "docs/paper2", "scripts/build_anonymous.py", "scripts/bu
 SCRUB = [("roydiptopal1996@gmail.com", "anonymous@review.invalid"), ("dipto1996", "anonymous"),
          ("/Users/roydi", "/home/anonymous"), ("roydi", "anonymous"), ("Diptopal Roy", "Anonymous"),
          ("Diptopal", "Anonymous"), ("diptopal@joinsettle.info", "anonymous@review.invalid"),
+         ("tathagata@joinsettle.info", "anonymous@review.invalid"), ("Tathagata Baya", "Anonymous"),
+         ("Tathagata", "Anonymous"),
          ("joinsettle", "anonymous"), ("Settle AI Inc.", "the author's company"),
          ("Settle AI's", "the author's company's"), ("Settle AI", "the author's company")]
 # Study 15's corrected code-generation records hold the exact repair prompts sent to the models,

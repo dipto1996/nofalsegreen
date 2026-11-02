@@ -19,24 +19,25 @@ from build_latex import convert  # noqa: E402
 
 OUT = ROOT / "paper_anon"
 SUBS = [
-    (r"https://github\.com/dipto1996/nofalsegreen \(release\n`v1\.0-paper`\)",
-     "the anonymous supplementary archive\n(snapshot of release `v1.0-paper`)"),
-    (r"Diptopal Roy, Independent researcher \(roydiptopal1996@gmail\.com\)",
+    (r"https://github\.com/dipto1996/nofalsegreen \(release\n`v1\.1-paper`\)",
+     "the anonymous supplementary archive\n(snapshot of release `v1.1-paper`)"),
+    (r"Diptopal Roy \(roydiptopal1996@gmail\.com, diptopal@joinsettle\.info\) and Tathagata Baya \(tathagata@joinsettle\.info\), Settle AI Inc\.",
      "Anonymous authors, Paper under double-blind review (anonymous@review.invalid)"),
-    (r"This is the author's personal research\. The author is a co-founder of\nSettle AI Inc\., which builds",
-     "The author is a co-founder of a\ncompany that builds"),
+    (r"The authors are co-founders of Settle AI Inc\., which builds",
+     "The authors are co-founders of a company that builds"),
+    (r"rulebook comes from \(Settle AI Inc\.\)", "rulebook comes from (the authors' company)"),
     (r"Settle AI's cloud credits", "that company's cloud credits"),
-    (r"\(commits?\s+(`[0-9a-f]{7}`(,\s+|,\s+and\s+|\s+and\s+)?)+\)", "(commit hash withheld for review)"),
-    (r"commits?\s+(`[0-9a-f]{7}`(,\s+|,\s+and\s+|\s+and\s+)?)+", "a commit (hash withheld for review)"),
+    (r"\(commits?\s+(`[0-9a-f]{7,8}`(,\s+|,\s+and\s+|\s+and\s+)?)+\)", "(commit hash withheld for review)"),
+    (r"commits?\s+(`[0-9a-f]{7,8}`(,\s+|,\s+and\s+|\s+and\s+)?)+", "a commit (hash withheld for review)"),
 ]
-FORBIDDEN = ["Settle", "Diptopal", "Roy,", "joinsettle", "roydiptopal", "dipto1996", "github.com"]
+FORBIDDEN = ["Settle", "Diptopal", "Tathagata", "Baya", "Roy,", "joinsettle", "roydiptopal", "dipto1996", "github.com"]
 
 if __name__ == "__main__":
     md = (ROOT / "docs" / "PAPER.md").read_text()
     for pat, rep in SUBS:
         md, n = re.subn(pat, rep, md)
         print(f"{n:3d}  {pat[:60]}")
-    left = [w for w in FORBIDDEN if w in md] + re.findall(r"`[0-9a-f]{7}`", md)
+    left = [w for w in FORBIDDEN if w in md] + re.findall(r"`[0-9a-f]{7,8}`", md)
     if left:
         raise SystemExit(f"identifying strings remain: {sorted(set(left))}")
     tex = convert(md).replace("Path=fonts/,", "")

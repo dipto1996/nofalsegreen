@@ -256,7 +256,6 @@ Code: Apache-2.0 (`LICENSE`). Data and rulebook: CC-BY-4.0 (`LICENSE-NOTICE.md`)
 
 ## Author and disclosure
 
-Diptopal Roy, independent researcher. This is the author's personal research. The author is a
-co-founder of Settle AI Inc., which builds commercial compliance software; the rulebook and the
-anchor firm's labels derive from its engine, which is not evaluated, and the model runs used
-Settle AI's cloud credits.
+Diptopal Roy and Tathagata Baya, Settle AI Inc. The authors are co-founders of Settle AI Inc.,
+which builds commercial compliance software; the rulebook and the anchor firm's labels derive from
+its engine, which is not evaluated, and the model runs used Settle AI's cloud credits.

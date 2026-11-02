@@ -1,6 +1,6 @@
 # No False Green: Evidence Sufficiency and Unsupported Decisions in Language Models
 
-Diptopal Roy, Independent researcher (roydiptopal1996@gmail.com)
+Diptopal Roy (roydiptopal1996@gmail.com, diptopal@joinsettle.info) and Tathagata Baya (tathagata@joinsettle.info), Settle AI Inc.
 
 ---
 
@@ -71,6 +71,16 @@ benchmarks score overclaiming under insufficient evidence for agents (Solozobov,
 scores regulatory verdicts over a third party's operational records when the required record
 is missing, where declining to decide is the correct answer for about half the items.
 
+**Rule engines make it too.** The commercial engine our rulebook derives from (§4; see
+Competing interests) had the same substitution written into deterministic code. Reviews in
+June and July 2026 found that two I-9 evaluators skipped employees whose records lacked the deciding
+dates, dropping them from monitoring and leaving the dashboard green; that a wage rule let a
+salary of record decide whether wages were paid; and that the required-wage rule passed
+without the employer's actual-wage benchmark. Each now returns `needs_evidence` (Appendix H).
+The engine was written with AI coding assistance and the defects were found in AI-assisted
+review, so this shows that the shortcut is easy to build into a system, not how human
+engineers behave.
+
 <!-- TEXFIGURE: fig_overview | The task and the error. Each panel shows the exports a system is given for one obligation and one worker (values illustrative). With the I-9 record present the record decides (a); with it missing the correct verdict is needs_evidence (b); with it missing but an onboarding date beside it, a model may answer pass (c). A wrong fail sends the item to review; a wrong pass removes it from review. -->
 
 We built an instrument for this error (Figure 1) and report four findings. **Separating
@@ -111,8 +121,9 @@ records and on other developers' models (§6.1–6.9); explicit decision contrac
 workflows with four declared mechanism tests (§6.10–6.11); declared transfer tests on held-out
 rules and independently designed layouts against strong parsers, the second powered for
 inference over independent record sets (§6.12–6.13); a declared test on real public records in
-their publishers' formats against a strengthened code-generation arm (§6.14); and a release in
-which every number in the paper is recomputed from retained replies by a script.
+their publishers' formats against a strengthened code-generation arm (§6.14); evidence that a
+deterministic compliance engine acquired the same shortcut (Appendix H); and a release in which
+every number in the paper is recomputed from retained replies by a script.
 
 ---
 
@@ -216,7 +227,7 @@ unassessable pair is wrong but not a false green; in practice it acts as a secon
 
 **Rulebook.** 194 obligations across ten US employment-immigration regimes, each with its
 check, threshold, citation and required information, built from the registry of a commercial
-compliance engine developed by the author's company, whose citations its maintainers had
+compliance engine developed by the authors' company, whose citations its maintainers had
 checked against primary sources. The rulebook defines the task's scope; the experiments test
 four of its rules.
 
@@ -257,7 +268,9 @@ amounts were compared as binary floating point and that candidate values stepped
 misjudges decimals closer than one apart (0.12 against 1.2 × 0.10). Amounts are now exact
 rationals; on the random packets with decimals, the earlier code disagreed with the checkers on
 121 Study 9 labels and 3 Study 13 labels, and the corrected code on none. No published label
-involves a decimal, and none changed. Boundary choices are stated with their sensitivity (Appendix G).
+involves a decimal, and none changed. Boundary choices are stated with their sensitivity (Appendix G). An expert workbook
+and two AI pilot runs of it are disclosed in Appendix I; they are not part of the validation
+argument.
 
 **Anchor firm.** A hand-authored employer of twelve workers with eleven exports and 221 pairs,
 whose labels were the engine's acceptance gate, where `fail` means "requires action". It is
@@ -1186,11 +1199,22 @@ standard (§3): it is a reasonable triage guess, and a claim made without the re
 standard a monitoring product implies.
 
 
-**In practice,** the experiments suggest three checks for anyone deploying or reviewing such a
-system: whether its `pass` cites a source that can establish the fact, whether it names the
-record that is missing instead of filling the gap, and whether its verdicts change when
-reassuring but irrelevant fields are added.
+**For practitioners evaluating an AI system's compliance verdicts.** The experiments suggest
+five questions for counsel and compliance teams that deploy or review such systems:
 
+1. **What does "compliant" mean?** Does the system's `pass` mean the required record was
+   found and satisfies the rule, or that compliance is probable? The two differ most when the
+   record is missing.
+2. **Can the cited source establish the fact?** An onboarding date, a status flag or a salary
+   of record can sit beside the required record without being it. A verdict that cites such a
+   column has not checked the obligation.
+3. **Does the system name what is missing?** A useful "cannot tell" identifies the record to
+   request; a system with no such verdict will fill the gap with `pass` or `fail`.
+4. **Is the verdict stable when reassuring but irrelevant fields are added?** If adding a
+   "Complete" flag turns gaps into passes, the system is reading the flag, not the record.
+5. **Does a safeguard keep the useful decisions?** Refusing everything has no false greens. A
+   safeguard is worth adopting only if it removes unsupported decisions while keeping correct
+   ones and limiting the extra review it creates.
 ---
 
 ## 9. Limitations
@@ -1234,14 +1258,14 @@ synthetic renderings of generated records, and each study tests one rule-based p
 ## Ethics, competing interests and AI use
 
 Every employer record is synthetic except Study 5's LCAs, which are public DOL disclosures used without employer names. A high score does not show a system fit for use, and the labels
-are not a training set. This is the author's personal research. The author is a co-founder of
-Settle AI Inc., which builds commercial compliance software; the anchor labels and the rulebook
-derive from its engine, which is not evaluated, the audits that weaken those labels are reported
-in full, and the model runs used Settle AI's cloud credits. No model provider was
+are not a training set. The authors are co-founders of Settle AI Inc., which builds commercial
+compliance software; the anchor labels and the rulebook derive from its engine, which is not
+evaluated, the audits that weaken those labels are reported in full, and the model runs used
+Settle AI's cloud credits. No model provider was
 consulted. Anthropic's Claude wrote the code, ran the experiments and drafted the text;
 separate agents performed the first label audit and wrote the reference checker, and Gemini
 3.1 Pro performed the second audit, all reported as AI checks. Every number is recomputed
-from released artifacts by `scripts/verify_paper.py`; the author is responsible for the
+from released artifacts by `scripts/verify_paper.py`; the authors are responsible for the
 content. Code is released under Apache-2.0 and data under CC-BY-4.0.
 
 ---
@@ -1373,6 +1397,7 @@ python3 scripts/score_study5.py                 # Study 5
 python3 scripts/score_study4.py --study6        # Study 6, Study 4 cells
 python3 scripts/score_study5.py --study6        # Study 6, Study 5 cells
 python3 scripts/score_study7.py                 # Study 7
+python3 scripts/score_ai_pilot.py               # Appendix I
 python3 scripts/certify_existing.py             # certificates for Studies 3-8 (independent checker)
 python3 scripts/verify_study9_labels.py         # Study 9/11 labels and certificates (independent checker)
 python3 scripts/score_study9.py                 # Study 9
@@ -1402,9 +1427,9 @@ python3 scripts/verify_paper.py                 # recomputes every number in the
 ```
 
 Code, data and every retained reply are at https://github.com/dipto1996/nofalsegreen (release
-`v1.0-paper`). No step makes an API call: every score is rebuilt from the retained replies in
+`v1.1-paper`). No step makes an API call: every score is rebuilt from the retained replies in
 `docs/**/cache/` and `docs/raw/`. `verify_paper.py` re-runs every scorer above and requires all
-32 derived results files to come out byte-identical; the two remaining inputs,
+33 derived results files to come out byte-identical; the two remaining inputs,
 `docs/llm_results.json` and `docs/label_audit_second.json`, are records of model calls rather
 than derived files, and so is `docs/study14/codegen_exec.json`, the sandboxed executions of the
 model-written programs, which the `--replay` command re-executes and compares, as do
@@ -2276,3 +2301,97 @@ Across the checked firms, 70 Section 2 dates fall exactly on the deadline day; c
 without excluding federal holidays would change 6 verdicts, and counting calendar days 55. The
 1,176 distinct labels are 1,680 counting the proxy twins of Study 3, whose labels are identical
 by construction (`docs/labelcheck_results.json`).
+
+## Appendix H: The same error in a rule engine
+
+The defects below were found and fixed in the private repository of the engine that the
+rulebook comes from (Settle AI Inc.), between 2026-06-28 and 2026-07-14. Commit identifiers
+are given for the record; the repository is not public. In each case the engine returned a
+verdict that the available record could not support.
+
+| Defect | What the code did | Fix |
+|---|---|---|
+| Silent skip, I-9 Section 2 and reverification | An evaluator skipped an employee whose record lacked the deciding dates, so the employee left monitoring and the dashboard stayed green | Emit a visible `needs_evidence` finding (commits `16de553c`, `407eb438`; an internal review note calls it "a verified production defect") |
+| Salary of record as wages paid | The material-change wage check returned pass or fail from the HR salary of record | Retired: a salary of record "proves nothing about wages paid"; it never passes alone (commits `1b181e00`, `4b2605ec`) |
+| Required wage without the actual-wage limb | The greater-of rule passed on the prevailing wage alone when the employer's actual-wage benchmark was unknown | The would-be pass becomes `needs_evidence` (commit `55c5e6fb`) |
+| Fabricated provenance | Wage cohorts were stamped with a prevailing-wage source and an "ok" document status that no input supplied | Stored as unknown, so the rules ask for the record (commit `c47a945b`) |
+
+Because the repository is private, the logic of each defect is restated below as pseudocode
+(paraphrased, not copied), so that the claim can be checked against the description.
+
+```text
+# silent skip (I-9 Section 2; reverification)
+before: for worker in workers:
+            record = i9_records.get(worker)
+            if record is None or record.section2_date is None: continue   # worker leaves monitoring
+            emit(check(record))
+after:      if record is None or record.section2_date is None:
+                emit(needs_evidence(worker, missing="Section 2 date")); continue
+
+# salary of record as wages paid
+before: verdict = PASS if roster.salary >= lca.required_wage else FAIL
+after:  verdict = NEEDS_EVIDENCE unless payroll.periods cover the span; salary alone never passes
+
+# greater-of rule without the actual-wage limb
+before: required = lca.prevailing_wage; verdict = PASS if paid >= required else FAIL
+after:  if actual_wage_benchmark is None and paid >= lca.prevailing_wage: verdict = NEEDS_EVIDENCE
+        else: required = max(lca.prevailing_wage, actual_wage_benchmark); ...
+
+# fabricated provenance
+before: cohort.pw_source = "OES"; cohort.pw_doc_status = "ok"
+after:  cohort.pw_source = mapped_column or "unknown"   # "unknown" is read as an evidence request
+```
+
+The engine's rules were written with AI coding assistance, and the defects were found by
+AI-assisted review (Codex), so the table is not evidence about human engineers. It shows
+that a system built to fill a dashboard acquires these substitutions easily, and that each
+fix is the same: return `needs_evidence` when the record that decides the obligation is
+absent.
+
+## Appendix I: AI pilot runs of the expert protocol
+
+The expert protocol is a workbook of 50 items and 8 statements (`docs/expert_review_v3/`,
+built by `scripts/build_expert_kit_v3.py`). Its 50 items are:
+
+- 20 unassessable pairs on proxy-column firms;
+- 10 unassessable pairs on plain firms;
+- 20 decidable violations and controls, some on the legal boundary.
+
+Each item shows the employer's records inline, and the reviewer answers blind to the
+construction label. No human expert has completed it.
+
+**What was run.** Two AI systems completed it as a pilot, at the authors' request:
+
+- Claude (Anthropic) completed version 2. Its own answers flagged five defects in the
+  workbook, all fixed in version 3: identifiers repeated across firms, two items with
+  identical records, no stated rule on status extensions, no holiday calendar, and no wage
+  item that could fail.
+- Codex (OpenAI) completed version 3.
+
+Both are scored against their own version's labels (`scripts/score_ai_pilot.py`,
+`docs/ai_pilot_review/results.json`).
+
+**Results.** Each agreed with all 50 labels:
+
+- every proxy-column item was answered `needs_evidence`;
+- every planted violation was answered `fail`;
+- every control was answered `pass`.
+
+On the evidence statements, both strongly disagreed that an I-9 status flag, an onboarding
+date or a future authorisation end date shows I-9 timeliness, and both strongly disagreed
+that an LCA's wage shows the wages paid. Both strongly agreed that a missing record should be
+reported as needing evidence. Claude disagreed, and Codex strongly disagreed, that a salary of
+record shows the required wage was paid and that an HR status field can mark an item compliant
+for triage.
+
+**What this shows.** These runs are not expert validation:
+
+- **Not blind to the study.** Both systems worked with the authors on this project, and Codex
+  had reviewed earlier drafts of the paper, so neither was blind to the evidence standard.
+- **Correlated errors.** Systems of the same kind as the models under test may share their
+  errors.
+
+The runs show that the protocol can be completed as designed, and that a careful reader of
+the standard reproduces the labels. Whether practitioners accept that standard remains open
+(§9).
+

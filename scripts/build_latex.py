@@ -399,8 +399,15 @@ def convert(md: str) -> str:
 
     head = PREAMBLE + "\n" + r"\title{\Large\bfseries " + inline(title) + "}\n"
     au = re.sub(r"\s*See \*Competing interests\*.*", "", author).strip().rstrip(".")
-    mm = re.match(r"(.+?),\s*(.+?)\s*\((.+?)\)", au)
-    if mm:
+    mm = re.match(r"(.+?),\s*(.+?)\s*\((.+?)\)$", au)
+    mn = re.match(r"(.+?)\s*\((.+?)\)\s+and\s+(.+?)\s*\((.+?)\),\s*(.+)$", au)
+    if mn:
+        def _col(name, emails):
+            lines = r"\\ ".join(r"{\normalsize\texttt{" + esc(e.strip()) + "}}" for e in emails.split(","))
+            return r"\begin{tabular}[t]{c}" + inline(name) + r"\\ " + lines + r"\end{tabular}"
+        head += (r"\author{" + _col(mn.group(1), mn.group(2)) + r"\qquad " + _col(mn.group(3), mn.group(4))
+                 + r"\\[6pt] \normalsize " + inline(mn.group(5)) + "}\n")
+    elif mm:
         head += r"\author{" + inline(mm.group(1)) + r"\\ \normalsize " + inline(mm.group(2)) + r"\\ \normalsize\texttt{" + esc(mm.group(3)) + "}}\n"
     head += r"\date{}" + "\n" + r"\begin{document}" + "\n" + r"\maketitle" + "\n" + r"\thispagestyle{empty}" + "\n"
     return head + "\n".join(out) + "\n" + r"\end{document}" + "\n"

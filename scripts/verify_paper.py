@@ -33,7 +33,7 @@ ok = bad = 0
 REBUILD = [("score_study3.py",), ("study3_exploratory.py",), ("study3_robustness.py",),
            ("score_paraphrase.py",), ("score_study3c.py",), ("score_study4.py",), ("score_study4.py", "--study6"),
            ("score_study5.py",), ("score_study5.py", "--study6"), ("score_study7.py",), ("score_study8.py",),
-           ("sweep.py", "--firms", "30"), ("score_views.py",), ("score_studies.py",),
+           ("score_ai_pilot.py",), ("sweep.py", "--firms", "30"), ("score_views.py",), ("score_studies.py",),
            ("analysis.py",), ("labelcheck_compare.py",), ("certify_existing.py",), ("verify_study9_labels.py",),
            ("score_study9.py",), ("score_study10.py",), ("score_study11.py",), ("score_study12.py",),
            ("differential_contracts.py",), ("verify_study13_labels.py",), ("score_study13.py",), ("score_study13.py", "--r2"),
@@ -46,7 +46,7 @@ if "--no-rebuild" not in sys.argv:
     outs = [ROOT / "docs" / f for f in ("study3/results.json", "study3/exploratory.json", "study3/robustness.json",
                                         "study3b/results.json", "study3c/results.json", "study4/results.json",
                                         "study6/study4_results.json", "study5/results.json", "study6/study5_results.json",
-                                        "study7/results.json", "study8/results.json",
+                                        "study7/results.json", "study8/results.json", "ai_pilot_review/results.json",
                                         "results.json", "views_results.json", "studies_results.json",
                                         "analysis_results.json", "labelcheck_results.json",
                                         "existing_certificates.json", "study9/label_verification.json",
@@ -665,6 +665,16 @@ claim(all(_g5(m, "complete", "abstain_offered")["recall_all_pairs"] == 1 and _g5
       "Study 5: complete arm")
 claim("(1,032,736 rows)" in _flat and "(3,443)" in _flat and "(1,238)" in _flat, "Study 5: selection counts in Appendix A")
 
+# AI pilot of the expert protocol (Appendix I)
+_AP = json.loads((ROOT / "docs" / "ai_pilot_review" / "results.json").read_text())["runs"]
+claim(all(v["agreement_overall"] == 1 and v["items"] == 50 for v in _AP.values())
+      and "Each agreed with all 50 labels" in _flat, "AI pilot: both agree with all 50 labels")
+_pb = {n: list(v["part_b"].values()) for n, v in _AP.items()}
+claim(all(x[:4] == ["Strongly disagree"] * 4 and x[5] == "Strongly agree" for x in _pb.values())
+      and _pb["Claude (kit v2)"][4] == "Disagree" and _pb["Claude (kit v2)"][6] == "Disagree"
+      and _pb["Codex (kit v3)"][4] == "Strongly disagree" and _pb["Codex (kit v3)"][6] == "Strongly disagree",
+      "AI pilot: Part B answers as described")
+
 # Study 6 (docs/STUDY6_DECLARATION.md)
 _S64 = json.loads((ROOT / "docs" / "study6" / "study4_results.json").read_text())
 _S65 = json.loads((ROOT / "docs" / "study6" / "study5_results.json").read_text())
@@ -754,7 +764,7 @@ _kinds = _C(l.note for f in _s5.build("complete_actual_above") for l in f.labels
 claim(_kinds["greater_of_only"] == 38 and _kinds["below_offered"] == 24
       and "these 38 underpayments and on the 24 below the offered wage" in _flat, "Study 8: G2 denominators")
 
-claim(len(REBUILD) == 32 and "all 32 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
+claim(len(REBUILD) == 33 and "all 33 derived results files" in _flat, "Appendix A: rebuild coverage stated correctly")
 _ec = json.loads((ROOT / "docs" / "existing_certificates.json").read_text())
 _lv = json.loads((ROOT / "docs" / "study9" / "label_verification.json").read_text())
 claim(_ec["needs_evidence_pairs"] == _ec["certified"] == 3330 and not _ec["failures"]
